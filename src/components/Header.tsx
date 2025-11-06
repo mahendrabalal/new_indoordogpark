@@ -14,7 +14,7 @@ export default function Header() {
         <div className="header-left">
           <Link href="/" className="logo">
             <i className="bi bi-geo-alt-fill"></i>
-            <span>DogPlaces</span>
+            <span>IndoorDogPark</span>
           </Link>
         </div>
 
@@ -45,12 +45,6 @@ export default function Header() {
               <Link href="/login" className="header-link">Log in</Link>
             </>
           )}
-
-          <div className="header-divider"></div>
-
-          <button className="language-selector">
-            EN <i className="bi bi-chevron-down"></i>
-          </button>
 
           <button
             className="menu-toggle"

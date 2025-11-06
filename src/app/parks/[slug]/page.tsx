@@ -21,7 +21,12 @@ export default function ParkDetailPage() {
   useEffect(() => {
     const loadParkData = async () => {
       try {
-        const response = await fetch('/api/parks');
+        // Fetch the complete static dataset instead of the paginated API
+        const response = await fetch('/data/california.json');
+        if (!response.ok) {
+          throw new Error('Failed to load parks data');
+        }
+
         const parks: DogPark[] = await response.json();
 
         // Find the park by slug or ID

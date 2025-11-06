@@ -15,9 +15,6 @@ const nextConfig = {
     // Cache optimized images
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
   },
-  experimental: {
-    optimizePackageImports: ['leaflet'],
-  },
 }
 
 module.exports = nextConfig

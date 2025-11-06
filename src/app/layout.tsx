@@ -6,8 +6,8 @@ import { AuthProvider } from '@/contexts/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'California Dog Parks Directory - Find the Perfect Park for Your Pup',
-  description: 'Discover the best dog parks across California for your furry friends',
+  title: 'IndoorDogPark - Find the Perfect Dog Park in California',
+  description: 'Discover the best indoor and outdoor dog parks across California. Your trusted directory for finding safe, fun dog parks for your furry friends.',
 }
 
 export default function RootLayout({
