@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 import { createCustomer, createSubscription } from '@/lib/stripe';
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, name, priceId, parkId, parkName } = await req.json();
+    const { email, name, priceId, parkId, parkName } = (await req.json()) as {
+      email?: string;
+      name?: string;
+      priceId?: string;
+      parkId?: string;
+      parkName?: string;
+    };
 
     if (!email || !priceId) {
       return NextResponse.json(
@@ -28,15 +35,22 @@ export async function POST(req: NextRequest) {
     );
 
     // Extract the client secret from the latest invoice's payment intent
-    const latestInvoice = subscription.latest_invoice as any;
-    const paymentIntent = latestInvoice?.payment_intent;
+    let clientSecret: string | undefined;
+    const latestInvoice = subscription.latest_invoice;
+    if (latestInvoice && typeof latestInvoice !== 'string') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const paymentIntent = (latestInvoice as any).payment_intent;
+      if (paymentIntent && typeof paymentIntent !== 'string') {
+        clientSecret = (paymentIntent as Stripe.PaymentIntent).client_secret ?? undefined;
+      }
+    }
 
     return NextResponse.json({
       subscriptionId: subscription.id,
-      clientSecret: paymentIntent?.client_secret,
+      clientSecret,
       customerId: customer.id,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error creating subscription:', error);
     return NextResponse.json(
       { error: 'Failed to create subscription' },

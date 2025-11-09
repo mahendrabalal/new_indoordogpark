@@ -1,15 +1,16 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
-import { User } from '@supabase/supabase-js';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import type { AuthError, User } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<{ error: any }>;
-  signUp: (email: string, password: string) => Promise<{ error: any }>;
+  signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  signUp: (email: string, password: string) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<void>;
+  getSessionTokens: () => Promise<{ accessToken: string | null; refreshToken: string | null }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -59,12 +60,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await supabase.auth.signOut();
   };
 
+  const getSessionTokens = useCallback(async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    return {
+      accessToken: session?.access_token ?? null,
+      refreshToken: session?.refresh_token ?? null,
+    };
+  }, []);
+
   const value = {
     user,
     loading,
     signIn,
     signUp,
     signOut,
+    getSessionTokens,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

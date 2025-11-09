@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function DashboardPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user, loading } = useAuth();
+  const { user, loading, getSessionTokens } = useAuth();
   const [submissions, setSubmissions] = useState<ParkSubmission[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -17,9 +17,22 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!loading && !user) {
+      // Check if we have success parameters and preserve them
+      const hasSuccessParams = searchParams.get('success') === 'true' || searchParams.get('submitted') === 'true';
+
+      if (hasSuccessParams) {
+        // Store success state in sessionStorage to preserve after login
+        sessionStorage.setItem('paymentSuccess', 'true');
+        sessionStorage.setItem('successMessage', searchParams.get('success') === 'true'
+          ? 'Payment successful! Your featured listing is now active.'
+          : 'Your listing has been submitted successfully! It will be reviewed by our team.'
+        );
+        sessionStorage.setItem('sessionId', searchParams.get('session_id') || '');
+      }
+
       router.push('/login?redirect=/dashboard');
     }
-  }, [user, loading, router]);
+  }, [user, loading, router, searchParams]);
 
   useEffect(() => {
     // Check for success messages from URL params
@@ -31,16 +44,53 @@ export default function DashboardPage() {
     }
   }, [searchParams]);
 
+  // Check for success state from sessionStorage (preserved during login redirect)
   useEffect(() => {
-    if (user) {
-      fetchSubmissions();
+    if (user && sessionStorage.getItem('paymentSuccess') === 'true') {
+      const storedMessage = sessionStorage.getItem('successMessage');
+      const sessionId = sessionStorage.getItem('sessionId');
+
+      if (storedMessage) {
+        setSuccessMessage(storedMessage);
+      }
+
+      // Clean up sessionStorage after retrieving the data
+      sessionStorage.removeItem('paymentSuccess');
+      sessionStorage.removeItem('successMessage');
+      sessionStorage.removeItem('sessionId');
+
+      // Optionally, you could verify the session with Stripe here using the sessionId
+      if (sessionId) {
+        console.log('Payment session ID:', sessionId);
+      }
     }
   }, [user]);
 
-  const fetchSubmissions = async () => {
+  const buildAuthHeaders = useCallback(
+    async (options?: { json?: boolean }) => {
+      const { accessToken, refreshToken } = await getSessionTokens();
+      const headers: Record<string, string> = {};
+
+      if (options?.json) {
+        headers['Content-Type'] = 'application/json';
+      }
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      }
+      if (refreshToken) {
+        headers['x-refresh-token'] = refreshToken;
+      }
+
+      return headers;
+    },
+    [getSessionTokens]
+  );
+
+  const fetchSubmissions = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('/api/parks/submit');
+      const headers = await buildAuthHeaders();
+      const response = await fetch('/api/parks/submit', { headers });
       const data = await response.json();
 
       if (!response.ok) {
@@ -48,18 +98,26 @@ export default function DashboardPage() {
       }
 
       setSubmissions(data.submissions || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to fetch submissions';
+      setError(message);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [buildAuthHeaders]);
+
+  useEffect(() => {
+    if (user) {
+      fetchSubmissions();
+    }
+  }, [user, fetchSubmissions]);
 
   const handleUpgrade = async (submissionId: string) => {
     try {
+      const headers = await buildAuthHeaders({ json: true });
       const response = await fetch('/api/stripe/create-checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ submissionId }),
       });
 
@@ -71,16 +129,18 @@ export default function DashboardPage() {
 
       // Redirect to Stripe Checkout
       window.location.href = data.url;
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to create checkout session';
+      alert(message);
     }
   };
 
   const handleManageSubscription = async (submissionId: string) => {
     try {
+      const headers = await buildAuthHeaders({ json: true });
       const response = await fetch('/api/stripe/customer-portal', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ submissionId }),
       });
 
@@ -92,8 +152,9 @@ export default function DashboardPage() {
 
       // Redirect to Stripe Customer Portal
       window.location.href = data.url;
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to open customer portal';
+      alert(message);
     }
   };
 

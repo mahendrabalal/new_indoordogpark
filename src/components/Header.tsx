@@ -23,6 +23,7 @@ export default function Header() {
         </div>
 
         <div className="header-right">
+          <Link href="/blog" className="header-link">Blog</Link>
           <Link href="/contact" className="header-link">Contact us</Link>
           <Link href="/list-property" className="header-link header-link-primary">
             List your park
@@ -59,6 +60,7 @@ export default function Header() {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
+          <Link href="/blog" className="mobile-menu-item">Blog</Link>
           <Link href="/contact" className="mobile-menu-item">Contact us</Link>
           <Link href="/list-property" className="mobile-menu-item">List your park</Link>
           

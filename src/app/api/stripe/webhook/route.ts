@@ -3,6 +3,7 @@ import { headers } from 'next/headers';
 import { stripe, verifyWebhookSignature } from '@/lib/stripe';
 import { supabase } from '@/lib/supabase';
 import Stripe from 'stripe';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 // Disable body parsing, need raw body for webhook verification
 export const runtime = 'nodejs';
@@ -31,8 +32,8 @@ export async function POST(request: NextRequest) {
 
   try {
     event = verifyWebhookSignature(body, signature, webhookSecret);
-  } catch (error: any) {
-    console.error('Webhook signature verification failed:', error.message);
+  } catch (error) {
+    console.error('Webhook signature verification failed:', error);
     return NextResponse.json(
       { error: 'Invalid signature' },
       { status: 400 }
@@ -64,7 +65,7 @@ export async function POST(request: NextRequest) {
 
       case 'invoice.payment_succeeded': {
         const invoice = event.data.object as Stripe.Invoice;
-        await handleInvoicePaymentSucceeded(invoice, supabase);
+        await handleInvoicePaymentSucceeded(invoice);
         break;
       }
 
@@ -91,7 +92,7 @@ export async function POST(request: NextRequest) {
 
 async function handleCheckoutSessionCompleted(
   session: Stripe.Checkout.Session,
-  supabase: any
+  supabaseClient: SupabaseClient
 ) {
   const { userId, submissionId, parkName } = session.metadata || {};
 
@@ -102,25 +103,26 @@ async function handleCheckoutSessionCompleted(
 
   // Retrieve the subscription details
   const subscriptionId = session.subscription as string;
-  const subscriptionData = await stripe.subscriptions.retrieve(subscriptionId);
-  const subscription = subscriptionData as any;
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
 
-  // Extract dates safely
-  const periodEnd = subscription.current_period_end
-    ? new Date(subscription.current_period_end * 1000).toISOString()
+  // Extract dates safely - subscription is a Response object, access data via subscription.data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const subscriptionData = (subscription as any).data || subscription;
+  const periodEnd = subscriptionData.current_period_end
+    ? new Date(subscriptionData.current_period_end * 1000).toISOString()
     : new Date().toISOString();
-  const periodStart = subscription.current_period_start
-    ? new Date(subscription.current_period_start * 1000).toISOString()
+  const periodStart = subscriptionData.current_period_start
+    ? new Date(subscriptionData.current_period_start * 1000).toISOString()
     : new Date().toISOString();
 
   // Update park submission with featured listing status
-  const { error: updateError } = await supabase
+  const { error: updateError } = await supabaseClient
     .from('park_submissions')
     .update({
       listing_type: 'featured',
       stripe_subscription_id: subscriptionId,
       stripe_customer_id: session.customer as string,
-      subscription_status: subscription.status,
+      subscription_status: subscriptionData.status,
       subscription_current_period_end: periodEnd,
       updated_at: new Date().toISOString(),
     })
@@ -131,15 +133,15 @@ async function handleCheckoutSessionCompleted(
   }
 
   // Create subscription record
-  const { error: subscriptionError } = await supabase
+  const { error: subscriptionError } = await supabaseClient
     .from('subscriptions')
     .insert([{
       user_id: userId,
       park_submission_id: submissionId,
       stripe_subscription_id: subscriptionId,
       stripe_customer_id: session.customer as string,
-      stripe_price_id: subscription.items.data[0].price.id,
-      status: subscription.status,
+      stripe_price_id: subscription.items.data[0]?.price?.id ?? '',
+      status: subscriptionData.status,
       current_period_start: periodStart,
       current_period_end: periodEnd,
       cancel_at_period_end: subscription.cancel_at_period_end,
@@ -154,27 +156,28 @@ async function handleCheckoutSessionCompleted(
 
 async function handleSubscriptionUpdated(
   subscription: Stripe.Subscription,
-  supabase: any
+  supabaseClient: SupabaseClient
 ) {
   const subscriptionId = subscription.id;
-  const sub = subscription as any;
 
-  // Extract dates safely
-  const periodEnd = sub.current_period_end
-    ? new Date(sub.current_period_end * 1000).toISOString()
+  // Extract dates safely - handle both Response and direct Subscription types
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const subscriptionData = (subscription as any).data || subscription;
+  const periodEnd = subscriptionData.current_period_end
+    ? new Date(subscriptionData.current_period_end * 1000).toISOString()
     : new Date().toISOString();
-  const periodStart = sub.current_period_start
-    ? new Date(sub.current_period_start * 1000).toISOString()
+  const periodStart = subscriptionData.current_period_start
+    ? new Date(subscriptionData.current_period_start * 1000).toISOString()
     : new Date().toISOString();
-  const canceledAt = sub.canceled_at
-    ? new Date(sub.canceled_at * 1000).toISOString()
+  const canceledAt = subscriptionData.canceled_at
+    ? new Date(subscriptionData.canceled_at * 1000).toISOString()
     : null;
 
   // Update subscription record
-  const { error: subError } = await supabase
+  const { error: subError } = await supabaseClient
     .from('subscriptions')
     .update({
-      status: subscription.status,
+      status: subscriptionData.status,
       current_period_start: periodStart,
       current_period_end: periodEnd,
       cancel_at_period_end: subscription.cancel_at_period_end,
@@ -188,10 +191,10 @@ async function handleSubscriptionUpdated(
   }
 
   // Update park submission
-  const { error: parkError } = await supabase
+  const { error: parkError } = await supabaseClient
     .from('park_submissions')
     .update({
-      subscription_status: subscription.status,
+      subscription_status: subscriptionData.status,
       subscription_current_period_end: periodEnd,
       updated_at: new Date().toISOString(),
     })
@@ -206,12 +209,12 @@ async function handleSubscriptionUpdated(
 
 async function handleSubscriptionDeleted(
   subscription: Stripe.Subscription,
-  supabase: any
+  supabaseClient: SupabaseClient
 ) {
   const subscriptionId = subscription.id;
 
   // Update subscription record
-  const { error: subError } = await supabase
+  const { error: subError } = await supabaseClient
     .from('subscriptions')
     .update({
       status: 'canceled',
@@ -225,7 +228,7 @@ async function handleSubscriptionDeleted(
   }
 
   // Downgrade park listing from featured to free
-  const { error: parkError } = await supabase
+  const { error: parkError } = await supabaseClient
     .from('park_submissions')
     .update({
       listing_type: 'free',
@@ -241,12 +244,9 @@ async function handleSubscriptionDeleted(
   console.log(`Subscription canceled and listing downgraded: ${subscriptionId}`);
 }
 
-async function handleInvoicePaymentSucceeded(
-  invoice: Stripe.Invoice,
-  supabase: any
-) {
-  const inv = invoice as any;
-  const subscriptionId = inv.subscription as string;
+async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const subscriptionId = (invoice as any).subscription as string | null;
 
   if (!subscriptionId) return;
 
@@ -257,15 +257,15 @@ async function handleInvoicePaymentSucceeded(
 
 async function handleInvoicePaymentFailed(
   invoice: Stripe.Invoice,
-  supabase: any
+  supabaseClient: SupabaseClient
 ) {
-  const inv = invoice as any;
-  const subscriptionId = inv.subscription as string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const subscriptionId = (invoice as any).subscription as string | null;
 
   if (!subscriptionId) return;
 
   // Update subscription status
-  const { error } = await supabase
+  const { error } = await supabaseClient
     .from('park_submissions')
     .update({
       subscription_status: 'past_due',

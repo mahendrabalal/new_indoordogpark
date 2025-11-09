@@ -7,6 +7,7 @@
 3. Create a new query
 4. Copy and paste the contents of `migrations/create_park_listings_tables.sql`
 5. Click "Run" to execute the migration
+6. Create another query, paste the contents of `migrations/20241208120000_add_listing_type_to_park_submissions.sql`, and run it to ensure the `listing_type` column exists for featured listings
 
 ## Option 2: Using Supabase CLI
 
@@ -16,7 +17,7 @@ If you have the Supabase CLI installed:
 # Link to your project (if not already linked)
 supabase link --project-ref jmvgnrwqcjtrudadxttq
 
-# Run the migration
+# Run the migrations (applies all files under supabase/migrations)
 supabase db push
 ```
 

@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { user, loading } = useAuth();
+  const { user, loading, getSessionTokens } = useAuth();
   const [submissions, setSubmissions] = useState<ParkSubmission[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -24,7 +24,7 @@ export default function AdminDashboard() {
 
     // Check if user is admin (you should verify this with user metadata)
     if (user) {
-      const userMetadata = (user as any).user_metadata;
+      const userMetadata = user.user_metadata as { role?: string } | undefined;
       if (userMetadata?.role !== 'admin') {
         router.push('/');
         return;
@@ -32,16 +32,31 @@ export default function AdminDashboard() {
     }
   }, [user, loading, router]);
 
-  useEffect(() => {
-    if (user) {
-      fetchSubmissions();
-    }
-  }, [user, filter]);
+  const buildAuthHeaders = useCallback(
+    async (options?: { json?: boolean }) => {
+      const { accessToken, refreshToken } = await getSessionTokens();
+      const headers: Record<string, string> = {};
 
-  const fetchSubmissions = async () => {
+      if (options?.json) {
+        headers['Content-Type'] = 'application/json';
+      }
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      }
+      if (refreshToken) {
+        headers['x-refresh-token'] = refreshToken;
+      }
+
+      return headers;
+    },
+    [getSessionTokens]
+  );
+
+  const fetchSubmissions = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`/api/admin/submissions?status=${filter}`);
+      const headers = await buildAuthHeaders();
+      const response = await fetch(`/api/admin/submissions?status=${filter}`, { headers });
       const data = await response.json();
 
       if (!response.ok) {
@@ -49,21 +64,29 @@ export default function AdminDashboard() {
       }
 
       setSubmissions(data.submissions || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to fetch submissions';
+      setError(message);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [filter, buildAuthHeaders]);
+
+  useEffect(() => {
+    if (user) {
+      fetchSubmissions();
+    }
+  }, [user, fetchSubmissions]);
 
   const handleApprove = async (submissionId: string) => {
     if (!confirm('Are you sure you want to approve this submission?')) return;
 
     setActionLoading(true);
     try {
+      const headers = await buildAuthHeaders({ json: true });
       const response = await fetch('/api/admin/submissions/approve', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ submissionId }),
       });
 
@@ -75,8 +98,9 @@ export default function AdminDashboard() {
 
       alert('Submission approved successfully!');
       fetchSubmissions();
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to approve submission';
+      alert(message);
     } finally {
       setActionLoading(false);
     }
@@ -90,9 +114,10 @@ export default function AdminDashboard() {
 
     setActionLoading(true);
     try {
+      const headers = await buildAuthHeaders({ json: true });
       const response = await fetch('/api/admin/submissions/reject', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ submissionId, reason: rejectionReason }),
       });
 
@@ -106,8 +131,9 @@ export default function AdminDashboard() {
       setSelectedSubmission(null);
       setRejectionReason('');
       fetchSubmissions();
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to reject submission';
+      alert(message);
     } finally {
       setActionLoading(false);
     }
@@ -252,7 +278,7 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg max-w-md w-full p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Reject Submission</h3>
             <p className="text-gray-600 mb-4">
-              Please provide a reason for rejecting "{selectedSubmission.name}"
+              Please provide a reason for rejecting &ldquo;{selectedSubmission.name}&rdquo;
             </p>
             <textarea
               value={rejectionReason}

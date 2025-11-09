@@ -10,6 +10,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParkMap from '@/components/ParkMap';
 import { generateParkSchema } from '@/lib/metadata';
+import FavoriteButton from '@/components/FavoriteButton';
+import ReviewSection from '@/components/ReviewSection';
 
 export default function ParkDetailPage() {
   const params = useParams();
@@ -21,24 +23,42 @@ export default function ParkDetailPage() {
   useEffect(() => {
     const loadParkData = async () => {
       try {
-        // Fetch the complete static dataset instead of the paginated API
-        const response = await fetch('/data/california.json');
-        if (!response.ok) {
-          throw new Error('Failed to load parks data');
+        // First, try to find the park in the API (which includes both static and user-submitted parks)
+        const apiResponse = await fetch('/api/parks?page=1&limit=1000');
+        if (apiResponse.ok) {
+          const apiData = await apiResponse.json();
+          const apiParks: DogPark[] = apiData.data || [];
+
+          // Find the park by slug or ID in the merged data
+          const foundPark = apiParks.find(p => p.slug === slug || p.id === slug);
+
+          if (foundPark) {
+            setPark(foundPark);
+
+            // Find nearby parks in the same city from the API data
+            const nearby = apiParks
+              .filter(p => p.id !== foundPark.id && p.city === foundPark.city)
+              .slice(0, 4);
+            setNearbyParks(nearby);
+            setLoading(false);
+            return;
+          }
         }
 
-        const parks: DogPark[] = await response.json();
+        // Fallback: Check static dataset only
+        const staticResponse = await fetch('/data/california.json');
+        if (staticResponse.ok) {
+          const staticParks: DogPark[] = await staticResponse.json();
 
-        // Find the park by slug or ID
-        const foundPark = parks.find(p => p.slug === slug || p.id === slug);
-        setPark(foundPark || null);
+          const foundPark = staticParks.find(p => p.slug === slug || p.id === slug);
+          setPark(foundPark || null);
 
-        // Find nearby parks in the same city
-        if (foundPark) {
-          const nearby = parks
-            .filter(p => p.id !== foundPark.id && p.city === foundPark.city)
-            .slice(0, 4);
-          setNearbyParks(nearby);
+          if (foundPark) {
+            const nearby = staticParks
+              .filter(p => p.id !== foundPark.id && p.city === foundPark.city)
+              .slice(0, 4);
+            setNearbyParks(nearby);
+          }
         }
       } catch (error) {
         console.error('Error loading park:', error);
@@ -67,7 +87,7 @@ export default function ParkDetailPage() {
         <Header />
         <div className="park-not-found">
           <h1>Park Not Found</h1>
-          <p>Sorry, we couldn't find the park you're looking for.</p>
+          <p>Sorry, we couldn&rsquo;t find the park you&rsquo;re looking for.</p>
           <Link href="/" className="btn-primary">Back to Home</Link>
         </div>
         <Footer />
@@ -114,6 +134,23 @@ export default function ParkDetailPage() {
               </div>
               <h1 className="park-title">{park.name}</h1>
               <p className="park-subtitle">{park.businessType} in {park.city}, California</p>
+
+              {/* Source Badges */}
+              {park.listingType === 'featured' && (
+                <div className="park-badges">
+                  <span className="featured-badge-large">
+                    <i className="bi bi-star-fill"></i> FEATURED LISTING
+                  </span>
+                </div>
+              )}
+              {park.source === 'user_submitted' && (
+                <div className="park-badges">
+                  <span className="community-badge">
+                    <i className="bi bi-people-fill"></i> COMMUNITY ADDED
+                  </span>
+                </div>
+              )}
+
               <div className="park-quick-info">
                 <span className="rating">
                   <i className="bi bi-star-fill"></i> {park.rating} ({park.reviewCount} reviews)
@@ -121,6 +158,11 @@ export default function ParkDetailPage() {
                 <span className="location">
                   <i className="bi bi-geo-alt-fill"></i> {park.city}, CA
                 </span>
+                <FavoriteButton
+                  parkId={park.id}
+                  parkSlug={park.slug}
+                  className="favorite-btn-quick-info"
+                />
                 {park.phone && (
                   <span className="phone">
                     <i className="bi bi-telephone-fill"></i> {park.phone}
@@ -247,6 +289,9 @@ export default function ParkDetailPage() {
                   </div>
                 </div>
               </section>
+
+              {/* Reviews Section */}
+              <ReviewSection parkId={park.id} />
             </div>
 
             {/* Sidebar */}

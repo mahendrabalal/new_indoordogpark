@@ -14,12 +14,11 @@ const stripePromise = loadStripe(
 );
 
 interface CheckoutFormProps {
-  clientSecret: string;
   onSuccess?: () => void;
   onError?: (error: string) => void;
 }
 
-function CheckoutForm({ clientSecret, onSuccess, onError }: CheckoutFormProps) {
+function CheckoutForm({ onSuccess, onError }: CheckoutFormProps) {
   const stripe = useStripe();
   const elements = useElements();
   const [isLoading, setIsLoading] = useState(false);
@@ -103,7 +102,6 @@ export default function StripePayment({
   return (
     <Elements options={options} stripe={stripePromise}>
       <CheckoutForm
-        clientSecret={clientSecret}
         onSuccess={onSuccess}
         onError={onError}
       />

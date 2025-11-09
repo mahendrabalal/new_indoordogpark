@@ -67,10 +67,14 @@ export interface ParkSubmissionForm {
     pricingDetails?: string;
   };
   photos?: Array<{
+    id?: string;
     url: string;
     type?: string;
     caption?: string;
     source?: string;
+    storagePath?: string;
+    uploadedAt?: string;
+    sessionId?: string;
   }>;
 
   // Additional fields

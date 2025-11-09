@@ -18,7 +18,7 @@ export default function ContactPage() {
         <section className="contact-hero">
           <div className="contact-hero-content">
             <h1>Get in Touch</h1>
-            <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            <p>We&rsquo;d love to hear from you. Send us a message and we&rsquo;ll respond as soon as possible.</p>
           </div>
         </section>
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
                   <div className="contact-info-content">
                     <h3>Email</h3>
                     <p><a href="mailto:support@indoordogpark.org">support@indoordogpark.org</a></p>
-                    <p className="contact-info-subtitle">We'll respond within 24 hours</p>
+                    <p className="contact-info-subtitle">We&rsquo;ll respond within 24 hours</p>
                   </div>
                 </div>
 
@@ -92,12 +92,12 @@ export default function ContactPage() {
             <div className="faq-grid">
               <div className="faq-item">
                 <h3>What should I do if I find incorrect information about a park?</h3>
-                <p>Please use the contact form above and select "Report an Issue" as your category. Include details about which park and what information needs to be corrected.</p>
+                <p>Please use the contact form above and select &ldquo;Report an Issue&rdquo; as your category. Include details about which park and what information needs to be corrected.</p>
               </div>
 
               <div className="faq-item">
                 <h3>How can I list my dog park on IndoorDogPark?</h3>
-                <p>Select "List a Park" from the category dropdown in the contact form, or visit our dedicated <a href="/list-property">listing page</a> for more information about the process.</p>
+                <p>Select &ldquo;List a Park&rdquo; from the category dropdown in the contact form, or visit our dedicated <a href="/list-property">listing page</a> for more information about the process.</p>
               </div>
 
               <div className="faq-item">
@@ -107,17 +107,17 @@ export default function ContactPage() {
 
               <div className="faq-item">
                 <h3>Do you offer partnership opportunities?</h3>
-                <p>Yes! We're always interested in partnerships. Please select "Partnership" in the contact form to discuss potential collaboration opportunities.</p>
+                <p>Yes! We&rsquo;re always interested in partnerships. Please select &ldquo;Partnership&rdquo; in the contact form to discuss potential collaboration opportunities.</p>
               </div>
 
               <div className="faq-item">
-                <h3>I'm having technical issues. How can I get help?</h3>
-                <p>Select "Technical Support" in the contact form and describe the issue in detail. Our support team will help troubleshoot as quickly as possible.</p>
+                <h3>I&rsquo;m having technical issues. How can I get help?</h3>
+                <p>Select &ldquo;Technical Support&rdquo; in the contact form and describe the issue in detail. Our support team will help troubleshoot as quickly as possible.</p>
               </div>
 
               <div className="faq-item">
                 <h3>Can I provide feedback or suggestions?</h3>
-                <p>We'd love to hear your ideas! Select "Feedback" in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
+                <p>We&rsquo;d love to hear your ideas! Select &ldquo;Feedback&rdquo; in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
               </div>
             </div>
           </div>

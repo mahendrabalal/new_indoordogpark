@@ -35,6 +35,7 @@ This guide will help you set up and test the complete "List Your Park" feature w
 5. Copy the entire contents of `supabase/migrations/create_park_listings_tables.sql`
 6. Paste it into the query editor
 7. Click "Run" to execute the migration
+8. Create a new query, paste the contents of `supabase/migrations/20241208120000_add_listing_type_to_park_submissions.sql`, and run it to backfill the required `listing_type` column (run this even if your database was created earlier).
 
 This will create:
 - `park_submissions` table (stores all park listings)

@@ -6,7 +6,9 @@
 
 ```bash
 # Go to Supabase Dashboard SQL Editor
-# Copy and run: supabase/migrations/create_park_listings_tables.sql
+# Run both SQL files (in order) from supabase/migrations:
+#   1. create_park_listings_tables.sql
+#   2. 20241208120000_add_listing_type_to_park_submissions.sql
 ```
 
 ### 2. Start Development

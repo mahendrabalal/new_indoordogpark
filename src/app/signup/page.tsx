@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function SignupPage() {
@@ -13,7 +12,6 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const { signUp } = useAuth();
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +44,7 @@ export default function SignupPage() {
               Check your email
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              We've sent you a confirmation link. Please check your email to complete the registration.
+              We&rsquo;ve sent you a confirmation link. Please check your email to complete the registration.
             </p>
             <Link href="/login" className="mt-4 inline-block text-blue-600 hover:text-blue-500">
               Back to login

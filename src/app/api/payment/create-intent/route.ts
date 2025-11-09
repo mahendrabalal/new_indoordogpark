@@ -3,7 +3,12 @@ import { createPaymentIntent } from '@/lib/stripe';
 
 export async function POST(req: NextRequest) {
   try {
-    const { amount, currency = 'usd', parkId, parkName } = await req.json();
+    const { amount, currency = 'usd', parkId, parkName } = (await req.json()) as {
+      amount?: number;
+      currency?: string;
+      parkId?: string;
+      parkName?: string;
+    };
 
     if (!amount || amount <= 0) {
       return NextResponse.json(
@@ -29,7 +34,7 @@ export async function POST(req: NextRequest) {
       clientSecret: paymentIntent.client_secret,
       paymentIntentId: paymentIntent.id,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error creating payment intent:', error);
     return NextResponse.json(
       { error: 'Failed to create payment intent' },

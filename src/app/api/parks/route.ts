@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { DogPark } from '@/types/dog-park';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export async function GET(request: Request) {
   try {
@@ -9,14 +10,90 @@ export async function GET(request: Request) {
     const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10));
     const limit = Math.min(100, parseInt(searchParams.get('limit') || '20', 10));
 
+    // Fetch static parks from JSON file
     const filePath = join(process.cwd(), 'public/data/california.json');
     const fileContent = await readFile(filePath, 'utf-8');
-    const allParks: DogPark[] = JSON.parse(fileContent);
+    const staticParks: DogPark[] = JSON.parse(fileContent);
 
+    // Add source tracking to static parks
+    const staticParksWithSource = staticParks.map(park => ({
+      ...park,
+      source: 'static',
+      listingType: 'free'
+    }));
+
+    // Fetch approved user submissions from database
+    let submissionParks: DogPark[] = [];
+    try {
+      const { data: submissions, error } = await supabaseAdminClient
+        .from('park_submissions')
+        .select('*')
+        .eq('status', 'approved')
+        .order('created_at', { ascending: false });
+
+      if (!error && submissions) {
+        submissionParks = submissions.map(sub => ({
+          id: sub.id,
+          name: sub.name,
+          slug: sub.slug || sub.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+          businessType: sub.business_type,
+          rating: 0,
+          reviewCount: 0,
+          address: sub.address,
+          street: sub.street,
+          city: sub.city,
+          state: sub.state,
+          zipCode: sub.zip_code,
+          full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
+          latitude: sub.latitude,
+          longitude: sub.longitude,
+          phone: sub.phone,
+          email: sub.email,
+          website: sub.website,
+          description: sub.description,
+          photo: sub.photos?.[0] || null,
+          photos: sub.photos || [],
+          priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
+          openingHours: sub.opening_hours,
+          amenities: sub.amenities || [],
+          userRatingsTotal: 0,
+          source: 'user_submitted',
+          listingType: sub.listing_type || 'free',
+          submittedBy: sub.user_id,
+          submittedAt: sub.created_at,
+          approvedAt: sub.approved_at,
+          subscriptionStatus: sub.subscription_status
+        }));
+      }
+    } catch (dbError) {
+      console.error('Error fetching user submissions:', dbError);
+      // Continue with static parks only if database fetch fails
+    }
+
+    // Merge both data sources
+    const allParks: DogPark[] = [...staticParksWithSource, ...submissionParks] as DogPark[];
+
+    // Remove duplicates based on name and city combination
+    const uniqueParks = allParks.filter((park, index, arr) => {
+      const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}`;
+      return arr.findIndex(p => `${p.name.toLowerCase()}|${p.city.toLowerCase()}` === key) === index;
+    });
+
+    // Sort featured parks first, then by name
+    uniqueParks.sort((a, b) => {
+      // Featured parks come first
+      if (a.listingType === 'featured' && b.listingType !== 'featured') return -1;
+      if (a.listingType !== 'featured' && b.listingType === 'featured') return 1;
+
+      // Within same category, sort by name
+      return a.name.localeCompare(b.name);
+    });
+
+    // Apply pagination
     const startIdx = (page - 1) * limit;
     const endIdx = startIdx + limit;
-    const parks = allParks.slice(startIdx, endIdx);
-    const totalParks = allParks.length;
+    const parks = uniqueParks.slice(startIdx, endIdx);
+    const totalParks = uniqueParks.length;
     const totalPages = Math.ceil(totalParks / limit);
 
     return NextResponse.json(
@@ -32,7 +109,7 @@ export async function GET(request: Request) {
       },
       {
         headers: {
-          'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
+          'Cache-Control': 'public, max-age=600, stale-while-revalidate=3600' // Reduced cache time to include fresh submissions
         }
       }
     );

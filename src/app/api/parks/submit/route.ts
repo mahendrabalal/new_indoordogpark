@@ -1,13 +1,12 @@
+import { randomUUID } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase-server';
+import { getUserFromRequest } from '@/lib/auth-helpers';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServerClient();
-
-    // Check if user is authenticated
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const { user, error: authError } = await getUserFromRequest(request);
 
     if (authError || !user) {
       return NextResponse.json(
@@ -30,10 +29,12 @@ export async function POST(request: NextRequest) {
 
     // Generate full address
     const fullAddress = generateFullAddress(body);
+    const slug = await generateUniqueSlug(body.name, body.city);
 
     // Prepare data for insertion
     const submissionData = {
       user_id: user.id,
+      slug,
       name: body.name,
       business_type: body.businessType,
       description: body.description,
@@ -64,13 +65,20 @@ export async function POST(request: NextRequest) {
     };
 
     // Insert submission into database
-    const { data: submission, error: insertError } = await supabase
+    const { data: submission, error: insertError } = await supabaseAdminClient
       .from('park_submissions')
       .insert([submissionData])
       .select()
       .single();
 
     if (insertError) {
+      if (insertError.code === '23505') {
+        return NextResponse.json(
+          { error: 'A park with this name and city already exists. Please adjust the name to make it unique.' },
+          { status: 409 }
+        );
+      }
+
       console.error('Database insertion error:', insertError);
       return NextResponse.json(
         { error: 'Failed to submit park listing. Please try again.' },
@@ -157,13 +165,48 @@ function generateFullAddress(data: ParkSubmissionForm): string {
   return parts.join(', ');
 }
 
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+async function generateUniqueSlug(name: string, city?: string | null) {
+  const base = slugify(`${name || 'park'}-${city || 'california'}`) || `park-${Date.now()}`;
+  let candidate = base.slice(0, 80);
+  let attempt = 1;
+
+  while (attempt < 50) {
+    const { data, error } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('id')
+      .eq('slug', candidate)
+      .maybeSingle();
+
+    if (error && error.code !== 'PGRST116') {
+      console.error('Slug check error:', error);
+      break;
+    }
+
+    if (!data) {
+      return candidate;
+    }
+
+    candidate = `${base}-${attempt}`.slice(0, 90);
+    attempt += 1;
+  }
+
+  return `${base}-${randomUUID().slice(0, 8)}`;
+}
+
 // GET endpoint to retrieve user's submissions
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServerClient();
-
-    // Check if user is authenticated
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const { user, error: authError } = await getUserFromRequest(request);
 
     if (authError || !user) {
       return NextResponse.json(
@@ -173,7 +216,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Fetch user's submissions
-    const { data: submissions, error: fetchError } = await supabase
+    const { data: submissions, error: fetchError } = await supabaseAdminClient
       .from('park_submissions')
       .select('*')
       .eq('user_id', user.id)

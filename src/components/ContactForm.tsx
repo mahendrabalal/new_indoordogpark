@@ -66,7 +66,7 @@ export default function ContactForm() {
       {submitted && (
         <div className="contact-success-message">
           <i className="bi bi-check-circle"></i>
-          <p>Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+          <p>Thank you! Your message has been sent successfully. We&rsquo;ll get back to you soon.</p>
         </div>
       )}
 

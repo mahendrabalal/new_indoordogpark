@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useRef, useState, type ChangeEvent } from 'react';
+import Image from 'next/image';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 
 interface PhotosPricingStepProps {
   formData: ParkSubmissionForm;
   updateFormData: (data: Partial<ParkSubmissionForm>) => void;
-  errors: Record<string, string>;
+  errors?: Record<string, string>;
 }
+
+type PricingInfo = NonNullable<ParkSubmissionForm['pricingInfo']>;
 
 export default function PhotosPricingStep({ formData, updateFormData, errors }: PhotosPricingStepProps) {
   const [photoUrl, setPhotoUrl] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const uploadSessionIdRef = useRef<string>('');
+
+  const ensureUploadSessionId = () => {
+    if (!uploadSessionIdRef.current) {
+      uploadSessionIdRef.current =
+        typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+          ? crypto.randomUUID()
+          : `session-${Date.now()}`;
+    }
+    return uploadSessionIdRef.current;
+  };
+
+  const appendPhoto = (photo: NonNullable<ParkSubmissionForm['photos']>[number]) => {
+    updateFormData({
+      photos: [...(formData.photos || []), photo],
+    });
+  };
 
   const addPhoto = () => {
     if (!photoUrl.trim()) return;
@@ -19,11 +42,51 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
       source: 'user',
     };
 
-    updateFormData({
-      photos: [...(formData.photos || []), newPhoto],
-    });
-
+    appendPhoto(newPhoto);
     setPhotoUrl('');
+  };
+
+  const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setUploadError(null);
+    setIsUploading(true);
+
+    try {
+      const uploadPayload = new FormData();
+      uploadPayload.append('file', file);
+      uploadPayload.append('sessionId', ensureUploadSessionId());
+      uploadPayload.append('displayOrder', String(formData.photos?.length ?? 0));
+      if (formData.name) {
+        uploadPayload.append('altText', `Photo of ${formData.name}`);
+      }
+
+      const response = await fetch('/api/uploads/park-photos', {
+        method: 'POST',
+        body: uploadPayload,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to upload photo. Please try again.');
+      }
+
+      if (result.photo) {
+        appendPhoto(result.photo);
+      }
+    } catch (error) {
+      console.error('Photo upload failed:', error);
+      setUploadError(error instanceof Error ? error.message : 'Failed to upload photo. Please try again.');
+    } finally {
+      setIsUploading(false);
+      event.target.value = '';
+    }
+  };
+
+  const openFilePicker = () => {
+    fileInputRef.current?.click();
   };
 
   const removePhoto = (index: number) => {
@@ -31,10 +94,10 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
     updateFormData({ photos: newPhotos });
   };
 
-  const updatePricingInfo = (field: string, value: any) => {
+  const updatePricingInfo = <K extends keyof PricingInfo>(field: K, value: PricingInfo[K]) => {
     updateFormData({
       pricingInfo: {
-        ...formData.pricingInfo,
+        ...(formData.pricingInfo ?? {}),
         [field]: value,
       },
     });
@@ -49,7 +112,7 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
           Add URLs to photos of your park. High-quality photos help attract more visitors!
         </p>
 
-        <div className="flex gap-2 mb-4">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-2 mb-4">
           <input
             type="url"
             value={photoUrl}
@@ -61,24 +124,47 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
           <button
             type="button"
             onClick={addPhoto}
-            className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
+            className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!photoUrl.trim()}
           >
             Add Photo
           </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleFileUpload}
+          />
+          <button
+            type="button"
+            onClick={openFilePicker}
+            className="px-6 py-3 bg-white text-purple-600 border border-purple-200 rounded-lg font-medium hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isUploading}
+          >
+            {isUploading ? 'Uploading…' : 'Upload from Device'}
+          </button>
         </div>
+
+        {uploadError && (
+          <p className="text-sm text-red-600">{uploadError}</p>
+        )}
 
         {/* Photo Gallery */}
         {formData.photos && formData.photos.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
             {formData.photos.map((photo, index) => (
               <div key={index} className="relative group">
-                <img
-                  src={photo.url}
+                <Image
+                  src={photo.url || 'https://via.placeholder.com/300x200?text=Dog+Park'}
                   alt={`Park photo ${index + 1}`}
+                  width={300}
+                  height={200}
                   className="w-full h-32 object-cover rounded-lg"
                   onError={(e) => {
                     e.currentTarget.src = 'https://via.placeholder.com/300x200?text=Invalid+URL';
                   }}
+                  unoptimized
                 />
                 <button
                   type="button"
@@ -90,6 +176,9 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
               </div>
             ))}
           </div>
+        )}
+        {errors?.photos && (
+          <p className="mt-2 text-sm text-red-600">{errors.photos}</p>
         )}
       </div>
 

@@ -6,6 +6,8 @@ const nextConfig = {
       'images.unsplash.com',
       'lh3.googleusercontent.com',
       'cdnjs.cloudflare.com',
+      'via.placeholder.com', // Added for blog mock images
+      'secure.gravatar.com', // Added for WordPress author avatars
       // Removed 'places.googleapis.com' - now serving images locally
     ],
     formats: ['image/avif', 'image/webp'],

@@ -1,21 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
+import FavoriteButton from '@/components/FavoriteButton';
 
 interface ParkCardProps {
   park: DogPark;
-  onViewDetails: (park: DogPark) => void;
 }
 
-export default function ParkCard({ park, onViewDetails }: ParkCardProps) {
+export default function ParkCard({ park }: ParkCardProps) {
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   const getImageUrl = () => {
     if (park.photo) return park.photo;
     if (park.photos && park.photos.length > 0) {
       const firstPhoto = park.photos[0];
-      // Handle both string and object formats
-      if (typeof firstPhoto === 'string') return firstPhoto;
-      if (typeof firstPhoto === 'object' && 'url' in firstPhoto) return (firstPhoto as any).url;
+      if (firstPhoto?.url) return firstPhoto.url;
     }
     return 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
   };
@@ -45,8 +43,18 @@ export default function ParkCard({ park, onViewDetails }: ParkCardProps) {
     return 'Standard';
   };
 
+  const isFeatured = park.listingType === 'featured';
+
   return (
-    <Link href={`/parks/${park.slug || park.id}`} className="park-card-new">
+    <Link href={`/parks/${park.slug || park.id}`} className={`park-card-new ${isFeatured ? 'featured-park-card' : ''}`}>
+      {/* Featured Badge Overlay */}
+      {isFeatured && (
+        <div className="featured-badge-overlay">
+          <span className="featured-badge">
+            <i className="bi bi-star-fill"></i> FEATURED
+          </span>
+        </div>
+      )}
       <div className="park-card-image-wrapper">
         <Image
           src={imageUrl}
@@ -73,7 +81,22 @@ export default function ParkCard({ park, onViewDetails }: ParkCardProps) {
 
         {/* Badges */}
         <div className="park-card-badges">
+          {isFeatured && (
+            <span className="park-badge featured-badge-small" style={{
+              background: 'linear-gradient(45deg, #f59e0b, #eab308)',
+              color: 'white',
+              fontWeight: 'bold',
+              boxShadow: '0 2px 4px rgba(245, 158, 11, 0.3)'
+            }}>
+              <i className="bi bi-star-fill"></i> FEATURED
+            </span>
+          )}
           <span className="park-badge">{getLandlordType()}</span>
+          {park.source === 'user_submitted' && (
+            <span className="park-badge" style={{ backgroundColor: '#10b981', color: 'white' }}>
+              Community Added
+            </span>
+          )}
           {park.amenities?.fencing && <span className="park-badge">Fenced</span>}
         </div>
 
@@ -82,6 +105,15 @@ export default function ParkCard({ park, onViewDetails }: ParkCardProps) {
           <i className="bi bi-star-fill"></i>
           <span className="rating-value">{park.rating}</span>
           <span className="rating-count">({park.reviewCount} reviews)</span>
+        </div>
+
+        {/* Favorite Button */}
+        <div className="park-card-favorite">
+          <FavoriteButton
+            parkId={park.id}
+            parkSlug={park.slug}
+            className="favorite-btn-card"
+          />
         </div>
 
         {/* Pricing */}

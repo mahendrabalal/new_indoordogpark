@@ -4,14 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmissionForm } from '@/types/park-submission';
-import {
-  BUSINESS_TYPES,
-  US_STATES,
-  INDOOR_OUTDOOR_OPTIONS,
-  SIZE_CATEGORIES,
-  SURFACE_TYPES
-} from '@/types/park-submission';
-
 // Step components
 import BasicInfoStep from '@/components/listing/BasicInfoStep';
 import LocationStep from '@/components/listing/LocationStep';
@@ -31,7 +23,7 @@ const STEPS = [
 
 export default function ListPropertyPage() {
   const router = useRouter();
-  const { user, loading } = useAuth();
+  const { user, loading, getSessionTokens } = useAuth();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<ParkSubmissionForm>(() => {
     // Load from localStorage if available
@@ -133,10 +125,17 @@ export default function ListPropertyPage() {
     setErrors({});
 
     try {
+      const { accessToken, refreshToken } = await getSessionTokens();
+      const authHeaders: HeadersInit = {
+        'Content-Type': 'application/json',
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+        ...(refreshToken ? { 'x-refresh-token': refreshToken } : {}),
+      };
+
       // Submit the park listing
       const response = await fetch('/api/parks/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders,
         body: JSON.stringify({ ...formData, listingType }),
       });
 
@@ -159,7 +158,7 @@ export default function ListPropertyPage() {
       if (listingType === 'featured') {
         const checkoutResponse = await fetch('/api/stripe/create-checkout', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: authHeaders,
           body: JSON.stringify({ submissionId: data.submission.id }),
         });
 
@@ -176,9 +175,10 @@ export default function ListPropertyPage() {
         router.push('/dashboard?submitted=true');
       }
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Submission error:', error);
-      setErrors({ submit: error.message });
+      const message = error instanceof Error ? error.message : 'Failed to submit listing';
+      setErrors({ submit: message });
       setIsSubmitting(false);
     }
   };

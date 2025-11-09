@@ -1,11 +1,22 @@
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
-
 export const metadata: Metadata = {
-  title: 'About Us - IndoorDogPark',
-  description: 'Learn about IndoorDogPark, your trusted guide to finding the best dog parks across California.',
+  title: 'About Indoor Dog Park - Our Mission & Story',
+  description: 'Learn about Indoor Dog Park and our mission to help dog owners find the best indoor dog parks, play areas, and facilities. Discover our story and commitment to canine wellness.',
+  keywords: [
+    'about indoor dog park',
+    'indoor dog park mission',
+    'dog park directory',
+    'canine wellness',
+    'dog recreation facilities',
+    'indoor dog activities'
+  ],
+  openGraph: {
+    title: 'About Indoor Dog Park - Our Mission & Story',
+    description: 'Learn about Indoor Dog Park and our mission to help dog owners find the best indoor dog parks, play areas, and facilities.',
+    url: 'https://www.indoordogpark.org/about',
+  },
 };
 
 export default function AboutPage() {
@@ -34,7 +45,7 @@ export default function AboutPage() {
                   across California, making it easier than ever to find the perfect spot for your pup.
                 </p>
                 <p>
-                  Whether you're looking for a spacious outdoor park with agility equipment, a cozy
+                  Whether you&rsquo;re looking for a spacious outdoor park with agility equipment, a cozy
                   indoor facility for rainy days, or a dog-friendly establishment where you can enjoy
                   time with your four-legged companion, IndoorDogPark has you covered.
                 </p>
@@ -71,7 +82,7 @@ export default function AboutPage() {
                 <h3>Verified Reviews</h3>
                 <p>
                   Read honest reviews from fellow dog owners to make informed decisions. Our community
-                  shares their experiences to help you find the best parks for your dog's needs.
+                  shares their experiences to help you find the best parks for your dog&rsquo;s needs.
                 </p>
               </div>
 

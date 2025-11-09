@@ -40,6 +40,7 @@ export interface MediaAsset {
   caption?: string;
   source?: 'google_places' | 'user' | 'website';
   uploadedAt?: string;
+  storagePath?: string;
 }
 
 export interface SocialMedia {
@@ -107,6 +108,14 @@ export interface DogPark {
   verificationDate?: string;
   lastUpdated?: string;
   dataQuality?: 'verified' | 'partial' | 'unverified';
+
+  // Data source tracking
+  source?: 'static' | 'user_submitted';
+  listingType?: 'free' | 'featured';
+  submittedBy?: string;
+  submittedAt?: string;
+  approvedAt?: string;
+  subscriptionStatus?: string;
 
   // Deprecated fields (kept for backward compatibility)
   priceLevel?: number;

@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase-server';
+import { getUserFromRequest } from '@/lib/auth-helpers';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { createCustomerPortalSession } from '@/lib/stripe';
+import { getBaseUrl } from '@/lib/base-url';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServerClient();
-
-    // Check if user is authenticated
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const { user, error: authError } = await getUserFromRequest(request);
 
     if (authError || !user) {
       return NextResponse.json(
@@ -16,7 +15,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { submissionId } = await request.json();
+    const { submissionId } = (await request.json()) as { submissionId?: string };
 
     if (!submissionId) {
       return NextResponse.json(
@@ -26,7 +25,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the submission to find the Stripe customer ID
-    const { data: submission, error: fetchError } = await supabase
+    const { data: submission, error: fetchError } = await supabaseAdminClient
       .from('park_submissions')
       .select('stripe_customer_id')
       .eq('id', submissionId)
@@ -40,7 +39,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = getBaseUrl(request);
 
     // Create customer portal session
     const portalSession = await createCustomerPortalSession({
@@ -52,10 +51,10 @@ export async function POST(request: NextRequest) {
       url: portalSession.url,
     }, { status: 200 });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('Customer portal error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to create customer portal session' },
+      { error: error instanceof Error ? error.message : 'Failed to create customer portal session' },
       { status: 500 }
     );
   }

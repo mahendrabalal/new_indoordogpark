@@ -16,8 +16,10 @@ export async function GET(request: Request) {
     // Parse the comma-separated IDs
     const parkIds = ids.split(',').map(id => id.trim());
     
-    // Fetch all parks data
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/data/california.json`);
+    // Fetch all parks data relative to the incoming request origin
+    const requestUrl = new URL(request.url);
+    const dataUrl = new URL('/data/california.json', requestUrl.origin);
+    const response = await fetch(dataUrl);
     if (!response.ok) {
       throw new Error('Failed to fetch parks data');
     }

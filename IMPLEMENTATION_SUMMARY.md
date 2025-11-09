@@ -6,12 +6,9 @@ I've successfully implemented a complete park listing feature with Stripe subscr
 
 ## 📦 What Was Built
 
-### 1. Database Schema (`supabase/migrations/create_park_listings_tables.sql`)
-- **park_submissions** table: Stores all user-submitted park listings with full details
-- **subscriptions** table: Tracks Stripe subscription data
-- Row Level Security (RLS) policies for data protection
-- Auto-generating slugs and timestamps
-- Comprehensive indexes for performance
+### 1. Database Schema (Supabase migrations)
+- `supabase/migrations/create_park_listings_tables.sql`: Defines the `park_submissions` + `subscriptions` tables, full feature columns, RLS policies, slug/timestamp triggers, and performance indexes.
+- `supabase/migrations/20241208120000_add_listing_type_to_park_submissions.sql`: Backfills and enforces the `listing_type` column (defaults, constraint, and index) so the featured parks API can filter legacy data safely.
 
 ### 2. TypeScript Types (`src/types/park-submission.ts`)
 - Complete type definitions for park submissions
@@ -124,7 +121,8 @@ Created modular, reusable components:
 ```
 supabase/
 ├── migrations/
-│   └── create_park_listings_tables.sql
+│   ├── create_park_listings_tables.sql
+│   └── 20241208120000_add_listing_type_to_park_submissions.sql
 └── SETUP_INSTRUCTIONS.md
 
 src/
@@ -208,7 +206,7 @@ Documentation:
 ### 1. Run Database Migration (REQUIRED)
 ```bash
 # Go to Supabase Dashboard → SQL Editor
-# Run: supabase/migrations/create_park_listings_tables.sql
+# Run both files in supabase/migrations (create_park_listings_tables.sql and 20241208120000_add_listing_type_to_park_submissions.sql)
 ```
 
 ### 2. Setup Stripe Webhooks

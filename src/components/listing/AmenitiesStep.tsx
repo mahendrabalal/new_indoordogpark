@@ -8,10 +8,12 @@ import {
 interface AmenitiesStepProps {
   formData: ParkSubmissionForm;
   updateFormData: (data: Partial<ParkSubmissionForm>) => void;
-  errors: Record<string, string>;
+  errors?: Record<string, string>;
 }
 
-const AMENITY_OPTIONS = [
+type AmenityKey = keyof NonNullable<ParkSubmissionForm['amenities']>;
+
+const AMENITY_OPTIONS: Array<{ id: AmenityKey; label: string }> = [
   { id: 'parking', label: 'Parking' },
   { id: 'waterFountains', label: 'Water Fountains' },
   { id: 'shade', label: 'Shade/Covered Areas' },
@@ -31,11 +33,11 @@ const AMENITY_OPTIONS = [
   { id: 'socializing', label: 'Socializing Events' },
 ];
 
-export default function AmenitiesStep({ formData, updateFormData, errors }: AmenitiesStepProps) {
-  const updateAmenity = (amenityId: string, checked: boolean) => {
+export default function AmenitiesStep({ formData, updateFormData }: AmenitiesStepProps) {
+  const updateAmenity = (amenityId: AmenityKey, checked: boolean) => {
     updateFormData({
       amenities: {
-        ...formData.amenities,
+        ...(formData.amenities ?? {}),
         [amenityId]: checked,
       },
     });
@@ -111,7 +113,7 @@ export default function AmenitiesStep({ formData, updateFormData, errors }: Amen
             <label key={amenity.id} className="flex items-start">
               <input
                 type="checkbox"
-                checked={(formData.amenities as any)?.[amenity.id] || false}
+                checked={Boolean(formData.amenities?.[amenity.id])}
                 onChange={(e) => updateAmenity(amenity.id, e.target.checked)}
                 className="w-4 h-4 mt-1 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
               />

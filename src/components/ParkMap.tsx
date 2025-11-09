@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import type { Map as LeafletMap } from 'leaflet';
 import { DogPark } from '@/types/dog-park';
 
 interface ParkMapProps {
@@ -9,7 +10,7 @@ interface ParkMapProps {
 
 export default function ParkMap({ park }: ParkMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<LeafletMap | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !mapRef.current || !park.latitude || !park.longitude) return;
@@ -18,7 +19,7 @@ export default function ParkMap({ park }: ParkMapProps) {
       const L = (await import('leaflet')).default;
 
       // Fix for default markers
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
         iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',

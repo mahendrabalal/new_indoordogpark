@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { ParkSubmission } from '@/types/park-submission';
 
@@ -73,13 +74,16 @@ export default function FeaturedParks() {
                 {/* Featured Badge */}
                 <div className="relative">
                   {park.photos && park.photos.length > 0 ? (
-                    <img
-                      src={park.photos[0].url}
+                    <Image
+                      src={park.photos[0].url || 'https://via.placeholder.com/400x300?text=Dog+Park'}
                       alt={park.name}
+                      width={800}
+                      height={400}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Dog+Park';
                       }}
+                      unoptimized
                     />
                   ) : (
                     <div className="w-full h-48 bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center">
@@ -121,7 +125,7 @@ export default function FeaturedParks() {
                   {park.amenities && Object.keys(park.amenities).length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {Object.entries(park.amenities)
-                        .filter(([_, value]) => value === true)
+                        .filter(([, value]) => value === true)
                         .slice(0, 3)
                         .map(([key]) => (
                           <span

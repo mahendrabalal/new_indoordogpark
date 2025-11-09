@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { DogPark } from '@/types/dog-park';
-import { fetchParks, filterParks, PaginationResponse } from '@/lib/api';
+import { fetchParks, filterParks } from '@/lib/api';
 import { getFeaturedCities, getFeaturedParks } from '@/lib/cityData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -19,7 +19,6 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
 
@@ -32,7 +31,6 @@ export default function Home() {
         setDisplayedParks(response.data);
         setFilteredParks(response.data);
         setCurrentPage(1);
-        setTotalPages(response.pagination.totalPages);
         setHasMore(response.pagination.hasMore);
       } catch (error) {
         console.error('Error loading parks:', error);
@@ -73,11 +71,6 @@ export default function Home() {
     }
   };
 
-  const handleParkClick = (park: DogPark) => {
-    // For now, just log - could open modal or navigate to detail page
-    console.log('Park clicked:', park);
-  };
-
   if (loading) {
     return (
       <div className="loading">
@@ -93,7 +86,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-section-new">
         <h1 className="hero-title-new">
-          The largest global platform for{' '}
+          The largest USA platform for{' '}
           <span className="hero-title-highlight">dog parks</span>
         </h1>
         <p className="hero-subtitle-new">
@@ -105,7 +98,7 @@ export default function Home() {
             <input
               type="text"
               className="search-input-new"
-              placeholder="Search by university, city or neighbourhood..."
+              placeholder="Search by city, neighborhood or zip code..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -116,7 +109,7 @@ export default function Home() {
         </div>
 
         <p className="hero-guarantee">
-          <i className="bi bi-award"></i> Best price guaranteed. If you find it cheaper elsewhere, we'll refund the difference
+          <i className="bi bi-heart"></i> Find the perfect spot for your furry friend to play and socialize
         </p>
       </section>
 
@@ -128,7 +121,7 @@ export default function Home() {
         <section className="cities-cards-section">
           <h2 className="cities-cards-heading">Explore by City</h2>
           <p className="cities-cards-subtitle">
-            Discover dog parks in California's most popular cities
+            Discover dog parks in California&rsquo;s most popular cities
           </p>
           <div className="cities-cards-grid">
             {getFeaturedCities(allParks, 12).map((city) => (
@@ -151,7 +144,6 @@ export default function Home() {
                 <ParkCard
                   key={park.id}
                   park={park}
-                  onViewDetails={handleParkClick}
                 />
               ))}
               {loadingMore && Array(4).fill(0).map((_, i) => (
@@ -181,7 +173,7 @@ export default function Home() {
             )}
             {!hasMore && allParks.length > 0 && (
               <div className="view-all-parks-cta">
-                <p>You've reached the end! Explore dog parks by city or use search above.</p>
+                <p>You&rsquo;ve reached the end! Explore dog parks by city or use search above.</p>
               </div>
             )}
           </div>
@@ -190,29 +182,30 @@ export default function Home() {
 
       {/* Search Results Section */}
       {searchTerm !== '' && (
-        <section className="parks-section">
-          {filteredParks.length === 0 ? (
-            <div className="no-results">
-              <i className="bi bi-search"></i>
-              <h3>No parks found</h3>
-              <p>Try adjusting your search for "{searchTerm}"</p>
-            </div>
-          ) : (
-            <>
-              <h2 style={{ marginBottom: '30px', fontSize: '1.8rem', fontWeight: 600, color: '#2c3e50' }}>
-                Search Results for "{searchTerm}"
-              </h2>
-              <div className="parks-grid-new">
-                {filteredParks.map((park) => (
-                  <ParkCard
-                    key={park.id}
-                    park={park}
-                    onViewDetails={handleParkClick}
-                  />
-                ))}
+        <section className="search-results-section">
+          <div className="featured-parks-container">
+            {filteredParks.length === 0 ? (
+              <div className="no-results">
+                <i className="bi bi-search"></i>
+                <h3>No parks found</h3>
+                <p>Try adjusting your search for &ldquo;{searchTerm}&rdquo;</p>
               </div>
-            </>
-          )}
+            ) : (
+              <>
+                <h2 style={{ marginBottom: '30px', fontSize: '1.8rem', fontWeight: 600, color: '#2c3e50' }}>
+                  Search Results for &ldquo;{searchTerm}&rdquo;
+                </h2>
+                <div className="parks-grid-new">
+                  {filteredParks.map((park) => (
+                    <ParkCard
+                      key={park.id}
+                      park={park}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </section>
       )}
 
