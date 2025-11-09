@@ -10,7 +10,8 @@ interface Park {
 }
 
 interface CityData {
-  [key: string]: any
+  slug: string
+  [key: string]: unknown
 }
 
 interface BlogPost {

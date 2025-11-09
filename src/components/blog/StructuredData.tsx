@@ -2,7 +2,7 @@ import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 
 interface StructuredDataProps {
   type: 'BlogPosting' | 'Blog' | 'BreadcrumbList';
-  data: BlogPost | BlogPost[] | { categories?: WPCategory[]; tags?: WPTag[] };
+  data: BlogPost | BlogPost[] | { categories?: WPCategory[]; tags?: WPTag[] } | Record<string, never>;
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
 

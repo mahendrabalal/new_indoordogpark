@@ -3,6 +3,7 @@
 // Accessibility utilities and components for the blog
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 // Skip link component for keyboard navigation
 export function SkipLinks() {
@@ -200,13 +201,14 @@ export function AccessibleImage({
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
       className={className}
       onError={handleError}
+      priority={priority}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
     />

@@ -28,7 +28,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
     // Log to external monitoring service if available
     if (typeof window !== 'undefined' && 'gtag' in window) {
-      (window as any).gtag('event', 'exception', {
+      const gtag = (window as Record<string, unknown>).gtag as (...args: unknown[]) => void;
+      gtag('event', 'exception', {
         description: error.message,
         fatal: false,
       });

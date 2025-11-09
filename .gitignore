@@ -62,3 +62,4 @@ coverage/
 
 # Production
 *.tsbuildinfo
+.vercel

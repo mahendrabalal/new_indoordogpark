@@ -9,7 +9,7 @@ export default function BlogNotFound() {
           <DocumentTextIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Article not found</h1>
           <p className="text-xl text-gray-600 mb-8">
-            The blog post you're looking for doesn't exist or has been removed.
+            The blog post you&apos;re looking for doesn&apos;t exist or has been removed.
           </p>
 
           <div className="space-y-4">
@@ -33,7 +33,7 @@ export default function BlogNotFound() {
           <div className="mt-12 bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-3">Looking for something specific?</h2>
             <p className="text-gray-600 mb-4">
-              Try using the search function on our blog page to find what you're looking for.
+              Try using the search function on our blog page to find what you&apos;re looking for.
             </p>
             <Link
               href="/blog"

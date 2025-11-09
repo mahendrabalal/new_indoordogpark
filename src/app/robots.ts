@@ -53,8 +53,7 @@ export default function robots(): MetadataRoute.Robots {
       // Allow specific bots for images and resources
       {
         userAgent: 'Googlebot-Image',
-        allow: '/public/data/',
-        allow: '/images/',
+        allow: ['/public/data/', '/images/'],
         disallow: ['/admin/', '/api/'],
       },
       {

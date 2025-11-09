@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
       }, { status: 401 });
     }
 
-    const { parkId, parkSlug, rating, title, comment } = await request.json();
+    const { parkId, rating, title, comment } = await request.json();
 
     if (!parkId || !rating || rating < 1 || rating > 5) {
       return NextResponse.json({ error: 'Valid park ID and rating (1-5) are required' }, { status: 400 });

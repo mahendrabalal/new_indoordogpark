@@ -77,6 +77,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
       <StructuredData type="BlogPosting" data={post} />
       <StructuredData
         type="BreadcrumbList"
+        data={{}}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Blog', url: '/blog' },

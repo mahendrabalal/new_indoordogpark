@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { mockBlogPosts, mockCategories, mockTags } from '@/lib/mock-blog-data';
+import { NextResponse, NextRequest } from 'next/server';
+import { mockBlogPosts } from '@/lib/mock-blog-data';
 
 // GET /api/blog/mock - Fetch mock blog data for testing
 export async function GET(request: NextRequest) {
@@ -34,16 +34,31 @@ export async function GET(request: NextRequest) {
   // Apply tag filter
   if (tag) {
     posts = posts.filter(post =>
-      post.tags.some(tag => tag.slug === tag)
+      post.tags.some(postTag => postTag.slug === tag)
     );
   }
 
   // Apply sorting
   posts.sort((a, b) => {
-    const aValue = orderBy === 'date' ? new Date(a.date).getTime() : orderBy === 'modified' ? new Date(a.modified).getTime() : a.title.toLowerCase();
-    const bValue = orderBy === 'date' ? new Date(b.date).getTime() : orderBy === 'modified' ? new Date(b.modified).getTime() : b.title.toLowerCase();
+    let aValue: number | string;
+    let bValue: number | string;
 
-    return order === 'desc' ? bValue - aValue : aValue - bValue;
+    if (orderBy === 'date') {
+      aValue = new Date(a.date).getTime();
+      bValue = new Date(b.date).getTime();
+    } else if (orderBy === 'modified') {
+      aValue = new Date(a.modified).getTime();
+      bValue = new Date(b.modified).getTime();
+    } else {
+      aValue = a.title.toLowerCase();
+      bValue = b.title.toLowerCase();
+    }
+
+    if (typeof aValue === 'string' && typeof bValue === 'string') {
+      return order === 'desc' ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
+    } else {
+      return order === 'desc' ? (bValue as number) - (aValue as number) : (aValue as number) - (bValue as number);
+    }
   });
 
   // Apply pagination
