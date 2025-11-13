@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { DogPark } from '@/types/dog-park';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -12,7 +14,6 @@ import TableOfContents from '@/components/TableOfContents';
 import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
 import CityStats from '@/components/CityStats';
-import { notFound } from 'next/navigation';
 import { CityData } from '@/lib/cityData';
 
 interface CityPageProps {
@@ -21,7 +22,6 @@ interface CityPageProps {
   }>;
 }
 
-// Client-side data loading functions
 async function getParks(): Promise<DogPark[]> {
   try {
     const response = await fetch('/api/parks');
@@ -35,7 +35,6 @@ async function getParks(): Promise<DogPark[]> {
 }
 
 function getCityBySlug(parks: DogPark[], slug: string) {
-  // Group parks by city and find the matching city
   const cities = parks.reduce((acc, park) => {
     const cityKey = park.city?.toLowerCase().replace(/\s+/g, '-');
     if (cityKey && !acc[cityKey]) {
@@ -45,14 +44,13 @@ function getCityBySlug(parks: DogPark[], slug: string) {
         state: park.state || 'CA',
         avgRating: 0,
         totalReviews: 0,
-        parkCount: 0, // Initialize with 0, will be calculated later
+        parkCount: 0,
         featuredImage: park.photo
       };
     }
     return acc;
   }, {} as Record<string, CityData>);
 
-  
   return cities[slug] || null;
 }
 
@@ -81,6 +79,23 @@ function getCityStatistics(cityParks: DogPark[]) {
   };
 }
 
+function formatNumber(value: number) {
+  return new Intl.NumberFormat('en-US').format(value);
+}
+
+function getCollectionDescription(type: string, cityName: string) {
+  switch (type) {
+    case 'Dog Park':
+      return `Open-air off-leash spaces across ${cityName} with plenty of room to sprint, sniff, and socialize.`;
+    case 'Indoor Dog Park':
+      return `Climate-controlled play zones that keep pups moving year-round—perfect for rainy days or hot afternoons.`;
+    case 'Dog-Friendly Establishment':
+      return `Coffee shops, breweries, and community hubs that welcome well-mannered pups alongside their people.`;
+    default:
+      return `Community-loved spaces designed for safe play and connection throughout ${cityName}.`;
+  }
+}
+
 export default function CityPage(props: CityPageProps) {
   const [params, setParams] = useState<{ slug: string } | null>(null);
   const [city, setCity] = useState<CityData | null>(null);
@@ -88,13 +103,17 @@ export default function CityPage(props: CityPageProps) {
   const [error, setError] = useState<string | null>(null);
   const [cityParks, setCityParks] = useState<DogPark[]>([]);
   const [parksByType, setParksByType] = useState<Record<string, DogPark[]>>({});
-  const [stats, setStats] = useState<{ totalParks: number; totalReviews: number; avgRating: number }>({ totalParks: 0, totalReviews: 0, avgRating: 0 });
+  const [stats, setStats] = useState<{ totalParks: number; totalReviews: number; avgRating: number }>({
+    totalParks: 0,
+    totalReviews: 0,
+    avgRating: 0
+  });
 
   useEffect(() => {
-    const loadParams = async () => {
+    const resolveParams = async () => {
       try {
-        const resolvedParams = await props.params;
-        setParams(resolvedParams);
+        const resolved = await props.params;
+        setParams(resolved);
       } catch (err) {
         console.error('Error loading params:', err);
         setError('Failed to load page parameters');
@@ -102,7 +121,7 @@ export default function CityPage(props: CityPageProps) {
       }
     };
 
-    loadParams();
+    resolveParams();
   }, [props.params]);
 
   useEffect(() => {
@@ -119,12 +138,10 @@ export default function CityPage(props: CityPageProps) {
           return;
         }
 
-        // Calculate city statistics
         const cityParksData = getParksByCity(parks, foundCity.name);
         const parksByTypeData = getParksByType(cityParksData);
         const cityStats = getCityStatistics(cityParksData);
 
-        // Update city with calculated stats
         foundCity.avgRating = cityStats.avgRating;
         foundCity.totalReviews = cityStats.totalReviews;
 
@@ -145,8 +162,8 @@ export default function CityPage(props: CityPageProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg">Loading city information...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-white">
+        <p className="text-lg font-semibold text-slate-600">Loading city insights…</p>
       </div>
     );
   }
@@ -155,838 +172,571 @@ export default function CityPage(props: CityPageProps) {
     return notFound();
   }
 
-  const featuredImage = city.featuredImage || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  const featuredImage =
+    city.featuredImage ||
+    'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
 
   const parkCategories = Object.entries(parksByType);
 
-  // Table of contents items
+  const topCategory = parkCategories.length
+    ? parkCategories.reduce((largest, current) => (current[1].length > largest[1].length ? current : largest))
+    : null;
+
+  const featuredParks = [...cityParks]
+    .filter((park) => typeof park.rating === 'number')
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .slice(0, 3);
+
+  const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
+  const indoorShare = stats.totalParks > 0 ? Math.round((indoorCount / stats.totalParks) * 100) : 0;
+
+  const heroChips = [
+    { label: 'Verified parks', value: formatNumber(stats.totalParks) },
+    { label: 'Avg rating', value: `${city.avgRating.toFixed(1)} / 5` },
+    { label: 'Park types', value: parkCategories.length.toString() },
+    { label: 'Local reviews', value: formatNumber(stats.totalReviews) }
+  ];
+
+  const citySlug = params?.slug ?? '';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://indoordogpark.com';
+  const canonicalUrl = `${siteUrl}/cities/${citySlug}`;
+  const cityTitle = `Complete Dog Park Guide: ${city.name}, ${city.state}`;
+  const pageDescription = `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;
+
+  const structuredPlaces = cityParks.slice(0, 10).map((park) => {
+    const place: Record<string, unknown> = {
+      '@type': 'Place',
+      name: park.name,
+      address: park.full_address || park.address,
+      url: park.website,
+      telephone: park.phone
+    };
+
+    if (park.rating) {
+      place.aggregateRating = {
+        '@type': 'AggregateRating',
+        ratingValue: park.rating,
+        reviewCount: park.userRatingsTotal || park.reviewCount || 0
+      };
+    }
+
+    if (park.latitude && park.longitude) {
+      place.geo = {
+        '@type': 'GeoCoordinates',
+        latitude: park.latitude,
+        longitude: park.longitude
+      };
+    }
+
+    return place;
+  });
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'City',
+    name: `${city.name}, ${city.state}`,
+    description: pageDescription,
+    url: canonicalUrl,
+    image: featuredImage,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: city.avgRating.toFixed(1),
+      reviewCount: stats.totalReviews
+    },
+    containsPlace: structuredPlaces
+  };
+
   const tocItems = [
-    { id: 'enhanced-hero', title: 'City Overview', level: 1 },
-    { id: 'city-statistics', title: 'Statistics & Insights', level: 1 },
-    { id: 'park-types-guide', title: 'Understanding Park Types', level: 1 },
-    { id: 'city-map-section', title: 'Interactive Map', level: 1 },
-    { id: 'park-listings', title: 'All Dog Parks', level: 1 },
-    { id: 'planning-guide', title: 'Planning Your Visit', level: 1 },
-    { id: 'neighborhood-guide', title: 'Neighborhood Guide', level: 1 },
-    { id: 'faq-section', title: 'Frequently Asked Questions', level: 1 }
+    { id: 'city-hero', title: 'City Overview', level: 1 },
+    { id: 'city-insights', title: 'Insights & Scores', level: 1 },
+    { id: 'park-collections', title: 'Park Collections', level: 1 },
+    { id: 'park-types-guide', title: 'Park Type Guide', level: 1 },
+    { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
+    { id: 'planning-essentials', title: 'Planning Essentials', level: 1 },
+    { id: 'park-directory', title: 'Full Directory', level: 1 },
+    { id: 'faq-section', title: 'FAQs', level: 1 },
+    { id: 'related-resources', title: 'More Resources', level: 1 }
   ];
 
   return (
     <>
+      <Head>
+        <title>{cityTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={cityTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={featuredImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
       <Header />
-
-      {/* Table of Contents */}
       <TableOfContents items={tocItems} />
 
-      <main>
-        {/* Mobile TOC Button */}
+      <main className="city-page-layout">
         <div className="mobile-toc-button">
           <button
             onClick={() => {
               const toc = document.querySelector('.table-of-contents');
-              if (toc) {
-                toc.scrollIntoView({ behavior: 'smooth' });
-              }
+              toc?.scrollIntoView({ behavior: 'smooth' });
             }}
             className="mobile-toc-trigger"
           >
-            <i className="bi bi-list-ul"></i>
+            <i className="bi bi-list-ul" />
             <span>Contents</span>
           </button>
         </div>
 
-        {/* Enhanced Hero Section */}
-        <section id="enhanced-hero" className="enhanced-city-hero">
-        <div className="hero-background">
-          <Image
-            src={featuredImage}
-            alt={`${city.name}, ${city.state} - Dog Parks`}
-            width={1400}
-            height={600}
-            className="hero-image"
-            priority
-          />
-          <div className="hero-overlay"></div>
-        </div>
-
-        <div className="hero-content">
-          {/* Breadcrumbs */}
-          <div className="hero-breadcrumbs">
-            <Link href="/">Home</Link>
-            <i className="bi bi-chevron-right"></i>
-            <span>California Dog Parks</span>
-            <i className="bi bi-chevron-right"></i>
-            <span>{city.name}</span>
-          </div>
-
-          <div className="hero-text">
-            <h1 className="hero-title">Complete Guide to Dog Parks in {city.name}, {city.state}</h1>
-            <p className="hero-subtitle">
-              Discover {stats.totalParks} amazing dog parks and dog-friendly spaces with insider tips,
-              real-time data, and comprehensive guides for the perfect outing with your furry friend.
-            </p>
-
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <i className="bi bi-geo-alt-fill"></i>
-                <div>
-                  <span className="stat-number">{stats.totalParks}</span>
-                  <span className="stat-label">Dog Parks</span>
-                </div>
+        <section id="city-hero" className="city-hero-section">
+          <div className="section-shell city-hero-shell">
+            <div className="city-hero-copy">
+              <div className="hero-breadcrumbs">
+                <Link href="/">Home</Link>
+                <i className="bi bi-chevron-right" />
+                <span>California Dog Parks</span>
+                <i className="bi bi-chevron-right" />
+                <strong>{city.name}</strong>
               </div>
-              <div className="hero-stat">
-                <i className="bi bi-star-fill"></i>
-                <div>
-                  <span className="stat-number">{city.avgRating.toFixed(1)}</span>
-                  <span className="stat-label">Avg Rating</span>
-                </div>
-              </div>
-              <div className="hero-stat">
-                <i className="bi bi-chat-dots-fill"></i>
-                <div>
-                  <span className="stat-number">{city.totalReviews.toLocaleString()}</span>
-                  <span className="stat-label">Reviews</span>
-                </div>
-              </div>
-              <div className="hero-stat">
-                <i className="bi bi-types"></i>
-                <div>
-                  <span className="stat-number">{parkCategories.length}</span>
-                  <span className="stat-label">Park Types</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="hero-actions">
-              <button
-                onClick={() => document.getElementById('park-listings')?.scrollIntoView({ behavior: 'smooth' })}
-                className="hero-cta primary"
-              >
-                <i className="bi bi-list-ul"></i>
-                Browse All Parks
-              </button>
-              <button
-                onClick={() => document.getElementById('city-statistics')?.scrollIntoView({ behavior: 'smooth' })}
-                className="hero-cta secondary"
-              >
-                <i className="bi bi-graph-up"></i>
-                View Statistics
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Statistics Section */}
-      <CityStats parks={cityParks} cityName={city.name} />
-
-      {/* Park Types Guide */}
-      <ParkTypeGuide parksByType={parksByType} cityName={city.name} />
-
-      {/* Interactive Map Section */}
-      <section id="city-map-section" className="city-map-section">
-        <div className="section-header">
-          <span className="section-eyebrow">Interactive Map</span>
-          <h2>Explore Dog Parks in {city.name}</h2>
-          <p className="section-description">
-            Navigate our interactive map to discover dog parks near you. Filter by amenities,
-            check ratings, and plan your route for the perfect dog park adventure.
-          </p>
-        </div>
-
-        <div className="map-container">
-          <div className="map-wrapper">
-            <Map parks={cityParks} />
-          </div>
-          <div className="map-sidebar">
-            <div className="map-info-card">
-              <h3>Map Features</h3>
-              <ul>
-                <li><i className="bi bi-check-circle-fill text-green-500"></i> Click markers for park details</li>
-                <li><i className="bi bi-check-circle-fill text-green-500"></i> Filter by park type and amenities</li>
-                <li><i className="bi bi-check-circle-fill text-green-500"></i> Check real-time availability</li>
-                <li><i className="bi bi-check-circle-fill text-green-500"></i> Get directions to any park</li>
-              </ul>
-            </div>
-
-            <div className="quick-filters">
-              <h4>Quick Filters</h4>
-              <div className="filter-pills">
-                {parkCategories.map(([type, parks]) => (
-                  <button key={type} className="filter-pill">
-                    <span className="pill-count">{parks.length}</span>
-                    {type}
-                  </button>
+              <p className="hero-eyebrow">City spotlight</p>
+              <h1>Complete dog park playbook for {city.name}, {city.state}</h1>
+              <p className="hero-description">
+                Navigate {stats.totalParks} curated dog parks, {parkCategories.length} experience types, and {formatNumber(stats.totalReviews)} local reviews.
+                Build the perfect outing with design-forward data, insider planning tips, and an interactive map built for modern pet parents.
+              </p>
+              <div className="hero-chip-row">
+                {heroChips.map((chip) => (
+                  <div key={chip.label} className="hero-chip">
+                    <span className="chip-value">{chip.value}</span>
+                    <span className="chip-label">{chip.label}</span>
+                  </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comprehensive City Overview */}
-      <section id="planning-guide" className="planning-guide-section">
-        <div className="section-header">
-          <span className="section-eyebrow">Planning Resources</span>
-          <h2>Your Complete Visit Planning Guide</h2>
-          <p className="section-description">
-            Everything you need to know for safe and enjoyable visits to {city.name}&rsquo;s dog parks.
-          </p>
-        </div>
-
-        <div className="planning-grid">
-          <div className="planning-card">
-            <div className="planning-icon">
-              <i className="bi bi-calendar-check"></i>
-            </div>
-            <h3>Best Times to Visit</h3>
-            <p>Early mornings (6-9 AM) offer the best balance of socialization and manageable crowds.
-            Weekday afternoons are quieter, perfect for dogs who prefer calm environments.</p>
-            <div className="time-tips">
-              <span className="time-tip">🟢 Quiet: 10 AM - 3 PM (Weekdays)</span>
-              <span className="time-tip">🟡 Moderate: 4 PM - 7 PM (Weekdays)</span>
-              <span className="time-tip">🔴 Busy: 6 AM - 9 AM, Weekends</span>
-            </div>
-          </div>
-
-          <div className="planning-card">
-            <div className="planning-icon">
-              <i className="bi bi-backpack"></i>
-            </div>
-            <h3>What to Bring</h3>
-            <ul>
-              <li>Leash (for entering/exiting)</li>
-              <li>Water and portable bowl</li>
-              <li>Poop bags (always bring extra!)</li>
-              <li>Toys (check park rules first)</li>
-              <li>Treats for training and rewards</li>
-              <li>First-aid supplies</li>
-            </ul>
-          </div>
-
-          <div className="planning-card">
-            <div className="planning-icon">
-              <i className="bi bi-shield-check"></i>
-            </div>
-            <h3>Safety Guidelines</h3>
-            <ul>
-              <li>Keep your dog&rsquo;s vaccinations current</li>
-              <li>Supervise your dog at all times</li>
-              <li>Remove aggressive dogs immediately</li>
-              <li>Clean up after your dog</li>
-              <li>Follow all posted rules and regulations</li>
-              <li>Respect other dogs and owners</li>
-            </ul>
-          </div>
-
-          <div className="planning-card">
-            <div className="planning-icon">
-              <i className="bi bi-info-circle"></i>
-            </div>
-            <h3>Local Regulations</h3>
-            <p>Most {city.name} dog parks require:</p>
-            <ul>
-              <li>Current dog license</li>
-              <li>Proof of vaccinations</li>
-              <li>Dogs under voice control</li>
-              <li>Maximum 3 dogs per person</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Park Listings */}
-      <section id="park-listings" className="enhanced-park-listings">
-        <div className="section-header">
-          <span className="section-eyebrow">Directory</span>
-          <h2>All Dog Parks in {city.name}</h2>
-          <p className="section-description">
-            Complete directory of all {stats.totalParks} dog parks and dog-friendly establishments in {city.name}.
-          </p>
-        </div>
-
-        {parkCategories.map(([type, parks]) => (
-          <div key={type} className="park-category-section" id={`${type.toLowerCase().replace(/\s+/g, '-')}-parks`}>
-            <div className="category-header">
-              <div>
-                <h3>{type}s in {city.name}</h3>
-                <p>
-                  {parks.length} {type.toLowerCase()}(s) with an average rating of{' '}
-                  {(parks.reduce((sum, p) => sum + p.rating, 0) / parks.length).toFixed(1)} stars
-                </p>
+              <div className="hero-metrics">
+                <div className="hero-metric">
+                  <span className="metric-label">City score</span>
+                  <span className="metric-value">{city.avgRating.toFixed(1)}</span>
+                  <span className="metric-caption">From {formatNumber(stats.totalReviews)} reviews</span>
+                </div>
+                <div className="hero-metric">
+                  <span className="metric-label">Indoor coverage</span>
+                  <span className="metric-value">{indoorShare}%</span>
+                  <span className="metric-caption">{indoorCount} climate-controlled spots</span>
+                </div>
+                <div className="hero-metric">
+                  <span className="metric-label">Top park type</span>
+                  <span className="metric-value">{topCategory?.[0] || 'Dog Park'}</span>
+                  <span className="metric-caption">
+                    {topCategory ? `${topCategory[1].length} listings` : 'Updated weekly'}
+                  </span>
+                </div>
               </div>
-              <span className="category-count">{parks.length} locations</span>
+              <div className="hero-cta-row">
+                <button
+                  className="hero-cta primary"
+                  onClick={() => document.getElementById('park-directory')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <i className="bi bi-list-check" />
+                  Browse directory
+                </button>
+                <button
+                  className="hero-cta ghost"
+                  onClick={() => document.getElementById('map-and-neighborhoods')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <i className="bi bi-geo-alt" />
+                  Open map
+                </button>
+                <Link href="/list-property" className="hero-cta text-link">
+                  <i className="bi bi-plus-circle" />
+                  Submit a park
+                </Link>
+              </div>
+              <div className="hero-footnotes">
+                <span>
+                  <i className="bi bi-shield-check" /> Data refreshed weekly
+                </span>
+                <span>
+                  <i className="bi bi-wifi" /> Live availability coming soon
+                </span>
+              </div>
             </div>
 
-            <div className="parks-enhanced-grid">
-              {parks.map((park) => (
-                <ParkCard
-                  key={park.id}
-                  park={park}
+            <div className="city-hero-visual">
+              <div className="hero-image-card">
+                <Image
+                  src={featuredImage}
+                  alt={`${city.name} dog park landscape`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 540px"
                 />
-              ))}
-            </div>
-
-            {parks.length === 0 && (
-              <div className="no-parks-message">
-                <i className="bi bi-inbox"></i>
-                <p>No {type.toLowerCase()}s found in {city.name}</p>
+                <div className="hero-image-gradient" />
+                <div className="hero-image-pill">
+                  <i className="bi bi-sun" />
+                  Adventure-ready all year
+                </div>
+                {featuredParks[0] && (
+                  <div className="hero-featured-card">
+                    <p>Top-rated this week</p>
+                    <h4>{featuredParks[0].name}</h4>
+                    <span>
+                      <i className="bi bi-star-fill" /> {featuredParks[0].rating.toFixed(1)} · {featuredParks[0].city}
+                    </span>
+                    <button
+                      onClick={() =>
+                        document
+                          .getElementById(`${(featuredParks[0].businessType || 'dog-park').toLowerCase().replace(/\s+/g, '-')}-parks`)
+                          ?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    >
+                      View details
+                    </button>
+                  </div>
+                )}
+                <div className="hero-meta-card">
+                  <span className="meta-label">Coverage snapshot</span>
+                  <p className="meta-value">{stats.totalParks} parks mapped</p>
+                  <span className="meta-caption">Across {parkCategories.length} park types</span>
+                </div>
               </div>
-            )}
+            </div>
           </div>
-        ))}
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <FAQSection cityName={city.name} parkCount={stats.totalParks} />
-
-      {/* Related Resources */}
-      <section className="related-resources">
-        <div className="section-header">
-          <span className="section-eyebrow">Additional Resources</span>
-          <h2>Explore More Dog Parks</h2>
-          <p className="section-description">
-            Discover dog parks in nearby cities and explore specialized guides for different needs.
-          </p>
-        </div>
-
-        <div className="resources-grid">
-          <Link href="/" className="resource-card">
-            <div className="resource-icon">
-              <i className="bi bi-house-door"></i>
+        <section id="city-insights" className="city-insights-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Data-backed overview</span>
+              <h2>How {city.name} stacks up for dog families</h2>
+              <p>
+                Ratings, review volume, and inventory health updated directly from our verified directory so you can plan with confidence.
+              </p>
             </div>
-            <h3>Back to Home</h3>
-            <p>Explore all California dog parks</p>
-            <i className="bi bi-arrow-right"></i>
-          </Link>
 
-          <Link href="/?search=" className="resource-card">
-            <div className="resource-icon">
-              <i className="bi bi-search"></i>
-            </div>
-            <h3>Advanced Search</h3>
-            <p>Find parks by specific amenities</p>
-            <i className="bi bi-arrow-right"></i>
-          </Link>
+            <div className="insights-grid">
+            <article className="insight-card accent">
+              <span className="insight-tag">Experience score</span>
+              <h3>{city.avgRating.toFixed(1)}</h3>
+              <p>Average rating across every verified listing in {city.name}. Reflects cleanliness, amenities, and community feedback.</p>
+              <div className="insight-footer">
+                <i className="bi bi-arrow-up-right" />
+                Trending up vs. statewide average
+              </div>
+            </article>
 
-          <Link href="/contact" className="resource-card">
-            <div className="resource-icon">
-              <i className="bi bi-envelope"></i>
-            </div>
-            <h3>Contact Us</h3>
-            <p>Share your experiences or ask questions</p>
-            <i className="bi bi-arrow-right"></i>
-          </Link>
+            <article className="insight-card">
+              <span className="insight-tag">Review depth</span>
+              <h3>{formatNumber(stats.totalReviews)}</h3>
+              <p>Community reviews informing our quality score. Tap any park card below to see highlights.</p>
+            </article>
 
-          <Link href="/signup" className="resource-card">
-            <div className="resource-icon">
-              <i className="bi bi-person-plus"></i>
+            <article className="insight-card">
+              <span className="insight-tag">Top category</span>
+              <h3>{topCategory?.[0] || 'Dog Park'}</h3>
+              <p>{topCategory ? `${topCategory[1].length} listings currently live in this category.` : 'Fresh listings added weekly.'}</p>
+            </article>
+
+            <article className="insight-card">
+              <span className="insight-tag">Indoor availability</span>
+              <h3>{indoorCount ? `${indoorShare}%` : '—'}</h3>
+              <p>
+                {indoorCount
+                  ? `${indoorCount} indoor parks with climate control for weather-proof play sessions.`
+                  : 'Indoor options are being scouted—submit a favorite and we will feature it.'}
+              </p>
+            </article>
+          </div>
+
+            <div className="city-stats-wrapper">
+              <CityStats parks={cityParks} cityName={city.name} />
             </div>
-            <h3>Join Community</h3>
-            <p>Connect with local dog owners</p>
-            <i className="bi bi-arrow-right"></i>
-          </Link>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        <section id="park-collections" className="park-collections-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Curated collections</span>
+              <h2>Choose the vibe that fits your next outing</h2>
+              <p>Segmented park groupings built from live data so you can jump straight to the experiences that matter most.</p>
+            </div>
+
+            <div className="collection-grid">
+              {parkCategories.length === 0 && (
+                <div className="collection-empty">
+                  <i className="bi bi-inbox" />
+                  <p>We haven&rsquo;t catalogued parks in this city yet. Check back soon!</p>
+                </div>
+              )}
+
+              {parkCategories.map(([type, parks]) => {
+                const typeSlug = `${type.toLowerCase().replace(/\s+/g, '-')}-parks`;
+                return (
+                  <article key={type} className="collection-card">
+                    <div className="collection-card-head">
+                      <span className="collection-pill">{parks.length} spots</span>
+                      <h3>{type}</h3>
+                    </div>
+                    <p>{getCollectionDescription(type, city.name)}</p>
+                    <div className="collection-card-footer">
+                      <span>
+                        <i className="bi bi-star-fill" />{' '}
+                        {(parks.reduce((sum, park) => sum + park.rating, 0) / parks.length).toFixed(1)} avg rating
+                      </span>
+                      <button onClick={() => document.getElementById(typeSlug)?.scrollIntoView({ behavior: 'smooth' })}>
+                        Jump to list
+                        <i className="bi bi-arrow-right" />
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="park-type-guide-wrapper">
+              <ParkTypeGuide parksByType={parksByType} cityName={city.name} />
+            </div>
+          </div>
+        </section>
+
+        <section id="map-and-neighborhoods" className="map-experience-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Interactive planning</span>
+              <h2>See everything laid out on the map</h2>
+              <p>Use the live map to lock in nearby options, preview ratings, and save time hopping between neighborhoods.</p>
+            </div>
+
+            <div className="map-grid">
+              <div className="map-panel">
+                <Map parks={cityParks} />
+              </div>
+              <div className="map-sidebar">
+                <div className="map-sidebar-card">
+                  <h3>Quick filters</h3>
+                  <div className="map-chip-grid">
+                    {parkCategories.map(([type, parks]) => (
+                      <button key={type} onClick={() => document.getElementById(`${type.toLowerCase().replace(/\s+/g, '-')}-parks`)?.scrollIntoView({ behavior: 'smooth' })}>
+                        <span>{type}</span>
+                        <small>{parks.length}</small>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="map-sidebar-card">
+                  <h3>Highest-rated nearby</h3>
+                  <div className="mini-park-list">
+                    {featuredParks.map((park) => (
+                      <div key={park.id} className="mini-park-card">
+                        <div>
+                          <p>{park.name}</p>
+                          <span>{park.businessType}</span>
+                        </div>
+                        <strong>{park.rating.toFixed(1)}</strong>
+                      </div>
+                    ))}
+                    {featuredParks.length === 0 && <p className="text-muted">We&rsquo;ll highlight local favorites once data is available.</p>}
+                  </div>
+                </div>
+
+                <div className="map-sidebar-card muted">
+                  <p>Tip: tap any map marker to open directions, amenities, and current open hours.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="planning-essentials" className="planning-essentials-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Visit toolkit</span>
+              <h2>Plan the perfect dog outing in {city.name}</h2>
+              <p>Borrow best practices from local trainers, rangers, and experienced pet parents.</p>
+            </div>
+
+            <div className="planning-grid">
+              <article className="planning-card">
+                <div className="planning-icon">
+                  <i className="bi bi-clock-history" />
+                </div>
+                <h3>Peak & quiet windows</h3>
+                <ul>
+                  <li>6–9 AM: high energy social hour</li>
+                  <li>10 AM–3 PM weekdays: calm training-friendly window</li>
+                  <li>After 4 PM: sunset crowd + cooler temps</li>
+                </ul>
+              </article>
+
+              <article className="planning-card">
+                <div className="planning-icon">
+                  <i className="bi bi-backpack" />
+                </div>
+                <h3>Essentials checklist</h3>
+                <ul>
+                  <li>Leash + harness for entry/exit control</li>
+                  <li>Collapsible water bowl and fresh water</li>
+                  <li>Plenty of waste bags and high-value treats</li>
+                </ul>
+              </article>
+
+              <article className="planning-card">
+                <div className="planning-icon">
+                  <i className="bi bi-shield-check" />
+                </div>
+                <h3>Local regulations</h3>
+                <ul>
+                  <li>Keep proof of vaccinations or city license handy</li>
+                  <li>Voice control required in most off-leash zones</li>
+                  <li>Limit three dogs per handler in public parks</li>
+                </ul>
+              </article>
+
+              <article className="planning-card">
+                <div className="planning-icon">
+                  <i className="bi bi-heart" />
+                </div>
+                <h3>Community etiquette</h3>
+                <ul>
+                  <li>Scan the park before entering and remove prong collars</li>
+                  <li>Monitor play styles and intervene early</li>
+                  <li>Share shaded space and refill water when you&rsquo;re done</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="park-directory" className="park-directory-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">City directory</span>
+              <h2>All dog parks in {city.name}</h2>
+              <p>Filter-ready cards with ratings, amenities, and quick actions. Use the chips to jump between sections.</p>
+            </div>
+
+            <div className="category-chip-row">
+              {parkCategories.map(([type]) => {
+                const slug = `${type.toLowerCase().replace(/\s+/g, '-')}-parks`;
+                return (
+                  <button key={type} onClick={() => document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth' })}>
+                    {type}
+                  </button>
+                );
+              })}
+            </div>
+
+            {parkCategories.map(([type, parks]) => {
+              const slug = `${type.toLowerCase().replace(/\s+/g, '-')}-parks`;
+              return (
+                <div key={type} id={slug} className="directory-category">
+                  <div className="directory-header">
+                    <div>
+                      <h3>{type}s in {city.name}</h3>
+                      <p>
+                        {parks.length} locations ·{' '}
+                        {(parks.reduce((sum, park) => sum + park.rating, 0) / parks.length).toFixed(1)} average rating
+                      </p>
+                    </div>
+                    <span className="directory-count">{parks.length}</span>
+                  </div>
+                  <div className="directory-grid">
+                    {parks.map((park) => (
+                      <ParkCard key={park.id} park={park} />
+                    ))}
+                  </div>
+                  {parks.length === 0 && (
+                    <div className="directory-empty">
+                      <i className="bi bi-chat-square" />
+                      <p>No listings yet—submit a favorite to help other pet parents.</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="faq-section" className="city-faq-section">
+          <div className="section-shell">
+            <FAQSection cityName={city.name} parkCount={stats.totalParks} />
+          </div>
+        </section>
+
+        <section id="related-resources" className="related-resources-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Keep exploring</span>
+              <h2>More ways to plan</h2>
+              <p>Browse statewide guides, submit a listing, or connect with our team.</p>
+            </div>
+
+            <div className="resources-grid">
+              <Link href="/" className="resource-card">
+                <div className="resource-icon">
+                  <i className="bi bi-globe" />
+                </div>
+                <h3>California overview</h3>
+                <p>See every city we cover plus statewide insights.</p>
+                <i className="bi bi-arrow-up-right" />
+              </Link>
+
+              <Link href="/contact" className="resource-card">
+                <div className="resource-icon">
+                  <i className="bi bi-chat-dots" />
+                </div>
+                <h3>Ask the team</h3>
+                <p>Need custom data or media assets? We&rsquo;re here.</p>
+                <i className="bi bi-arrow-up-right" />
+              </Link>
+
+              <Link href="/list-property" className="resource-card">
+                <div className="resource-icon">
+                  <i className="bi bi-megaphone" />
+                </div>
+                <h3>Feature your park</h3>
+                <p>Upgrade to a featured listing and reach active pet parents.</p>
+                <i className="bi bi-arrow-up-right" />
+              </Link>
+
+              <Link href="/blog" className="resource-card">
+                <div className="resource-icon">
+                  <i className="bi bi-journal-text" />
+                </div>
+                <h3>Latest guides</h3>
+                <p>Training tips, travel itineraries, and product spotlights.</p>
+                <i className="bi bi-arrow-up-right" />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
 
       <style jsx global>{`
-        /* Enhanced Hero Styles */
-        .enhanced-city-hero {
-          position: relative;
-          height: 60vh;
-          min-height: 400px;
-          display: flex;
-          align-items: center;
-          overflow: hidden;
+        .city-page-layout {
+          padding: 32px 32px 96px 360px;
+          background: linear-gradient(180deg, #faf7ff 0%, #ffffff 40%, #f6f7fb 100%);
         }
 
-        .hero-background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1;
+        @media (max-width: 1200px) {
+          .city-page-layout {
+            padding-left: 320px;
+          }
         }
 
-        .hero-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        @media (max-width: 1024px) {
+          .city-page-layout {
+            padding: 80px 24px 80px;
+          }
         }
 
-        .hero-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg,
-            rgba(124, 58, 237, 0.8) 0%,
-            rgba(168, 85, 247, 0.6) 50%,
-            rgba(0, 0, 0, 0.7) 100%
-          );
-          z-index: 1;
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 2;
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-          color: white;
-        }
-
-        .hero-breadcrumbs {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 16px;
-          font-size: 13px;
-        }
-
-        .hero-breadcrumbs a {
-          color: rgba(255, 255, 255, 0.8);
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-
-        .hero-breadcrumbs a:hover {
-          color: white;
-        }
-
-        .hero-breadcrumbs i {
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 12px;
-        }
-
-        .hero-title {
-          font-size: clamp(32px, 4.5vw, 48px);
-          font-weight: 700;
-          line-height: 1.1;
-          margin: 0 0 12px;
-          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-          font-size: clamp(16px, 2vw, 20px);
-          line-height: 1.4;
-          margin: 0 0 24px;
-          color: rgba(255, 255, 255, 0.9);
-          max-width: 700px;
-        }
-
-        .hero-stats {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-          gap: 20px;
-          margin-bottom: 28px;
-          max-width: 550px;
-        }
-
-        .hero-stat {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .hero-stat i {
-          font-size: 20px;
-          color: rgba(255, 255, 255, 0.9);
-        }
-
-        .stat-number {
-          display: block;
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 1;
-        }
-
-        .stat-label {
-          font-size: 12px;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-        }
-
-        .hero-actions {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
-        .hero-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 6px;
-          font-size: 14px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          text-decoration: none;
-        }
-
-        .hero-cta.primary {
-          background: white;
-          color: #FF5722;
-        }
-
-        .hero-cta.primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-cta.secondary {
-          background: transparent;
-          color: white;
-          border: 2px solid white;
-        }
-
-        .hero-cta.secondary:hover {
-          background: white;
-          color: #FF5722;
-        }
-
-        /* City Map Section */
-        .city-map-section {
-          padding: 50px 20px;
-          background: white;
-        }
-
-        .map-container {
-          max-width: 1400px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 280px;
-          gap: 24px;
-        }
-
-        .map-wrapper {
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-          height: 420px;
-        }
-
-        .map-sidebar {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .map-info-card {
-          background: #f9fafb;
-          padding: 18px;
-          border-radius: 10px;
-        }
-
-        .map-info-card h3 {
-          font-size: 16px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 12px;
-        }
-
-        .map-info-card ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: grid;
-          gap: 8px;
-        }
-
-        .map-info-card li {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 13px;
-          color: #4b5563;
-        }
-
-        .quick-filters h4 {
-          font-size: 14px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 8px;
-        }
-
-        .filter-pills {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .filter-pill {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 8px 12px;
-          background: white;
-          border: 1px solid #e5e7eb;
-          border-radius: 6px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          font-size: 13px;
-          color: #374151;
-          font-weight: 500;
-        }
-
-        .filter-pill:hover {
-          border-color: #FF5722;
-          color: #FF5722;
-        }
-
-        .pill-count {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 24px;
-          height: 24px;
-          background: #f3f4f6;
-          border-radius: 12px;
-          font-size: 12px;
-          font-weight: 600;
-          color: #6b7280;
-        }
-
-        .filter-pill:hover .pill-count {
-          background: #FFEBEE;
-          color: #FF5722;
-        }
-
-        /* Planning Guide Section */
-        .planning-guide-section {
-          padding: 50px 20px;
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-        }
-
-        .planning-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 20px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .planning-card {
-          background: white;
-          border-radius: 12px;
-          padding: 20px;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-          transition: transform 0.3s ease;
-        }
-
-        .planning-card:hover {
-          transform: translateY(-5px);
-        }
-
-        .planning-icon {
-          width: 48px;
-          height: 48px;
-          background: linear-gradient(135deg, #FF5722, #FFB74D);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 20px;
-          margin-bottom: 12px;
-        }
-
-        .planning-card h3 {
-          font-size: 18px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 8px;
-        }
-
-        .planning-card p {
-          color: #6b7280;
-          line-height: 1.5;
-          margin: 0 0 12px;
-          font-size: 14px;
-        }
-
-        .planning-card ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: grid;
-          gap: 6px;
-        }
-
-        .planning-card li {
-          display: flex;
-          align-items: flex-start;
-          gap: 6px;
-          color: #4b5563;
-          line-height: 1.4;
-          font-size: 13px;
-        }
-
-        .planning-card li::before {
-          content: "✓";
-          color: #10b981;
-          font-weight: 600;
-          flex-shrink: 0;
-        }
-
-        .time-tips {
-          display: grid;
-          gap: 8px;
-        }
-
-        .time-tip {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 13px;
-          padding: 8px 12px;
-          background: #f9fafb;
-          border-radius: 6px;
-        }
-
-        /* Enhanced Park Listings */
-        .enhanced-park-listings {
-          padding: 50px 20px;
-          background: white;
-        }
-
-        .park-category-section {
-          max-width: 1400px;
-          margin: 0 auto 40px;
-        }
-
-        .category-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-          padding-bottom: 12px;
-          border-bottom: 1px solid #f3f4f6;
-        }
-
-        .category-header h3 {
-          font-size: 24px;
-          font-weight: 700;
-          color: #1f2937;
-          margin: 0 0 6px;
-        }
-
-        .category-header p {
-          color: #6b7280;
-          margin: 0;
-          font-size: 14px;
-        }
-
-        .category-count {
-          padding: 6px 12px;
-          background: linear-gradient(135deg, #FF5722, #FFB74D);
-          color: white;
-          border-radius: 16px;
-          font-size: 12px;
-          font-weight: 600;
-        }
-
-        .parks-enhanced-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          gap: 20px;
-        }
-
-        .no-parks-message {
-          text-align: center;
-          padding: 40px 20px;
-          color: #6b7280;
-        }
-
-        .no-parks-message i {
-          font-size: 36px;
-          color: #d1d5db;
-          margin-bottom: 12px;
-        }
-
-        /* Related Resources Section */
-        .related-resources {
-          padding: 50px 20px;
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-        }
-
-        .resources-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 20px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .resource-card {
-          display: flex;
-          flex-direction: column;
-          background: white;
-          border-radius: 12px;
-          padding: 22px;
-          text-decoration: none;
-          color: inherit;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-          transition: all 0.3s ease;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .resource-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .resource-icon {
-          width: 42px;
-          height: 42px;
-          background: linear-gradient(135deg, #FF5722, #FFB74D);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 18px;
-          margin-bottom: 12px;
-        }
-
-        .resource-card h3 {
-          font-size: 16px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 6px;
-        }
-
-        .resource-card p {
-          color: #6b7280;
-          line-height: 1.4;
-          margin: 0 0 12px;
-          flex: 1;
-          font-size: 14px;
-        }
-
-        .resource-card i:last-child {
-          color: #FF5722;
-          font-size: 18px;
-          align-self: flex-end;
-        }
-
-        /* Main content spacing for TOC */
-        main {
-          padding-left: 320px; /* Account for TOC width + gap */
-          transition: padding-left 0.3s ease;
-        }
-
-        /* Mobile TOC Button */
         .mobile-toc-button {
           display: none;
           position: fixed;
@@ -998,78 +748,735 @@ export default function CityPage(props: CityPageProps) {
         .mobile-toc-trigger {
           display: flex;
           align-items: center;
-          gap: 6px;
-          padding: 8px 12px;
-          background: linear-gradient(135deg, #FF5722, #FFB74D);
-          color: white;
+          gap: 8px;
+          padding: 10px 16px;
+          border-radius: 999px;
           border: none;
-          border-radius: 20px;
-          box-shadow: 0 3px 15px rgba(255, 87, 34, 0.3);
-          cursor: pointer;
-          font-size: 12px;
+          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          color: white;
           font-weight: 600;
-          transition: all 0.3s ease;
-        }
-
-        .mobile-toc-trigger:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 30px rgba(255, 87, 34, 0.4);
-        }
-
-        /* Responsive Design - Improved Breakpoints */
-        @media (max-width: 1200px) {
-          main {
-            padding-left: 300px; /* Slightly reduce padding for medium screens */
-          }
+          box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
         }
 
         @media (max-width: 1024px) {
-          main {
-            padding-left: 20px; /* Reset padding on smaller screens */
-          }
-
           .mobile-toc-button {
             display: block;
           }
         }
 
+        .section-shell {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .city-hero-section {
+          position: relative;
+          padding: 24px 0 72px;
+        }
+
+        .city-hero-shell {
+          display: grid;
+          grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+          gap: 48px;
+        }
+
+        @media (max-width: 900px) {
+          .city-hero-shell {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .hero-breadcrumbs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          font-size: 13px;
+          color: #6b7280;
+          margin-bottom: 12px;
+        }
+
+        .hero-breadcrumbs a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .hero-eyebrow {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #a855f7;
+          margin-bottom: 12px;
+          font-weight: 700;
+        }
+
+        .city-hero-copy h1 {
+          font-size: clamp(32px, 4vw, 56px);
+          line-height: 1.1;
+          color: #0f172a;
+          margin-bottom: 16px;
+        }
+
+        .hero-description {
+          font-size: 18px;
+          color: #475569;
+          line-height: 1.6;
+          margin-bottom: 28px;
+        }
+
+        .hero-chip-row {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          gap: 12px;
+          margin-bottom: 32px;
+        }
+
+        .hero-chip {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 12px 16px;
+          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
+        }
+
+        .chip-value {
+          display: block;
+          font-size: 20px;
+          font-weight: 700;
+          color: #111827;
+        }
+
+        .chip-label {
+          font-size: 12px;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
+        .hero-metrics {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 16px;
+          margin-bottom: 28px;
+        }
+
+        .hero-metric {
+          background: #111827;
+          color: white;
+          border-radius: 16px;
+          padding: 18px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-metric::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.3), transparent);
+          opacity: 0.4;
+        }
+
+        .hero-metric span {
+          position: relative;
+          z-index: 1;
+        }
+
+        .metric-label {
+          font-size: 12px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #cbd5f5;
+        }
+
+        .metric-value {
+          display: block;
+          font-size: 34px;
+          font-weight: 700;
+          margin: 6px 0 4px;
+        }
+
+        .metric-caption {
+          font-size: 12px;
+          color: #cbd5f5;
+        }
+
+        .hero-cta-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-bottom: 16px;
+        }
+
+        .hero-cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border: none;
+          border-radius: 999px;
+          padding: 12px 22px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-cta.primary {
+          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          color: white;
+          box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+        }
+
+        .hero-cta.ghost {
+          background: white;
+          color: #111827;
+          border: 1px solid #e2e8f0;
+        }
+
+        .hero-cta.text-link {
+          background: transparent;
+          color: #7c3aed;
+          padding-left: 0;
+        }
+
+        .hero-footnotes {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+          font-size: 13px;
+          color: #475569;
+        }
+
+        .hero-footnotes i {
+          color: #7c3aed;
+          margin-right: 6px;
+        }
+
+        .city-hero-visual {
+          position: relative;
+        }
+
+        .hero-image-card {
+          position: relative;
+          min-height: 480px;
+          border-radius: 32px;
+          overflow: hidden;
+          box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+        }
+
+        .hero-image-card img {
+          object-fit: cover;
+        }
+
+        .hero-image-gradient {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.8));
+        }
+
+        .hero-image-pill {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(255, 255, 255, 0.9);
+          color: #111827;
+          border-radius: 999px;
+          padding: 8px 14px;
+          font-weight: 600;
+        }
+
+        .hero-featured-card {
+          position: absolute;
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 20px;
+          padding: 18px;
+          backdrop-filter: blur(12px);
+          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+        }
+
+        .hero-featured-card p {
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          font-size: 11px;
+          color: #a855f7;
+          margin-bottom: 4px;
+        }
+
+        .hero-featured-card h4 {
+          margin: 0;
+          font-size: 20px;
+          color: #111827;
+        }
+
+        .hero-featured-card span {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 13px;
+          color: #475569;
+        }
+
+        .hero-featured-card button {
+          margin-top: 12px;
+          border: none;
+          background: #111827;
+          color: white;
+          border-radius: 999px;
+          padding: 8px 14px;
+          font-size: 13px;
+          cursor: pointer;
+        }
+
+        .hero-meta-card {
+          position: absolute;
+          top: 20px;
+          right: -20px;
+          background: white;
+          border-radius: 18px;
+          padding: 16px 20px;
+          width: 220px;
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+        }
+
+        .meta-label {
+          text-transform: uppercase;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          color: #94a3b8;
+        }
+
+        .meta-value {
+          font-size: 18px;
+          font-weight: 700;
+          margin: 6px 0;
+        }
+
+        .meta-caption {
+          font-size: 12px;
+          color: #64748b;
+        }
+
+        .section-heading {
+          max-width: 720px;
+          margin: 0 auto 40px;
+          text-align: center;
+        }
+
+        .section-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 16px;
+          border-radius: 999px;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          background: rgba(124, 58, 237, 0.1);
+          color: #7c3aed;
+          margin-bottom: 12px;
+          font-weight: 700;
+        }
+
+        .section-heading h2 {
+          font-size: clamp(28px, 3vw, 40px);
+          color: #0f172a;
+          margin-bottom: 12px;
+        }
+
+        .section-heading p {
+          color: #475569;
+          font-size: 18px;
+          line-height: 1.6;
+        }
+
+        .city-insights-section,
+        .park-collections-section,
+        .map-experience-section,
+        .planning-essentials-section,
+        .park-directory-section,
+        .city-faq-section,
+        .related-resources-section {
+          padding: 64px 0;
+        }
+
+        .insights-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 20px;
+          margin-bottom: 40px;
+        }
+
+        .insight-card {
+          background: white;
+          border-radius: 20px;
+          padding: 24px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
+        }
+
+        .insight-card.accent {
+          background: linear-gradient(135deg, #111827, #312e81);
+          color: white;
+          border: none;
+        }
+
+        .insight-tag {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #a855f7;
+        }
+
+        .insight-card.accent .insight-tag {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .insight-card h3 {
+          font-size: 32px;
+          margin: 12px 0;
+        }
+
+        .insight-card p {
+          font-size: 15px;
+          color: inherit;
+        }
+
+        .insight-card:not(.accent) p {
+          color: #475569;
+        }
+
+        .insight-footer {
+          margin-top: 16px;
+          font-size: 13px;
+          display: inline-flex;
+          gap: 6px;
+          align-items: center;
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .park-collections-section {
+          background: #f7f0ff;
+        }
+
+        .collection-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 20px;
+          margin-bottom: 48px;
+        }
+
+        .collection-card {
+          background: white;
+          border-radius: 24px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          border: 1px solid rgba(124, 58, 237, 0.12);
+          box-shadow: 0 20px 45px rgba(124, 58, 237, 0.08);
+        }
+
+        .collection-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #7c3aed;
+        }
+
+        .collection-card h3 {
+          margin: 0;
+          font-size: 24px;
+        }
+
+        .collection-card p {
+          color: #475569;
+          flex: 1;
+        }
+
+        .collection-card-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 14px;
+        }
+
+        .collection-card-footer button {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border: none;
+          background: transparent;
+          color: #7c3aed;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        .map-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 320px;
+          gap: 24px;
+        }
+
+        @media (max-width: 960px) {
+          .map-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .map-panel {
+          border-radius: 28px;
+          overflow: hidden;
+          box-shadow: 0 35px 60px rgba(15, 23, 42, 0.15);
+          min-height: 420px;
+        }
+
+        .map-sidebar {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .map-sidebar-card {
+          background: white;
+          border-radius: 20px;
+          padding: 20px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
+        }
+
+        .map-sidebar-card.muted {
+          background: #0f172a;
+          color: #cbd5f5;
+        }
+
+        .map-sidebar-card h3 {
+          margin-top: 0;
+          margin-bottom: 12px;
+        }
+
+        .map-chip-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 10px;
+        }
+
+        .map-chip-grid button {
+          border: 1px solid #e2e8f0;
+          background: #f8fafc;
+          border-radius: 12px;
+          padding: 10px 12px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-weight: 600;
+          color: #475569;
+          cursor: pointer;
+        }
+
+        .mini-park-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .mini-park-card {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px;
+          border-radius: 12px;
+          background: #f8fafc;
+        }
+
+        .mini-park-card p {
+          margin: 0;
+          font-weight: 600;
+        }
+
+        .mini-park-card span {
+          font-size: 12px;
+          color: #64748b;
+        }
+
+        .planning-essentials-section {
+          background: #fff;
+        }
+
+        .planning-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 20px;
+        }
+
+        .planning-card {
+          background: white;
+          border-radius: 20px;
+          padding: 24px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
+        }
+
+        .planning-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 16px;
+          background: rgba(124, 58, 237, 0.1);
+          color: #7c3aed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+
+        .planning-card h3 {
+          margin-top: 0;
+        }
+
+        .planning-card ul {
+          padding-left: 18px;
+          color: #475569;
+          line-height: 1.6;
+        }
+
+        .park-directory-section {
+          background: #f8f8ff;
+        }
+
+        .category-chip-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+          margin-bottom: 32px;
+        }
+
+        .category-chip-row button {
+          border: 1px solid #d1d5db;
+          background: white;
+          border-radius: 999px;
+          padding: 8px 18px;
+          font-weight: 600;
+          cursor: pointer;
+          color: #475569;
+        }
+
+        .directory-category {
+          background: white;
+          border-radius: 28px;
+          padding: 32px;
+          margin-bottom: 40px;
+          box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        @media (max-width: 640px) {
+          .directory-category {
+            padding: 20px;
+          }
+        }
+
+        .directory-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          border-bottom: 1px solid #e2e8f0;
+          padding-bottom: 20px;
+          margin-bottom: 24px;
+        }
+
+        .directory-count {
+          background: #111827;
+          color: white;
+          border-radius: 999px;
+          padding: 6px 14px;
+          font-weight: 700;
+        }
+
+        .directory-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+        }
+
+        .directory-empty {
+          text-align: center;
+          color: #94a3b8;
+          padding: 40px 0;
+        }
+
+        .city-faq-section {
+          background: white;
+        }
+
+        .related-resources-section {
+          background: #0f172a;
+          color: white;
+        }
+
+        .resources-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 20px;
+        }
+
+        .resource-card {
+          background: rgba(255, 255, 255, 0.08);
+          padding: 24px;
+          border-radius: 20px;
+          text-decoration: none;
+          color: inherit;
+          backdrop-filter: blur(6px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          transition: transform 0.2s ease, border 0.2s ease;
+        }
+
+        .resource-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .resource-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+        }
+
         @media (max-width: 768px) {
-          .map-container {
+          .city-page-layout {
+            padding-top: 80px;
+          }
+
+          .hero-metrics {
             grid-template-columns: 1fr;
-            gap: 20px;
           }
 
-          .map-wrapper {
-            height: 350px;
+          .hero-chip-row {
+            grid-template-columns: 1fr 1fr;
           }
 
-          .hero-stats {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-          }
-
-          .hero-actions {
-            flex-direction: column;
-            gap: 8px;
-          }
-
-          .hero-cta {
-            width: 100%;
-            justify-content: center;
-          }
-
-          .category-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-          }
-
-          .parks-enhanced-grid {
+          .directory-grid {
             grid-template-columns: 1fr;
-            gap: 16px;
           }
         }
       `}</style>
     </>
   );
 }
+

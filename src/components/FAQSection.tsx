@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 interface FAQItem {
   question: string;
@@ -16,7 +16,7 @@ interface FAQSectionProps {
 
 export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set([0])); // First item expanded by default
+  const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
 
   const faqData: FAQItem[] = [
     {
@@ -113,583 +113,602 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     { id: 'training', name: 'Training', count: faqData.filter(item => item.category === 'training').length }
   ];
 
-  const filteredFAQs = activeCategory === 'all'
-    ? faqData
-    : faqData.filter(item => item.category === activeCategory);
+  const categoryLabelMap = categories.reduce<Record<string, string>>((acc, category) => {
+    acc[category.id] = category.name;
+    return acc;
+  }, {});
 
-  const toggleItem = (index: number) => {
-    const newExpanded = new Set(expandedItems);
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index);
-    } else {
-      newExpanded.add(index);
-    }
-    setExpandedItems(newExpanded);
+  const filteredFAQs = useMemo(
+    () => (activeCategory === 'all'
+      ? faqData
+      : faqData.filter(item => item.category === activeCategory)),
+    [activeCategory]
+  );
+
+  useEffect(() => {
+    setExpandedQuestion(filteredFAQs.length ? filteredFAQs[0].question : null);
+  }, [filteredFAQs]);
+
+  const getPreview = (answer: string) => {
+    const parts = answer.split(/(?<=[.!?])\s+/);
+    return parts[0];
+  };
+
+  const toggleItem = (question: string) => {
+    setExpandedQuestion(prev => (prev === question ? null : question));
   };
 
   const popularFAQs = faqData.filter(item => item.popular);
+  const totalFAQs = faqData.length;
+  const visibleCount = filteredFAQs.length;
 
   return (
     <section id="faq-section" className="faq-section">
-      <div className="section-header">
-        <span className="section-eyebrow">Helpful Information</span>
-        <h2>Frequently Asked Questions</h2>
-        <p className="section-description">
-          Get answers to common questions about dog parks in {cityName}. Find everything you need to know for a safe and enjoyable experience.
-        </p>
-      </div>
-
-      {/* Popular Questions */}
-      <div className="popular-questions">
-        <h3>Popular Questions</h3>
-        <div className="popular-grid">
-          {popularFAQs.map((faq, index) => (
-            <button
-              key={index}
-              onClick={() => toggleItem(faqData.indexOf(faq))}
-              className="popular-question-btn"
-            >
-              <i className="bi bi-question-circle"></i>
-              {faq.question}
-            </button>
-          ))}
+      <div className="faq-shell">
+        <div className="faq-header" aria-labelledby="faq-heading">
+          <div>
+            <span className="section-eyebrow">Helpful Information</span>
+            <h2 id="faq-heading">Frequently asked questions about {cityName} dog parks</h2>
+            <p>
+              Real-world guidance covering pricing, safety, etiquette, and planning for more than {parkCount} parks
+              and dog-friendly spaces across {cityName}. Tap a topic to reveal deeper context.
+            </p>
+          </div>
+          <div className="faq-header-meta">
+            <div className="meta-card">
+              <span className="meta-label">Answer library</span>
+              <strong>{totalFAQs}</strong>
+              <small>Verified responses</small>
+            </div>
+            <div className="meta-card">
+              <span className="meta-label">Coverage</span>
+              <strong>{parkCount}</strong>
+              <small>Parks referenced</small>
+            </div>
+            <div className="meta-card">
+              <span className="meta-label">View</span>
+              <strong>{visibleCount}</strong>
+              <small>Visible for this filter</small>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Category Filters */}
-      <div className="category-filters">
-        <div className="filter-header">
-          <h3>Browse by Category</h3>
-          <span className="filter-count">{filteredFAQs.length} questions</span>
-        </div>
-        <div className="filter-buttons">
-          {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`filter-btn ${activeCategory === category.id ? 'active' : ''}`}
-            >
-              {category.name}
-              <span className="filter-count-badge">{category.count}</span>
-            </button>
-          ))}
-        </div>
-      </div>
+        <div className="faq-grid">
+          <aside className="faq-sidebar">
+            <div className="sidebar-card snapshot-card">
+              <p className="snapshot-kicker">Need a quick overview?</p>
+              <ul>
+                <li><strong>{popularFAQs.length}</strong> questions trending this week</li>
+                <li><strong>{categories.length - 1}</strong> expert-backed topics</li>
+                <li>Updated weekly with community feedback</li>
+              </ul>
+            </div>
 
-      {/* FAQ Items */}
-      <div className="faq-container">
-        <div className="faq-list">
-          {filteredFAQs.map((faq) => {
-            const originalIndex = faqData.indexOf(faq);
-            const isExpanded = expandedItems.has(originalIndex);
+            <div className="sidebar-card categories-card">
+              <div className="sidebar-card-header">
+                <span>Browse by topic</span>
+                <span className="muted">{categories.length - 1} categories</span>
+              </div>
+              <div className="category-list">
+                {categories.map(category => (
+                  <button
+                    key={category.id}
+                    type="button"
+                    aria-pressed={activeCategory === category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
+                  >
+                    <div>
+                      <span className="category-name">{category.name}</span>
+                      {category.id !== 'all' && (
+                        <span className="category-preview">
+                          {category.count} {category.count === 1 ? 'answer' : 'answers'}
+                        </span>
+                      )}
+                    </div>
+                    <span className="category-count">{category.count}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
-            return (
-              <article
-                key={originalIndex}
-                className={`faq-item ${isExpanded ? 'expanded' : ''}`}
-              >
-                <button
-                  onClick={() => toggleItem(originalIndex)}
-                  className="faq-question"
-                >
-                  <div className="question-content">
-                    <span className="question-number">
-                      {String(filteredFAQs.indexOf(faq) + 1).padStart(2, '0')}
-                    </span>
-                    <span className="question-text">{faq.question}</span>
-                    {faq.popular && (
-                      <span className="popular-badge">Popular</span>
-                    )}
-                  </div>
-                  <div className="question-toggle">
-                    <i className={`bi bi-chevron-${isExpanded ? 'up' : 'down'}`}></i>
-                  </div>
-                </button>
+            <div className="sidebar-card support-card">
+              <p className="support-label">Still stuck?</p>
+              <h3>Chat with our team</h3>
+              <p>Share your situation and we&apos;ll recommend the best park, indoor option, or community meetup.</p>
+              <div className="support-actions">
+                <a href="/contact">Contact us</a>
+                <a href="/signup" className="secondary">Join community</a>
+              </div>
+            </div>
+          </aside>
 
-                <div className={`faq-answer ${isExpanded ? 'show' : ''}`}>
-                  <div className="answer-content">
-                    <p>{faq.answer}</p>
+          <div className="faq-main">
+            <div className="popular-rail">
+              <div>
+                <span className="popular-eyebrow">Popular right now</span>
+                <p>Tap to jump to the full answer.</p>
+              </div>
+              <div className="popular-chip-row">
+                {popularFAQs.map((faq) => (
+                  <button
+                    key={faq.question}
+                    type="button"
+                    onClick={() => toggleItem(faq.question)}
+                    className="popular-chip"
+                  >
+                    <i className="bi bi-question-circle" />
+                    {faq.question}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                    <div className="answer-actions">
-                      <span className="category-tag">{faq.category}</span>
-                      <div className="helpful-buttons">
-                        <span className="helpful-label">Was this helpful?</span>
-                        <button className="helpful-btn">
-                          <i className="bi bi-hand-thumbs-up"></i>
-                          Yes
-                        </button>
-                        <button className="helpful-btn">
-                          <i className="bi bi-hand-thumbs-down"></i>
-                          No
-                        </button>
+            <div className="faq-accordion" role="list">
+              {filteredFAQs.map((faq, idx) => {
+                const isExpanded = expandedQuestion === faq.question;
+
+                return (
+                  <article
+                    role="listitem"
+                    key={faq.question}
+                    className={`faq-row ${isExpanded ? 'open' : ''}`}
+                  >
+                    <button
+                      type="button"
+                      className="faq-trigger"
+                      onClick={() => toggleItem(faq.question)}
+                      aria-expanded={isExpanded}
+                    >
+                      <div className="faq-trigger-main">
+                        <span className="faq-index">{String(idx + 1).padStart(2, '0')}</span>
+                        <div>
+                          <h4>{faq.question}</h4>
+                          <p className="faq-preview">{getPreview(faq.answer)}</p>
+                        </div>
+                      </div>
+                      <div className="faq-trigger-meta">
+                        <span className="category-chip">{categoryLabelMap[faq.category] || faq.category}</span>
+                        <i className={`bi bi-chevron-${isExpanded ? 'up' : 'down'}`} />
+                      </div>
+                    </button>
+
+                    <div className={`faq-panel ${isExpanded ? 'open' : ''}`}>
+                      <p>{faq.answer}</p>
+                      <div className="faq-panel-actions">
+                        <span>Category · {categoryLabelMap[faq.category] || faq.category}</span>
+                        <div className="panel-buttons">
+                          <button type="button"><i className="bi bi-hand-thumbs-up" /> Helpful</button>
+                          <button type="button"><i className="bi bi-share" /> Share</button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Contact Section */}
-      <div className="faq-contact">
-        <div className="contact-content">
-          <h3>Still Have Questions?</h3>
-          <p>Can&apos;t find the answer you&apos;re looking for? We&apos;re here to help you plan the perfect visit to {cityName}&rsquo;s dog parks.</p>
-          <div className="contact-actions">
-            <a href="/contact" className="contact-btn primary">
-              <i className="bi bi-envelope"></i>
-              Contact Us
-            </a>
-            <a href="/signup" className="contact-btn secondary">
-              <i className="bi bi-person-plus"></i>
-              Join Community
-            </a>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
         .faq-section {
-          padding: 80px 20px;
-          background: white;
+          padding: 72px 20px;
+          background: #ffffff;
         }
 
-        .section-header {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 60px;
+        .faq-shell {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .faq-header {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          margin-bottom: 40px;
         }
 
         .section-eyebrow {
-          display: inline-block;
-          padding: 6px 16px;
-          background: linear-gradient(135deg, #10b981, #34d399);
-          color: white;
-          border-radius: 20px;
+          display: inline-flex;
+          align-items: center;
           font-size: 12px;
-          font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin-bottom: 16px;
+          letter-spacing: 0.2em;
+          color: #7c3aed;
+          background: #f5f3ff;
+          padding: 6px 14px;
+          border-radius: 999px;
         }
 
-        .section-header h2 {
-          font-size: 42px;
+        .faq-header h2 {
+          margin: 6px 0;
+          font-size: clamp(28px, 3vw, 44px);
+          line-height: 1.15;
+          color: #0f172a;
           font-weight: 700;
-          color: #1f2937;
-          margin: 0 0 16px;
-          line-height: 1.2;
         }
 
-        .section-description {
-          font-size: 18px;
-          color: #6b7280;
-          line-height: 1.6;
-          margin: 0;
+        .faq-header p {
+          color: #475569;
+          line-height: 1.5;
+          margin: 8px 0 0;
         }
 
-        .popular-questions {
-          max-width: 1200px;
-          margin: 0 auto 60px;
-        }
-
-        .popular-questions h3 {
-          font-size: 24px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
-        }
-
-        .popular-grid {
+        .faq-header-meta {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 16px;
-        }
-
-        .popular-question-btn {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 16px 20px;
-          background: #f9fafb;
-          border: 2px solid #e5e7eb;
-          border-radius: 12px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          text-align: left;
-          font-size: 15px;
-          color: #374151;
-          font-weight: 500;
-        }
-
-        .popular-question-btn:hover {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
-          color: white;
-          border-color: #7c3aed;
-          transform: translateY(-2px);
-        }
-
-        .popular-question-btn i {
-          font-size: 18px;
-          color: #7c3aed;
-        }
-
-        .popular-question-btn:hover i {
-          color: white;
-        }
-
-        .category-filters {
-          max-width: 1200px;
-          margin: 0 auto 40px;
-        }
-
-        .filter-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-
-        .filter-header h3 {
-          font-size: 20px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0;
-        }
-
-        .filter-count {
-          font-size: 14px;
-          color: #6b7280;
-        }
-
-        .filter-buttons {
-          display: flex;
-          flex-wrap: wrap;
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
           gap: 12px;
         }
 
-        .filter-btn {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 10px 16px;
-          background: white;
-          border: 2px solid #e5e7eb;
-          border-radius: 20px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          font-size: 14px;
-          color: #6b7280;
-          font-weight: 500;
+        .meta-card {
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 16px;
+          background: #f8fafc;
         }
 
-        .filter-btn:hover {
-          border-color: #7c3aed;
-          color: #7c3aed;
+        .meta-label {
+          display: block;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #94a3b8;
+          margin-bottom: 6px;
         }
 
-        .filter-btn.active {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
-          color: white;
-          border-color: #7c3aed;
+        .meta-card strong {
+          font-size: 26px;
+          display: block;
+          color: #0f172a;
         }
 
-        .filter-count-badge {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 20px;
-          height: 20px;
-          padding: 0 6px;
-          background: rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-          font-size: 11px;
-          font-weight: 600;
+        .meta-card small {
+          color: #64748b;
+          font-size: 13px;
         }
 
-        .filter-btn.active .filter-count-badge {
-          background: rgba(255, 255, 255, 0.2);
+        .faq-grid {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 32px;
         }
 
-        .faq-container {
-          max-width: 900px;
-          margin: 0 auto 60px;
-        }
-
-        .faq-list {
+        .faq-sidebar {
           display: flex;
           flex-direction: column;
           gap: 16px;
         }
 
-        .faq-item {
-          border: 2px solid #e5e7eb;
-          border-radius: 12px;
-          overflow: hidden;
-          transition: all 0.3s ease;
+        .sidebar-card {
+          border: 1px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 20px;
+          background: #fdfcff;
         }
 
-        .faq-item.expanded {
-          border-color: #7c3aed;
-          box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+        .snapshot-card ul {
+          margin: 12px 0 0;
+          padding-left: 18px;
+          color: #475569;
+          line-height: 1.5;
         }
 
-        .faq-question {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 24px;
-          background: white;
-          border: none;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .faq-question:hover {
-          background: #f9fafb;
-        }
-
-        .faq-item.expanded .faq-question {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
-          color: white;
-        }
-
-        .question-content {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          flex: 1;
-          text-align: left;
-        }
-
-        .question-number {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 32px;
-          height: 32px;
-          background: #f3f4f6;
-          border-radius: 50%;
-          font-size: 14px;
-          font-weight: 600;
-          color: #6b7280;
-          flex-shrink: 0;
-        }
-
-        .faq-item.expanded .question-number {
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        }
-
-        .question-text {
-          font-size: 16px;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-
-        .popular-badge {
-          display: inline-flex;
-          align-items: center;
-          padding: 4px 8px;
-          background: #fef3c7;
-          color: #d97706;
-          border-radius: 12px;
-          font-size: 11px;
-          font-weight: 600;
+        .snapshot-kicker {
+          font-size: 13px;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.2em;
+          color: #7c3aed;
+          margin: 0;
         }
 
-        .faq-item.expanded .popular-badge {
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        }
-
-        .question-toggle i {
-          font-size: 20px;
-          color: #9ca3af;
-          transition: transform 0.2s ease;
-        }
-
-        .faq-item.expanded .question-toggle i {
-          color: white;
-          transform: rotate(180deg);
-        }
-
-        .faq-answer {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease;
-        }
-
-        .faq-answer.show {
-          max-height: 500px;
-        }
-
-        .answer-content {
-          padding: 0 24px 24px;
-        }
-
-        .answer-content p {
-          color: #4b5563;
-          line-height: 1.6;
-          margin: 0 0 16px;
-        }
-
-        .answer-actions {
+        .sidebar-card-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-top: 16px;
-          border-top: 1px solid #e5e7eb;
+          margin-bottom: 12px;
+          font-weight: 600;
         }
 
-        .category-tag {
-          display: inline-flex;
-          align-items: center;
-          padding: 4px 12px;
-          background: #ede9fe;
-          color: #7c3aed;
-          border-radius: 16px;
-          font-size: 12px;
-          font-weight: 500;
+        .muted {
+          font-size: 13px;
+          color: #94a3b8;
         }
 
-        .helpful-buttons {
+        .category-list {
           display: flex;
-          align-items: center;
-          gap: 12px;
+          flex-direction: column;
+          gap: 8px;
         }
 
-        .helpful-label {
-          font-size: 14px;
-          color: #6b7280;
-        }
-
-        .helpful-btn {
+        .category-btn {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          gap: 4px;
-          padding: 6px 12px;
-          background: white;
-          border: 1px solid #e5e7eb;
-          border-radius: 6px;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 10px 14px;
+          background: #ffffff;
+          text-align: left;
           cursor: pointer;
-          font-size: 12px;
-          color: #6b7280;
-          transition: all 0.2s ease;
+          transition: border-color 0.2s ease, background 0.2s ease;
+          font-size: 14px;
         }
 
-        .helpful-btn:hover {
-          background: #f9fafb;
+        .category-btn.active {
           border-color: #7c3aed;
-          color: #7c3aed;
+          background: #f5f3ff;
         }
 
-        .faq-contact {
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-          border-radius: 16px;
-          padding: 40px;
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto;
+        .category-name {
+          font-weight: 600;
+          color: #0f172a;
         }
 
-        .faq-contact h3 {
-          font-size: 28px;
-          font-weight: 700;
-          color: #1f2937;
-          margin: 0 0 12px;
+        .category-preview {
+          display: block;
+          font-size: 12px;
+          color: #94a3b8;
         }
 
-        .faq-contact p {
-          font-size: 16px;
-          color: #6b7280;
-          line-height: 1.6;
-          margin: 0 0 24px;
-        }
-
-        .contact-actions {
+        .category-count {
+          min-width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #f1f5f9;
           display: flex;
-          gap: 16px;
+          align-items: center;
           justify-content: center;
+          font-weight: 600;
+          color: #475569;
+        }
+
+        .category-btn.active .category-count {
+          background: #7c3aed;
+          color: #fff;
+        }
+
+        .support-card {
+          background: linear-gradient(135deg, #7c3aed, #5b21b6);
+          color: white;
+        }
+
+        .support-label {
+          font-size: 12px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          opacity: 0.8;
+          margin-bottom: 4px;
+        }
+
+        .support-card h3 {
+          margin: 0 0 8px;
+        }
+
+        .support-card p {
+          margin: 0 0 16px;
+          color: rgba(255,255,255,0.9);
+          line-height: 1.5;
+        }
+
+        .support-actions {
+          display: flex;
+          gap: 10px;
           flex-wrap: wrap;
         }
 
-        .contact-btn {
+        .support-actions a {
+          flex: 1;
+          min-width: 120px;
+          text-align: center;
+          padding: 10px 12px;
+          border-radius: 999px;
+          border: 1px solid rgba(255,255,255,0.4);
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .support-actions .secondary {
+          background: rgba(255,255,255,0.12);
+        }
+
+        .faq-main {
+          border: 1px solid #e2e8f0;
+          border-radius: 24px;
+          padding: 28px;
+          background: #fff;
+        }
+
+        .popular-rail {
+          padding-bottom: 20px;
+          border-bottom: 1px solid #e2e8f0;
+          margin-bottom: 24px;
+        }
+
+        .popular-eyebrow {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: #7c3aed;
+        }
+
+        .popular-chip-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 12px;
+        }
+
+        .popular-chip {
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 8px 14px;
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 12px 24px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          background: #f8fafc;
+          cursor: pointer;
+          font-size: 13px;
+          color: #0f172a;
         }
 
-        .contact-btn.primary {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
-          color: white;
-        }
-
-        .contact-btn.primary:hover {
-          background: linear-gradient(135deg, #6d28d9, #9333ea);
-          transform: translateY(-1px);
-        }
-
-        .contact-btn.secondary {
-          background: white;
+        .popular-chip:hover {
+          border-color: #7c3aed;
           color: #7c3aed;
-          border: 2px solid #7c3aed;
         }
 
-        .contact-btn.secondary:hover {
-          background: #7c3aed;
-          color: white;
+        .faq-accordion {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
         }
 
-        @media (max-width: 768px) {
-          .section-header h2 {
-            font-size: 32px;
-          }
+        .faq-row {
+          border: 1px solid #e2e8f0;
+          border-radius: 18px;
+          overflow: hidden;
+          background: #fafafb;
+        }
 
-          .popular-grid {
+        .faq-row.open {
+          border-color: #7c3aed;
+          background: #f5f3ff;
+        }
+
+        .faq-trigger {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 16px;
+          padding: 18px 20px;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+        }
+
+        .faq-trigger-main {
+          display: flex;
+          gap: 16px;
+          text-align: left;
+        }
+
+        .faq-index {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          color: #7c3aed;
+          flex-shrink: 0;
+        }
+
+        .faq-trigger-main h4 {
+          margin: 0;
+          font-size: 16px;
+          color: #0f172a;
+        }
+
+        .faq-preview {
+          margin: 6px 0 0;
+          font-size: 14px;
+          color: #475569;
+        }
+
+        .faq-row.open .faq-preview {
+          display: none;
+        }
+
+        .faq-trigger-meta {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .category-chip {
+          background: #ede9fe;
+          color: #7c3aed;
+          padding: 4px 10px;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        .faq-panel {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.35s ease;
+          padding: 0 20px;
+        }
+
+        .faq-panel.open {
+          padding-bottom: 20px;
+          max-height: 600px;
+        }
+
+        .faq-panel p {
+          margin: 0;
+          color: #334155;
+          line-height: 1.55;
+          padding-top: 4px;
+        }
+
+        .faq-panel-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 13px;
+          margin-top: 16px;
+          padding-top: 12px;
+          border-top: 1px solid rgba(15,23,42,0.08);
+        }
+
+        .panel-buttons {
+          display: flex;
+          gap: 8px;
+        }
+
+        .panel-buttons button {
+          border: 1px solid #e2e8f0;
+          background: white;
+          border-radius: 999px;
+          padding: 6px 12px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          cursor: pointer;
+          color: #475569;
+        }
+
+        .panel-buttons button:hover {
+          border-color: #7c3aed;
+          color: #7c3aed;
+        }
+
+        @media (max-width: 1024px) {
+          .faq-grid {
             grid-template-columns: 1fr;
           }
+        }
 
-          .filter-buttons {
-            justify-content: center;
+        @media (max-width: 640px) {
+          .faq-main {
+            padding: 20px;
           }
 
-          .question-content {
+          .faq-trigger {
+            flex-direction: column;
+          }
+
+          .faq-panel-actions {
             flex-direction: column;
             align-items: flex-start;
-            gap: 12px;
-          }
-
-          .question-text {
-            font-size: 15px;
-          }
-
-          .answer-actions {
-            flex-direction: column;
-            gap: 16px;
-            align-items: flex-start;
-          }
-
-          .contact-actions {
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .contact-btn {
-            width: 100%;
-            max-width: 250px;
-            justify-content: center;
+            gap: 10px;
           }
         }
       `}</style>
