@@ -86,11 +86,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-section-new">
         <h1 className="hero-title-new">
-          The largest USA platform for{' '}
-          <span className="hero-title-highlight">dog parks</span>
+          Find California&apos;s Best{' '}
+          <span className="hero-title-highlight">Indoor Dog Parks</span>
         </h1>
         <p className="hero-subtitle-new">
-          Discover the best dog parks across California for your furry friends
+          Discover top indoor dog park options across California for year-round play
         </p>
 
         <div className="search-container-new">
@@ -98,18 +98,18 @@ export default function Home() {
             <input
               type="text"
               className="search-input-new"
-              placeholder="Search by city, neighborhood or zip code..."
+              placeholder="Search indoor dog parks by city, neighborhood, or zip code"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button type="submit" className="search-btn-new">
-              Search
+              Search Indoor Dog Parks
             </button>
           </form>
         </div>
 
         <p className="hero-guarantee">
-          <i className="bi bi-heart"></i> Find the perfect spot for your furry friend to play and socialize
+          <i className="bi bi-heart"></i> Find the perfect indoor dog park for safe, climate-controlled play and social time
         </p>
       </section>
 
