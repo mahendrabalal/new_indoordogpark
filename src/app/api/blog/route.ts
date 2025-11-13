@@ -3,6 +3,8 @@ import { fetchPosts, searchPosts, getPostsByCategory, getPostsByTag } from '@/li
 import { applyRateLimit } from '@/lib/rate-limiter';
 import BlogAnalytics from '@/lib/blog-analytics';
 
+export const dynamic = 'force-dynamic';
+
 // GET /api/blog - Fetch blog posts with optional filtering
 export async function GET(request: NextRequest) {
   const startTime = Date.now();

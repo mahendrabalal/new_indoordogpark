@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth-helpers';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const { user, error: authError } = await getUserFromRequest(request);
@@ -25,18 +27,31 @@ export async function GET(request: NextRequest) {
     // Get filter from query params
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status') || 'all';
+    const pageParam = Number.parseInt(searchParams.get('page') || '1', 10);
+    const pageSizeParam = Number.parseInt(searchParams.get('pageSize') || '10', 10);
+
+    const page = Number.isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
+    const pageSize = Number.isNaN(pageSizeParam)
+      ? 10
+      : Math.min(Math.max(pageSizeParam, 1), 100);
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
 
     // Build query
     let query = supabaseAdminClient
       .from('park_submissions')
-      .select('*')
+      .select('*', { count: 'exact' })
       .order('created_at', { ascending: false });
 
     if (status !== 'all') {
       query = query.eq('status', status);
     }
 
-    const { data: submissions, error: fetchError } = await query;
+    const {
+      data: submissions,
+      error: fetchError,
+      count,
+    } = await query.range(from, to);
 
     if (fetchError) {
       console.error('Fetch error:', fetchError);
@@ -89,7 +104,21 @@ export async function GET(request: NextRequest) {
       approvedBy: sub.approved_by,
     })) || [];
 
-    return NextResponse.json({ submissions: transformedSubmissions }, { status: 200 });
+    const total = count ?? 0;
+    const totalPages = total === 0 ? 1 : Math.max(1, Math.ceil(total / pageSize));
+
+    return NextResponse.json(
+      {
+        submissions: transformedSubmissions,
+        meta: {
+          total,
+          page,
+          pageSize,
+          totalPages,
+        },
+      },
+      { status: 200 }
+    );
 
   } catch (error) {
     console.error('Admin submissions fetch error:', error);

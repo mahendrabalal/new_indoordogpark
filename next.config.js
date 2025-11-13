@@ -1,3 +1,15 @@
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+
+let supabaseHostname;
+try {
+  if (SUPABASE_URL) {
+    const parsed = new URL(SUPABASE_URL);
+    supabaseHostname = parsed.hostname;
+  }
+} catch (error) {
+  console.warn('[next.config.js] Failed to parse NEXT_PUBLIC_SUPABASE_URL:', error);
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -10,6 +22,15 @@ const nextConfig = {
       'secure.gravatar.com', // Added for WordPress author avatars
       // Removed 'places.googleapis.com' - now serving images locally
     ],
+    remotePatterns: supabaseHostname
+      ? [
+          {
+            protocol: 'https',
+            hostname: supabaseHostname,
+            pathname: '/storage/v1/object/public/**',
+          },
+        ]
+      : undefined,
     formats: ['image/avif', 'image/webp'],
     // Optimize image loading
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -17,6 +38,6 @@ const nextConfig = {
     // Cache optimized images
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

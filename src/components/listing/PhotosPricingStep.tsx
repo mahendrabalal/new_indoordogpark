@@ -1,6 +1,7 @@
-import { useRef, useState, type ChangeEvent } from 'react';
+import { useId, useRef, useState, type ChangeEvent } from 'react';
 import Image from 'next/image';
 import type { ParkSubmissionForm } from '@/types/park-submission';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface PhotosPricingStepProps {
   formData: ParkSubmissionForm;
@@ -16,6 +17,8 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
   const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const uploadSessionIdRef = useRef<string>('');
+  const fileInputId = useId();
+  const { getSessionTokens } = useAuth();
 
   const ensureUploadSessionId = () => {
     if (!uploadSessionIdRef.current) {
@@ -54,6 +57,14 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
     setIsUploading(true);
 
     try {
+      const { accessToken, refreshToken } = await getSessionTokens();
+
+      if (!accessToken) {
+        setIsUploading(false);
+        setUploadError('Please log in before uploading photos.');
+        return;
+      }
+
       const uploadPayload = new FormData();
       uploadPayload.append('file', file);
       uploadPayload.append('sessionId', ensureUploadSessionId());
@@ -64,6 +75,10 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
 
       const response = await fetch('/api/uploads/park-photos', {
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          ...(refreshToken ? { 'x-refresh-token': refreshToken } : {}),
+        },
         body: uploadPayload,
       });
 
@@ -82,11 +97,10 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
     } finally {
       setIsUploading(false);
       event.target.value = '';
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     }
-  };
-
-  const openFilePicker = () => {
-    fileInputRef.current?.click();
   };
 
   const removePhoto = (index: number) => {
@@ -130,20 +144,37 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
             Add Photo
           </button>
           <input
+            id={fileInputId}
             ref={fileInputRef}
             type="file"
             accept="image/*"
-            className="hidden"
+            className="sr-only"
             onChange={handleFileUpload}
           />
-          <button
-            type="button"
-            onClick={openFilePicker}
-            className="px-6 py-3 bg-white text-purple-600 border border-purple-200 rounded-lg font-medium hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={isUploading}
+          <label
+            htmlFor={fileInputId}
+            role="button"
+            tabIndex={isUploading ? -1 : 0}
+            aria-disabled={isUploading}
+            onKeyDown={(event) => {
+              if (isUploading) return;
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                if (typeof fileInputRef.current?.showPicker === 'function') {
+                  fileInputRef.current.showPicker();
+                } else {
+                  fileInputRef.current?.click();
+                }
+              }
+            }}
+            className={`px-6 py-3 rounded-lg font-medium border border-purple-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
+              isUploading
+                ? 'bg-white text-purple-400 cursor-not-allowed opacity-50 pointer-events-none'
+                : 'bg-white text-purple-600 hover:bg-purple-50 cursor-pointer'
+            }`}
           >
             {isUploading ? 'Uploading…' : 'Upload from Device'}
-          </button>
+          </label>
         </div>
 
         {uploadError && (

@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import { DogPark } from '@/types/dog-park';
+import { DogPark, MediaAsset } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {
@@ -22,6 +24,49 @@ export async function GET(request: Request) {
       listingType: 'free'
     }));
 
+    // Helper to normalize photos from database submissions
+    const normalizePhotos = (photos: unknown): MediaAsset[] => {
+      if (!Array.isArray(photos)) return [];
+
+      return photos
+        .map((photo) => {
+          if (!photo) return null;
+
+          if (typeof photo === 'string') {
+            const trimmed = photo.trim();
+            if (!trimmed) return null;
+            return {
+              url: trimmed,
+              type: 'photo',
+            } as MediaAsset;
+          }
+
+          if (typeof photo === 'object') {
+            const anyPhoto = photo as Record<string, unknown>;
+            const url =
+              typeof anyPhoto.url === 'string' && anyPhoto.url.trim() !== ''
+                ? anyPhoto.url
+                : typeof anyPhoto.publicUrl === 'string' && anyPhoto.publicUrl.trim() !== ''
+                  ? anyPhoto.publicUrl
+                  : undefined;
+
+            if (!url) return null;
+
+            return {
+              type: (anyPhoto.type as MediaAsset['type']) || 'photo',
+              url,
+              caption: typeof anyPhoto.caption === 'string' ? anyPhoto.caption : undefined,
+              source: typeof anyPhoto.source === 'string' ? (anyPhoto.source as MediaAsset['source']) : undefined,
+              uploadedAt: typeof anyPhoto.uploadedAt === 'string' ? anyPhoto.uploadedAt : undefined,
+              storagePath: typeof anyPhoto.storagePath === 'string' ? anyPhoto.storagePath : undefined,
+            } satisfies MediaAsset;
+          }
+
+          return null;
+        })
+        .filter((photo): photo is MediaAsset => !!photo);
+    };
+
     // Fetch approved user submissions from database
     let submissionParks: DogPark[] = [];
     try {
@@ -32,38 +77,42 @@ export async function GET(request: Request) {
         .order('created_at', { ascending: false });
 
       if (!error && submissions) {
-        submissionParks = submissions.map(sub => ({
-          id: sub.id,
-          name: sub.name,
-          slug: sub.slug || sub.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-          businessType: sub.business_type,
-          rating: 0,
-          reviewCount: 0,
-          address: sub.address,
-          street: sub.street,
-          city: sub.city,
-          state: sub.state,
-          zipCode: sub.zip_code,
-          full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
-          latitude: sub.latitude,
-          longitude: sub.longitude,
-          phone: sub.phone,
-          email: sub.email,
-          website: sub.website,
-          description: sub.description,
-          photo: sub.photos?.[0] || null,
-          photos: sub.photos || [],
-          priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
-          openingHours: sub.opening_hours,
-          amenities: sub.amenities || [],
-          userRatingsTotal: 0,
-          source: 'user_submitted',
-          listingType: sub.listing_type || 'free',
-          submittedBy: sub.user_id,
-          submittedAt: sub.created_at,
-          approvedAt: sub.approved_at,
-          subscriptionStatus: sub.subscription_status
-        }));
+        submissionParks = submissions.map(sub => {
+          const normalizedPhotos = normalizePhotos(sub.photos);
+
+          return {
+            id: sub.id,
+            name: sub.name,
+            slug: sub.slug || sub.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+            businessType: sub.business_type,
+            rating: 0,
+            reviewCount: 0,
+            address: sub.address,
+            street: sub.street,
+            city: sub.city,
+            state: sub.state,
+            zipCode: sub.zip_code,
+            full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
+            latitude: sub.latitude,
+            longitude: sub.longitude,
+            phone: sub.phone,
+            email: sub.email,
+            website: sub.website,
+            description: sub.description,
+          photos: normalizedPhotos,
+          photo: normalizedPhotos[0]?.url,
+            priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
+            openingHours: sub.opening_hours,
+            amenities: sub.amenities || [],
+            userRatingsTotal: 0,
+            source: 'user_submitted',
+            listingType: sub.listing_type || 'free',
+            submittedBy: sub.user_id,
+            submittedAt: sub.created_at,
+            approvedAt: sub.approved_at,
+            subscriptionStatus: sub.subscription_status
+          };
+        });
       }
     } catch (dbError) {
       console.error('Error fetching user submissions:', dbError);

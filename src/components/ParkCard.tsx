@@ -10,7 +10,7 @@ interface ParkCardProps {
 export default function ParkCard({ park }: ParkCardProps) {
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   const getImageUrl = () => {
-    if (park.photo) return park.photo;
+    if (typeof park.photo === 'string' && park.photo.trim() !== '') return park.photo;
     if (park.photos && park.photos.length > 0) {
       const firstPhoto = park.photos[0];
       if (firstPhoto?.url) return firstPhoto.url;

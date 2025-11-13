@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { stripe, verifyWebhookSignature } from '@/lib/stripe';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 import Stripe from 'stripe';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
@@ -44,6 +44,8 @@ export async function POST(request: NextRequest) {
   // Supabase client already imported
 
   try {
+    const supabase = supabaseAdminClient;
+
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;

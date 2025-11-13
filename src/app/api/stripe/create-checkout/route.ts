@@ -73,8 +73,13 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Stripe checkout error:', error);
+    const genericMessage =
+      error instanceof Error && /Invalid API Key/i.test(error.message)
+        ? 'Payment processor is not configured correctly. Please contact support.'
+        : 'Failed to create checkout session';
+
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to create checkout session' },
+      { error: genericMessage },
       { status: 500 }
     );
   }
