@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -13,8 +14,14 @@ export default function Header() {
       <div className="header-container">
         <div className="header-left">
           <Link href="/" className="logo">
-            <i className="bi bi-geo-alt-fill"></i>
-            <span>IndoorDogPark</span>
+            <Image 
+              src="/images/logo/logo.png" 
+              alt="Indoor Dog Park logo" 
+              width={220} 
+              height={60} 
+              priority 
+              style={{ objectFit: 'contain' }}
+            />
           </Link>
         </div>
 

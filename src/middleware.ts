@@ -55,14 +55,22 @@ export async function middleware(request: NextRequest) {
   );
 
   // Refresh session if expired - required for Server Components
-  const { data: { user }, error } = await supabase.auth.getUser();
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
 
-  // Debug logging for auth
-  if (process.env.NODE_ENV === 'development') {
-    console.log('Middleware - Auth Debug:', {
-      user: user?.email || user?.id || 'No user',
-      error: error?.message
+  const shouldLogAuth =
+    process.env.NODE_ENV !== 'production' &&
+    process.env.NEXT_PUBLIC_ENABLE_AUTH_DEBUG === 'true';
+
+  if (shouldLogAuth) {
+    console.info('middleware: auth session', {
+      user: user?.email || user?.id || 'anonymous',
+      error: error?.message,
     });
+  } else if (error && process.env.NODE_ENV !== 'production') {
+    console.warn('middleware: auth session error', error.message);
   }
 
   return response;

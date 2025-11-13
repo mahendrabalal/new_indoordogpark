@@ -6,6 +6,7 @@ import { AuthProvider } from '@/contexts/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.indoordogpark.org'),
   title: {
     default: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
     template: '%s | Indoor Dog Park'

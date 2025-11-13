@@ -635,7 +635,7 @@ export default function CityPage(props: CityPageProps) {
 
         .hero-cta.primary {
           background: white;
-          color: #7c3aed;
+          color: #FF5722;
         }
 
         .hero-cta.primary:hover {
@@ -651,7 +651,7 @@ export default function CityPage(props: CityPageProps) {
 
         .hero-cta.secondary:hover {
           background: white;
-          color: #7c3aed;
+          color: #FF5722;
         }
 
         /* City Map Section */
@@ -739,8 +739,8 @@ export default function CityPage(props: CityPageProps) {
         }
 
         .filter-pill:hover {
-          border-color: #7c3aed;
-          color: #7c3aed;
+          border-color: #FF5722;
+          color: #FF5722;
         }
 
         .pill-count {
@@ -757,8 +757,8 @@ export default function CityPage(props: CityPageProps) {
         }
 
         .filter-pill:hover .pill-count {
-          background: #ede9fe;
-          color: #7c3aed;
+          background: #FFEBEE;
+          color: #FF5722;
         }
 
         /* Planning Guide Section */
@@ -790,7 +790,7 @@ export default function CityPage(props: CityPageProps) {
         .planning-icon {
           width: 48px;
           height: 48px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #FFB74D);
           border-radius: 10px;
           display: flex;
           align-items: center;
@@ -888,7 +888,7 @@ export default function CityPage(props: CityPageProps) {
 
         .category-count {
           padding: 6px 12px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #FFB74D);
           color: white;
           border-radius: 16px;
           font-size: 12px;
@@ -949,7 +949,7 @@ export default function CityPage(props: CityPageProps) {
         .resource-icon {
           width: 42px;
           height: 42px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #FFB74D);
           border-radius: 10px;
           display: flex;
           align-items: center;
@@ -975,7 +975,7 @@ export default function CityPage(props: CityPageProps) {
         }
 
         .resource-card i:last-child {
-          color: #7c3aed;
+          color: #FF5722;
           font-size: 18px;
           align-self: flex-end;
         }
@@ -1000,11 +1000,11 @@ export default function CityPage(props: CityPageProps) {
           align-items: center;
           gap: 6px;
           padding: 8px 12px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #FFB74D);
           color: white;
           border: none;
           border-radius: 20px;
-          box-shadow: 0 3px 15px rgba(124, 58, 237, 0.3);
+          box-shadow: 0 3px 15px rgba(255, 87, 34, 0.3);
           cursor: pointer;
           font-size: 12px;
           font-weight: 600;
@@ -1013,7 +1013,7 @@ export default function CityPage(props: CityPageProps) {
 
         .mobile-toc-trigger:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 30px rgba(124, 58, 237, 0.4);
+          box-shadow: 0 6px 30px rgba(255, 87, 34, 0.4);
         }
 
         /* Responsive Design - Improved Breakpoints */

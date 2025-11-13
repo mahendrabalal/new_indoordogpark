@@ -2,12 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import FavoriteButton from '@/components/FavoriteButton';
+import SearchHighlight from '@/components/SearchHighlight';
 
 interface ParkCardProps {
   park: DogPark;
+  searchTerm?: string;
 }
 
-export default function ParkCard({ park }: ParkCardProps) {
+export default function ParkCard({ park, searchTerm }: ParkCardProps) {
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   const getImageUrl = () => {
     if (typeof park.photo === 'string' && park.photo.trim() !== '') return park.photo;
@@ -70,13 +72,30 @@ export default function ParkCard({ park }: ParkCardProps) {
       <div className="park-card-body">
         {/* Type and Title */}
         <div className="park-card-header">
-          <p className="park-card-type">{park.businessType}</p>
-          <h3 className="park-card-title">{park.name}</h3>
+          <p className="park-card-type">
+            {searchTerm ? (
+              <SearchHighlight text={park.businessType} searchTerm={searchTerm} />
+            ) : (
+              park.businessType
+            )}
+          </p>
+          <h3 className="park-card-title">
+            {searchTerm ? (
+              <SearchHighlight text={park.name} searchTerm={searchTerm} />
+            ) : (
+              park.name
+            )}
+          </h3>
         </div>
 
         {/* Location */}
         <p className="park-card-location">
-          <i className="bi bi-geo-alt"></i> {park.city}, {park.state}
+          <i className="bi bi-geo-alt"></i>{' '}
+          {searchTerm ? (
+            <SearchHighlight text={`${park.city}, ${park.state}`} searchTerm={searchTerm} />
+          ) : (
+            `${park.city}, ${park.state}`
+          )}
         </p>
 
         {/* Badges */}

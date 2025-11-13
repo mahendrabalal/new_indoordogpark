@@ -15,24 +15,38 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Only allow local images and essential third-party domains
-    domains: [
-      'images.unsplash.com',
-      'lh3.googleusercontent.com',
-      'cdnjs.cloudflare.com',
-      'via.placeholder.com', // Added for blog mock images
-      'secure.gravatar.com', // Added for WordPress author avatars
-      // Removed 'places.googleapis.com' - now serving images locally
+    remotePatterns: [
+      // Only allow local images and essential third-party domains
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdnjs.cloudflare.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'secure.gravatar.com',
+      },
+      ...(supabaseHostname
+        ? [
+            {
+              protocol: 'https',
+              hostname: supabaseHostname,
+              pathname: '/storage/v1/object/public/**',
+            },
+          ]
+        : []),
     ],
-    remotePatterns: supabaseHostname
-      ? [
-          {
-            protocol: 'https',
-            hostname: supabaseHostname,
-            pathname: '/storage/v1/object/public/**',
-          },
-        ]
-      : undefined,
     formats: ['image/avif', 'image/webp'],
     // Optimize image loading
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

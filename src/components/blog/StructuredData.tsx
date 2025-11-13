@@ -47,7 +47,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         name: 'Indoor Dog Park',
         logo: {
           '@type': 'ImageObject',
-          url: `${baseUrl}/logo.png`,
+          url: `${baseUrl}/images/logo/logo.png`,
         },
       },
       mainEntityOfPage: {
@@ -85,7 +85,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         name: 'Indoor Dog Park',
         logo: {
           '@type': 'ImageObject',
-          url: `${baseUrl}/logo.png`,
+          url: `${baseUrl}/images/logo/logo.png`,
         },
       },
       blogPost: posts.map(post => ({
