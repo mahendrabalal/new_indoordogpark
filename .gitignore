@@ -52,9 +52,14 @@ parts/
 sdist/
 var/
 wheels/
+.python_packages/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Allow application source libraries
+!src/lib/
+!src/lib/**
 
 # Testing
 coverage/
