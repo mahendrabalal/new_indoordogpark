@@ -1,3 +1,5 @@
+const path = require('path');
+
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
 let supabaseHostname;
@@ -37,6 +39,11 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Cache optimized images
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+  },
+  webpack: (config) => {
+    config.resolve.alias = config.resolve.alias || {};
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    return config;
   },
 };
 
