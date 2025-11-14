@@ -1684,6 +1684,10 @@ mark {
   color: #555;
 }
 
+.park-description p + p {
+  margin-top: 1.25rem;
+}
+
 /* Amenities */
 .amenities-grid {
   display: grid;

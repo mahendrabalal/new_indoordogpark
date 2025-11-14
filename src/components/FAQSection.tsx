@@ -45,7 +45,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     },
     {
       question: `Are there any size restrictions or separate areas for different sized dogs?`,
-      answer: 'Many dog parks in ${cityName} offer separate areas for small dogs (under 25 lbs) and large dogs (over 25 lbs). This helps ensure safe play experiences. However, not all parks have this separation, so it\'s important to check ahead and supervise your dog\'s interactions.',
+      answer: `Many dog parks in ${cityName} offer separate areas for small dogs (under 25 lbs) and large dogs (over 25 lbs). This helps ensure safe play experiences. However, not all parks have this separation, so it's important to check ahead and supervise your dog's interactions.`,
       category: 'safety'
     },
     {
@@ -55,7 +55,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     },
     {
       question: `Are there indoor dog park options available in ${cityName}?`,
-      answer: 'Yes, ${cityName} offers indoor dog park facilities that provide climate-controlled environments perfect for hot summers, rainy days, or dogs with weather sensitivities. These facilities typically offer specialized flooring, agility equipment, and training areas. Most require membership or advance booking.',
+      answer: `Yes, ${cityName} offers indoor dog park facilities that provide climate-controlled environments perfect for hot summers, rainy days, or dogs with weather sensitivities. These facilities typically offer specialized flooring, agility equipment, and training areas. Most require membership or advance booking.`,
       category: 'facilities'
     },
     {
@@ -70,7 +70,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     },
     {
       question: `Are there dog parks with special features like swimming areas or agility courses?`,
-      answer: 'Yes! Several dog parks in ${cityName} offer special features including swimming pools, agility equipment, obstacle courses, and training areas. Indoor facilities often have specialized equipment for training and exercise. Check individual park listings for specific amenities.',
+      answer: `Yes! Several dog parks in ${cityName} offer special features including swimming pools, agility equipment, obstacle courses, and training areas. Indoor facilities often have specialized equipment for training and exercise. Check individual park listings for specific amenities.`,
       category: 'facilities'
     },
     {
@@ -85,7 +85,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     },
     {
       question: `Are there any breed restrictions at ${cityName} dog parks?`,
-      answer: 'Most public dog parks in ${cityName} do not have breed-specific restrictions, focusing instead on individual dog behavior. However, some private facilities and indoor parks may have their own policies. Always check specific park requirements, especially for facilities requiring membership.',
+      answer: `Most public dog parks in ${cityName} do not have breed-specific restrictions, focusing instead on individual dog behavior. However, some private facilities and indoor parks may have their own policies. Always check specific park requirements, especially for facilities requiring membership.`,
       category: 'requirements'
     },
     {
@@ -95,7 +95,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     },
     {
       question: `What training opportunities are available at dog parks in ${cityName}?`,
-      answer: 'Many dog parks in ${cityName} have professional trainers offering classes, or you can work on basic obedience and socialization skills yourself. Indoor facilities often provide structured training programs, agility classes, and behavior workshops. Dog parks are excellent environments for practicing recall and social skills under controlled conditions.',
+      answer: `Many dog parks in ${cityName} have professional trainers offering classes, or you can work on basic obedience and socialization skills yourself. Indoor facilities often provide structured training programs, agility classes, and behavior workshops. Dog parks are excellent environments for practicing recall and social skills under controlled conditions.`,
       category: 'training'
     }
   ], [cityName, parkCount]);

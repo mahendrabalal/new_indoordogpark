@@ -1,7 +1,9 @@
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any, Dict, List
+
+from description_generator import generate_description, normalize_context
 
 def extract_address_components(formatted_address: str) -> Dict[str, str]:
     """Extract address components from formatted address."""
@@ -109,19 +111,6 @@ def determine_business_type(types: List[str], name: str) -> str:
     else:
         return "Dog Park"
 
-def generate_description(name: str, business_type: str, address: Dict[str, str]) -> str:
-    """Generate a description for the business."""
-    city = address.get("city", "California")
-
-    if business_type == "Indoor Dog Park":
-        return f"{name} is a premier indoor dog park located in {city}, California, offering climate-controlled pet recreation facilities. Our state-of-the-art facility provides a safe, clean environment for dogs to exercise, socialize, and play regardless of weather conditions. With professional staff supervision, your furry friend will enjoy hours of fun in our spacious indoor play areas."
-    elif business_type == "Dog Park":
-        return f"{name} is a dedicated dog park serving the {city} community, providing a safe and enclosed space for dogs to run, play, and socialize off-leash. The park offers a clean environment for pets and their owners to enjoy outdoor activities and exercise."
-    elif business_type == "Dog-Friendly Establishment":
-        return f"{name} is a dog-friendly establishment in {city}, California, welcoming both two-legged and four-legged patrons. Enjoy their services and amenities while your furry companion is treated with the same hospitality."
-    else:
-        return f"{name} is a pet-friendly destination in {city}, California, offering services and facilities for dogs and their owners."
-
 def create_media_assets(images: List[str]) -> List[Dict[str, Any]]:
     """Convert image URLs to MediaAsset format."""
     if not images:
@@ -151,8 +140,27 @@ def transform_google_places_data(google_data: List[Dict[str, Any]]) -> List[Dict
         # Determine business type
         business_type = determine_business_type(place.get("types", []), place.get("displayName", {}).get("text", ""))
         
-        # Generate description
-        description = generate_description(place.get("displayName", {}).get("text", ""), business_type, address_components)
+        # Prepare context for description generator
+        raw_context = place.copy()
+        raw_context.update(
+            {
+                "id": place.get("id"),
+                "name": place.get("displayName", {}).get("text", ""),
+                "businessType": business_type,
+                "business_type": business_type,
+                "city": address_components.get("city"),
+                "state": address_components.get("state"),
+                "full_address": address_components.get("full_address"),
+                "openingHours": place.get("regularOpeningHours", {}).get("weekdayDescriptions"),
+                "pricing": place.get("priceLevel") or place.get("pricingInfo"),
+                "amenities": place.get("amenities") or place.get("features"),
+                "uniqueNotes": place.get("editorialSummary", {}).get("text"),
+                "phone": place.get("nationalPhoneNumber"),
+                "website": place.get("websiteUri"),
+            }
+        )
+        description_context = normalize_context(raw_context)
+        description = generate_description(description_context)
         
         # Handle images - support up to 10 images
         images = []
@@ -207,8 +215,8 @@ def transform_google_places_data(google_data: List[Dict[str, Any]]) -> List[Dict
             "rating": place.get("rating", 0),
             "reviewCount": place.get("userRatingCount", 0),
             "photos": images if images else None,
-            "amenities": {},
-            "openingHours": {},
+            "amenities": place.get("amenities") or {},
+            "openingHours": place.get("regularOpeningHours", {}).get("weekdayDescriptions") or [],
             # Backward compatibility - legacy photo fields
             "photo": photo if photo else None,
             "photo2": photo2 if photo2 else None,

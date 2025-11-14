@@ -148,6 +148,32 @@ NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
    - Create a container
    - Copy the container ID
 
+### Description Generator (LLM-powered copy)
+
+```env
+# Preferred provider (optional—auto-detected from keys if omitted)
+PARK_DESC_MODEL_PROVIDER=openai
+
+# OpenAI-compatible API keys (either works; Z AI mirrors OpenAI endpoints)
+OPENAI_API_KEY=sk-your-openai-key
+Z_AI_API_KEY=b22bc319e6f54a5fb3fc25827e96bed6.3TBvNglKWe8GGPKN
+
+# Model + tuning overrides (optional)
+PARK_DESC_OPENAI_MODEL=gpt-4.1-mini
+PARK_DESC_MODEL_TEMPERATURE=0.7
+PARK_DESC_MAX_TOKENS=900
+PARK_DESC_TARGET_CHARS=1500
+PARK_DESC_MIN_CHARS=1450
+PARK_DESC_MAX_CHARS=1650
+```
+
+**Usage notes:**
+
+1. Set either `OPENAI_API_KEY` or `Z_AI_API_KEY`; the scripts automatically select the OpenAI flow when one of those values exists.
+2. Leave `PARK_DESC_MODEL_PROVIDER` blank to let the tooling auto-detect (`openai` when OpenAI/Z AI keys exist, `anthropic` when only Anthropic keys exist).
+3. Adjust the length/tuning variables to tweak copy size without editing code.
+4. All description-generation scripts fall back to deterministic templates if no provider is configured.
+
 ### Optional: Error Tracking
 
 ```env

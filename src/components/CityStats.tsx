@@ -70,6 +70,7 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
         </p>
       </div>
 
+      <div className="city-stats-stack">
       {/* Key Metrics Grid */}
       <div className="key-metrics">
         <div className="metric-card primary">
@@ -176,152 +177,174 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
         </div>
       </div>
 
-      {/* Amenity Statistics */}
-      <div className="amenity-stats">
-        <h3>Available Amenities</h3>
-        <div className="amenity-grid">
-          {Object.entries(amenityStats).map(([amenity, count]) => {
-            const labels = {
-              fencedEnclosures: 'Fenced Enclosures',
-              waterStations: 'Water Stations',
-              wasteStations: 'Waste Stations',
-              seatingAreas: 'Seating Areas',
-              parking: 'Parking Available',
-              lighting: 'Evening Lighting'
-            };
-
-            const icons = {
-              fencedEnclosures: 'bi-border-style',
-              waterStations: 'bi-droplet-fill',
-              wasteStations: 'bi-trash3-fill',
-              seatingAreas: 'bi-bench-fill',
-              parking: 'bi-car-front-fill',
-              lighting: 'bi-lightbulb-fill'
-            };
-
-            return (
-              <div key={amenity} className="amenity-item">
-                <div className="amenity-icon">
-                  <i className={`bi ${icons[amenity as keyof typeof icons]}`}></i>
-                </div>
-                <div className="amenity-info">
-                  <span className="amenity-count">{count}</span>
-                  <span className="amenity-label">{labels[amenity as keyof typeof labels]}</span>
-                </div>
-                <div className="amenity-percentage">
-                  {Math.round((count / totalParks) * 100)}%
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Peak Times Analysis */}
-      <div className="peak-times">
-        <h3>Best Times to Visit</h3>
-        <div className="times-grid">
-          {peakTimes.map((timeSlot, index) => (
-            <div key={index} className="time-slot">
-              <div className="time-header">
-                <span className="time-range">{timeSlot.time}</span>
-                <span className="time-description">{timeSlot.description}</span>
-              </div>
-              <div className="crowd-indicator">
-                <div className="crowd-bar">
-                  <div
-                    className="crowd-fill"
-                    style={{ width: `${timeSlot.percentage}%` }}
-                  />
-                </div>
-                <span className="crowd-level">
-                  {timeSlot.percentage < 20 ? 'Quiet' :
-                   timeSlot.percentage < 40 ? 'Moderate' : 'Busy'}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="visit-tips">
-          <div className="tip-card">
-            <i className="bi bi-lightbulb"></i>
+      <div className="secondary-panel-grid">
+        <div className="amenity-stats panel-card">
+          <div className="panel-heading stacked">
             <div>
-              <h4>Pro Tip</h4>
-              <p>Weekday mornings (6-9 AM) offer the best balance of socialization opportunities and manageable crowds.</p>
+              <h3>Available Amenities</h3>
+              <p>Snapshot of the most requested features citywide.</p>
+            </div>
+          </div>
+          <div className="amenity-grid">
+            {Object.entries(amenityStats).map(([amenity, count]) => {
+              const labels = {
+                fencedEnclosures: 'Fenced Enclosures',
+                waterStations: 'Water Stations',
+                wasteStations: 'Waste Stations',
+                seatingAreas: 'Seating Areas',
+                parking: 'Parking Available',
+                lighting: 'Evening Lighting'
+              };
+
+              const icons = {
+                fencedEnclosures: 'bi-border-style',
+                waterStations: 'bi-droplet-fill',
+                wasteStations: 'bi-trash3-fill',
+                seatingAreas: 'bi-bench-fill',
+                parking: 'bi-car-front-fill',
+                lighting: 'bi-lightbulb-fill'
+              };
+
+              return (
+                <div key={amenity} className="amenity-item">
+                  <div className="amenity-icon">
+                    <i className={`bi ${icons[amenity as keyof typeof icons]}`}></i>
+                  </div>
+                  <div className="amenity-info">
+                    <span className="amenity-count">{count}</span>
+                    <span className="amenity-label">{labels[amenity as keyof typeof labels]}</span>
+                  </div>
+                  <div className="amenity-percentage">
+                    {Math.round((count / totalParks) * 100)}%
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="peak-times panel-card">
+          <div className="panel-heading">
+            <div>
+              <h3>Best Times to Visit</h3>
+              <p>Plan sessions around {cityName}&rsquo;s busiest windows to match your dog&rsquo;s energy.</p>
+            </div>
+            <span className="panel-pill">Local intel</span>
+          </div>
+          <div className="peak-times-content">
+            <div className="times-grid">
+              {peakTimes.map((timeSlot, index) => (
+                <div key={index} className="time-slot">
+                  <div className="time-header">
+                    <span className="time-range">{timeSlot.time}</span>
+                    <span className="time-description">{timeSlot.description}</span>
+                  </div>
+                  <div className="crowd-indicator">
+                    <div className="crowd-bar">
+                      <div
+                        className="crowd-fill"
+                        style={{ width: `${timeSlot.percentage}%` }}
+                      />
+                    </div>
+                    <span className="crowd-level">
+                      {timeSlot.percentage < 20 ? 'Quiet' :
+                        timeSlot.percentage < 40 ? 'Moderate' : 'Busy'}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="visit-tip-card">
+              <i className="bi bi-lightbulb"></i>
+              <div>
+                <span className="tip-label">Pro tip</span>
+                <p>Weekday mornings (6-9 AM) offer the best balance of socialization opportunities and manageable crowds.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Days Analysis */}
-      <div className="days-analysis">
-        <h3>Weekly Crowd Patterns</h3>
-        <div className="days-grid">
-          {bestDays.map((day, index) => (
-            <div key={index} className="day-card">
-              <div className="day-header">
-                <span className="day-name">{day.day}</span>
-                <div className="day-rating">
-                  <i className="bi bi-star-fill"></i>
-                  <span>{day.rating}</span>
+      <div className="secondary-panel-grid">
+        <div className="days-analysis panel-card">
+          <div className="panel-heading stacked">
+            <div>
+              <h3>Weekly Crowd Patterns</h3>
+              <p>Choose low-key days for training and save peak windows for high-energy play.</p>
+            </div>
+          </div>
+          <div className="days-grid">
+            {bestDays.map((day, index) => (
+              <div key={index} className="day-card">
+                <div className="day-header">
+                  <span className="day-name">{day.day}</span>
+                  <div className="day-rating">
+                    <i className="bi bi-star-fill"></i>
+                    <span>{day.rating}</span>
+                  </div>
+                </div>
+                <div className={`crowd-badge ${day.crowd.toLowerCase().replace(' ', '-')}`}>
+                  {day.crowd}
                 </div>
               </div>
-              <div className={`crowd-badge ${day.crowd.toLowerCase().replace(' ', '-')}`}>
-                {day.crowd}
-              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="key-insights panel-card">
+          <div className="panel-heading stacked">
+            <div>
+              <h3>Key Insights for {cityName}</h3>
+              <p>Data-backed highlights to share with your crew.</p>
             </div>
-          ))}
+          </div>
+          <div className="insights-grid">
+            <div className="insight-card">
+              <div className="insight-icon">
+                <i className="bi bi-graph-up"></i>
+              </div>
+              <h4>High Satisfaction Rate</h4>
+              <p>{avgRating}/5.0 average rating shows excellent community satisfaction with local dog parks.</p>
+            </div>
+
+            <div className="insight-card">
+              <div className="insight-icon">
+                <i className="bi bi-shield-check"></i>
+              </div>
+              <h4>Well-Maintained Facilities</h4>
+              <p>{amenityStats.wasteStations} waste stations indicate strong maintenance standards across all parks.</p>
+            </div>
+
+            <div className="insight-card">
+              <div className="insight-icon">
+                <i className="bi bi-clock-history"></i>
+              </div>
+              <h4>Strategic Timing</h4>
+              <p>Visit during weekday mornings for optimal experience with fewer crowds and more space.</p>
+            </div>
+
+            <div className="insight-card">
+              <div className="insight-icon">
+                <i className="bi bi-award-fill"></i>
+              </div>
+              <h4>Quality Options</h4>
+              <p>{parks.filter(p => p.rating >= 4.5).length} premium-rated parks provide exceptional experiences.</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Key Insights */}
-      <div className="key-insights">
-        <h3>Key Insights for {cityName}</h3>
-        <div className="insights-grid">
-          <div className="insight-card">
-            <div className="insight-icon">
-              <i className="bi bi-graph-up"></i>
-            </div>
-            <h4>High Satisfaction Rate</h4>
-            <p>{avgRating}/5.0 average rating shows excellent community satisfaction with local dog parks.</p>
-          </div>
-
-          <div className="insight-card">
-            <div className="insight-icon">
-              <i className="bi bi-shield-check"></i>
-            </div>
-            <h4>Well-Maintained Facilities</h4>
-            <p>{amenityStats.wasteStations} waste stations indicate strong maintenance standards across all parks.</p>
-          </div>
-
-          <div className="insight-card">
-            <div className="insight-icon">
-              <i className="bi bi-clock-history"></i>
-            </div>
-            <h4>Strategic Timing</h4>
-            <p>Visit during weekday mornings for optimal experience with fewer crowds and more space.</p>
-          </div>
-
-          <div className="insight-card">
-            <div className="insight-icon">
-              <i className="bi bi-award-fill"></i>
-            </div>
-            <h4>Quality Options</h4>
-            <p>{parks.filter(p => p.rating >= 4.5).length} premium-rated parks provide exceptional experiences.</p>
-          </div>
-        </div>
       </div>
 
       <style jsx>{`
         .city-stats-section {
-          padding: 80px 20px;
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+          padding: 64px 16px;
+          background: linear-gradient(180deg, #f8f5ff 0%, #ffffff 65%);
         }
 
         .section-header {
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto 60px;
+          text-align: left;
+          max-width: 960px;
+          margin: 0 auto 48px;
         }
 
         .section-eyebrow {
@@ -347,17 +370,24 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
 
         .section-description {
           font-size: 18px;
-          color: #6b7280;
+          color: #475569;
           line-height: 1.6;
           margin: 0;
+          max-width: 70ch;
+        }
+
+        .city-stats-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
         }
 
         .key-metrics {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 24px;
+          gap: 20px;
           max-width: 1200px;
-          margin: 0 auto 60px;
+          margin: 0 auto;
         }
 
         .metric-card {
@@ -430,17 +460,17 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
 
         .stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-          gap: 30px;
+          grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+          gap: 24px;
           max-width: 1200px;
-          margin: 0 auto 60px;
+          margin: 0 auto;
         }
 
         .stat-card {
           background: white;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          border-radius: 20px;
+          padding: 24px;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
         }
 
         .stat-card h3 {
@@ -543,21 +573,56 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
           text-align: center;
         }
 
-        .amenity-stats {
-          max-width: 1200px;
-          margin: 0 auto 60px;
-          background: white;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .secondary-panel-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
         }
 
-        .amenity-stats h3 {
+        .panel-card {
+          background: white;
+          border-radius: 20px;
+          padding: 24px;
+          border: 1px solid #ede9fe;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+          height: 100%;
+        }
+
+        .panel-heading {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 16px;
+        }
+
+        .panel-heading.stacked {
+          flex-direction: column;
+        }
+
+        .panel-heading h3 {
           font-size: 20px;
           font-weight: 600;
           color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
+          margin: 0 0 4px;
+        }
+
+        .panel-heading p {
+          font-size: 14px;
+          color: #64748b;
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        .panel-pill {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          background: #eef2ff;
+          color: #4338ca;
+          border-radius: 999px;
+          padding: 4px 12px;
+          white-space: nowrap;
         }
 
         .amenity-grid {
@@ -615,28 +680,17 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
           color: #7c3aed;
         }
 
-        .peak-times {
-          max-width: 1200px;
-          margin: 0 auto 60px;
-          background: white;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .peak-times h3 {
-          font-size: 20px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
+        .peak-times-content {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 240px;
+          gap: 20px;
+          align-items: stretch;
         }
 
         .times-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 20px;
-          margin-bottom: 30px;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 16px;
         }
 
         .time-slot {
@@ -689,55 +743,33 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
           color: #6b7280;
         }
 
-        .visit-tips {
+        .visit-tip-card {
           display: flex;
-          justify-content: center;
-        }
-
-        .tip-card {
-          display: flex;
-          align-items: center;
-          gap: 16px;
+          flex-direction: column;
+          gap: 10px;
           padding: 20px;
+          border-radius: 16px;
           background: linear-gradient(135deg, #fef3c7, #fde68a);
-          border-radius: 12px;
-          max-width: 600px;
-        }
-
-        .tip-card i {
-          font-size: 24px;
-          color: #d97706;
-        }
-
-        .tip-card h4 {
-          font-size: 16px;
-          font-weight: 600;
-          color: #92400e;
-          margin: 0 0 4px;
-        }
-
-        .tip-card p {
-          font-size: 14px;
           color: #78350f;
+        }
+
+        .visit-tip-card i {
+          font-size: 22px;
+          color: #b45309;
+        }
+
+        .tip-label {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          font-weight: 700;
+        }
+
+        .visit-tip-card p {
+          font-size: 14px;
           margin: 0;
           line-height: 1.5;
-        }
-
-        .days-analysis {
-          max-width: 1200px;
-          margin: 0 auto 60px;
-          background: white;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .days-analysis h3 {
-          font-size: 20px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
+          color: #7c2d12;
         }
 
         .days-grid {
@@ -816,19 +848,6 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
           color: #374151;
         }
 
-        .key-insights {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .key-insights h3 {
-          font-size: 20px;
-          font-weight: 600;
-          color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
-        }
-
         .insights-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -838,8 +857,8 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
         .insight-card {
           background: white;
           border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          padding: 24px;
+          box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
           transition: transform 0.3s ease;
           border-left: 4px solid #7c3aed;
         }
@@ -876,6 +895,14 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
         }
 
         @media (max-width: 768px) {
+          .section-header {
+            text-align: center;
+          }
+
+          .section-description {
+            margin: 0 auto;
+          }
+
           .section-header h2 {
             font-size: 32px;
           }
@@ -890,7 +917,19 @@ export default function CityStats({ parks, cityName }: CityStatsProps) {
             gap: 20px;
           }
 
+          .secondary-panel-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .panel-heading {
+            flex-direction: column;
+          }
+
           .amenity-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .peak-times-content {
             grid-template-columns: 1fr;
           }
 

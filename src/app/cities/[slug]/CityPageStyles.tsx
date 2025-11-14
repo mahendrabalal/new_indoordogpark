@@ -4,19 +4,26 @@ export default function CityPageStyles() {
   return (
     <style jsx global>{`
         .city-page-layout {
-          padding: 32px 32px 96px 360px;
+          padding: 32px 32px 72px 320px;
           background: linear-gradient(180deg, #faf7ff 0%, #ffffff 40%, #f6f7fb 100%);
+        }
+
+        @media (min-width: 1440px) {
+          .city-page-layout {
+            padding-left: 360px;
+            padding-right: 64px;
+          }
         }
 
         @media (max-width: 1200px) {
           .city-page-layout {
-            padding-left: 320px;
+            padding-left: 280px;
           }
         }
 
         @media (max-width: 1024px) {
           .city-page-layout {
-            padding: 80px 24px 80px;
+            padding: 68px 20px 64px;
           }
         }
 
@@ -51,6 +58,7 @@ export default function CityPageStyles() {
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
+          padding: 0 16px;
         }
 
         .city-hero-section {
@@ -345,9 +353,9 @@ export default function CityPageStyles() {
         }
 
         .section-heading {
-          max-width: 720px;
-          margin: 0 auto 40px;
-          text-align: center;
+          max-width: 960px;
+          margin: 0 auto 32px;
+          text-align: left;
         }
 
         .section-eyebrow {
@@ -375,6 +383,8 @@ export default function CityPageStyles() {
           color: #475569;
           font-size: 18px;
           line-height: 1.6;
+          max-width: 70ch;
+          margin: 0;
         }
 
         .city-insights-section,
@@ -384,7 +394,7 @@ export default function CityPageStyles() {
         .park-directory-section,
         .city-faq-section,
         .related-resources-section {
-          padding: 64px 0;
+          padding: 56px 0;
         }
 
         .insights-grid {
@@ -744,6 +754,14 @@ export default function CityPageStyles() {
         @media (max-width: 768px) {
           .city-page-layout {
             padding-top: 80px;
+          }
+
+          .section-heading {
+            text-align: center;
+          }
+
+          .section-heading p {
+            margin: 0 auto;
           }
 
           .hero-metrics {

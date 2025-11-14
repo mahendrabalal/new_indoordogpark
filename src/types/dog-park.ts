@@ -43,6 +43,12 @@ export interface MediaAsset {
   storagePath?: string;
 }
 
+export interface ParkFAQ {
+  question: string;
+  answer: string;
+  lastUpdated?: string;
+}
+
 export interface SocialMedia {
   facebook?: string;
   instagram?: string;
@@ -75,6 +81,7 @@ export interface DogPark {
   website?: string;
   email?: string;
   socialMedia?: SocialMedia;
+  faqs?: ParkFAQ[];
 
   // Media Assets
   photos?: MediaAsset[];

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
-import { generateParkMetadata, generateParkSchema } from '@/lib/metadata';
+import { generateFAQSchema, generateParkMetadata, generateParkSchema } from '@/lib/metadata';
 
 const ParkMap = dynamic(() => import('@/components/ParkMap'), {
   ssr: false,
@@ -48,6 +48,33 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     .slice(0, 4);
 
   const parkSchema = generateParkSchema(park);
+  const descriptionText =
+    park.description?.trim() ||
+    `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, California.`;
+  const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
+  const faqItems =
+    park.faqs && park.faqs.length > 0
+      ? park.faqs
+      : [
+          {
+            question: `What are the hours for ${park.name}?`,
+            answer:
+              'Please contact the park directly for current hours of operation. Our team keeps the hours updated on Google Maps and social channels.',
+          },
+          {
+            question: 'Is there an entrance fee?',
+            answer: 'Please check with the park for current pricing information.',
+          },
+          {
+            question: 'What amenities are available?',
+            answer: 'This dog park offers various amenities for your furry friends.',
+          },
+          {
+            question: 'Are there similar dog parks nearby?',
+            answer: `Yes! We have ${nearbyParks.length} other dog parks in ${park.city}. Explore the local recommendations below.`,
+          },
+        ];
+  const faqSchema = park.faqs && park.faqs.length > 0 ? generateFAQSchema(park.faqs) : null;
 
   return (
     <>
@@ -56,6 +83,13 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(parkSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Header />
 
@@ -125,9 +159,11 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
             <div className="park-main-content">
               <section className="content-section">
                 <h2>About {park.name}</h2>
-                <p className="park-description">
-                  {park.description || `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, California.`}
-                </p>
+                <div className="park-description">
+                  {descriptionParagraphs.map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
+                </div>
               </section>
 
               {park.amenities && (
@@ -185,50 +221,12 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               <section className="content-section faq-section">
                 <h2>Frequently Asked Questions</h2>
                 <div className="faq-list">
-                  <div className="faq-item">
-                    <h3>What are the hours for {park.name}?</h3>
-                    <p>
-                      {park.hours24x7
-                        ? 'This park is open 24 hours a day, 7 days a week.'
-                        : park.openingHours
-                          ? Object.entries(park.openingHours).map(([day, hours]) => (
-                              <span key={day}>
-                                {day}: {hours}
-                                <br />
-                              </span>
-                            ))
-                          : 'Please contact the park directly for current hours of operation.'}
-                    </p>
-                  </div>
-                  <div className="faq-item">
-                    <h3>Is there an entrance fee?</h3>
-                    <p>
-                      {park.pricing?.isFree
-                        ? 'No, this park is free to visit.'
-                        : park.pricing?.dropInFee
-                          ? `There is a drop-in fee of $${park.pricing.dropInFee}.`
-                          : 'Please check with the park for current pricing information.'}
-                    </p>
-                  </div>
-                  <div className="faq-item">
-                    <h3>What amenities are available?</h3>
-                    <p>
-                      This {park.businessType.toLowerCase()} offers{' '}
-                      {park.amenities
-                        ? Object.entries(park.amenities)
-                            .filter(([, value]) => value === true)
-                            .map(([key]) => formatAmenityName(key).toLowerCase())
-                            .join(', ')
-                        : 'various amenities for your furry friends'}
-                      .
-                    </p>
-                  </div>
-                  <div className="faq-item">
-                    <h3>Are there similar dog parks nearby?</h3>
-                    <p>
-                      Yes! We have {nearbyParks.length} other dog parks in {park.city}. Explore the local recommendations below.
-                    </p>
-                  </div>
+                  {faqItems.map((faq) => (
+                    <div key={faq.question} className="faq-item">
+                      <h3>{faq.question}</h3>
+                      <p>{faq.answer}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
 
