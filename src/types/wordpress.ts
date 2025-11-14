@@ -170,7 +170,10 @@ export interface BlogPost {
 // Blog List Response Type
 export interface BlogListResponse {
   posts: BlogPost[];
-  pagination: WPPaginationInfo;
+  total: number;
+  totalPages: number;
+  page: number;
+  perPage: number;
 }
 
 // Search and Filter Types

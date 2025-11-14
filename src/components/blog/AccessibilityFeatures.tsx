@@ -15,12 +15,6 @@ export function SkipLinks() {
       >
         Skip to main content
       </a>
-      <a
-        href="#navigation"
-        className="absolute -top-full left-0 bg-purple-600 text-white px-4 py-2 rounded-md focus:top-12 focus:left-4 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-200"
-      >
-        Skip to navigation
-      </a>
     </div>
   );
 }

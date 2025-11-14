@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { BlogPost } from '@/types/wordpress';
 import { ArrowLeftIcon, CalendarIcon, TagIcon } from '@heroicons/react/24/outline';
 import StructuredData from '@/components/blog/StructuredData';
+import { getCachedPosts, getCachedPostBySlug } from '@/lib/sanity-api';
 
 interface BlogPostPageProps {
   params: {
@@ -15,17 +16,8 @@ interface BlogPostPageProps {
 // Generate static params for ISR
 export async function generateStaticParams() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/blog?perPage=100`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
-    });
-
-    if (!response.ok) {
-      return [];
-    }
-
-    const data = await response.json();
-    const posts = data.data || [];
+    const response = await getCachedPosts({ perPage: 100 });
+    const posts = response.posts || [];
 
     return posts.map((post: BlogPost) => ({
       slug: post.slug,
@@ -40,23 +32,10 @@ export async function generateStaticParams() {
 async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
 
-  // Fetch the blog post
+  // Fetch the blog post from Sanity
   let post: BlogPost | null = null;
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/blog/${slug}`, {
-      next: { revalidate: 300 }, // Revalidate every 5 minutes
-    });
-
-    if (!response.ok) {
-      if (response.status === 404) {
-        return notFound();
-      }
-      throw new Error('Failed to fetch blog post');
-    }
-
-    const data = await response.json();
-    post = data.data;
+    post = await getCachedPostBySlug(slug);
   } catch (error) {
     console.error('Error fetching blog post:', error);
     return notFound();
@@ -98,23 +77,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </div>
 
-      {/* Hero Section with Featured Image */}
-      {featuredImage && (
-        <div className="relative aspect-video lg:aspect-[16/9] overflow-hidden">
-          <Image
-            src={featuredImage}
-            alt={post.featuredImage?.alt_text || post.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
-      )}
-
       {/* Content */}
-      <article className="container mx-auto px-4 py-16 max-w-4xl">
+      <article className="blog-article-container">
         {/* Article Header */}
         <header className="mb-12">
           {/* Categories */}
@@ -136,6 +100,27 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             {post.title}
           </h1>
+
+          {/* Featured Image - After Title */}
+          {featuredImage && (
+            <div className="blog-featured-image-wrapper">
+              <div className="blog-featured-image-container">
+                <Image
+                  src={featuredImage}
+                  alt={post.featuredImage?.alt_text || post.title}
+                  fill
+                  className="blog-featured-image"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 720px"
+                />
+              </div>
+              {post.featuredImage?.alt_text && (
+                <div className="blog-featured-image-caption">
+                  {post.featuredImage.alt_text}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Meta Information */}
           <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
@@ -185,25 +170,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         {/* Article Content */}
-        <div className="max-w-none">
-          <div
-            className="prose prose-lg prose-purple max-w-none
-                       prose-headings:font-bold prose-headings:text-gray-900
-                       prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl
-                       prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-lg
-                       prose-p:mb-6 prose-p:mt-4
-                       prose-h1:mt-12 prose-h1:mb-8 prose-h2:mt-10 prose-h2:mb-6 prose-h3:mt-8 prose-h3:mb-5
-                       prose-a:text-purple-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-                       prose-strong:text-gray-900 prose-strong:font-semibold
-                       prose-ul:text-gray-700 prose-ol:text-gray-700 prose-ul:my-6 prose-ol:my-6
-                       prose-li:my-2 prose-li:text-base
-                       prose-code:text-purple-600 prose-code:bg-purple-50 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
-                       prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-6 prose-pre:rounded-lg prose-pre:my-8
-                       prose-blockquote:border-l-4 prose-blockquote:border-purple-600 prose-blockquote:bg-purple-50 prose-blockquote:p-6 prose-blockquote:my-8 prose-blockquote:italic prose-blockquote:text-gray-700
-                       prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8
-                       prose-table:border-gray-200 prose-th:bg-gray-50 prose-th:border-gray-200 prose-table:my-6"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+        <div className="blog-content">
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 
         {/* Tags */}
@@ -287,20 +255,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = params;
 
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/blog/${slug}`, {
-      next: { revalidate: 300 },
-    });
-
-    if (!response.ok) {
-      return {
-        title: 'Post Not Found - California Dog Parks',
-        description: 'The blog post you are looking for could not be found.',
-      };
-    }
-
-    const data = await response.json();
-    const post: BlogPost = data.data;
+    // Use the same data fetching method as the page component
+    const post = await getCachedPostBySlug(slug);
 
     if (!post) {
       return {
@@ -309,17 +265,53 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       };
     }
 
-    // Extract text from HTML for description
-    const textContent = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
-    const description = textContent.length > 160
-      ? textContent.substring(0, 157) + '...'
-      : textContent;
+    // Extract clean text from HTML for description
+    const textContent = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+    
+    // Create SEO-optimized description (150-160 characters is optimal)
+    let description = textContent;
+    if (textContent.length > 160) {
+      description = textContent.substring(0, 157) + '...';
+    } else if (textContent.length < 120 && post.content) {
+      // If excerpt is too short, use beginning of content
+      const contentText = post.content.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+      description = contentText.length > 160 
+        ? contentText.substring(0, 157) + '...'
+        : contentText;
+    }
 
-    const featuredImage = post.featuredImage?.source_url;
+    // Get featured image
+    const featuredImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
+                         post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+                         post.featuredImage?.source_url;
+
+    // Create SEO-friendly title (50-60 characters is optimal)
+    let seoTitle = post.title;
+    if (seoTitle.length > 60) {
+      seoTitle = seoTitle.substring(0, 57) + '...';
+    }
+
+    // Extract keywords from categories and tags
+    const keywords = [
+      ...post.categories.map(cat => cat.name),
+      ...post.tags.map(tag => tag.name),
+      'California dog parks',
+      'indoor dog parks',
+      'dog-friendly'
+    ].join(', ');
 
     return {
-      title: `${post.title} - California Dog Parks Blog`,
+      title: seoTitle,
       description,
+      keywords,
+      authors: post.author ? [{ name: post.author.name }] : undefined,
+      creator: post.author?.name,
+      publisher: 'California Dog Parks',
+      formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+      },
       openGraph: {
         title: post.title,
         description,
@@ -327,6 +319,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         publishedTime: post.date,
         modifiedTime: post.modified,
         authors: post.author ? [post.author.name] : [],
+        siteName: 'California Dog Parks',
+        locale: 'en_US',
         images: featuredImage ? [
           {
             url: featuredImage,
@@ -340,7 +334,22 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         card: 'summary_large_image',
         title: post.title,
         description,
+        creator: post.author?.name ? `@${post.author.name.replace(/\s+/g, '')}` : undefined,
         images: featuredImage ? [featuredImage] : [],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+      alternates: {
+        canonical: `/blog/${slug}`,
       },
     };
   } catch (error) {

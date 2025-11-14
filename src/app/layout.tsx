@@ -6,12 +6,13 @@ import { AuthProvider } from '@/contexts/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.indoordogpark.org'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org'),
   title: {
     default: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
     template: '%s | Indoor Dog Park'
   },
   description: 'Discover top indoor dog park options across California for year-round play. Search indoor dog parks by city, neighborhood, or zip code to find safe, climate-controlled spaces for your dog.',
+  applicationName: 'Indoor Dog Park',
   keywords: [
     'indoor dog park',
     'dog play area',
@@ -22,14 +23,23 @@ export const metadata: Metadata = {
     'dog boarding',
     'pet services',
     'canine activities',
-    'off-leash dog areas'
+    'off-leash dog areas',
+    'California dog parks',
+    'dog-friendly spaces'
   ],
-  authors: [{ name: 'Indoor Dog Park Team' }],
+  authors: [{ name: 'Indoor Dog Park Team', url: 'https://www.indoordogpark.org' }],
   creator: 'Indoor Dog Park',
   publisher: 'Indoor Dog Park',
+  category: 'Pet Services',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -51,6 +61,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Indoor Dog Park - Find Indoor Dog Parks & Play Areas',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -59,13 +70,26 @@ export const metadata: Metadata = {
     title: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
     description: 'Discover top indoor dog park options across California for year-round play. Search indoor dog parks by city, neighborhood, or zip code.',
     images: ['/images/og-image.jpg'],
+    site: '@indoordogpark',
+    creator: '@indoordogpark',
   },
   alternates: {
     canonical: 'https://www.indoordogpark.org',
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    // Add verification codes through environment variables:
+    // NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    // NEXT_PUBLIC_YANDEX_VERIFICATION
+    // NEXT_PUBLIC_BING_VERIFICATION
+  },
   other: {
     'theme-color': '#7c3aed',
     'msapplication-TileColor': '#7c3aed',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'apple-mobile-web-app-title': 'Indoor Dog Park',
+    'mobile-web-app-capable': 'yes',
   },
 }
 
@@ -74,6 +98,44 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Structured data for Organization
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Indoor Dog Park',
+    url: 'https://www.indoordogpark.org',
+    logo: 'https://www.indoordogpark.org/images/logo/logo-512.png',
+    description: 'California\'s premier directory for indoor dog parks, play areas, and dog-friendly facilities.',
+    sameAs: [
+      // Add your social media profiles here
+      // 'https://www.facebook.com/indoordogpark',
+      // 'https://twitter.com/indoordogpark',
+      // 'https://www.instagram.com/indoordogpark',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: 'en',
+    },
+  }
+
+  // Structured data for WebSite
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Indoor Dog Park',
+    url: 'https://www.indoordogpark.org',
+    description: 'Find the best indoor dog parks and facilities across California',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://www.indoordogpark.org/?search={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
   return (
     <html lang="en">
       <head>
@@ -84,6 +146,20 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
       </head>
       <body className={inter.className}>
         <AuthProvider>

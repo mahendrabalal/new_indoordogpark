@@ -60,6 +60,7 @@ export async function middleware(request: NextRequest) {
     error,
   } = await supabase.auth.getUser();
 
+  // Only log auth info in debug mode or actual errors (not missing sessions)
   const shouldLogAuth =
     process.env.NODE_ENV !== 'production' &&
     process.env.NEXT_PUBLIC_ENABLE_AUTH_DEBUG === 'true';
@@ -69,7 +70,8 @@ export async function middleware(request: NextRequest) {
       user: user?.email || user?.id || 'anonymous',
       error: error?.message,
     });
-  } else if (error && process.env.NODE_ENV !== 'production') {
+  } else if (error && error.message !== 'Auth session missing!' && process.env.NODE_ENV !== 'production') {
+    // Only log actual errors, not expected missing sessions for public routes
     console.warn('middleware: auth session error', error.message);
   }
 

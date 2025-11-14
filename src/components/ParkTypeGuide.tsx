@@ -1,3 +1,5 @@
+'use client';
+
 import { DogPark } from '@/types/dog-park';
 import Link from 'next/link';
 

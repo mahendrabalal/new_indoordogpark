@@ -12,7 +12,6 @@ export default function Footer() {
               <li><Link href="/about">About us</Link></li>
               <li><Link href="/partners">Partners</Link></li>
               <li><Link href="/media">Media</Link></li>
-              <li><Link href="/careers">Careers</Link></li>
             </ul>
           </div>
 
@@ -33,7 +32,6 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link href="/list-property">List your park</Link></li>
               <li><Link href="/owner-resources">Owner resources</Link></li>
-              <li><Link href="/pricing">Pricing</Link></li>
             </ul>
           </div>
 

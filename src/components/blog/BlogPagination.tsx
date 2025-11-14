@@ -6,12 +6,14 @@ interface BlogPaginationProps {
   pagination: WPPaginationInfo;
   basePath?: string;
   className?: string;
+  query?: Record<string, string | number | undefined>;
 }
 
 export default function BlogPagination({
   pagination,
   basePath = '/blog',
   className = '',
+  query = {},
 }: BlogPaginationProps) {
   const { currentPage, totalPages, total } = pagination;
 
@@ -21,8 +23,14 @@ export default function BlogPagination({
 
   const getPageUrl = (page: number) => {
     const params = new URLSearchParams();
+    Object.entries(query).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && value !== '') {
+        params.set(key, String(value));
+      }
+    });
     params.set('page', page.toString());
-    return `${basePath}?${params.toString()}`;
+    const queryString = params.toString();
+    return queryString ? `${basePath}?${queryString}` : basePath;
   };
 
   const getVisiblePages = () => {

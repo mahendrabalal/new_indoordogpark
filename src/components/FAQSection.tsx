@@ -18,7 +18,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
 
-  const faqData: FAQItem[] = [
+  const faqData: FAQItem[] = useMemo(() => [
     {
       question: `How many dog parks are available in ${cityName}?`,
       answer: `${cityName} has ${parkCount} dog parks and dog-friendly establishments, including traditional outdoor dog parks, indoor dog parks, and dog-friendly businesses like restaurants and shops. Each type offers unique benefits for different situations and dog personalities.`,
@@ -98,7 +98,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
       answer: 'Many dog parks in ${cityName} have professional trainers offering classes, or you can work on basic obedience and socialization skills yourself. Indoor facilities often provide structured training programs, agility classes, and behavior workshops. Dog parks are excellent environments for practicing recall and social skills under controlled conditions.',
       category: 'training'
     }
-  ];
+  ], [cityName, parkCount]);
 
   const categories = [
     { id: 'all', name: 'All Questions', count: faqData.length },
@@ -122,7 +122,7 @@ export default function FAQSection({ cityName, parkCount }: FAQSectionProps) {
     () => (activeCategory === 'all'
       ? faqData
       : faqData.filter(item => item.category === activeCategory)),
-    [activeCategory]
+    [activeCategory, faqData]
   );
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { DogPark } from '@/types/dog-park';
-import { fetchParks } from '@/lib/api';
+import { fetchParks, PaginationResponse } from '@/lib/api';
 import { getFeaturedCities, getFeaturedParks } from '@/lib/cityData';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
@@ -23,11 +23,24 @@ const Map = dynamic(() => import('@/components/Map'), {
   loading: () => <div style={{ height: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading map...</div>
 });
 
-export default function HomePageClient() {
-  const [allParks, setAllParks] = useState<DogPark[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [hasMore, setHasMore] = useState(false);
+interface HomePageClientProps {
+  initialParks: DogPark[];
+  initialPagination: PaginationResponse['pagination'];
+}
+
+export default function HomePageClient({ initialParks, initialPagination }: HomePageClientProps) {
+  const normalizedPagination = initialPagination ?? {
+    page: 1,
+    limit: 20,
+    totalParks: initialParks.length,
+    totalPages: 1,
+    hasMore: false,
+  };
+
+  const [allParks, setAllParks] = useState<DogPark[]>(initialParks);
+  const [loading, setLoading] = useState(initialParks.length === 0);
+  const [currentPage, setCurrentPage] = useState(normalizedPagination.page || 1);
+  const [hasMore, setHasMore] = useState(normalizedPagination.hasMore);
   const [loadingMore, setLoadingMore] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
@@ -53,23 +66,37 @@ export default function HomePageClient() {
 
   const showSearchLayout = hasActiveSearch;
 
-  // Initial load - fetch first page
+  // Client fallback if server-rendered data was unavailable
   useEffect(() => {
+    if (initialParks.length > 0) {
+      setLoading(false);
+      return;
+    }
+
+    let isMounted = true;
+
     const loadInitialParks = async () => {
       try {
         const response = await fetchParks(1, 20);
+        if (!isMounted) return;
         setAllParks(response.data);
         setCurrentPage(1);
         setHasMore(response.pagination.hasMore);
       } catch (error) {
         console.error('Error loading parks:', error);
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
     loadInitialParks();
-  }, []);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [initialParks.length]);
 
   // Sync autocomplete query with search term
   useEffect(() => {

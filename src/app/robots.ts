@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.indoordogpark.org'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org'
 
   return {
     rules: [
@@ -13,56 +13,110 @@ export default function robots(): MetadataRoute.Robots {
           '/api/',
           '/dashboard/',
           '/payment/',
+          '/checkout/',
           '/login',
           '/signup',
-          '/_next/',
-          '/static/',
-          '/*.json$',
+          '/studio/', // Sanity Studio
+          '/webhook/', // Webhook endpoints
           '/private/',
-          '/temp/',
-          '*.pdf$',
-          '/*?*',
+          '/_next/static/media/', // Internal Next.js files
         ],
       },
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: [
+          '/',
+          '/parks/',
+          '/cities/',
+          '/blog/',
+          '/images/',
+          '/icons/',
+          '/_next/static/', // Allow static assets for crawling
+          '/_next/image/', // Allow Next.js image optimization
+        ],
         disallow: [
           '/admin/',
           '/api/',
           '/dashboard/',
           '/payment/',
+          '/checkout/',
           '/login',
           '/signup',
+          '/studio/',
+          '/webhook/',
+          '/private/',
         ],
-        crawlDelay: 1,
+        crawlDelay: 0,
       },
       {
         userAgent: 'Bingbot',
-        allow: '/',
+        allow: [
+          '/',
+          '/parks/',
+          '/cities/',
+          '/blog/',
+          '/images/',
+          '/icons/',
+          '/_next/static/',
+          '/_next/image/',
+        ],
         disallow: [
           '/admin/',
           '/api/',
           '/dashboard/',
           '/payment/',
+          '/checkout/',
           '/login',
           '/signup',
+          '/studio/',
+          '/webhook/',
+          '/private/',
         ],
-        crawlDelay: 2,
+        crawlDelay: 0,
       },
-      // Allow specific bots for images and resources
+      // Allow image bots to access public images
       {
         userAgent: 'Googlebot-Image',
-        allow: ['/public/data/', '/images/'],
-        disallow: ['/admin/', '/api/'],
+        allow: [
+          '/images/',
+          '/icons/',
+          '/_next/image/',
+        ],
+        disallow: [
+          '/admin/',
+          '/api/',
+          '/private/',
+        ],
       },
+      // Allow video bots
       {
         userAgent: 'Googlebot-Video',
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: [
+          '/admin/',
+          '/api/',
+          '/private/',
+          '/payment/',
+          '/checkout/',
+        ],
+      },
+      // Explicitly block aggressive crawlers and scrapers
+      {
+        userAgent: [
+          'AhrefsBot',
+          'SemrushBot',
+          'DotBot',
+          'MJ12bot',
+          'BLEXBot',
+          'PetalBot',
+          'DataForSeoBot',
+          'SeznamBot',
+          'MauiBot',
+          'AspiegelBot',
+        ],
+        disallow: '/',
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   }
 }

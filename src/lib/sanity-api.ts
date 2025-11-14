@@ -1,0 +1,346 @@
+import { sanityClient, queries, urlForImage } from './sanity-client';
+import { BlogPost, BlogListResponse, BlogSearchParams, WPMedia } from '@/types/wordpress';
+import { PortableTextBlock } from '@portabletext/types';
+
+interface SanitySlug {
+  current: string;
+}
+
+interface SanityImageAsset {
+  _id: string;
+  url?: string;
+  metadata?: {
+    dimensions?: {
+      width?: number;
+      height?: number;
+    };
+  };
+}
+
+interface SanityImage {
+  asset?: SanityImageAsset;
+  alt?: string;
+  caption?: string;
+}
+
+interface SanityAuthor {
+  _id: string;
+  name: string;
+  slug?: SanitySlug;
+  bio?: string;
+  image?: SanityImage;
+}
+
+interface SanityCategory {
+  _id: string;
+  title: string;
+  slug: SanitySlug;
+  description?: string;
+  postCount?: number;
+}
+
+interface SanityTag {
+  _id: string;
+  title: string;
+  slug: SanitySlug;
+  postCount?: number;
+}
+
+interface SanityPortableChild {
+  _type?: string;
+  text?: string;
+  marks?: string[];
+}
+
+interface SanityMarkDef {
+  _key: string;
+  _type: string;
+  href?: string;
+}
+
+type SanityPortableBlock = PortableTextBlock & {
+  style?: string;
+  children?: SanityPortableChild[];
+  markDefs?: SanityMarkDef[];
+  alt?: string;
+  caption?: string;
+  asset?: SanityImageAsset;
+};
+
+interface SanityPost {
+  _id: string;
+  title: string;
+  slug: SanitySlug;
+  excerpt?: string;
+  content?: SanityPortableBlock[];
+  publishedAt: string;
+  _updatedAt: string;
+  mainImage?: SanityImage;
+  author?: SanityAuthor;
+  categories?: SanityCategory[];
+  tags?: SanityTag[];
+}
+
+// Helper function to convert Portable Text to HTML for compatibility
+function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
+  if (!blocks.length) return '';
+
+  return blocks
+    .map((block) => {
+      if (block._type === 'block') {
+        const style = block.style || 'normal';
+        const markDefs = block.markDefs ?? [];
+        const children = block.children
+          ?.map((child) => {
+            let text = child.text || '';
+            if (child.marks?.includes('strong')) text = `<strong>${text}</strong>`;
+            if (child.marks?.includes('em')) text = `<em>${text}</em>`;
+            if (child.marks?.includes('code')) text = `<code>${text}</code>`;
+            if (child.marks?.includes('underline')) text = `<u>${text}</u>`;
+            if (child.marks?.includes('strike-through')) text = `<s>${text}</s>`;
+            
+            // Handle link annotations
+            const linkMark = child.marks?.find((mark: string) => 
+              markDefs.some((def) => def._key === mark && def._type === 'link')
+            );
+            if (linkMark) {
+              const linkDef = markDefs.find((def) => def._key === linkMark);
+              if (linkDef?.href) text = `<a href="${linkDef.href}">${text}</a>`;
+            }
+            
+            return text;
+          })
+          .join('');
+
+        switch (style) {
+          case 'h1': return `<h1>${children}</h1>`;
+          case 'h2': return `<h2>${children}</h2>`;
+          case 'h3': return `<h3>${children}</h3>`;
+          case 'h4': return `<h4>${children}</h4>`;
+          case 'blockquote': return `<blockquote>${children}</blockquote>`;
+          case 'normal':
+          default: return `<p>${children}</p>`;
+        }
+      } else if (block._type === 'image' && block.asset) {
+        const imageUrl = urlForImage(block).width(800).url();
+        const alt = block.alt || '';
+        const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
+        return `<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`;
+      }
+      return '';
+    })
+    .join('\n');
+}
+
+// Convert Sanity post to WordPress-compatible BlogPost format
+function sanitizeNumericId(idValue: string | undefined, fallback = 1): number {
+  if (!idValue) return fallback;
+  const digits = parseInt(idValue.replace(/\D/g, '').slice(0, 8), 10);
+  return Number.isNaN(digits) ? fallback : digits;
+}
+
+function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
+  const featuredImage: WPMedia | undefined = sanityPost.mainImage?.asset
+    ? ({
+        id: sanitizeNumericId(sanityPost.mainImage.asset._id, Math.floor(Math.random() * 100000)),
+        date: sanityPost.publishedAt,
+        slug: sanityPost.slug.current,
+        type: 'attachment',
+        link: urlForImage(sanityPost.mainImage).url(),
+        title: { rendered: sanityPost.mainImage.alt || sanityPost.title },
+        author: sanitizeNumericId(sanityPost.author?._id),
+        caption: { rendered: sanityPost.mainImage.caption || '' },
+        alt_text: sanityPost.mainImage.alt || sanityPost.title,
+        media_type: 'image',
+        mime_type: 'image/jpeg',
+        media_details: {
+          width: sanityPost.mainImage.asset.metadata?.dimensions?.width || 1200,
+          height: sanityPost.mainImage.asset.metadata?.dimensions?.height || 630,
+          file: `${sanityPost.slug.current}.jpg`,
+        },
+        source_url: urlForImage(sanityPost.mainImage).width(1200).url(),
+      } satisfies WPMedia)
+    : undefined;
+
+  return {
+    id: sanitizeNumericId(sanityPost._id, Math.floor(Math.random() * 100000)),
+    title: sanityPost.title,
+    slug: sanityPost.slug.current,
+    excerpt: sanityPost.excerpt || '',
+    content: portableTextToHtml(sanityPost.content || []),
+    date: sanityPost.publishedAt,
+    modified: sanityPost._updatedAt,
+    author: sanityPost.author
+      ? {
+          id: sanitizeNumericId(sanityPost.author._id),
+          name: sanityPost.author.name,
+          slug: sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-'),
+          description: sanityPost.author.bio || '',
+          url: '',
+          link: `/blog/author/${sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-')}`,
+          avatar_urls: {
+            '96': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(96).height(96).url() : '',
+            '48': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(48).height(48).url() : '',
+            '24': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(24).height(24).url() : '',
+          },
+        }
+      : {
+          id: 1,
+          name: 'California Dog Parks Team',
+          slug: 'california-dog-parks-team',
+          description: 'Dedicated to helping dog owners find the best parks in California',
+          url: '',
+          link: '/blog/author/california-dog-parks-team',
+          avatar_urls: { '96': '', '48': '', '24': '' },
+        },
+    categories: (sanityPost.categories || []).map((cat, index: number) => ({
+      id: sanitizeNumericId(cat._id, index + 1),
+      name: cat.title,
+      slug: cat.slug.current,
+      description: cat.description || '',
+      count: cat.postCount || 0,
+      link: `/blog/category/${cat.slug.current}`,
+      taxonomy: 'category',
+      parent: 0,
+      meta: {},
+    })),
+    tags: (sanityPost.tags || []).map((tag, index: number) => ({
+      id: sanitizeNumericId(tag._id, index + 1),
+      name: tag.title,
+      slug: tag.slug.current,
+      description: '',
+      count: tag.postCount || 0,
+      link: `/blog/tag/${tag.slug.current}`,
+      taxonomy: 'post_tag',
+      meta: {},
+    })),
+    featuredImage,
+    link: `/blog/${sanityPost.slug.current}`,
+    status: 'publish',
+    commentStatus: 'open',
+  };
+}
+
+// Fetch posts with pagination and filtering
+export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
+  try {
+    const page = searchParams.page || 1;
+    const perPage = searchParams.perPage || 10;
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    let query = queries.posts;
+    const params: Record<string, unknown> = { start, end };
+
+    // Handle search
+    if (searchParams.search) {
+      query = queries.searchPosts;
+      params.searchTerm = `*${searchParams.search}*`;
+    }
+
+    // Handle category filter
+    if (searchParams.category) {
+      query = queries.postsByCategory;
+      params.categorySlug = searchParams.category;
+    }
+
+    // Handle tag filter
+    if (searchParams.tag) {
+      query = queries.postsByTag;
+      params.tagSlug = searchParams.tag;
+    }
+
+    const sanityPosts = await sanityClient.fetch<SanityPost[]>(query, params);
+    const totalCount = await sanityClient.fetch<number>(queries.postCount);
+
+    const posts = sanityPosts.map(sanityPostToBlogPost);
+
+    return {
+      posts,
+      total: totalCount,
+      totalPages: Math.ceil(totalCount / perPage),
+      page,
+      perPage,
+    };
+  } catch (error) {
+    console.error('Error fetching posts from Sanity:', error);
+    return {
+      posts: [],
+      total: 0,
+      totalPages: 0,
+      page: 1,
+      perPage: searchParams.perPage || 10,
+    };
+  }
+}
+
+// Fetch single post by slug
+export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
+  try {
+    const sanityPost = await sanityClient.fetch<SanityPost | null>(queries.postBySlug, { slug });
+    if (!sanityPost) return null;
+    return sanityPostToBlogPost(sanityPost);
+  } catch (error) {
+    console.error('Error fetching post by slug from Sanity:', error);
+    return null;
+  }
+}
+
+// Fetch categories
+export async function fetchCategories() {
+  try {
+    const sanityCategories = await sanityClient.fetch<SanityCategory[]>(queries.categories);
+    return sanityCategories.map((cat, index: number) => ({
+      id: parseInt(cat._id.replace(/\D/g, '').slice(0, 8)) || index + 1,
+      name: cat.title,
+      slug: cat.slug.current,
+      description: cat.description || '',
+      count: cat.postCount || 0,
+      link: `/blog/category/${cat.slug.current}`,
+      taxonomy: 'category',
+      parent: 0,
+      meta: {},
+    }));
+  } catch (error) {
+    console.error('Error fetching categories from Sanity:', error);
+    return [];
+  }
+}
+
+// Fetch tags
+export async function fetchTags() {
+  try {
+    const sanityTags = await sanityClient.fetch<SanityTag[]>(queries.tags);
+    return sanityTags.map((tag, index: number) => ({
+      id: parseInt(tag._id.replace(/\D/g, '').slice(0, 8)) || index + 1,
+      name: tag.title,
+      slug: tag.slug.current,
+      description: '',
+      count: tag.postCount || 0,
+      link: `/blog/tag/${tag.slug.current}`,
+      taxonomy: 'post_tag',
+      meta: {},
+    }));
+  } catch (error) {
+    console.error('Error fetching tags from Sanity:', error);
+    return [];
+  }
+}
+
+// Cached versions with Next.js cache
+export async function getCachedPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
+  return fetchPosts(searchParams);
+}
+
+export async function getCachedPostBySlug(slug: string): Promise<BlogPost | null> {
+  return fetchPostBySlug(slug);
+}
+
+export async function getCachedCategories() {
+  return fetchCategories();
+}
+
+export async function getCachedTags() {
+  return fetchTags();
+}
+
