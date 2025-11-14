@@ -1,8 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { Map as LeafletMap, Marker } from 'leaflet';
 import { DogPark } from '@/types/dog-park';
+
+// Type definitions for Leaflet (since it's dynamically imported)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LeafletMap = any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Marker = any;
 
 interface MapProps {
   parks: DogPark[];

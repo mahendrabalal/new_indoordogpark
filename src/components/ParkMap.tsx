@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { Map as LeafletMap } from 'leaflet';
+// Type definitions for Leaflet (since it's dynamically imported)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LeafletMap = any;
 import { DogPark } from '@/types/dog-park';
 
 interface ParkMapProps {
