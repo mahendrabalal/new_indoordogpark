@@ -35,6 +35,7 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
   // Convert to CityData array
   const cities: CityData[] = Array.from(cityMap.values()).map((cityParks) => {
+    const cityName = cityParks[0].city;
     const avgRating = cityParks.length > 0
       ? parseFloat((cityParks.reduce((sum, p) => sum + p.rating, 0) / cityParks.length).toFixed(1))
       : 0;
@@ -51,8 +52,8 @@ export function getAllCities(parks: DogPark[]): CityData[] {
     }
 
     return {
-      slug: cityParks[0].city.toLowerCase().replace(/\s+/g, '-'),
-      name: cityParks[0].city,
+      slug: cityNameToSlug(cityName),
+      name: cityName,
       parkCount: cityParks.length,
       avgRating,
       totalReviews,
@@ -133,7 +134,11 @@ export function getParksByType(parks: DogPark[]): Record<string, DogPark[]> {
  * Convert city name to slug format
  */
 export function cityNameToSlug(cityName: string): string {
-  return cityName.toLowerCase().replace(/\s+/g, '-');
+  return cityName
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
 /**

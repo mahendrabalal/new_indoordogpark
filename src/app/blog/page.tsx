@@ -8,7 +8,7 @@ import BlogPagination from '@/components/blog/BlogPagination';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 // import { BlogPageSkeleton } from '@/components/blog/BlogSkeleton';
 // import ErrorBoundary from '@/components/blog/ErrorBoundary';
-import { SkipLinks, LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
+import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
@@ -157,7 +157,6 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   if (!hasPosts) {
     return (
       <>
-        <SkipLinks />
         <LiveRegion />
         <ReadingProgress />
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" id="main-content" role="main">
@@ -232,7 +231,6 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
 
   return (
     <>
-      <SkipLinks />
       <LiveRegion />
       <ReadingProgress />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-white" id="main-content" role="main">
