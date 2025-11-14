@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-// Type definitions for Leaflet (since it's dynamically imported)
+import { DogPark } from '@/types/dog-park';
+
+// Type definitions for Leaflet
+// Note: Leaflet is dynamically imported, so we use type aliases
+// This is a pragmatic solution - see DEPENDENCY_ANALYSIS.md for details
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LeafletMap = any;
-import { DogPark } from '@/types/dog-park';
 
 interface ParkMapProps {
   park: DogPark;
