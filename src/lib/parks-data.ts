@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import { DogPark } from '@/types/dog-park';
+import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
 import { getPriorityCityBySlug, getPriorityCitySlugs, priorityCityContent } from '@/data/priorityCityContent';
 import {
@@ -12,6 +12,7 @@ import {
   getParksByCity,
   getParksByType,
 } from '@/lib/cityData';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export interface PaginatedParks {
   data: DogPark[];
@@ -51,6 +52,115 @@ function normalizePark(rawPark: DogPark): DogPark {
     source: rawPark.source || 'static',
     listingType: rawPark.listingType || 'free',
   };
+}
+
+function normalizeSubmissionPhotos(photos: unknown): MediaAsset[] {
+  if (!Array.isArray(photos)) return [];
+
+  return photos
+    .map((photo) => {
+      if (!photo) return null;
+
+      if (typeof photo === 'string') {
+        const trimmed = photo.trim();
+        if (!trimmed) return null;
+        return {
+          url: trimmed,
+          type: 'photo',
+        } as MediaAsset;
+      }
+
+      if (typeof photo === 'object') {
+        const anyPhoto = photo as Record<string, unknown>;
+        const url =
+          typeof anyPhoto.url === 'string' && anyPhoto.url.trim()
+            ? anyPhoto.url
+            : typeof anyPhoto.publicUrl === 'string' && anyPhoto.publicUrl.trim()
+              ? anyPhoto.publicUrl
+              : undefined;
+
+        if (!url) return null;
+
+        return {
+          type: (anyPhoto.type as MediaAsset['type']) || 'photo',
+          url,
+          caption: typeof anyPhoto.caption === 'string' ? anyPhoto.caption : undefined,
+          source: typeof anyPhoto.source === 'string' ? (anyPhoto.source as MediaAsset['source']) : undefined,
+          uploadedAt: typeof anyPhoto.uploadedAt === 'string' ? anyPhoto.uploadedAt : undefined,
+          storagePath: typeof anyPhoto.storagePath === 'string' ? anyPhoto.storagePath : undefined,
+        } satisfies MediaAsset;
+      }
+
+      return null;
+    })
+    .filter((photo): photo is MediaAsset => !!photo);
+}
+
+interface SubmissionRow {
+  id: string;
+  name: string;
+  slug?: string | null;
+  business_type: string;
+  description?: string | null;
+  address?: string | null;
+  street?: string | null;
+  city: string;
+  state: string;
+  zip_code?: string | null;
+  full_address?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  phone?: string | null;
+  email?: string | null;
+  website?: string | null;
+  photos?: unknown;
+  opening_hours?: Record<string, string> | null;
+  amenities?: Record<string, unknown> | null;
+  listing_type?: string | null;
+  user_id: string;
+  created_at: string;
+  approved_at?: string | null;
+}
+
+function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
+  const photos = normalizeSubmissionPhotos(submission.photos);
+
+  return {
+    id: submission.id,
+    name: submission.name,
+    slug:
+      submission.slug ||
+      slugify(submission.name, submission.city),
+    businessType: submission.business_type,
+    rating: 0,
+    reviewCount: 0,
+    address: submission.address,
+    street: submission.street,
+    city: submission.city,
+    state: submission.state,
+    zipCode: submission.zip_code,
+    full_address:
+      submission.full_address ||
+      `${submission.address || ''}, ${submission.city || ''}, ${submission.state || ''}, ${submission.zip_code || ''}`.replace(
+        /(^,\s*|\s*,\s*$)/g,
+        '',
+      ),
+    latitude: submission.latitude,
+    longitude: submission.longitude,
+    phone: submission.phone,
+    email: submission.email,
+    website: submission.website,
+    description: submission.description,
+    photos,
+    photo: photos[0]?.url,
+    openingHours: submission.opening_hours,
+    amenities: submission.amenities || {},
+    source: 'user_submitted',
+    listingType: submission.listing_type || 'free',
+    submittedBy: submission.user_id,
+    submittedAt: submission.created_at,
+    approvedAt: submission.approved_at,
+  } as DogPark;
 }
 
 function dedupeParks(parks: DogPark[]): DogPark[] {
@@ -122,6 +232,21 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
     if (priorityPark) {
       return priorityPark;
     }
+  }
+
+  try {
+    const { data: submission, error } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('*')
+      .eq('slug', slug)
+      .eq('status', 'approved')
+      .maybeSingle();
+
+    if (submission && !error) {
+      return mapSubmissionToDogPark(submission as SubmissionRow);
+    }
+  } catch (submissionError) {
+    console.error('Failed to fetch park submission by slug:', submissionError);
   }
 
   return null;

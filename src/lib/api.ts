@@ -21,6 +21,7 @@ export interface SearchParams {
   sortBy?: 'relevance' | 'rating' | 'reviews' | 'name' | 'distance';
   page?: number;
   limit?: number;
+  listingType?: 'featured' | 'free';
 }
 
 export interface SearchResponse {
@@ -84,6 +85,7 @@ export async function searchParks(params: SearchParams): Promise<SearchResponse>
       queryParams.append('amenities', params.amenities.join(','));
     }
     if (params.sortBy) queryParams.append('sortBy', params.sortBy);
+    if (params.listingType) queryParams.append('listingType', params.listingType);
     if (params.page) queryParams.append('page', params.page.toString());
     if (params.limit) queryParams.append('limit', params.limit.toString());
 

@@ -387,6 +387,217 @@ export default function CityPageStyles() {
           margin: 0;
         }
 
+        .city-premium-section {
+          padding: 48px 0 16px;
+        }
+
+        .city-premium-header {
+          display: flex;
+          justify-content: space-between;
+          gap: 24px;
+          align-items: flex-start;
+          margin-bottom: 24px;
+        }
+
+        .city-premium-header p {
+          color: #475569;
+        }
+
+        .city-premium-header-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+          .city-premium-header {
+            flex-direction: column;
+          }
+
+          .city-premium-header-actions {
+            width: 100%;
+          }
+        }
+
+        .city-premium-values {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+
+        .city-premium-value-card {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 18px;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        .city-premium-value-card h4 {
+          margin: 8px 0 6px;
+          font-size: 16px;
+          color: #0f172a;
+        }
+
+        .city-premium-value-card p {
+          margin: 0;
+          font-size: 14px;
+          color: #64748b;
+          line-height: 1.5;
+        }
+
+        .city-premium-value-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: rgba(124, 58, 237, 0.1);
+          color: #7c3aed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+        }
+
+        .city-premium-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+
+        .city-premium-grid.city-premium-grid-single {
+          max-width: 720px;
+          margin: 0 auto;
+        }
+
+        .city-premium-card {
+          background: white;
+          border-radius: 20px;
+          border: 1px solid #e2e8f0;
+          padding: 16px;
+          box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .city-premium-media {
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
+          height: 160px;
+        }
+
+        .city-premium-pill {
+          position: absolute;
+          top: 12px;
+          left: 12px;
+          background: rgba(255, 255, 255, 0.9);
+          color: #d97706;
+          font-weight: 600;
+          font-size: 11px;
+          padding: 6px 12px;
+          border-radius: 999px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          letter-spacing: 0.08em;
+        }
+
+        .city-premium-copy h3 {
+          margin: 6px 0;
+          font-size: 20px;
+          color: #0f172a;
+        }
+
+        .city-premium-eyebrow {
+          font-size: 12px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #a855f7;
+          font-weight: 600;
+        }
+
+        .city-premium-location {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 14px;
+          color: #475569;
+          margin-bottom: 8px;
+        }
+
+        .city-premium-description {
+          font-size: 14px;
+          color: #475569;
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        .city-premium-card-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .city-premium-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          border-radius: 999px;
+          padding: 10px 18px;
+          background: linear-gradient(135deg, #f59e0b, #d97706);
+          color: white;
+          font-weight: 600;
+          text-decoration: none;
+          width: fit-content;
+        }
+
+        .city-premium-meta {
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+          font-size: 14px;
+          color: #475569;
+        }
+
+        .city-premium-meta a {
+          color: #6366f1;
+          text-decoration: none;
+        }
+
+        .city-premium-empty {
+          margin-top: 20px;
+          border: 2px dashed #cbd5f5;
+          border-radius: 20px;
+          padding: 24px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          align-items: center;
+          justify-content: space-between;
+          background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.12));
+        }
+
+        .city-premium-empty h3 {
+          margin: 0;
+          font-size: 20px;
+          color: #1e1b4b;
+        }
+
+        .city-premium-empty p {
+          margin: 6px 0 0;
+          color: #4338ca;
+        }
+
+        .city-premium-error {
+          margin-top: 16px;
+          font-size: 14px;
+          color: #b45309;
+        }
+
         .city-insights-section,
         .park-collections-section,
         .map-experience-section,

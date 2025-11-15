@@ -71,6 +71,15 @@ export default function HomePageClient({
 
   const [showSearchLayout, setShowSearchLayout] = useState(initialShowSearchLayout);
 
+  const hasFilterSelections = Boolean(
+    (filters.type && filters.type !== 'all') ||
+      filters.minRating ||
+      filters.priceRange ||
+      filters.city ||
+      filters.listingType ||
+      (filters.amenities && filters.amenities.length > 0)
+  );
+
   useEffect(() => {
     setShowSearchLayout(hasActiveSearch);
   }, [hasActiveSearch]);
@@ -438,6 +447,22 @@ export default function HomePageClient({
 
               {/* Inline Filters */}
               <div className="inline-filters">
+                <select
+                  className="filter-select"
+                  value={filters.listingType || ''}
+                  onChange={(e) =>
+                    updateFilters({
+                      listingType: e.target.value
+                        ? (e.target.value as 'featured' | 'free')
+                        : undefined,
+                    })
+                  }
+                >
+                  <option value="">All Listings</option>
+                  <option value="featured">Premium only</option>
+                  <option value="free">Free listings</option>
+                </select>
+
                 <select 
                   className="filter-select"
                   value={filters.type}
@@ -484,7 +509,7 @@ export default function HomePageClient({
                   <option value="name">Name (A-Z)</option>
                 </select>
 
-                {(filters.type || searchTerm) && (
+                {(hasFilterSelections || !!searchTerm) && (
                   <button 
                     className="clear-filters-btn"
                     onClick={clearSearch}

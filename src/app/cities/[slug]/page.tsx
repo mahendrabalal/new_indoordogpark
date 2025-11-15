@@ -17,6 +17,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
+import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
@@ -415,6 +416,8 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
           </div>
         </section>
+
+        <CityPremiumSpotlight city={city.name} state={city.state} />
 
         <section id="city-insights" className="city-insights-section">
           <div className="section-shell">

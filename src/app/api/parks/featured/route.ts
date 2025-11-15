@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { MediaAsset } from '@/types/dog-park';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function GET() {
   try {
     // Supabase client already imported
@@ -53,12 +56,12 @@ export async function GET() {
     const { data: parks, error } = await supabaseAdminClient
       .from('park_submissions')
       .select('*')
-      .eq('status', 'approved')
       .eq('listing_type', 'featured')
-      .in('subscription_status', ['active', 'trialing'])
+      .eq('status', 'approved')
       .not('approved_at', 'is', null)
+      .in('subscription_status', ['active', 'trialing'])
       .order('approved_at', { ascending: false })
-      .limit(6); // Show top 6 featured parks
+      .limit(12);
 
     if (error) {
       console.error('Failed to fetch featured parks:', error);

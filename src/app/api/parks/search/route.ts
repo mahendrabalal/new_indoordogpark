@@ -16,6 +16,7 @@ interface SearchParams {
   sortBy?: 'relevance' | 'rating' | 'reviews' | 'name' | 'distance';
   page?: number;
   limit?: number;
+  listingType?: 'featured' | 'free';
 }
 
 // Calculate search relevance score
@@ -100,6 +101,12 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     
     // Parse search parameters
+    const listingTypeParam = searchParams.get('listingType');
+    const listingType =
+      listingTypeParam === 'featured' || listingTypeParam === 'free'
+        ? listingTypeParam
+        : undefined;
+
     const params: SearchParams = {
       q: searchParams.get('q') || undefined,
       type: searchParams.get('type') || undefined,
@@ -109,7 +116,8 @@ export async function GET(request: Request) {
       amenities: searchParams.get('amenities')?.split(',').filter(Boolean) || [],
       sortBy: (searchParams.get('sortBy') as SearchParams['sortBy']) || 'relevance',
       page: Math.max(1, parseInt(searchParams.get('page') || '1', 10)),
-      limit: Math.min(100, parseInt(searchParams.get('limit') || '50', 10))
+      limit: Math.min(100, parseInt(searchParams.get('limit') || '50', 10)),
+      listingType,
     };
 
     // Fetch static parks from JSON file
@@ -249,6 +257,13 @@ export async function GET(request: Request) {
       });
     }
 
+    // 7. Listing type filter (premium vs free)
+    if (params.listingType) {
+      filteredParks = filteredParks.filter(
+        park => park.listingType === params.listingType
+      );
+    }
+
     // CALCULATE RELEVANCE SCORES (for relevance sorting)
     const parksWithScores = filteredParks.map(park => ({
       park,
@@ -311,12 +326,20 @@ export async function GET(request: Request) {
           priceRange: params.priceRange,
           city: params.city,
           amenities: params.amenities,
-          sortBy: params.sortBy
+          sortBy: params.sortBy,
+          listingType: params.listingType,
         },
         meta: {
           totalParks: allParks.length,
           searchApplied: !!params.q,
-          filtersApplied: !!(params.type || params.minRating || params.priceRange || params.city || params.amenities?.length)
+          filtersApplied: !!(
+            params.type ||
+            params.minRating ||
+            params.priceRange ||
+            params.city ||
+            params.amenities?.length ||
+            params.listingType
+          )
         }
       },
       {

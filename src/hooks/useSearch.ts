@@ -12,6 +12,7 @@ export interface SearchFilters {
   city?: string;
   amenities?: string[];
   sortBy?: 'relevance' | 'rating' | 'reviews' | 'name' | 'distance';
+  listingType?: 'featured' | 'free';
 }
 
 export interface SearchOptions {
@@ -39,6 +40,12 @@ export function useSearch(
   const [filters, setFilters] = useState<SearchFilters>(() => {
     if (!enableUrlState) return {};
     
+    const listingTypeParam = getSearchParam('listingType');
+    const listingType =
+      listingTypeParam === 'featured' || listingTypeParam === 'free'
+        ? listingTypeParam
+        : undefined;
+
     return {
       type: getSearchParam('type') || undefined,
       businessType: getSearchParam('type') || undefined, // Backwards compat
@@ -46,6 +53,7 @@ export function useSearch(
       priceRange: getSearchParam('priceRange') || undefined,
       city: getSearchParam('city') || undefined,
       sortBy: (getSearchParam('sortBy') as SearchFilters['sortBy']) || 'relevance',
+      listingType,
     };
   });
   
@@ -55,10 +63,12 @@ export function useSearch(
   const [pagination, setPagination] = useState<SearchResponse['pagination'] | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  const hasActiveFilters = !!(filters.type && filters.type !== 'all') || 
-    !!filters.minRating || 
-    !!filters.priceRange || 
+  const hasActiveFilters =
+    !!(filters.type && filters.type !== 'all') ||
+    !!filters.minRating ||
+    !!filters.priceRange ||
     !!filters.city ||
+    !!filters.listingType ||
     !!(filters.amenities && filters.amenities.length > 0);
 
   // Check if search is active (has been performed with term or filters)
@@ -87,6 +97,7 @@ export function useSearch(
         sortBy: filters.sortBy || 'relevance',
         page: 1,
         limit: initialLimit,
+        listingType: filters.listingType,
       });
 
       if (response.success) {
@@ -136,6 +147,7 @@ export function useSearch(
       priceRange: filters.priceRange || '',
       city: filters.city || '',
       sortBy: filters.sortBy || '',
+      listingType: filters.listingType || '',
     };
 
     setSearchParams(updates);

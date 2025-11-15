@@ -112,19 +112,26 @@ STRIPE_WEBHOOK_SECRET=whsec_...
    - Add endpoint
    - Copy the signing secret
 
-### Optional: Google Places API
+### Optional: Google Places API / Google Maps API
 
 ```env
-# Only needed if running data scraping scripts
+# Used for geocoding (address to coordinates) and data scraping scripts
+# Either GOOGLE_PLACES_API_KEY or GOOGLE_MAPS_API_KEY will work
 GOOGLE_PLACES_API_KEY=your-api-key
+# OR
+GOOGLE_MAPS_API_KEY=your-api-key
 ```
 
-**How to get Google Places API key:**
+**How to get Google Maps API key:**
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing
-3. Enable Places API
+3. Enable the following APIs:
+   - **Geocoding API** (required for automatic coordinate generation in property listings)
+   - **Places API** (optional, for data scraping scripts)
 4. Create credentials (API key)
-5. Restrict the key to Places API only
+5. Restrict the key to specific APIs and domains for security
+
+**Note:** The geocoding feature in the property listing form automatically converts addresses to latitude/longitude coordinates. This requires either `GOOGLE_PLACES_API_KEY` or `GOOGLE_MAPS_API_KEY` to be set with Geocoding API enabled.
 
 ### Optional: Analytics
 
