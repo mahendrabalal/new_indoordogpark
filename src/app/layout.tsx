@@ -5,13 +5,19 @@ import { AuthProvider } from '@/contexts/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const sitePublishedTime =
+  process.env.NEXT_PUBLIC_SITE_PUBLISHED_AT || '2024-01-15T00:00:00.000Z'
+const siteModifiedTime =
+  process.env.NEXT_PUBLIC_SITE_MODIFIED_AT || '2025-11-15T00:00:00.000Z'
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org'),
   title: {
-    default: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
+    default: 'Best Indoor Dog Parks in California | Indoor Dog Park',
     template: '%s | Indoor Dog Park'
   },
-  description: 'Discover top indoor dog park options across California for year-round play. Search indoor dog parks by city, neighborhood, or zip code to find safe, climate-controlled spaces for your dog.',
+  description:
+    'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
   applicationName: 'Indoor Dog Park',
   keywords: [
     'indoor dog park',
@@ -49,27 +55,31 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'website',
+    type: 'article',
     locale: 'en_US',
     url: 'https://www.indoordogpark.org',
-    title: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
-    description: 'Discover top indoor dog park options across California for year-round play. Search indoor dog parks by city, neighborhood, or zip code.',
+    title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
+    description:
+      'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
     siteName: 'Indoor Dog Park',
+    publishedTime: sitePublishedTime,
+    modifiedTime: siteModifiedTime,
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/hero/hero.png',
         width: 1200,
         height: 630,
         alt: 'Indoor Dog Park - Find Indoor Dog Parks & Play Areas',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Indoor Dog Parks in California | Indoor Dog Park Directory',
-    description: 'Discover top indoor dog park options across California for year-round play. Search indoor dog parks by city, neighborhood, or zip code.',
-    images: ['/images/og-image.jpg'],
+    title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
+    description:
+      'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+    images: ['/images/hero/hero.png'],
     site: '@indoordogpark',
     creator: '@indoordogpark',
   },

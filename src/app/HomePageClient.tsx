@@ -26,9 +26,14 @@ const Map = dynamic(() => import('@/components/Map'), {
 interface HomePageClientProps {
   initialParks: DogPark[];
   initialPagination: PaginationResponse['pagination'];
+  initialShowSearchLayout?: boolean;
 }
 
-export default function HomePageClient({ initialParks, initialPagination }: HomePageClientProps) {
+export default function HomePageClient({
+  initialParks,
+  initialPagination,
+  initialShowSearchLayout = false,
+}: HomePageClientProps) {
   const normalizedPagination = initialPagination ?? {
     page: 1,
     limit: 20,
@@ -64,7 +69,11 @@ export default function HomePageClient({ initialParks, initialPagination }: Home
   // Use autocomplete hook
   const autocomplete = useAutocomplete({ debounceDelay: 150, minChars: 2 });
 
-  const showSearchLayout = hasActiveSearch;
+  const [showSearchLayout, setShowSearchLayout] = useState(initialShowSearchLayout);
+
+  useEffect(() => {
+    setShowSearchLayout(hasActiveSearch);
+  }, [hasActiveSearch]);
 
   // Client fallback if server-rendered data was unavailable
   useEffect(() => {
@@ -264,67 +273,76 @@ export default function HomePageClient({ initialParks, initialPagination }: Home
       {/* Hero Section - Only show when search layout is hidden */}
       {!showSearchLayout && (
         <section className="hero-section-new">
-          <h1 className="hero-title-new">
-            Find California&apos;s Best{' '}
-            <span className="hero-title-highlight">Indoor Dog Parks</span>
-          </h1>
-          <p className="hero-subtitle-new">
-            Discover top indoor dog park options across California for year-round play
-          </p>
-
-          <div className="search-container-new">
-            <form onSubmit={handleSearch} className="search-form" role="search">
-              <div className="search-input-wrapper" ref={searchWrapperRef} style={{ position: 'relative' }}>
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  className="search-input-new"
-                  placeholder="Search indoor dog parks by city, neighborhood, or zip code"
-                  value={searchTerm}
-                  onChange={(e) => handleSearchInputChange(e.target.value)}
-                  onKeyDown={handleAutocompleteKeyDown}
-                  onFocus={() => autocomplete.open()}
-                  aria-label="Search dog parks"
-                  aria-describedby="search-hint"
-                  autoComplete="off"
-                />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    className="search-input-clear"
-                    onClick={handleClearSearch}
-                    aria-label="Clear search"
-                  >
-                    <i className="bi bi-x-circle"></i>
-                  </button>
-                )}
-                <SearchAutocomplete
-                  suggestions={autocomplete.suggestions}
-                  isOpen={autocomplete.isOpen}
-                  isLoading={autocomplete.isLoading}
-                  selectedIndex={autocomplete.selectedIndex}
-                  query={autocomplete.query}
-                  onSuggestionClick={handleAutocompleteSuggestionClick}
-                  onClose={autocomplete.close}
-                />
+          <div className="hero-section-overlay" aria-hidden="true"></div>
+          <div className="hero-inner">
+            <div className="hero-content">
+              <div className="hero-badge">
+                <i className="bi bi-stars" aria-hidden="true"></i>
+                California indoor play guide
               </div>
-              <button type="submit" className="search-btn-new" disabled={isSearching}>
-                {isSearching ? 'Searching...' : 'Search Indoor Dog Parks'}
-              </button>
-            </form>
-            <span id="search-hint" className="sr-only">
-              Press / to focus search, Escape to clear
-            </span>
-          </div>
+              <h1 className="hero-title-new">
+                Find California&apos;s Best{' '}
+                <span className="hero-title-highlight">Indoor Dog Parks</span>
+              </h1>
+              <p className="hero-subtitle-new">
+                Discover top indoor dog park options across California for year-round play
+              </p>
 
-          <p className="hero-guarantee">
-            <i className="bi bi-heart"></i> Find the perfect indoor dog park for safe, climate-controlled play and social time
-          </p>
-          
-          {/* Keyboard shortcut hint */}
-          <p style={{ textAlign: 'center', fontSize: '0.8rem', color: '#999', marginTop: '10px' }}>
-            Press <kbd style={{ padding: '2px 6px', background: '#f5f5f5', border: '1px solid #ddd', borderRadius: '3px', fontSize: '0.85em' }}>/</kbd> to focus search
-          </p>
+              <div className="search-container-new">
+                <form onSubmit={handleSearch} className="search-form" role="search">
+                  <div className="search-input-wrapper" ref={searchWrapperRef} style={{ position: 'relative' }}>
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      className="search-input-new"
+                      placeholder="Search indoor dog parks by city, neighborhood, or zip code"
+                      value={searchTerm}
+                      onChange={(e) => handleSearchInputChange(e.target.value)}
+                      onKeyDown={handleAutocompleteKeyDown}
+                      onFocus={() => autocomplete.open()}
+                      aria-label="Search dog parks"
+                      aria-describedby="search-hint"
+                      autoComplete="off"
+                    />
+                    {searchTerm && (
+                      <button
+                        type="button"
+                        className="search-input-clear"
+                        onClick={handleClearSearch}
+                        aria-label="Clear search"
+                      >
+                        <i className="bi bi-x-circle"></i>
+                      </button>
+                    )}
+                    <SearchAutocomplete
+                      suggestions={autocomplete.suggestions}
+                      isOpen={autocomplete.isOpen}
+                      isLoading={autocomplete.isLoading}
+                      selectedIndex={autocomplete.selectedIndex}
+                      query={autocomplete.query}
+                      onSuggestionClick={handleAutocompleteSuggestionClick}
+                      onClose={autocomplete.close}
+                    />
+                  </div>
+                  <button type="submit" className="search-btn-new" disabled={isSearching}>
+                    {isSearching ? 'Searching...' : 'Search Indoor Dog Parks'}
+                  </button>
+                </form>
+                <span id="search-hint" className="sr-only">
+                  Press / to focus search, Escape to clear
+                </span>
+              </div>
+
+              <p className="hero-guarantee">
+                <i className="bi bi-heart"></i> Find the perfect indoor dog park for safe, climate-controlled play and social time
+              </p>
+              
+              {/* Keyboard shortcut hint */}
+              <p className="hero-keyboard-hint">
+                Press <kbd>/</kbd> to focus search
+              </p>
+            </div>
+          </div>
         </section>
       )}
 

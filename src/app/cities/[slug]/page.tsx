@@ -10,10 +10,13 @@ import CityStats from '@/components/CityStats';
 import ScrollToButton from '@/components/ScrollToButton';
 import { createMetaDescription, SITE_URL } from '@/lib/metadata';
 import { getAllCitySlugs, getCityContentBySlug } from '@/lib/parks-data';
+import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content';
+import { FAQItem } from '@/types/faq';
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
@@ -99,7 +102,7 @@ export default async function CityPage({ params }: CityPageProps) {
     notFound();
   }
 
-  const { city, cityParks, parksByType, stats } = cityContent;
+  const { city, cityParks, parksByType, stats, customContent } = cityContent;
 
   const featuredImage =
     city.featuredImage ||
@@ -124,8 +127,25 @@ export default async function CityPage({ params }: CityPageProps) {
     { label: 'Local reviews', value: formatNumber(stats.totalReviews) },
   ];
 
+  const heroEyebrow = customContent?.heroEyebrow || 'City spotlight';
+  const heroHeading =
+    customContent?.heroHeading || `Complete dog park playbook for ${city.name}, ${city.state}`;
+  const heroDescriptionCopy =
+    customContent?.heroDescription ||
+    `Navigate ${stats.totalParks} curated dog parks, ${parkCategories.length} experience types, and ${formatNumber(
+      stats.totalReviews,
+    )} local reviews. Build the perfect outing with insider planning tips and an interactive map built for modern pet parents.`;
+  const heroFootnotes = customContent?.heroFootnotes || [
+    'Data refreshed weekly',
+    'Live availability coming soon',
+  ];
+  const heroChipData = customContent?.heroChips || heroChips;
+  const heroImageAlt = customContent?.heroImageAlt || `${city.name} dog park landscape`;
+
   const canonicalUrl = `${SITE_URL}/cities/${params.slug}`;
-  const pageDescription = `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;
+  const pageDescription =
+    customContent?.heroDescription ||
+    `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;
 
   const structuredPlaces = cityParks.slice(0, 10).map((park) => {
     const place: Record<string, unknown> = {
@@ -170,6 +190,113 @@ export default async function CityPage({ params }: CityPageProps) {
     containsPlace: structuredPlaces,
   };
 
+  const itemListStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: cityParks.map((park, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SITE_URL}/parks/${park.slug || park.id}`,
+      name: park.name,
+      description: park.description,
+    })),
+  };
+
+  const defaultFaqs = buildDefaultFAQs(city.name, stats.totalParks);
+  const faqItems: FAQItem[] =
+    customContent?.faqs && customContent.faqs.length > 0 ? customContent.faqs : defaultFaqs;
+
+  const faqStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
+  const defaultInsightCards: CityInsightCard[] = [
+    {
+      tag: 'Experience score',
+      title: city.avgRating.toFixed(1),
+      copy: `Average rating across every verified listing in ${city.name}. Reflects cleanliness, amenities, and community feedback.`,
+      accent: true,
+    },
+    {
+      tag: 'Review depth',
+      title: formatNumber(stats.totalReviews),
+      copy: 'Community reviews informing our quality score. Tap any park card below to see highlights.',
+    },
+    {
+      tag: 'Top category',
+      title: topCategory?.[0] || 'Dog Park',
+      copy: topCategory
+        ? `${topCategory[1].length} listings currently live in this category.`
+        : 'Fresh listings added weekly.',
+    },
+    {
+      tag: 'Indoor availability',
+      title: indoorCount ? `${indoorShare}%` : '—',
+      copy: indoorCount
+        ? `${indoorCount} indoor parks with climate control for weather-proof play sessions.`
+        : 'Indoor options are being scouted—submit a favorite and we will feature it.',
+    },
+  ];
+
+  const insightCards = customContent?.insightCards || defaultInsightCards;
+
+  const defaultPlanningCards: PlanningCard[] = [
+    {
+      icon: 'bi-clock-history',
+      title: 'Peak & quiet windows',
+      items: ['6–9 AM: high energy social hour', '10 AM–3 PM weekdays: calm training-friendly window', 'After 4 PM: sunset crowd + cooler temps'],
+    },
+    {
+      icon: 'bi-backpack',
+      title: 'Essentials checklist',
+      items: [
+        'Leash + harness for entry/exit control',
+        'Collapsible water bowl and fresh water',
+        'Plenty of waste bags and high-value treats',
+      ],
+    },
+    {
+      icon: 'bi-shield-check',
+      title: 'Local regulations',
+      items: [
+        'Keep proof of vaccinations or city license handy',
+        'Voice control required in most off-leash zones',
+        'Limit three dogs per handler in public parks',
+      ],
+    },
+    {
+      icon: 'bi-heart',
+      title: 'Community etiquette',
+      items: [
+        'Scan the park before entering and remove prong collars',
+        'Monitor play styles and intervene early',
+        "Share shaded space and refill water when you're done",
+      ],
+    },
+  ];
+
+  const planningCards = customContent?.planningCards || defaultPlanningCards;
+
+  const defaultOwnerCta: SupportCTA = {
+    kicker: 'Partner with us',
+    title: `Feature your ${city.name} dog park`,
+    description:
+      'Upgrade to a featured listing, share live availability, or pitch a new indoor concept. Our team drives qualified local pet parents every week.',
+    primary: { label: 'List a property', href: '/list-property' },
+    secondary: { label: 'Contact the team', href: '/contact' },
+  };
+
+  const ownerCta = customContent?.ownerCta || defaultOwnerCta;
+
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
     { id: 'city-insights', title: 'Insights & Scores', level: 1 },
@@ -178,6 +305,7 @@ export default async function CityPage({ params }: CityPageProps) {
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
     { id: 'planning-essentials', title: 'Planning Essentials', level: 1 },
     { id: 'park-directory', title: 'Full Directory', level: 1 },
+    { id: 'owner-cta', title: 'Owner & Franchise', level: 1 },
     { id: 'faq-section', title: 'FAQs', level: 1 },
     { id: 'related-resources', title: 'More Resources', level: 1 },
   ];
@@ -188,6 +316,16 @@ export default async function CityPage({ params }: CityPageProps) {
           type="application/ld+json"
         suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+        suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+        suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
         />
       <Header />
       <TableOfContents items={tocItems} />
@@ -206,18 +344,15 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="hero-breadcrumbs">
                 <Link href="/">Home</Link>
                 <i className="bi bi-chevron-right" />
-                <span>California Dog Parks</span>
+                <span>{city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory'}</span>
                 <i className="bi bi-chevron-right" />
                 <strong>{city.name}</strong>
               </div>
-              <p className="hero-eyebrow">City spotlight</p>
-              <h1>Complete dog park playbook for {city.name}, {city.state}</h1>
-              <p className="hero-description">
-                Navigate {stats.totalParks} curated dog parks, {parkCategories.length} experience types, and {formatNumber(stats.totalReviews)} local reviews.
-                Build the perfect outing with design-forward data, insider planning tips, and an interactive map built for modern pet parents.
-              </p>
+              <p className="hero-eyebrow">{heroEyebrow}</p>
+              <h1>{heroHeading}</h1>
+              <p className="hero-description">{heroDescriptionCopy}</p>
               <div className="hero-chip-row">
-                {heroChips.map((chip) => (
+                {heroChipData.map((chip) => (
                   <div key={chip.label} className="hero-chip">
                     <span className="chip-value">{chip.value}</span>
                     <span className="chip-label">{chip.label}</span>
@@ -258,12 +393,11 @@ export default async function CityPage({ params }: CityPageProps) {
                 </Link>
               </div>
               <div className="hero-footnotes">
-                <span>
-                  <i className="bi bi-shield-check" /> Data refreshed weekly
-                </span>
-                <span>
-                  <i className="bi bi-wifi" /> Live availability coming soon
-                </span>
+                {heroFootnotes.map((note) => (
+                  <span key={note}>
+                    <i className="bi bi-sparkles" /> {note}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -271,35 +405,12 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="hero-image-card">
                 <Image
                   src={featuredImage}
-                  alt={`${city.name} dog park landscape`}
+                  alt={heroImageAlt}
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 540px"
                 />
                 <div className="hero-image-gradient" />
-                <div className="hero-image-pill">
-                  <i className="bi bi-sun" />
-                  Adventure-ready all year
-                </div>
-                {featuredParks[0] && (
-                  <div className="hero-featured-card">
-                    <p>Top-rated this week</p>
-                    <h4>{featuredParks[0].name}</h4>
-                    <span>
-                      <i className="bi bi-star-fill" /> {featuredParks[0].rating.toFixed(1)} · {featuredParks[0].city}
-                    </span>
-                    <ScrollToButton
-                      targetId={`${(featuredParks[0].businessType || 'dog-park').toLowerCase().replace(/\s+/g, '-')}-parks`}
-                    >
-                      View details
-                    </ScrollToButton>
-                  </div>
-                )}
-                <div className="hero-meta-card">
-                  <span className="meta-label">Coverage snapshot</span>
-                  <p className="meta-value">{stats.totalParks} parks mapped</p>
-                  <span className="meta-caption">Across {parkCategories.length} park types</span>
-                </div>
               </div>
             </div>
           </div>
@@ -311,42 +422,19 @@ export default async function CityPage({ params }: CityPageProps) {
               <span className="section-eyebrow">Data-backed overview</span>
               <h2>How {city.name} stacks up for dog families</h2>
               <p>
-                Ratings, review volume, and inventory health updated directly from our verified directory so you can plan with confidence.
+                {customContent?.insightIntro ||
+                  'Ratings, review volume, and inventory health updated directly from our verified directory so you can plan with confidence.'}
               </p>
             </div>
 
             <div className="insights-grid">
-            <article className="insight-card accent">
-              <span className="insight-tag">Experience score</span>
-              <h3>{city.avgRating.toFixed(1)}</h3>
-              <p>Average rating across every verified listing in {city.name}. Reflects cleanliness, amenities, and community feedback.</p>
-              <div className="insight-footer">
-                <i className="bi bi-arrow-up-right" />
-                Trending up vs. statewide average
-              </div>
-            </article>
-
-            <article className="insight-card">
-              <span className="insight-tag">Review depth</span>
-              <h3>{formatNumber(stats.totalReviews)}</h3>
-              <p>Community reviews informing our quality score. Tap any park card below to see highlights.</p>
-            </article>
-
-            <article className="insight-card">
-              <span className="insight-tag">Top category</span>
-              <h3>{topCategory?.[0] || 'Dog Park'}</h3>
-              <p>{topCategory ? `${topCategory[1].length} listings currently live in this category.` : 'Fresh listings added weekly.'}</p>
-            </article>
-
-            <article className="insight-card">
-              <span className="insight-tag">Indoor availability</span>
-              <h3>{indoorCount ? `${indoorShare}%` : '—'}</h3>
-              <p>
-                {indoorCount
-                  ? `${indoorCount} indoor parks with climate control for weather-proof play sessions.`
-                  : 'Indoor options are being scouted—submit a favorite and we will feature it.'}
-              </p>
-            </article>
+            {insightCards.map((card) => (
+              <article key={card.title} className={`insight-card ${card.accent ? 'accent' : ''}`}>
+                <span className="insight-tag">{card.tag}</span>
+                <h3>{card.title}</h3>
+                <p>{card.copy}</p>
+              </article>
+            ))}
           </div>
 
             <div className="city-stats-wrapper">
@@ -446,7 +534,10 @@ export default async function CityPage({ params }: CityPageProps) {
                 </div>
 
                 <div className="map-sidebar-card muted">
-                  <p>Tip: tap any map marker to open directions, amenities, and current open hours.</p>
+                  <p>
+                    {customContent?.mapSidebarNote ||
+                      'Tip: tap any map marker to open directions, amenities, and current open hours.'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -462,54 +553,43 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
 
             <div className="planning-grid">
-              <article className="planning-card">
-                <div className="planning-icon">
-                  <i className="bi bi-clock-history" />
-                </div>
-                <h3>Peak & quiet windows</h3>
-                <ul>
-                  <li>6–9 AM: high energy social hour</li>
-                  <li>10 AM–3 PM weekdays: calm training-friendly window</li>
-                  <li>After 4 PM: sunset crowd + cooler temps</li>
-                </ul>
-              </article>
-
-              <article className="planning-card">
-                <div className="planning-icon">
-                  <i className="bi bi-backpack" />
-                </div>
-                <h3>Essentials checklist</h3>
-                <ul>
-                  <li>Leash + harness for entry/exit control</li>
-                  <li>Collapsible water bowl and fresh water</li>
-                  <li>Plenty of waste bags and high-value treats</li>
-                </ul>
-              </article>
-
-              <article className="planning-card">
-                <div className="planning-icon">
-                  <i className="bi bi-shield-check" />
-                </div>
-                <h3>Local regulations</h3>
-                <ul>
-                  <li>Keep proof of vaccinations or city license handy</li>
-                  <li>Voice control required in most off-leash zones</li>
-                  <li>Limit three dogs per handler in public parks</li>
-                </ul>
-              </article>
-
-              <article className="planning-card">
-                <div className="planning-icon">
-                  <i className="bi bi-heart" />
-                </div>
-                <h3>Community etiquette</h3>
-                <ul>
-                  <li>Scan the park before entering and remove prong collars</li>
-                  <li>Monitor play styles and intervene early</li>
-                  <li>Share shaded space and refill water when you&rsquo;re done</li>
-                </ul>
-              </article>
+              {planningCards.map((card) => (
+                <article key={card.title} className="planning-card">
+                  <div className="planning-icon">
+                    <i className={`bi ${card.icon}`} />
+                  </div>
+                  <h3>{card.title}</h3>
+                  <ul>
+                    {card.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
+          </div>
+        </section>
+
+        <section id="owner-cta" className="owner-cta-section">
+          <div className="section-shell">
+            {ownerCta.kicker && <span className="section-eyebrow">{ownerCta.kicker}</span>}
+            <h2>{ownerCta.title}</h2>
+            <p>{ownerCta.description}</p>
+            <div className="hero-cta-row" style={{ marginTop: 24 }}>
+              <Link href={ownerCta.primary.href} className="hero-cta primary">
+                {ownerCta.primary.label}
+              </Link>
+              {ownerCta.secondary && (
+                <Link href={ownerCta.secondary.href} className="hero-cta ghost">
+                  {ownerCta.secondary.label}
+                </Link>
+              )}
+            </div>
+            {ownerCta.footnote && (
+              <p className="hero-description" style={{ marginTop: 16 }}>
+                {ownerCta.footnote}
+              </p>
+            )}
           </div>
         </section>
 

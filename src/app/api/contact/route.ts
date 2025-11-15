@@ -1,69 +1,70 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-interface ContactMessage {
+type ContactPayload = {
   name: string;
   email: string;
   phone?: string;
   subject: string;
   message: string;
-  category: string;
+  category?: string;
+};
+
+const MAX_MESSAGE_LENGTH = 2000;
+
+function validatePayload(payload: Partial<ContactPayload>) {
+  const errors: string[] = [];
+
+  if (!payload.name?.trim()) errors.push('Name is required.');
+  if (!payload.email?.trim()) errors.push('Email is required.');
+  if (!payload.subject?.trim()) errors.push('Subject is required.');
+  if (!payload.message?.trim()) errors.push('Message is required.');
+
+  if (payload.message && payload.message.length > MAX_MESSAGE_LENGTH) {
+    errors.push('Message is too long.');
+  }
+
+  return errors;
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const body: ContactMessage = await request.json();
+    const payload = (await request.json()) as Partial<ContactPayload>;
+    const errors = validatePayload(payload);
 
-    // Validation
-    if (!body.name || !body.email || !body.subject || !body.message) {
+    if (errors.length) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { success: false, errors },
         { status: 400 }
       );
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return NextResponse.json(
-        { error: 'Invalid email address' },
-        { status: 400 }
-      );
-    }
+    // TODO: integrate with email provider, CRM, or database logging
+    console.info('[contact] submission received', {
+      name: payload.name,
+      email: payload.email,
+      subject: payload.subject,
+      category: payload.category,
+    });
 
-    // Save to database (you can use Supabase here)
-    // For now, we'll just log it and return success
-    const contactData = {
-      id: generateId(),
-      ...body,
-      createdAt: new Date().toISOString(),
-      status: 'pending',
-    };
-
-    // Log the contact message (in production, save to database)
-    console.log('New contact message:', contactData);
-
-    // TODO: Integrate with email service (Resend, SendGrid, etc.)
-    // TODO: Save to Supabase or other database
-    // TODO: Send confirmation email to user
-
-    // Return success response
+    return NextResponse.json({
+      success: true,
+      message: 'Your message has been received. We will be in touch soon.',
+    });
+  } catch (error) {
+    console.error('[contact] submission failed', error);
     return NextResponse.json(
       {
-        success: true,
-        message: 'Your message has been received. We will get back to you soon.',
-        id: contactData.id,
+        success: false,
+        errors: ['Unable to process your request right now. Please try again later.'],
       },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error('Contact form error:', error);
-    return NextResponse.json(
-      { error: 'Failed to process your message. Please try again later.' },
       { status: 500 }
     );
   }
 }
 
-function generateId(): string {
-  return `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+export function GET() {
+  return NextResponse.json({
+    status: 'ok',
+    message: 'Contact endpoint is ready to accept POST requests.',
+  });
 }

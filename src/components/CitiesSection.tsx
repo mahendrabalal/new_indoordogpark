@@ -46,6 +46,14 @@ const cities: Record<string, City[]> = {
     { name: 'Ventura', slug: 'ventura' },
     { name: 'Carlsbad', slug: 'carlsbad' },
   ],
+  'Other Cities': [
+    { name: 'Chicago, IL', slug: 'chicago-il' },
+    { name: 'Minneapolis, MN', slug: 'minneapolis-mn' },
+    { name: 'Portland, OR', slug: 'portland-or' },
+    { name: 'Columbus, OH', slug: 'columbus-oh' },
+    { name: 'Phoenix, AZ', slug: 'phoenix-az' },
+    { name: 'Las Vegas, NV', slug: 'las-vegas-nv' },
+  ],
 };
 
 export default function CitiesSection() {
