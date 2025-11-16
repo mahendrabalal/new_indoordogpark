@@ -20,18 +20,22 @@ CREATE INDEX IF NOT EXISTS idx_park_reviews_created_at ON public.park_reviews(cr
 ALTER TABLE public.park_reviews ENABLE ROW LEVEL SECURITY;
 
 -- Create policy for users to see all reviews
+DROP POLICY IF EXISTS "Public can read all reviews" ON public.park_reviews;
 CREATE POLICY "Public can read all reviews" ON public.park_reviews
     FOR SELECT USING (true);
 
 -- Create policy for users to insert their own reviews
+DROP POLICY IF EXISTS "Users can insert their own reviews" ON public.park_reviews;
 CREATE POLICY "Users can insert their own reviews" ON public.park_reviews
     FOR INSERT WITH CHECK (auth.uid() = user_id);
 
 -- Create policy for users to update their own reviews
+DROP POLICY IF EXISTS "Users can update their own reviews" ON public.park_reviews;
 CREATE POLICY "Users can update their own reviews" ON public.park_reviews
     FOR UPDATE USING (auth.uid() = user_id);
 
 -- Create policy for users to delete their own reviews
+DROP POLICY IF EXISTS "Users can delete their own reviews" ON public.park_reviews;
 CREATE POLICY "Users can delete their own reviews" ON public.park_reviews
     FOR DELETE USING (auth.uid() = user_id);
 

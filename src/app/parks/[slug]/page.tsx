@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -8,9 +8,10 @@ import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
-import { generateFAQSchema, generateParkMetadata, generateParkSchema } from '@/lib/metadata';
+import { generateFAQSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
+import { getParkReviews } from '@/lib/reviews-data';
 
-const ParkMap = dynamic(() => import('@/components/ParkMap'), {
+const ParkMap = dynamicImport(() => import('@/components/ParkMap'), {
   ssr: false,
 });
 
@@ -19,6 +20,8 @@ type ParkPageProps = {
     slug: string;
   };
 };
+
+export const dynamic = 'force-dynamic'; // Reviews are dynamic, so pages must be dynamic too
 
 export async function generateStaticParams() {
   const parks = await getAllStaticParks();
@@ -46,6 +49,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const nearbyParks = allParks
     .filter((p) => p.id !== park.id && p.city === park.city)
     .slice(0, 4);
+
+  // Fetch approved reviews for structured data
+  const reviews = await getParkReviews(park.id);
+  const reviewSchemas = generateReviewSchemas(reviews, park);
 
   const parkSchema = generateParkSchema(park);
   const descriptionText =
@@ -83,6 +90,15 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(parkSchema) }}
       />
+      {/* Add Review schemas with proper itemReviewed fields */}
+      {reviewSchemas.map((reviewSchema, index) => (
+        <script
+          key={`review-${index}`}
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        />
+      ))}
       {faqSchema && (
         <script
           type="application/ld+json"

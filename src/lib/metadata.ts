@@ -213,3 +213,80 @@ export function generateBlogPostSchema(post: {
     },
   };
 }
+
+/**
+ * Generates Review schemas with proper itemReviewed fields
+ * This fixes the Google Search Console error about invalid itemReviewed object type
+ */
+export function generateReviewSchemas(
+  reviews: Array<{
+    id: string;
+    rating: number;
+    title?: string | null;
+    content?: string | null;
+    created_at: string;
+  }>,
+  park: DogPark
+) {
+  const canonicalPath = `/parks/${park.slug || park.id}`;
+  const canonical = `${SITE_URL}${canonicalPath}`;
+
+  // Determine business type for schema (must match the main park schema)
+  const schemaType = park.businessType === 'Dog Park' 
+    ? 'Park' 
+    : park.businessType === 'Indoor Dog Park'
+    ? 'SportsActivityLocation'
+    : 'LocalBusiness';
+
+  // Create the itemReviewed object (the business being reviewed)
+  // This is required by Google for Review snippets to work
+  // Best practice: Use @id to reference the main schema instead of duplicating all data
+  const itemReviewed = {
+    '@type': schemaType,
+    '@id': canonical, // References the main park schema
+    name: park.name,
+    // Include minimal required fields for Google's validation
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: park.street,
+      addressLocality: park.city,
+      addressRegion: park.state,
+      postalCode: park.zipCode,
+      addressCountry: 'US',
+    },
+  };
+
+  // Generate Review schemas for each review
+  // Only include reviews that have a rating and some text content
+  return reviews
+    .filter((review) => {
+      const hasRating = review.rating && review.rating >= 1 && review.rating <= 5;
+      const hasContent = review.content || review.title;
+      return hasRating && hasContent;
+    })
+    .map((review) => {
+      const reviewBody = review.content || review.title || '';
+      
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Review',
+        '@id': `${canonical}#review-${review.id}`,
+        itemReviewed,
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: review.rating,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        author: {
+          '@type': 'Person',
+          // Best practice: Use actual user names when available, fallback to 'Anonymous'
+          // For privacy, consider using first name + last initial or username
+          name: 'Anonymous', // TODO: Enhance with actual user data when available
+        },
+        reviewBody,
+        ...(review.title && { name: review.title }),
+        datePublished: review.created_at,
+      };
+    });
+}

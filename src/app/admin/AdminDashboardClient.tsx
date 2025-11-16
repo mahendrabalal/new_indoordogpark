@@ -6,6 +6,21 @@ import type { ParkSubmission } from '@/types/park-submission';
 
 type DashboardFilter = 'all' | 'pending' | 'approved' | 'rejected';
 type ActionType = 'approve' | 'reject' | 'delete';
+type DashboardTab = 'submissions' | 'reviews';
+
+interface Review {
+  id: string;
+  park_id: string;
+  park_slug?: string;
+  user_id: string;
+  rating: number;
+  title?: string;
+  content?: string;
+  comment?: string;
+  status: 'pending' | 'approved' | 'rejected';
+  created_at: string;
+  updated_at?: string;
+}
 
 interface DashboardMeta {
   total: number;
@@ -46,10 +61,12 @@ function getStatusBadgeClasses(status: ParkSubmission['status']) {
 
 export default function AdminDashboardClient() {
   const { user, loading, getSessionTokens } = useAuth();
+  const [activeTab, setActiveTab] = useState<DashboardTab>('submissions');
   const [filter, setFilter] = useState<DashboardFilter>('pending');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState<typeof PAGE_SIZE_OPTIONS[number]>(PAGE_SIZE_OPTIONS[0]);
   const [submissions, setSubmissions] = useState<ParkSubmission[]>([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [meta, setMeta] = useState<DashboardMeta>({
     total: 0,
     page: 1,
@@ -61,6 +78,8 @@ export default function AdminDashboardClient() {
   const [approveTarget, setApproveTarget] = useState<ParkSubmission | null>(null);
   const [rejectTarget, setRejectTarget] = useState<ParkSubmission | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<ParkSubmission | null>(null);
+  const [approveReviewTarget, setApproveReviewTarget] = useState<Review | null>(null);
+  const [rejectReviewTarget, setRejectReviewTarget] = useState<Review | null>(null);
   const [rejectionReason, setRejectionReason] = useState('');
   const [actionState, setActionState] = useState<{ id: string | null; type: ActionType | null }>({
     id: null,
@@ -173,18 +192,130 @@ export default function AdminDashboardClient() {
     [buildAuthHeaders, filter, page, pageSize, showToast, user]
   );
 
+  const fetchReviews = useCallback(
+    async (signal?: AbortSignal) => {
+      if (!user) {
+        return;
+      }
+
+      try {
+        setIsLoading(true);
+        setError('');
+
+        const headers = await buildAuthHeaders();
+        const params = new URLSearchParams({
+          status: filter,
+          page: String(page),
+          pageSize: String(pageSize),
+        });
+
+        const response = await fetch(`/api/admin/reviews?${params.toString()}`, {
+          headers,
+          signal,
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to fetch reviews');
+        }
+
+        if (data.meta) {
+          const safeTotalPages = Math.max(1, Number(data.meta.totalPages) || 1);
+          if (page > safeTotalPages) {
+            setPage(safeTotalPages);
+            return;
+          }
+          setMeta({
+            total: Number(data.meta.total) || 0,
+            page: Number(data.meta.page) || page,
+            pageSize: Number(data.meta.pageSize) || pageSize,
+            totalPages: safeTotalPages,
+          });
+        }
+
+        setReviews(data.reviews || []);
+      } catch (err) {
+        if (signal?.aborted) {
+          return;
+        }
+        const message = err instanceof Error ? err.message : 'Failed to fetch reviews';
+        setError(message);
+        showToast({
+          type: 'error',
+          title: 'Unable to load reviews',
+          message,
+        });
+      } finally {
+        if (!signal?.aborted) {
+          setIsLoading(false);
+        }
+      }
+    },
+    [buildAuthHeaders, filter, page, pageSize, showToast, user]
+  );
+
   useEffect(() => {
     const controller = new AbortController();
-    fetchSubmissions(controller.signal);
+    if (activeTab === 'submissions') {
+      fetchSubmissions(controller.signal);
+    } else {
+      fetchReviews(controller.signal);
+    }
 
     return () => {
       controller.abort();
     };
-  }, [fetchSubmissions]);
+  }, [activeTab, filter, page, pageSize, fetchSubmissions, fetchReviews]);
 
   const resetActionState = useCallback(() => {
     setActionState({ id: null, type: null });
   }, []);
+
+  const executeReviewAction = useCallback(
+    async (config: { reviewId: string; type: 'approve' | 'reject' }) => {
+      try {
+        setActionState({ id: config.reviewId, type: config.type });
+
+        const headers = await buildAuthHeaders({ json: true });
+        const endpoint = config.type === 'approve' 
+          ? '/api/admin/reviews/approve' 
+          : '/api/admin/reviews/reject';
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ reviewId: config.reviewId }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || `Failed to ${config.type} review`);
+        }
+
+        showToast({
+          type: 'success',
+          title: `Review ${config.type === 'approve' ? 'approved' : 'rejected'} successfully`,
+        });
+
+        // Refresh reviews
+        await fetchReviews();
+      } catch (err) {
+        const message = err instanceof Error ? err.message : `Failed to ${config.type} review`;
+        showToast({
+          type: 'error',
+          title: `Unable to ${config.type} review`,
+          message,
+        });
+      } finally {
+        resetActionState();
+        setApproveReviewTarget(null);
+        setRejectReviewTarget(null);
+      }
+    },
+    [buildAuthHeaders, fetchReviews, resetActionState, showToast]
+  );
 
   const executeSubmissionAction = useCallback(
     async (config: { submissionId: string; type: ActionType; payload?: Record<string, unknown> }) => {
@@ -283,12 +414,13 @@ export default function AdminDashboardClient() {
 
   const paginationSummary = useMemo(() => {
     if (meta.total === 0) {
-      return 'No submissions to display';
+      return `No ${activeTab === 'submissions' ? 'submissions' : 'reviews'} to display`;
     }
+    const items = activeTab === 'submissions' ? submissions : reviews;
     const start = (page - 1) * meta.pageSize + 1;
-    const end = start + submissions.length - 1;
+    const end = start + items.length - 1;
     return `Showing ${start}-${end} of ${meta.total}`;
-  }, [meta.pageSize, meta.total, page, submissions.length]);
+  }, [activeTab, meta.pageSize, meta.total, page, submissions, reviews]);
 
   if (loading) {
     return (
@@ -323,8 +455,46 @@ export default function AdminDashboardClient() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
-          <p className="text-lg text-gray-600">Review and manage park submissions with confidence.</p>
+          <p className="text-lg text-gray-600">
+            {activeTab === 'submissions' 
+              ? 'Review and manage park submissions with confidence.' 
+              : 'Review and manage user reviews with confidence.'}
+          </p>
         </header>
+
+        {/* Tab Switcher */}
+        <div className="mb-6 border-b border-gray-200">
+          <nav className="-mb-px flex space-x-8">
+            <button
+              onClick={() => {
+                setActiveTab('submissions');
+                setPage(1);
+                setFilter('pending');
+              }}
+              className={`whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium transition-colors ${
+                activeTab === 'submissions'
+                  ? 'border-purple-600 text-purple-600'
+                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+              }`}
+            >
+              Park Submissions
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('reviews');
+                setPage(1);
+                setFilter('pending');
+              }}
+              className={`whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium transition-colors ${
+                activeTab === 'reviews'
+                  ? 'border-purple-600 text-purple-600'
+                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+              }`}
+            >
+              Reviews
+            </button>
+          </nav>
+        </div>
 
         <section className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-2">
@@ -373,7 +543,7 @@ export default function AdminDashboardClient() {
               <p className="text-sm font-medium">{error}</p>
               <button
                 type="button"
-                onClick={() => fetchSubmissions()}
+                onClick={() => activeTab === 'submissions' ? fetchSubmissions() : fetchReviews()}
                 className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
               >
                 Retry
@@ -386,13 +556,16 @@ export default function AdminDashboardClient() {
           {isLoading ? (
             <div className="rounded-xl border border-dashed border-purple-200 bg-white/60 p-12 text-center shadow-inner">
               <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-purple-600" />
-              <p className="mt-4 text-sm font-medium text-gray-600">Fetching the latest submissions…</p>
+              <p className="mt-4 text-sm font-medium text-gray-600">
+                Fetching the latest {activeTab === 'submissions' ? 'submissions' : 'reviews'}…
+              </p>
             </div>
-          ) : submissions.length === 0 ? (
+          ) : activeTab === 'submissions' ? (
+            submissions.length === 0 ? (
             <div className="rounded-xl border border-gray-200 bg-white p-12 text-center shadow-sm">
               <h2 className="text-xl font-semibold text-gray-900">No submissions</h2>
               <p className="mt-2 text-sm text-gray-600">
-                We didn’t find any {filter === 'all' ? '' : `${filter} `}submissions for now. Try a different filter or
+                  We didn&apos;t find any {filter === 'all' ? '' : `${filter} `}submissions for now. Try a different filter or
                 adjust the pagination.
               </p>
             </div>
@@ -519,6 +692,107 @@ export default function AdminDashboardClient() {
                 );
               })}
             </div>
+          )
+          ) : (
+            reviews.length === 0 ? (
+              <div className="rounded-xl border border-gray-200 bg-white p-12 text-center shadow-sm">
+                <h2 className="text-xl font-semibold text-gray-900">No reviews</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  We didn&apos;t find any {filter === 'all' ? '' : `${filter} `}reviews for now. Try a different filter or
+                  adjust the pagination.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {reviews.map((review) => {
+                  const isPending = review.status === 'pending';
+                  const reviewContent = review.content || review.comment || '';
+                  const renderStars = (rating: number) => {
+                    return Array.from({ length: 5 }, (_, i) => (
+                      <i
+                        key={i}
+                        className={`bi ${i < rating ? 'bi-star-fill text-yellow-400' : 'bi-star text-gray-300'}`}
+                      />
+                    ));
+                  };
+
+                  return (
+                    <article
+                      key={review.id}
+                      className="rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                    >
+                      <div className="p-6">
+                        <header className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                          <div>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <div className="flex items-center gap-2">
+                                {renderStars(review.rating)}
+                                <span className="text-sm font-medium text-gray-600">({review.rating}/5)</span>
+                              </div>
+                              <span
+                                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase ${getStatusBadgeClasses(review.status)}`}
+                              >
+                                {formatStatus(review.status)}
+                              </span>
+                            </div>
+                            {review.title && (
+                              <h3 className="mt-2 text-xl font-bold text-gray-900">{review.title}</h3>
+                            )}
+                            <p className="mt-1 text-sm text-gray-500">
+                              Park ID: {review.park_id}
+                            </p>
+                          </div>
+                          <dl className="grid min-w-[220px] grid-cols-1 gap-y-2 text-sm text-gray-600">
+                            <div>
+                              <dt className="font-semibold text-gray-700">Submitted</dt>
+                              <dd>{new Date(review.created_at).toLocaleString()}</dd>
+                            </div>
+                            {review.updated_at && (
+                              <div>
+                                <dt className="font-semibold text-gray-700">Updated</dt>
+                                <dd>{new Date(review.updated_at).toLocaleString()}</dd>
+                              </div>
+                            )}
+                          </dl>
+                        </header>
+
+                        <section className="mb-4">
+                          <p className="font-semibold text-gray-800 mb-2">Review Content</p>
+                          <p className="text-sm leading-relaxed text-gray-600">
+                            {reviewContent || 'No content provided.'}
+                          </p>
+                        </section>
+
+                        <footer className="mt-6 border-t border-gray-100 pt-4">
+                          <div className="flex flex-col gap-3 sm:flex-row">
+                            {isPending && (
+                              <>
+                                <button
+                                  type="button"
+                                  onClick={() => setApproveReviewTarget(review)}
+                                  disabled={isActionLoading(review.id, 'approve')}
+                                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                                >
+                                  {isActionLoading(review.id, 'approve') ? 'Approving…' : 'Approve'}
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => setRejectReviewTarget(review)}
+                                  disabled={isActionLoading(review.id, 'reject')}
+                                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                                >
+                                  {isActionLoading(review.id, 'reject') ? 'Rejecting…' : 'Reject'}
+                                </button>
+                              </>
+                            )}
+                          </div>
+                        </footer>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            )
           )}
         </div>
 
@@ -664,6 +938,84 @@ export default function AdminDashboardClient() {
                 className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-700 disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 {isActionLoading(deleteTarget.id, 'delete') ? 'Deleting…' : 'Delete permanently'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Approve review confirmation */}
+      {approveReviewTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6">
+          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+            <h3 className="text-xl font-semibold text-gray-900">Approve review</h3>
+            <p className="mt-3 text-sm text-gray-600">
+              Are you sure you want to approve this review? It will become visible to all users immediately.
+            </p>
+            {approveReviewTarget.title && (
+              <p className="mt-2 text-sm font-medium text-gray-800">
+                &quot;{approveReviewTarget.title}&quot;
+              </p>
+            )}
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setApproveReviewTarget(null)}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  executeReviewAction({
+                    reviewId: approveReviewTarget.id,
+                    type: 'approve',
+                  })
+                }
+                disabled={isActionLoading(approveReviewTarget.id, 'approve')}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+              >
+                {isActionLoading(approveReviewTarget.id, 'approve') ? 'Approving…' : 'Approve review'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reject review confirmation */}
+      {rejectReviewTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6">
+          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+            <h3 className="text-xl font-semibold text-gray-900">Reject review</h3>
+            <p className="mt-3 text-sm text-gray-600">
+              Are you sure you want to reject this review? The reviewer will be able to see that their review was not approved.
+            </p>
+            {rejectReviewTarget.title && (
+              <p className="mt-2 text-sm font-medium text-gray-800">
+                &quot;{rejectReviewTarget.title}&quot;
+              </p>
+            )}
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setRejectReviewTarget(null)}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  executeReviewAction({
+                    reviewId: rejectReviewTarget.id,
+                    type: 'reject',
+                  })
+                }
+                disabled={isActionLoading(rejectReviewTarget.id, 'reject')}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+              >
+                {isActionLoading(rejectReviewTarget.id, 'reject') ? 'Rejecting…' : 'Reject review'}
               </button>
             </div>
           </div>

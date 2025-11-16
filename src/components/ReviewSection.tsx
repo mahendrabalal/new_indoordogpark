@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/contexts/ToastContext';
 
 interface Review {
   id: string;
@@ -24,9 +25,11 @@ interface ReviewSectionProps {
 
 export default function ReviewSection({ parkId }: ReviewSectionProps) {
   const { user } = useAuth();
+  const { showSuccess, showError } = useToast();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
+  const [userReview, setUserReview] = useState<Review | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [reviewForm, setReviewForm] = useState({
@@ -38,7 +41,9 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
 
   const fetchReviews = useCallback(async () => {
     try {
-      const response = await fetch(`/api/reviews?parkId=${parkId}`, {
+      // Include user's review if they're logged in
+      const includeUserReview = user ? 'true' : 'false';
+      const response = await fetch(`/api/reviews?parkId=${parkId}&includeUserReview=${includeUserReview}`, {
         credentials: 'include', // Include auth cookies
       });
       if (response.ok) {
@@ -46,13 +51,23 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         setReviews(data.reviews);
         setAverageRating(data.averageRating);
         setTotalReviews(data.totalReviews);
+        setUserReview(data.userReview || null);
+        
+        // If user has an existing review, pre-fill the form
+        if (data.userReview) {
+          setReviewForm({
+            rating: data.userReview.rating || 5,
+            title: data.userReview.title || '',
+            comment: data.userReview.content || data.userReview.comment || ''
+          });
+        }
       }
     } catch (error) {
       console.error('Error fetching reviews:', error);
     } finally {
       setIsLoading(false);
     }
-  }, [parkId]);
+  }, [parkId, user]);
 
   useEffect(() => {
     fetchReviews();
@@ -79,15 +94,26 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
       });
 
       if (response.ok) {
-        // Reset form and refresh reviews
+        // Refresh reviews to get updated data
+        await fetchReviews();
+        // Show success toast
+        showSuccess(
+          userReview 
+            ? 'Your review has been updated successfully!' 
+            : 'Thank you! Your review has been submitted and is pending approval.',
+          5000
+        );
+        // Reset form and close
         setReviewForm({ rating: 5, title: '', comment: '' });
         setShowReviewForm(false);
-        fetchReviews();
       } else {
-        console.error('Failed to submit review');
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Failed to submit review:', errorData);
+        showError(errorData.error || 'Failed to submit review. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting review:', error);
+      showError('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -95,7 +121,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
 
   const handleHelpfulVote = async (reviewId: string, isHelpful: boolean) => {
     if (!user) {
-      alert('Please log in to vote on reviews');
+      showError('Please log in to vote on reviews');
       return;
     }
 
@@ -168,7 +194,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
               className="write-review-btn"
               onClick={() => setShowReviewForm(!showReviewForm)}
             >
-              <i className="bi bi-pencil"></i> Write a Review
+              <i className="bi bi-pencil"></i> {userReview ? 'Edit Your Review' : 'Write a Review'}
             </button>
           )}
         </div>
@@ -176,12 +202,36 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
 
       {showReviewForm && (
         <div className="review-form">
-          <h3>Share Your Experience</h3>
+          <h3>{userReview ? 'Edit Your Review' : 'Share Your Experience'}</h3>
+          {userReview && userReview.status === 'pending' && (
+            <div className="review-status-notice" style={{ 
+              padding: '10px', 
+              marginBottom: '15px', 
+              backgroundColor: '#fff3cd', 
+              border: '1px solid #ffc107',
+              borderRadius: '4px',
+              color: '#856404'
+            }}>
+              <i className="bi bi-info-circle"></i> Your review is pending approval and will be visible once approved.
+            </div>
+          )}
+          {userReview && userReview.status === 'rejected' && (
+            <div className="review-status-notice" style={{ 
+              padding: '10px', 
+              marginBottom: '15px', 
+              backgroundColor: '#f8d7da', 
+              border: '1px solid #dc3545',
+              borderRadius: '4px',
+              color: '#721c24'
+            }}>
+              <i className="bi bi-exclamation-triangle"></i> Your previous review was not approved. You can submit a new review.
+            </div>
+          )}
           <form onSubmit={handleSubmitReview}>
             <div className="form-group">
               <label>Rating *</label>
               <div className="rating-input">
-                {[5, 4, 3, 2, 1].map((star) => (
+                {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
                     type="button"
