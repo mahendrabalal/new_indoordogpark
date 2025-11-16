@@ -65,6 +65,7 @@ type SanityPortableBlock = PortableTextBlock & {
   alt?: string;
   caption?: string;
   asset?: SanityImageAsset;
+  html?: string; // For HTML blocks
 };
 
 interface SanityPost {
@@ -126,6 +127,9 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
         const alt = block.alt || '';
         const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
         return `<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`;
+      } else if (block._type === 'htmlBlock' && block.html) {
+        // Render HTML blocks directly (for charts, embeds, etc.)
+        return block.html;
       }
       return '';
     })

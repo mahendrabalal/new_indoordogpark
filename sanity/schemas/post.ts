@@ -134,6 +134,31 @@ export default defineType({
             },
           ],
         },
+        {
+          type: 'object',
+          name: 'htmlBlock',
+          title: 'HTML Block',
+          fields: [
+            {
+              name: 'html',
+              type: 'text',
+              title: 'HTML Content',
+              description: 'Raw HTML content (for charts, embeds, etc.)',
+            },
+          ],
+          preview: {
+            select: {
+              html: 'html',
+            },
+            prepare({ html }) {
+              const preview = html ? html.substring(0, 50).replace(/<[^>]*>/g, '') : 'Empty HTML block';
+              return {
+                title: 'HTML Block',
+                subtitle: preview,
+              };
+            },
+          },
+        },
       ],
     }),
   ],

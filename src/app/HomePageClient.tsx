@@ -469,9 +469,10 @@ export default function HomePageClient({
                   onChange={(e) => updateFilters({ ...filters, type: e.target.value })}
                 >
                   <option value="">All Types</option>
-                  <option value="Indoor Dog Park">Indoor</option>
-                  <option value="Dog Park">Outdoor</option>
-                  <option value="Dog-Friendly Establishment">Dog-Friendly</option>
+                  <option value="General Play / Daycare Parks">General Play / Daycare</option>
+                  <option value="Agility & Training Parks">Agility & Training</option>
+                  <option value="Themed & Enrichment Parks">Themed & Enrichment</option>
+                  <option value="Specialty / Social Parks">Specialty / Social</option>
                 </select>
 
                 <select 

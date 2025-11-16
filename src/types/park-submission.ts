@@ -136,9 +136,10 @@ export interface ValidationErrors {
 }
 
 export const BUSINESS_TYPES = [
-  'Dog Park',
-  'Indoor Dog Park',
-  'Dog-Friendly Establishment',
+  'General Play / Daycare Parks',
+  'Agility & Training Parks',
+  'Themed & Enrichment Parks',
+  'Specialty / Social Parks',
 ] as const;
 
 export const US_STATES = [

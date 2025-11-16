@@ -113,9 +113,10 @@ export async function GET(request: Request) {
 
     // 3. BUSINESS TYPE SUGGESTIONS (if matches)
     const businessTypes = [
-      { value: 'Indoor Dog Park', display: 'Indoor Dog Parks' },
-      { value: 'Dog Park', display: 'Dog Parks' },
-      { value: 'Dog-Friendly Establishment', display: 'Dog-Friendly Establishments' }
+      { value: 'General Play / Daycare Parks', display: 'General Play / Daycare Parks' },
+      { value: 'Agility & Training Parks', display: 'Agility & Training Parks' },
+      { value: 'Themed & Enrichment Parks', display: 'Themed & Enrichment Parks' },
+      { value: 'Specialty / Social Parks', display: 'Specialty / Social Parks' },
     ];
 
     const typeSuggestions = businessTypes

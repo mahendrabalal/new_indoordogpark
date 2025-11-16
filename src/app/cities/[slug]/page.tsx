@@ -35,12 +35,14 @@ function formatNumber(value: number) {
 
 function getCollectionDescription(type: string, cityName: string) {
   switch (type) {
-    case 'Dog Park':
-      return `Open-air off-leash spaces across ${cityName} with plenty of room to sprint, sniff, and socialize.`;
-    case 'Indoor Dog Park':
-      return `Climate-controlled play zones that keep pups moving year-round—perfect for rainy days or hot afternoons.`;
-    case 'Dog-Friendly Establishment':
-      return `Coffee shops, breweries, and community hubs that welcome well-mannered pups alongside their people.`;
+    case 'General Play / Daycare Parks':
+      return `Everyday play zones and daycare-style spaces in ${cityName} for safe, supervised romps and social time.`;
+    case 'Agility & Training Parks':
+      return `Structured environments in ${cityName} built for skills, confidence-building, and focused training sessions.`;
+    case 'Themed & Enrichment Parks':
+      return `Immersive, enrichment-forward parks in ${cityName} with sensory zones, themed layouts, and novel play elements.`;
+    case 'Specialty / Social Parks':
+      return `Boutique, community-forward hangouts in ${cityName}—perfect for meetups, events, and special-occasion play dates.`;
     default:
       return `Community-loved spaces designed for safe play and connection throughout ${cityName}.`;
   }

@@ -61,7 +61,14 @@ export interface DogPark {
   // Core Information
   id: string;
   name: string;
-  businessType: 'Dog Park' | 'Indoor Dog Park' | 'Dog-Friendly Establishment';
+  businessType:
+    | 'Dog Park'
+    | 'Indoor Dog Park'
+    | 'Dog-Friendly Establishment'
+    | 'General Play / Daycare Parks'
+    | 'Agility & Training Parks'
+    | 'Themed & Enrichment Parks'
+    | 'Specialty / Social Parks';
   description: string;
   slug: string;
 
