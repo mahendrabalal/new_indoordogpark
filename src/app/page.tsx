@@ -9,9 +9,9 @@ type HomePageProps = {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
-const heroTitle = 'Best Indoor Dog Parks in California | Indoor Dog Park';
+const heroTitle = 'Find Indoor Dog Parks Near You | Indoor Dog Park';
 const heroDescription =
-  'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.';
+  'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
 const publishedTime = '2024-01-15T00:00:00.000Z';
 const modifiedTime = '2025-11-15T00:00:00.000Z';
 const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/hero.png`;

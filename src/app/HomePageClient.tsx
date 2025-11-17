@@ -287,14 +287,13 @@ export default function HomePageClient({
             <div className="hero-content">
               <div className="hero-badge">
                 <i className="bi bi-stars" aria-hidden="true"></i>
-                California indoor play guide
+                Find Indoor Dog Parks Near You
               </div>
               <h1 className="hero-title-new">
-                Find California&apos;s Best{' '}
-                <span className="hero-title-highlight">Indoor Dog Parks</span>
+                Find <span className="hero-title-highlight">Indoor Dog Parks</span> Near You
               </h1>
               <p className="hero-subtitle-new">
-                Discover top indoor dog park options across California for year-round play
+                Search 500+ climate-controlled indoor dog parks across the US. Find parks with bars, training facilities, and more.
               </p>
 
               <div className="search-container-new">
@@ -334,7 +333,7 @@ export default function HomePageClient({
                     />
                   </div>
                   <button type="submit" className="search-btn-new" disabled={isSearching}>
-                    {isSearching ? 'Searching...' : 'Search Indoor Dog Parks'}
+                    {isSearching ? 'Searching...' : 'Search'}
                   </button>
                 </form>
                 <span id="search-hint" className="sr-only">
@@ -342,13 +341,23 @@ export default function HomePageClient({
                 </span>
               </div>
 
+              {/* Popular Locations & Features Combined */}
+              <div className="hero-quick-links">
+                <span className="hero-quick-label">Popular:</span>
+                <a href="/cities/austin" className="hero-quick-link">Austin</a>
+                <a href="/cities/phoenix" className="hero-quick-link">Phoenix</a>
+                <a href="/cities/new-york" className="hero-quick-link">New York</a>
+                <a href="/cities/houston" className="hero-quick-link">Houston</a>
+                <a href="/cities/seattle" className="hero-quick-link">Seattle</a>
+                <span className="hero-quick-divider">•</span>
+                <a href="/?type=bar" className="hero-quick-link">Parks with Bars</a>
+                <a href="/?type=training" className="hero-quick-link">Training Facilities</a>
+              </div>
+
               <p className="hero-guarantee">
-                <i className="bi bi-heart"></i> Find the perfect indoor dog park for safe, climate-controlled play and social time
-              </p>
-              
-              {/* Keyboard shortcut hint */}
-              <p className="hero-keyboard-hint">
-                Press <kbd>/</kbd> to focus search
+                <i className="bi bi-check-circle-fill"></i> Free to search • 
+                <i className="bi bi-shield-check"></i> Verified listings • 
+                <i className="bi bi-star-fill"></i> Real reviews
               </p>
             </div>
           </div>

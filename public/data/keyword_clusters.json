@@ -1,0 +1,5564 @@
+{
+  "clusters": {
+    "location_none": {
+      "type": "location",
+      "name": "None",
+      "keywords": [
+        "indoor dog park",
+        "indoor dog park franchise",
+        "jb's indoor dog park",
+        "indoor dog park equipment",
+        "indoor dog park usa",
+        "unleashed indoor dog park",
+        "zoomies indoor dog park",
+        "indoor dog park with bar",
+        "indoor dog park bar",
+        "indoor dog park brewery",
+        "jb's indoor dog park photos",
+        "indoor dog park vegas",
+        "indoor dog park rental"
+      ],
+      "stats": {
+        "total_volume": 19230,
+        "avg_cpc": 3.012,
+        "avg_pd": 19.923076923076923,
+        "avg_seo_difficulty": 26.307692307692307,
+        "keyword_count": 13
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park",
+          "intent": "C",
+          "volume": 18100,
+          "cpc": 2.48,
+          "pd": 32,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park franchise",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 5.35,
+          "pd": 62,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "jb's indoor dog park",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.12,
+          "pd": 1,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park equipment",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 1.91,
+          "pd": 100,
+          "seo_difficulty": 37
+        },
+        {
+          "keyword": "indoor dog park usa",
+          "intent": "T",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 7,
+          "seo_difficulty": 38
+        },
+        {
+          "keyword": "unleashed indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "zoomies indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park with bar",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 4.2,
+          "pd": 13,
+          "seo_difficulty": 54
+        },
+        {
+          "keyword": "indoor dog park bar",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 53
+        },
+        {
+          "keyword": "indoor dog park brewery",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "jb's indoor dog park photos",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park vegas",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park rental",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 20,
+          "seo_difficulty": 12
+        }
+      ]
+    },
+    "location_city_phoenix": {
+      "type": "location",
+      "name": "City Phoenix",
+      "keywords": [
+        "indoor dog park in phoenix"
+      ],
+      "stats": {
+        "total_volume": 320,
+        "avg_cpc": 1.36,
+        "avg_pd": 2.0,
+        "avg_seo_difficulty": 6.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park in phoenix",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.36,
+          "pd": 2,
+          "seo_difficulty": 6
+        }
+      ]
+    },
+    "location_city_austin": {
+      "type": "location",
+      "name": "City Austin",
+      "keywords": [
+        "indoor dog park austin tx",
+        "indoor dog park austin"
+      ],
+      "stats": {
+        "total_volume": 380,
+        "avg_cpc": 1.885,
+        "avg_pd": 13.5,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park austin tx",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.19,
+          "pd": 9,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park austin",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 2.58,
+          "pd": 18,
+          "seo_difficulty": 20
+        }
+      ]
+    },
+    "location_city_new_york": {
+      "type": "location",
+      "name": "City New York",
+      "keywords": [
+        "indoor dog park new york"
+      ],
+      "stats": {
+        "total_volume": 210,
+        "avg_cpc": 1.64,
+        "avg_pd": 21.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park new york",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.64,
+          "pd": 21,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_city_houston": {
+      "type": "location",
+      "name": "City Houston",
+      "keywords": [
+        "indoor dog park houston"
+      ],
+      "stats": {
+        "total_volume": 170,
+        "avg_cpc": 3.12,
+        "avg_pd": 30.0,
+        "avg_seo_difficulty": 21.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park houston",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 3.12,
+          "pd": 30,
+          "seo_difficulty": 21
+        }
+      ]
+    },
+    "location_city_seattle": {
+      "type": "location",
+      "name": "City Seattle",
+      "keywords": [
+        "indoor dog park seattle"
+      ],
+      "stats": {
+        "total_volume": 170,
+        "avg_cpc": 0.39,
+        "avg_pd": 8.0,
+        "avg_seo_difficulty": 32.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park seattle",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 0.39,
+          "pd": 8,
+          "seo_difficulty": 32
+        }
+      ]
+    },
+    "location_state_nj": {
+      "type": "location",
+      "name": "State Nj",
+      "keywords": [
+        "indoor dog park new jersey",
+        "indoor dog park nj"
+      ],
+      "stats": {
+        "total_volume": 310,
+        "avg_cpc": 2.2,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 27.5,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park new jersey",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 1.41,
+          "pd": 8,
+          "seo_difficulty": 28
+        },
+        {
+          "keyword": "indoor dog park nj",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.99,
+          "pd": 20,
+          "seo_difficulty": 27
+        }
+      ]
+    },
+    "location_city_dallas": {
+      "type": "location",
+      "name": "City Dallas",
+      "keywords": [
+        "indoor dog park dallas",
+        "unleashed indoor dog park dallas"
+      ],
+      "stats": {
+        "total_volume": 190,
+        "avg_cpc": 2.58,
+        "avg_pd": 19.0,
+        "avg_seo_difficulty": 21.5,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park dallas",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.58,
+          "pd": 36,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "unleashed indoor dog park dallas",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_city_omaha": {
+      "type": "location",
+      "name": "City Omaha",
+      "keywords": [
+        "indoor dog park omaha"
+      ],
+      "stats": {
+        "total_volume": 140,
+        "avg_cpc": 3.11,
+        "avg_pd": 21.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park omaha",
+          "intent": "T",
+          "volume": 140,
+          "cpc": 3.11,
+          "pd": 21,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_city_pittsburgh": {
+      "type": "location",
+      "name": "City Pittsburgh",
+      "keywords": [
+        "indoor dog park pittsburgh"
+      ],
+      "stats": {
+        "total_volume": 140,
+        "avg_cpc": 3.28,
+        "avg_pd": 11.0,
+        "avg_seo_difficulty": 24.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park pittsburgh",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.28,
+          "pd": 11,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_denver": {
+      "type": "location",
+      "name": "City Denver",
+      "keywords": [
+        "indoor dog park denver"
+      ],
+      "stats": {
+        "total_volume": 140,
+        "avg_cpc": 3.07,
+        "avg_pd": 31.0,
+        "avg_seo_difficulty": 15.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park denver",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.07,
+          "pd": 31,
+          "seo_difficulty": 15
+        }
+      ]
+    },
+    "location_city_tucson": {
+      "type": "location",
+      "name": "City Tucson",
+      "keywords": [
+        "indoor dog park tucson"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 0.57,
+        "avg_pd": 8.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park tucson",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.57,
+          "pd": 8,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_city_cincinnati": {
+      "type": "location",
+      "name": "City Cincinnati",
+      "keywords": [
+        "indoor dog park cincinnati"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 1.82,
+        "avg_pd": 28.0,
+        "avg_seo_difficulty": 16.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park cincinnati",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.82,
+          "pd": 28,
+          "seo_difficulty": 16
+        }
+      ]
+    },
+    "location_state_ct": {
+      "type": "location",
+      "name": "State Ct",
+      "keywords": [
+        "indoor dog park ct"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 0.0,
+        "avg_pd": 10.0,
+        "avg_seo_difficulty": 29.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park ct",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 29
+        }
+      ]
+    },
+    "location_city_nashville": {
+      "type": "location",
+      "name": "City Nashville",
+      "keywords": [
+        "indoor dog park nashville"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 1.5,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 29.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park nashville",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.5,
+          "pd": 14,
+          "seo_difficulty": 29
+        }
+      ]
+    },
+    "location_city_grand_rapids": {
+      "type": "location",
+      "name": "City Grand Rapids",
+      "keywords": [
+        "indoor dog park grand rapids"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.0,
+        "avg_pd": 5.0,
+        "avg_seo_difficulty": 24.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park grand rapids",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_fargo": {
+      "type": "location",
+      "name": "City Fargo",
+      "keywords": [
+        "indoor dog park fargo"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 31.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park fargo",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        }
+      ]
+    },
+    "location_city_chandler": {
+      "type": "location",
+      "name": "City Chandler",
+      "keywords": [
+        "indoor dog park chandler"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 2.52,
+        "avg_pd": 48.0,
+        "avg_seo_difficulty": 32.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park chandler",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.52,
+          "pd": 48,
+          "seo_difficulty": 32
+        }
+      ]
+    },
+    "location_city_boston": {
+      "type": "location",
+      "name": "City Boston",
+      "keywords": [
+        "indoor dog park boston"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.65,
+        "avg_pd": 13.0,
+        "avg_seo_difficulty": 33.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park boston",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.65,
+          "pd": 13,
+          "seo_difficulty": 33
+        }
+      ]
+    },
+    "location_state_az": {
+      "type": "location",
+      "name": "State Az",
+      "keywords": [
+        "indoor dog park arizona",
+        "indoor dog park in arizona"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 2.93,
+        "avg_pd": 8.5,
+        "avg_seo_difficulty": 13.5,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park arizona",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.93,
+          "pd": 15,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park in arizona",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        }
+      ]
+    },
+    "location_state_mi": {
+      "type": "location",
+      "name": "State Mi",
+      "keywords": [
+        "indoor dog park in michigan"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.0,
+        "avg_pd": 18.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park in michigan",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_state_ma": {
+      "type": "location",
+      "name": "State Ma",
+      "keywords": [
+        "indoor dog park massachusetts"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.81,
+        "avg_pd": 13.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park massachusetts",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.81,
+          "pd": 13,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_city_milwaukee": {
+      "type": "location",
+      "name": "City Milwaukee",
+      "keywords": [
+        "indoor dog park milwaukee"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 2.42,
+        "avg_pd": 23.0,
+        "avg_seo_difficulty": 26.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park milwaukee",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.42,
+          "pd": 23,
+          "seo_difficulty": 26
+        }
+      ]
+    },
+    "location_city_madison": {
+      "type": "location",
+      "name": "City Madison",
+      "keywords": [
+        "indoor dog park madison wi"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 0.0,
+        "avg_pd": 9.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park madison wi",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_state_md": {
+      "type": "location",
+      "name": "State Md",
+      "keywords": [
+        "indoor dog park maryland"
+      ],
+      "stats": {
+        "total_volume": 90,
+        "avg_cpc": 3.75,
+        "avg_pd": 24.0,
+        "avg_seo_difficulty": 27.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park maryland",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 3.75,
+          "pd": 24,
+          "seo_difficulty": 27
+        }
+      ]
+    },
+    "location_city_anchorage": {
+      "type": "location",
+      "name": "City Anchorage",
+      "keywords": [
+        "indoor dog park anchorage"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 0.0,
+        "avg_pd": 2.0,
+        "avg_seo_difficulty": 23.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park anchorage",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_city_atlanta": {
+      "type": "location",
+      "name": "City Atlanta",
+      "keywords": [
+        "indoor dog park atlanta"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 2.51,
+        "avg_pd": 49.0,
+        "avg_seo_difficulty": 24.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park atlanta",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.51,
+          "pd": 49,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_cleveland": {
+      "type": "location",
+      "name": "City Cleveland",
+      "keywords": [
+        "indoor dog park cleveland"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 0.0,
+        "avg_pd": 3.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park cleveland",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_city_cranberry": {
+      "type": "location",
+      "name": "City Cranberry",
+      "keywords": [
+        "indoor dog park cranberry"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 2.22,
+        "avg_pd": 6.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park cranberry",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.22,
+          "pd": 6,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_city_indianapolis": {
+      "type": "location",
+      "name": "City Indianapolis",
+      "keywords": [
+        "indoor dog park indianapolis"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 2.36,
+        "avg_pd": 21.0,
+        "avg_seo_difficulty": 22.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park indianapolis",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.36,
+          "pd": 21,
+          "seo_difficulty": 22
+        }
+      ]
+    },
+    "location_city_lincoln": {
+      "type": "location",
+      "name": "City Lincoln",
+      "keywords": [
+        "indoor dog park lincoln ne"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 3.09,
+        "avg_pd": 28.0,
+        "avg_seo_difficulty": 24.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park lincoln ne",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 3.09,
+          "pd": 28,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_rochester": {
+      "type": "location",
+      "name": "City Rochester",
+      "keywords": [
+        "indoor dog park rochester ny",
+        "indoor dog park rochester mn"
+      ],
+      "stats": {
+        "total_volume": 100,
+        "avg_cpc": 1.37,
+        "avg_pd": 7.5,
+        "avg_seo_difficulty": 27.5,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park rochester ny",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 1.37,
+          "pd": 14,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park rochester mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_raleigh": {
+      "type": "location",
+      "name": "City Raleigh",
+      "keywords": [
+        "indoor dog park raleigh",
+        "indoor dog park raleigh nc"
+      ],
+      "stats": {
+        "total_volume": 110,
+        "avg_cpc": 2.45,
+        "avg_pd": 11.0,
+        "avg_seo_difficulty": 16.0,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park raleigh",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.45,
+          "pd": 17,
+          "seo_difficulty": 30
+        },
+        {
+          "keyword": "indoor dog park raleigh nc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 2
+        }
+      ]
+    },
+    "location_city_scottsdale": {
+      "type": "location",
+      "name": "City Scottsdale",
+      "keywords": [
+        "indoor dog park scottsdale az",
+        "indoor dog park scottsdale"
+      ],
+      "stats": {
+        "total_volume": 120,
+        "avg_cpc": 3.86,
+        "avg_pd": 28.5,
+        "avg_seo_difficulty": 15.0,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park scottsdale az",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 4.97,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park scottsdale",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.75,
+          "pd": 48,
+          "seo_difficulty": 14
+        }
+      ]
+    },
+    "location_city_buffalo": {
+      "type": "location",
+      "name": "City Buffalo",
+      "keywords": [
+        "indoor dog park buffalo ny"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park buffalo ny",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_city_charlotte": {
+      "type": "location",
+      "name": "City Charlotte",
+      "keywords": [
+        "indoor dog park charlotte nc"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 1.34,
+        "avg_pd": 28.0,
+        "avg_seo_difficulty": 31.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park charlotte nc",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.34,
+          "pd": 28,
+          "seo_difficulty": 31
+        }
+      ]
+    },
+    "location_city_colorado_springs": {
+      "type": "location",
+      "name": "City Colorado Springs",
+      "keywords": [
+        "indoor dog park colorado springs"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 3.37,
+        "avg_pd": 32.0,
+        "avg_seo_difficulty": 31.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park colorado springs",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.37,
+          "pd": 32,
+          "seo_difficulty": 31
+        }
+      ]
+    },
+    "location_city_long_island": {
+      "type": "location",
+      "name": "City Long Island",
+      "keywords": [
+        "indoor dog park long island"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 3.72,
+        "avg_pd": 6.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park long island",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.72,
+          "pd": 6,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_state_mn": {
+      "type": "location",
+      "name": "State Mn",
+      "keywords": [
+        "indoor dog park minnesota"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 1.68,
+        "avg_pd": 13.0,
+        "avg_seo_difficulty": 22.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park minnesota",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.68,
+          "pd": 13,
+          "seo_difficulty": 22
+        }
+      ]
+    },
+    "location_city_orlando": {
+      "type": "location",
+      "name": "City Orlando",
+      "keywords": [
+        "indoor dog park orlando"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 2.24,
+        "avg_pd": 22.0,
+        "avg_seo_difficulty": 20.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park orlando",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.24,
+          "pd": 22,
+          "seo_difficulty": 20
+        }
+      ]
+    },
+    "location_state_oh": {
+      "type": "location",
+      "name": "State Oh",
+      "keywords": [
+        "indoor dog park ohio"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 0.0,
+        "avg_pd": 9.0,
+        "avg_seo_difficulty": 16.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park ohio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 16
+        }
+      ]
+    },
+    "location_city_plymouth": {
+      "type": "location",
+      "name": "City Plymouth",
+      "keywords": [
+        "indoor dog park plymouth"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 2.59,
+        "avg_pd": 18.0,
+        "avg_seo_difficulty": 27.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park plymouth",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 18,
+          "seo_difficulty": 27
+        }
+      ]
+    },
+    "location_city_san_antonio": {
+      "type": "location",
+      "name": "City San Antonio",
+      "keywords": [
+        "indoor dog park san antonio"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 0.88,
+        "avg_pd": 13.0,
+        "avg_seo_difficulty": 20.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park san antonio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.88,
+          "pd": 13,
+          "seo_difficulty": 20
+        }
+      ]
+    },
+    "location_city_san_diego": {
+      "type": "location",
+      "name": "City San Diego",
+      "keywords": [
+        "indoor dog park san diego"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 2.59,
+        "avg_pd": 30.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park san diego",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 30,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_city_spokane": {
+      "type": "location",
+      "name": "City Spokane",
+      "keywords": [
+        "indoor dog park spokane"
+      ],
+      "stats": {
+        "total_volume": 50,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 19.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park spokane",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 19
+        }
+      ]
+    },
+    "location_state_me": {
+      "type": "location",
+      "name": "State Me",
+      "keywords": [
+        "indoor dog park near me within 5 mi",
+        "indoor dog park near me open now"
+      ],
+      "stats": {
+        "total_volume": 70,
+        "avg_cpc": 3.115,
+        "avg_pd": 24.0,
+        "avg_seo_difficulty": 32.5,
+        "keyword_count": 2
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park near me within 5 mi",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 5.4,
+          "pd": 18,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park near me open now",
+          "intent": "I",
+          "volume": 30,
+          "cpc": 0.83,
+          "pd": 30,
+          "seo_difficulty": 34
+        }
+      ]
+    },
+    "location_city_beaverton": {
+      "type": "location",
+      "name": "City Beaverton",
+      "keywords": [
+        "indoor dog park beaverton"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 2.73,
+        "avg_pd": 62.0,
+        "avg_seo_difficulty": 23.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park beaverton",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.73,
+          "pd": 62,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_state_dc": {
+      "type": "location",
+      "name": "State Dc",
+      "keywords": [
+        "indoor dog park dc"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 4.62,
+        "avg_pd": 38.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park dc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 4.62,
+          "pd": 38,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_city_des_moines": {
+      "type": "location",
+      "name": "City Des Moines",
+      "keywords": [
+        "indoor dog park des moines"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 1.46,
+        "avg_pd": 52.0,
+        "avg_seo_difficulty": 23.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park des moines",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 1.46,
+          "pd": 52,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_city_louisville": {
+      "type": "location",
+      "name": "City Louisville",
+      "keywords": [
+        "indoor dog park louisville ky"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 0.0,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 16.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park louisville ky",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        }
+      ]
+    },
+    "location_city_naperville": {
+      "type": "location",
+      "name": "City Naperville",
+      "keywords": [
+        "indoor dog park naperville"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 0.0,
+        "avg_pd": 18.0,
+        "avg_seo_difficulty": 34.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park naperville",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 34
+        }
+      ]
+    },
+    "location_city_philadelphia": {
+      "type": "location",
+      "name": "City Philadelphia",
+      "keywords": [
+        "indoor dog park philadelphia"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 0.0,
+        "avg_pd": 6.0,
+        "avg_seo_difficulty": 23.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park philadelphia",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_city_sacramento": {
+      "type": "location",
+      "name": "City Sacramento",
+      "keywords": [
+        "indoor dog park sacramento"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 2.91,
+        "avg_pd": 16.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park sacramento",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.91,
+          "pd": 16,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_city_sioux_falls": {
+      "type": "location",
+      "name": "City Sioux Falls",
+      "keywords": [
+        "indoor dog park sioux falls"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 0.0,
+        "avg_pd": 4.0,
+        "avg_seo_difficulty": 32.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park sioux falls",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 4,
+          "seo_difficulty": 32
+        }
+      ]
+    },
+    "location_city_twin_cities": {
+      "type": "location",
+      "name": "City Twin Cities",
+      "keywords": [
+        "indoor dog park twin cities"
+      ],
+      "stats": {
+        "total_volume": 40,
+        "avg_cpc": 1.29,
+        "avg_pd": 41.0,
+        "avg_seo_difficulty": 23.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park twin cities",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 1.29,
+          "pd": 41,
+          "seo_difficulty": 23
+        }
+      ]
+    },
+    "location_city_bay_area": {
+      "type": "location",
+      "name": "City Bay Area",
+      "keywords": [
+        "indoor dog park bay area"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 21.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park bay area",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        }
+      ]
+    },
+    "location_region_dfw": {
+      "type": "location",
+      "name": "Region Dfw",
+      "keywords": [
+        "indoor dog park dfw"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 2.55,
+        "avg_pd": 30.0,
+        "avg_seo_difficulty": 22.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park dfw",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.55,
+          "pd": 30,
+          "seo_difficulty": 22
+        }
+      ]
+    },
+    "location_state_fl": {
+      "type": "location",
+      "name": "State Fl",
+      "keywords": [
+        "indoor dog park florida"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park florida",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_city_fort_worth": {
+      "type": "location",
+      "name": "City Fort Worth",
+      "keywords": [
+        "indoor dog park fort worth"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 2.69,
+        "avg_pd": 32.0,
+        "avg_seo_difficulty": 21.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park fort worth",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.69,
+          "pd": 32,
+          "seo_difficulty": 21
+        }
+      ]
+    },
+    "location_city_fort_collins": {
+      "type": "location",
+      "name": "City Fort Collins",
+      "keywords": [
+        "indoor dog park fort collins"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 4.75,
+        "avg_pd": 32.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park fort collins",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 4.75,
+          "pd": 32,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_city_greenville": {
+      "type": "location",
+      "name": "City Greenville",
+      "keywords": [
+        "indoor dog park greenville sc"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.54,
+        "avg_pd": 2.0,
+        "avg_seo_difficulty": 18.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park greenville sc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.54,
+          "pd": 2,
+          "seo_difficulty": 18
+        }
+      ]
+    },
+    "location_city_henderson": {
+      "type": "location",
+      "name": "City Henderson",
+      "keywords": [
+        "indoor dog park henderson"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.92,
+        "avg_pd": 11.0,
+        "avg_seo_difficulty": 20.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park henderson",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.92,
+          "pd": 11,
+          "seo_difficulty": 20
+        }
+      ]
+    },
+    "location_city_jacksonville": {
+      "type": "location",
+      "name": "City Jacksonville",
+      "keywords": [
+        "indoor dog park jacksonville fl"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 21.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park jacksonville fl",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        }
+      ]
+    },
+    "location_city_miami": {
+      "type": "location",
+      "name": "City Miami",
+      "keywords": [
+        "indoor dog park miami"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 7.91,
+        "avg_pd": 22.0,
+        "avg_seo_difficulty": 15.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park miami",
+          "intent": "T",
+          "volume": 30,
+          "cpc": 7.91,
+          "pd": 22,
+          "seo_difficulty": 15
+        }
+      ]
+    },
+    "location_city_modesto": {
+      "type": "location",
+      "name": "City Modesto",
+      "keywords": [
+        "indoor dog park modesto"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 31.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park modesto",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        }
+      ]
+    },
+    "location_city_okc": {
+      "type": "location",
+      "name": "City Okc",
+      "keywords": [
+        "indoor dog park okc"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 2.29,
+        "avg_pd": 20.0,
+        "avg_seo_difficulty": 25.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park okc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.29,
+          "pd": 20,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "location_state_ri": {
+      "type": "location",
+      "name": "State Ri",
+      "keywords": [
+        "indoor dog park rhode island"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 6.82,
+        "avg_pd": 4.0,
+        "avg_seo_difficulty": 7.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park rhode island",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 6.82,
+          "pd": 4,
+          "seo_difficulty": 7
+        }
+      ]
+    },
+    "location_city_richmond": {
+      "type": "location",
+      "name": "City Richmond",
+      "keywords": [
+        "indoor dog park richmond va"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 21.0,
+        "avg_seo_difficulty": 24.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park richmond va",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 21,
+          "seo_difficulty": 24
+        }
+      ]
+    },
+    "location_city_salt_lake_city": {
+      "type": "location",
+      "name": "City Salt Lake City",
+      "keywords": [
+        "indoor dog park salt lake city"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 2.0,
+        "avg_seo_difficulty": 6.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park salt lake city",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        }
+      ]
+    },
+    "location_city_st_louis": {
+      "type": "location",
+      "name": "City St Louis",
+      "keywords": [
+        "indoor dog park st louis mo"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 1.76,
+        "avg_pd": 10.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park st louis mo",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.76,
+          "pd": 10,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_city_tampa": {
+      "type": "location",
+      "name": "City Tampa",
+      "keywords": [
+        "indoor dog park tampa"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 1.28,
+        "avg_pd": 11.0,
+        "avg_seo_difficulty": 20.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park tampa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.28,
+          "pd": 11,
+          "seo_difficulty": 20
+        }
+      ]
+    },
+    "location_city_tulsa": {
+      "type": "location",
+      "name": "City Tulsa",
+      "keywords": [
+        "indoor dog park tulsa"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 1.39,
+        "avg_pd": 19.0,
+        "avg_seo_difficulty": 22.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park tulsa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.39,
+          "pd": 19,
+          "seo_difficulty": 22
+        }
+      ]
+    },
+    "location_city_tacoma": {
+      "type": "location",
+      "name": "City Tacoma",
+      "keywords": [
+        "indoor dog park tacoma"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 5.0,
+        "avg_seo_difficulty": 15.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park tacoma",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 15
+        }
+      ]
+    },
+    "location_state_ut": {
+      "type": "location",
+      "name": "State Ut",
+      "keywords": [
+        "indoor dog park utah"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 17.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park utah",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        }
+      ]
+    },
+    "location_city_apple_valley": {
+      "type": "location",
+      "name": "City Apple Valley",
+      "keywords": [
+        "indoor dog park apple valley mn"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 1.0,
+        "avg_seo_difficulty": 5.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park apple valley mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        }
+      ]
+    },
+    "location_state_wi": {
+      "type": "location",
+      "name": "State Wi",
+      "keywords": [
+        "indoor dog park wisconsin"
+      ],
+      "stats": {
+        "total_volume": 30,
+        "avg_cpc": 0.0,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 16.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park wisconsin",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        }
+      ]
+    },
+    "location_state_ca": {
+      "type": "location",
+      "name": "State Ca",
+      "keywords": [
+        "indoor dog park california"
+      ],
+      "stats": {
+        "total_volume": 20,
+        "avg_cpc": 0.0,
+        "avg_pd": 3.0,
+        "avg_seo_difficulty": 6.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park california",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 6
+        }
+      ]
+    },
+    "location_city_knoxville": {
+      "type": "location",
+      "name": "City Knoxville",
+      "keywords": [
+        "indoor dog park knoxville"
+      ],
+      "stats": {
+        "total_volume": 20,
+        "avg_cpc": 0.0,
+        "avg_pd": 10.0,
+        "avg_seo_difficulty": 9.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park knoxville",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 9
+        }
+      ]
+    },
+    "location_city_st_paul": {
+      "type": "location",
+      "name": "City St Paul",
+      "keywords": [
+        "indoor dog park st paul"
+      ],
+      "stats": {
+        "total_volume": 20,
+        "avg_cpc": 0.0,
+        "avg_pd": 5.0,
+        "avg_seo_difficulty": 7.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park st paul",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        }
+      ]
+    },
+    "location_city_brooklyn": {
+      "type": "location",
+      "name": "City Brooklyn",
+      "keywords": [
+        "indoor dog park brooklyn"
+      ],
+      "stats": {
+        "total_volume": 20,
+        "avg_cpc": 0.0,
+        "avg_pd": 14.0,
+        "avg_seo_difficulty": 10.0,
+        "keyword_count": 1
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park brooklyn",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 10
+        }
+      ]
+    },
+    "intent_C": {
+      "type": "intent",
+      "name": "Commercial",
+      "keywords": [
+        "indoor dog park",
+        "indoor dog park franchise",
+        "indoor dog park in phoenix",
+        "jb's indoor dog park",
+        "indoor dog park austin tx",
+        "indoor dog park new york",
+        "indoor dog park austin",
+        "indoor dog park houston",
+        "indoor dog park seattle",
+        "indoor dog park new jersey",
+        "indoor dog park dallas",
+        "indoor dog park nj",
+        "indoor dog park pittsburgh",
+        "indoor dog park denver",
+        "indoor dog park cincinnati",
+        "indoor dog park nashville",
+        "indoor dog park grand rapids",
+        "indoor dog park fargo",
+        "indoor dog park chandler",
+        "indoor dog park boston",
+        "indoor dog park arizona",
+        "indoor dog park in michigan",
+        "indoor dog park massachusetts",
+        "indoor dog park milwaukee",
+        "indoor dog park madison wi",
+        "indoor dog park maryland",
+        "indoor dog park anchorage",
+        "indoor dog park atlanta",
+        "indoor dog park cleveland",
+        "indoor dog park cranberry",
+        "indoor dog park indianapolis",
+        "indoor dog park lincoln ne",
+        "indoor dog park rochester ny",
+        "indoor dog park raleigh",
+        "indoor dog park scottsdale az",
+        "unleashed indoor dog park",
+        "zoomies indoor dog park",
+        "indoor dog park charlotte nc",
+        "indoor dog park colorado springs",
+        "indoor dog park long island",
+        "indoor dog park minnesota",
+        "indoor dog park orlando",
+        "indoor dog park ohio",
+        "indoor dog park plymouth",
+        "indoor dog park san antonio",
+        "indoor dog park scottsdale",
+        "indoor dog park san diego",
+        "indoor dog park spokane",
+        "unleashed indoor dog park dallas",
+        "indoor dog park near me within 5 mi",
+        "indoor dog park beaverton",
+        "indoor dog park dc",
+        "indoor dog park des moines",
+        "indoor dog park louisville ky",
+        "indoor dog park naperville",
+        "indoor dog park philadelphia",
+        "indoor dog park raleigh nc",
+        "indoor dog park sacramento",
+        "indoor dog park sioux falls",
+        "indoor dog park bay area",
+        "indoor dog park dfw",
+        "indoor dog park florida",
+        "indoor dog park fort worth",
+        "indoor dog park fort collins",
+        "indoor dog park greenville sc",
+        "indoor dog park henderson",
+        "indoor dog park jacksonville fl",
+        "indoor dog park modesto",
+        "indoor dog park okc",
+        "indoor dog park rhode island",
+        "indoor dog park richmond va",
+        "indoor dog park rochester mn",
+        "indoor dog park salt lake city",
+        "indoor dog park st louis mo",
+        "indoor dog park tampa",
+        "indoor dog park tulsa",
+        "indoor dog park tacoma",
+        "indoor dog park utah",
+        "indoor dog park apple valley mn",
+        "indoor dog park wisconsin"
+      ],
+      "stats": {
+        "total_volume": 24240,
+        "avg_cpc": 2.4754716981132074,
+        "avg_pd": 16.9625,
+        "avg_seo_difficulty": 21.8,
+        "keyword_count": 80
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park",
+          "intent": "C",
+          "volume": 18100,
+          "cpc": 2.48,
+          "pd": 32,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park franchise",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 5.35,
+          "pd": 62,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park in phoenix",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.36,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "jb's indoor dog park",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.12,
+          "pd": 1,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park austin tx",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.19,
+          "pd": 9,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park new york",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.64,
+          "pd": 21,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park austin",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 2.58,
+          "pd": 18,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park houston",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 3.12,
+          "pd": 30,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park seattle",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 0.39,
+          "pd": 8,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park new jersey",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 1.41,
+          "pd": 8,
+          "seo_difficulty": 28
+        },
+        {
+          "keyword": "indoor dog park dallas",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.58,
+          "pd": 36,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park nj",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.99,
+          "pd": 20,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park pittsburgh",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.28,
+          "pd": 11,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park denver",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.07,
+          "pd": 31,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park cincinnati",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.82,
+          "pd": 28,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park nashville",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.5,
+          "pd": 14,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park grand rapids",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park fargo",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park chandler",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.52,
+          "pd": 48,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park boston",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.65,
+          "pd": 13,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park arizona",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.93,
+          "pd": 15,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park in michigan",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park massachusetts",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.81,
+          "pd": 13,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park milwaukee",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.42,
+          "pd": 23,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park madison wi",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park maryland",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 3.75,
+          "pd": 24,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park anchorage",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park atlanta",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.51,
+          "pd": 49,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park cleveland",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park cranberry",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.22,
+          "pd": 6,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park indianapolis",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.36,
+          "pd": 21,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park lincoln ne",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 3.09,
+          "pd": 28,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester ny",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 1.37,
+          "pd": 14,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park raleigh",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.45,
+          "pd": 17,
+          "seo_difficulty": 30
+        },
+        {
+          "keyword": "indoor dog park scottsdale az",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 4.97,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "unleashed indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "zoomies indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park charlotte nc",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.34,
+          "pd": 28,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park colorado springs",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.37,
+          "pd": 32,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park long island",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.72,
+          "pd": 6,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park minnesota",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.68,
+          "pd": 13,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park orlando",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.24,
+          "pd": 22,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park ohio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park plymouth",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 18,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park san antonio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.88,
+          "pd": 13,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park scottsdale",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.75,
+          "pd": 48,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park san diego",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 30,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park spokane",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 19
+        },
+        {
+          "keyword": "unleashed indoor dog park dallas",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park near me within 5 mi",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 5.4,
+          "pd": 18,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park beaverton",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.73,
+          "pd": 62,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park dc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 4.62,
+          "pd": 38,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park des moines",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 1.46,
+          "pd": 52,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park louisville ky",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park naperville",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park philadelphia",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park raleigh nc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 2
+        },
+        {
+          "keyword": "indoor dog park sacramento",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.91,
+          "pd": 16,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park sioux falls",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 4,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park bay area",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park dfw",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.55,
+          "pd": 30,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park florida",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park fort worth",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.69,
+          "pd": 32,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park fort collins",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 4.75,
+          "pd": 32,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park greenville sc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.54,
+          "pd": 2,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park henderson",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.92,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park jacksonville fl",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park modesto",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park okc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.29,
+          "pd": 20,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park rhode island",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 6.82,
+          "pd": 4,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park richmond va",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 21,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park salt lake city",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park st louis mo",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.76,
+          "pd": 10,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park tampa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.28,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park tulsa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.39,
+          "pd": 19,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park tacoma",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park utah",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park apple valley mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park wisconsin",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        }
+      ]
+    },
+    "intent_T": {
+      "type": "intent",
+      "name": "Transactional",
+      "keywords": [
+        "indoor dog park omaha",
+        "indoor dog park tucson",
+        "indoor dog park ct",
+        "indoor dog park equipment",
+        "indoor dog park usa",
+        "indoor dog park buffalo ny",
+        "indoor dog park with bar",
+        "indoor dog park bar",
+        "indoor dog park twin cities",
+        "indoor dog park miami"
+      ],
+      "stats": {
+        "total_volume": 750,
+        "avg_cpc": 3.1649999999999996,
+        "avg_pd": 22.9,
+        "avg_seo_difficulty": 30.9,
+        "keyword_count": 10
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park omaha",
+          "intent": "T",
+          "volume": 140,
+          "cpc": 3.11,
+          "pd": 21,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park tucson",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.57,
+          "pd": 8,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park ct",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park equipment",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 1.91,
+          "pd": 100,
+          "seo_difficulty": 37
+        },
+        {
+          "keyword": "indoor dog park usa",
+          "intent": "T",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 7,
+          "seo_difficulty": 38
+        },
+        {
+          "keyword": "indoor dog park buffalo ny",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park with bar",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 4.2,
+          "pd": 13,
+          "seo_difficulty": 54
+        },
+        {
+          "keyword": "indoor dog park bar",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 53
+        },
+        {
+          "keyword": "indoor dog park twin cities",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 1.29,
+          "pd": 41,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park miami",
+          "intent": "T",
+          "volume": 30,
+          "cpc": 7.91,
+          "pd": 22,
+          "seo_difficulty": 15
+        }
+      ]
+    },
+    "intent_I": {
+      "type": "intent",
+      "name": "Informational",
+      "keywords": [
+        "indoor dog park near me open now",
+        "indoor dog park brewery",
+        "indoor dog park california",
+        "indoor dog park in arizona",
+        "jb's indoor dog park photos",
+        "indoor dog park knoxville",
+        "indoor dog park st paul",
+        "indoor dog park vegas",
+        "indoor dog park brooklyn",
+        "indoor dog park rental"
+      ],
+      "stats": {
+        "total_volume": 210,
+        "avg_cpc": 0.83,
+        "avg_pd": 9.5,
+        "avg_seo_difficulty": 10.3,
+        "keyword_count": 10
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park near me open now",
+          "intent": "I",
+          "volume": 30,
+          "cpc": 0.83,
+          "pd": 30,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park brewery",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park california",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park in arizona",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "jb's indoor dog park photos",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park knoxville",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 9
+        },
+        {
+          "keyword": "indoor dog park st paul",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park vegas",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park brooklyn",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 10
+        },
+        {
+          "keyword": "indoor dog park rental",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 20,
+          "seo_difficulty": 12
+        }
+      ]
+    },
+    "semantic_generic": {
+      "type": "semantic",
+      "name": "Generic",
+      "keywords": [
+        "indoor dog park",
+        "indoor dog park usa",
+        "indoor dog park vegas"
+      ],
+      "stats": {
+        "total_volume": 18190,
+        "avg_cpc": 2.48,
+        "avg_pd": 14.666666666666666,
+        "avg_seo_difficulty": 26.0,
+        "keyword_count": 3
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park",
+          "intent": "C",
+          "volume": 18100,
+          "cpc": 2.48,
+          "pd": 32,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park usa",
+          "intent": "T",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 7,
+          "seo_difficulty": 38
+        },
+        {
+          "keyword": "indoor dog park vegas",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        }
+      ]
+    },
+    "semantic_feature-based": {
+      "type": "semantic",
+      "name": "Feature Based",
+      "keywords": [
+        "indoor dog park franchise",
+        "indoor dog park equipment",
+        "indoor dog park with bar",
+        "indoor dog park near me within 5 mi",
+        "indoor dog park bar",
+        "indoor dog park near me open now",
+        "indoor dog park brewery",
+        "indoor dog park rental"
+      ],
+      "stats": {
+        "total_volume": 630,
+        "avg_cpc": 3.5380000000000003,
+        "avg_pd": 31.75,
+        "avg_seo_difficulty": 31.0,
+        "keyword_count": 8
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park franchise",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 5.35,
+          "pd": 62,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park equipment",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 1.91,
+          "pd": 100,
+          "seo_difficulty": 37
+        },
+        {
+          "keyword": "indoor dog park with bar",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 4.2,
+          "pd": 13,
+          "seo_difficulty": 54
+        },
+        {
+          "keyword": "indoor dog park near me within 5 mi",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 5.4,
+          "pd": 18,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park bar",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 53
+        },
+        {
+          "keyword": "indoor dog park near me open now",
+          "intent": "I",
+          "volume": 30,
+          "cpc": 0.83,
+          "pd": 30,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park brewery",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park rental",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 20,
+          "seo_difficulty": 12
+        }
+      ]
+    },
+    "semantic_location-based": {
+      "type": "semantic",
+      "name": "Location Based",
+      "keywords": [
+        "indoor dog park in phoenix",
+        "indoor dog park austin tx",
+        "indoor dog park new york",
+        "indoor dog park austin",
+        "indoor dog park houston",
+        "indoor dog park seattle",
+        "indoor dog park new jersey",
+        "indoor dog park dallas",
+        "indoor dog park nj",
+        "indoor dog park omaha",
+        "indoor dog park pittsburgh",
+        "indoor dog park denver",
+        "indoor dog park tucson",
+        "indoor dog park cincinnati",
+        "indoor dog park ct",
+        "indoor dog park nashville",
+        "indoor dog park grand rapids",
+        "indoor dog park fargo",
+        "indoor dog park chandler",
+        "indoor dog park boston",
+        "indoor dog park arizona",
+        "indoor dog park in michigan",
+        "indoor dog park massachusetts",
+        "indoor dog park milwaukee",
+        "indoor dog park madison wi",
+        "indoor dog park maryland",
+        "indoor dog park anchorage",
+        "indoor dog park atlanta",
+        "indoor dog park cleveland",
+        "indoor dog park cranberry",
+        "indoor dog park indianapolis",
+        "indoor dog park lincoln ne",
+        "indoor dog park rochester ny",
+        "indoor dog park raleigh",
+        "indoor dog park scottsdale az",
+        "indoor dog park buffalo ny",
+        "indoor dog park charlotte nc",
+        "indoor dog park colorado springs",
+        "indoor dog park long island",
+        "indoor dog park minnesota",
+        "indoor dog park orlando",
+        "indoor dog park ohio",
+        "indoor dog park plymouth",
+        "indoor dog park san antonio",
+        "indoor dog park scottsdale",
+        "indoor dog park san diego",
+        "indoor dog park spokane",
+        "indoor dog park beaverton",
+        "indoor dog park dc",
+        "indoor dog park des moines",
+        "indoor dog park louisville ky",
+        "indoor dog park naperville",
+        "indoor dog park philadelphia",
+        "indoor dog park raleigh nc",
+        "indoor dog park sacramento",
+        "indoor dog park sioux falls",
+        "indoor dog park twin cities",
+        "indoor dog park bay area",
+        "indoor dog park dfw",
+        "indoor dog park florida",
+        "indoor dog park fort worth",
+        "indoor dog park fort collins",
+        "indoor dog park greenville sc",
+        "indoor dog park henderson",
+        "indoor dog park jacksonville fl",
+        "indoor dog park miami",
+        "indoor dog park modesto",
+        "indoor dog park okc",
+        "indoor dog park rhode island",
+        "indoor dog park richmond va",
+        "indoor dog park rochester mn",
+        "indoor dog park salt lake city",
+        "indoor dog park st louis mo",
+        "indoor dog park tampa",
+        "indoor dog park tulsa",
+        "indoor dog park tacoma",
+        "indoor dog park utah",
+        "indoor dog park apple valley mn",
+        "indoor dog park wisconsin",
+        "indoor dog park california",
+        "indoor dog park in arizona",
+        "indoor dog park knoxville",
+        "indoor dog park st paul",
+        "indoor dog park brooklyn"
+      ],
+      "stats": {
+        "total_volume": 5850,
+        "avg_cpc": 2.4477358490566035,
+        "avg_pd": 16.333333333333332,
+        "avg_seo_difficulty": 20.547619047619047,
+        "keyword_count": 84
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park in phoenix",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.36,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park austin tx",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.19,
+          "pd": 9,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park new york",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.64,
+          "pd": 21,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park austin",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 2.58,
+          "pd": 18,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park houston",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 3.12,
+          "pd": 30,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park seattle",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 0.39,
+          "pd": 8,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park new jersey",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 1.41,
+          "pd": 8,
+          "seo_difficulty": 28
+        },
+        {
+          "keyword": "indoor dog park dallas",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.58,
+          "pd": 36,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park nj",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.99,
+          "pd": 20,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park omaha",
+          "intent": "T",
+          "volume": 140,
+          "cpc": 3.11,
+          "pd": 21,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park pittsburgh",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.28,
+          "pd": 11,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park denver",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.07,
+          "pd": 31,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park tucson",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.57,
+          "pd": 8,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park cincinnati",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.82,
+          "pd": 28,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park ct",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park nashville",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.5,
+          "pd": 14,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park grand rapids",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park fargo",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park chandler",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.52,
+          "pd": 48,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park boston",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.65,
+          "pd": 13,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park arizona",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.93,
+          "pd": 15,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park in michigan",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park massachusetts",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.81,
+          "pd": 13,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park milwaukee",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.42,
+          "pd": 23,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park madison wi",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park maryland",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 3.75,
+          "pd": 24,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park anchorage",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park atlanta",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.51,
+          "pd": 49,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park cleveland",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park cranberry",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.22,
+          "pd": 6,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park indianapolis",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.36,
+          "pd": 21,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park lincoln ne",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 3.09,
+          "pd": 28,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester ny",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 1.37,
+          "pd": 14,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park raleigh",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.45,
+          "pd": 17,
+          "seo_difficulty": 30
+        },
+        {
+          "keyword": "indoor dog park scottsdale az",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 4.97,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park buffalo ny",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park charlotte nc",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.34,
+          "pd": 28,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park colorado springs",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.37,
+          "pd": 32,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park long island",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.72,
+          "pd": 6,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park minnesota",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.68,
+          "pd": 13,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park orlando",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.24,
+          "pd": 22,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park ohio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park plymouth",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 18,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park san antonio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.88,
+          "pd": 13,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park scottsdale",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.75,
+          "pd": 48,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park san diego",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 30,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park spokane",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 19
+        },
+        {
+          "keyword": "indoor dog park beaverton",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.73,
+          "pd": 62,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park dc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 4.62,
+          "pd": 38,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park des moines",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 1.46,
+          "pd": 52,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park louisville ky",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park naperville",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park philadelphia",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park raleigh nc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 2
+        },
+        {
+          "keyword": "indoor dog park sacramento",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.91,
+          "pd": 16,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park sioux falls",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 4,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park twin cities",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 1.29,
+          "pd": 41,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park bay area",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park dfw",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.55,
+          "pd": 30,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park florida",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park fort worth",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.69,
+          "pd": 32,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park fort collins",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 4.75,
+          "pd": 32,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park greenville sc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.54,
+          "pd": 2,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park henderson",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.92,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park jacksonville fl",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park miami",
+          "intent": "T",
+          "volume": 30,
+          "cpc": 7.91,
+          "pd": 22,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park modesto",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park okc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.29,
+          "pd": 20,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park rhode island",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 6.82,
+          "pd": 4,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park richmond va",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 21,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park salt lake city",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park st louis mo",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.76,
+          "pd": 10,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park tampa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.28,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park tulsa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.39,
+          "pd": 19,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park tacoma",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park utah",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park apple valley mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park wisconsin",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park california",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park in arizona",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park knoxville",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 9
+        },
+        {
+          "keyword": "indoor dog park st paul",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park brooklyn",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 10
+        }
+      ]
+    },
+    "semantic_brand-based": {
+      "type": "semantic",
+      "name": "Brand Based",
+      "keywords": [
+        "jb's indoor dog park",
+        "unleashed indoor dog park",
+        "zoomies indoor dog park",
+        "unleashed indoor dog park dallas",
+        "jb's indoor dog park photos"
+      ],
+      "stats": {
+        "total_volume": 530,
+        "avg_cpc": 1.12,
+        "avg_pd": 2.2,
+        "avg_seo_difficulty": 20.8,
+        "keyword_count": 5
+      },
+      "keywords_data": [
+        {
+          "keyword": "jb's indoor dog park",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.12,
+          "pd": 1,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "unleashed indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "zoomies indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "unleashed indoor dog park dallas",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "jb's indoor dog park photos",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        }
+      ]
+    },
+    "volume_high": {
+      "type": "volume",
+      "name": "High",
+      "keywords": [
+        "indoor dog park",
+        "indoor dog park franchise",
+        "indoor dog park in phoenix",
+        "jb's indoor dog park",
+        "indoor dog park austin tx",
+        "indoor dog park new york"
+      ],
+      "stats": {
+        "total_volume": 19480,
+        "avg_cpc": 2.19,
+        "avg_pd": 21.166666666666668,
+        "avg_seo_difficulty": 20.666666666666668,
+        "keyword_count": 6
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park",
+          "intent": "C",
+          "volume": 18100,
+          "cpc": 2.48,
+          "pd": 32,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park franchise",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 5.35,
+          "pd": 62,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park in phoenix",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.36,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "jb's indoor dog park",
+          "intent": "C",
+          "volume": 320,
+          "cpc": 1.12,
+          "pd": 1,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park austin tx",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.19,
+          "pd": 9,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park new york",
+          "intent": "C",
+          "volume": 210,
+          "cpc": 1.64,
+          "pd": 21,
+          "seo_difficulty": 25
+        }
+      ]
+    },
+    "volume_medium": {
+      "type": "volume",
+      "name": "Medium",
+      "keywords": [
+        "indoor dog park austin",
+        "indoor dog park houston",
+        "indoor dog park seattle",
+        "indoor dog park new jersey",
+        "indoor dog park dallas",
+        "indoor dog park nj",
+        "indoor dog park omaha",
+        "indoor dog park pittsburgh",
+        "indoor dog park denver",
+        "indoor dog park tucson",
+        "indoor dog park cincinnati",
+        "indoor dog park ct",
+        "indoor dog park equipment",
+        "indoor dog park nashville",
+        "indoor dog park grand rapids",
+        "indoor dog park fargo",
+        "indoor dog park chandler",
+        "indoor dog park boston",
+        "indoor dog park arizona",
+        "indoor dog park in michigan",
+        "indoor dog park massachusetts",
+        "indoor dog park milwaukee",
+        "indoor dog park madison wi",
+        "indoor dog park maryland",
+        "indoor dog park anchorage",
+        "indoor dog park atlanta",
+        "indoor dog park cleveland",
+        "indoor dog park cranberry",
+        "indoor dog park indianapolis",
+        "indoor dog park lincoln ne",
+        "indoor dog park rochester ny",
+        "indoor dog park raleigh",
+        "indoor dog park scottsdale az",
+        "indoor dog park usa",
+        "unleashed indoor dog park",
+        "zoomies indoor dog park",
+        "indoor dog park buffalo ny",
+        "indoor dog park charlotte nc",
+        "indoor dog park colorado springs",
+        "indoor dog park long island",
+        "indoor dog park minnesota",
+        "indoor dog park orlando",
+        "indoor dog park ohio",
+        "indoor dog park plymouth",
+        "indoor dog park san antonio",
+        "indoor dog park scottsdale",
+        "indoor dog park san diego",
+        "indoor dog park spokane",
+        "unleashed indoor dog park dallas",
+        "indoor dog park with bar"
+      ],
+      "stats": {
+        "total_volume": 4370,
+        "avg_cpc": 2.3816666666666664,
+        "avg_pd": 18.22,
+        "avg_seo_difficulty": 24.34,
+        "keyword_count": 50
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park austin",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 2.58,
+          "pd": 18,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park houston",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 3.12,
+          "pd": 30,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park seattle",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 0.39,
+          "pd": 8,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park new jersey",
+          "intent": "C",
+          "volume": 170,
+          "cpc": 1.41,
+          "pd": 8,
+          "seo_difficulty": 28
+        },
+        {
+          "keyword": "indoor dog park dallas",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.58,
+          "pd": 36,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park nj",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 2.99,
+          "pd": 20,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park omaha",
+          "intent": "T",
+          "volume": 140,
+          "cpc": 3.11,
+          "pd": 21,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park pittsburgh",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.28,
+          "pd": 11,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park denver",
+          "intent": "C",
+          "volume": 140,
+          "cpc": 3.07,
+          "pd": 31,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park tucson",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.57,
+          "pd": 8,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park cincinnati",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.82,
+          "pd": 28,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park ct",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park equipment",
+          "intent": "T",
+          "volume": 110,
+          "cpc": 1.91,
+          "pd": 100,
+          "seo_difficulty": 37
+        },
+        {
+          "keyword": "indoor dog park nashville",
+          "intent": "C",
+          "volume": 110,
+          "cpc": 1.5,
+          "pd": 14,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park grand rapids",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park fargo",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park chandler",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.52,
+          "pd": 48,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park boston",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.65,
+          "pd": 13,
+          "seo_difficulty": 33
+        },
+        {
+          "keyword": "indoor dog park arizona",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.93,
+          "pd": 15,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park in michigan",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park massachusetts",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.81,
+          "pd": 13,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park milwaukee",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 2.42,
+          "pd": 23,
+          "seo_difficulty": 26
+        },
+        {
+          "keyword": "indoor dog park madison wi",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park maryland",
+          "intent": "C",
+          "volume": 90,
+          "cpc": 3.75,
+          "pd": 24,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park anchorage",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park atlanta",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.51,
+          "pd": 49,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park cleveland",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park cranberry",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.22,
+          "pd": 6,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park indianapolis",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.36,
+          "pd": 21,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park lincoln ne",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 3.09,
+          "pd": 28,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester ny",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 1.37,
+          "pd": 14,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park raleigh",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 2.45,
+          "pd": 17,
+          "seo_difficulty": 30
+        },
+        {
+          "keyword": "indoor dog park scottsdale az",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 4.97,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park usa",
+          "intent": "T",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 7,
+          "seo_difficulty": 38
+        },
+        {
+          "keyword": "unleashed indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "zoomies indoor dog park",
+          "intent": "C",
+          "volume": 70,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 29
+        },
+        {
+          "keyword": "indoor dog park buffalo ny",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park charlotte nc",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.34,
+          "pd": 28,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park colorado springs",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.37,
+          "pd": 32,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park long island",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 3.72,
+          "pd": 6,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park minnesota",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 1.68,
+          "pd": 13,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park orlando",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.24,
+          "pd": 22,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park ohio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 9,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park plymouth",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 18,
+          "seo_difficulty": 27
+        },
+        {
+          "keyword": "indoor dog park san antonio",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.88,
+          "pd": 13,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park scottsdale",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.75,
+          "pd": 48,
+          "seo_difficulty": 14
+        },
+        {
+          "keyword": "indoor dog park san diego",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 2.59,
+          "pd": 30,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park spokane",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 19
+        },
+        {
+          "keyword": "unleashed indoor dog park dallas",
+          "intent": "C",
+          "volume": 50,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park with bar",
+          "intent": "T",
+          "volume": 50,
+          "cpc": 4.2,
+          "pd": 13,
+          "seo_difficulty": 54
+        }
+      ]
+    },
+    "volume_low": {
+      "type": "volume",
+      "name": "Low",
+      "keywords": [
+        "indoor dog park near me within 5 mi",
+        "indoor dog park beaverton",
+        "indoor dog park bar",
+        "indoor dog park dc",
+        "indoor dog park des moines",
+        "indoor dog park louisville ky",
+        "indoor dog park naperville",
+        "indoor dog park philadelphia",
+        "indoor dog park raleigh nc",
+        "indoor dog park sacramento",
+        "indoor dog park sioux falls",
+        "indoor dog park twin cities",
+        "indoor dog park bay area",
+        "indoor dog park dfw",
+        "indoor dog park florida",
+        "indoor dog park fort worth",
+        "indoor dog park fort collins",
+        "indoor dog park greenville sc",
+        "indoor dog park henderson",
+        "indoor dog park jacksonville fl",
+        "indoor dog park miami",
+        "indoor dog park modesto",
+        "indoor dog park near me open now",
+        "indoor dog park okc",
+        "indoor dog park rhode island",
+        "indoor dog park richmond va",
+        "indoor dog park rochester mn",
+        "indoor dog park salt lake city",
+        "indoor dog park st louis mo",
+        "indoor dog park tampa",
+        "indoor dog park tulsa",
+        "indoor dog park tacoma",
+        "indoor dog park utah",
+        "indoor dog park apple valley mn",
+        "indoor dog park wisconsin",
+        "indoor dog park brewery",
+        "indoor dog park california",
+        "indoor dog park in arizona",
+        "jb's indoor dog park photos",
+        "indoor dog park knoxville",
+        "indoor dog park st paul",
+        "indoor dog park vegas",
+        "indoor dog park brooklyn",
+        "indoor dog park rental"
+      ],
+      "stats": {
+        "total_volume": 1350,
+        "avg_cpc": 2.8966666666666665,
+        "avg_pd": 14.613636363636363,
+        "avg_seo_difficulty": 18.522727272727273,
+        "keyword_count": 44
+      },
+      "keywords_data": [
+        {
+          "keyword": "indoor dog park near me within 5 mi",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 5.4,
+          "pd": 18,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park beaverton",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.73,
+          "pd": 62,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park bar",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 53
+        },
+        {
+          "keyword": "indoor dog park dc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 4.62,
+          "pd": 38,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park des moines",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 1.46,
+          "pd": 52,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park louisville ky",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park naperville",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 18,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park philadelphia",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 6,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park raleigh nc",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 2
+        },
+        {
+          "keyword": "indoor dog park sacramento",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 2.91,
+          "pd": 16,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park sioux falls",
+          "intent": "C",
+          "volume": 40,
+          "cpc": 0.0,
+          "pd": 4,
+          "seo_difficulty": 32
+        },
+        {
+          "keyword": "indoor dog park twin cities",
+          "intent": "T",
+          "volume": 40,
+          "cpc": 1.29,
+          "pd": 41,
+          "seo_difficulty": 23
+        },
+        {
+          "keyword": "indoor dog park bay area",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park dfw",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.55,
+          "pd": 30,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park florida",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park fort worth",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.69,
+          "pd": 32,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park fort collins",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 4.75,
+          "pd": 32,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park greenville sc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.54,
+          "pd": 2,
+          "seo_difficulty": 18
+        },
+        {
+          "keyword": "indoor dog park henderson",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.92,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park jacksonville fl",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 21
+        },
+        {
+          "keyword": "indoor dog park miami",
+          "intent": "T",
+          "volume": 30,
+          "cpc": 7.91,
+          "pd": 22,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park modesto",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 31
+        },
+        {
+          "keyword": "indoor dog park near me open now",
+          "intent": "I",
+          "volume": 30,
+          "cpc": 0.83,
+          "pd": 30,
+          "seo_difficulty": 34
+        },
+        {
+          "keyword": "indoor dog park okc",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 2.29,
+          "pd": 20,
+          "seo_difficulty": 25
+        },
+        {
+          "keyword": "indoor dog park rhode island",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 6.82,
+          "pd": 4,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park richmond va",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 21,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park rochester mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 24
+        },
+        {
+          "keyword": "indoor dog park salt lake city",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park st louis mo",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.76,
+          "pd": 10,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park tampa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.28,
+          "pd": 11,
+          "seo_difficulty": 20
+        },
+        {
+          "keyword": "indoor dog park tulsa",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 1.39,
+          "pd": 19,
+          "seo_difficulty": 22
+        },
+        {
+          "keyword": "indoor dog park tacoma",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 15
+        },
+        {
+          "keyword": "indoor dog park utah",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 17
+        },
+        {
+          "keyword": "indoor dog park apple valley mn",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park wisconsin",
+          "intent": "C",
+          "volume": 30,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 16
+        },
+        {
+          "keyword": "indoor dog park brewery",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park california",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 3,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "indoor dog park in arizona",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 2,
+          "seo_difficulty": 6
+        },
+        {
+          "keyword": "jb's indoor dog park photos",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 1,
+          "seo_difficulty": 5
+        },
+        {
+          "keyword": "indoor dog park knoxville",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 10,
+          "seo_difficulty": 9
+        },
+        {
+          "keyword": "indoor dog park st paul",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park vegas",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 5,
+          "seo_difficulty": 7
+        },
+        {
+          "keyword": "indoor dog park brooklyn",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 14,
+          "seo_difficulty": 10
+        },
+        {
+          "keyword": "indoor dog park rental",
+          "intent": "I",
+          "volume": 20,
+          "cpc": 0.0,
+          "pd": 20,
+          "seo_difficulty": 12
+        }
+      ]
+    }
+  },
+  "keyword_assignments": {
+    "indoor dog park": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_generic",
+      "volume_cluster": "volume_high"
+    },
+    "indoor dog park franchise": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_high"
+    },
+    "indoor dog park in phoenix": {
+      "location_cluster": "location_city_phoenix",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_high"
+    },
+    "jb's indoor dog park": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_brand-based",
+      "volume_cluster": "volume_high"
+    },
+    "indoor dog park austin tx": {
+      "location_cluster": "location_city_austin",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_high"
+    },
+    "indoor dog park new york": {
+      "location_cluster": "location_city_new_york",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_high"
+    },
+    "indoor dog park austin": {
+      "location_cluster": "location_city_austin",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park houston": {
+      "location_cluster": "location_city_houston",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park seattle": {
+      "location_cluster": "location_city_seattle",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park new jersey": {
+      "location_cluster": "location_state_nj",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park dallas": {
+      "location_cluster": "location_city_dallas",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park nj": {
+      "location_cluster": "location_state_nj",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park omaha": {
+      "location_cluster": "location_city_omaha",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park pittsburgh": {
+      "location_cluster": "location_city_pittsburgh",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park denver": {
+      "location_cluster": "location_city_denver",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park tucson": {
+      "location_cluster": "location_city_tucson",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park cincinnati": {
+      "location_cluster": "location_city_cincinnati",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park ct": {
+      "location_cluster": "location_state_ct",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park equipment": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park nashville": {
+      "location_cluster": "location_city_nashville",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park grand rapids": {
+      "location_cluster": "location_city_grand_rapids",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park fargo": {
+      "location_cluster": "location_city_fargo",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park chandler": {
+      "location_cluster": "location_city_chandler",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park boston": {
+      "location_cluster": "location_city_boston",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park arizona": {
+      "location_cluster": "location_state_az",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park in michigan": {
+      "location_cluster": "location_state_mi",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park massachusetts": {
+      "location_cluster": "location_state_ma",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park milwaukee": {
+      "location_cluster": "location_city_milwaukee",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park madison wi": {
+      "location_cluster": "location_city_madison",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park maryland": {
+      "location_cluster": "location_state_md",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park anchorage": {
+      "location_cluster": "location_city_anchorage",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park atlanta": {
+      "location_cluster": "location_city_atlanta",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park cleveland": {
+      "location_cluster": "location_city_cleveland",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park cranberry": {
+      "location_cluster": "location_city_cranberry",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park indianapolis": {
+      "location_cluster": "location_city_indianapolis",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park lincoln ne": {
+      "location_cluster": "location_city_lincoln",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park rochester ny": {
+      "location_cluster": "location_city_rochester",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park raleigh": {
+      "location_cluster": "location_city_raleigh",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park scottsdale az": {
+      "location_cluster": "location_city_scottsdale",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park usa": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_generic",
+      "volume_cluster": "volume_medium"
+    },
+    "unleashed indoor dog park": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_brand-based",
+      "volume_cluster": "volume_medium"
+    },
+    "zoomies indoor dog park": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_brand-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park buffalo ny": {
+      "location_cluster": "location_city_buffalo",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park charlotte nc": {
+      "location_cluster": "location_city_charlotte",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park colorado springs": {
+      "location_cluster": "location_city_colorado_springs",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park long island": {
+      "location_cluster": "location_city_long_island",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park minnesota": {
+      "location_cluster": "location_state_mn",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park orlando": {
+      "location_cluster": "location_city_orlando",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park ohio": {
+      "location_cluster": "location_state_oh",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park plymouth": {
+      "location_cluster": "location_city_plymouth",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park san antonio": {
+      "location_cluster": "location_city_san_antonio",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park scottsdale": {
+      "location_cluster": "location_city_scottsdale",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park san diego": {
+      "location_cluster": "location_city_san_diego",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park spokane": {
+      "location_cluster": "location_city_spokane",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_medium"
+    },
+    "unleashed indoor dog park dallas": {
+      "location_cluster": "location_city_dallas",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_brand-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park with bar": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_medium"
+    },
+    "indoor dog park near me within 5 mi": {
+      "location_cluster": "location_state_me",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park beaverton": {
+      "location_cluster": "location_city_beaverton",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park bar": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park dc": {
+      "location_cluster": "location_state_dc",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park des moines": {
+      "location_cluster": "location_city_des_moines",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park louisville ky": {
+      "location_cluster": "location_city_louisville",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park naperville": {
+      "location_cluster": "location_city_naperville",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park philadelphia": {
+      "location_cluster": "location_city_philadelphia",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park raleigh nc": {
+      "location_cluster": "location_city_raleigh",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park sacramento": {
+      "location_cluster": "location_city_sacramento",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park sioux falls": {
+      "location_cluster": "location_city_sioux_falls",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park twin cities": {
+      "location_cluster": "location_city_twin_cities",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park bay area": {
+      "location_cluster": "location_city_bay_area",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park dfw": {
+      "location_cluster": "location_region_dfw",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park florida": {
+      "location_cluster": "location_state_fl",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park fort worth": {
+      "location_cluster": "location_city_fort_worth",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park fort collins": {
+      "location_cluster": "location_city_fort_collins",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park greenville sc": {
+      "location_cluster": "location_city_greenville",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park henderson": {
+      "location_cluster": "location_city_henderson",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park jacksonville fl": {
+      "location_cluster": "location_city_jacksonville",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park miami": {
+      "location_cluster": "location_city_miami",
+      "intent_cluster": "intent_T",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park modesto": {
+      "location_cluster": "location_city_modesto",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park near me open now": {
+      "location_cluster": "location_state_me",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park okc": {
+      "location_cluster": "location_city_okc",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park rhode island": {
+      "location_cluster": "location_state_ri",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park richmond va": {
+      "location_cluster": "location_city_richmond",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park rochester mn": {
+      "location_cluster": "location_city_rochester",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park salt lake city": {
+      "location_cluster": "location_city_salt_lake_city",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park st louis mo": {
+      "location_cluster": "location_city_st_louis",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park tampa": {
+      "location_cluster": "location_city_tampa",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park tulsa": {
+      "location_cluster": "location_city_tulsa",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park tacoma": {
+      "location_cluster": "location_city_tacoma",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park utah": {
+      "location_cluster": "location_state_ut",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park apple valley mn": {
+      "location_cluster": "location_city_apple_valley",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park wisconsin": {
+      "location_cluster": "location_state_wi",
+      "intent_cluster": "intent_C",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park brewery": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park california": {
+      "location_cluster": "location_state_ca",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park in arizona": {
+      "location_cluster": "location_state_az",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "jb's indoor dog park photos": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_brand-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park knoxville": {
+      "location_cluster": "location_city_knoxville",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park st paul": {
+      "location_cluster": "location_city_st_paul",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park vegas": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_generic",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park brooklyn": {
+      "location_cluster": "location_city_brooklyn",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_location-based",
+      "volume_cluster": "volume_low"
+    },
+    "indoor dog park rental": {
+      "location_cluster": "location_none",
+      "intent_cluster": "intent_I",
+      "semantic_cluster": "semantic_feature-based",
+      "volume_cluster": "volume_low"
+    }
+  },
+  "summary": {
+    "total_keywords": 100,
+    "total_clusters": 90,
+    "location_clusters": 80,
+    "intent_clusters": 3,
+    "semantic_clusters": 4,
+    "volume_clusters": 3
+  }
+}
