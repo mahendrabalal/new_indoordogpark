@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
 import { getPaginatedStaticParks } from '@/lib/parks-data';
+import { generateCollectionPageSchema } from '@/lib/metadata';
 
 type HomePageProps = {
   searchParams?: Record<string, string | string[] | undefined>;
@@ -82,18 +83,26 @@ export const revalidate = 60 * 60; // Refresh server-rendered home data hourly
 export default async function HomePage({ searchParams = {} }: HomePageProps) {
   const initialShowSearchLayout = hasActiveSearchParams(searchParams);
   const initialData = await getPaginatedStaticParks(1, 20);
+  const collectionPageSchema = generateCollectionPageSchema(initialData.data);
 
   return (
-    <Suspense fallback={
-      <div className="loading">
-        <i className="bi bi-hourglass-split"></i> Loading dog parks...
-      </div>
-    }>
-      <HomePageClient
-        initialParks={initialData.data}
-        initialPagination={initialData.pagination}
-        initialShowSearchLayout={initialShowSearchLayout}
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
       />
-    </Suspense>
+      <Suspense fallback={
+        <div className="loading">
+          <i className="bi bi-hourglass-split"></i> Loading dog parks...
+        </div>
+      }>
+        <HomePageClient
+          initialParks={initialData.data}
+          initialPagination={initialData.pagination}
+          initialShowSearchLayout={initialShowSearchLayout}
+        />
+      </Suspense>
+    </>
   );
 }

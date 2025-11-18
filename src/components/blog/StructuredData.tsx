@@ -1,4 +1,5 @@
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
+import { SITE_URL } from '@/lib/metadata';
 
 interface StructuredDataProps {
   type: 'BlogPosting' | 'Blog' | 'BreadcrumbList';
@@ -21,7 +22,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
   };
 
   const generateBlogPostingData = (post: BlogPost) => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://your-domain.com';
+    const baseUrl = SITE_URL;
     const authorName = post.author?.name || 'Indoor Dog Park Team';
     const authorImage = post.author?.avatar_urls?.['96'];
     const featuredImage = post.featuredImage?.source_url;
@@ -72,7 +73,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
   };
 
   const generateBlogData = (posts: BlogPost[]) => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://your-domain.com';
+    const baseUrl = SITE_URL;
 
     return {
       '@context': 'https://schema.org',
@@ -107,7 +108,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         '@type': 'ListItem',
         position: index + 1,
         name: breadcrumb.name,
-        item: breadcrumb.url,
+        item: breadcrumb.url.startsWith('http') ? breadcrumb.url : `${SITE_URL}${breadcrumb.url.startsWith('/') ? '' : '/'}${breadcrumb.url}`,
       })),
     };
   };

@@ -290,3 +290,58 @@ export function generateReviewSchemas(
       };
     });
 }
+
+/**
+ * Generates CollectionPage schema for the home page
+ * This helps search engines understand the page contains a collection of items (dog parks)
+ * 
+ * Best practices followed:
+ * - Uses JSON-LD format (recommended by Google)
+ * - numberOfItems matches itemListElement length
+ * - All URLs are absolute
+ * - Includes @id for better entity linking
+ */
+export function generateCollectionPageSchema(parks: DogPark[]) {
+  const canonical = SITE_URL;
+  const displayedParks = parks.slice(0, 20); // Limit to first 20 for performance
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${canonical}#webpage`,
+    name: 'Indoor Dog Parks Directory',
+    description: 'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+    url: canonical,
+    mainEntity: {
+      '@type': 'ItemList',
+      '@id': `${canonical}#itemlist`,
+      numberOfItems: displayedParks.length, // Matches actual items in list
+      itemListElement: displayedParks.map((park, index) => {
+        const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
+        return {
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': park.businessType === 'Dog Park' ? 'Park' : park.businessType === 'Indoor Dog Park' ? 'SportsActivityLocation' : 'LocalBusiness',
+            '@id': parkUrl,
+            name: park.name,
+            url: parkUrl,
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: park.city,
+              addressRegion: park.state,
+              addressCountry: 'US',
+            },
+            ...(park.rating && park.reviewCount && {
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: park.rating,
+                reviewCount: park.reviewCount,
+              },
+            }),
+          },
+        };
+      }),
+    },
+  };
+}

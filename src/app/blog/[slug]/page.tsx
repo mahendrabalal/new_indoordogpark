@@ -290,10 +290,25 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
                          post.featuredImage?.media_details?.sizes?.medium?.source_url ||
                          post.featuredImage?.source_url;
 
-    // Create SEO-friendly title (50-60 characters is optimal)
+    // Create SEO-friendly title (60 characters max for optimal SEO)
+    // Truncate at word boundary when possible to avoid cutting words
     let seoTitle = post.title;
     if (seoTitle.length > 60) {
-      seoTitle = seoTitle.substring(0, 57) + '...';
+      // Try to truncate at a word boundary (space) near 60 characters
+      const truncated = seoTitle.substring(0, 60);
+      const lastSpace = truncated.lastIndexOf(' ');
+      // If we found a space after position 50, use it for cleaner truncation
+      // This ensures we have room for "..." (3 chars) and stay <= 60 total
+      if (lastSpace >= 50) {
+        seoTitle = truncated.substring(0, lastSpace) + '...';
+      } else {
+        // Otherwise, truncate at 57 and add ellipsis (total exactly 60)
+        seoTitle = truncated.substring(0, 57) + '...';
+      }
+      // Final safety check: ensure we never exceed 60 characters
+      if (seoTitle.length > 60) {
+        seoTitle = seoTitle.substring(0, 57) + '...';
+      }
     }
 
     // Extract keywords from categories and tags
@@ -318,7 +333,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         telephone: false,
       },
       openGraph: {
-        title: post.title,
+        title: seoTitle, // Use truncated title for OpenGraph too
         description,
         type: 'article',
         publishedTime: post.date,
@@ -331,13 +346,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             url: featuredImage,
             width: post.featuredImage?.media_details?.width || 1200,
             height: post.featuredImage?.media_details?.height || 630,
-            alt: post.featuredImage?.alt_text || post.title,
+            alt: post.featuredImage?.alt_text || seoTitle,
           },
         ] : [],
       },
       twitter: {
         card: 'summary_large_image',
-        title: post.title,
+        title: seoTitle, // Use truncated title for Twitter too
         description,
         creator: post.author?.name ? `@${post.author.name.replace(/\s+/g, '')}` : undefined,
         images: featuredImage ? [featuredImage] : [],

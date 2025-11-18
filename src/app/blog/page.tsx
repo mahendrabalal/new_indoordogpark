@@ -9,6 +9,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 // import { BlogPageSkeleton } from '@/components/blog/BlogSkeleton';
 // import ErrorBoundary from '@/components/blog/ErrorBoundary';
 import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
+import StructuredData from '@/components/blog/StructuredData';
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
@@ -236,6 +237,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
 
   return (
     <>
+      <StructuredData type="Blog" data={posts} />
       <LiveRegion />
       <ReadingProgress />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-white" id="main-content" role="main">
