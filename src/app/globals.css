@@ -786,48 +786,6 @@ body {
   background: #E64A19;
 }
 
-.hero-guarantee {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 6px;
-  line-height: 1.6;
-  white-space: nowrap;
-}
-
-.hero-guarantee i {
-  color: #FFB74D;
-  margin-right: 4px;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-/* Keep on one line on mobile */
-@media (max-width: 768px) {
-  .hero-guarantee {
-    justify-content: center;
-    text-align: center;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    gap: 4px;
-  }
-  
-  .hero-guarantee::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .hero-guarantee i {
-    margin-right: 3px;
-    flex-shrink: 0;
-  }
-}
 
 
 /* Hero Stats Bar */
@@ -1011,18 +969,6 @@ body {
     font-size: 0.95rem;
   }
 
-  .hero-guarantee {
-    font-size: 0.85rem;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-  }
-
-  .hero-guarantee i {
-    font-size: 0.85rem;
-    flex-shrink: 0;
-  }
 }
 
 /* Mobile-specific styles (768px and below) */
@@ -1088,14 +1034,6 @@ body {
     flex: 0 0 8px;
   }
 
-  .hero-guarantee {
-    font-size: 0.8rem;
-    text-align: center;
-    line-height: 1.5;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    gap: 4px;
-  }
 }
 
 /* Very small mobile (480px and below) */
@@ -1133,15 +1071,6 @@ body {
     gap: 6px;
   }
 
-  .hero-guarantee {
-    font-size: 0.75rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-  }
 }
 
 /* ========== SEARCH FILTERS ========== */

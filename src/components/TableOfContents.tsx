@@ -73,7 +73,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
       {/* TOC Navigation */}
       <div className="toc-container">
         <div className="toc-header">
-          <h4>Table of Contents</h4>
+          <div className="toc-title">Table of Contents</div>
           <span className="toc-subtitle">Jump to any section</span>
         </div>
 
@@ -160,7 +160,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           border-bottom: 1px solid #e5e7eb;
         }
 
-        .toc-header h4 {
+        .toc-title {
           margin: 0 0 4px 0;
           font-size: 16px;
           font-weight: 600;

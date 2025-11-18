@@ -353,12 +353,6 @@ export default function HomePageClient({
                 <a href="/?type=bar" className="hero-quick-link">Parks with Bars</a>
                 <a href="/?type=training" className="hero-quick-link">Training Facilities</a>
               </div>
-
-              <p className="hero-guarantee">
-                <i className="bi bi-check-circle-fill"></i> Free to search • 
-                <i className="bi bi-shield-check"></i> Verified listings • 
-                <i className="bi bi-star-fill"></i> Real reviews
-              </p>
             </div>
           </div>
         </section>

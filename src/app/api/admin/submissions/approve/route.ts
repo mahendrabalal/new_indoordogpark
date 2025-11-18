@@ -31,13 +31,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update submission status to approved
+    // First, fetch the submission to get name and city for slug generation
+    const { data: submission, error: fetchError } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('name, city, slug')
+      .eq('id', submissionId)
+      .maybeSingle();
+
+    if (fetchError || !submission) {
+      return NextResponse.json(
+        { error: 'Submission not found' },
+        { status: 404 }
+      );
+    }
+
+    // Generate slug if not already set
+    function slugify(name: string, city?: string): string {
+      const base = `${name}-${city || ''}`.trim().toLowerCase();
+      return base
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    }
+
+    const generatedSlug = submission.slug || slugify(submission.name, submission.city);
+
+    // Update submission status to approved and ensure slug is set
     const { error: updateError } = await supabaseAdminClient
       .from('park_submissions')
       .update({
         status: 'approved',
         approved_at: new Date().toISOString(),
         approved_by: user.id,
+        slug: generatedSlug, // Ensure slug is set
       })
       .eq('id', submissionId);
 

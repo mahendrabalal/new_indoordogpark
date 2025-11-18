@@ -141,7 +141,19 @@ export async function GET(request: Request) {
         .eq('status', 'approved')
         .order('created_at', { ascending: false });
 
-      if (!error && submissions) {
+      if (error) {
+        // Industry standard: Log error but don't fail the entire request
+        console.error('[SEARCH API] Error fetching approved submissions:', {
+          message: error.message,
+          code: error.code,
+          details: error.details,
+          hint: error.hint,
+        });
+        // Continue with empty array - graceful degradation
+        submissionParks = [];
+      } else if (submissions && submissions.length > 0) {
+        // Industry standard: Log success for monitoring
+        console.log(`[SEARCH API] Found ${submissions.length} approved submission(s)`);
         submissionParks = submissions.map(sub => {
           const normalizedPhotos = normalizePhotos(sub.photos);
 
@@ -178,9 +190,17 @@ export async function GET(request: Request) {
             subscriptionStatus: sub.subscription_status
           } as DogPark;
         });
+      } else {
+        // No submissions found - this is normal, not an error
+        submissionParks = [];
       }
     } catch (dbError) {
-      console.error('Error fetching user submissions:', dbError);
+      // Industry standard: Catch unexpected errors, log them, but continue gracefully
+      console.error('[SEARCH API] Unexpected error fetching submissions:', {
+        error: dbError instanceof Error ? dbError.message : String(dbError),
+        stack: dbError instanceof Error ? dbError.stack : undefined,
+      });
+      submissionParks = []; // Graceful degradation - return empty array
     }
 
     // Merge both data sources

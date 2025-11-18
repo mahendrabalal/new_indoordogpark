@@ -235,6 +235,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   }
 
   try {
+    // First, try to find by exact slug match
     const { data: submission, error } = await supabaseAdminClient
       .from('park_submissions')
       .select('*')
@@ -244,6 +245,24 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
 
     if (submission && !error) {
       return mapSubmissionToDogPark(submission as SubmissionRow);
+    }
+
+    // If not found by slug, try to find by matching generated slug from name+city
+    // This handles cases where the slug wasn't set in the database
+    const { data: allApproved, error: fetchError } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('*')
+      .eq('status', 'approved');
+
+    if (!fetchError && allApproved) {
+      const matchingSubmission = allApproved.find((sub) => {
+        const generatedSlug = sub.slug || slugify(sub.name, sub.city);
+        return generatedSlug === slug;
+      });
+
+      if (matchingSubmission) {
+        return mapSubmissionToDogPark(matchingSubmission as SubmissionRow);
+      }
     }
   } catch (submissionError) {
     console.error('Failed to fetch park submission by slug:', submissionError);
