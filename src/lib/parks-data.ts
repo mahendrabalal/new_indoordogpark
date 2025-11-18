@@ -252,58 +252,95 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   return null;
 }
 
+async function loadUserSubmissions(): Promise<DogPark[]> {
+  try {
+    const { data: submissions, error } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('*')
+      .eq('status', 'approved')
+      .order('created_at', { ascending: false });
+
+    if (error || !submissions) {
+      console.error('Error fetching user submissions:', error);
+      return [];
+    }
+
+    return submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow));
+  } catch (error) {
+    console.error('Failed to load user submissions:', error);
+    return [];
+  }
+}
+
 export async function getCityContentBySlug(slug: string): Promise<CityContentPayload | null> {
-  const parks = await loadStaticParks();
-  const city = findCityBySlug(parks, slug);
+  // Load all data sources
+  const staticParks = await loadStaticParks();
+  const userSubmissions = await loadUserSubmissions();
+  
+  // Check priority cities FIRST (they have custom content and should take precedence)
+  const priorityCity = getPriorityCityBySlug(slug);
+  if (priorityCity) {
+    // For priority cities: merge priority parks + static parks + user submissions
+    const priorityParks = priorityCity.parks;
+    const staticCityParks = getParksByCity(staticParks, priorityCity.city);
+    const submissionCityParks = getParksByCity(userSubmissions, priorityCity.city);
+    
+    // Merge all sources: priority parks first (as seed/featured), then static, then submissions
+    // Priority parks should take precedence in case of duplicates
+    const allCityParks = dedupeParks([...priorityParks, ...staticCityParks, ...submissionCityParks]);
+    const parksByType = getParksByType(allCityParks);
+    const stats = getCityStatistics(allCityParks);
+
+    const priorityCityData: CityData = {
+      slug: priorityCity.slug,
+      name: priorityCity.city,
+      parkCount: allCityParks.length,
+      avgRating: stats.avgRating,
+      totalReviews: stats.totalReviews,
+      featuredImage: priorityCity.featuredImage,
+      latitude: allCityParks[0]?.latitude || priorityParks[0]?.latitude,
+      longitude: allCityParks[0]?.longitude || priorityParks[0]?.longitude,
+      state: priorityCity.state,
+    };
+
+    return {
+      city: priorityCityData,
+      cityParks: allCityParks,
+      parksByType,
+      stats,
+      customContent: priorityCity.customContent,
+    };
+  }
+
+  // Check if it's a regular city (from static parks)
+  const city = findCityBySlug(staticParks, slug);
 
   if (city) {
-    const cityParks = getParksByCity(parks, city.name);
-    const parksByType = getParksByType(cityParks);
-    const stats = getCityStatistics(cityParks);
+    // For regular cities: merge static parks + user submissions for this city
+    const staticCityParks = getParksByCity(staticParks, city.name);
+    const submissionCityParks = getParksByCity(userSubmissions, city.name);
+    
+    // Merge and deduplicate
+    const allCityParks = dedupeParks([...staticCityParks, ...submissionCityParks]);
+    const parksByType = getParksByType(allCityParks);
+    const stats = getCityStatistics(allCityParks);
 
     const hydratedCity: CityData = {
       ...city,
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
-      parkCount: cityParks.length,
+      parkCount: allCityParks.length,
     };
 
     return {
       city: hydratedCity,
-      cityParks,
+      cityParks: allCityParks,
       parksByType,
       stats,
     };
   }
 
-  const priorityCity = getPriorityCityBySlug(slug);
-  if (!priorityCity) {
-    return null;
-  }
-
-  const cityParks = priorityCity.parks;
-  const parksByType = getParksByType(cityParks);
-  const stats = getCityStatistics(cityParks);
-
-  const priorityCityData: CityData = {
-    slug: priorityCity.slug,
-    name: priorityCity.city,
-    parkCount: cityParks.length,
-    avgRating: stats.avgRating,
-    totalReviews: stats.totalReviews,
-    featuredImage: priorityCity.featuredImage,
-    latitude: cityParks[0]?.latitude,
-    longitude: cityParks[0]?.longitude,
-    state: priorityCity.state,
-  };
-
-  return {
-    city: priorityCityData,
-    cityParks,
-    parksByType,
-    stats,
-    customContent: priorityCity.customContent,
-  };
+  return null;
 }
 
 export async function getAllCitySlugs(): Promise<string[]> {

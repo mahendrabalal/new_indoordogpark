@@ -6,10 +6,11 @@ export const sanityConfig = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   apiVersion: '2024-11-14',
-  useCdn: true, // Use CDN for faster reads in production
+  useCdn: true, // Use CDN for performance (best practice)
+  // Cache invalidation handled via Next.js cache tags and on-demand revalidation
 };
 
-// Create Sanity client
+// Create Sanity client with CDN (best practice for performance)
 export const sanityClient = createClient(sanityConfig);
 
 // Image URL builder

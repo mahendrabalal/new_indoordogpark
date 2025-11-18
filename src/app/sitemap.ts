@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getAllStaticParks } from '@/lib/parks-data'
-import { getAllCities } from '@/lib/cityData'
+import { getAllStaticParks, getAllCitySlugs } from '@/lib/parks-data'
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api'
 import { SITE_URL } from '@/lib/metadata'
 
@@ -125,11 +124,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })
     }
 
-    // Add city pages
-    const cities = getAllCities(allParks)
-    for (const city of cities) {
+    // Add city pages (includes both static cities and priority cities)
+    const citySlugs = await getAllCitySlugs()
+    for (const slug of citySlugs) {
       cityPages.push({
-        url: `${baseUrl}/cities/${city.slug}`,
+        url: `${baseUrl}/cities/${slug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.75,

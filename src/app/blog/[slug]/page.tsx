@@ -7,13 +7,18 @@ import { ArrowLeftIcon, CalendarIcon, TagIcon } from '@heroicons/react/24/outlin
 import StructuredData from '@/components/blog/StructuredData';
 import { getCachedPosts, getCachedPostBySlug } from '@/lib/sanity-api';
 
+// Use ISR with on-demand revalidation (best practice)
+// Pages are statically generated and cached for performance
+// Revalidate via webhook when posts are updated in Sanity
+export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
+
 interface BlogPostPageProps {
   params: {
     slug: string;
   };
 }
 
-// Generate static params for ISR
+// Generate static params for ISR (optional - helps with known posts)
 export async function generateStaticParams() {
   try {
     const response = await getCachedPosts({ perPage: 100 });

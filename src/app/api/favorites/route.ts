@@ -43,9 +43,28 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Park ID is required' }, { status: 400 });
     }
 
-    const { data: favorite, error } = await supabase
+    // First, check if the favorite already exists
+    const { data: existingFavorite, error: checkError } = await supabase
       .from('favorites')
-      .upsert({
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('park_id', parkId)
+      .maybeSingle();
+
+    if (checkError) {
+      console.error('Error checking existing favorite:', checkError);
+      return NextResponse.json({ error: 'Failed to check favorite' }, { status: 500 });
+    }
+
+    // If it already exists, return it
+    if (existingFavorite) {
+      return NextResponse.json({ favorite: existingFavorite });
+    }
+
+    // Otherwise, insert the new favorite
+    const { data: favorite, error: insertError } = await supabase
+      .from('favorites')
+      .insert({
         user_id: user.id,
         park_id: parkId,
         park_slug: parkSlug || null,
@@ -53,8 +72,26 @@ export async function POST(request: NextRequest) {
       .select()
       .single();
 
-    if (error) {
-      console.error('Error adding favorite:', error);
+    // Handle duplicate key error gracefully (race condition fallback)
+    if (insertError) {
+      // If it's a duplicate key error, fetch and return the existing favorite
+      if (insertError.code === '23505' || insertError.message?.includes('duplicate key')) {
+        const { data: existing, error: fetchError } = await supabase
+          .from('favorites')
+          .select('*')
+          .eq('user_id', user.id)
+          .eq('park_id', parkId)
+          .single();
+
+        if (fetchError) {
+          console.error('Error fetching existing favorite after duplicate:', fetchError);
+          return NextResponse.json({ error: 'Failed to add favorite' }, { status: 500 });
+        }
+
+        return NextResponse.json({ favorite: existing });
+      }
+
+      console.error('Error adding favorite:', insertError);
       return NextResponse.json({ error: 'Failed to add favorite' }, { status: 500 });
     }
 

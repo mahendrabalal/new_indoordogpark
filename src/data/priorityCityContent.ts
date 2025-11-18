@@ -175,6 +175,122 @@ const lasVegasFaqs: FAQItem[] = [
   },
 ];
 
+const austinFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in Austin?',
+    answer:
+      'South Austin, East Austin, and the Domain area host climate-controlled indoor dog parks like Bark & Brew Austin, Yard Bar, and indoor agility facilities. Many combine play spaces with coffee shops, breweries, or coworking lounges perfect for Austin\'s tech-friendly culture.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'How much do indoor dog parks cost in Austin?',
+    answer:
+      'Expect $18–$25 weekday drop-ins, $25–$35 weekend sessions, and $120–$180 monthly memberships. Many Austin parks bundle playtime with craft beer, coffee, or event space rentals. Tech company partnerships often unlock corporate discounts.',
+    category: 'pricing',
+    popular: true,
+  },
+  {
+    question: 'Are indoor parks essential during Austin summers?',
+    answer:
+      'Yes—when temperatures hit 100°F+, indoor parks with AC become essential for safe play. Most Austin facilities run heat alerts, offer cooling stations, and prioritize members during extreme weather. Some parks even partner with local pools for combo packages.',
+    category: 'membership',
+  },
+  {
+    question: 'Do Austin indoor parks offer tech-friendly amenities?',
+    answer:
+      'Many Austin indoor parks cater to remote workers with Wi-Fi, charging stations, quiet coworking zones, and flexible hourly passes. Some locations host tech meetups, startup events, or offer corporate membership tiers for local companies.',
+    category: 'services',
+  },
+];
+
+const newYorkFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in New York City?',
+    answer:
+      'Manhattan, Brooklyn, and Queens host indoor dog parks in converted warehouses, high-rise amenity spaces, and dedicated facilities. Many NYC indoor parks are located in apartment buildings or commercial spaces, offering climate-controlled play year-round.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'How much do indoor dog parks cost in NYC?',
+    answer:
+      'Expect $25–$35 drop-ins, $40–$50 weekend sessions, and $150–$250 monthly memberships. NYC indoor parks often include amenities like grooming, training classes, and event space access. Some offer building resident discounts.',
+    category: 'pricing',
+    popular: true,
+  },
+  {
+    question: 'Do NYC indoor parks require reservations?',
+    answer:
+      'Yes—most NYC indoor parks require advance reservations due to limited space and high demand. Members typically get priority booking. Walk-ins are often available but subject to capacity.',
+    category: 'membership',
+  },
+  {
+    question: 'Are there indoor parks in Manhattan?',
+    answer:
+      'Yes, though they\'re less common than in outer boroughs. Manhattan indoor parks are often located in apartment buildings, converted commercial spaces, or dedicated facilities. Brooklyn and Queens tend to have more standalone indoor dog park facilities.',
+    category: 'services',
+  },
+];
+
+const houstonFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in Houston?',
+    answer:
+      'Houston indoor dog parks are found throughout the metro area, with concentrations in the Heights, Montrose, and suburban areas. Many combine indoor play with outdoor areas and offer climate control for Houston\'s hot, humid summers.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'How much do indoor dog parks cost in Houston?',
+    answer:
+      'Expect $18–$25 weekday drop-ins, $25–$30 weekend sessions, and $120–$160 monthly memberships. Houston parks often include amenities like splash pads, cooling stations, and extended hours during summer heat waves.',
+    category: 'pricing',
+    popular: true,
+  },
+  {
+    question: 'Are indoor parks essential during Houston summers?',
+    answer:
+      'Yes—Houston\'s extreme heat and humidity make indoor parks essential for safe play during summer months. Most facilities offer premium AC, cooling stations, and heat alert systems to keep dogs comfortable.',
+    category: 'membership',
+  },
+  {
+    question: 'Do Houston indoor parks offer daycare services?',
+    answer:
+      'Many Houston indoor parks combine play facilities with daycare, boarding, and grooming services. This makes them convenient one-stop destinations for busy pet parents in the metro area.',
+    category: 'services',
+  },
+];
+
+const seattleFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in Seattle?',
+    answer:
+      'Seattle indoor dog parks are found in neighborhoods like Capitol Hill, Ballard, and South Lake Union. Many combine indoor play with outdoor areas and offer year-round climate control for Seattle\'s rainy winters.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'How much do indoor dog parks cost in Seattle?',
+    answer:
+      'Expect $20–$28 weekday drop-ins, $25–$35 weekend sessions, and $130–$180 monthly memberships. Seattle parks often include amenities like coffee bars, craft beer, and event space for the city\'s active dog community.',
+    category: 'pricing',
+    popular: true,
+  },
+  {
+    question: 'Are indoor parks popular during Seattle winters?',
+    answer:
+      'Yes—Seattle\'s rainy winters make indoor parks popular year-round. Many facilities offer extended hours and special programs during the wet season. Some parks partner with local breweries and cafes.',
+    category: 'membership',
+  },
+  {
+    question: 'Do Seattle indoor parks offer training classes?',
+    answer:
+      'Many Seattle indoor parks offer training classes, agility courses, and enrichment programs. The city\'s active dog community values structured activities alongside free play time.',
+    category: 'services',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -1192,175 +1308,13 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
-    slug: 'phoenix-az',
+    slug: 'phoenix',
     city: 'Phoenix',
     state: 'AZ',
     featuredImage: 'https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?auto=format&fit=crop&w=1600&q=80',
     summary:
       'Peak search volume in summer—pair landing page with heat alerts and membership waitlist CTAs.',
-    parks: [
-      {
-        id: 'phx-desert-dome',
-        name: 'Desert Dog Dome',
-        businessType: 'Indoor Dog Park',
-        description:
-          'Arcadia anchor with chilled turf, mist tunnels, and sensor-driven HVAC to beat 110°F afternoons.',
-        slug: 'priority-phx-desert-dome',
-        address: '3322 N 44th St',
-        street: '3322 N 44th St',
-        city: 'Phoenix',
-        state: 'AZ',
-        zipCode: '85018',
-        full_address: '3322 N 44th St, Phoenix, AZ 85018',
-        latitude: 33.4852,
-        longitude: -111.9856,
-        phone: '(602) 555-4420',
-        website: 'https://www.desertdogdome.com',
-        rating: 4.8,
-        reviewCount: 205,
-        pricing: {
-          isFree: false,
-          pricingType: 'membership',
-          dropInFee: 25,
-          priceRange: '$$$',
-        },
-        indoorOutdoor: 'indoor',
-        amenities: {
-          seating: true,
-          swimming: true,
-          shade: true,
-          daycare: true,
-          training: true,
-        },
-        photos: [
-          {
-            url: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=900&q=80',
-            type: 'photo',
-          },
-        ],
-        source: 'static',
-      },
-      {
-        id: 'phx-arcadia-climate',
-        name: 'Arcadia Climate Club',
-        businessType: 'Indoor Dog Park',
-        description:
-          'Lounge-forward members club with UV-filtered skylights, iced lattes, and Pilates-for-pups classes.',
-        slug: 'priority-phx-arcadia',
-        address: '4251 E Indian School Rd',
-        street: '4251 E Indian School Rd',
-        city: 'Phoenix',
-        state: 'AZ',
-        zipCode: '85018',
-        full_address: '4251 E Indian School Rd, Phoenix, AZ 85018',
-        latitude: 33.495,
-        longitude: -111.9899,
-        phone: '(602) 555-7780',
-        website: 'https://www.arcadiaclimateclub.com',
-        rating: 4.7,
-        reviewCount: 160,
-        pricing: {
-          isFree: false,
-          pricingType: 'membership',
-          dropInFee: 28,
-          priceRange: '$$$',
-        },
-        amenities: {
-          seating: true,
-          daycare: true,
-          grooming: true,
-          training: true,
-        },
-        photos: [
-          {
-            url: 'https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=900&q=80',
-            type: 'photo',
-          },
-        ],
-        indoorOutdoor: 'indoor',
-        source: 'static',
-      },
-      {
-        id: 'phx-valley-pack',
-        name: 'Valley Pack Lounge',
-        businessType: 'Indoor Dog Park',
-        description:
-          'Downtown Phoenix concept with cooled concrete, daybeds, and a waitlist that opens whenever temps top 100°F.',
-        slug: 'priority-phx-valley-pack',
-        address: '30 W Monroe St',
-        street: '30 W Monroe St',
-        city: 'Phoenix',
-        state: 'AZ',
-        zipCode: '85003',
-        full_address: '30 W Monroe St, Phoenix, AZ 85003',
-        latitude: 33.4518,
-        longitude: -112.074,
-        phone: '(602) 555-3300',
-        website: 'https://www.valleypacklounge.com',
-        rating: 4.6,
-        reviewCount: 147,
-        pricing: {
-          isFree: false,
-          pricingType: 'daily',
-          dropInFee: 24,
-          priceRange: '$$',
-        },
-        amenities: {
-          seating: true,
-          daycare: true,
-          training: true,
-          socializing: true,
-        },
-        photos: [
-          {
-            url: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80',
-            type: 'photo',
-          },
-        ],
-        indoorOutdoor: 'indoor',
-        source: 'static',
-      },
-      {
-        id: 'phx-chandler-chill',
-        name: 'Chandler Chill Barn',
-        businessType: 'Indoor Dog Park',
-        description:
-          'East Valley barn retrofit with massive fans, splash pads, and cold plunge tubs for heat relief days.',
-        slug: 'priority-phx-chandler-chill',
-        address: '2885 E Chandler Blvd',
-        street: '2885 E Chandler Blvd',
-        city: 'Phoenix',
-        state: 'AZ',
-        zipCode: '85048',
-        full_address: '2885 E Chandler Blvd, Phoenix, AZ 85048',
-        latitude: 33.3044,
-        longitude: -112.0229,
-        phone: '(480) 555-9030',
-        website: 'https://www.chandlerchillbarn.com',
-        rating: 4.5,
-        reviewCount: 132,
-        pricing: {
-          isFree: false,
-          pricingType: 'daily',
-          dropInFee: 22,
-          priceRange: '$$',
-        },
-        amenities: {
-          swimming: true,
-          daycare: true,
-          training: true,
-          parking: true,
-        },
-        photos: [
-          {
-            url: 'https://images.unsplash.com/photo-1494253109108-2e30c049369b?auto=format&fit=crop&w=900&q=80',
-            type: 'photo',
-          },
-        ],
-        indoorOutdoor: 'indoor',
-        source: 'static',
-      },
-    ],
+    parks: [],
     customContent: {
       heroEyebrow: 'Heat-wave ready clubs',
       heroHeading: 'Indoor dog park in Phoenix',
@@ -1663,6 +1617,310 @@ export const priorityCityContent: PriorityCityConfig[] = [
           'Blend resort partnerships, flexible drop-ins, and concierge convenience to capture tourist and local demand. We provide pricing benchmarks & hospitality playbooks.',
         primary: { label: 'Download owner guide', href: '/owner-resources' },
         secondary: { label: 'Chat with our team', href: '/contact' },
+      },
+    },
+  },
+  {
+    slug: 'austin',
+    city: 'Austin',
+    state: 'TX',
+    featuredImage: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=1600&q=80',
+    summary:
+      'Tech hub + extreme summer heat: indoor parks with AC, coworking spaces, and heat alerts are essential for Austin dog families.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Heat-proof indoor runs',
+      heroHeading: 'Indoor dog park in Austin',
+      heroDescription:
+        'Tech hub culture meets extreme summer heat—Austin indoor dog parks combine AC, coworking spaces, and heat alerts so your pup stays active even when temps hit 100°F+.',
+      heroPill: 'Tech-friendly lounges',
+      heroFootnotes: ['South Austin · East Austin · Domain'],
+      heroChips: [
+        { label: 'Heat alert system', value: 'Active at 95°F+' },
+        { label: 'Coworking zones', value: 'Wi-Fi included' },
+      ],
+      insightIntro:
+        'When Austin summers peak, indoor parks become essential. Operators invest in premium AC, cooling stations, and tech-friendly amenities to serve remote workers and apartment dogs.',
+      insightCards: [
+        {
+          tag: 'Summer demand',
+          title: 'Heat alert waitlists',
+          copy: 'When forecasts break 100°F, clubs prioritize members via push alerts and reserved time slots. Book early during heat waves.',
+          accent: true,
+        },
+        {
+          tag: 'Tech culture',
+          title: 'Coworking integration',
+          copy: 'Many Austin parks include Wi-Fi, charging stations, and quiet zones so remote workers can extend the workday without skipping enrichment.',
+        },
+        {
+          tag: 'Brewery partnerships',
+          title: 'Play + craft beer',
+          copy: 'South and East Austin spots bundle indoor play with local brewery taps, creating social hubs that work for both dogs and humans.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-thermometer-high',
+          title: 'Heat strategy',
+          items: ['Join heat alert lists in May', 'Pack booties for hot sidewalks', 'Schedule indoor sessions during peak sun hours (11 AM–4 PM)'],
+        },
+        {
+          icon: 'bi-laptop',
+          title: 'Remote work setup',
+          items: ['Reserve coworking pods via app', 'Arrive early for best Wi-Fi spots', 'Book hourly passes for flexible schedules'],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Neighborhood focus',
+          items: ['South Austin for brewery combos', 'Domain for tech company perks', 'East Austin for hip, casual vibes'],
+        },
+      ],
+      mapSidebarNote:
+        'Prioritize South Austin, East Austin, and Domain markers for quick access to AC, coworking zones, and heat relief during summer months.',
+      faqs: austinFaqs,
+      faqSupportCard: {
+        kicker: 'Heat-play operators',
+        title: 'Download the Austin heat protocol kit',
+        description: 'We bundled HVAC specs, cooling station diagrams, and heat alert scripts for owners launching indoor parks in Austin.',
+        primary: { label: 'Get the heat kit', href: '/owner-resources' },
+        secondary: { label: 'Book a safety review', href: '/contact' },
+      },
+      ownerCta: {
+        kicker: 'Franchise & owners',
+        title: 'Launch an Austin indoor dog park',
+        description:
+          'Pair premium AC with coworking spaces and heat alerts to capture summer demand. Use our projections to size your footprint and tech-friendly amenities.',
+        primary: { label: 'Download owner playbook', href: '/owner-resources' },
+        secondary: { label: 'Talk to strategy', href: '/contact' },
+      },
+    },
+  },
+  {
+    slug: 'new-york',
+    city: 'New York',
+    state: 'NY',
+    featuredImage: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1600&q=80',
+    summary:
+      'Dense urban environment + year-round demand: indoor parks in converted spaces, high-rise amenities, and dedicated facilities serve NYC dog families.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Urban indoor runs',
+      heroHeading: 'Indoor dog park in New York City',
+      heroDescription:
+        'Dense urban environment and year-round demand make NYC indoor dog parks essential. From converted warehouses to high-rise amenity spaces, indoor facilities serve Manhattan, Brooklyn, and Queens dog families.',
+      heroPill: 'Reservation-based access',
+      heroFootnotes: ['Manhattan · Brooklyn · Queens'],
+      heroChips: [
+        { label: 'Reservation system', value: 'Required for most' },
+        { label: 'Building amenities', value: 'Apartment access' },
+      ],
+      insightIntro:
+        'NYC indoor parks operate in premium real estate, requiring reservations and often offering building resident discounts. Expect converted commercial spaces, high-rise amenities, and dedicated facilities.',
+      insightCards: [
+        {
+          tag: 'Urban density',
+          title: 'Space at a premium',
+          copy: 'NYC indoor parks require advance reservations due to limited space. Members get priority booking and often access to building amenities.',
+          accent: true,
+        },
+        {
+          tag: 'Year-round demand',
+          title: 'Climate-controlled essential',
+          copy: 'Indoor parks serve NYC dog families year-round, from hot summers to cold winters. Many facilities offer extended hours and special programs.',
+        },
+        {
+          tag: 'Premium amenities',
+          title: 'Full-service facilities',
+          copy: 'Many NYC indoor parks combine play areas with grooming, training classes, and event space. Building residents often receive discounted access.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-calendar-check',
+          title: 'Reservation essentials',
+          items: ['Book in advance via app or website', 'Members get priority time slots', 'Walk-ins subject to capacity'],
+        },
+        {
+          icon: 'bi-building',
+          title: 'Building access',
+          items: ['Check if your building has indoor park access', 'Ask about resident discounts', 'Verify vaccination requirements'],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Neighborhood focus',
+          items: ['Manhattan: Limited but premium options', 'Brooklyn: More standalone facilities', 'Queens: Growing indoor park scene'],
+        },
+      ],
+      mapSidebarNote:
+        'Use the map to find indoor parks near your neighborhood. Manhattan options are limited but premium; Brooklyn and Queens offer more variety.',
+      faqs: newYorkFaqs,
+      faqSupportCard: {
+        kicker: 'NYC operators',
+        title: 'Download the NYC urban park kit',
+        description: 'We bundled space optimization guides, reservation system templates, and building partnership scripts for NYC indoor park operators.',
+        primary: { label: 'Get the kit', href: '/owner-resources' },
+        secondary: { label: 'Book a consult', href: '/contact' },
+      },
+      ownerCta: {
+        kicker: 'Franchise & owners',
+        title: 'Launch a NYC indoor dog park',
+        description:
+          'Navigate NYC real estate to launch an indoor dog park. We provide space optimization strategies, reservation system templates, and building partnership playbooks.',
+        primary: { label: 'Download owner playbook', href: '/owner-resources' },
+        secondary: { label: 'Talk to strategy', href: '/contact' },
+      },
+    },
+  },
+  {
+    slug: 'houston',
+    city: 'Houston',
+    state: 'TX',
+    featuredImage: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=1600&q=80',
+    summary:
+      'Extreme summer heat + sprawling metro: indoor parks with premium AC, cooling stations, and extended summer hours serve Houston dog families.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Heat-proof indoor runs',
+      heroHeading: 'Indoor dog park in Houston',
+      heroDescription:
+        'Extreme summer heat and sprawling metro area make Houston indoor dog parks essential. Premium AC, cooling stations, and extended summer hours keep dogs active safely year-round.',
+      heroPill: 'Summer heat relief',
+      heroFootnotes: ['Heights · Montrose · Suburbs'],
+      heroChips: [
+        { label: 'Heat alert system', value: 'Active at 90°F+' },
+        { label: 'Cooling stations', value: 'Premium AC' },
+      ],
+      insightIntro:
+        'Houston\'s extreme heat and humidity make indoor parks essential during summer months. Operators invest in premium climate control, cooling stations, and heat alert systems.',
+      insightCards: [
+        {
+          tag: 'Summer demand',
+          title: 'Heat wave essential',
+          copy: 'When temperatures hit 95°F+, indoor parks become essential for safe play. Most facilities offer extended hours and prioritize members during extreme weather.',
+          accent: true,
+        },
+        {
+          tag: 'Full-service options',
+          title: 'Daycare + play',
+          copy: 'Many Houston indoor parks combine play facilities with daycare, boarding, and grooming services, making them convenient one-stop destinations.',
+        },
+        {
+          tag: 'Metro coverage',
+          title: 'Sprawling access',
+          copy: 'Indoor parks are found throughout the Houston metro area, with concentrations in the Heights, Montrose, and suburban communities.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-thermometer-high',
+          title: 'Heat strategy',
+          items: ['Join heat alert lists in April', 'Pack cooling gear for transitions', 'Schedule indoor sessions during peak heat (11 AM–6 PM)'],
+        },
+        {
+          icon: 'bi-clock-history',
+          title: 'Summer hours',
+          items: ['Many parks extend hours during heat waves', 'Members get priority booking', 'Check for special summer programs'],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Neighborhood focus',
+          items: ['Heights: Central location with amenities', 'Montrose: Urban, walkable options', 'Suburbs: Family-friendly facilities'],
+        },
+      ],
+      mapSidebarNote:
+        'Prioritize Heights, Montrose, and suburban markers for quick access to premium AC and cooling stations during Houston summers.',
+      faqs: houstonFaqs,
+      faqSupportCard: {
+        kicker: 'Heat-play operators',
+        title: 'Download the Houston heat protocol kit',
+        description: 'We bundled HVAC specs, cooling station diagrams, and heat alert scripts for owners launching indoor parks in Houston.',
+        primary: { label: 'Get the heat kit', href: '/owner-resources' },
+        secondary: { label: 'Book a safety review', href: '/contact' },
+      },
+      ownerCta: {
+        kicker: 'Franchise & owners',
+        title: 'Launch a Houston indoor dog park',
+        description:
+          'Pair premium AC with cooling stations and heat alerts to capture summer demand. Use our projections to size your footprint and climate control systems.',
+        primary: { label: 'Download owner playbook', href: '/owner-resources' },
+        secondary: { label: 'Talk to strategy', href: '/contact' },
+      },
+    },
+  },
+  {
+    slug: 'seattle',
+    city: 'Seattle',
+    state: 'WA',
+    featuredImage: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    summary:
+      'Rainy winters + active dog community: indoor parks with year-round climate control, training classes, and craft beverage partnerships serve Seattle dog families.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Rain-or-shine playgrounds',
+      heroHeading: 'Indoor dog park in Seattle',
+      heroDescription:
+        'Rainy winters and active dog community make Seattle indoor dog parks popular year-round. Climate-controlled facilities, training classes, and craft beverage partnerships create vibrant dog-friendly spaces.',
+      heroPill: 'Year-round access',
+      heroFootnotes: ['Capitol Hill · Ballard · South Lake Union'],
+      heroChips: [
+        { label: 'Training programs', value: 'Classes available' },
+        { label: 'Brewery partners', value: 'Craft beverage' },
+      ],
+      insightIntro:
+        'Seattle\'s rainy winters make indoor parks essential year-round. Many facilities offer training classes, agility courses, and partnerships with local breweries and cafes.',
+      insightCards: [
+        {
+          tag: 'Year-round demand',
+          title: 'Rainy season essential',
+          copy: 'Seattle\'s wet winters make indoor parks popular year-round. Many facilities offer extended hours and special programs during the rainy season.',
+          accent: true,
+        },
+        {
+          tag: 'Active community',
+          title: 'Training + play',
+          copy: 'Seattle\'s active dog community values structured activities. Many indoor parks offer training classes, agility courses, and enrichment programs alongside free play.',
+        },
+        {
+          tag: 'Craft culture',
+          title: 'Brewery partnerships',
+          copy: 'Many Seattle indoor parks partner with local breweries and cafes, creating social hubs that work for both dogs and their humans.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-cloud-rain',
+          title: 'Rain plan essentials',
+          items: ['Reserve in advance on rainy weekends', 'Pack quick-dry towels', 'Use onsite dryers before heading out'],
+        },
+        {
+          icon: 'bi-book',
+          title: 'Training opportunities',
+          items: ['Check class schedules in advance', 'Book training sessions separately', 'Combine play with structured activities'],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Neighborhood focus',
+          items: ['Capitol Hill: Urban, walkable options', 'Ballard: Brewery partnerships', 'South Lake Union: Tech-friendly amenities'],
+        },
+      ],
+      mapSidebarNote:
+        'Plot Capitol Hill, Ballard, and South Lake Union markers for quick access to year-round climate control and training programs.',
+      faqs: seattleFaqs,
+      faqSupportCard: {
+        kicker: 'Rain-play operators',
+        title: 'Download the Seattle rain-play kit',
+        description: 'We bundled layouts, drainage guides, and brewery partnership templates for owners launching indoor parks in Seattle.',
+        primary: { label: 'Get the kit', href: '/owner-resources' },
+        secondary: { label: 'Talk partnerships', href: '/contact' },
+      },
+      ownerCta: {
+        kicker: 'Franchise & owners',
+        title: 'Build a Seattle indoor dog park',
+        description:
+          'Leverage training programs, brewery partnerships, and year-round climate control to keep membership calendars full. We provide market data and launch roadmaps.',
+        primary: { label: 'Download owner playbook', href: '/owner-resources' },
+        secondary: { label: 'Schedule a consult', href: '/contact' },
       },
     },
   },

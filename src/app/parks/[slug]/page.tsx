@@ -159,7 +159,12 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <span className="location">
                   <i className="bi bi-geo-alt-fill"></i> {park.city}, CA
                 </span>
-                <FavoriteButton parkId={park.id} parkSlug={park.slug} className="favorite-btn-quick-info" />
+                <FavoriteButton 
+                  parkId={park.id} 
+                  parkSlug={park.slug} 
+                  className="favorite-btn-quick-info"
+                  aria-label={`Toggle favorite for ${park.name}`}
+                />
                 {park.phone && (
                   <span className="phone">
                     <i className="bi bi-telephone-fill"></i> {park.phone}

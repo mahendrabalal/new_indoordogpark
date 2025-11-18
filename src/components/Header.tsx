@@ -20,7 +20,7 @@ export default function Header() {
               width={220} 
               height={60} 
               priority 
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'contain', height: 'auto' }}
             />
           </Link>
         </div>
@@ -65,8 +65,7 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
+      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           <Link href="/blog" className="mobile-menu-item">Blog</Link>
           <Link href="/contact" className="mobile-menu-item">Contact us</Link>
           <Link href="/list-property" className="mobile-menu-item">List your park</Link>
@@ -89,7 +88,6 @@ export default function Header() {
             </>
           )}
         </div>
-      )}
     </header>
   );
 }

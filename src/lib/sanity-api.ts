@@ -1,6 +1,7 @@
 import { sanityClient, queries, urlForImage } from './sanity-client';
 import { BlogPost, BlogListResponse, BlogSearchParams, WPMedia } from '@/types/wordpress';
 import { PortableTextBlock } from '@portabletext/types';
+import { unstable_cache } from 'next/cache';
 
 interface SanitySlug {
   current: string;
@@ -254,6 +255,8 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
       params.tagSlug = searchParams.tag;
     }
 
+    // Use regular client with CDN for performance
+    // Cache invalidation handled via Next.js cache tags and revalidation
     const sanityPosts = await sanityClient.fetch<SanityPost[]>(query, params);
     const totalCount = await sanityClient.fetch<number>(queries.postCount);
 
@@ -281,6 +284,8 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
 // Fetch single post by slug
 export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
+    // Use regular client with CDN for performance
+    // Cache invalidation handled via Next.js cache tags and revalidation
     const sanityPost = await sanityClient.fetch<SanityPost | null>(queries.postBySlug, { slug });
     if (!sanityPost) return null;
     return sanityPostToBlogPost(sanityPost);
@@ -331,20 +336,50 @@ export async function fetchTags() {
   }
 }
 
-// Cached versions with Next.js cache
+// Cached versions with Next.js cache - using unstable_cache for proper revalidation
+// Best practice: Use cache tags for on-demand revalidation via webhooks
 export async function getCachedPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
-  return fetchPosts(searchParams);
+  const cacheKey = `blog-posts-${JSON.stringify(searchParams)}`;
+  return unstable_cache(
+    async () => fetchPosts(searchParams),
+    [cacheKey],
+    {
+      revalidate: 300, // Fallback revalidation: 5 minutes
+      tags: ['blog-posts', 'blog-list'], // Use tags for on-demand revalidation
+    }
+  )();
 }
 
 export async function getCachedPostBySlug(slug: string): Promise<BlogPost | null> {
-  return fetchPostBySlug(slug);
+  return unstable_cache(
+    async () => fetchPostBySlug(slug),
+    [`blog-post-${slug}`],
+    {
+      revalidate: 300, // Fallback revalidation: 5 minutes
+      tags: ['blog-posts', `blog-post-${slug}`], // Use tags for on-demand revalidation
+    }
+  )();
 }
 
 export async function getCachedCategories() {
-  return fetchCategories();
+  return unstable_cache(
+    async () => fetchCategories(),
+    ['blog-categories'],
+    {
+      revalidate: 300, // Revalidate every 5 minutes (categories change less frequently)
+      tags: ['blog-categories'],
+    }
+  )();
 }
 
 export async function getCachedTags() {
-  return fetchTags();
+  return unstable_cache(
+    async () => fetchTags(),
+    ['blog-tags'],
+    {
+      revalidate: 300, // Revalidate every 5 minutes (tags change less frequently)
+      tags: ['blog-tags'],
+    }
+  )();
 }
 

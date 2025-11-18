@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/contexts/ToastContext'
+import { FavoritesProvider } from '@/contexts/FavoritesContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -174,9 +175,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <AuthProvider>
-          <ToastProvider>
-            {children}
-          </ToastProvider>
+          <FavoritesProvider>
+            <ToastProvider>
+              {children}
+            </ToastProvider>
+          </FavoritesProvider>
         </AuthProvider>
       </body>
     </html>

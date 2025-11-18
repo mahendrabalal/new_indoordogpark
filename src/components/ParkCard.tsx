@@ -1,8 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import FavoriteButton from '@/components/FavoriteButton';
 import SearchHighlight from '@/components/SearchHighlight';
+import { getParkStatus } from '@/lib/park-hours';
+import { useEffect, useState } from 'react';
 
 interface ParkCardProps {
   park: DogPark;
@@ -10,6 +14,22 @@ interface ParkCardProps {
 }
 
 export default function ParkCard({ park, searchTerm }: ParkCardProps) {
+  const [statusInfo, setStatusInfo] = useState(() => getParkStatus(park));
+
+  // Update status every minute to keep it real-time
+  useEffect(() => {
+    const updateStatus = () => {
+      setStatusInfo(getParkStatus(park));
+    };
+
+    // Update immediately on mount
+    updateStatus();
+
+    // Update every minute
+    const interval = setInterval(updateStatus, 60000);
+
+    return () => clearInterval(interval);
+  }, [park]);
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   const getImageUrl = () => {
     if (typeof park.photo === 'string' && park.photo.trim() !== '') return park.photo;
@@ -25,26 +45,33 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
   // Determine pricing display (adapt from rental pricing to park entry fees)
   const getPricingDisplay = () => {
     if (park.pricing?.isFree) {
-      return { current: 'Free', original: null };
+      return { current: 'Free', period: null };
     }
     if (park.pricing?.dropInFee) {
-      return { current: `$${park.pricing.dropInFee}`, original: null };
+      const period = park.pricing.pricingType === 'per-visit' ? 'visit' : park.pricing.pricingType || 'visit';
+      return { current: `$${park.pricing.dropInFee}`, period };
     }
     if (park.pricing?.dailyRate) {
-      return { current: `$${park.pricing.dailyRate}`, original: null };
+      return { current: `$${park.pricing.dailyRate}`, period: 'daily' };
     }
-    return { current: 'Free', original: null };
+    if (park.pricing?.hourlyRate) {
+      return { current: `$${park.pricing.hourlyRate}`, period: 'hourly' };
+    }
+    if (park.pricing?.monthlyRate) {
+      return { current: `$${park.pricing.monthlyRate}`, period: 'monthly' };
+    }
+    return { current: 'Free', period: null };
   };
 
   const pricing = getPricingDisplay();
 
-  // Get landlord type equivalent (e.g., "Trusted Location", "Verified Park")
-  const getLandlordType = () => {
-    if (park.websiteVerified) return 'Verified';
-    if (park.dataQuality === 'verified') return 'Trusted Location';
-    return 'Standard';
+  // Get verification badge text
+  const getVerificationBadge = () => {
+    if (park.websiteVerified || park.dataQuality === 'verified') return 'Trusted Location';
+    return null;
   };
 
+  const verificationBadge = getVerificationBadge();
   const isFeatured = park.listingType === 'featured';
 
   return (
@@ -70,60 +97,68 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
       </div>
 
       <div className="park-card-body">
-        {/* Type and Title */}
+        {/* Header: Category and Title */}
         <div className="park-card-header">
-          <p className="park-card-type">
+          <div className="park-card-header-top">
+            <div className="park-card-category">
+              {searchTerm ? (
+                <SearchHighlight text={park.businessType.toUpperCase()} searchTerm={searchTerm} />
+              ) : (
+                park.businessType.toUpperCase()
+              )}
+            </div>
+            <h3 className="park-card-title">
+              {searchTerm ? (
+                <SearchHighlight text={park.name} searchTerm={searchTerm} />
+              ) : (
+                park.name
+              )}
+            </h3>
+          </div>
+          {/* Location inline with header */}
+          <p className="park-card-location">
             {searchTerm ? (
-              <SearchHighlight text={park.businessType} searchTerm={searchTerm} />
+              <SearchHighlight text={`${park.city}, ${park.state}`} searchTerm={searchTerm} />
             ) : (
-              park.businessType
+              `${park.city}, ${park.state}`
             )}
           </p>
-          <h3 className="park-card-title">
-            {searchTerm ? (
-              <SearchHighlight text={park.name} searchTerm={searchTerm} />
-            ) : (
-              park.name
+        </div>
+
+        {/* Badges Row: Trusted + Status combined */}
+        {(verificationBadge || statusInfo.status !== 'unknown') && (
+          <div className="park-card-badges-row">
+            {verificationBadge && (
+              <span className="trusted-badge-text">{verificationBadge}</span>
             )}
-          </h3>
-        </div>
+            {statusInfo.status !== 'unknown' && (
+              <span className={`status-badge status-${statusInfo.status === '24/7' ? '24x7' : statusInfo.status}`}>
+                {statusInfo.status === 'open' && <i className="bi bi-circle-fill"></i>}
+                {statusInfo.status === 'closed' && <i className="bi bi-circle"></i>}
+                {statusInfo.status === '24/7' && <i className="bi bi-circle-fill"></i>}
+                <span className="status-text">
+                  {statusInfo.status === 'open' && 'Open Now'}
+                  {statusInfo.status === 'closed' && 'Closed'}
+                  {statusInfo.status === '24/7' && 'Open 24/7'}
+                </span>
+              </span>
+            )}
+          </div>
+        )}
 
-        {/* Location */}
-        <p className="park-card-location">
-          <i className="bi bi-geo-alt"></i>{' '}
-          {searchTerm ? (
-            <SearchHighlight text={`${park.city}, ${park.state}`} searchTerm={searchTerm} />
-          ) : (
-            `${park.city}, ${park.state}`
-          )}
-        </p>
-
-        {/* Badges */}
-        <div className="park-card-badges">
-          {isFeatured && (
-            <span className="park-badge featured-badge-small" style={{
-              background: 'linear-gradient(45deg, #f59e0b, #eab308)',
-              color: 'white',
-              fontWeight: 'bold',
-              boxShadow: '0 2px 4px rgba(245, 158, 11, 0.3)'
-            }}>
-              <i className="bi bi-star-fill"></i> FEATURED
-            </span>
-          )}
-          <span className="park-badge">{getLandlordType()}</span>
-          {park.source === 'user_submitted' && (
-            <span className="park-badge" style={{ backgroundColor: '#10b981', color: 'white' }}>
-              Community Added
-            </span>
-          )}
-          {park.amenities?.fencing && <span className="park-badge">Fenced</span>}
-        </div>
-
-        {/* Rating and Reviews */}
-        <div className="park-card-rating">
-          <i className="bi bi-star-fill"></i>
-          <span className="rating-value">{park.rating}</span>
-          <span className="rating-count">({park.reviewCount} reviews)</span>
+        {/* Footer: Rating and Pricing combined */}
+        <div className="park-card-footer">
+          <div className="park-card-rating">
+            <i className="bi bi-star-fill"></i>
+            <span className="rating-value">{park.rating}</span>
+            <span className="rating-count">({park.reviewCount} reviews)</span>
+          </div>
+          <div className="park-card-pricing">
+            <span className="price-current">{pricing.current}</span>
+            {pricing.period && (
+              <span className="price-period"> /{pricing.period}</span>
+            )}
+          </div>
         </div>
 
         {/* Favorite Button */}
@@ -132,18 +167,8 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
             parkId={park.id}
             parkSlug={park.slug}
             className="favorite-btn-card"
+            aria-label={`Toggle favorite for ${park.name}`}
           />
-        </div>
-
-        {/* Pricing */}
-        <div className="park-card-pricing">
-          <span className="price-current">{pricing.current}</span>
-          {pricing.original && (
-            <span className="price-original">{pricing.original}</span>
-          )}
-          {park.pricing?.pricingType && park.pricing.pricingType !== 'free' && (
-            <span className="price-period">/{park.pricing.pricingType}</span>
-          )}
         </div>
       </div>
     </Link>

@@ -28,6 +28,8 @@ body {
   transition: all 0.2s ease;
   color: #6b7280;
   position: relative;
+  min-width: 36px;
+  min-height: 36px;
 }
 
 .favorite-button:hover {
@@ -35,25 +37,44 @@ body {
   color: #ef4444;
 }
 
+/* Favorited state - RED FILLED HEART */
 .favorite-button.favorited {
-  color: #ef4444;
+  color: #ef4444 !important;
 }
 
 .favorite-button.favorited:hover {
-  color: #dc2626;
+  color: #dc2626 !important;
+  background: rgba(239, 68, 68, 0.1);
 }
 
 .favorite-button i {
   font-size: 1.2rem;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline-block;
 }
 
 .favorite-button:hover i {
   transform: scale(1.1);
 }
 
+/* Heart beat animation when favorited */
 .favorite-button.favorited i {
+  color: #ef4444 !important;
   animation: heartBeat 0.3s ease;
+}
+
+/* Ensure filled heart is always red when favorited - multiple selectors for specificity */
+.favorite-button.favorited .bi-heart-fill,
+.favorite-button.favorited i.bi-heart-fill,
+.favorite-button.favorited > i.bi-heart-fill {
+  color: #ef4444 !important;
+  fill: #ef4444 !important;
+}
+
+/* Ensure outline heart is gray when not favorited */
+.favorite-button:not(.favorited) .bi-heart,
+.favorite-button:not(.favorited) i.bi-heart {
+  color: #6b7280;
 }
 
 .favorite-button .loading-spinner {
@@ -96,6 +117,23 @@ body {
   top: 12px;
   right: 12px;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* Show favorite button on card hover (desktop) */
+.park-card-new:hover .park-card-favorite {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Show favorite button on touch devices when card is focused/tapped */
+@media (hover: none) and (pointer: coarse) {
+  .park-card-favorite {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 /* Animations */
@@ -435,9 +473,9 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 40px;
   width: auto;
-  max-width: 250px;
+  max-width: 170px;
   display: block;
   object-fit: contain;
 }
@@ -445,15 +483,18 @@ body {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
+  flex-shrink: 0;
 }
 
 .header-link {
   color: #666;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  padding: 4px 0;
 }
 
 .header-link:hover {
@@ -463,14 +504,23 @@ body {
 .header-link-primary {
   background: #FF5722;
   color: white;
-  padding: 8px 18px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 6px;
   font-weight: 500;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-link-primary:hover {
   background: #E64A19;
   color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.25);
 }
 
 .header-divider {
@@ -504,20 +554,61 @@ body {
   color: #666;
   cursor: pointer;
   display: none;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  border-radius: 4px;
+}
+
+.menu-toggle:hover {
+  color: #FF5722;
+  background: rgba(255, 87, 34, 0.1);
+}
+
+.menu-toggle:active {
+  transform: scale(0.95);
 }
 
 .mobile-menu {
   background: white;
   border-top: 1px solid #e8e8e8;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu.open {
+  max-height: 500px;
   padding: 15px 20px;
 }
 
 .mobile-menu-item {
   display: block;
-  padding: 12px 0;
+  padding: 14px 0;
   color: #666;
   text-decoration: none;
   border-bottom: 1px solid #f5f5f5;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+  color: #FF5722;
+  background-color: rgba(255, 87, 34, 0.05);
+  padding-left: 8px;
+}
+
+.mobile-menu-item:last-child {
+  border-bottom: none;
 }
 
 @media (max-width: 968px) {
@@ -530,7 +621,51 @@ body {
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+  }
+
+  .header-container {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .logo img {
+    height: 36px;
+    max-width: 150px;
+  }
+
+  .header-link-primary {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    height: 60px;
+    padding: 0 12px;
+  }
+
+  .logo img {
+    height: 32px;
+    max-width: 140px;
+  }
+
+  .menu-toggle {
+    font-size: 1.3rem;
+    padding: 6px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .mobile-menu.open {
+    padding: 12px 16px;
+  }
+
+  .mobile-menu-item {
+    padding: 12px 0;
+    font-size: 0.9rem;
   }
 }
 
@@ -657,14 +792,41 @@ body {
   margin-top: 12px;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
+  line-height: 1.6;
+  white-space: nowrap;
 }
 
 .hero-guarantee i {
   color: #FFB74D;
   margin-right: 4px;
   font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Keep on one line on mobile */
+@media (max-width: 768px) {
+  .hero-guarantee {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 4px;
+  }
+  
+  .hero-guarantee::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hero-guarantee i {
+    margin-right: 3px;
+    flex-shrink: 0;
+  }
 }
 
 
@@ -705,13 +867,37 @@ body {
   font-size: 0.9rem;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  padding-bottom: 2px;
 }
 
 .hero-quick-links::-webkit-scrollbar {
   display: none;
+}
+
+/* Add subtle gradient fade on mobile for scroll indicator */
+@media (max-width: 768px) {
+  .hero-quick-links {
+    position: relative;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
 }
 
 .hero-quick-label {
@@ -727,6 +913,11 @@ body {
   font-weight: 400;
   white-space: nowrap;
   position: relative;
+  padding: 4px 8px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
 }
 
 .hero-quick-link:hover {
@@ -734,6 +925,15 @@ body {
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.6);
   text-underline-offset: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Touch target optimization for mobile */
+@media (max-width: 768px) {
+  .hero-quick-link {
+    padding: 6px 10px;
+    min-height: 36px;
+  }
 }
 
 .hero-quick-divider {
@@ -786,6 +986,161 @@ body {
     justify-content: flex-start;
     gap: 10px;
     font-size: 0.85rem;
+  }
+
+  /* Search form adjustments for tablet/mobile */
+  .search-form {
+    flex-direction: row;
+  }
+
+  .search-input-new {
+    padding: 16px 24px;
+    font-size: 0.95rem;
+  }
+
+  .search-btn-new {
+    padding: 16px 32px;
+    font-size: 0.95rem;
+  }
+
+  .hero-title-new {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .hero-subtitle-new {
+    font-size: 0.95rem;
+  }
+
+  .hero-guarantee {
+    font-size: 0.85rem;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .hero-guarantee i {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Mobile-specific styles (768px and below) */
+@media (max-width: 768px) {
+  .hero-section-new {
+    padding: 60px 16px 50px;
+  }
+
+  .search-container-new {
+    max-width: 100%;
+    margin: 0 auto 16px;
+  }
+
+  .search-form {
+    flex-direction: row;
+    border-radius: 50px;
+    gap: 0;
+    padding: 0;
+  }
+
+  .search-input-new {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 50px 0 0 50px;
+    font-size: 0.9rem;
+    min-height: 44px; /* Touch target */
+  }
+
+  .search-btn-new {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    border-radius: 0 50px 50px 0;
+    font-size: 0.9rem;
+    min-height: 44px; /* Touch target */
+    white-space: nowrap;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+  }
+
+  .hero-title-new {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle-new {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-quick-links {
+    font-size: 0.8rem;
+    gap: 8px;
+    padding-bottom: 4px; /* Space for scroll indicator */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  .hero-quick-links::after {
+    content: '';
+    flex: 0 0 8px;
+  }
+
+  .hero-guarantee {
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.5;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 4px;
+  }
+}
+
+/* Very small mobile (480px and below) */
+@media (max-width: 480px) {
+  .hero-section-new {
+    padding: 50px 12px 40px;
+  }
+
+  .search-input-new {
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+
+  .search-btn-new {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+
+  .hero-title-new {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle-new {
+    font-size: 0.85rem;
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+
+  .hero-quick-links {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .hero-guarantee {
+    font-size: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
 }
 
@@ -1355,51 +1710,219 @@ mark {
 }
 
 .park-card-body {
-  padding: 20px;
+  padding: 12px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
+  gap: 8px;
 }
 
+/* Header Section - Category, Title, Location */
 .park-card-header {
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.park-card-type {
-  font-size: 0.75rem;
-  color: #999;
+.park-card-header-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Category Badge - Small uppercase text at top */
+.park-card-category {
+  font-size: 0.65rem;
+  color: #6b7280;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
+/* Title - Prominent and clear */
 .park-card-title {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 10px;
   line-height: 1.3;
-  color: #2c3e50;
+  color: #1f2937;
   transition: color 0.2s;
-  min-height: 1.3em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin: 0;
 }
 
 .park-card-new:hover .park-card-title {
   color: #FF5722;
 }
 
+/* Location - Clean and simple */
 .park-card-location {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.3;
+  margin: 0;
 }
 
+/* Badges Row - Combined Trusted + Status */
+.park-card-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.trusted-badge-text {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 3px 7px;
+  background: #f0f9ff;
+  color: #0284c7;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border: 1px solid #e0f2fe;
+  line-height: 1.2;
+}
+
+/* Open/Closed Status Badge */
+.park-card-status {
+  margin: 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
+.status-badge i {
+  font-size: 0.5rem;
+  line-height: 1;
+}
+
+.status-badge.status-open {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.status-badge.status-open i {
+  color: #16a34a;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-badge.status-closed {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.status-badge.status-closed i {
+  color: #dc2626;
+}
+
+.status-badge.status-24x7 {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.status-badge.status-24x7 i {
+  color: #2563eb;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-text {
+  font-size: 0.65rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Footer - Rating and Pricing combined */
+.park-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Rating - Star icon with value and review count */
+.park-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.park-card-rating i {
+  color: #fbbf24;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #1f2937;
+  margin-right: 2px;
+}
+
+.rating-count {
+  color: #6b7280;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Pricing - Prominent at bottom */
+.park-card-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.price-current {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.price-original {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin-right: 4px;
+}
+
+/* Legacy badge styles for backward compatibility */
 .park-card-badges {
   display: flex;
   gap: 6px;
@@ -1423,54 +1946,6 @@ mark {
   color: white !important;
   border: none !important;
   font-weight: 700 !important;
-}
-
-.park-card-rating {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-}
-
-.park-card-rating i {
-  color: #ffc107;
-  font-size: 0.85rem;
-}
-
-.rating-value {
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.rating-count {
-  color: #999;
-  font-size: 0.85rem;
-}
-
-.park-card-pricing {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-.price-current {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2c3e50;
-}
-
-.price-original {
-  font-size: 0.95rem;
-  color: #999;
-  text-decoration: line-through;
-}
-
-.price-period {
-  font-size: 0.85rem;
-  color: #666;
 }
 
 /* ========== CITIES SECTION ========== */
@@ -1721,12 +2196,25 @@ mark {
   padding: 12px 30px;
   border-radius: 5px;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.2s;
+  min-height: 44px;
+  font-weight: 500;
 }
 
 .btn-primary:hover {
   background: #E64A19;
+}
+
+/* Touch target optimization for mobile */
+@media (max-width: 768px) {
+  .btn-primary {
+    padding: 14px 28px;
+    min-height: 48px;
+    font-size: 1rem;
+  }
 }
 
 /* Hero Section */
@@ -2526,36 +3014,37 @@ mark {
   }
 
   .park-card-body {
-    padding: 16px;
+    padding: 10px 14px;
+    gap: 6px;
   }
 
   .park-card-title {
     font-size: 1rem;
-    margin-bottom: 8px;
   }
 
-  .park-card-type {
-    font-size: 0.7rem;
-    margin-bottom: 4px;
+  .park-card-category {
+    font-size: 0.6rem;
   }
 
   .park-card-location {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
+    font-size: 0.75rem;
   }
 
   .park-badge {
-    font-size: 0.7rem;
-    padding: 3px 8px;
+    font-size: 0.65rem;
+    padding: 3px 7px;
   }
 
-  .park-card-pricing {
-    margin-top: 8px;
-    padding-top: 8px;
+  .park-card-footer {
+    padding-top: 6px;
   }
 
   .price-current {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  .park-card-rating {
+    font-size: 0.75rem;
   }
 
   .park-hero-image {
@@ -3577,6 +4066,10 @@ mark {
   font-weight: 600;
   transition: all 0.2s ease;
   white-space: nowrap;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-btn-compact:hover {
@@ -3660,6 +4153,16 @@ mark {
   background-repeat: no-repeat;
   background-position: right 10px center;
   min-width: 120px;
+  min-height: 36px;
+}
+
+/* Mobile touch target optimization */
+@media (max-width: 768px) {
+  .filter-select {
+    min-height: 44px;
+    padding: 10px 36px 10px 14px;
+    font-size: 0.9rem;
+  }
 }
 
 .filter-select:hover {
@@ -3808,12 +4311,26 @@ mark {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .clear-search-btn:hover {
   background: #E64A19;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+}
+
+/* Mobile touch target optimization */
+@media (max-width: 768px) {
+  .clear-search-btn {
+    padding: 14px 28px;
+    min-height: 48px;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 /* Mobile Responsive */

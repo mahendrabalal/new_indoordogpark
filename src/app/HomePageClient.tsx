@@ -229,7 +229,7 @@ export default function HomePageClient({
                 alt="Indoor Dog Park logo" 
                 width={170} 
                 height={48} 
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'contain', height: 'auto' }}
               />
             </a>
             

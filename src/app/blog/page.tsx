@@ -12,6 +12,11 @@ import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeat
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
+// Use ISR with on-demand revalidation (best practice)
+// Pages are statically generated and cached for performance
+// Revalidate via webhook when new posts are published in Sanity
+export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
+
 // Define the BlogPage component props
 interface BlogPageProps {
   searchParams: {

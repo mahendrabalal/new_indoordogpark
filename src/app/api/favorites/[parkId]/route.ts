@@ -14,7 +14,7 @@ export async function DELETE(
     }
 
     const { error } = await supabase
-      .from('park_favorites')
+      .from('favorites')
       .delete()
       .eq('user_id', user.id)
       .eq('park_id', params.parkId);
