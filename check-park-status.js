@@ -109,3 +109,4 @@ checkParkStatus(parkName)
     process.exit(1);
   });
 
+

@@ -11,25 +11,95 @@ export function createMetaDescription(value: string, maxLength = 155): string {
   return `${truncated.slice(0, lastSpace > 0 ? lastSpace : truncated.length).trim()}…`;
 }
 
+/**
+ * Creates an SEO-friendly title that's 60 characters or less
+ * Truncates at word boundary when possible to avoid cutting words
+ */
+export function createSEOTitle(fullTitle: string, maxLength = 60): string {
+  if (fullTitle.length <= maxLength) return fullTitle;
+  
+  // Try to truncate at a word boundary (space) near maxLength
+  const truncated = fullTitle.substring(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  
+  // If we found a space after position 50, use it for cleaner truncation
+  // This ensures we have room for "..." (3 chars) and stay <= 60 total
+  if (lastSpace >= 50) {
+    return truncated.substring(0, lastSpace) + '...';
+  } else {
+    // Otherwise, truncate at 57 and add ellipsis (total exactly 60)
+    return truncated.substring(0, 57) + '...';
+  }
+}
+
 export function generateParkMetadata(park: DogPark): Metadata {
   const canonicalPath = `/parks/${park.slug || park.id}`;
   const canonical = `${SITE_URL}${canonicalPath}`;
-  const title = `${park.name} | ${park.businessType} in ${park.city}, CA`;
+  
+  // Create full title including template suffix, then truncate to 60 characters for SEO
+  // The template adds " | Indoor Dog Park" (19 chars), so we need to account for that
+  const stateAbbr = park.state || 'CA';
+  const stateName = park.state === 'NY' ? 'New York' : park.state === 'CA' ? 'California' : park.state || 'California';
+  const fullTitleWithTemplate = `${park.name} | ${park.businessType} in ${park.city}, ${stateAbbr} | Indoor Dog Park`;
+  const title = createSEOTitle(fullTitleWithTemplate, 60);
+  
   const description = createMetaDescription(
     park.description ||
-      `Discover ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, California.`
+      `Discover ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`
   );
 
   const representativeImage =
     park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5';
 
+  // Determine published and modified dates
+  // Use approvedAt or submittedAt for publishedTime, lastUpdated for modifiedTime
+  // Ensure dates are in ISO 8601 format for proper SEO tool detection
+  let publishedTime: string | undefined = undefined;
+  let modifiedTime: string | undefined = undefined;
+
+  if (park.approvedAt || park.submittedAt) {
+    const dateStr = park.approvedAt || park.submittedAt;
+    if (dateStr) {
+      // Ensure it's a valid ISO 8601 date string
+      try {
+        const date = new Date(dateStr);
+        if (!isNaN(date.getTime())) {
+          publishedTime = date.toISOString();
+        }
+      } catch {
+        // If date parsing fails, use the original string if it looks like ISO format
+        if (dateStr.match(/^\d{4}-\d{2}-\d{2}/)) {
+          publishedTime = dateStr;
+        }
+      }
+    }
+  }
+
+  if (park.lastUpdated) {
+    try {
+      const date = new Date(park.lastUpdated);
+      if (!isNaN(date.getTime())) {
+        modifiedTime = date.toISOString();
+      }
+    } catch {
+      if (park.lastUpdated.match(/^\d{4}-\d{2}-\d{2}/)) {
+        modifiedTime = park.lastUpdated;
+      }
+    }
+  } else if (publishedTime) {
+    // Fallback to published time if no modified time
+    modifiedTime = publishedTime;
+  }
+
   return {
-    title,
+    title: {
+      absolute: title, // Use absolute to bypass template and have full control
+    },
     description,
     keywords: [
       park.name,
       park.city,
-      'California dog parks',
+      park.state === 'NY' ? 'New York dog parks' : 'California dog parks',
       'indoor dog park',
       park.businessType,
       `${park.city} dog park`,
@@ -40,24 +110,26 @@ export function generateParkMetadata(park: DogPark): Metadata {
       canonical,
     },
     openGraph: {
-      title,
+      title, // Use truncated title for OpenGraph too
       description,
       type: 'article',
       locale: 'en_US',
       url: canonical,
       siteName: 'Indoor Dog Park',
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
       images: [
         {
           url: representativeImage,
           width: 1200,
           height: 630,
-          alt: `${park.name} in ${park.city}, California`,
+          alt: `${park.name} in ${park.city}, ${stateName}`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title, // Use truncated title for Twitter too
       description,
       images: [representativeImage],
     },

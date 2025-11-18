@@ -160,3 +160,4 @@ If the park still doesn't appear after approval:
 3. Verify the park data is complete (name, city, state, description)
 4. Ensure the search term matches the park's name, city, or description
 
+

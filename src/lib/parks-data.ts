@@ -33,7 +33,8 @@ export interface CityContentPayload {
   customContent?: CityCustomContent;
 }
 
-const parksDataPath = path.join(process.cwd(), 'public/data/california.json');
+const californiaDataPath = path.join(process.cwd(), 'public/data/california.json');
+const newyorkDataPath = path.join(process.cwd(), 'public/data/newyork.json');
 
 let parksCache: DogPark[] | null = null;
 
@@ -119,6 +120,7 @@ interface SubmissionRow {
   listing_type?: string | null;
   user_id: string;
   created_at: string;
+  updated_at?: string | null;
   approved_at?: string | null;
 }
 
@@ -160,6 +162,7 @@ function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
     submittedBy: submission.user_id,
     submittedAt: submission.created_at,
     approvedAt: submission.approved_at,
+    lastUpdated: submission.updated_at || submission.approved_at || submission.created_at,
   } as DogPark;
 }
 
@@ -181,9 +184,27 @@ async function loadStaticParks(): Promise<DogPark[]> {
   }
 
   try {
-    const fileContent = await readFile(parksDataPath, 'utf-8');
-    const parsed: DogPark[] = JSON.parse(fileContent);
-    const normalized = parsed.map(normalizePark);
+    const allParks: DogPark[] = [];
+    
+    // Load California parks
+    try {
+      const californiaContent = await readFile(californiaDataPath, 'utf-8');
+      const californiaParks: DogPark[] = JSON.parse(californiaContent);
+      allParks.push(...californiaParks);
+    } catch (error) {
+      console.error('Failed to read California parks data:', error);
+    }
+    
+    // Load New York parks
+    try {
+      const newyorkContent = await readFile(newyorkDataPath, 'utf-8');
+      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
+      allParks.push(...newyorkParks);
+    } catch (error) {
+      console.error('Failed to read New York parks data:', error);
+    }
+    
+    const normalized = allParks.map(normalizePark);
     const deduped = dedupeParks(normalized);
     deduped.sort((a, b) => a.name.localeCompare(b.name));
     parksCache = deduped;

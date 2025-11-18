@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ChIJkftmp8BZwokRryTtaBKiPKw",
+    "name": "Doggington's Day Care Establishment",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Doggington's Day Care Establishment has earned its reputation as New York's premier pet facility. This facility features modern training facilities, trained pet care specialists, offering pet care. Their services offers peace of mind for busy pet parents. conveniently located in the heart of New York. Experience the difference at Doggington's Day Care Establishment",
+    "address": "243 W 38th St",
+    "street": "243 W 38th St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10018",
+    "full_address": "243 W 38th St, New York, NY 10018",
+    "latitude": 40.7542673,
+    "longitude": -73.9902776,
+    "googlePlaceId": "ChIJkftmp8BZwokRryTtaBKiPKw",
+    "phone": "+1 917-596-4555",
+    "website": "https://doggingtonsnyc.com/",
+    "photos": [
+      {
+        "url": "https://lh6.googleusercontent.com/-cmmBcRRSIaw/AAAAAAAAAAI/AAAAAAAAAAA/NDL-jzcGJKY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 22,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh6.googleusercontent.com/-cmmBcRRSIaw/AAAAAAAAAAI/AAAAAAAAAAA/NDL-jzcGJKY/s44-p-k-no-ns-nd/photo.jpg",
+    "openingHours": {
+      "Monday": "Open 24 hours",
+      "Tuesday": "Open 24 hours",
+      "Wednesday": "Open 24 hours",
+      "Thursday": "Open 24 hours",
+      "Friday": "Open 24 hours",
+      "Saturday": "Open 24 hours",
+      "Sunday": "Open 24 hours"
+    },
+    "faqs": []
+  }
+]
+

@@ -12,10 +12,30 @@ export async function GET(request: Request) {
     const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10));
     const limit = Math.min(100, parseInt(searchParams.get('limit') || '20', 10));
 
-    // Fetch static parks from JSON file
-    const filePath = join(process.cwd(), 'public/data/california.json');
-    const fileContent = await readFile(filePath, 'utf-8');
-    const staticParks: DogPark[] = JSON.parse(fileContent);
+    // Fetch static parks from JSON files
+    const allStaticParks: DogPark[] = [];
+    
+    // Load California parks
+    try {
+      const californiaPath = join(process.cwd(), 'public/data/california.json');
+      const californiaContent = await readFile(californiaPath, 'utf-8');
+      const californiaParks: DogPark[] = JSON.parse(californiaContent);
+      allStaticParks.push(...californiaParks);
+    } catch (error) {
+      console.error('Failed to read California parks data:', error);
+    }
+    
+    // Load New York parks
+    try {
+      const newyorkPath = join(process.cwd(), 'public/data/newyork.json');
+      const newyorkContent = await readFile(newyorkPath, 'utf-8');
+      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
+      allStaticParks.push(...newyorkParks);
+    } catch (error) {
+      console.error('Failed to read New York parks data:', error);
+    }
+    
+    const staticParks = allStaticParks;
 
     // Add source tracking to static parks
     const staticParksWithSource = staticParks.map(park => ({
