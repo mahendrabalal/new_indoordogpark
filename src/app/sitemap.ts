@@ -109,9 +109,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Dynamic park pages
+  // Dynamic park pages - separate try-catch to prevent one failure from blocking the other
   const parkPages: MetadataRoute.Sitemap = []
-  const cityPages: MetadataRoute.Sitemap = []
   
   try {
     let allParks: DogPark[] = []
@@ -165,7 +164,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
     
     if (!allParks || allParks.length === 0) {
-      console.warn('[sitemap] No parks loaded - sitemap will only include static pages')
+      console.warn('[sitemap] No parks loaded - park pages will be skipped')
     } else {
       console.log(`[sitemap] Processing ${allParks.length} parks into sitemap`)
       
@@ -194,39 +193,53 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       
       console.log(`[sitemap] Added ${parkPages.length} park pages to sitemap`)
     }
+  } catch (error) {
+    console.error('[sitemap] Error building park sitemap entries:', error)
+    // Continue even if parks fail - don't block the entire sitemap
+  }
 
+  // City pages - separate try-catch
+  const cityPages: MetadataRoute.Sitemap = []
+  
+  try {
     // Add city pages (includes both static cities and priority cities)
     // Calculate lastModified based on most recent park update in each city
     const citySlugs = await getAllCitySlugs()
     const { getCityContentBySlug } = await import('@/lib/parks-data')
     
     for (const slug of citySlugs) {
-      // Get city content to find parks in this city
-      const cityContent = await getCityContentBySlug(slug)
-      
-      // Get the most recent lastUpdated date from parks in this city
-      let cityLastModified = currentDate
-      if (cityContent && cityContent.cityParks.length > 0) {
-        const parkDates = cityContent.cityParks
-          .map((park) => park.lastUpdated ? new Date(park.lastUpdated) : null)
-          .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
+      try {
+        // Get city content to find parks in this city
+        const cityContent = await getCityContentBySlug(slug)
         
-        if (parkDates.length > 0) {
-          cityLastModified = new Date(Math.max(...parkDates.map(d => d.getTime())))
+        // Get the most recent lastUpdated date from parks in this city
+        let cityLastModified = currentDate
+        if (cityContent && cityContent.cityParks.length > 0) {
+          const parkDates = cityContent.cityParks
+            .map((park) => park.lastUpdated ? new Date(park.lastUpdated) : null)
+            .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
+          
+          if (parkDates.length > 0) {
+            cityLastModified = new Date(Math.max(...parkDates.map(d => d.getTime())))
+          }
         }
+        
+        cityPages.push({
+          url: `${baseUrl}/cities/${slug}`,
+          lastModified: cityLastModified,
+          changeFrequency: 'weekly' as const,
+          priority: 0.75,
+        })
+      } catch (cityError) {
+        // Skip individual city if it fails, but continue with others
+        console.warn(`[sitemap] Failed to process city ${slug}:`, cityError)
       }
-      
-      cityPages.push({
-        url: `${baseUrl}/cities/${slug}`,
-        lastModified: cityLastModified,
-        changeFrequency: 'weekly' as const,
-        priority: 0.75,
-      })
     }
+    
+    console.log(`[sitemap] Added ${cityPages.length} city pages to sitemap`)
   } catch (error) {
-    console.error('[sitemap] Error building park/city sitemap entries:', error)
-    // Continue with other pages even if parks fail
-    // Log the error for debugging but don't fail the entire sitemap
+    console.error('[sitemap] Error building city sitemap entries:', error)
+    // Continue even if cities fail - don't block the entire sitemap
   }
 
   // Blog posts from Sanity
