@@ -1,0 +1,59 @@
+[
+  {
+    "id": "ChIJD69Qnfyq-ocRmjx3-xZVrko",
+    "name": "Fast Tracks Canine Activity Center",
+    "slug": "fast-tracks-canine-activity-center-cedar-falls",
+    "businessType": "Indoor Dog Park",
+    "description": "Fast Tracks Canine Activity Center has earned its reputation as Cedar Falls's premier pet facility. This facility features comfortable boarding accommodations, experienced and certified staff, offering pet care. Their services maintains your pet's routine even when you're away. conveniently located in the heart of Cedar Falls. Visit Fast Tracks Canine Activity Center to see their facilities firsthand",
+    "address": "1702 E Lake St",
+    "street": "1702 E Lake St",
+    "city": "Cedar Falls",
+    "state": "IA",
+    "zipCode": "50613",
+    "full_address": "1702 E Lake St, Cedar Falls, IA 50613",
+    "latitude": 42.5560743,
+    "longitude": -92.4258369,
+    "googlePlaceId": "ChIJD69Qnfyq-ocRmjx3-xZVrko",
+    "phone": "+1 319-429-4197",
+    "website": "http://www.canineactivitycenter.com/",
+    "rating": 4.8,
+    "reviewCount": 387,
+    "userRatingsTotal": 387,
+    "photos": [
+      {
+        "url": "https://lh4.googleusercontent.com/-vIHl2eaomg0/AAAAAAAAAAI/AAAAAAAAAAA/rEaXQbsMy34/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "photo": "https://lh4.googleusercontent.com/-vIHl2eaomg0/AAAAAAAAAAI/AAAAAAAAAAA/rEaXQbsMy34/s44-p-k-no-ns-nd/photo.jpg",
+    "openingHours": {
+      "Monday": "6AM-7PM",
+      "Tuesday": "6AM-7PM",
+      "Wednesday": "6AM-7PM",
+      "Thursday": "6AM-7PM",
+      "Friday": "6AM-7PM",
+      "Saturday": "9AM-5:30PM",
+      "Sunday": "8-10AM,4:30-7:30PM"
+    },
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": true,
+      "grooming": true,
+      "training": true
+    },
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "dataQuality": "verified",
+    "faqs": []
+  }
+]
+
+
+

@@ -120,13 +120,41 @@ export async function GET(request: Request) {
       listingType,
     };
 
-    // Fetch static parks from JSON file
-    const filePath = join(process.cwd(), 'public/data/california.json');
-    const fileContent = await readFile(filePath, 'utf-8');
-    const staticParks: DogPark[] = JSON.parse(fileContent);
+    // Fetch static parks from JSON files
+    const allStaticParks: DogPark[] = [];
+    
+    // Load California parks
+    try {
+      const californiaPath = join(process.cwd(), 'public/data/california.json');
+      const californiaContent = await readFile(californiaPath, 'utf-8');
+      const californiaParks: DogPark[] = JSON.parse(californiaContent);
+      allStaticParks.push(...californiaParks);
+    } catch (error) {
+      console.error('Failed to read California parks data:', error);
+    }
+    
+    // Load New York parks
+    try {
+      const newyorkPath = join(process.cwd(), 'public/data/newyork.json');
+      const newyorkContent = await readFile(newyorkPath, 'utf-8');
+      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
+      allStaticParks.push(...newyorkParks);
+    } catch (error) {
+      console.error('Failed to read New York parks data:', error);
+    }
+    
+    // Load Washington parks
+    try {
+      const washingtonPath = join(process.cwd(), 'public/data/washington.json');
+      const washingtonContent = await readFile(washingtonPath, 'utf-8');
+      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
+      allStaticParks.push(...washingtonParks);
+    } catch (error) {
+      console.error('Failed to read Washington parks data:', error);
+    }
 
     // Add source tracking to static parks
-    const staticParksWithSource = staticParks.map(park => ({
+    const staticParksWithSource = allStaticParks.map(park => ({
       ...park,
       source: 'static' as const,
       listingType: park.listingType || ('free' as const)

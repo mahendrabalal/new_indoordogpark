@@ -35,6 +35,16 @@ export async function GET(request: Request) {
       console.error('Failed to read New York parks data:', error);
     }
     
+    // Load Washington parks
+    try {
+      const washingtonPath = join(process.cwd(), 'public/data/washington.json');
+      const washingtonContent = await readFile(washingtonPath, 'utf-8');
+      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
+      allStaticParks.push(...washingtonParks);
+    } catch (error) {
+      console.error('Failed to read Washington parks data:', error);
+    }
+    
     const staticParks = allStaticParks;
 
     // Add source tracking to static parks

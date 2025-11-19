@@ -45,6 +45,60 @@
       "Sunday": "Open 24 hours"
     },
     "faqs": []
+  },
+  {
+    "id": "ChIJu87jcxhZwokRzX4Uf7jx0I8",
+    "name": "Hunter's Point South Dog Run",
+    "slug": "hunter-s-point-south-dog-run-long-island-city",
+    "businessType": "Dog Park",
+    "description": "Hunter's Point South Dog Run has earned its reputation as Long Island City's premier pet facility. This facility features hygienic care areas, professional pet care experts, offering pet care. Their services maintains your pet's routine even when you're away. readily accessible to Long Island City pet owners. Call +1 212-639-9675 to learn more about their services",
+    "address": "Hunter's Point South Park Center Blvd. &, 51st Ave",
+    "street": "Hunter's Point South Park Center Blvd. &, 51st Ave",
+    "city": "Long Island City",
+    "state": "NY",
+    "zipCode": "11101",
+    "full_address": "Hunter's Point South Park Center Blvd. &, 51st Ave, Long Island City, NY 11101",
+    "latitude": 40.7433672,
+    "longitude": -73.9602506,
+    "googlePlaceId": "ChIJu87jcxhZwokRzX4Uf7jx0I8",
+    "phone": "+1 212-639-9675",
+    "website": "https://www.nycgovparks.org/parks/hunters-point-south-park/facilities/dogareas",
+    "rating": 4.7,
+    "reviewCount": 188,
+    "userRatingsTotal": 188,
+    "photos": [
+      {
+        "url": "https://lh4.googleusercontent.com/-tzb9lZL4k-8/AAAAAAAAAAI/AAAAAAAAAAA/UsSNWg-a9yI/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "photo": "https://lh4.googleusercontent.com/-tzb9lZL4k-8/AAAAAAAAAAI/AAAAAAAAAAA/UsSNWg-a9yI/s44-p-k-no-ns-nd/photo.jpg",
+    "openingHours": {
+      "Monday": "6:30AM-10PM",
+      "Tuesday": "6:30AM-10PM",
+      "Wednesday": "6:30AM-10PM",
+      "Thursday": "6:30AM-10PM",
+      "Friday": "6:30AM-10PM",
+      "Saturday": "6:30AM-10PM",
+      "Sunday": "6:30AM-10PM"
+    },
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": false,
+      "grooming": false,
+      "training": false
+    },
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": true
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "dataQuality": "verified",
+    "faqs": []
   }
 ]
 

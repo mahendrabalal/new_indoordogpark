@@ -21,6 +21,51 @@ type ParkPageProps = {
   };
 };
 
+function getStateName(abbr: string | undefined): string {
+  if (!abbr) return 'California';
+  const stateMap: Record<string, string> = {
+    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+    'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+    'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+    'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+    'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+    'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+    'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+    'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+    'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+    'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+    'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+    'WI': 'Wisconsin', 'WY': 'Wyoming'
+  };
+  // If it's already a full name (longer than 2 chars), return as-is
+  if (abbr.length > 2) return abbr;
+  return stateMap[abbr.toUpperCase()] || abbr;
+}
+
+function getStateAbbr(state: string | undefined): string {
+  if (!state) return 'CA';
+  // If it's already an abbreviation (2 chars), return as-is
+  if (state.length === 2) return state.toUpperCase();
+  // Otherwise convert full name to abbreviation
+  const abbrMap: Record<string, string> = {
+    'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR',
+    'California': 'CA', 'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE',
+    'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID',
+    'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS',
+    'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+    'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS',
+    'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV',
+    'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM', 'New York': 'NY',
+    'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK',
+    'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+    'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT',
+    'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV',
+    'Wisconsin': 'WI', 'Wyoming': 'WY'
+  };
+  return abbrMap[state] || state.substring(0, 2).toUpperCase();
+}
+
 export const dynamic = 'force-dynamic'; // Reviews are dynamic, so pages must be dynamic too
 
 export async function generateStaticParams() {
@@ -55,9 +100,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const reviewSchemas = generateReviewSchemas(reviews, park);
 
   const parkSchema = generateParkSchema(park);
+  const stateName = getStateName(park.state);
   const descriptionText =
     park.description?.trim() ||
-    `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, California.`;
+    `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
   const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
   const faqItems =
     park.faqs && park.faqs.length > 0
@@ -114,7 +160,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
           <div className="park-hero-image">
             <Image
               src={park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'}
-              alt={`${park.name} in ${park.city}, California`}
+              alt={`${park.name} in ${park.city}, ${stateName}`}
               width={1400}
               height={500}
               className="hero-image"
@@ -134,7 +180,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               </div>
               <h1 className="park-title">{park.name}</h1>
               <p className="park-subtitle">
-                {park.businessType} in {park.city}, California
+                {park.businessType} in {park.city}, {stateName}
               </p>
 
               {park.listingType === 'featured' && (
@@ -157,7 +203,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <i className="bi bi-star-fill"></i> {park.rating} ({park.reviewCount} reviews)
                 </span>
                 <span className="location">
-                  <i className="bi bi-geo-alt-fill"></i> {park.city}, CA
+                  <i className="bi bi-geo-alt-fill"></i> {park.city}, {getStateAbbr(park.state)}
                 </span>
                 <FavoriteButton 
                   parkId={park.id} 
