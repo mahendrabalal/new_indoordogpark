@@ -152,11 +152,12 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const structuredPlaces = cityParks.slice(0, 10).map((park) => {
     const place: Record<string, unknown> = {
-      '@type': 'Place',
+      '@type': 'LocalBusiness',
       name: park.name,
       address: park.full_address || park.address,
       url: park.website,
       telephone: park.phone,
+      image: park.photo || (park.photos && park.photos.length > 0 ? park.photos[0].url : undefined),
     };
 
     if (park.rating) {
@@ -185,11 +186,6 @@ export default async function CityPage({ params }: CityPageProps) {
     description: pageDescription,
     url: canonicalUrl,
     image: featuredImage,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: stats.avgRating.toFixed(1),
-      reviewCount: stats.totalReviews,
-    },
     containsPlace: structuredPlaces,
   };
 
