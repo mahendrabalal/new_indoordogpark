@@ -32,6 +32,35 @@ NEXT_PUBLIC_BING_VERIFICATION=your-bing-verification-code
 NEXT_PUBLIC_YANDEX_VERIFICATION=your-yandex-verification-code
 ```
 
+### IndexNow (Instant Search Engine Indexing)
+
+```env
+# IndexNow API key (auto-generated, already set up)
+# Optional: Override if you want to use a different key
+INDEXNOW_API_KEY=8abd796f2d329b8de96a77235663de27
+
+# IndexNow key file location (auto-generated based on API key)
+# Optional: Override if you want to use a different location
+INDEXNOW_KEY_LOCATION=8abd796f2d329b8de96a77235663de27.txt
+```
+
+**What is IndexNow?**
+- IndexNow is an open protocol that allows website owners to instantly inform search engines about recently added, updated, or deleted URLs.
+- Supported search engines: Bing, Yandex, Seznam.cz, Naver
+- Automatically submits park URLs when they are approved or updated.
+
+**Setup is automatic:**
+- The API key file is already created in `/public/8abd796f2d329b8de96a77235663de27.txt`
+- The key file is accessible at `https://www.indoordogpark.org/8abd796f2d329b8de96a77235663de27.txt`
+- URLs are automatically submitted when parks are approved via the admin panel
+
+**To verify:**
+1. Visit `https://www.indoordogpark.org/8abd796f2d329b8de96a77235663de27.txt` (should show the key)
+2. Check Bing Webmaster Tools to verify URLs are being received
+3. Monitor server logs for `[IndexNow]` messages
+
+**For more details:** See `INDEXNOW_SETUP.md`
+
 **How to get verification codes:**
 
 1. **Google Search Console:**

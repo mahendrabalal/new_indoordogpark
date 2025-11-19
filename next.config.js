@@ -174,6 +174,28 @@ const nextConfig = {
           },
         ],
       },
+      // IndexNow API key file
+      {
+        source: '/8abd796f2d329b8de96a77235663de27.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
     ];
   },
   // Redirects for SEO

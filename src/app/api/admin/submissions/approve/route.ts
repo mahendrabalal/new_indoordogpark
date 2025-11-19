@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth-helpers';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { submitParkToIndexNow } from '@/lib/indexnow';
 
 export async function POST(request: NextRequest) {
   try {
@@ -73,6 +74,12 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Submit to IndexNow (non-blocking - don't fail approval if this fails)
+    submitParkToIndexNow(generatedSlug).catch((error) => {
+      console.error('[IndexNow] Failed to submit approved park:', error);
+      // Log error but don't throw - approval was successful
+    });
 
     return NextResponse.json({
       success: true,
