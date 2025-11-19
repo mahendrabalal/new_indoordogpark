@@ -9,6 +9,9 @@ import type { DogPark } from '@/types/dog-park'
 // Revalidate sitemap every hour
 export const revalidate = 3600
 
+// Ensure sitemap is generated at runtime (not build time)
+export const dynamic = 'force-dynamic'
+
 // Sitemap includes all parks, cities, and blog pages (744+ URLs)
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
