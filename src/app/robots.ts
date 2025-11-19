@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file for search engine verification
+        ],
         disallow: [
           '/admin/',
           '/api/',
@@ -33,6 +36,7 @@ export default function robots(): MetadataRoute.Robots {
           '/icons/',
           '/_next/static/', // Allow static assets for crawling
           '/_next/image/', // Allow Next.js image optimization
+          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
         ],
         disallow: [
           '/admin/',
@@ -59,6 +63,7 @@ export default function robots(): MetadataRoute.Robots {
           '/icons/',
           '/_next/static/',
           '/_next/image/',
+          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
         ],
         disallow: [
           '/admin/',
