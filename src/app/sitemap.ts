@@ -1,7 +1,10 @@
 import { MetadataRoute } from 'next'
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 import { getAllStaticParks, getAllCitySlugs } from '@/lib/parks-data'
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api'
 import { SITE_URL } from '@/lib/metadata'
+import type { DogPark } from '@/types/dog-park'
 
 // Revalidate sitemap every hour
 export const revalidate = 3600
@@ -109,19 +112,85 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const cityPages: MetadataRoute.Sitemap = []
   
   try {
-    const allParks = await getAllStaticParks()
+    let allParks: DogPark[] = []
     
-    // Add individual park pages
-    for (const park of allParks) {
-      const slug = park.slug || park.id
-      const lastUpdated = park.lastUpdated ? new Date(park.lastUpdated) : currentDate
+    // Try to get parks using the library function first
+    try {
+      allParks = await getAllStaticParks()
+    } catch (libraryError) {
+      console.warn('[sitemap] getAllStaticParks failed, trying direct file read:', libraryError)
       
-      parkPages.push({
-        url: `${baseUrl}/parks/${slug}`,
-        lastModified: lastUpdated,
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      })
+      // Fallback: Read parks directly from JSON files
+      try {
+        const parksFromFiles: DogPark[] = []
+        
+        // Load California parks
+        try {
+          const californiaPath = join(process.cwd(), 'public/data/california.json')
+          const californiaContent = await readFile(californiaPath, 'utf-8')
+          const californiaParks: DogPark[] = JSON.parse(californiaContent)
+          parksFromFiles.push(...californiaParks)
+        } catch (error) {
+          console.error('[sitemap] Failed to read California parks:', error)
+        }
+        
+        // Load Washington parks
+        try {
+          const washingtonPath = join(process.cwd(), 'public/data/washington.json')
+          const washingtonContent = await readFile(washingtonPath, 'utf-8')
+          const washingtonParks: DogPark[] = JSON.parse(washingtonContent)
+          parksFromFiles.push(...washingtonParks)
+        } catch (error) {
+          console.error('[sitemap] Failed to read Washington parks:', error)
+        }
+        
+        // Load Mixmatch parks
+        try {
+          const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json')
+          const mixmatchContent = await readFile(mixmatchPath, 'utf-8')
+          const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent)
+          parksFromFiles.push(...mixmatchParks)
+        } catch (error) {
+          console.error('[sitemap] Failed to read Mixmatch parks:', error)
+        }
+        
+        allParks = parksFromFiles
+        console.log(`[sitemap] Loaded ${allParks.length} parks directly from files`)
+      } catch (fileError) {
+        console.error('[sitemap] Failed to read parks from files:', fileError)
+        allParks = []
+      }
+    }
+    
+    if (!allParks || allParks.length === 0) {
+      console.warn('[sitemap] No parks loaded - sitemap will only include static pages')
+    } else {
+      console.log(`[sitemap] Processing ${allParks.length} parks into sitemap`)
+      
+      // Add individual park pages
+      let skippedCount = 0
+      for (const park of allParks) {
+        const slug = park.slug || park.id
+        if (!slug) {
+          skippedCount++
+          continue
+        }
+        
+        const lastUpdated = park.lastUpdated ? new Date(park.lastUpdated) : currentDate
+        
+        parkPages.push({
+          url: `${baseUrl}/parks/${slug}`,
+          lastModified: lastUpdated,
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        })
+      }
+      
+      if (skippedCount > 0) {
+        console.warn(`[sitemap] Skipped ${skippedCount} parks without slugs`)
+      }
+      
+      console.log(`[sitemap] Added ${parkPages.length} park pages to sitemap`)
     }
 
     // Add city pages (includes both static cities and priority cities)
@@ -153,8 +222,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       })
     }
   } catch (error) {
-    console.error('Error building park/city sitemap entries:', error)
+    console.error('[sitemap] Error building park/city sitemap entries:', error)
     // Continue with other pages even if parks fail
+    // Log the error for debugging but don't fail the entire sitemap
   }
 
   // Blog posts from Sanity
@@ -213,6 +283,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...categoryPages,
     ...tagPages,
   ]
+
+  console.log(`[sitemap] Generated sitemap with ${allPages.length} total URLs:
+    - Static pages: ${staticPages.length}
+    - Park pages: ${parkPages.length}
+    - City pages: ${cityPages.length}
+    - Blog posts: ${blogPages.length}
+    - Blog categories: ${categoryPages.length}
+    - Blog tags: ${tagPages.length}`)
 
   return allPages
 }
