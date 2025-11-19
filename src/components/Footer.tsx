@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="footer-column">
             <h4 className="footer-heading">Park Owners</h4>
             <ul className="footer-links">
-              <li><Link href="/list-property">List your park</Link></li>
+              <li><Link href="/list-your-park">List your park</Link></li>
               <li><Link href="/owner-resources">Owner resources</Link></li>
             </ul>
           </div>

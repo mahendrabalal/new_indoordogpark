@@ -4275,27 +4275,91 @@ mark {
   }
 }
 
+/* ========== MOBILE SEARCH TOGGLE ========== */
+.mobile-toggle-btn {
+  display: none; /* Hidden on desktop */
+}
+
 @media (max-width: 1024px) {
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: #2c3e50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    font-size: 1rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-toggle-btn:hover {
+    background: #1a252f;
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  .mobile-toggle-btn:active {
+    transform: translateX(-50%) scale(0.95);
+  }
+  
+  .mobile-toggle-btn i {
+    font-size: 1.1rem;
+  }
+
+  /* View Switching Logic */
   .search-results-split-view {
     flex-direction: column;
-    height: auto;
+    height: calc(100vh - 65px); /* Adjust based on header height */
+    overflow: hidden;
   }
 
   .search-results-listings {
     max-width: 100%;
-    height: auto;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
+    height: 100%; /* Fill container */
+    display: block;
+  }
+
+  .search-results-list {
+    padding-bottom: 80px; /* Space for FAB */
   }
 
   .search-results-map {
     max-width: 100%;
-    height: 400px;
     position: relative;
+    height: 100%; /* Fill container */
+    display: block;
+  }
+
+  /* List View: Hide Map */
+  .mobile-view-list .search-results-map {
+    display: none !important;
+  }
+
+  /* Map View: Hide List */
+  .mobile-view-map .search-results-listings {
+    display: none !important;
+  }
+  
+  .mobile-view-map .search-results-split-view {
+    /* Ensure map takes full height */
+    height: calc(100vh - 65px);
   }
 
   .search-results-toolbar {
     position: relative;
+    z-index: 20;
   }
 
   .search-header-actions {
@@ -4339,6 +4403,10 @@ mark {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    flex-wrap: nowrap;
+    padding-bottom: 4px; /* Space for potential scrollbar or touch area */
+    mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
   }
 
   .inline-filters::-webkit-scrollbar {
@@ -4370,7 +4438,8 @@ mark {
   }
 
   .search-results-map {
-    height: 300px;
+    /* Reset height override from previous media query if any */
+    height: 100% !important;
   }
 }
 

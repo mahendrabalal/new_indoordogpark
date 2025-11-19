@@ -200,7 +200,7 @@ export default function AboutPage() {
               List your park, share reviews, and connect with fellow dog lovers.
             </p>
             <div className="cta-buttons">
-              <a href="/list-property" className="btn-primary-large">
+              <a href="/list-your-park" className="btn-primary-large">
                 <i className="bi bi-plus-circle"></i>
                 List Your Park
               </a>

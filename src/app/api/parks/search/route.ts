@@ -30,6 +30,10 @@ function calculateRelevance(park: DogPark, searchTerm: string): number {
   if (park.name.toLowerCase() === term) score += 100;
   else if (park.name.toLowerCase().includes(term)) score += 50;
   
+  // Slug match (for searching by URL-friendly names)
+  if (park.slug?.toLowerCase() === term) score += 90;
+  else if (park.slug?.toLowerCase().includes(term)) score += 45;
+  
   // City match
   if (park.city.toLowerCase() === term) score += 80;
   else if (park.city.toLowerCase().includes(term)) score += 40;
@@ -133,16 +137,6 @@ export async function GET(request: Request) {
       console.error('Failed to read California parks data:', error);
     }
     
-    // Load New York parks
-    try {
-      const newyorkPath = join(process.cwd(), 'public/data/newyork.json');
-      const newyorkContent = await readFile(newyorkPath, 'utf-8');
-      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
-      allStaticParks.push(...newyorkParks);
-    } catch (error) {
-      console.error('Failed to read New York parks data:', error);
-    }
-    
     // Load Washington parks
     try {
       const washingtonPath = join(process.cwd(), 'public/data/washington.json');
@@ -151,6 +145,16 @@ export async function GET(request: Request) {
       allStaticParks.push(...washingtonParks);
     } catch (error) {
       console.error('Failed to read Washington parks data:', error);
+    }
+    
+    // Load Mixmatch parks (multi-state parks)
+    try {
+      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
+      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
+      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
+      allStaticParks.push(...mixmatchParks);
+    } catch (error) {
+      console.error('Failed to read Mixmatch parks data:', error);
     }
 
     // Add source tracking to static parks
@@ -249,6 +253,7 @@ export async function GET(request: Request) {
       filteredParks = filteredParks.filter(park => {
         return (
           park.name.toLowerCase().includes(searchTerm) ||
+          park.slug?.toLowerCase().includes(searchTerm) ||
           park.city.toLowerCase().includes(searchTerm) ||
           park.address?.toLowerCase().includes(searchTerm) ||
           park.full_address?.toLowerCase().includes(searchTerm) ||

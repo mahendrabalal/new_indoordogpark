@@ -48,7 +48,7 @@ export default function OwnerResourcesPage() {
           <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">Run a thriving indoor dog park with confidence</h1>
           <p className="mt-4 text-lg text-slate-200">We package the tools, coaching, and benchmarks that California operators use to launch, scale, and delight their communities.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/list-property" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-slate-50">
+            <Link href="/list-your-park" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-slate-50">
               List your park
             </Link>
             <Link href="/contact" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">

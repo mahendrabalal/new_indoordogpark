@@ -171,7 +171,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
             <p>Partners highlighted here are currently investing in featured placement across this guide.</p>
           </div>
           <div className="city-premium-header-actions">
-            <Link href="/list-property" className="hero-cta primary">
+            <Link href="/list-your-park" className="hero-cta primary">
               Feature my park
             </Link>
             <Link href="/contact" className="hero-cta ghost">
@@ -205,7 +205,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
                 Claim this placement for $9.99/mo and jump ahead of every free listing in the {city} directory.
               </p>
             </div>
-            <Link href="/list-property" className="hero-cta primary">
+            <Link href="/list-your-park" className="hero-cta primary">
               Claim this slot
             </Link>
           </div>

@@ -291,7 +291,7 @@ export default async function CityPage({ params }: CityPageProps) {
     title: `Feature your ${city.name} dog park`,
     description:
       'Upgrade to a featured listing, share live availability, or pitch a new indoor concept. Our team drives qualified local pet parents every week.',
-    primary: { label: 'List a property', href: '/list-property' },
+    primary: { label: 'List a property', href: '/list-your-park' },
     secondary: { label: 'Contact the team', href: '/contact' },
   };
 
@@ -387,7 +387,7 @@ export default async function CityPage({ params }: CityPageProps) {
                   <i className="bi bi-geo-alt" />
                   Open map
                 </ScrollToButton>
-                <Link href="/list-property" className="hero-cta text-link">
+                <Link href="/list-your-park" className="hero-cta text-link">
                   <i className="bi bi-plus-circle" />
                   Submit a park
                 </Link>
@@ -650,7 +650,7 @@ export default async function CityPage({ params }: CityPageProps) {
                   We are actively scouting for more indoor and dog-friendly parks in {city.name}. 
                   If you know a hidden gem, help the community by adding it to our directory.
                 </p>
-                <Link href="/list-property" className="hero-cta primary" style={{ display: 'inline-flex' }}>
+                <Link href="/list-your-park" className="hero-cta primary" style={{ display: 'inline-flex' }}>
                   Submit a Park
                 </Link>
               </div>
@@ -730,7 +730,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 <i className="bi bi-arrow-up-right" />
               </Link>
 
-              <Link href="/list-property" className="resource-card">
+              <Link href="/list-your-park" className="resource-card">
                 <div className="resource-icon">
                   <i className="bi bi-megaphone" />
                 </div>

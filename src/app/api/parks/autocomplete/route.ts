@@ -43,16 +43,6 @@ export async function GET(request: Request) {
       console.error('Failed to read California parks data:', error);
     }
     
-    // Load New York parks
-    try {
-      const newyorkPath = join(process.cwd(), 'public/data/newyork.json');
-      const newyorkContent = await readFile(newyorkPath, 'utf-8');
-      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
-      allStaticParks.push(...newyorkParks);
-    } catch (error) {
-      console.error('Failed to read New York parks data:', error);
-    }
-    
     // Load Washington parks
     try {
       const washingtonPath = join(process.cwd(), 'public/data/washington.json');
@@ -61,6 +51,16 @@ export async function GET(request: Request) {
       allStaticParks.push(...washingtonParks);
     } catch (error) {
       console.error('Failed to read Washington parks data:', error);
+    }
+    
+    // Load Mixmatch parks (multi-state parks)
+    try {
+      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
+      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
+      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
+      allStaticParks.push(...mixmatchParks);
+    } catch (error) {
+      console.error('Failed to read Mixmatch parks data:', error);
     }
     
     const staticParks = allStaticParks;
@@ -121,13 +121,19 @@ export async function GET(request: Request) {
 
     // 2. PARK NAME SUGGESTIONS (max 5)
     const parkSuggestions = allParks
-      .filter(park => park.name.toLowerCase().includes(searchTerm))
+      .filter(park => 
+        park.name.toLowerCase().includes(searchTerm) ||
+        park.slug?.toLowerCase().includes(searchTerm)
+      )
       .sort((a, b) => {
-        // Prioritize parks that start with search term
-        const aStarts = a.name.toLowerCase().startsWith(searchTerm);
-        const bStarts = b.name.toLowerCase().startsWith(searchTerm);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
+        // Prioritize parks that start with search term (name or slug)
+        const aNameStarts = a.name.toLowerCase().startsWith(searchTerm);
+        const aSlugStarts = a.slug?.toLowerCase().startsWith(searchTerm);
+        const bNameStarts = b.name.toLowerCase().startsWith(searchTerm);
+        const bSlugStarts = b.slug?.toLowerCase().startsWith(searchTerm);
+        
+        if ((aNameStarts || aSlugStarts) && !(bNameStarts || bSlugStarts)) return -1;
+        if (!(aNameStarts || aSlugStarts) && (bNameStarts || bSlugStarts)) return 1;
         // Then by rating
         return b.rating - a.rating;
       })

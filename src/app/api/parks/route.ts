@@ -25,16 +25,6 @@ export async function GET(request: Request) {
       console.error('Failed to read California parks data:', error);
     }
     
-    // Load New York parks
-    try {
-      const newyorkPath = join(process.cwd(), 'public/data/newyork.json');
-      const newyorkContent = await readFile(newyorkPath, 'utf-8');
-      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
-      allStaticParks.push(...newyorkParks);
-    } catch (error) {
-      console.error('Failed to read New York parks data:', error);
-    }
-    
     // Load Washington parks
     try {
       const washingtonPath = join(process.cwd(), 'public/data/washington.json');
@@ -43,6 +33,16 @@ export async function GET(request: Request) {
       allStaticParks.push(...washingtonParks);
     } catch (error) {
       console.error('Failed to read Washington parks data:', error);
+    }
+    
+    // Load Mixmatch parks (multi-state parks)
+    try {
+      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
+      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
+      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
+      allStaticParks.push(...mixmatchParks);
+    } catch (error) {
+      console.error('Failed to read Mixmatch parks data:', error);
     }
     
     const staticParks = allStaticParks;

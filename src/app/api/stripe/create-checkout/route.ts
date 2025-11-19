@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       unitAmount: STRIPE_CONFIG.FEATURED_PRICE,
       currency: STRIPE_CONFIG.CURRENCY,
       successUrl: `${baseUrl}/dashboard?success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${baseUrl}/list-property?canceled=true`,
+      cancelUrl: `${baseUrl}/list-your-park?canceled=true`,
       customerEmail: user.email,
       metadata: {
         userId: user.id,

@@ -195,7 +195,7 @@ function DashboardContent() {
         {/* Action Buttons */}
         <div className="mb-6">
           <Link
-            href="/list-property"
+            href="/list-your-park"
             className="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
           >
             + Add New Listing
@@ -216,7 +216,7 @@ function DashboardContent() {
             <h3 className="mt-4 text-lg font-medium text-gray-900">No listings yet</h3>
             <p className="mt-2 text-gray-600">Get started by creating your first dog park listing.</p>
             <Link
-              href="/list-property"
+              href="/list-your-park"
               className="mt-6 inline-block px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
             >
               Create Your First Listing

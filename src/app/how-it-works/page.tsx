@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
             <Link href="/" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-slate-50">
               Start exploring
             </Link>
-            <Link href="/list-property" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">
+            <Link href="/list-your-park" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">
               Add your park
             </Link>
           </div>
@@ -139,7 +139,7 @@ export default function HowItWorksPage() {
             <Link href="/" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-violet-50">
               Browse parks
             </Link>
-            <Link href="/list-property" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">
+            <Link href="/list-your-park" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">
               Start a listing
             </Link>
           </div>

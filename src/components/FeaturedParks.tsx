@@ -93,13 +93,13 @@ export default function FeaturedParks() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/list-property"
+              href="/list-your-park"
               className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-purple-300/40 transition hover:bg-purple-700"
             >
               <i className="bi bi-stars" /> List your park for $9.99/mo
             </Link>
             <Link
-              href="/list-property"
+              href="/list-your-park"
               className="inline-flex items-center gap-1 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-slate-300"
             >
               See how placements work
@@ -266,7 +266,7 @@ export default function FeaturedParks() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
-              href="/list-property"
+              href="/list-your-park"
               className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-purple-700"
             >
               Claim a premium slot

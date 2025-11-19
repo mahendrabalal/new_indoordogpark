@@ -134,7 +134,7 @@ export default function NotFound() {
                 </Link>
 
                 <Link
-                  href="/list-property"
+                  href="/list-your-park"
                   className="group flex items-center rounded-2xl border border-gray-200 p-4 transition hover:border-purple-300 hover:bg-purple-50"
                 >
                   <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 group-hover:bg-purple-200">

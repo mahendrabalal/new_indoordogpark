@@ -40,7 +40,7 @@ const expertGuides = [
 const resourceDownloads = [
   { title: 'Indoor visit checklist', format: 'PDF', description: 'Printable pack list covering vaccination proof, water routines, and enrichment toys.', href: '/contact' },
   { title: 'Event planning worksheet', format: 'Google Sheet', description: 'Budgeting, staffing, and sponsor tracking for dog birthday parties and fundraisers.', href: '/contact' },
-  { title: 'Park launch readiness scorecard', format: 'Notion template', description: 'Amenity audits, staffing plans, and marketing countdown for new facilities.', href: '/list-property' },
+  { title: 'Park launch readiness scorecard', format: 'Notion template', description: 'Amenity audits, staffing plans, and marketing countdown for new facilities.', href: '/list-your-park' },
 ];
 
 export const metadata: Metadata = {

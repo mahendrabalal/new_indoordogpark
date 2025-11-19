@@ -32,7 +32,7 @@ export default function Header() {
         <div className="header-right">
           <Link href="/blog" className="header-link">Blog</Link>
           <Link href="/contact" className="header-link">Contact us</Link>
-          <Link href="/list-property" className="header-link header-link-primary">
+          <Link href="/list-your-park" className="header-link header-link-primary">
             List your park
           </Link>
           
@@ -68,7 +68,7 @@ export default function Header() {
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           <Link href="/blog" className="mobile-menu-item">Blog</Link>
           <Link href="/contact" className="mobile-menu-item">Contact us</Link>
-          <Link href="/list-property" className="mobile-menu-item">List your park</Link>
+          <Link href="/list-your-park" className="mobile-menu-item">List your park</Link>
           
           {user ? (
             <>

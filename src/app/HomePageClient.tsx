@@ -3,17 +3,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import { fetchParks, PaginationResponse } from '@/lib/api';
-import { getFeaturedCities, getFeaturedParks } from '@/lib/cityData';
+import { getFeaturedParks } from '@/lib/cityData';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CitiesSection from '@/components/CitiesSection';
 import ParkCard from '@/components/ParkCard';
-import CityCard from '@/components/CityCard';
-import ParkCardSkeleton from '@/components/ParkCardSkeleton';
 import FeaturedParks from '@/components/FeaturedParks';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 
@@ -44,9 +43,7 @@ export default function HomePageClient({
 
   const [allParks, setAllParks] = useState<DogPark[]>(initialParks);
   const [loading, setLoading] = useState(initialParks.length === 0);
-  const [currentPage, setCurrentPage] = useState(normalizedPagination.page || 1);
   const [hasMore, setHasMore] = useState(normalizedPagination.hasMore);
-  const [loadingMore, setLoadingMore] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -70,6 +67,7 @@ export default function HomePageClient({
   const autocomplete = useAutocomplete({ debounceDelay: 150, minChars: 2 });
 
   const [showSearchLayout, setShowSearchLayout] = useState(initialShowSearchLayout);
+  const [mobileView, setMobileView] = useState<'list' | 'map'>('list');
 
   const hasFilterSelections = Boolean(
     (filters.type && filters.type !== 'all') ||
@@ -98,7 +96,6 @@ export default function HomePageClient({
         const response = await fetchParks(1, 20);
         if (!isMounted) return;
         setAllParks(response.data);
-        setCurrentPage(1);
         setHasMore(response.pagination.hasMore);
       } catch (error) {
         console.error('Error loading parks:', error);
@@ -190,23 +187,6 @@ export default function HomePageClient({
     searchInputRef.current?.focus();
   }, [updateSearchTerm, autocomplete]);
 
-  const handleLoadMore = async () => {
-    if (loadingMore || !hasMore) return;
-
-    setLoadingMore(true);
-    try {
-      const nextPage = currentPage + 1;
-      const response = await fetchParks(nextPage, 20);
-      setAllParks(prev => [...prev, ...response.data]);
-      setCurrentPage(nextPage);
-      setHasMore(response.pagination.hasMore);
-    } catch (error) {
-      console.error('Error loading more parks:', error);
-    } finally {
-      setLoadingMore(false);
-    }
-  };
-
   if (loading) {
     return (
       <div className="loading">
@@ -271,9 +251,9 @@ export default function HomePageClient({
             </form>
 
             <div className="search-header-actions">
-              <a href="/blog" className="header-link-compact">Blog</a>
-              <a href="/contact" className="header-link-compact">Contact</a>
-              <a href="/list-your-park" className="header-btn-compact">List your park</a>
+              <Link href="/blog" className="header-link-compact">Blog</Link>
+              <Link href="/contact" className="header-link-compact">Contact</Link>
+              <Link href="/list-your-park" className="header-btn-compact">List your park</Link>
             </div>
           </div>
         </header>
@@ -361,23 +341,8 @@ export default function HomePageClient({
       {/* Featured Parks Section - User Submitted (only show when not searching) */}
       {!showSearchLayout && <FeaturedParks />}
 
-      {/* Featured Cities Section (only show when not searching) */}
-      {!showSearchLayout && allParks.length > 0 && (
-        <section className="cities-cards-section">
-          <h2 className="cities-cards-heading">Explore by City</h2>
-          <p className="cities-cards-subtitle">
-            Discover dog parks in California&rsquo;s most popular cities
-          </p>
-          <div className="cities-cards-grid">
-            {getFeaturedCities(allParks, 12).map((city) => (
-              <CityCard key={city.slug} city={city} />
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Featured Parks Section (only show when not searching) */}
-      {!showSearchLayout && (allParks.length > 0 || loadingMore) && (
+      {!showSearchLayout && allParks.length > 0 && (
         <section className="featured-parks-section">
           <div className="featured-parks-container">
             <h2 className="featured-parks-heading">Featured Dog Parks</h2>
@@ -391,32 +356,7 @@ export default function HomePageClient({
                   park={park}
                 />
               ))}
-              {loadingMore && Array(4).fill(0).map((_, i) => (
-                <ParkCardSkeleton key={`skeleton-${i}`} />
-              ))}
             </div>
-            {hasMore && (
-              <div style={{ textAlign: 'center', marginTop: '30px' }}>
-                <button
-                  onClick={handleLoadMore}
-                  disabled={loadingMore}
-                  style={{
-                    background: '#00bfff',
-                    color: 'white',
-                    border: 'none',
-                    padding: '12px 32px',
-                    borderRadius: '5px',
-                    fontSize: '1rem',
-                    fontWeight: '600',
-                    cursor: loadingMore ? 'wait' : 'pointer',
-                    opacity: loadingMore ? 0.7 : 1
-                  }}
-                  aria-live="polite"
-                >
-                  {loadingMore ? 'Loading more parks...' : 'Load More Parks'}
-                </button>
-              </div>
-            )}
             {!hasMore && allParks.length > 0 && (
               <div className="view-all-parks-cta">
                 <p>You&rsquo;ve reached the end! Explore dog parks by city or use search above.</p>
@@ -428,7 +368,25 @@ export default function HomePageClient({
 
       {/* Search Results Section - Split View with Map */}
       {showSearchLayout && (
-        <section className="search-results-split-view" role="region" aria-live="polite" aria-label="Search results">
+        <section 
+          className={`search-results-split-view ${mobileView === 'map' ? 'mobile-view-map' : 'mobile-view-list'}`}
+          role="region" 
+          aria-live="polite" 
+          aria-label="Search results"
+        >
+          {/* Mobile Map/List Toggle Button */}
+          <button 
+            className="mobile-toggle-btn"
+            onClick={() => setMobileView(prev => prev === 'list' ? 'map' : 'list')}
+            aria-label={mobileView === 'list' ? "Switch to map view" : "Switch to list view"}
+          >
+            {mobileView === 'list' ? (
+              <>Map <i className="bi bi-map-fill"></i></>
+            ) : (
+              <>List <i className="bi bi-list-ul"></i></>
+            )}
+          </button>
+
           {/* Left Side - Park Listings */}
           <div className="search-results-listings">
             {/* Compact Inline Filters and Results Header */}

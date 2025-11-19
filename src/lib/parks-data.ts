@@ -36,10 +36,8 @@ export interface CityContentPayload {
 }
 
 const californiaDataPath = path.join(process.cwd(), 'public/data/california.json');
-const newyorkDataPath = path.join(process.cwd(), 'public/data/newyork.json');
-const georgiaDataPath = path.join(process.cwd(), 'public/data/georgia.json');
-const iowaDataPath = path.join(process.cwd(), 'public/data/iowa.json');
 const washingtonDataPath = path.join(process.cwd(), 'public/data/washington.json');
+const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
 
@@ -200,33 +198,6 @@ async function loadStaticParks(): Promise<DogPark[]> {
       console.error('Failed to read California parks data:', error);
     }
     
-    // Load New York parks
-    try {
-      const newyorkContent = await readFile(newyorkDataPath, 'utf-8');
-      const newyorkParks: DogPark[] = JSON.parse(newyorkContent);
-      allParks.push(...newyorkParks);
-    } catch (error) {
-      console.error('Failed to read New York parks data:', error);
-    }
-    
-    // Load Georgia parks
-    try {
-      const georgiaContent = await readFile(georgiaDataPath, 'utf-8');
-      const georgiaParks: DogPark[] = JSON.parse(georgiaContent);
-      allParks.push(...georgiaParks);
-    } catch (error) {
-      console.error('Failed to read Georgia parks data:', error);
-    }
-    
-    // Load Iowa parks
-    try {
-      const iowaContent = await readFile(iowaDataPath, 'utf-8');
-      const iowaParks: DogPark[] = JSON.parse(iowaContent);
-      allParks.push(...iowaParks);
-    } catch (error) {
-      console.error('Failed to read Iowa parks data:', error);
-    }
-    
     // Load Washington parks
     try {
       const washingtonContent = await readFile(washingtonDataPath, 'utf-8');
@@ -234,6 +205,15 @@ async function loadStaticParks(): Promise<DogPark[]> {
       allParks.push(...washingtonParks);
     } catch (error) {
       console.error('Failed to read Washington parks data:', error);
+    }
+    
+    // Load Mixmatch parks (multi-state parks)
+    try {
+      const mixmatchContent = await readFile(mixmatchDataPath, 'utf-8');
+      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
+      allParks.push(...mixmatchParks);
+    } catch (error) {
+      console.error('Failed to read Mixmatch parks data:', error);
     }
     
     const normalized = allParks.map(normalizePark);

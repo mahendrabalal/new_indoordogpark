@@ -111,7 +111,7 @@ export default function ContactPage() {
 
               <div className="faq-item">
                 <h3>How can I list my dog park on IndoorDogPark?</h3>
-                <p>Select &ldquo;List a Park&rdquo; from the category dropdown in the contact form, or visit our dedicated <a href="/list-property">listing page</a> for more information about the process.</p>
+                <p>Select &ldquo;List a Park&rdquo; from the category dropdown in the contact form, or visit our dedicated <a href="/list-your-park">listing page</a> for more information about the process.</p>
               </div>
 
               <div className="faq-item">

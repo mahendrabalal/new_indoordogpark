@@ -201,7 +201,7 @@ export default function PartnersPage() {
             <Link href="/contact" className="inline-flex items-center rounded-full bg-violet-600 px-6 py-3 font-semibold text-white hover:bg-violet-500">
               Introduce your team
             </Link>
-            <Link href="/list-property" className="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:border-slate-400">
+            <Link href="/list-your-park" className="inline-flex items-center rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:border-slate-400">
               Self-serve listing
             </Link>
           </div>

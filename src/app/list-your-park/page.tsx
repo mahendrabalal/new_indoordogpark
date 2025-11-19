@@ -45,7 +45,7 @@ export default function ListPropertyPage() {
   // Redirect to login if not authenticated
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login?redirect=/list-property');
+      router.push('/login?redirect=/list-your-park');
     }
   }, [user, loading, router]);
 
@@ -67,8 +67,16 @@ export default function ListPropertyPage() {
     );
   }
 
+  // Show loading state while redirecting to login
   if (!user) {
-    return null;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Redirecting to login...</p>
+        </div>
+      </div>
+    );
   }
 
   const updateFormData = (data: Partial<ParkSubmissionForm>) => {
