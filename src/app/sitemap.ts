@@ -9,6 +9,8 @@ import type { DogPark } from '@/types/dog-park'
 // Revalidate sitemap every hour
 export const revalidate = 3600
 
+// Sitemap includes all parks, cities, and blog pages (744+ URLs)
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_URL
   const currentDate = new Date()
