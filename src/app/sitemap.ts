@@ -125,11 +125,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     // Add city pages (includes both static cities and priority cities)
+    // Calculate lastModified based on most recent park update in each city
     const citySlugs = await getAllCitySlugs()
+    const { getCityContentBySlug } = await import('@/lib/parks-data')
+    
     for (const slug of citySlugs) {
+      // Get city content to find parks in this city
+      const cityContent = await getCityContentBySlug(slug)
+      
+      // Get the most recent lastUpdated date from parks in this city
+      let cityLastModified = currentDate
+      if (cityContent && cityContent.cityParks.length > 0) {
+        const parkDates = cityContent.cityParks
+          .map((park) => park.lastUpdated ? new Date(park.lastUpdated) : null)
+          .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
+        
+        if (parkDates.length > 0) {
+          cityLastModified = new Date(Math.max(...parkDates.map(d => d.getTime())))
+        }
+      }
+      
       cityPages.push({
         url: `${baseUrl}/cities/${slug}`,
-        lastModified: currentDate,
+        lastModified: cityLastModified,
         changeFrequency: 'weekly' as const,
         priority: 0.75,
       })
