@@ -2,20 +2,30 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 export const metadata: Metadata = {
-  title: 'About Indoor Dog Park - Our Mission & Story',
-  description: 'Learn about Indoor Dog Park and our mission to help dog owners find the best indoor dog parks, play areas, and facilities. Discover our story and commitment to canine wellness.',
+  title: 'About Us | Indoor Dog Park Directory & Reviews',
+  description: 'IndoorDogPark is the leading directory for indoor dog parks, dog-friendly establishments, and canine play areas. Learn about our mission to connect pet parents with safe, climate-controlled play spaces.',
   keywords: [
     'about indoor dog park',
-    'indoor dog park mission',
     'dog park directory',
-    'canine wellness',
-    'dog recreation facilities',
-    'indoor dog activities'
+    'indoor dog parks california',
+    'dog friendly places',
+    'canine recreation',
+    'pet wellness',
+    'dog park reviews'
   ],
   openGraph: {
-    title: 'About Indoor Dog Park - Our Mission & Story',
-    description: 'Learn about Indoor Dog Park and our mission to help dog owners find the best indoor dog parks, play areas, and facilities.',
+    title: 'About Us | Indoor Dog Park Directory',
+    description: 'Connecting dog owners with the best indoor dog parks and play areas across California. Discover our mission and community.',
     url: 'https://www.indoordogpark.org/about',
+    type: 'website',
+    images: [
+      {
+        url: '/images/hero/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Indoor Dog Park - Connecting Pet Parents',
+      },
+    ],
   },
 };
 

@@ -4,8 +4,22 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - IndoorDogPark',
-  description: 'Get in touch with IndoorDogPark. We\'re here to help with your questions and feedback.',
+  title: 'Contact Us | Indoor Dog Park Support & Feedback',
+  description: 'Have questions about our dog park directory? Contact the IndoorDogPark team for support, park listings, or partnership inquiries. We respond within 24 hours.',
+  keywords: [
+    'contact indoor dog park',
+    'customer support',
+    'list a dog park',
+    'report issue',
+    'partnership inquiries',
+    'feedback'
+  ],
+  openGraph: {
+    title: 'Contact Us | Indoor Dog Park',
+    description: 'Get in touch with the IndoorDogPark team. We are here to help with directory listings, support, and partnerships.',
+    url: 'https://www.indoordogpark.org/contact',
+    type: 'website',
+  },
 };
 
 export default function ContactPage() {

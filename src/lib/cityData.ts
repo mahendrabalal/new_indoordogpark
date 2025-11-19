@@ -209,3 +209,19 @@ export function getFeaturedParks(parks: DogPark[], limit: number = 16): DogPark[
 
   return featured.slice(0, limit);
 }
+
+/**
+ * Get nearby cities based on state
+ */
+export function getNearbyCities(parks: DogPark[], currentCity: string, currentState: string, limit: number = 6): CityData[] {
+  const allCities = getAllCities(parks);
+  
+  // Filter cities in the same state, excluding current city
+  const nearby = allCities.filter(city => 
+    city.state === currentState && 
+    city.name.toLowerCase() !== currentCity.toLowerCase()
+  );
+  
+  // Sort by park count (proxy for popularity)
+  return nearby.sort((a, b) => b.parkCount - a.parkCount).slice(0, limit);
+}

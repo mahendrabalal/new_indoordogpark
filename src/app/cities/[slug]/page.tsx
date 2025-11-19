@@ -105,7 +105,7 @@ export default async function CityPage({ params }: CityPageProps) {
     notFound();
   }
 
-  const { city, cityParks, parksByType, stats, customContent } = cityContent;
+  const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
 
   const featuredImage =
     city.featuredImage ||
@@ -123,6 +123,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
   const indoorShare = stats.totalParks > 0 ? Math.round((indoorCount / stats.totalParks) * 100) : 0;
+  const showThinContentPrompt = stats.totalParks < 2;
   const heroChips = [
     { label: 'Verified parks', value: formatNumber(stats.totalParks) },
     { label: 'Avg rating', value: `${stats.avgRating.toFixed(1)} / 5` },
@@ -641,8 +642,60 @@ export default async function CityPage({ params }: CityPageProps) {
                 </div>
               );
             })}
+
+            {showThinContentPrompt && (
+              <div className="thin-content-box" style={{ marginTop: '2rem', padding: '2rem', background: '#f8fafc', borderRadius: '12px', textAlign: 'center' }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Know a great dog park in {city.name}?</h3>
+                <p style={{ color: '#64748b', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem' }}>
+                  We are actively scouting for more indoor and dog-friendly parks in {city.name}. 
+                  If you know a hidden gem, help the community by adding it to our directory.
+                </p>
+                <Link href="/list-property" className="hero-cta primary" style={{ display: 'inline-flex' }}>
+                  Submit a Park
+                </Link>
+              </div>
+            )}
           </div>
         </section>
+
+        {/* Nearby Cities Section */}
+        {nearbyCities && nearbyCities.length > 0 && (
+          <section id="nearby-cities" className="nearby-cities-section">
+            <div className="section-shell">
+              <div className="section-heading">
+                <span className="section-eyebrow">Explore the region</span>
+                <h2>Dog parks near {city.name}</h2>
+                <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
+              </div>
+              
+              <div className="nearby-cities-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+                {nearbyCities.map((nearby) => (
+                  <Link key={nearby.slug} href={`/cities/${nearby.slug}`} className="nearby-city-card" style={{ display: 'block', textDecoration: 'none', borderRadius: '12px', overflow: 'hidden', background: 'white', border: '1px solid #e2e8f0', transition: 'transform 0.2s' }}>
+                    <div className="nearby-city-image" style={{ position: 'relative', height: '180px', backgroundColor: '#f1f5f9' }}>
+                      {nearby.featuredImage ? (
+                        <Image 
+                          src={nearby.featuredImage} 
+                          alt={`Dog parks in ${nearby.name}, ${nearby.state}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 300px"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      ) : (
+                        <div className="city-card-placeholder" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
+                          <i className="bi bi-image" style={{ fontSize: '2rem' }} />
+                        </div>
+                      )}
+                    </div>
+                    <div className="nearby-city-content" style={{ padding: '1rem' }}>
+                      <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem', color: '#0f172a' }}>{nearby.name}</h3>
+                      <p style={{ fontSize: '0.875rem', color: '#64748b' }}>{nearby.parkCount} parks · {nearby.avgRating.toFixed(1)} avg rating</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section id="faq-section" className="city-faq-section">
           <div className="section-shell">

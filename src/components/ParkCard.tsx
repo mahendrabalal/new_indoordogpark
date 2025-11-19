@@ -87,7 +87,7 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
       <div className="park-card-image-wrapper">
         <Image
           src={imageUrl}
-          alt={`${park.name} - Dog Park in ${park.city}, ${park.state}`}
+          alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Indoor Dog Park`}
           width={400}
           height={250}
           className="park-card-image"

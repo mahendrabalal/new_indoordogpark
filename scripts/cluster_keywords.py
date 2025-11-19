@@ -248,6 +248,154 @@ def get_intent_name(intent: str) -> str:
     return intent_map.get(intent, "Unknown")
 
 
+def calculate_seo_opportunity_score(kw_data: Dict[str, Any]) -> float:
+    """
+    Calculate SEO opportunity score (0-100).
+    Higher score = better opportunity (high volume, low difficulty, good CPC).
+    
+    Formula: (volume_score * 0.4) + (difficulty_inverse * 0.4) + (cpc_score * 0.2)
+    """
+    volume = kw_data.get("volume", 0)
+    difficulty = kw_data.get("seo_difficulty", 100)
+    cpc = kw_data.get("cpc", 0)
+    
+    # Volume score (0-100): log scale to normalize
+    volume_score = min(100, (volume / 200) * 100) if volume > 0 else 0
+    
+    # Difficulty inverse score (0-100): lower difficulty = higher score
+    difficulty_inverse = max(0, 100 - (difficulty * 2))
+    
+    # CPC score (0-100): higher CPC = higher value
+    cpc_score = min(100, (cpc / 5) * 100) if cpc > 0 else 0
+    
+    # Weighted combination
+    opportunity_score = (volume_score * 0.4) + (difficulty_inverse * 0.4) + (cpc_score * 0.2)
+    
+    return round(opportunity_score, 2)
+
+
+def generate_long_tail_variations(keyword: str, city: Optional[str] = None, state: Optional[str] = None) -> List[str]:
+    """
+    Generate long-tail keyword variations for better SEO coverage.
+    """
+    variations = []
+    base = keyword.lower()
+    
+    # Question-based variations
+    question_words = ["where", "what", "how", "best", "top", "nearby", "cheap", "affordable"]
+    for qw in question_words:
+        variations.append(f"{qw} {base}")
+        if city:
+            variations.append(f"{qw} {base} in {city}")
+        if state:
+            variations.append(f"{qw} {base} in {state}")
+    
+    # Modifier variations
+    modifiers = ["best", "top", "cheap", "affordable", "premium", "luxury", "24/7", "open now"]
+    for mod in modifiers:
+        if mod not in base:
+            variations.append(f"{mod} {base}")
+            if city:
+                variations.append(f"{base} {city} {mod}")
+    
+    # Local intent variations
+    local_modifiers = ["near me", "close to me", "nearby", "in my area"]
+    for local in local_modifiers:
+        if local not in base:
+            variations.append(f"{base} {local}")
+    
+    # Return top 10 most relevant
+    return variations[:10]
+
+
+def suggest_content_type(kw_data: Dict[str, Any], cluster_type: str) -> str:
+    """
+    Suggest content type based on keyword intent and cluster.
+    """
+    intent = kw_data.get("intent", "C")
+    keyword = kw_data.get("keyword", "").lower()
+    
+    # Transactional intent -> landing pages, booking pages
+    if intent == "T":
+        if "equipment" in keyword or "franchise" in keyword:
+            return "product_page"
+        return "booking_page"
+    
+    # Commercial intent -> city pages, location guides
+    if intent == "C":
+        if any(loc in keyword for loc in ["in ", "near me", "city", "state"]):
+            return "city_guide"
+        return "location_page"
+    
+    # Informational intent -> blog posts, guides, FAQs
+    if intent == "I":
+        if any(q in keyword for q in ["how", "what", "why", "best", "top"]):
+            return "how_to_guide"
+        if "photos" in keyword or "pictures" in keyword:
+            return "gallery_page"
+        return "blog_post"
+    
+    # Default
+    return "landing_page"
+
+
+def identify_low_hanging_fruit(keywords: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Identify low-hanging fruit: keywords with low difficulty but decent volume.
+    Criteria: difficulty < 20, volume >= 30, opportunity_score > 50
+    """
+    opportunities = []
+    
+    for kw_data in keywords:
+        difficulty = kw_data.get("seo_difficulty", 100)
+        volume = kw_data.get("volume", 0)
+        opportunity_score = calculate_seo_opportunity_score(kw_data)
+        
+        if difficulty < 20 and volume >= 30 and opportunity_score > 50:
+            opportunities.append({
+                **kw_data,
+                "opportunity_score": opportunity_score,
+                "priority": "high" if opportunity_score > 70 else "medium"
+            })
+    
+    # Sort by opportunity score descending
+    return sorted(opportunities, key=lambda x: x["opportunity_score"], reverse=True)
+
+
+def enhance_local_seo_metadata(keyword: str, city: Optional[str], state: Optional[str]) -> Dict[str, Any]:
+    """
+    Enhance keywords with local SEO metadata.
+    """
+    keyword_lower = keyword.lower()
+    
+    # Detect local intent signals
+    has_near_me = "near me" in keyword_lower or "nearby" in keyword_lower
+    has_proximity = any(phrase in keyword_lower for phrase in ["within", "close to", "in my area"])
+    has_local_modifier = any(phrase in keyword_lower for phrase in ["open now", "24/7", "today"])
+    
+    # Calculate local intent score (0-100)
+    local_score = 0
+    if has_near_me:
+        local_score += 40
+    if has_proximity:
+        local_score += 30
+    if has_local_modifier:
+        local_score += 20
+    if city:
+        local_score += 10
+    if state:
+        local_score += 5
+    
+    return {
+        "has_local_intent": local_score >= 40,
+        "local_intent_score": min(100, local_score),
+        "has_near_me": has_near_me,
+        "has_proximity_modifier": has_proximity,
+        "has_time_sensitivity": has_local_modifier,
+        "recommended_page_type": "local_landing_page" if local_score >= 50 else "city_page"
+    }
+
+
 def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
     Cluster keywords by multiple dimensions.
@@ -279,7 +427,8 @@ def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
             cluster_id = f"location_region_{region.lower().replace(' ', '_')}"
             location_clusters[cluster_id].append(kw_data)
         else:
-            location_clusters["location_none"].append(kw_data)
+            cluster_id = "location_none"
+            location_clusters[cluster_id].append(kw_data)
         
         # Intent clustering
         intent_cluster_id = f"intent_{intent}"
@@ -295,12 +444,28 @@ def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
         volume_cluster_id = f"volume_{volume_tier}"
         volume_clusters[volume_cluster_id].append(kw_data)
         
-        # Store assignments
+        # Calculate SEO opportunity score
+        opportunity_score = calculate_seo_opportunity_score(kw_data)
+        
+        # Generate long-tail variations
+        long_tail_variations = generate_long_tail_variations(keyword, city, state)
+        
+        # Suggest content type
+        content_type = suggest_content_type(kw_data, semantic_pattern)
+        
+        # Enhance with local SEO metadata
+        local_seo_metadata = enhance_local_seo_metadata(keyword, city, state)
+        
+        # Store assignments with SEO enhancements
         keyword_assignments[keyword] = {
-            "location_cluster": cluster_id if (city or state or region) else "location_none",
+            "location_cluster": cluster_id,
             "intent_cluster": intent_cluster_id,
             "semantic_cluster": semantic_cluster_id,
-            "volume_cluster": volume_cluster_id
+            "volume_cluster": volume_cluster_id,
+            "opportunity_score": opportunity_score,
+            "content_type": content_type,
+            "long_tail_variations": long_tail_variations,
+            "local_seo": local_seo_metadata
         }
     
     # Calculate cluster statistics
@@ -311,6 +476,7 @@ def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
                 "avg_cpc": 0.0,
                 "avg_pd": 0.0,
                 "avg_seo_difficulty": 0.0,
+                "avg_opportunity_score": 0.0,
                 "keyword_count": 0
             }
         
@@ -318,12 +484,14 @@ def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
         cpc_values = [kw.get("cpc", 0) for kw in cluster_keywords if kw.get("cpc", 0) > 0]
         pd_values = [kw.get("pd", 0) for kw in cluster_keywords if kw.get("pd", 0) > 0]
         seo_values = [kw.get("seo_difficulty", 0) for kw in cluster_keywords if kw.get("seo_difficulty", 0) > 0]
+        opportunity_scores = [calculate_seo_opportunity_score(kw) for kw in cluster_keywords]
         
         return {
             "total_volume": total_volume,
             "avg_cpc": sum(cpc_values) / len(cpc_values) if cpc_values else 0.0,
             "avg_pd": sum(pd_values) / len(pd_values) if pd_values else 0.0,
             "avg_seo_difficulty": sum(seo_values) / len(seo_values) if seo_values else 0.0,
+            "avg_opportunity_score": sum(opportunity_scores) / len(opportunity_scores) if opportunity_scores else 0.0,
             "keyword_count": len(cluster_keywords)
         }
     
@@ -371,16 +539,21 @@ def cluster_keywords(keywords: List[Dict[str, Any]]) -> Dict[str, Any]:
             "keywords_data": cluster_keywords
         }
     
+    # Identify low-hanging fruit opportunities
+    low_hanging_fruit = identify_low_hanging_fruit(keywords)
+    
     return {
         "clusters": clusters,
         "keyword_assignments": keyword_assignments,
+        "low_hanging_fruit": low_hanging_fruit,
         "summary": {
             "total_keywords": len(keywords),
             "total_clusters": len(clusters),
             "location_clusters": len(location_clusters),
             "intent_clusters": len(intent_clusters),
             "semantic_clusters": len(semantic_clusters),
-            "volume_clusters": len(volume_clusters)
+            "volume_clusters": len(volume_clusters),
+            "low_hanging_fruit_count": len(low_hanging_fruit)
         }
     }
 
@@ -398,6 +571,19 @@ def print_cluster_summary(cluster_data: Dict[str, Any]) -> None:
     print(f"  - Intent Clusters: {summary['intent_clusters']}")
     print(f"  - Semantic Clusters: {summary['semantic_clusters']}")
     print(f"  - Volume Clusters: {summary['volume_clusters']}")
+    print(f"  - Low-Hanging Fruit Opportunities: {summary.get('low_hanging_fruit_count', 0)}")
+    
+    # Print top low-hanging fruit
+    if cluster_data.get("low_hanging_fruit"):
+        print(f"\n{'=' * 80}")
+        print("TOP LOW-HANGING FRUIT OPPORTUNITIES")
+        print("=" * 80)
+        for i, opp in enumerate(cluster_data["low_hanging_fruit"][:10], 1):
+            print(f"\n{i}. {opp['keyword']}")
+            print(f"   Opportunity Score: {opp['opportunity_score']:.1f}/100")
+            print(f"   Volume: {opp['volume']:,} | Difficulty: {opp['seo_difficulty']} | CPC: ${opp.get('cpc', 0):.2f}")
+            print(f"   Priority: {opp['priority'].upper()}")
+            print(f"   Content Type: {cluster_data['keyword_assignments'][opp['keyword']]['content_type']}")
     
     clusters = cluster_data["clusters"]
     
@@ -429,6 +615,7 @@ def print_cluster_summary(cluster_data: Dict[str, Any]) -> None:
             print(f"  Total Volume: {stats['total_volume']:,}")
             print(f"  Avg CPC: ${stats['avg_cpc']:.2f}")
             print(f"  Avg SEO Difficulty: {stats['avg_seo_difficulty']:.1f}")
+            print(f"  Avg Opportunity Score: {stats.get('avg_opportunity_score', 0):.1f}/100")
             print(f"  Top Keywords:")
             for kw in cluster_info["keywords"][:5]:
                 print(f"    - {kw}")

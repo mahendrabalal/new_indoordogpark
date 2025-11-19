@@ -11,6 +11,7 @@ import {
   getCityStatistics,
   getParksByCity,
   getParksByType,
+  getNearbyCities,
 } from '@/lib/cityData';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
@@ -31,6 +32,7 @@ export interface CityContentPayload {
   parksByType: Record<string, DogPark[]>;
   stats: CityStats;
   customContent?: CityCustomContent;
+  nearbyCities?: CityData[];
 }
 
 const californiaDataPath = path.join(process.cwd(), 'public/data/california.json');
@@ -373,12 +375,15 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       state: priorityCity.state,
     };
 
+    const nearbyCities = getNearbyCities(staticParks, priorityCity.city, priorityCity.state);
+
     return {
       city: priorityCityData,
       cityParks: allCityParks,
       parksByType,
       stats,
       customContent: priorityCity.customContent,
+      nearbyCities,
     };
   }
 
@@ -402,11 +407,14 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       parkCount: allCityParks.length,
     };
 
+    const nearbyCities = getNearbyCities(staticParks, city.name, city.state);
+
     return {
       city: hydratedCity,
       cityParks: allCityParks,
       parksByType,
       stats,
+      nearbyCities,
     };
   }
 
