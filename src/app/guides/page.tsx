@@ -44,8 +44,28 @@ const resourceDownloads = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Dog Park Guides & Playbooks',
-  description: 'Curated guides that help dog owners, caretakers, and park teams plan unforgettable indoor adventures.',
+  title: 'Dog Park Guides & Playbooks | Indoor Dog Park Resources',
+  description: 'Expert guides for indoor dog park visits, training tips, seasonal planning, and safety checklists. Curated resources for dog owners and park operators in California.',
+  keywords: [
+    'dog park guides',
+    'indoor dog park tips',
+    'dog training guides',
+    'pet safety checklists',
+    'dog park planning',
+    'California dog parks',
+    'dog socialization guides',
+    'indoor pet activities'
+  ],
+  openGraph: {
+    title: 'Dog Park Guides & Playbooks | Indoor Dog Park Resources',
+    description: 'Expert guides for indoor dog park visits, training tips, and seasonal planning for California dog owners.',
+    url: 'https://www.indoordogpark.org/guides',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function GuidesPage() {

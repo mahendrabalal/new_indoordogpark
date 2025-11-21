@@ -270,7 +270,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const categories = await getCachedCategories()
     for (const category of categories) {
       categoryPages.push({
-        url: `${baseUrl}/blog/category/${category.slug}`,
+        url: `${baseUrl}/category/${category.slug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.6,
@@ -281,7 +281,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const tags = await getCachedTags()
     for (const tag of tags) {
       tagPages.push({
-        url: `${baseUrl}/blog/tag/${tag.slug}`,
+        url: `${baseUrl}/tag/${tag.slug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.5,

@@ -121,7 +121,7 @@ export default function CategoryBlogPage({ category, page, perPage }: CategoryBl
             {pagination.totalPages > 1 && (
               <BlogPagination
                 pagination={pagination}
-                basePath={`/blog/category/${category.slug}`}
+                basePath={`/category/${category.slug}`}
                 className="mt-8"
               />
             )}

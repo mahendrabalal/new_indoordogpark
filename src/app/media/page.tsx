@@ -73,8 +73,28 @@ const storyAngles = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Media & Press Resources - IndoorDogPark',
-  description: 'Press-ready facts, research, and imagery for journalists covering indoor dog parks, pet wellness, and urban recreation.',
+  title: 'Media & Press Resources | Indoor Dog Park Press Kit',
+  description: 'Press resources, research data, and media assets for journalists covering indoor dog parks, pet wellness, and urban recreation in California.',
+  keywords: [
+    'indoor dog park press',
+    'pet industry media',
+    'dog park research',
+    'pet wellness news',
+    'California pet industry',
+    'dog recreation trends',
+    'pet business media kit',
+    'urban pet facilities'
+  ],
+  openGraph: {
+    title: 'Media & Press Resources | Indoor Dog Park Press Kit',
+    description: 'Press resources and research data for journalists covering indoor dog parks and pet wellness.',
+    url: 'https://www.indoordogpark.org/media',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function MediaPage() {

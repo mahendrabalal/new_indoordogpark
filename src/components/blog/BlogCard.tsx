@@ -53,7 +53,7 @@ export default function BlogCard({
             {post.categories.slice(0, 2).map((category) => (
               <Link
                 key={category.id}
-                href={`/blog/category/${category.slug}`}
+                href={`/category/${category.slug}`}
                 className="text-xs font-semibold uppercase tracking-wide text-purple-600"
               >
                 {category.name}

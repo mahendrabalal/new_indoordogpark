@@ -207,6 +207,18 @@ const nextConfig = {
         destination: '/:path+',
         permanent: true,
       },
+      // Redirect old blog category URLs to new structure
+      {
+        source: '/blog/category/:slug',
+        destination: '/category/:slug',
+        permanent: true,
+      },
+      // Redirect old blog tag URLs to new structure
+      {
+        source: '/blog/tag/:slug',
+        destination: '/tag/:slug',
+        permanent: true,
+      },
       // Add more redirects as needed for old URLs or common misspellings
     ];
   },

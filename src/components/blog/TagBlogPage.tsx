@@ -121,7 +121,7 @@ export default function TagBlogPage({ tag, page, perPage }: TagBlogPageProps) {
             {pagination.totalPages > 1 && (
               <BlogPagination
                 pagination={pagination}
-                basePath={`/blog/tag/${tag.slug}`}
+                basePath={`/tag/${tag.slug}`}
                 className="mt-8"
               />
             )}

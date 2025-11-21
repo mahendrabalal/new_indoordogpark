@@ -10,8 +10,26 @@ const cookieCategories = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Cookie Preferences - IndoorDogPark',
-  description: 'Manage cookie settings for IndoorDogPark and learn how we use first- and third-party data.',
+  title: 'Cookie Preferences | Privacy Settings - Indoor Dog Park',
+  description: 'Manage your cookie preferences and privacy settings for IndoorDogPark. Control how we use cookies for functionality, analytics, and marketing.',
+  keywords: [
+    'cookie preferences',
+    'privacy settings',
+    'cookie policy',
+    'data privacy',
+    'website cookies',
+    'privacy controls'
+  ],
+  openGraph: {
+    title: 'Cookie Preferences | Privacy Settings - Indoor Dog Park',
+    description: 'Manage your cookie preferences and privacy settings for IndoorDogPark.',
+    url: 'https://www.indoordogpark.org/cookie-preferences',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function CookiePreferencesPage() {

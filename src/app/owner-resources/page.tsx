@@ -35,8 +35,28 @@ const supportChannels = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Owner Resources - IndoorDogPark',
-  description: 'Guides, templates, and coaching for indoor dog park operators and dog-friendly business owners.',
+  title: 'Owner Resources | Indoor Dog Park Business Guides',
+  description: 'Business guides, templates, and coaching resources for indoor dog park operators and dog-friendly business owners in California.',
+  keywords: [
+    'indoor dog park business',
+    'dog park operations',
+    'pet business resources',
+    'dog facility management',
+    'pet business startup',
+    'dog park templates',
+    'California pet business',
+    'dog daycare resources'
+  ],
+  openGraph: {
+    title: 'Owner Resources | Indoor Dog Park Business Guides',
+    description: 'Business guides and resources for indoor dog park operators and pet business owners.',
+    url: 'https://www.indoordogpark.org/owner-resources',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function OwnerResourcesPage() {

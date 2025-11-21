@@ -61,8 +61,26 @@ const termsSections = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - IndoorDogPark',
-  description: 'Legal terms governing the use of IndoorDogPark, including listings, reviews, and paid services.',
+  title: 'Terms of Service | Legal Terms - Indoor Dog Park',
+  description: 'Legal terms and conditions governing the use of IndoorDogPark directory, including listings, reviews, and paid services for dog park businesses.',
+  keywords: [
+    'terms of service',
+    'legal terms',
+    'user agreement',
+    'service terms',
+    'dog park directory terms',
+    'business listing terms'
+  ],
+  openGraph: {
+    title: 'Terms of Service | Legal Terms - Indoor Dog Park',
+    description: 'Legal terms and conditions for using the IndoorDogPark directory and services.',
+    url: 'https://www.indoordogpark.org/terms',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

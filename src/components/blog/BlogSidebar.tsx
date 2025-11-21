@@ -73,7 +73,7 @@ export default function BlogSidebar({
             {topCategories.map((category) => (
               <li key={category.id}>
                 <Link
-                  href={`/blog/category/${category.slug}`}
+                  href={`/category/${category.slug}`}
                   className="group flex items-center justify-between rounded-2xl border border-transparent px-3 py-2 transition hover:border-purple-200 hover:bg-purple-50"
                 >
                   <div>
@@ -101,7 +101,7 @@ export default function BlogSidebar({
             {topTags.map((tag) => (
               <Link
                 key={tag.id}
-                href={`/blog/tag/${tag.slug}`}
+                href={`/tag/${tag.slug}`}
                 className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-700"
               >
                 #{tag.name}
