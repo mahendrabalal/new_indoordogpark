@@ -147,6 +147,11 @@ export default function robots(): MetadataRoute.Robots {
         ],
         disallow: '/',
       },
+      // Add crawl delay for any remaining bots to prevent server overload
+      {
+        userAgent: '*',
+        crawlDelay: 1,
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
