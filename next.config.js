@@ -57,6 +57,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'streetviewpixels-pa.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'streetviewpixels-na.googleapis.com',
+      },
       ...(supabaseHostname
         ? [
             {
@@ -217,6 +225,72 @@ const nextConfig = {
       {
         source: '/blog/tag/:slug',
         destination: '/tag/:slug',
+        permanent: true,
+      },
+      // Redirect old park slugs to new city-inclusive slugs
+      {
+        source: '/parks/oneida-run',
+        destination: '/parks/oneida-run-bronx',
+        permanent: true,
+      },
+      {
+        source: '/parks/central-bark-fort-lauderdale',
+        destination: '/parks/central-bark-fort-lauderdale-oakland-park',
+        permanent: true,
+      },
+      {
+        source: '/parks/pet-play-place',
+        destination: '/parks/pet-play-place-kennesaw',
+        permanent: true,
+      },
+      {
+        source: '/parks/barking-hound-village-buckhead',
+        destination: '/parks/barking-hound-village-buckhead-atlanta',
+        permanent: true,
+      },
+      {
+        source: '/parks/woofs-n-whiskers',
+        destination: '/parks/woofs-n-whiskers-brooklyn',
+        permanent: true,
+      },
+      {
+        source: '/parks/barking-hound-village-cheshire',
+        destination: '/parks/barking-hound-village-cheshire-atlanta',
+        permanent: true,
+      },
+      {
+        source: '/parks/petsmart-doggie-day-camp',
+        destination: '/parks/petsmart-doggie-day-camp-secaucus',
+        permanent: true,
+      },
+      {
+        source: '/parks/zen-canine-club',
+        destination: '/parks/zen-canine-club-miami-lakes',
+        permanent: true,
+      },
+      {
+        source: '/parks/hi-bk-doggy-daycare',
+        destination: '/parks/hi-bk-doggy-daycare-brooklyn',
+        permanent: true,
+      },
+      {
+        source: '/parks/the-martial-arfs-dog-training-fitness-center',
+        destination: '/parks/the-martial-arfs-dog-training-fitness-center-carle-place',
+        permanent: true,
+      },
+      {
+        source: '/parks/pet-super-nanny',
+        destination: '/parks/pet-super-nanny-brooklyn',
+        permanent: true,
+      },
+      {
+        source: '/parks/prospect-park-carousel',
+        destination: '/parks/prospect-park-carousel-brooklyn',
+        permanent: true,
+      },
+      {
+        source: '/parks/digs-canine-hotel-spa-daycare',
+        destination: '/parks/digs-canine-hotel-spa-daycare-brooklyn',
         permanent: true,
       },
       // Add more redirects as needed for old URLs or common misspellings
