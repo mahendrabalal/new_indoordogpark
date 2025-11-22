@@ -333,7 +333,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   let normalizedSlug = slug;
   try {
     normalizedSlug = decodeURIComponent(slug);
-  } catch (e) {
+  } catch {
     // If decoding fails, use original slug
     normalizedSlug = slug;
   }
