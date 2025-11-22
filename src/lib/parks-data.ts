@@ -2,7 +2,7 @@ import { readFile } from 'fs/promises';
 import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
-import { getPriorityCityBySlug, getPriorityCitySlugs, priorityCityContent } from '@/data/priorityCityContent';
+import { getPriorityCityBySlug, getPriorityCityByName, getPriorityCitySlugs, priorityCityContent } from '@/data/priorityCityContent';
 import {
   CityData,
   CityStats,
@@ -329,8 +329,29 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   const staticParks = await loadStaticParks();
   const userSubmissions = await loadUserSubmissions();
   
+  // Normalize slug: decode URL encoding and handle malformed slugs
+  let normalizedSlug = slug;
+  try {
+    normalizedSlug = decodeURIComponent(slug);
+  } catch (e) {
+    // If decoding fails, use original slug
+    normalizedSlug = slug;
+  }
+  
+  // Clean up malformed slugs (e.g., "steiner-st-&" -> "steiner-st")
+  normalizedSlug = normalizedSlug.replace(/[&?=]/g, '').trim();
+  
   // Check priority cities FIRST (they have custom content and should take precedence)
-  const priorityCity = getPriorityCityBySlug(slug);
+  // Try exact match first, then try variations (e.g., "chicago" -> "chicago-il")
+  let priorityCity = getPriorityCityBySlug(normalizedSlug);
+  if (!priorityCity) {
+    // Try to find by city name only (e.g., "chicago" should match "chicago-il")
+    const priorityCityByName = getPriorityCityByName(normalizedSlug);
+    if (priorityCityByName) {
+      priorityCity = priorityCityByName;
+    }
+  }
+  
   if (priorityCity) {
     // For priority cities: merge priority parks + static parks + user submissions
     const priorityParks = priorityCity.parks;

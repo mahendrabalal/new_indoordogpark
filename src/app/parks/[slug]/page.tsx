@@ -2,7 +2,7 @@ import dynamicImport from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
@@ -88,6 +88,12 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   if (!park) {
     notFound();
+  }
+
+  // Redirect to canonical slug if different (301 permanent redirect for SEO)
+  const canonicalSlug = park.slug || park.id;
+  if (canonicalSlug !== params.slug) {
+    permanentRedirect(`/parks/${canonicalSlug}`);
   }
 
   const allParks = await getAllStaticParks();

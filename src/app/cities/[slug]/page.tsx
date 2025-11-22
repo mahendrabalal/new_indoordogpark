@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParkCard from '@/components/ParkCard';
@@ -60,11 +60,13 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   }
 
   const { city, stats } = cityContent;
+  // Use canonical slug (city.slug) not params.slug for SEO
+  const canonicalSlug = city.slug;
   const cityTitle = `Complete Dog Park Guide: ${city.name}, ${city.state}`;
   const pageDescription = createMetaDescription(
     `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with interactive maps.`
   );
-  const canonicalUrl = `${SITE_URL}/cities/${params.slug}`;
+  const canonicalUrl = `${SITE_URL}/cities/${canonicalSlug}`;
   const featuredImage =
     city.featuredImage ||
     'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
@@ -103,6 +105,12 @@ export default async function CityPage({ params }: CityPageProps) {
 
   if (!cityContent) {
     notFound();
+  }
+
+  // Redirect to canonical slug if the current slug doesn't match
+  // e.g., /cities/portland -> /cities/portland-or (301 permanent redirect for SEO)
+  if (cityContent.city.slug !== params.slug) {
+    permanentRedirect(`/cities/${cityContent.city.slug}`);
   }
 
   const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
@@ -146,7 +154,9 @@ export default async function CityPage({ params }: CityPageProps) {
   const heroChipData = customContent?.heroChips || heroChips;
   const heroImageAlt = customContent?.heroImageAlt || `${city.name} dog park landscape`;
 
-  const canonicalUrl = `${SITE_URL}/cities/${params.slug}`;
+  // Use canonical slug for all URLs
+  const canonicalSlug = city.slug;
+  const canonicalUrl = `${SITE_URL}/cities/${canonicalSlug}`;
   const pageDescription =
     customContent?.heroDescription ||
     `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;
