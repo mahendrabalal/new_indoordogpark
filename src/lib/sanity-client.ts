@@ -116,6 +116,17 @@ export const queries = {
 
   // Get total count of posts
   postCount: `count(*[_type == "post" && !(_id in path("drafts.**"))])`,
+  
+  // Get count of posts by category
+  postCountByCategory: `count(*[_type == "post" && references(*[_type=="category" && slug.current == $categorySlug]._id) && !(_id in path("drafts.**"))])`,
+  
+  // Get count of posts by tag
+  postCountByTag: `count(*[_type == "post" && references(*[_type=="tag" && slug.current == $tagSlug]._id) && !(_id in path("drafts.**"))])`,
+  
+  // Get count of posts by search
+  postCountBySearch: `count(*[_type == "post" && !(_id in path("drafts.**")) && 
+    (title match $searchTerm || excerpt match $searchTerm || pt::text(body) match $searchTerm)
+  ])`,
 
   // Fetch all categories
   categories: `*[_type == "category"] | order(title asc) {
@@ -165,13 +176,42 @@ export const queries = {
     title,
     slug,
     excerpt,
+    "content": body,
     publishedAt,
+    _updatedAt,
     mainImage {
       asset->{
         _id,
-        url
+        url,
+        metadata {
+          dimensions
+        }
       },
-      alt
+      alt,
+      caption
+    },
+    author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    categories[]->{
+      _id,
+      title,
+      slug,
+      description
+    },
+    tags[]->{
+      _id,
+      title,
+      slug
     }
   }`,
 
@@ -181,13 +221,42 @@ export const queries = {
     title,
     slug,
     excerpt,
+    "content": body,
     publishedAt,
+    _updatedAt,
     mainImage {
       asset->{
         _id,
-        url
+        url,
+        metadata {
+          dimensions
+        }
       },
-      alt
+      alt,
+      caption
+    },
+    author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    categories[]->{
+      _id,
+      title,
+      slug,
+      description
+    },
+    tags[]->{
+      _id,
+      title,
+      slug
     }
   }`,
 };

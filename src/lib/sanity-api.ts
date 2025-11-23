@@ -258,7 +258,18 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
     // Use regular client with CDN for performance
     // Cache invalidation handled via Next.js cache tags and revalidation
     const sanityPosts = await sanityClient.fetch<SanityPost[]>(query, params);
-    const totalCount = await sanityClient.fetch<number>(queries.postCount);
+    
+    // Get the correct total count based on the filter
+    let totalCount: number;
+    if (searchParams.category) {
+      totalCount = await sanityClient.fetch<number>(queries.postCountByCategory, { categorySlug: searchParams.category });
+    } else if (searchParams.tag) {
+      totalCount = await sanityClient.fetch<number>(queries.postCountByTag, { tagSlug: searchParams.tag });
+    } else if (searchParams.search) {
+      totalCount = await sanityClient.fetch<number>(queries.postCountBySearch, { searchTerm: `*${searchParams.search}*` });
+    } else {
+      totalCount = await sanityClient.fetch<number>(queries.postCount);
+    }
 
     const posts = sanityPosts.map(sanityPostToBlogPost);
 

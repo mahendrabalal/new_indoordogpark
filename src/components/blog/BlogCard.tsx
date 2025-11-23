@@ -31,9 +31,9 @@ export default function BlogCard({
 
   return (
     <div
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl ${className}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${className}`}
     >
-      {/* Featured Image */}
+      {/* Featured Image with Tags Overlay */}
       {featuredImage && (
         <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/9] overflow-hidden">
           <Image
@@ -43,31 +43,40 @@ export default function BlogCard({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          {/* Tags Overlay */}
+          {post.categories.length > 0 && (
+            <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+              {post.categories.slice(0, 2).map((category) => (
+                <span
+                  key={category.id}
+                  className="rounded-full bg-[#FF5722]/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
+                >
+                  {category.name}
+                </span>
+              ))}
+            </div>
+          )}
         </Link>
       )}
 
       <div className="flex h-full flex-col p-6">
-        {/* Category */}
-        {showCategory && post.categories.length > 0 && (
-          <div className="mb-4 flex flex-wrap gap-2">
-            {post.categories.slice(0, 2).map((category) => (
-              <Link
-                key={category.id}
-                href={`/category/${category.slug}`}
-                className="text-xs font-semibold uppercase tracking-wide text-purple-600"
-              >
-                {category.name}
-              </Link>
-            ))}
-          </div>
-        )}
-
         {/* Title */}
         <Link href={`/blog/${post.slug}`} className="mb-3 block">
-          <h3 className="line-clamp-2 text-xl font-semibold text-gray-900 transition-colors duration-200 group-hover:text-purple-600">
+          <h3 className="line-clamp-2 text-xl font-bold text-gray-900 transition-colors duration-200 group-hover:text-[#FF5722]">
             {post.title}
           </h3>
         </Link>
+
+        {/* Date */}
+        {showDate && (
+          <time dateTime={post.date} className="mb-3 block text-sm text-gray-500">
+            {new Date(post.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </time>
+        )}
 
         {/* Excerpt */}
         {showExcerpt && post.excerpt && (
@@ -77,68 +86,16 @@ export default function BlogCard({
           />
         )}
 
-        <div className="mt-auto space-y-4">
-          {/* Meta Information */}
-          <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-gray-500">
-            <div className="flex flex-wrap items-center gap-3">
-              {/* Author */}
-              {showAuthor && post.author && (
-                <div className="flex items-center gap-2">
-                  {post.author.avatar_urls?.['48'] && (
-                    <Image
-                      src={post.author.avatar_urls['48']}
-                      alt={post.author.name}
-                      width={32}
-                      height={32}
-                      className="h-8 w-8 rounded-full object-cover"
-                    />
-                  )}
-                  <span className="font-medium text-gray-900">{post.author.name}</span>
-                </div>
-              )}
-
-              {/* Date */}
-              {showDate && (
-                <time dateTime={post.date} className="text-gray-500">
-                  {formatDistanceToNow(new Date(post.date), { addSuffix: true })}
-                </time>
-              )}
-            </div>
-
-            {/* Reading time estimate */}
-            <div className="flex items-center gap-1 text-gray-500">
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 2" />
-              </svg>
-              <span>{readingTime} min read</span>
-            </div>
-          </div>
-
-          {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {post.tags.slice(0, 3).map((tag) => (
-                <Link
-                  key={tag.id}
-                  href={`/blog/tag/${tag.slug}`}
-                  className="text-xs font-medium text-gray-500 transition-colors hover:text-purple-600"
-                >
-                  #{tag.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
+        {/* Read More Link */}
+        <Link
+          href={`/blog/${post.slug}`}
+          className="mt-auto inline-flex items-center text-sm font-semibold text-[#FF5722] transition-colors hover:text-[#E64A19]"
+        >
+          Read more
+          <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { WPPaginationInfo } from '@/types/wordpress';
 
 interface BlogPaginationProps {
@@ -57,69 +56,31 @@ export default function BlogPagination({
   const visiblePages = getVisiblePages();
 
   return (
-    <div className={`flex items-center justify-between ${className}`}>
-      <div className="text-sm text-gray-700">
-        Showing <span className="font-medium">{(currentPage - 1) * pagination.perPage + 1}</span> to{' '}
-        <span className="font-medium">
-          {Math.min(currentPage * pagination.perPage, total)}
-        </span>{' '}
-        of <span className="font-medium">{total}</span> results
-      </div>
+    <div className={`flex items-center justify-center gap-2 ${className}`}>
+      {/* Page numbers */}
+      <div className="flex items-center gap-1">
+        {visiblePages.map((pageNum, index) => {
+          const prevPage = visiblePages[index - 1];
+          const showEllipsis = prevPage && pageNum - prevPage > 1;
 
-      <div className="flex items-center space-x-1">
-        {/* Previous button */}
-        <Link
-          href={currentPage > 1 ? getPageUrl(currentPage - 1) : '#'}
-          className={`relative inline-flex items-center px-3 py-2 text-sm font-medium rounded-md ${
-            currentPage > 1
-              ? 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
-              : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-          }`}
-          aria-disabled={currentPage <= 1}
-        >
-          <span className="sr-only">Previous</span>
-          <ChevronLeftIcon className="h-5 w-5" />
-        </Link>
-
-        {/* Page numbers */}
-        <div className="hidden md:flex space-x-1">
-          {visiblePages.map((pageNum, index) => {
-            const prevPage = visiblePages[index - 1];
-            const showEllipsis = prevPage && pageNum - prevPage > 1;
-
-            return (
-              <div key={pageNum} className="flex items-center space-x-1">
-                {showEllipsis && (
-                  <span className="px-3 py-2 text-sm text-gray-500">...</span>
-                )}
-                <Link
-                  href={getPageUrl(pageNum)}
-                  className={`relative inline-flex items-center px-3 py-2 text-sm font-medium rounded-md ${
-                    pageNum === currentPage
-                      ? 'bg-purple-600 border-purple-600 text-white'
-                      : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
-                  }`}
-                >
-                  {pageNum}
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Next button */}
-        <Link
-          href={currentPage < totalPages ? getPageUrl(currentPage + 1) : '#'}
-          className={`relative inline-flex items-center px-3 py-2 text-sm font-medium rounded-md ${
-            currentPage < totalPages
-              ? 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
-              : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-          }`}
-          aria-disabled={currentPage >= totalPages}
-        >
-          <span className="sr-only">Next</span>
-          <ChevronRightIcon className="h-5 w-5" />
-        </Link>
+          return (
+            <div key={pageNum} className="flex items-center gap-1">
+              {showEllipsis && (
+                <span className="px-2 text-sm text-gray-500">...</span>
+              )}
+              <Link
+                href={getPageUrl(pageNum)}
+                className={`relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition ${
+                  pageNum === currentPage
+                    ? 'bg-[#667eea] text-white shadow-sm'
+                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {pageNum}
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
