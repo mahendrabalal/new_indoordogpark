@@ -146,11 +146,11 @@ export function generateParkSchema(park: DogPark) {
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
 
   // Determine business type for schema
-  const schemaType = park.businessType === 'Dog Park' 
-    ? 'Park' 
-    : park.businessType === 'Indoor Dog Park'
-    ? 'SportsActivityLocation'
-    : 'LocalBusiness';
+  // Use LocalBusiness for all business-oriented parks to support aggregateRating
+  // Park type doesn't support aggregateRating, so we use LocalBusiness instead
+  const schemaType = park.businessType === 'Indoor Dog Park'
+    ? 'SportsActivityLocation' // Extends LocalBusiness, supports ratings
+    : 'LocalBusiness'; // Supports aggregateRating and all business properties
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const baseSchema: Record<string, any> = {
@@ -304,11 +304,10 @@ export function generateReviewSchemas(
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
-  const schemaType = park.businessType === 'Dog Park' 
-    ? 'Park' 
-    : park.businessType === 'Indoor Dog Park'
-    ? 'SportsActivityLocation'
-    : 'LocalBusiness';
+  // Use LocalBusiness for all business-oriented parks to support aggregateRating
+  const schemaType = park.businessType === 'Indoor Dog Park'
+    ? 'SportsActivityLocation' // Extends LocalBusiness, supports ratings
+    : 'LocalBusiness'; // Supports aggregateRating and all business properties
 
   // Create the itemReviewed object (the business being reviewed)
   // This is required by Google for Review snippets to work
@@ -394,7 +393,7 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
           '@type': 'ListItem',
           position: index + 1,
           item: {
-            '@type': park.businessType === 'Dog Park' ? 'Park' : park.businessType === 'Indoor Dog Park' ? 'SportsActivityLocation' : 'LocalBusiness',
+            '@type': park.businessType === 'Indoor Dog Park' ? 'SportsActivityLocation' : 'LocalBusiness',
             '@id': parkUrl,
             name: park.name,
             url: parkUrl,
