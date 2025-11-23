@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { formatDistanceToNow } from 'date-fns';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlogCard from '@/components/blog/BlogCard';
@@ -30,13 +29,6 @@ interface BlogPageProps {
     tag?: string;
   };
 }
-
-const estimateReadingTime = (content: string) => {
-  if (!content) return 4;
-  const plainText = content.replace(/<[^>]*>/g, ' ');
-  const words = plainText.split(/\s+/).filter(Boolean).length;
-  return Math.max(3, Math.ceil(words / 200));
-};
 
 const getFeaturedImage = (post: BlogPost) =>
   post.featuredImage?.media_details?.sizes?.large?.source_url ||
@@ -106,21 +98,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
 
   const hasPosts = posts.length > 0;
   const featuredPost = hasPosts ? posts[0] : null;
-  const spotlightPosts = hasPosts ? posts.slice(1, 3) : [];
-  const feedPosts = hasPosts ? posts.slice(3) : [];
-  const trendingPosts = posts.slice(0, Math.min(posts.length, 5));
   const categoryChips = categories.slice(0, 7);
-  const heroTags = tags.slice(0, 6);
-  const uniqueAuthors = new Set(posts.map((post) => post.author?.name).filter(Boolean));
-  const averageReadTime = posts.length
-    ? Math.round(posts.reduce((total, post) => total + estimateReadingTime(post.content), 0) / posts.length)
-    : 4;
-
-  const heroStats = [
-    { label: 'Stories published', value: pagination.total || posts.length },
-    { label: 'Avg read time', value: `${Math.max(3, averageReadTime)} min` },
-    { label: 'Expert contributors', value: uniqueAuthors.size || 1 },
-  ];
 
   const buildFilterHref = (overrides: Partial<{ search?: string; category?: string; tag?: string }>) => {
     const params = new URLSearchParams();
@@ -446,7 +424,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               </>
             ) : (
               <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-12 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">You're all caught up.</h3>
+                <h3 className="text-lg font-semibold text-gray-900">You&apos;re all caught up.</h3>
                 <p className="mt-2 text-gray-600">
                   Adjust your filters or search to surface more California dog park stories.
                 </p>

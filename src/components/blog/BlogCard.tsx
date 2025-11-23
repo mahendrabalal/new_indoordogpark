@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types/wordpress';
-import { formatDistanceToNow } from 'date-fns';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -15,19 +14,13 @@ interface BlogCardProps {
 export default function BlogCard({
   post,
   showExcerpt = true,
-  showAuthor = true,
   showDate = true,
-  showCategory = true,
   className = '',
 }: BlogCardProps) {
   const featuredImage =
     post.featuredImage?.media_details?.sizes?.large?.source_url ||
     post.featuredImage?.media_details?.sizes?.medium?.source_url ||
     post.featuredImage?.source_url;
-
-  const plainTextContent = post.content.replace(/<[^>]*>/g, ' ');
-  const wordCount = plainTextContent.split(/\s+/).filter(Boolean).length;
-  const readingTime = Math.max(3, Math.ceil(wordCount / 200));
 
   return (
     <div

@@ -26,7 +26,7 @@ export function extractHeadingsFromHtml(html: string): HeadingItem[] {
   if (!html) return [];
 
   const items: HeadingItem[] = [];
-  const idCounter: Record<string, number> = [];
+  const idCounter: Record<string, number> = {};
 
   // Match all heading tags (h1-h6) with their content
   const headingRegex = /<h([1-6])[^>]*>(.*?)<\/h[1-6]>/gi;

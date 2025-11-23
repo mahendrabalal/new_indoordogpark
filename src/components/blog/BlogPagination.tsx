@@ -14,7 +14,7 @@ export default function BlogPagination({
   className = '',
   query = {},
 }: BlogPaginationProps) {
-  const { currentPage, totalPages, total } = pagination;
+  const { currentPage, totalPages } = pagination;
 
   if (totalPages <= 1) {
     return null;

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlogPost } from '@/types/wordpress';
-import { CalendarIcon } from '@heroicons/react/24/outline';
 import StructuredData from '@/components/blog/StructuredData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
