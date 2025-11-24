@@ -10,7 +10,7 @@ type HomePageProps = {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
-const heroTitle = 'Find Indoor Dog Parks Near You | Indoor Dog Park';
+const heroTitle = 'Find Indoor Dog Parks Near Me | Indoor Dog Park';
 const heroDescription =
   'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
 const publishedTime = '2024-01-15T00:00:00.000Z';
