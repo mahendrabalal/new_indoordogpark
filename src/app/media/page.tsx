@@ -85,6 +85,9 @@ export const metadata: Metadata = {
     'pet business media kit',
     'urban pet facilities'
   ],
+  alternates: {
+    canonical: '/media',
+  },
   openGraph: {
     title: 'Media & Press Resources | Indoor Dog Park Press Kit',
     description: 'Press resources and research data for journalists covering indoor dog parks and pet wellness.',

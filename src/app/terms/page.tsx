@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     'dog park directory terms',
     'business listing terms'
   ],
+  alternates: {
+    canonical: '/terms',
+  },
   openGraph: {
     title: 'Terms of Service | Legal Terms - Indoor Dog Park',
     description: 'Legal terms and conditions for using the IndoorDogPark directory and services.',

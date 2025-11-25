@@ -59,14 +59,36 @@ interface SanityMarkDef {
   href?: string;
 }
 
+interface SanityVideoFileAsset {
+  _id: string;
+  url?: string;
+  originalFilename?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  path?: string;
+}
+
+interface SanityVideoFile {
+  asset?: SanityVideoFileAsset;
+}
+
 type SanityPortableBlock = PortableTextBlock & {
   style?: string;
+  listItem?: 'bullet' | 'number';
   children?: SanityPortableChild[];
   markDefs?: SanityMarkDef[];
   alt?: string;
   caption?: string;
   asset?: SanityImageAsset;
   html?: string; // For HTML blocks
+  videoType?: 'youtube' | 'vimeo' | 'file' | 'embed';
+  youtubeUrl?: string;
+  vimeoUrl?: string;
+  videoFile?: SanityVideoFile;
+  embedCode?: string;
+  autoplay?: boolean;
+  loop?: boolean;
 };
 
 interface SanityPost {
@@ -87,54 +109,164 @@ interface SanityPost {
 function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
   if (!blocks.length) return '';
 
-  return blocks
-    .map((block) => {
-      if (block._type === 'block') {
-        const style = block.style || 'normal';
-        const markDefs = block.markDefs ?? [];
-        const children = block.children
-          ?.map((child) => {
-            let text = child.text || '';
-            if (child.marks?.includes('strong')) text = `<strong>${text}</strong>`;
-            if (child.marks?.includes('em')) text = `<em>${text}</em>`;
-            if (child.marks?.includes('code')) text = `<code>${text}</code>`;
-            if (child.marks?.includes('underline')) text = `<u>${text}</u>`;
-            if (child.marks?.includes('strike-through')) text = `<s>${text}</s>`;
-            
-            // Handle link annotations
-            const linkMark = child.marks?.find((mark: string) => 
-              markDefs.some((def) => def._key === mark && def._type === 'link')
-            );
-            if (linkMark) {
-              const linkDef = markDefs.find((def) => def._key === linkMark);
-              if (linkDef?.href) text = `<a href="${linkDef.href}">${text}</a>`;
-            }
-            
-            return text;
-          })
-          .join('');
-
-        switch (style) {
-          case 'h1': return `<h1>${children}</h1>`;
-          case 'h2': return `<h2>${children}</h2>`;
-          case 'h3': return `<h3>${children}</h3>`;
-          case 'h4': return `<h4>${children}</h4>`;
-          case 'blockquote': return `<blockquote>${children}</blockquote>`;
-          case 'normal':
-          default: return `<p>${children}</p>`;
+  // Helper to process children text with marks
+  const processChildren = (children: SanityPortableChild[] = [], markDefs: SanityMarkDef[] = []): string => {
+    return children
+      .map((child) => {
+        let text = child.text || '';
+        if (child.marks?.includes('strong')) text = `<strong>${text}</strong>`;
+        if (child.marks?.includes('em')) text = `<em>${text}</em>`;
+        if (child.marks?.includes('code')) text = `<code>${text}</code>`;
+        if (child.marks?.includes('underline')) text = `<u>${text}</u>`;
+        if (child.marks?.includes('strike-through')) text = `<s>${text}</s>`;
+        
+        // Handle link annotations
+        const linkMark = child.marks?.find((mark: string) => 
+          markDefs.some((def) => def._key === mark && def._type === 'link')
+        );
+        if (linkMark) {
+          const linkDef = markDefs.find((def) => def._key === linkMark);
+          if (linkDef?.href) text = `<a href="${linkDef.href}">${text}</a>`;
         }
-      } else if (block._type === 'image' && block.asset) {
-        const imageUrl = urlForImage(block).width(800).url();
-        const alt = block.alt || '';
-        const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
-        return `<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`;
-      } else if (block._type === 'htmlBlock' && block.html) {
-        // Render HTML blocks directly (for charts, embeds, etc.)
-        return block.html;
+        
+        return text;
+      })
+      .join('');
+  };
+
+  // Group consecutive list items together
+  const result: string[] = [];
+  let currentList: Array<{ listItem: string; children: string }> | null = null;
+  let currentListItem: string | null = null;
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+
+    if (block._type === 'block') {
+      const style = block.style || 'normal';
+      const markDefs = block.markDefs ?? [];
+      const children = processChildren(block.children, markDefs);
+      
+      // Check if this is a list item
+      const listItem = block.listItem;
+      
+      if (listItem) {
+        // If we're starting a new list or changing list type, close previous list
+        if (currentList && (currentListItem !== listItem || i === 0)) {
+          const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+          const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+          result.push(`<${listTag}>${listItems}</${listTag}>`);
+          currentList = [];
+        }
+        
+        // Initialize list if needed
+        if (!currentList) {
+          currentList = [];
+          currentListItem = listItem;
+        }
+        
+        // Add item to current list
+        currentList.push({ listItem, children });
+      } else {
+        // Not a list item - close any open list first
+        if (currentList) {
+          const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+          const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+          result.push(`<${listTag}>${listItems}</${listTag}>`);
+          currentList = null;
+          currentListItem = null;
+        }
+        
+        // Process regular block
+        switch (style) {
+          case 'h1': result.push(`<h1>${children}</h1>`); break;
+          case 'h2': result.push(`<h2>${children}</h2>`); break;
+          case 'h3': result.push(`<h3>${children}</h3>`); break;
+          case 'h4': result.push(`<h4>${children}</h4>`); break;
+          case 'blockquote': result.push(`<blockquote>${children}</blockquote>`); break;
+          case 'normal':
+          default: result.push(`<p>${children}</p>`); break;
+        }
       }
-      return '';
-    })
-    .join('\n');
+    } else if (block._type === 'image' && block.asset) {
+      // Close any open list before adding image
+      if (currentList) {
+        const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        result.push(`<${listTag}>${listItems}</${listTag}>`);
+        currentList = null;
+        currentListItem = null;
+      }
+      
+      const imageUrl = urlForImage(block).width(800).url();
+      const alt = block.alt || '';
+      const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
+      result.push(`<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`);
+    } else if (block._type === 'videoBlock') {
+      // Close any open list before adding video
+      if (currentList) {
+        const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        result.push(`<${listTag}>${listItems}</${listTag}>`);
+        currentList = null;
+        currentListItem = null;
+      }
+      
+      let videoHtml = '';
+      const autoplay = block.autoplay ? '1' : '0';
+      const loop = block.loop ? '1' : '0';
+      const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
+      
+      if (block.videoType === 'youtube' && block.youtubeUrl) {
+        // Extract YouTube video ID from various URL formats
+        const youtubeId = block.youtubeUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)?.[1];
+        if (youtubeId) {
+          videoHtml = `<div class="video-wrapper video-youtube"><iframe src="https://www.youtube.com/embed/${youtubeId}?rel=0&autoplay=${autoplay}&loop=${loop}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+        }
+      } else if (block.videoType === 'vimeo' && block.vimeoUrl) {
+        // Extract Vimeo video ID from URL
+        const vimeoId = block.vimeoUrl.match(/(?:vimeo\.com\/)(?:.*\/)?(\d+)/)?.[1];
+        if (vimeoId) {
+          videoHtml = `<div class="video-wrapper video-vimeo"><iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=${autoplay}&loop=${loop}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+        }
+      } else if (block.videoType === 'file' && block.videoFile?.asset) {
+        // Direct video file upload
+        // Sanity file assets have a direct URL property
+        const videoUrl = block.videoFile.asset.url;
+        const mimeType = block.videoFile.asset.mimeType || 'video/mp4';
+        if (videoUrl) {
+          videoHtml = `<div class="video-wrapper video-file"><video controls${block.autoplay ? ' autoplay' : ''}${block.loop ? ' loop' : ''} preload="metadata"><source src="${videoUrl}" type="${mimeType}">Your browser does not support the video tag.</video></div>`;
+        }
+      } else if (block.videoType === 'embed' && block.embedCode) {
+        // Custom embed code
+        videoHtml = `<div class="video-wrapper video-embed">${block.embedCode}</div>`;
+      }
+      
+      if (videoHtml) {
+        result.push(`<figure class="video-figure">${videoHtml}${caption}</figure>`);
+      }
+    } else if (block._type === 'htmlBlock' && block.html) {
+      // Close any open list before adding HTML block
+      if (currentList) {
+        const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        result.push(`<${listTag}>${listItems}</${listTag}>`);
+        currentList = null;
+        currentListItem = null;
+      }
+      
+      result.push(block.html);
+    }
+  }
+
+  // Close any remaining open list
+  if (currentList) {
+    const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
+    const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+    result.push(`<${listTag}>${listItems}</${listTag}>`);
+  }
+
+  return result.join('\n');
 }
 
 // Convert Sanity post to WordPress-compatible BlogPost format

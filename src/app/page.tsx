@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: heroTitle,
   description: heroDescription,
   alternates: {
-    canonical: siteUrl,
+    canonical: '/',
   },
   openGraph: {
     type: 'article',

@@ -136,6 +136,106 @@ export default defineType({
         },
         {
           type: 'object',
+          name: 'videoBlock',
+          title: 'Video',
+          fields: [
+            {
+              name: 'videoType',
+              type: 'string',
+              title: 'Video Type',
+              options: {
+                list: [
+                  { title: 'YouTube', value: 'youtube' },
+                  { title: 'Vimeo', value: 'vimeo' },
+                  { title: 'Direct Upload', value: 'file' },
+                  { title: 'Embed Code', value: 'embed' },
+                ],
+                layout: 'radio',
+              },
+              initialValue: 'youtube',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'youtubeUrl',
+              type: 'url',
+              title: 'YouTube URL',
+              description: 'Paste the full YouTube URL (e.g., https://www.youtube.com/watch?v=...)',
+              hidden: ({ parent }) => parent?.videoType !== 'youtube',
+            },
+            {
+              name: 'vimeoUrl',
+              type: 'url',
+              title: 'Vimeo URL',
+              description: 'Paste the full Vimeo URL (e.g., https://vimeo.com/...)',
+              hidden: ({ parent }) => parent?.videoType !== 'vimeo',
+            },
+            {
+              name: 'videoFile',
+              type: 'file',
+              title: 'Video File',
+              description: 'Upload a video file (MP4, WebM, etc.)',
+              options: {
+                accept: 'video/*',
+              },
+              hidden: ({ parent }) => parent?.videoType !== 'file',
+            },
+            {
+              name: 'embedCode',
+              type: 'text',
+              title: 'Embed Code',
+              description: 'Paste the iframe embed code or HTML',
+              rows: 4,
+              hidden: ({ parent }) => parent?.videoType !== 'embed',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description: 'Optional caption for the video',
+            },
+            {
+              name: 'autoplay',
+              type: 'boolean',
+              title: 'Autoplay',
+              description: 'Automatically play video when page loads (not recommended for accessibility)',
+              initialValue: false,
+            },
+            {
+              name: 'loop',
+              type: 'boolean',
+              title: 'Loop',
+              description: 'Loop the video',
+              initialValue: false,
+            },
+          ],
+          preview: {
+            select: {
+              videoType: 'videoType',
+              youtubeUrl: 'youtubeUrl',
+              vimeoUrl: 'vimeoUrl',
+              caption: 'caption',
+            },
+            prepare({ videoType, youtubeUrl, vimeoUrl, caption }) {
+              let subtitle = 'Video';
+              if (videoType === 'youtube' && youtubeUrl) {
+                subtitle = `YouTube: ${youtubeUrl}`;
+              } else if (videoType === 'vimeo' && vimeoUrl) {
+                subtitle = `Vimeo: ${vimeoUrl}`;
+              } else if (videoType === 'file') {
+                subtitle = 'Video File';
+              } else if (videoType === 'embed') {
+                subtitle = 'Embed Code';
+              }
+              return {
+                title: caption || 'Video',
+                subtitle,
+                media: () => '🎥',
+              };
+            },
+          },
+        },
+        {
+          type: 'object',
           name: 'htmlBlock',
           title: 'HTML Block',
           fields: [

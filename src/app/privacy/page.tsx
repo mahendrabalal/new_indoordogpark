@@ -26,6 +26,15 @@ const sharingPartners = [
 export const metadata: Metadata = {
   title: 'Privacy Policy - IndoorDogPark',
   description: 'Learn how IndoorDogPark collects, uses, and protects personal information for visitors and business partners.',
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy - IndoorDogPark',
+    description: 'Learn how IndoorDogPark collects, uses, and protects personal information for visitors and business partners.',
+    url: 'https://www.indoordogpark.org/privacy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPage() {

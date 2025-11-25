@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     'website cookies',
     'privacy controls'
   ],
+  alternates: {
+    canonical: '/cookie-preferences',
+  },
   openGraph: {
     title: 'Cookie Preferences | Privacy Settings - Indoor Dog Park',
     description: 'Manage your cookie preferences and privacy settings for IndoorDogPark.',

@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   // Use canonical slug for URLs
   const canonicalSlug = category.slug;
-  const canonicalUrl = `https://www.indoordogpark.org/category/${canonicalSlug}`;
+  const canonicalUrl = `/category/${canonicalSlug}`;
 
   return {
     title: `${category.name} Articles | Indoor Dog Park Blog`,

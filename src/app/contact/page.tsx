@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     'partnership inquiries',
     'feedback'
   ],
+  alternates: {
+    canonical: '/contact',
+  },
   openGraph: {
     title: 'Contact Us | Indoor Dog Park',
     description: 'Get in touch with the IndoorDogPark team. We are here to help with directory listings, support, and partnerships.',

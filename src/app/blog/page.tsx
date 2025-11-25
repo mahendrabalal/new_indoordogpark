@@ -573,10 +573,14 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   return {
     title,
     description,
+    alternates: {
+      canonical: '/blog',
+    },
     openGraph: {
       title,
       description,
       type: 'website',
+      url: '/blog',
     },
   };
 }

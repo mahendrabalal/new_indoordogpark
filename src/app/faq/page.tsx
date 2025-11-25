@@ -14,6 +14,15 @@ const faqStats = [
 export const metadata: Metadata = {
   title: 'IndoorDogPark FAQs',
   description: 'Answers to common questions about IndoorDogPark, listings, safety standards, and community guidelines.',
+  alternates: {
+    canonical: '/faq',
+  },
+  openGraph: {
+    title: 'IndoorDogPark FAQs',
+    description: 'Answers to common questions about IndoorDogPark, listings, safety standards, and community guidelines.',
+    url: 'https://www.indoordogpark.org/faq',
+    type: 'website',
+  },
 };
 
 export default function FAQPage() {

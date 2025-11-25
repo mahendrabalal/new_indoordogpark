@@ -72,6 +72,15 @@ const partnerLogos = [
 export const metadata: Metadata = {
   title: 'IndoorDogPark Partners Program',
   description: 'Collaborate with IndoorDogPark to reach committed dog families, promote premium facilities, and access performance insights.',
+  alternates: {
+    canonical: '/partners',
+  },
+  openGraph: {
+    title: 'IndoorDogPark Partners Program',
+    description: 'Collaborate with IndoorDogPark to reach committed dog families, promote premium facilities, and access performance insights.',
+    url: 'https://www.indoordogpark.org/partners',
+    type: 'website',
+  },
 };
 
 export default function PartnersPage() {

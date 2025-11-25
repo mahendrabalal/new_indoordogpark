@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const pageDescription = createMetaDescription(
     `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with interactive maps.`
   );
-  const canonicalUrl = `${SITE_URL}/cities/${canonicalSlug}`;
+  const canonicalUrl = `/cities/${canonicalSlug}`;
   const featuredImage =
     city.featuredImage ||
     'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
@@ -156,7 +156,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
   // Use canonical slug for all URLs
   const canonicalSlug = city.slug;
-  const canonicalUrl = `${SITE_URL}/cities/${canonicalSlug}`;
+  const canonicalUrl = `/cities/${canonicalSlug}`;
   const pageDescription =
     customContent?.heroDescription ||
     `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;

@@ -33,6 +33,15 @@ const trustStats = [
 export const metadata: Metadata = {
   title: 'How IndoorDogPark Works',
   description: 'See how IndoorDogPark helps dog owners discover safe play spaces and enables park operators to reach new guests.',
+  alternates: {
+    canonical: '/how-it-works',
+  },
+  openGraph: {
+    title: 'How IndoorDogPark Works',
+    description: 'See how IndoorDogPark helps dog owners discover safe play spaces and enables park operators to reach new guests.',
+    url: 'https://www.indoordogpark.org/how-it-works',
+    type: 'website',
+  },
 };
 
 export default function HowItWorksPage() {

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'pet wellness',
     'dog park reviews'
   ],
+  alternates: {
+    canonical: '/about',
+  },
   openGraph: {
     title: 'About Us | Indoor Dog Park Directory',
     description: 'Connecting dog owners with the best indoor dog parks and play areas across California. Discover our mission and community.',

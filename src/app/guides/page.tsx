@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     'dog socialization guides',
     'indoor pet activities'
   ],
+  alternates: {
+    canonical: '/guides',
+  },
   openGraph: {
     title: 'Dog Park Guides & Playbooks | Indoor Dog Park Resources',
     description: 'Expert guides for indoor dog park visits, training tips, and seasonal planning for California dog owners.',
