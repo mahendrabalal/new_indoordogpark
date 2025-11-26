@@ -485,9 +485,9 @@ export default function HomePageClient({
 
             <div className="search-results-list">
               {isSearching ? (
-                <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-                  <div className="search-loading-spinner" style={{ margin: '0 auto 20px' }}></div>
-                  <p style={{ color: '#666', fontSize: '1.1rem' }}>Searching dog parks...</p>
+                <div className="search-loading-state">
+                  <div className="search-loading-spinner"></div>
+                  <p>Searching dog parks...</p>
                 </div>
               ) : filteredParks.length === 0 ? (
                 <div className="no-results">
