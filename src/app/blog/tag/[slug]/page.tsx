@@ -36,6 +36,7 @@ async function getTag(slug: string): Promise<WPTag | null> {
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const tag = await getTag(params.slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   if (!tag) {
     return {
@@ -44,13 +45,52 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     };
   }
 
+  const title = `${tag.name} Articles - Indoor Dog Park Blog`;
+  const description = tag.description || `Read all articles tagged with ${tag.name}. Expert tips, guides, and stories about indoor dog parks.`;
+  const canonicalUrl = `/blog/tag/${tag.slug}`;
+  const ogImage = `${siteUrl}/images/hero/hero.png`;
+
   return {
-    title: `${tag.name} Articles - California Dog Parks Blog`,
-    description: tag.description || `Read all articles tagged with ${tag.name}.`,
+    title,
+    description,
+    keywords: `${tag.name}, indoor dog parks, dog training, pet care, California dog parks`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: `${tag.name} - California Dog Parks Blog`,
-      description: tag.description || `Articles about ${tag.name}`,
+      title,
+      description,
       type: 'website',
+      url: canonicalUrl,
+      siteName: 'Indoor Dog Park',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${tag.name} - Indoor Dog Park Blog`,
+        },
+      ],
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+      site: '@indoordogpark',
+      creator: '@indoordogpark',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }

@@ -110,6 +110,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const readingTime = estimateReadingTime(post.content);
   const categoryName = post.categories[0]?.name || 'Blog';
+  
+  // Pass reading time to structured data component if needed
 
   return (
     <>
@@ -374,17 +376,29 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       'dog-friendly'
     ].join(', ');
 
+    // Calculate reading time
+    const readingTime = estimateReadingTime(post.content);
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
+
     return {
       title: seoTitle,
       description,
       keywords,
       authors: post.author ? [{ name: post.author.name }] : undefined,
       creator: post.author?.name,
-      publisher: 'California Dog Parks',
+      publisher: 'Indoor Dog Park',
       formatDetection: {
         email: false,
         address: false,
         telephone: false,
+      },
+      other: {
+        'article:published_time': post.date,
+        'article:modified_time': post.modified,
+        'article:author': post.author?.name || 'Indoor Dog Park Team',
+        'article:section': post.categories[0]?.name || 'General',
+        'article:tag': post.tags.map(tag => tag.name).join(', '),
+        'article:reading_time': `${readingTime} minutes`,
       },
       openGraph: {
         title: seoTitle, // Use truncated title for OpenGraph too
@@ -393,8 +407,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         publishedTime: post.date,
         modifiedTime: post.modified,
         authors: post.author ? [post.author.name] : [],
-        siteName: 'California Dog Parks',
+        siteName: 'Indoor Dog Park',
         locale: 'en_US',
+        url: `${siteUrl}/blog/${slug}`,
         images: featuredImage ? [
           {
             url: featuredImage,
@@ -402,14 +417,22 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             height: post.featuredImage?.media_details?.height || 630,
             alt: post.featuredImage?.alt_text || seoTitle,
           },
-        ] : [],
+        ] : [
+          {
+            url: `${siteUrl}/images/hero/hero.png`,
+            width: 1200,
+            height: 630,
+            alt: seoTitle,
+          },
+        ],
       },
       twitter: {
         card: 'summary_large_image',
         title: seoTitle, // Use truncated title for Twitter too
         description,
-        creator: post.author?.name ? `@${post.author.name.replace(/\s+/g, '')}` : undefined,
-        images: featuredImage ? [featuredImage] : [],
+        creator: post.author?.name ? `@${post.author.name.replace(/\s+/g, '')}` : '@indoordogpark',
+        site: '@indoordogpark',
+        images: featuredImage ? [featuredImage] : [`${siteUrl}/images/hero/hero.png`],
       },
       robots: {
         index: true,

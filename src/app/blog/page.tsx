@@ -555,32 +555,68 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   const searchTerm = searchParams.search;
   const categorySlug = searchParams.category;
   const tagSlug = searchParams.tag;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   let title = 'Indoor Dog Park Blog - Tips & Guides';
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
+  let canonicalUrl = '/blog';
+  let ogImage = `${siteUrl}/images/hero/hero.png`;
 
   if (searchTerm) {
     title = `Search Results for "${searchTerm}" - Indoor Dog Park Blog`;
-    description = `Search results for "${searchTerm}" in our indoor dog park blog.`;
+    description = `Search results for "${searchTerm}" in our indoor dog park blog. Find expert tips, guides, and stories about indoor dog parks.`;
+    canonicalUrl = `/blog?search=${encodeURIComponent(searchTerm)}`;
   } else if (categorySlug) {
     title = `${categorySlug} Articles - Indoor Dog Park Blog`;
-    description = `Articles about ${categorySlug} in indoor dog parks and facilities.`;
+    description = `Read expert articles about ${categorySlug} in indoor dog parks and facilities. Tips, guides, and insights for dog owners.`;
+    canonicalUrl = `/blog?category=${encodeURIComponent(categorySlug)}`;
   } else if (tagSlug) {
     title = `${tagSlug} Articles - Indoor Dog Park Blog`;
-    description = `Articles tagged with ${tagSlug} for indoor dog park enthusiasts.`;
+    description = `Discover articles tagged with ${tagSlug} for indoor dog park enthusiasts. Expert advice and helpful guides.`;
+    canonicalUrl = `/blog?tag=${encodeURIComponent(tagSlug)}`;
   }
 
   return {
     title,
     description,
+    keywords: 'indoor dog parks, dog training, pet care, dog-friendly facilities, California dog parks, dog park guides, pet tips',
     alternates: {
-      canonical: '/blog',
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: '/blog',
+      url: canonicalUrl,
+      siteName: 'Indoor Dog Park',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: 'Indoor Dog Park Blog - Tips & Guides',
+        },
+      ],
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+      site: '@indoordogpark',
+      creator: '@indoordogpark',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }

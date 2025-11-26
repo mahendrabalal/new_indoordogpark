@@ -36,6 +36,7 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const category = await getCategory(params.slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   if (!category) {
     return {
@@ -44,13 +45,52 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     };
   }
 
+  const title = `${category.name} Articles - Indoor Dog Park Blog`;
+  const description = category.description || `Read all articles in the ${category.name} category. Expert tips, guides, and stories about indoor dog parks.`;
+  const canonicalUrl = `/blog/category/${category.slug}`;
+  const ogImage = `${siteUrl}/images/hero/hero.png`;
+
   return {
-    title: `${category.name} Articles - California Dog Parks Blog`,
-    description: category.description || `Read all articles in the ${category.name} category.`,
+    title,
+    description,
+    keywords: `${category.name}, indoor dog parks, dog training, pet care, California dog parks`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: `${category.name} - California Dog Parks Blog`,
-      description: category.description || `Articles about ${category.name}`,
+      title,
+      description,
       type: 'website',
+      url: canonicalUrl,
+      siteName: 'Indoor Dog Park',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${category.name} - Indoor Dog Park Blog`,
+        },
+      ],
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+      site: '@indoordogpark',
+      creator: '@indoordogpark',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }

@@ -25,23 +25,44 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
     const baseUrl = SITE_URL;
     const authorName = post.author?.name || 'Indoor Dog Park Team';
     const authorImage = post.author?.avatar_urls?.['96'];
-    const featuredImage = post.featuredImage?.source_url;
+    const featuredImage = post.featuredImage?.source_url || 
+                         post.featuredImage?.media_details?.sizes?.large?.source_url ||
+                         post.featuredImage?.media_details?.sizes?.medium?.source_url;
+    
+    // Calculate reading time (average 200 words per minute)
+    const wordCount = Math.ceil(post.content.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length);
+    const timeRequired = `PT${Math.max(3, Math.ceil(wordCount / 200))}M`;
 
-    return {
+    // Extract clean description
+    const cleanDescription = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+
+    const structuredData: any = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
-      description: post.excerpt.replace(/<[^>]*>/g, '').trim(),
-      image: featuredImage ? [featuredImage] : [],
+      description: cleanDescription,
+      image: featuredImage ? [
+        {
+          '@type': 'ImageObject',
+          url: featuredImage,
+          width: post.featuredImage?.media_details?.width || 1200,
+          height: post.featuredImage?.media_details?.height || 630,
+        }
+      ] : [],
       datePublished: post.date,
       dateModified: post.modified,
       author: {
         '@type': 'Person',
         name: authorName,
-        image: authorImage ? {
-          '@type': 'ImageObject',
-          url: authorImage,
-        } : undefined,
+        ...(authorImage && {
+          image: {
+            '@type': 'ImageObject',
+            url: authorImage,
+          },
+        }),
+        ...(post.author?.description && {
+          description: post.author.description,
+        }),
       },
       publisher: {
         '@type': 'Organization',
@@ -49,14 +70,18 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         logo: {
           '@type': 'ImageObject',
           url: `${baseUrl}/images/logo/logo.png`,
+          width: 200,
+          height: 60,
         },
+        url: baseUrl,
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': `${baseUrl}/blog/${post.slug}`,
       },
       url: `${baseUrl}/blog/${post.slug}`,
-      wordCount: Math.ceil(post.content.replace(/<[^>]*>/g, '').split(' ').length),
+      wordCount,
+      timeRequired,
       inLanguage: 'en-US',
       isPartOf: {
         '@type': 'Blog',
@@ -66,10 +91,20 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
       keywords: [
         ...post.categories.map(cat => cat.name),
         ...post.tags.map(tag => tag.name),
-        'dog parks', 'California', 'dog friendly', 'pet care'
+        'indoor dog parks',
+        'dog parks',
+        'California',
+        'dog friendly',
+        'pet care',
+        'dog training',
       ].join(', '),
-      articleSection: post.categories[0]?.name || 'General',
+      ...(post.categories.length > 0 && {
+        articleSection: post.categories.map(cat => cat.name),
+      }),
     };
+
+    // Remove undefined values
+    return JSON.parse(JSON.stringify(structuredData));
   };
 
   const generateBlogData = (posts: BlogPost[]) => {
@@ -79,7 +114,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
       '@context': 'https://schema.org',
       '@type': 'Blog',
       name: 'Indoor Dog Park Blog',
-      description: 'Tips, guides, and stories about California dog parks, dog training, and pet-friendly activities.',
+      description: 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.',
       url: `${baseUrl}/blog`,
       publisher: {
         '@type': 'Organization',
@@ -87,16 +122,30 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         logo: {
           '@type': 'ImageObject',
           url: `${baseUrl}/images/logo/logo.png`,
+          width: 200,
+          height: 60,
         },
+        url: baseUrl,
       },
-      blogPost: posts.map(post => ({
+      blogPost: posts.slice(0, 10).map(post => ({
         '@type': 'BlogPosting',
         headline: post.title,
         url: `${baseUrl}/blog/${post.slug}`,
         datePublished: post.date,
         dateModified: post.modified,
+        author: {
+          '@type': 'Person',
+          name: post.author?.name || 'Indoor Dog Park Team',
+        },
       })),
       inLanguage: 'en-US',
+      potentialAction: {
+        '@type': 'ReadAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${baseUrl}/blog`,
+        },
+      },
     };
   };
 
