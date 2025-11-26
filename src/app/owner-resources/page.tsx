@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     'California pet business',
     'dog daycare resources'
   ],
+  alternates: {
+    canonical: '/owner-resources',
+  },
   openGraph: {
     title: 'Owner Resources | Indoor Dog Park Business Guides',
     description: 'Business guides and resources for indoor dog park operators and pet business owners.',

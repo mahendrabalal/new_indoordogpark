@@ -171,8 +171,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     } else {
       console.log(`[sitemap] Processing ${allParks.length} parks into sitemap`)
       
-      // Add individual park pages
+      // Add individual park pages (deduplicate by URL)
       let skippedCount = 0
+      const seenUrls = new Set<string>()
+      
       for (const park of allParks) {
         const slug = park.slug || park.id
         if (!slug) {
@@ -180,10 +182,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           continue
         }
         
+        const parkUrl = `${baseUrl}/parks/${slug}`
+        
+        // Skip if we've already added this URL (deduplicate)
+        if (seenUrls.has(parkUrl)) {
+          skippedCount++
+          continue
+        }
+        
+        seenUrls.add(parkUrl)
         const lastUpdated = park.lastUpdated ? new Date(park.lastUpdated) : currentDate
         
         parkPages.push({
-          url: `${baseUrl}/parks/${slug}`,
+          url: parkUrl,
           lastModified: lastUpdated,
           changeFrequency: 'weekly' as const,
           priority: 0.8,
@@ -269,8 +280,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Fetch categories from Sanity
     const categories = await getCachedCategories()
     for (const category of categories) {
+      // URL-encode category slug to handle spaces and special characters
+      const encodedSlug = encodeURIComponent(category.slug)
       categoryPages.push({
-        url: `${baseUrl}/category/${category.slug}`,
+        url: `${baseUrl}/category/${encodedSlug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.6,

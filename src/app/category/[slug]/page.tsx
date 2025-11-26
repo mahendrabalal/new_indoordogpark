@@ -43,9 +43,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     };
   }
 
-  // Use canonical slug for URLs
+  // Use canonical slug for URLs (URL-encode to handle spaces and special characters)
   const canonicalSlug = category.slug;
-  const canonicalUrl = `/category/${canonicalSlug}`;
+  const encodedSlug = encodeURIComponent(canonicalSlug);
+  const canonicalUrl = `/category/${encodedSlug}`;
 
   return {
     title: `${category.name} Articles | Indoor Dog Park Blog`,
@@ -84,8 +85,10 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   }
 
   // Redirect to canonical slug if different (301 permanent redirect for SEO)
+  // URL-encode the canonical slug to handle spaces and special characters
   if (category.slug !== decodedSlug) {
-    permanentRedirect(`/category/${category.slug}`);
+    const encodedCanonicalSlug = encodeURIComponent(category.slug);
+    permanentRedirect(`/category/${encodedCanonicalSlug}`);
   }
 
   const page = parseInt(searchParams.page || '1');

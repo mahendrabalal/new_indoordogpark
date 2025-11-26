@@ -1,0 +1,1790 @@
+[
+  {
+    "id": "ChIJIyOWewOZ9YgRP2JK2wqZkxc",
+    "name": "PetSuites Johns Creek",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "PetSuites Johns Creek has earned its reputation as Suwanee's premier pet facility. This facility features professional grooming stations, experienced and certified staff, offering pet care. Their services supports your dog's physical and mental well-being. conveniently located in the heart of Suwanee. Call +1 470-621-3929 to learn more about their services",
+    "slug": "petsuites-johns-creek",
+    "address": "8030 McGinnis Ferry Rd",
+    "street": "8030 McGinnis Ferry Rd",
+    "city": "Suwanee",
+    "state": "GA",
+    "zipCode": "30024",
+    "full_address": "8030 McGinnis Ferry Rd, Suwanee, GA 30024",
+    "latitude": 34.0531537,
+    "longitude": -84.123103,
+    "googlePlaceId": "ChIJIyOWewOZ9YgRP2JK2wqZkxc",
+    "phone": "+1 470-621-3929",
+    "website": "https://johnscreek.petsuitesofamerica.com/?utm_source=gmb",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrTwMSJRjRkyzmETPcR6eAwpvlGmvXGxYN5fZ74xljizmI0ELBI_CHSIsQ5Twj7Mq2jlWoGDiDcwi-iz0BpZanDtebxbZKukq_THv7xkMdD6fSxySMZaleUU65yl-8fsxsifMEw5w=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh6.googleusercontent.com/-xeZMSJFWwdY/AAAAAAAAAAI/AAAAAAAAAAA/Qxkpiw_e2yE/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 269,
+    "userRatingsTotal": 269,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrTwMSJRjRkyzmETPcR6eAwpvlGmvXGxYN5fZ74xljizmI0ELBI_CHSIsQ5Twj7Mq2jlWoGDiDcwi-iz0BpZanDtebxbZKukq_THv7xkMdD6fSxySMZaleUU65yl-8fsxsifMEw5w=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "12-5PM",
+      "Monday": "6:30AM-7PM",
+      "Tuesday": "6:30AM-7PM",
+      "Wednesday": "6:30AM-7PM",
+      "Thursday": "6:30AM-7PM",
+      "Friday": "6:30AM-7PM",
+      "Saturday": "7AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "grooming": true,
+      "training": true
+    }
+  },
+  {
+    "id": "ChIJh8wO_8DvwokRO3w1JMStk_Y",
+    "name": "K9 Resorts Luxury Pet Hotel Emerson",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog lovers in Emerson trust K9 Resorts Luxury Pet Hotel Emerson for exceptional care. This facility features comfortable boarding accommodations, passionate pet care professionals, offering pet care. Their services provides essential socialization for your pet. readily accessible to Emerson pet owners. Discover why Emerson pet parents choose K9 Resorts Luxury Pet Hotel Emerson",
+    "slug": "k9-resorts-luxury-pet-hotel-emerson",
+    "address": "465 Old Hook Rd",
+    "street": "465 Old Hook Rd",
+    "city": "Emerson",
+    "state": "NJ",
+    "zipCode": "7630",
+    "full_address": "465 Old Hook Rd, Emerson, NJ 07630",
+    "latitude": 40.9811265,
+    "longitude": -74.0058453,
+    "googlePlaceId": "ChIJh8wO_8DvwokRO3w1JMStk_Y",
+    "phone": "+1 201-298-8339",
+    "website": "https://www.k9resorts.com/emerson/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipO_pUUQ3v7xXSUHOvJvvPK8waWUPHojWq0ZUEbM=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-NpWse6V263Q/AAAAAAAAAAI/AAAAAAAAAAA/eP6-Pqqf1iE/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 288,
+    "userRatingsTotal": 288,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipO_pUUQ3v7xXSUHOvJvvPK8waWUPHojWq0ZUEbM=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "9AM-5:30PM",
+      "Sunday": "9AM-5:30PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJdQle-IJZwokR94M9IAWxt8M",
+    "name": "Ruff Club Dog Daycare & Grooming",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in New York consistently rave about Ruff Club Dog Daycare & Grooming. This facility features modern training facilities, caring and attentive team members, offering pet care. Their services ensures your dog stays active and healthy. strategically positioned in New York. Visit Ruff Club Dog Daycare & Grooming to see their facilities firsthand",
+    "slug": "ruff-club-dog-daycare-grooming",
+    "address": "34 Avenue A",
+    "street": "34 Avenue A",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10009",
+    "full_address": "34 Avenue A, New York, NY 10009",
+    "latitude": 40.7233464,
+    "longitude": -73.9851838,
+    "googlePlaceId": "ChIJdQle-IJZwokR94M9IAWxt8M",
+    "phone": "+1 914-877-2754",
+    "website": "http://www.ruffclub.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4notAAV8gvYRCw7pk0U9IpZCAf8XrFM2AmoKlyk30IgBnacFEwIPskKtVuyHNWed4Anv5i12gXkVLF7eXCY9gDb1W05dQ12sUw_t_Pq05PmahPdCFFBWD9KXK9B7KfQAxh6jixoO=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-OM-JKi5sCNU/AAAAAAAAAAI/AAAAAAAAAAA/m0rgaiFE4CY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 66,
+    "userRatingsTotal": 66,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4notAAV8gvYRCw7pk0U9IpZCAf8XrFM2AmoKlyk30IgBnacFEwIPskKtVuyHNWed4Anv5i12gXkVLF7eXCY9gDb1W05dQ12sUw_t_Pq05PmahPdCFFBWD9KXK9B7KfQAxh6jixoO=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7:15AM-8PM",
+      "Tuesday": "7:15AM-8PM",
+      "Wednesday": "7:15AM-8PM",
+      "Thursday": "7:15AM-8PM",
+      "Friday": "7:15AM-8PM",
+      "Saturday": "9AM-6PM",
+      "Sunday": "9AM-6PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJoSP_Gtv7wokRl4H5lViO0E0",
+    "name": "Hounds Town Bergen",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Among Lodi's top-rated pet facilities, Hounds Town Bergen stands out. This facility features comfortable boarding accommodations, trained pet care specialists, offering pet care. Their services offers peace of mind for busy pet parents. strategically positioned in Lodi. Discover why Lodi pet parents choose Hounds Town Bergen",
+    "slug": "hounds-town-bergen",
+    "address": "450 Main St",
+    "street": "450 Main St",
+    "city": "Lodi",
+    "state": "NJ",
+    "zipCode": "7644",
+    "full_address": "450 Main St, Lodi, NJ 07644",
+    "latitude": 40.888597,
+    "longitude": -74.0805768,
+    "googlePlaceId": "ChIJoSP_Gtv7wokRl4H5lViO0E0",
+    "phone": "+1 973-773-3647",
+    "website": "https://houndstownusa.com/locations/bergen-county/?utm_source=google",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipN68S6tODAHr92OJGXOkiDPwyroKT_zH7Z1FbAn=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-KG2ZpEVdDdA/AAAAAAAAAAI/AAAAAAAAAAA/UEcgQlIkr94/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 498,
+    "userRatingsTotal": 498,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipN68S6tODAHr92OJGXOkiDPwyroKT_zH7Z1FbAn=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "6:30AM-12PM,2-7:30PM",
+      "Tuesday": "6:30AM-12PM,2-7:30PM",
+      "Wednesday": "6:30AM-12PM,2-7:30PM",
+      "Thursday": "6:30AM-12PM,2-7:30PM",
+      "Friday": "6:30AM-12PM,2-7:30PM",
+      "Saturday": "8AM-5PM",
+      "Sunday": "11AM-1PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJqx0KmfkE9YgRW2c_O-OlYEU",
+    "name": "Wagging Tails Doggie Daycare & Boarding",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Atlanta consistently rave about Wagging Tails Doggie Daycare & Boarding. This facility features spacious exercise zones, experienced and certified staff, offering pet care. Their services maintains your pet's routine even when you're away. centrally located for Atlanta residents. Visit Wagging Tails Doggie Daycare & Boarding to see their facilities firsthand",
+    "slug": "wagging-tails-doggie-daycare-boarding",
+    "address": "376 Trabert Ave NW",
+    "street": "376 Trabert Ave NW",
+    "city": "Atlanta",
+    "state": "GA",
+    "zipCode": "30309",
+    "full_address": "376 Trabert Ave NW, Atlanta, GA 30309",
+    "latitude": 33.7945405,
+    "longitude": -84.4001356,
+    "googlePlaceId": "ChIJqx0KmfkE9YgRW2c_O-OlYEU",
+    "phone": "+1 470-241-2591",
+    "website": "https://www.waggingtailsatlanta.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrIUDLTF0-xexYaiyw_8irC09nZWrG-5CoJ03UIjLkDrPcZc8a8oRoD0g2RYTdiiIghAmcoqzIIYMthR3FlluFA1JMTXUNycURw5_mhtE7qGBfwkGBG8Y53SWnQ4wMeAzC4kc8Q=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-HYIkr2xp-4o/AAAAAAAAAAI/AAAAAAAAAAA/OFoQLeScHXY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 138,
+    "userRatingsTotal": 138,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrIUDLTF0-xexYaiyw_8irC09nZWrG-5CoJ03UIjLkDrPcZc8a8oRoD0g2RYTdiiIghAmcoqzIIYMthR3FlluFA1JMTXUNycURw5_mhtE7qGBfwkGBG8Y53SWnQ4wMeAzC4kc8Q=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "8AM-7PM",
+      "Monday": "7:30AM-7:30PM",
+      "Tuesday": "7:30AM-7:30PM",
+      "Wednesday": "7:30AM-7:30PM",
+      "Thursday": "7:30AM-7:30PM",
+      "Friday": "7:30AM-7:30PM",
+      "Saturday": "8AM-7PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "parking": true,
+      "training": true
+    }
+  },
+  {
+    "id": "ChIJdz7ArJeww4kRewJ2ntHXY0s",
+    "name": "K9 Resorts Luxury Pet Hotel Scotch Plains - Fanwood (Original Location)",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Fanwood consistently rave about K9 Resorts Luxury Pet Hotel Scotch Plains - Fanwood (Original Location). This facility features comfortable boarding accommodations, experienced and certified staff, offering pet care. Their services helps develop good behavior and social skills. situated in a prime Fanwood location. Call +1 908-386-4418 to learn more about their services",
+    "slug": "k9-resorts-luxury-pet-hotel-scotch-plains-fanwood-original-location",
+    "address": "57 South Ave",
+    "street": "57 South Ave",
+    "city": "Fanwood",
+    "state": "NJ",
+    "zipCode": "7023",
+    "full_address": "57 South Ave, Fanwood, NJ 07023",
+    "latitude": 40.6366476,
+    "longitude": -74.3909651,
+    "googlePlaceId": "ChIJdz7ArJeww4kRewJ2ntHXY0s",
+    "phone": "+1 908-386-4418",
+    "website": "https://www.k9resorts.com/scotch-plains-fanwood/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipM0q_zNIbIhjKV-4_lbuQSJEGbHW6PH64M_Sn0k=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-WYy509pAdU4/AAAAAAAAAAI/AAAAAAAAAAA/V-cQnqqVJE8/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 827,
+    "userRatingsTotal": 827,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipM0q_zNIbIhjKV-4_lbuQSJEGbHW6PH64M_Sn0k=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "9AM-5:30PM",
+      "Sunday": "9AM-5:30PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJYR6I6Owzs1IRGFIDv9NEdsU",
+    "name": "Unleashed Hounds and Hops",
+    "businessType": "Dog Park",
+    "description": "Dog lovers in Minneapolis trust Unleashed Hounds and Hops for exceptional care. This facility features professional grooming stations, experienced and certified staff, offering pet care. Their services maintains your pet's routine even when you're away. situated in a prime Minneapolis location. Visit Unleashed Hounds and Hops to see their facilities firsthand",
+    "slug": "unleashed-hounds-and-hops",
+    "address": "200 East Lyndale Ave N",
+    "street": "200 East Lyndale Ave N",
+    "city": "Minneapolis",
+    "state": "MN",
+    "zipCode": "55405",
+    "full_address": "200 East Lyndale Ave N, Minneapolis, MN 55405",
+    "latitude": 44.9800017,
+    "longitude": -93.2862281,
+    "googlePlaceId": "ChIJYR6I6Owzs1IRGFIDv9NEdsU",
+    "phone": "+1 612-439-5060",
+    "website": "http://unleashedhoundsandhops.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtZlO8rN795MYARuDffLd1xgfvo3VH7rrUw0GdHQBRcLCKQd9HRvMBVUduqCg-glk49cjqURpI0J-DYTPSs7cArXWrhOn3jwpnf_D2HinKm-P8qlqlNMNznCVrXMdlOvJfulna=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-Fz8GpxCOrws/AAAAAAAAAAI/AAAAAAAAAAA/zznrES1d0yo/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 538,
+    "userRatingsTotal": 538,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtZlO8rN795MYARuDffLd1xgfvo3VH7rrUw0GdHQBRcLCKQd9HRvMBVUduqCg-glk49cjqURpI0J-DYTPSs7cArXWrhOn3jwpnf_D2HinKm-P8qlqlNMNznCVrXMdlOvJfulna=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "1-6PM",
+      "Tuesday": "4-9PM",
+      "Wednesday": "4-9PM",
+      "Thursday": "4-9PM",
+      "Friday": "4-9PM",
+      "Saturday": "1-8PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJg-Id8y0B9YgRB4LnbqGpyMY",
+    "name": "Frogs to Dogs, Training & Pet Care",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Decatur consistently rave about Frogs to Dogs, Training & Pet Care. This facility features modern training facilities, passionate pet care professionals, offering pet care. Their services ensures your dog stays active and healthy. conveniently located in the heart of Decatur. Contact Frogs to Dogs, Training & Pet Care today to schedule your dog's visit",
+    "slug": "frogs-to-dogs-training-pet-care",
+    "address": "318 E Howard Ave Ste A",
+    "street": "318 E Howard Ave Ste A",
+    "city": "Decatur",
+    "state": "GA",
+    "zipCode": "30030",
+    "full_address": "318 E Howard Ave Ste A, Decatur, GA 30030",
+    "latitude": 33.7721382,
+    "longitude": -84.2919386,
+    "googlePlaceId": "ChIJg-Id8y0B9YgRB4LnbqGpyMY",
+    "phone": "+1 404-735-6237",
+    "website": "http://www.frogstodogs.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMovqcQ6VXVxEGui120qewsYVCdn1cIDmfYlZm5=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-yHyM-vdQ1K8/AAAAAAAAAAI/AAAAAAAAAAA/3jOeRDG9PQc/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 246,
+    "userRatingsTotal": 246,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMovqcQ6VXVxEGui120qewsYVCdn1cIDmfYlZm5=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "7AM-7PM",
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "7AM-7PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "training": true
+    }
+  },
+  {
+    "id": "ChIJYfHVS-FYwokRtkRgzLFyktI",
+    "name": "Camp Canine Sutton Place",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet owners in New York appreciate the quality service at Camp Canine Sutton Place. This facility features secure play environments, experienced and certified staff, offering pet care. Their services provides professional care you can trust. centrally located for New York residents. Contact Camp Canine Sutton Place today to schedule your dog's visit",
+    "slug": "camp-canine-sutton-place",
+    "address": "1001 1st Ave",
+    "street": "1001 1st Ave",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10022",
+    "full_address": "1001 1st Ave, New York, NY 10022",
+    "latitude": 40.7570161,
+    "longitude": -73.9641323,
+    "googlePlaceId": "ChIJYfHVS-FYwokRtkRgzLFyktI",
+    "phone": "+1 212-838-2250",
+    "website": "https://www.nycampcanine.com/camp-canine-sutton-place/?utm_source=googlemb",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMw3Y9yxe75giJKsuTvoEcIMZ4IkM-UF0kB7V8K=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh6.googleusercontent.com/-isQDweTkDzM/AAAAAAAAAAI/AAAAAAAAAAA/bQ3g9k3dC_Y/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.4,
+    "reviewCount": 46,
+    "userRatingsTotal": 46,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMw3Y9yxe75giJKsuTvoEcIMZ4IkM-UF0kB7V8K=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "9AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJO8rRYbhZwokRtWji2TdxTQQ",
+    "name": "Top Dogs Club",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Long Island City consistently rave about Top Dogs Club. This facility features modern training facilities, passionate pet care professionals, offering pet care. Their services provides professional care you can trust. conveniently situated for Long Island City families. Book your dog's stay at Top Dogs Club today",
+    "slug": "top-dogs-club",
+    "address": "2-22 51st Ave",
+    "street": "2-22 51st Ave",
+    "city": "Long Island City",
+    "state": "NY",
+    "zipCode": "11101",
+    "full_address": "2-22 51st Ave, Long Island City, NY 11101",
+    "latitude": 40.7425775,
+    "longitude": -73.9578914,
+    "googlePlaceId": "ChIJO8rRYbhZwokRtWji2TdxTQQ",
+    "phone": "+1 347-507-0503",
+    "website": "https://www.topdogsclub.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npN909iruA8aQkE2ghEeNYoJoC8uyiCS0E1_NgkWxadrqVSl5t6CNHKHaCQVMzf8GdoBN1b_B9MwLybE_KUeMEiapQx9Ipbi-m8lx-VeTdK89vK6WPtiCwHJw439Ku7tOSbTNEcPQ=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-aXWCLppGbi4/AAAAAAAAAAI/AAAAAAAAAAA/eYbACa3ngLA/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 47,
+    "userRatingsTotal": 47,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npN909iruA8aQkE2ghEeNYoJoC8uyiCS0E1_NgkWxadrqVSl5t6CNHKHaCQVMzf8GdoBN1b_B9MwLybE_KUeMEiapQx9Ipbi-m8lx-VeTdK89vK6WPtiCwHJw439Ku7tOSbTNEcPQ=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "8AM-7PM",
+      "Sunday": "8AM-6PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJb-uE1y68locRC_aqLi0mF40",
+    "name": "Paws 4 Fun",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Paws 4 Fun has become a favorite among Lincoln residents. This facility features professional grooming stations, compassionate staff members, offering pet care. Their services creates a safe environment for play and exercise. conveniently located in the heart of Lincoln. Experience the difference at Paws 4 Fun",
+    "slug": "paws-4-fun",
+    "address": "222 N 44th St",
+    "street": "222 N 44th St",
+    "city": "Lincoln",
+    "state": "NE",
+    "zipCode": "68503",
+    "full_address": "222 N 44th St, Lincoln, NE 68503",
+    "latitude": 40.8146745,
+    "longitude": -96.6577164,
+    "googlePlaceId": "ChIJb-uE1y68locRC_aqLi0mF40",
+    "phone": "+1 402-802-1738",
+    "website": "http://www.paws4fun.dog/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npBSe9uuY0qPtNDEzezEkpTefxozH_uqicxLZCBVHYTQqrJ-g-pCECgUU2fisxQyX-yjwi7c6wozc9x78hBSn_yszKS4K9wl1zvllEtfD6oaLnStb4NY00YTMziNQC2W0qMYiyv=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/p/AF1QipPP74b_UrMC5Ab0RDgDX2W_L2_LE3wk7m0rYv5E=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.4,
+    "reviewCount": 290,
+    "userRatingsTotal": 290,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npBSe9uuY0qPtNDEzezEkpTefxozH_uqicxLZCBVHYTQqrJ-g-pCECgUU2fisxQyX-yjwi7c6wozc9x78hBSn_yszKS4K9wl1zvllEtfD6oaLnStb4NY00YTMziNQC2W0qMYiyv=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "7AM-8PM",
+      "Monday": "7AM-8PM",
+      "Tuesday": "7AM-8PM",
+      "Wednesday": "7AM-8PM",
+      "Thursday": "7AM-8PM",
+      "Friday": "7AM-8PM",
+      "Saturday": "7AM-8PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJKwbwCbqLwokRUqJlcQ1qAKg",
+    "name": "Whitestone Doghouse",
+    "businessType": "Indoor Dog Park",
+    "description": "Among Whitestone's top-rated pet facilities, Whitestone Doghouse stands out. This facility features professional grooming stations, dedicated animal lovers, offering pet care. Their services helps develop good behavior and social skills. readily accessible to Whitestone pet owners. Reach out to Whitestone Doghouse for a consultation",
+    "slug": "whitestone-doghouse",
+    "address": "12-49 150th St",
+    "street": "12-49 150th St",
+    "city": "Whitestone",
+    "state": "NY",
+    "zipCode": "11357",
+    "full_address": "12-49 150th St, Whitestone, NY 11357",
+    "latitude": 40.7893894,
+    "longitude": -73.8138407,
+    "googlePlaceId": "ChIJKwbwCbqLwokRUqJlcQ1qAKg",
+    "phone": "+1 718-767-7445",
+    "website": "http://www.whitestonedoghouse.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMqFrRe4DVp1gctjVTN_n6D_P5Jugi5xNQZyu5L=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/--GcB2ZfOhbo/AAAAAAAAAAI/AAAAAAAAAAA/vRqkyM3OQ-g/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 351,
+    "userRatingsTotal": 351,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMqFrRe4DVp1gctjVTN_n6D_P5Jugi5xNQZyu5L=w1600-h1000-k-no",
+    "openingHours": {},
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": true,
+      "training": true
+    }
+  },
+  {
+    "id": "ChIJtYplX8f1wokRqscrFI0LQRE",
+    "name": "St. Mary's Dog Run",
+    "businessType": "Dog Park",
+    "description": "St. Mary's Dog Run provides reliable care for Bronx's furry friends. This facility features modern training facilities, passionate pet care professionals, offering pet care. Their services provides professional care you can trust. readily accessible to Bronx pet owners. Book your dog's stay at St. Mary's Dog Run today",
+    "slug": "st-marys-dog-run",
+    "address": "387 Jackson Ave",
+    "street": "387 Jackson Ave",
+    "city": "Bronx",
+    "state": "NY",
+    "zipCode": "10455",
+    "full_address": "387 Jackson Ave, Bronx, NY 10455",
+    "latitude": 40.8096253,
+    "longitude": -73.9121229,
+    "googlePlaceId": "ChIJtYplX8f1wokRqscrFI0LQRE",
+    "phone": "+1 718-402-5155",
+    "website": "https://www.nycgovparks.org/parks/st-marys-park/facilities/dogareas",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrYapcIaXeQYiqryy8LsTCN_cg2iLbH2fzK2BeQ4Q3XzU_OjwsbraeeLDmqARKNrfUwVMlLAon2ulqFW_dY1OC2QURuE5c-XeTetCfnlg0A_1OuU8Jk9nmHXMj99p75Hsax0HMH=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-jHUE33a8R6c/AAAAAAAAAAI/AAAAAAAAAAA/AChCrlH-eP2k/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.2,
+    "reviewCount": 330,
+    "userRatingsTotal": 330,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrYapcIaXeQYiqryy8LsTCN_cg2iLbH2fzK2BeQ4Q3XzU_OjwsbraeeLDmqARKNrfUwVMlLAon2ulqFW_dY1OC2QURuE5c-XeTetCfnlg0A_1OuU8Jk9nmHXMj99p75Hsax0HMH=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "6AM-10PM",
+      "Monday": "6AM-10PM",
+      "Tuesday": "6AM-10PM",
+      "Wednesday": "6AM-10PM",
+      "Thursday": "6AM-10PM",
+      "Friday": "6AM-10PM",
+      "Saturday": "6AM-10PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true
+    }
+  },
+  {
+    "id": "ChIJWy4lY_NZwokRZl7kCchqH94",
+    "name": "DOGPOUND Gym, Personal Training & Group Fitness Classes",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "DOGPOUND Gym, Personal Training & Group Fitness Classes has become the go-to destination for New York dog owners. This facility features hygienic care areas, experienced and certified staff, offering pet care. Their services supports your dog's physical and mental well-being. centrally located for New York residents. Call +1 646-620-6533 to learn more about their services",
+    "slug": "dogpound-gym-personal-training-group-fitness-classes",
+    "address": "1 Renwick St",
+    "street": "1 Renwick St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10013",
+    "full_address": "1 Renwick St, New York, NY 10013",
+    "latitude": 40.7245092,
+    "longitude": -74.0087489,
+    "googlePlaceId": "ChIJWy4lY_NZwokRZl7kCchqH94",
+    "phone": "+1 646-620-6533",
+    "website": "http://thedogpound.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipNKe21yRQSgsqzm5P161TrTkwV4N_uXXEHIj7Sn=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-LH43ErF8YbE/AAAAAAAAAAI/AAAAAAAAAAA/AHMtBYwkI9k/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 94,
+    "userRatingsTotal": 94,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipNKe21yRQSgsqzm5P161TrTkwV4N_uXXEHIj7Sn=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "6AM-8PM",
+      "Tuesday": "6AM-8PM",
+      "Wednesday": "6AM-8PM",
+      "Thursday": "6AM-8PM",
+      "Friday": "6AM-8PM",
+      "Saturday": "8AM-5PM",
+      "Sunday": "8AM-5PM"
+    },
+    "faqs": []
+  },
+  {
+    "id": "ChIJX0qxgMMP9YgRupXTxaLVj9E",
+    "name": "Puppy Haven - Chastain",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Puppy Haven - Chastain has earned its reputation as Sandy Springs's premier pet facility. This facility features hygienic care areas, compassionate staff members, offering pet care. Their services helps develop good behavior and social skills. situated in a prime Sandy Springs location. Book your dog's stay at Puppy Haven - Chastain today",
+    "slug": "puppy-haven-chastain",
+    "address": "230 Old Windsor Pkwy",
+    "street": "230 Old Windsor Pkwy",
+    "city": "Sandy Springs",
+    "state": "GA",
+    "zipCode": "30342",
+    "full_address": "230 Old Windsor Pkwy, Sandy Springs, GA 30342",
+    "latitude": 33.8804435,
+    "longitude": -84.3788452,
+    "googlePlaceId": "ChIJX0qxgMMP9YgRupXTxaLVj9E",
+    "phone": "+1 404-885-8788",
+    "website": "https://www.puppyhaven.com/locations/chastain/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipNxHbSu46dBknV50DvG4Eu2LjfcwTFaTbTr4Ck8=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-2vXH37VgKn8/AAAAAAAAAAI/AAAAAAAAAAA/AVAG7y_h5p0/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.8,
+    "reviewCount": 274,
+    "userRatingsTotal": 274,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipNxHbSu46dBknV50DvG4Eu2LjfcwTFaTbTr4Ck8=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "12-7PM",
+      "Monday": "7AM-7:30PM",
+      "Tuesday": "7AM-7:30PM",
+      "Wednesday": "7AM-7:30PM",
+      "Thursday": "7AM-7:30PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "8AM-4PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJVy_khOxbwokR7HPDLv1x1Aw",
+    "name": "Doggittude",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Brooklyn consistently rave about Doggittude. This facility features modern training facilities, caring and attentive team members, offering pet care. Their services creates a safe environment for play and exercise. easily accessible from Brooklyn's main areas. Visit Doggittude to see their facilities firsthand",
+    "slug": "doggittude",
+    "address": "356 Atlantic Ave",
+    "street": "356 Atlantic Ave",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11217",
+    "full_address": "356 Atlantic Ave, Brooklyn, NY 11217",
+    "latitude": 40.6874501,
+    "longitude": -73.9866975,
+    "googlePlaceId": "ChIJVy_khOxbwokR7HPDLv1x1Aw",
+    "phone": "+1 646-956-3511",
+    "website": "http://www.doggittude.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npgtJhk3rGALz9riKUZVoES6XLH0n2R0SezL0KCxFXBVvPHv8ObCZYrxxsAdGu_PXtewgcpAeBrnXsIRXVPyuA7pqBVfFsN8UI9k6iJS7UjorxY8XhF1dyg16Fp5U8PQaHYYH6dsyJiC2M=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-EwJ5m5c0HVM/AAAAAAAAAAI/AAAAAAAAAAA/x0_pD8K4hYw/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 56,
+    "userRatingsTotal": 56,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npgtJhk3rGALz9riKUZVoES6XLH0n2R0SezL0KCxFXBVvPHv8ObCZYrxxsAdGu_PXtewgcpAeBrnXsIRXVPyuA7pqBVfFsN8UI9k6iJS7UjorxY8XhF1dyg16Fp5U8PQaHYYH6dsyJiC2M=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7:30AM-7PM",
+      "Tuesday": "7:30AM-7PM",
+      "Wednesday": "7:30AM-7PM",
+      "Thursday": "7:30AM-7PM",
+      "Friday": "7:30AM-7PM",
+      "Saturday": "10AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJb_FfV3JbwokRYaKA05Q5QgI",
+    "name": "Brooklyn Pawffice",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog lovers in Brooklyn trust Brooklyn Pawffice for exceptional care. This facility features modern training facilities, compassionate staff members, offering pet care. Their services creates a safe environment for play and exercise. centrally located for Brooklyn residents. Reach out to Brooklyn Pawffice for a consultation",
+    "slug": "brooklyn-pawffice",
+    "address": "522 Grand St",
+    "street": "522 Grand St",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11211",
+    "full_address": "522 Grand St, Brooklyn, NY 11211",
+    "latitude": 40.7108524,
+    "longitude": -73.9504695,
+    "googlePlaceId": "ChIJb_FfV3JbwokRYaKA05Q5QgI",
+    "phone": "+1 929-258-8350",
+    "website": "http://brooklynpawffice.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipPzk360c3Wn_EXjeIceb2D-qwYw6T52ulgWKvKW=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-9sO93X_eE5A/AAAAAAAAAAI/AAAAAAAAAAA/me2KLtZIyHE/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 130,
+    "userRatingsTotal": 130,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipPzk360c3Wn_EXjeIceb2D-qwYw6T52ulgWKvKW=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "6AM-8PM",
+      "Tuesday": "6AM-8PM",
+      "Wednesday": "6AM-8PM",
+      "Thursday": "6AM-8PM",
+      "Friday": "6AM-8PM",
+      "Saturday": "8AM-6PM",
+      "Sunday": "8AM-6PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJX0fD4I0F9YgRG95TnXvCE20",
+    "name": "Club DiOGi",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Atlanta consistently rave about Club DiOGi. This facility features state-of-the-art indoor play areas, passionate pet care professionals, offering pet care. Their services creates a safe environment for play and exercise. centrally located for Atlanta residents. Call +1 404-549-3446 to learn more about their services",
+    "slug": "club-diogi",
+    "address": "2080 Cheshire Bridge Rd NE suite b",
+    "street": "2080 Cheshire Bridge Rd NE suite b",
+    "city": "Atlanta",
+    "state": "GA",
+    "zipCode": "30324",
+    "full_address": "2080 Cheshire Bridge Rd NE suite b, Atlanta, GA 30324",
+    "latitude": 33.8123361,
+    "longitude": -84.3551292,
+    "googlePlaceId": "ChIJX0fD4I0F9YgRG95TnXvCE20",
+    "phone": "+1 404-549-3446",
+    "website": "https://clubdiogi.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipNAzRKL4-bj_vwtvZodZpWZoZv_6Zwfp61EhNR5=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-G6qCYr80Nrc/AAAAAAAAAAI/AAAAAAAAAAA/dG2D-ozPIkU/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.9,
+    "reviewCount": 69,
+    "userRatingsTotal": 69,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipNAzRKL4-bj_vwtvZodZpWZoZv_6Zwfp61EhNR5=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "7AM-6PM",
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "7AM-6PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJ4z_zpqxbwokRpAqDCwd0qWk",
+    "name": "Bark Street - Dog Daycare & Grooming",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Bark Street - Dog Daycare & Grooming has become the go-to destination for New York dog owners. This facility features hygienic care areas, passionate pet care professionals, offering pet care. Their services provides essential socialization for your pet. centrally located for New York residents. Call +1 646-798-1485 to learn more about their services",
+    "slug": "bark-street-dog-daycare-grooming",
+    "address": "80 Maiden Ln",
+    "street": "80 Maiden Ln",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10038",
+    "full_address": "80 Maiden Ln, New York, NY 10038",
+    "latitude": 40.7071228,
+    "longitude": -74.0077715,
+    "googlePlaceId": "ChIJ4z_zpqxbwokRpAqDCwd0qWk",
+    "phone": "+1 646-798-1485",
+    "website": "https://barkstnyc.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npq9g0cYYrmiLLDJllMQJ59qbFY4Nv_09lnVXeuqKnVUi3G5caO0D9ygB_DFCj76A0AiAHob-528PR-R71PXpQ0ZKfScUtwau4khSJ-1fuE0nn028W_0M_lee2fR3YTYIhS0lgu=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-YmcNf3e2ILQ/AAAAAAAAAAI/AAAAAAAAAAA/4RP8d9hAP3g/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 5.0,
+    "reviewCount": 92,
+    "userRatingsTotal": 92,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npq9g0cYYrmiLLDJllMQJ59qbFY4Nv_09lnVXeuqKnVUi3G5caO0D9ygB_DFCj76A0AiAHob-528PR-R71PXpQ0ZKfScUtwau4khSJ-1fuE0nn028W_0M_lee2fR3YTYIhS0lgu=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "7AM-8PM",
+      "Tuesday": "7AM-8PM",
+      "Wednesday": "7AM-8PM",
+      "Thursday": "7AM-8PM",
+      "Friday": "7AM-8PM",
+      "Saturday": "9AM-6PM",
+      "Sunday": "9AM-6PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJDbsOPf5ZwokRFV1HV6fv_wc",
+    "name": "Fido Playhouse",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Fido Playhouse has become the go-to destination for Brooklyn dog owners. This facility features climate-controlled facilities, compassionate staff members, offering pet care. Their services provides essential socialization for your pet. readily accessible to Brooklyn pet owners. Book your dog's stay at Fido Playhouse today",
+    "slug": "fido-playhouse",
+    "address": "975 Manhattan Ave Store #1",
+    "street": "975 Manhattan Ave Store #1",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11222",
+    "full_address": "975 Manhattan Ave Store #1, Brooklyn, NY 11222",
+    "latitude": 40.732507,
+    "longitude": -73.9549049,
+    "googlePlaceId": "ChIJDbsOPf5ZwokRFV1HV6fv_wc",
+    "phone": "+1 646-384-8602",
+    "website": "http://fidoplayhouseny.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMNbMp-F9zKineO7gg09KBr_wwfMBcLu-g-tRAm=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh6.googleusercontent.com/-g9yKgDuJSN8/AAAAAAAAAAI/AAAAAAAAAAA/qwHSilHLLhY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 5.0,
+    "reviewCount": 55,
+    "userRatingsTotal": 55,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMNbMp-F9zKineO7gg09KBr_wwfMBcLu-g-tRAm=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "9AM-5PM",
+      "Monday": "7:30AM-7:30PM",
+      "Tuesday": "7:30AM-7:30PM",
+      "Wednesday": "7:30AM-7:30PM",
+      "Thursday": "7:30AM-7:30PM",
+      "Friday": "7:30AM-7:30PM",
+      "Saturday": "9AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJowl-2cJZwokRmtMRufPJcpE",
+    "name": "Dog City NYC (W27)",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog City NYC (W27) serves the New York pet community with dedication. This facility features professional grooming stations, trained pet care specialists, offering pet care. Their services maintains your pet's routine even when you're away. easily accessible from New York's main areas. Call +1 646-434-2384 to learn more about their services",
+    "slug": "dog-city-nyc-w27",
+    "address": "521 W 27th St",
+    "street": "521 W 27th St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "full_address": "521 W 27th St, New York, NY 10001",
+    "latitude": 40.750752,
+    "longitude": -74.0033404,
+    "googlePlaceId": "ChIJowl-2cJZwokRmtMRufPJcpE",
+    "phone": "+1 646-434-2384",
+    "website": "https://www.dogcitynyc.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipOAaycIOR0AGy3UzT8_fOcy8N8d92Rar1EIbWbx=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh4.googleusercontent.com/-MsHhOpwjN9U/AAAAAAAAAAI/AAAAAAAAAAA/iPQpQSKId68/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 9,
+    "userRatingsTotal": 9,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipOAaycIOR0AGy3UzT8_fOcy8N8d92Rar1EIbWbx=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "8:30AM-5PM",
+      "Tuesday": "8:30AM-5PM",
+      "Wednesday": "8:30AM-5PM",
+      "Thursday": "8:30AM-5PM",
+      "Friday": "8:30AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJaawx_zNfrIkRdXJ1kMUfB4o",
+    "name": "West Street Dog",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog lovers in Raleigh trust West Street Dog for exceptional care. This facility features professional grooming stations, professional pet care experts, offering pet care. Their services ensures your dog stays active and healthy. strategically positioned in Raleigh. Contact West Street Dog today to schedule your dog's visit",
+    "slug": "west-street-dog",
+    "address": "400 W. North Street Unit 110 Entrance is on, N West St",
+    "street": "400 W. North Street Unit 110 Entrance is on, N West St",
+    "city": "Raleigh",
+    "state": "NC",
+    "zipCode": "27603",
+    "full_address": "400 W. North Street Unit 110 Entrance is on, N West St, Raleigh, NC 27603",
+    "latitude": 35.785391,
+    "longitude": -78.6455266,
+    "googlePlaceId": "ChIJaawx_zNfrIkRdXJ1kMUfB4o",
+    "phone": "+1 984-222-2965",
+    "website": "https://www.weststreetdog.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipO0gZnzbEdADyJOXeXMEGVvHgQof7BCP7UviOw9=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-sLBRTcI0TvY/AAAAAAAAAAI/AAAAAAAAAAA/P_naXFlCMNk/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 104,
+    "userRatingsTotal": 104,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipO0gZnzbEdADyJOXeXMEGVvHgQof7BCP7UviOw9=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "9-10AM,2-7PM",
+      "Monday": "7:30AM-8PM",
+      "Tuesday": "7:30AM-6:30PM",
+      "Wednesday": "7:30AM-6:30PM",
+      "Thursday": "7:30AM-6:30PM",
+      "Friday": "7:30AM-11PM",
+      "Saturday": "9-10AM,1-7PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJDR-Tl_5PwokRa_kE2QIAnU0",
+    "name": "Owl's Head Park Dog Run",
+    "businessType": "Dog Park",
+    "description": "Owl's Head Park Dog Run has become a favorite among Brooklyn residents. This facility features hygienic care areas, passionate pet care professionals, offering pet care. Their services supports your dog's physical and mental well-being. situated in a prime Brooklyn location. Visit Owl's Head Park Dog Run to see their facilities firsthand",
+    "slug": "owls-head-park-dog-run",
+    "address": "68th Street &, Shore Rd",
+    "street": "68th Street &, Shore Rd",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11220",
+    "full_address": "68th Street &, Shore Rd, Brooklyn, NY 11220",
+    "latitude": 40.6402068,
+    "longitude": -74.0350618,
+    "googlePlaceId": "ChIJDR-Tl_5PwokRa_kE2QIAnU0",
+    "phone": "+1 212-639-9675",
+    "website": "https://www.nycgovparks.org/parks/owls-head-park/facilities/dogareas",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nptb-bTHmHq-YutComWg5LYS7j1AfmRJ9JSzNosphQT4SmGwn5s7Q9SOE6obSSkIegAzFIiF2zXaDk-A13kB5K-9-eDOgYf3RCZr6HqqJlF1VPVcUibVNF1L9IkpFIuNb956l1r=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-HQOw0yaoFx4/AAAAAAAAAAI/AAAAAAAAAAA/RArWoUPU2wk/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.4,
+    "reviewCount": 251,
+    "userRatingsTotal": 251,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nptb-bTHmHq-YutComWg5LYS7j1AfmRJ9JSzNosphQT4SmGwn5s7Q9SOE6obSSkIegAzFIiF2zXaDk-A13kB5K-9-eDOgYf3RCZr6HqqJlF1VPVcUibVNF1L9IkpFIuNb956l1r=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "6AM-9PM",
+      "Monday": "6AM-9PM",
+      "Tuesday": "6AM-9PM",
+      "Wednesday": "6AM-9PM",
+      "Thursday": "6AM-9PM",
+      "Friday": "6AM-9PM",
+      "Saturday": "6AM-9PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJERgvjxpbwokRkOp4ojS9vRQ",
+    "name": "Prospect Park Dog Beach",
+    "businessType": "Dog Park",
+    "description": "Prospect Park Dog Beach has earned its reputation as Brooklyn's premier pet facility. This facility features modern training facilities, compassionate staff members, offering pet care. Their services offers peace of mind for busy pet parents. centrally located for Brooklyn residents. Visit Prospect Park Dog Beach to see their facilities firsthand",
+    "slug": "prospect-park-dog-beach",
+    "address": "95 Prospect Park W",
+    "street": "95 Prospect Park W",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11215",
+    "full_address": "95 Prospect Park W, Brooklyn, NY 11215",
+    "latitude": 40.6625946,
+    "longitude": -73.9719428,
+    "googlePlaceId": "ChIJERgvjxpbwokRkOp4ojS9vRQ",
+    "phone": "+1 718-965-8951",
+    "website": "https://www.prospectpark.org/news-events/news/dog-beach-reopens-after-renovation/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npOgpaZczjb1o1mNb3nrj2-aDJyzz8EB8wm2GJTMODv7Vhes9OSmXkfRIDLiNCIcLN1WICJlQNa67E95I1aiSG75GD-hJATrPB3vRo1RX-z3AMJkKOsoWZnEpLG3sbcBLcjOzcf5A=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-jGcF8zXAAgY/AAAAAAAAAAI/AAAAAAAAAAA/cNkIeEdUUy0/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 582,
+    "userRatingsTotal": 582,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npOgpaZczjb1o1mNb3nrj2-aDJyzz8EB8wm2GJTMODv7Vhes9OSmXkfRIDLiNCIcLN1WICJlQNa67E95I1aiSG75GD-hJATrPB3vRo1RX-z3AMJkKOsoWZnEpLG3sbcBLcjOzcf5A=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "5AM-1AM",
+      "Monday": "5AM-1AM",
+      "Tuesday": "5AM-1AM",
+      "Wednesday": "5AM-1AM",
+      "Thursday": "5AM-1AM",
+      "Friday": "5AM-1AM",
+      "Saturday": "5AM-1AM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true
+    }
+  },
+  {
+    "id": "ChIJW9a3ruQD9YgR6UQ9jWX-FjE",
+    "name": "WAG-A-LOT Downtown",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog lovers in Atlanta trust WAG-A-LOT Downtown for exceptional care. This facility features professional grooming stations, passionate pet care professionals, offering pet care. Their services ensures your dog stays active and healthy. situated in a prime Atlanta location. Experience the difference at WAG-A-LOT Downtown",
+    "slug": "wag-a-lot-downtown",
+    "address": "840 Old Flat Shoals Rd SE",
+    "street": "840 Old Flat Shoals Rd SE",
+    "city": "Atlanta",
+    "state": "GA",
+    "zipCode": "30312",
+    "full_address": "840 Old Flat Shoals Rd SE, Atlanta, GA 30312",
+    "latitude": 33.7456805,
+    "longitude": -84.3598841,
+    "googlePlaceId": "ChIJW9a3ruQD9YgR6UQ9jWX-FjE",
+    "phone": "+1 404-522-2230",
+    "website": "http://www.wagalot.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqPGp9yD4z37p-sFpgQAxF0gX8AvcJGXJhsDku_-zOTicU7z_MQmbIGziqaKjcQEaqOIL5qAdjrJt7n--dEQU3wCQMcjJ3EO-ENT1NOL-5TYaNo1NS1NJ5inCgH5RP0f2axth6r=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh6.googleusercontent.com/-9L6ezYBcTPY/AAAAAAAAAAI/AAAAAAAAAAA/b2JR15CjLoY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 209,
+    "userRatingsTotal": 209,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqPGp9yD4z37p-sFpgQAxF0gX8AvcJGXJhsDku_-zOTicU7z_MQmbIGziqaKjcQEaqOIL5qAdjrJt7n--dEQU3wCQMcjJ3EO-ENT1NOL-5TYaNo1NS1NJ5inCgH5RP0f2axth6r=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "7:30AM-7:30PM",
+      "Monday": "6:30AM-7:30PM",
+      "Tuesday": "6:30AM-7:30PM",
+      "Wednesday": "6:30AM-7:30PM",
+      "Thursday": "6:30AM-7:30PM",
+      "Friday": "6:30AM-7:30PM",
+      "Saturday": "7:30AM-7:30PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJhc64txNs9YgRzke0mu5zkbU",
+    "name": "Pet Paradise Woodstock",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet Paradise Woodstock offers dependable services to Woodstock's pet community. This facility features comfortable boarding accommodations, compassionate staff members, offering pet care. Their services creates a safe environment for play and exercise. conveniently situated for Woodstock families. Book your dog's stay at Pet Paradise Woodstock today",
+    "slug": "pet-paradise-woodstock",
+    "address": "240 Arnold Mill Rd #108",
+    "street": "240 Arnold Mill Rd #108",
+    "city": "Woodstock",
+    "state": "GA",
+    "zipCode": "30188",
+    "full_address": "240 Arnold Mill Rd #108, Woodstock, GA 30188",
+    "latitude": 34.10153,
+    "longitude": -84.5077715,
+    "googlePlaceId": "ChIJhc64txNs9YgRzke0mu5zkbU",
+    "phone": "+1 770-517-9907",
+    "website": "https://www.petparadise.com/woodstock.htm",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipPOAADbjVCjqLqC-pOW5uzYFLJ1MArWS5aCo5Dj=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-wmAb87OCoIw/AAAAAAAAAAI/AAAAAAAAAAA/6_pYO37wqhI/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.3,
+    "reviewCount": 236,
+    "userRatingsTotal": 236,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipPOAADbjVCjqLqC-pOW5uzYFLJ1MArWS5aCo5Dj=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "9AM-5PM",
+      "Monday": "6:30AM-7PM",
+      "Tuesday": "6:30AM-7PM",
+      "Wednesday": "6:30AM-7PM",
+      "Thursday": "6:30AM-7PM",
+      "Friday": "6:30AM-7PM",
+      "Saturday": "9AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "grooming": true
+    }
+  },
+  {
+    "id": "ChIJ3282JH3Hw4kRaFob9tHQCUM",
+    "name": "The DogPound: Youth Sports Training Facility",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog parents in North Brunswick Township choose The DogPound: Youth Sports Training Facility for their pet care needs. This facility features spacious exercise zones, dedicated animal lovers, offering pet care. Their services ensures your dog stays active and healthy. conveniently situated for North Brunswick Township families. Book your dog's stay at The DogPound: Youth Sports Training Facility today",
+    "slug": "the-dogpound-youth-sports-training-facility",
+    "address": "Parking Lot of Warehouse next to Burger King, 1007 Livingston Ave rear",
+    "street": "Parking Lot of Warehouse next to Burger King, 1007 Livingston Ave rear",
+    "city": "North Brunswick Township",
+    "state": "NJ",
+    "zipCode": "8902",
+    "full_address": "Parking Lot of Warehouse next to Burger King, 1007 Livingston Ave rear, North Brunswick Township, NJ 08902",
+    "latitude": 40.4691555,
+    "longitude": -74.4713298,
+    "googlePlaceId": "ChIJ3282JH3Hw4kRaFob9tHQCUM",
+    "phone": "+1 908-943-4122",
+    "website": "http://www.dogpoundtraining.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipP723y_jG5LT-bRy9Igf55RLoGO3PzmpPcoHz4E=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-KgzSmN4peOY/AAAAAAAAAAI/AAAAAAAAAAA/fxu7uNGEy6s/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 5.0,
+    "reviewCount": 10,
+    "userRatingsTotal": 10,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipP723y_jG5LT-bRy9Igf55RLoGO3PzmpPcoHz4E=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "Open 24 hours",
+      "Tuesday": "Open 24 hours",
+      "Wednesday": "Open 24 hours",
+      "Thursday": "Open 24 hours",
+      "Friday": "Open 24 hours",
+      "Saturday": "Open 24 hours",
+      "Sunday": "Open 24 hours"
+    },
+    "faqs": [],
+    "amenities": {
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJO_kDsjtZwokRYdgQZXhKEo4",
+    "name": "Dog City NYC (Upper East Side)",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dog City NYC (Upper East Side) offers fundamental services for New York's pets. This facility features secure play environments, caring and attentive team members, offering pet care. Their services helps develop good behavior and social skills. strategically positioned in New York. Discover why New York pet parents choose Dog City NYC (Upper East Side)",
+    "slug": "dog-city-nyc-upper-east-side",
+    "address": "205 E 92nd St",
+    "street": "205 E 92nd St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10128",
+    "full_address": "205 E 92nd St, New York, NY 10128",
+    "latitude": 40.7824768,
+    "longitude": -73.9504487,
+    "googlePlaceId": "ChIJO_kDsjtZwokRYdgQZXhKEo4",
+    "phone": "+1 212-671-1884",
+    "website": "http://www.dogcitynyc.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipPFnBh2h9T0SrFEg5uH99SoonDgg9NFx9CdAaYp=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-W3yAw8CBfYY/AAAAAAAAAAI/AAAAAAAAAAA/MstYV8MARmU/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 0,
+    "reviewCount": 0,
+    "userRatingsTotal": 0,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipPFnBh2h9T0SrFEg5uH99SoonDgg9NFx9CdAaYp=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "8:30AM-5PM",
+      "Tuesday": "8:30AM-5PM",
+      "Wednesday": "8:30AM-5PM",
+      "Thursday": "8:30AM-5PM",
+      "Friday": "8:30AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "daycare": true
+    }
+  },
+  {
+    "id": "ChIJvcnZ1ZQL9YgRzgfFkK0qK34",
+    "name": "Dunwoody Nature Center",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Dunwoody Nature Center has earned its reputation as Dunwoody's premier pet facility. This facility features spacious exercise zones, compassionate staff members, offering pet care. Their services creates a safe environment for play and exercise. conveniently situated for Dunwoody families. Visit Dunwoody Nature Center to see their facilities firsthand",
+    "slug": "dunwoody-nature-center",
+    "address": "5343 Roberts Dr",
+    "street": "5343 Roberts Dr",
+    "city": "Dunwoody",
+    "state": "GA",
+    "zipCode": "30338",
+    "full_address": "5343 Roberts Dr, Dunwoody, GA 30338",
+    "latitude": 33.9566667,
+    "longitude": -84.3327778,
+    "googlePlaceId": "ChIJvcnZ1ZQL9YgRzgfFkK0qK34",
+    "phone": "+1 770-394-3322",
+    "website": "http://www.dunwoodynature.org/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrnIW6U3m81N5aoeR7LbA3r2FwFBMfbRTBIwtI3ayh4iLvxlqqz4hNhv8NGASG5la15hlpPyBUfJg-5Pl_G4_hVOC_AQlId-hB6LnO1GRy7nd243HhMX2F9IIm0ghTQ5yLsSQNR=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/-sM1vElkwG58/AAAAAAAAAAI/AAAAAAAAAAA/4-W3nPqXcfQ/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 749,
+    "userRatingsTotal": 749,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrnIW6U3m81N5aoeR7LbA3r2FwFBMfbRTBIwtI3ayh4iLvxlqqz4hNhv8NGASG5la15hlpPyBUfJg-5Pl_G4_hVOC_AQlId-hB6LnO1GRy7nd243HhMX2F9IIm0ghTQ5yLsSQNR=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "9AM-5PM",
+      "Monday": "9AM-5PM",
+      "Tuesday": "9AM-5PM",
+      "Wednesday": "9AM-5PM",
+      "Thursday": "9AM-5PM",
+      "Friday": "9AM-5PM",
+      "Saturday": "9AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true
+    }
+  },
+  {
+    "id": "ChIJ36QSwVRawokRO1ahG9js-5g",
+    "name": "Bouldering Project - Gowanus",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Bouldering Project - Gowanus provides reliable care for Brooklyn's furry friends. This facility features spacious exercise zones, trained pet care specialists, offering pet care. Their services provides essential socialization for your pet. readily accessible to Brooklyn pet owners. Visit Bouldering Project - Gowanus to see their facilities firsthand",
+    "slug": "bouldering-project-gowanus",
+    "address": "575 Degraw St",
+    "street": "575 Degraw St",
+    "city": "Brooklyn",
+    "state": "NY",
+    "zipCode": "11217",
+    "full_address": "575 Degraw St, Brooklyn, NY 11217",
+    "latitude": 40.679661,
+    "longitude": -73.98424,
+    "googlePlaceId": "ChIJ36QSwVRawokRO1ahG9js-5g",
+    "phone": "+1 347-834-9066",
+    "website": "https://boulderingproject.com/location/gowanus/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipOfaCiCtoxw-tM4BGHSUHOn5vDhhWriRmX8N4h0=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-q0JOXAdSbko/AAAAAAAAAAI/AAAAAAAAAAA/ZtsopnRwTkY/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.1,
+    "reviewCount": 434,
+    "userRatingsTotal": 434,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipOfaCiCtoxw-tM4BGHSUHOn5vDhhWriRmX8N4h0=w1600-h1000-k-no",
+    "openingHours": {
+      "Monday": "6AM-10PM",
+      "Tuesday": "6AM-10PM",
+      "Wednesday": "6AM-10PM",
+      "Thursday": "6AM-10PM",
+      "Friday": "6AM-10PM",
+      "Saturday": "8AM-8PM",
+      "Sunday": "8AM-8PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "training": true
+    }
+  },
+  {
+    "id": "ChIJO1wpo8GSwokRGaSor78c9gs",
+    "name": "Paws & Play Pet Resort and Training Center",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Pet parents in Tuckahoe consistently rave about Paws & Play Pet Resort and Training Center. This facility features hygienic care areas, knowledgeable animal handlers, offering pet care. Their services helps develop good behavior and social skills. readily accessible to Tuckahoe pet owners. Reach out to Paws & Play Pet Resort and Training Center for a consultation",
+    "slug": "paws-play-pet-resort-and-training-center",
+    "address": "72 Marbledale Rd",
+    "street": "72 Marbledale Rd",
+    "city": "Tuckahoe",
+    "state": "NY",
+    "zipCode": "10707",
+    "full_address": "72 Marbledale Rd, Tuckahoe, NY 10707",
+    "latitude": 40.95198,
+    "longitude": -73.8206419,
+    "googlePlaceId": "ChIJO1wpo8GSwokRGaSor78c9gs",
+    "phone": "+1 914-337-2948",
+    "website": "https://www.pawsandplaypetresort.com/",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipP7xlO-XVmvhdEwiyoniElC-hAxP1594YHWmKKH=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google"
+      },
+      {
+        "url": "https://lh5.googleusercontent.com/-ESZMP7xLmMg/AAAAAAAAAAI/AAAAAAAAAAA/3Vf9GvkpTec/s44-p-k-no-ns-nd/photo.jpg",
+        "type": "photo",
+        "source": "google"
+      }
+    ],
+    "rating": 4.7,
+    "reviewCount": 310,
+    "userRatingsTotal": 310,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipP7xlO-XVmvhdEwiyoniElC-hAxP1594YHWmKKH=w1600-h1000-k-no",
+    "openingHours": {
+      "Sunday": "11AM-3PM",
+      "Monday": "7AM-7PM",
+      "Tuesday": "7AM-7PM",
+      "Wednesday": "7AM-7PM",
+      "Thursday": "7AM-7PM",
+      "Friday": "7AM-7PM",
+      "Saturday": "9AM-5PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "grooming": true,
+      "training": true
+    }
+  }
+]

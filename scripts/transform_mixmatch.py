@@ -45,7 +45,12 @@ def transform_working_hours(working_hours: Any) -> Dict[str, str]:
         return {}
     
     if isinstance(working_hours, dict):
-        return working_hours
+        # Convert to proper format, handling "Closed" and empty strings
+        formatted_hours = {}
+        for day, hours in working_hours.items():
+            if hours and hours != "Closed" and hours.strip():
+                formatted_hours[day] = hours
+        return formatted_hours
     
     return {}
 
@@ -69,11 +74,51 @@ def create_photos_array(street_view: str = None, logo: str = None) -> List[Dict[
     
     return photos
 
+def normalize_state(state: str) -> str:
+    """Normalize state name to abbreviation or keep as is"""
+    if not state:
+        return ""
+    
+    # State name to abbreviation mapping
+    state_map = {
+        "new york": "NY",
+        "new jersey": "NJ",
+        "georgia": "GA",
+        "minnesota": "MN",
+        "nebraska": "NE",
+        "north carolina": "NC",
+        "california": "CA"
+    }
+    
+    state_lower = state.lower().strip()
+    return state_map.get(state_lower, state)
+
 def transform_park(park: Dict[str, Any]) -> Dict[str, Any]:
     """Transform a single park entry to match destination format"""
     
     # Get primary photo URL
     primary_photo = park.get("street_view") or park.get("logo") or ""
+    
+    # Handle rating - can be empty string or number
+    rating = park.get("rating", 0)
+    if rating == "" or rating is None:
+        rating = 0
+    try:
+        rating = float(rating) if rating else 0
+    except (ValueError, TypeError):
+        rating = 0
+    
+    # Handle reviews - can be empty string or number
+    reviews = park.get("reviews", 0)
+    if reviews == "" or reviews is None:
+        reviews = 0
+    try:
+        reviews = int(reviews) if reviews else 0
+    except (ValueError, TypeError):
+        reviews = 0
+    
+    # Normalize state
+    state = normalize_state(park.get("state", ""))
     
     # Transform the park
     transformed = {
@@ -89,7 +134,7 @@ def transform_park(park: Dict[str, Any]) -> Dict[str, Any]:
         "address": park.get("street", ""),
         "street": park.get("street", ""),
         "city": park.get("city", ""),
-        "state": park.get("state", ""),
+        "state": state,
         "zipCode": str(park.get("postal_code", "")) if park.get("postal_code") else None,
         "full_address": park.get("full_address", ""),
         "latitude": park.get("latitude"),
@@ -101,9 +146,9 @@ def transform_park(park: Dict[str, Any]) -> Dict[str, Any]:
             park.get("street_view"),
             park.get("logo")
         ),
-        "rating": park.get("rating", 0),
-        "reviewCount": park.get("reviews", 0),
-        "userRatingsTotal": park.get("reviews", 0),
+        "rating": rating,
+        "reviewCount": reviews,
+        "userRatingsTotal": reviews,
         "pricing": {
             "pricingSource": "unknown",
             "isFree": False
@@ -149,8 +194,8 @@ def transform_park(park: Dict[str, Any]) -> Dict[str, Any]:
 
 def main():
     """Main transformation function"""
-    input_file = "public/data/mixmatch.json"
-    output_file = "public/data/mixmatch.json"
+    input_file = "public/data/mixmatch1.json"
+    output_file = "public/data/mixmatch1_transformed.json"
     
     print(f"Reading {input_file}...")
     with open(input_file, 'r', encoding='utf-8') as f:
@@ -159,11 +204,19 @@ def main():
     print(f"Transforming {len(parks)} parks...")
     transformed_parks = [transform_park(park) for park in parks]
     
+    # Filter out parks with missing required fields
+    valid_parks = []
+    for park in transformed_parks:
+        if park.get("id") and park.get("name"):
+            valid_parks.append(park)
+        else:
+            print(f"Warning: Skipping park with missing id or name: {park.get('name', 'Unknown')}")
+    
     print(f"Writing transformed data to {output_file}...")
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(transformed_parks, f, indent=2, ensure_ascii=False)
+        json.dump(valid_parks, f, indent=2, ensure_ascii=False)
     
-    print(f"✓ Successfully transformed {len(transformed_parks)} parks")
+    print(f"✓ Successfully transformed {len(valid_parks)} parks (skipped {len(transformed_parks) - len(valid_parks)} invalid)")
     print(f"✓ Output written to {output_file}")
 
 if __name__ == "__main__":
