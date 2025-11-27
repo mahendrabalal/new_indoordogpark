@@ -36,7 +36,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
     // Extract clean description
     const cleanDescription = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
 
-    const structuredData: any = {
+    const structuredData: Record<string, unknown> = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
