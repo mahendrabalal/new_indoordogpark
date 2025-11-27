@@ -102,9 +102,11 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      * - studio (Sanity Studio)
+     * - sitemap.xml (SEO sitemap)
+     * - robots.txt (robots file)
      * - .txt files (IndexNow key file and other text files)
      * Feel free to modify this pattern to include more paths.
      */
-    '/((?!_next/static|_next/image|favicon.ico|studio|.*\\.(?:svg|png|jpg|jpeg|gif|webp|txt)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|studio|sitemap\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|txt)$).*)',
   ],
 };

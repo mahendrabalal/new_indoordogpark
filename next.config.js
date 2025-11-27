@@ -215,6 +215,12 @@ const nextConfig = {
         destination: '/:path+',
         permanent: true,
       },
+      // Consolidate privacy policy URLs - redirect /privacy-policy to /privacy
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
       // Redirect old blog category URLs to new structure
       {
         source: '/blog/category/:slug',
@@ -304,9 +310,21 @@ const nextConfig = {
   swcMinify: true,
   // Power by header
   poweredByHeader: false,
-  webpack: (config) => {
+  webpack: (config, { webpack, isServer }) => {
     config.resolve.alias = config.resolve.alias || {};
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    
+    // Fix Supabase Edge Runtime warnings by providing polyfills for Node.js APIs
+    // These are used by @supabase/supabase-js and @supabase/realtime-js but aren't
+    // actually required for Edge Runtime functionality
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.version': JSON.stringify(process.version || 'v18.0.0'),
+        'process.versions': JSON.stringify(process.versions || {}),
+      })
+    );
+    
     return config;
   },
 };
