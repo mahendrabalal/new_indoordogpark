@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-11-28T00:34:33.313Z",
+  "results": [
+    {
+      "parkName": "Big Creek Boarding",
+      "email": "contact@bigcreekboarding.com",
+      "success": true
+    },
+    {
+      "parkName": "Canine ACE - PLAY Centre",
+      "email": "PLAY@CanineACE.com",
+      "success": true
+    },
+    {
+      "parkName": "Devotion to Dogs",
+      "email": "clientservices@devotiontodogs.net",
+      "success": true
+    },
+    {
+      "parkName": "Dream Big Training Center",
+      "email": "dd@ddsdogtraining.com",
+      "success": true
+    },
+    {
+      "parkName": "Fon's Canines Professional Dog Training and Sales",
+      "email": "contact@fonsdogtraining.com",
+      "success": true
+    },
+    {
+      "parkName": "For Wags N Wiggles Doggie Daycare and Boarding",
+      "email": "playtime@forwagsnwiggles.com",
+      "success": true
+    },
+    {
+      "parkName": "Golan Dogs",
+      "email": "golan@golandogs.com",
+      "success": true
+    },
+    {
+      "parkName": "Good Dog Happy Dog LLC",
+      "email": "woof@gooddoghappy.dog",
+      "success": true
+    },
+    {
+      "parkName": "London Ridge Pet Resort",
+      "email": "Londonridgepr@gmail.com",
+      "success": true
+    },
+    {
+      "parkName": "Man-K9 - San Diego Dog Training",
+      "email": "contact@mank9.com",
+      "success": true
+    },
+    {
+      "parkName": "PUPPY LOVE BOARDERS",
+      "email": "GENARO.ENTERPRISE@GMAIL.COM",
+      "success": true
+    },
+    {
+      "parkName": "Pacha Dog Care",
+      "email": "pachadogcare@gmail.com",
+      "success": true
+    },
+    {
+      "parkName": "Paws N' Play",
+      "email": "terra@pawsnplay.dog",
+      "success": true
+    },
+    {
+      "parkName": "Playland",
+      "email": "doggieland@southparkdoggie.com",
+      "success": true
+    },
+    {
+      "parkName": "South Park Doggie - Doggieland (LA)",
+      "email": "doggieland@southparkdoggie.com",
+      "success": true
+    },
+    {
+      "parkName": "South Park Doggie - Waterland (LAX)",
+      "email": "waterland@southparkdoggie.com",
+      "success": true
+    }
+  ]
+}

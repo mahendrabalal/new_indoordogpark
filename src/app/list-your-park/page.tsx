@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 // Step components
+import PlanSelectionStep from '@/components/listing/PlanSelectionStep';
 import BasicInfoStep from '@/components/listing/BasicInfoStep';
 import LocationStep from '@/components/listing/LocationStep';
 import ContactHoursStep from '@/components/listing/ContactHoursStep';
@@ -13,18 +14,20 @@ import PhotosPricingStep from '@/components/listing/PhotosPricingStep';
 import ReviewSubmitStep from '@/components/listing/ReviewSubmitStep';
 
 const STEPS = [
+  { number: 0, title: 'Choose Plan', description: 'Select your listing plan' },
   { number: 1, title: 'Basic Info', description: 'Tell us about your dog park' },
   { number: 2, title: 'Location', description: 'Where is your park located?' },
   { number: 3, title: 'Contact & Hours', description: 'How can people reach you?' },
   { number: 4, title: 'Amenities', description: 'What features does your park have?' },
   { number: 5, title: 'Photos & Pricing', description: 'Show off your park' },
-  { number: 6, title: 'Review & Submit', description: 'Choose your listing plan' },
+  { number: 6, title: 'Review & Submit', description: 'Review and submit your listing' },
 ];
 
 export default function ListPropertyPage() {
   const router = useRouter();
   const { user, loading, getSessionTokens } = useAuth();
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'featured' | null>(null);
   const [formData, setFormData] = useState<ParkSubmissionForm>(() => {
     // Load from localStorage if available
     if (typeof window !== 'undefined') {
@@ -42,64 +45,71 @@ export default function ListPropertyPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Redirect to login if not authenticated
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/login?redirect=/list-your-park');
-    }
-  }, [user, loading, router]);
-
-  // Save draft to localStorage
+  // Load selected plan from URL params if available (coming back from login)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('parkSubmissionDraft', JSON.stringify(formData));
+      // Only check URL params (in case user came back from login)
+      const urlParams = new URLSearchParams(window.location.search);
+      const planParam = urlParams.get('plan');
+      if (planParam === 'free' || planParam === 'featured') {
+        setSelectedPlan(planParam);
+        setCurrentStep(1); // Skip plan selection only if coming from login
+        // Clean up URL
+        window.history.replaceState({}, '', '/list-your-park');
+        return;
+      }
+
+      // For fresh visits, clear any old plan selection and start at step 0
+      try {
+        localStorage.removeItem('selectedListingPlan');
+      } catch (error) {
+        console.warn('Failed to clear localStorage on page load:', error);
+      }
+      setCurrentStep(0);
+    }
+  }, []);
+
+  // Save draft to localStorage with error handling
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('parkSubmissionDraft', JSON.stringify(formData));
+      } catch (error) {
+        console.warn('Failed to save draft to localStorage:', error);
+      }
     }
   }, [formData]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
+  // Save selected plan to localStorage with error handling
+  useEffect(() => {
+    if (typeof window !== 'undefined' && selectedPlan) {
+      try {
+        localStorage.setItem('selectedListingPlan', selectedPlan);
+      } catch (error) {
+        console.warn('Failed to save selected plan to localStorage:', error);
+      }
+    }
+  }, [selectedPlan]);
 
-  // Show loading state while redirecting to login
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Redirecting to login...</p>
-        </div>
-      </div>
-    );
-  }
+  const handlePlanSelection = useCallback((plan: 'free' | 'featured') => {
+    setSelectedPlan(plan);
+    // Clear any old draft when starting fresh
+    try {
+      localStorage.removeItem('parkSubmissionDraft');
+    } catch (error) {
+      console.warn('Failed to clear localStorage draft:', error);
+    }
+    setFormData(getInitialFormData());
+    setCurrentStep(1); // Move to first form step
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
-  const updateFormData = (data: Partial<ParkSubmissionForm>) => {
+  const updateFormData = useCallback((data: Partial<ParkSubmissionForm>) => {
     setFormData(prev => ({ ...prev, ...data }));
     setErrors({});
-  };
+  }, []);
 
-  const nextStep = () => {
-    const stepErrors = validateCurrentStep();
-    if (Object.keys(stepErrors).length === 0) {
-      setCurrentStep(prev => Math.min(prev + 1, STEPS.length));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      setErrors(stepErrors);
-    }
-  };
-
-  const previousStep = () => {
-    setCurrentStep(prev => Math.max(prev - 1, 1));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const validateCurrentStep = (): Record<string, string> => {
+  const validateCurrentStep = useCallback((): Record<string, string> => {
     const stepErrors: Record<string, string> = {};
 
     switch (currentStep) {
@@ -126,14 +136,74 @@ export default function ListPropertyPage() {
     }
 
     return stepErrors;
-  };
+  }, [currentStep, formData]);
+
+  const nextStep = useCallback(() => {
+    const stepErrors = validateCurrentStep();
+    if (Object.keys(stepErrors).length === 0) {
+      setCurrentStep(prev => Math.min(prev + 1, STEPS.length));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setErrors(stepErrors);
+    }
+  }, [validateCurrentStep]);
+
+  const previousStep = useCallback(() => {
+    if (currentStep === 1) {
+      // Go back to plan selection
+      setCurrentStep(0);
+      setSelectedPlan(null);
+      try {
+        localStorage.removeItem('selectedListingPlan');
+      } catch (error) {
+        console.warn('Failed to remove selected plan from localStorage:', error);
+      }
+    } else {
+      setCurrentStep(prev => Math.max(prev - 1, 0));
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
+  const loadingState = useMemo(
+    () => (
+      <div className="min-h-screen flex items-center justify-center" role="status" aria-live="polite">
+        <div className="text-center">
+          <div
+            className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"
+            aria-hidden="true"
+          />
+          <p className="mt-4 text-gray-600">Loading...</p>
+          <span className="sr-only">Loading page content</span>
+        </div>
+      </div>
+    ),
+    []
+  );
+
+  // Early return must come AFTER all hooks
+  if (loading) {
+    return loadingState;
+  }
+
 
   const handleSubmit = async (listingType: 'free' | 'featured') => {
+    // Require login before submission
+    if (!user) {
+      router.push(`/login?redirect=/list-your-park&plan=${listingType}`);
+      return;
+    }
+
     setIsSubmitting(true);
     setErrors({});
 
     try {
       const { accessToken, refreshToken } = await getSessionTokens();
+      if (!accessToken) {
+        router.push(`/login?redirect=/list-your-park&plan=${listingType}`);
+        setIsSubmitting(false);
+        return;
+      }
+
       const authHeaders: HeadersInit = {
         'Content-Type': 'application/json',
         ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
@@ -159,8 +229,14 @@ export default function ListPropertyPage() {
         return;
       }
 
-      // Clear draft from localStorage
-      localStorage.removeItem('parkSubmissionDraft');
+      // Clear draft and plan from localStorage with error handling
+      try {
+        localStorage.removeItem('parkSubmissionDraft');
+        localStorage.removeItem('selectedListingPlan');
+      } catch (error) {
+        console.warn('Failed to clear localStorage after submission:', error);
+        // Non-critical error, continue with redirect
+      }
 
       // If featured listing, redirect to checkout
       if (listingType === 'featured') {
@@ -200,43 +276,52 @@ export default function ListPropertyPage() {
           <p className="text-lg text-gray-600">Share your park with dog lovers across California</p>
         </div>
 
-        {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            {STEPS.map((step, index) => (
-              <div key={step.number} className="flex items-center flex-1">
-                <div className="flex flex-col items-center flex-1">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                      currentStep >= step.number
-                        ? 'bg-purple-600 text-white'
-                        : 'bg-gray-200 text-gray-600'
-                    }`}
-                  >
-                    {step.number}
+        {/* Progress Steps - Only show if past plan selection */}
+        {currentStep > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center justify-between">
+              {STEPS.filter(step => step.number > 0).map((step, index, filteredSteps) => (
+                <div key={step.number} className="flex items-center flex-1">
+                  <div className="flex flex-col items-center flex-1">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                        currentStep >= step.number
+                          ? 'bg-purple-600 text-white'
+                          : 'bg-gray-200 text-gray-600'
+                      }`}
+                    >
+                      {step.number}
+                    </div>
+                    <div className="text-xs mt-2 text-center hidden sm:block">
+                      <div className="font-medium">{step.title}</div>
+                    </div>
                   </div>
-                  <div className="text-xs mt-2 text-center hidden sm:block">
-                    <div className="font-medium">{step.title}</div>
-                  </div>
+                  {index < filteredSteps.length - 1 && (
+                    <div
+                      className={`h-1 flex-1 mx-2 ${
+                        currentStep > step.number ? 'bg-purple-600' : 'bg-gray-200'
+                      }`}
+                    />
+                  )}
                 </div>
-                {index < STEPS.length - 1 && (
-                  <div
-                    className={`h-1 flex-1 mx-2 ${
-                      currentStep > step.number ? 'bg-purple-600' : 'bg-gray-200'
-                    }`}
-                  />
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Form Container */}
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{STEPS[currentStep - 1].title}</h2>
-          <p className="text-gray-600 mb-6">{STEPS[currentStep - 1].description}</p>
+          {currentStep > 0 && (
+            <>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{STEPS[currentStep].title}</h2>
+              <p className="text-gray-600 mb-6">{STEPS[currentStep].description}</p>
+            </>
+          )}
 
           {/* Step Content */}
+          {currentStep === 0 && (
+            <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={!!user} />
+          )}
           {currentStep === 1 && (
             <BasicInfoStep
               formData={formData}
@@ -272,17 +357,18 @@ export default function ListPropertyPage() {
               errors={errors}
             />
           )}
-          {currentStep === 6 && (
+          {currentStep === 6 && selectedPlan && (
             <ReviewSubmitStep
               formData={formData}
-              onSubmit={handleSubmit}
+              onSubmit={(listingType) => handleSubmit(listingType || selectedPlan)}
               isSubmitting={isSubmitting}
               errors={errors}
+              preselectedPlan={selectedPlan}
             />
           )}
 
           {/* Navigation Buttons */}
-          {currentStep < 6 && (
+          {currentStep > 0 && currentStep < 6 && (
             <div className="flex justify-between mt-8 pt-6 border-t">
               <button
                 type="button"
@@ -294,7 +380,7 @@ export default function ListPropertyPage() {
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
-                Previous
+                {currentStep === 1 ? 'Back to Plans' : 'Previous'}
               </button>
               <button
                 type="button"

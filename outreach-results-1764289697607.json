@@ -1,0 +1,53 @@
+{
+  "timestamp": "2025-11-28T00:28:17.607Z",
+  "results": [
+    {
+      "parkName": "Big Creek Boarding",
+      "email": "contact@bigcreekboarding.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Canine ACE - PLAY Centre",
+      "email": "%20PLAY@CanineACE.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Devotion to Dogs",
+      "email": "clientservices@devotiontodogs.net",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Dream Big Training Center",
+      "email": "dd@ddsdogtraining.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Fon's Canines Professional Dog Training and Sales",
+      "email": "contact@fonsdogtraining.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "For Wags N Wiggles Doggie Daycare and Boarding",
+      "email": "playtime@forwagsnwiggles.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Golan Dogs",
+      "email": "golan@golandogs.com",
+      "success": true,
+      "emailId": "test-preview"
+    },
+    {
+      "parkName": "Good Dog Happy Dog LLC",
+      "email": "woof@gooddoghappy.dog",
+      "success": true,
+      "emailId": "test-preview"
+    }
+  ]
+}

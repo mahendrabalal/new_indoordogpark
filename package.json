@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "outreach:test": "npx ts-node scripts/send-park-outreach.ts --test --limit 5",
+    "outreach:send": "npx ts-node scripts/send-park-outreach.ts",
+    "outreach:direct": "npx ts-node scripts/send-emails-direct.ts",
+    "email:test": "npx ts-node scripts/test-email.ts",
+    "email:extract": "python3 scripts/extract-emails-from-websites.py",
+    "email:create-test": "node scripts/create-test-parks-with-emails.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -35,6 +41,7 @@
     "react-dom": "^18.0.0",
     "react-is": "^19.2.0",
     "react-leaflet": "^4.2.1",
+    "resend": "^6.5.2",
     "sanity": "^4.15.0",
     "stripe": "^19.3.0",
     "styled-components": "^6.1.19",

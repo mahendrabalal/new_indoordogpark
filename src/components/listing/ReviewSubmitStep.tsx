@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 
 interface ReviewSubmitStepProps {
@@ -6,10 +6,18 @@ interface ReviewSubmitStepProps {
   onSubmit: (listingType: 'free' | 'featured') => Promise<void>;
   isSubmitting: boolean;
   errors: Record<string, string>;
+  preselectedPlan?: 'free' | 'featured' | null;
 }
 
-export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, errors }: ReviewSubmitStepProps) {
-  const [selectedPlan, setSelectedPlan] = useState<'free' | 'featured' | null>(null);
+export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, errors, preselectedPlan }: ReviewSubmitStepProps) {
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'featured' | null>(preselectedPlan || null);
+
+  // Update selected plan if preselectedPlan changes
+  useEffect(() => {
+    if (preselectedPlan) {
+      setSelectedPlan(preselectedPlan);
+    }
+  }, [preselectedPlan]);
 
   const handleSubmit = async () => {
     if (!selectedPlan) {
@@ -60,16 +68,23 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
 
       {/* Pricing Plans */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Choose Your Listing Plan</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          {preselectedPlan ? 'Your Selected Listing Plan' : 'Choose Your Listing Plan'}
+        </h3>
+        {preselectedPlan && (
+          <p className="text-sm text-gray-600 mb-4">
+            You selected the <strong>{preselectedPlan === 'featured' ? 'Premium / Featured' : 'Free'}</strong> plan. You can review the details below.
+          </p>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Free Plan */}
           <div
-            onClick={() => setSelectedPlan('free')}
-            className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
+            onClick={() => !preselectedPlan && setSelectedPlan('free')}
+            className={`relative border-2 rounded-lg p-6 transition-all ${
               selectedPlan === 'free'
                 ? 'border-purple-600 bg-purple-50'
                 : 'border-gray-200 hover:border-gray-300'
-            }`}
+            } ${preselectedPlan ? 'cursor-default' : 'cursor-pointer'}`}
           >
             {selectedPlan === 'free' && (
               <div className="absolute top-4 right-4 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
@@ -113,27 +128,37 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               </li>
             </ul>
 
-            <button
-              type="button"
-              onClick={() => setSelectedPlan('free')}
-              className={`w-full py-3 rounded-lg font-medium transition-colors ${
+            {!preselectedPlan ? (
+              <button
+                type="button"
+                onClick={() => setSelectedPlan('free')}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  selectedPlan === 'free'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {selectedPlan === 'free' ? 'Selected' : 'Select Free'}
+              </button>
+            ) : (
+              <div className={`w-full py-3 rounded-lg font-medium text-center ${
                 selectedPlan === 'free'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {selectedPlan === 'free' ? 'Selected' : 'Select Free'}
-            </button>
+                  : 'bg-gray-100 text-gray-400'
+              }`}>
+                {selectedPlan === 'free' ? 'Selected' : 'Not Selected'}
+              </div>
+            )}
           </div>
 
           {/* Featured Plan */}
           <div
-            onClick={() => setSelectedPlan('featured')}
-            className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
+            onClick={() => !preselectedPlan && setSelectedPlan('featured')}
+            className={`relative border-2 rounded-lg p-6 transition-all ${
               selectedPlan === 'featured'
                 ? 'border-purple-600 bg-purple-50'
                 : 'border-gray-200 hover:border-gray-300'
-            }`}
+            } ${preselectedPlan ? 'cursor-default' : 'cursor-pointer'}`}
           >
             <div className="absolute top-0 right-6 transform -translate-y-1/2">
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">
@@ -195,17 +220,27 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               </li>
             </ul>
 
-            <button
-              type="button"
-              onClick={() => setSelectedPlan('featured')}
-              className={`w-full py-3 rounded-lg font-medium transition-colors ${
+            {!preselectedPlan ? (
+              <button
+                type="button"
+                onClick={() => setSelectedPlan('featured')}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  selectedPlan === 'featured'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
+                }`}
+              >
+                {selectedPlan === 'featured' ? 'Selected' : 'Select Featured'}
+              </button>
+            ) : (
+              <div className={`w-full py-3 rounded-lg font-medium text-center ${
                 selectedPlan === 'featured'
                   ? 'bg-purple-600 text-white'
-                  : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-              }`}
-            >
-              {selectedPlan === 'featured' ? 'Selected' : 'Select Featured'}
-            </button>
+                  : 'bg-gray-100 text-gray-400'
+              }`}>
+                {selectedPlan === 'featured' ? 'Selected' : 'Not Selected'}
+              </div>
+            )}
           </div>
         </div>
       </div>

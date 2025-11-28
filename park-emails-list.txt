@@ -1,0 +1,91 @@
+Park Email Addresses List
+Generated from california.json
+Total: 16 parks with email addresses
+
+================================================================================
+1. Big Creek Boarding
+   Email: contact@bigcreekboarding.com
+   City: Groveland, CA
+   Type: Dog Park
+
+2. Canine ACE - PLAY Centre
+   Email: PLAY@CanineACE.com
+   City: Palm Springs, CA
+   Type: Dog Park
+
+3. Devotion to Dogs
+   Email: clientservices@devotiontodogs.net
+   City: El Cajon, CA
+   Type: Dog Park
+
+4. Dream Big Training Center
+   Email: dd@ddsdogtraining.com
+   City: Lodi, CA
+   Type: Dog Park
+
+5. Fon's Canines Professional Dog Training and Sales
+   Email: contact@fonsdogtraining.com
+   City: San Diego, CA
+   Type: Dog Park
+
+6. For Wags N Wiggles Doggie Daycare and Boarding
+   Email: playtime@forwagsnwiggles.com
+   City: Modesto, CA
+   Type: Dog Park
+
+7. Golan Dogs
+   Email: golan@golandogs.com
+   City: Poway, CA
+   Type: Dog Park
+
+8. Good Dog Happy Dog LLC
+   Email: woof@gooddoghappy.dog
+   City: San Francisco, CA
+   Type: Dog Park
+
+9. London Ridge Pet Resort
+   Email: Londonridgepr@gmail.com
+   City: Glendora, CA
+   Type: Dog Park
+
+10. Man-K9 - San Diego Dog Training
+    Email: contact@mank9.com
+    City: San Diego, CA
+    Type: Dog Park
+
+11. PUPPY LOVE BOARDERS
+    Email: GENARO.ENTERPRISE@GMAIL.COM
+    City: Sacramento, CA
+    Type: Dog Park
+
+12. Pacha Dog Care
+    Email: pachadogcare@gmail.com
+    City: San Francisco, CA
+    Type: Dog Park
+
+13. Paws N' Play
+    Email: terra@pawsnplay.dog
+    City: Sacramento, CA
+    Type: Dog Park
+
+14. Playland
+    Email: doggieland@southparkdoggie.com
+    City: Los Angeles, CA
+    Type: Indoor Dog Park
+
+15. South Park Doggie - Doggieland (LA)
+    Email: doggieland@southparkdoggie.com
+    City: Los Angeles, CA
+    Type: Indoor Dog Park
+
+16. South Park Doggie - Waterland (LAX)
+    Email: waterland@southparkdoggie.com
+    City: Inglewood, CA
+    Type: Indoor Dog Park
+
+================================================================================
+All Email Addresses (comma-separated):
+contact@bigcreekboarding.com, PLAY@CanineACE.com, clientservices@devotiontodogs.net, dd@ddsdogtraining.com, contact@fonsdogtraining.com, playtime@forwagsnwiggles.com, golan@golandogs.com, woof@gooddoghappy.dog, Londonridgepr@gmail.com, contact@mank9.com, GENARO.ENTERPRISE@GMAIL.COM, pachadogcare@gmail.com, terra@pawsnplay.dog, doggieland@southparkdoggie.com, doggieland@southparkdoggie.com, waterland@southparkdoggie.com
+
+================================================================================
+Note: Some parks share the same email address (South Park Doggie locations)

@@ -196,6 +196,7 @@ export async function createCheckoutSession({
     subscription_data: metadata ? {
       metadata,
     } : undefined,
+    allow_promotion_codes: true, // Enable promotion code input in checkout
   });
 
   return session;

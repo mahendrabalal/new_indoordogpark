@@ -141,6 +141,31 @@ STRIPE_WEBHOOK_SECRET=whsec_...
    - Add endpoint
    - Copy the signing secret
 
+### Resend (Email Service)
+
+```env
+# Resend API key (private - never expose)
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+
+# From email address for outreach emails
+RESEND_FROM_EMAIL=IndoorDogPark <outreach@indoordogpark.org>
+
+# Optional: API token for protecting outreach endpoint
+OUTREACH_API_TOKEN=your-secure-random-token-here
+```
+
+**How to get Resend credentials:**
+1. Sign up at [Resend.com](https://resend.com) (free tier: 3,000 emails/month)
+2. Verify your domain OR use Resend's test domain for development
+3. Go to API Keys in dashboard
+4. Create a new API key
+5. Copy the key (starts with `re_`)
+
+**Usage:**
+- Used for sending promotional emails to park owners
+- Powers the outreach campaign system
+- See `EMAIL_OUTREACH_GUIDE.md` for full setup instructions
+
 ### Optional: Google Places API / Google Maps API
 
 ```env
@@ -262,6 +287,11 @@ SANITY_API_WRITE_TOKEN=sk...
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
+
+# Resend (Email Service)
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+RESEND_FROM_EMAIL=IndoorDogPark <outreach@indoordogpark.org>
+OUTREACH_API_TOKEN=your-secure-random-token-here
 
 # Optional: Analytics
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
