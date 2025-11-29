@@ -64,6 +64,15 @@ wheels/
 # Testing
 coverage/
 .nyc_output/
+test-*.js
+test-*.html
+
+# Logs
+*.log
+server.log
+
+# Temporary result files
+outreach-results-*.json
 
 # Production
 *.tsbuildinfo

@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmissionForm } from '@/types/park-submission';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 // Step components
 import PlanSelectionStep from '@/components/listing/PlanSelectionStep';
 import BasicInfoStep from '@/components/listing/BasicInfoStep';
@@ -268,13 +270,15 @@ export default function ListPropertyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">List Your Dog Park</h1>
-          <p className="text-lg text-gray-600">Share your park with dog lovers across California</p>
-        </div>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1 bg-gradient-to-br from-purple-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">List Your Dog Park</h1>
+            <p className="text-lg text-gray-600">Share your park with dog lovers across California</p>
+          </div>
 
         {/* Progress Steps - Only show if past plan selection */}
         {currentStep > 0 && (
@@ -404,7 +408,9 @@ export default function ListPropertyPage() {
             </div>
           )}
         </div>
-      </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

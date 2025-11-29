@@ -1,0 +1,21 @@
+{
+  "name": "stripe-mcp-server",
+  "version": "1.0.0",
+  "description": "Custom Stripe MCP server for dog park directory project",
+  "main": "stripe-server.js",
+  "scripts": {
+    "start": "node stripe-server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "stripe": "^19.3.0"
+  },
+  "keywords": [
+    "mcp",
+    "stripe",
+    "payment",
+    "model-context-protocol"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

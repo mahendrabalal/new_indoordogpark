@@ -10,6 +10,8 @@ interface ReviewSubmitStepProps {
 }
 
 export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, errors, preselectedPlan }: ReviewSubmitStepProps) {
+  // If plan is preselected, use it directly (read-only mode)
+  // Otherwise, allow selection
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'featured' | null>(preselectedPlan || null);
 
   // Update selected plan if preselectedPlan changes
@@ -19,12 +21,15 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
     }
   }, [preselectedPlan]);
 
+  // Ensure selectedPlan is set when preselectedPlan exists
+  const finalSelectedPlan = preselectedPlan || selectedPlan;
+
   const handleSubmit = async () => {
-    if (!selectedPlan) {
+    if (!finalSelectedPlan) {
       alert('Please select a listing plan');
       return;
     }
-    await onSubmit(selectedPlan);
+    await onSubmit(finalSelectedPlan);
   };
 
   return (
@@ -73,26 +78,20 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
         </h3>
         {preselectedPlan && (
           <p className="text-sm text-gray-600 mb-4">
-            You selected the <strong>{preselectedPlan === 'featured' ? 'Premium / Featured' : 'Free'}</strong> plan. You can review the details below.
+            You selected the <strong>{preselectedPlan === 'featured' ? 'Premium / Featured' : 'Free'}</strong> plan.
           </p>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Free Plan */}
-          <div
-            onClick={() => !preselectedPlan && setSelectedPlan('free')}
-            className={`relative border-2 rounded-lg p-6 transition-all ${
-              selectedPlan === 'free'
-                ? 'border-purple-600 bg-purple-50'
-                : 'border-gray-200 hover:border-gray-300'
-            } ${preselectedPlan ? 'cursor-default' : 'cursor-pointer'}`}
-          >
-            {selectedPlan === 'free' && (
+        {preselectedPlan ? (
+          // Show only the selected plan as a summary (read-only)
+          <div className="max-w-md">
+          {preselectedPlan === 'free' ? (
+            // Free Plan Summary (read-only)
+            <div className="relative border-2 border-purple-600 bg-purple-50 rounded-lg p-6">
               <div className="absolute top-4 right-4 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-            )}
 
             <div className="mb-4">
               <h4 className="text-2xl font-bold text-gray-900">Free</h4>
@@ -128,51 +127,24 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               </li>
             </ul>
 
-            {!preselectedPlan ? (
-              <button
-                type="button"
-                onClick={() => setSelectedPlan('free')}
-                className={`w-full py-3 rounded-lg font-medium transition-colors ${
-                  selectedPlan === 'free'
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {selectedPlan === 'free' ? 'Selected' : 'Select Free'}
-              </button>
-            ) : (
-              <div className={`w-full py-3 rounded-lg font-medium text-center ${
-                selectedPlan === 'free'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-100 text-gray-400'
-              }`}>
-                {selectedPlan === 'free' ? 'Selected' : 'Not Selected'}
+              <div className="w-full py-3 rounded-lg font-medium text-center bg-purple-600 text-white">
+                Selected
               </div>
-            )}
-          </div>
-
-          {/* Featured Plan */}
-          <div
-            onClick={() => !preselectedPlan && setSelectedPlan('featured')}
-            className={`relative border-2 rounded-lg p-6 transition-all ${
-              selectedPlan === 'featured'
-                ? 'border-purple-600 bg-purple-50'
-                : 'border-gray-200 hover:border-gray-300'
-            } ${preselectedPlan ? 'cursor-default' : 'cursor-pointer'}`}
-          >
-            <div className="absolute top-0 right-6 transform -translate-y-1/2">
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">
-                RECOMMENDED
-              </span>
             </div>
+          ) : (
+            // Featured Plan Summary (read-only)
+            <div className="relative border-2 border-purple-600 bg-purple-50 rounded-lg p-6">
+              <div className="absolute top-0 right-6 transform -translate-y-1/2">
+                <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">
+                  RECOMMENDED
+                </span>
+              </div>
 
-            {selectedPlan === 'featured' && (
               <div className="absolute top-4 right-4 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-            )}
 
             <div className="mb-4 mt-4">
               <h4 className="text-2xl font-bold text-gray-900">Featured</h4>
@@ -220,7 +192,148 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               </li>
             </ul>
 
-            {!preselectedPlan ? (
+              <div className="w-full py-3 rounded-lg font-medium text-center bg-purple-600 text-white">
+                Selected
+              </div>
+            </div>
+          )}
+          </div>
+        ) : (
+          // Show both plans for selection (when no preselected plan)
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Free Plan */}
+            <div
+              onClick={() => setSelectedPlan('free')}
+              className={`relative border-2 rounded-lg p-6 transition-all cursor-pointer ${
+                selectedPlan === 'free'
+                  ? 'border-purple-600 bg-purple-50'
+                  : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              {selectedPlan === 'free' && (
+                <div className="absolute top-4 right-4 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              )}
+
+              <div className="mb-4">
+                <h4 className="text-2xl font-bold text-gray-900">Free</h4>
+                <p className="text-3xl font-bold text-gray-900 mt-2">
+                  $0<span className="text-lg font-normal text-gray-600">/month</span>
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Basic listing on the platform</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Appears in search results</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Shows on map</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Pending admin approval</span>
+                </li>
+              </ul>
+
+              <button
+                type="button"
+                onClick={() => setSelectedPlan('free')}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  selectedPlan === 'free'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {selectedPlan === 'free' ? 'Selected' : 'Select Free'}
+              </button>
+            </div>
+
+            {/* Featured Plan */}
+            <div
+              onClick={() => setSelectedPlan('featured')}
+              className={`relative border-2 rounded-lg p-6 transition-all cursor-pointer ${
+                selectedPlan === 'featured'
+                  ? 'border-purple-600 bg-purple-50'
+                  : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              <div className="absolute top-0 right-6 transform -translate-y-1/2">
+                <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">
+                  RECOMMENDED
+                </span>
+              </div>
+
+              {selectedPlan === 'featured' && (
+                <div className="absolute top-4 right-4 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              )}
+
+              <div className="mb-4 mt-4">
+                <h4 className="text-2xl font-bold text-gray-900">Featured</h4>
+                <p className="text-3xl font-bold text-purple-600 mt-2">
+                  $9.99<span className="text-lg font-normal text-gray-600">/month</span>
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Everything in Free plan</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-gray-900">Featured section on homepage</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-gray-900">Priority in search results</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-gray-900">Featured badge on listing</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-gray-900">Highlighted on map</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-gray-700">Cancel anytime</span>
+                </li>
+              </ul>
+
               <button
                 type="button"
                 onClick={() => setSelectedPlan('featured')}
@@ -232,17 +345,9 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               >
                 {selectedPlan === 'featured' ? 'Selected' : 'Select Featured'}
               </button>
-            ) : (
-              <div className={`w-full py-3 rounded-lg font-medium text-center ${
-                selectedPlan === 'featured'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-100 text-gray-400'
-              }`}>
-                {selectedPlan === 'featured' ? 'Selected' : 'Not Selected'}
-              </div>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Submit Button */}
@@ -256,9 +361,9 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
         <button
           type="button"
           onClick={handleSubmit}
-          disabled={!selectedPlan || isSubmitting}
+          disabled={!finalSelectedPlan || isSubmitting}
           className={`w-full py-4 rounded-lg font-semibold text-lg transition-colors ${
-            !selectedPlan || isSubmitting
+            !finalSelectedPlan || isSubmitting
               ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
               : 'bg-purple-600 text-white hover:bg-purple-700'
           }`}
@@ -271,7 +376,7 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
               </svg>
               Processing...
             </span>
-          ) : selectedPlan === 'featured' ? (
+          ) : finalSelectedPlan === 'featured' ? (
             'Submit & Continue to Payment'
           ) : (
             'Submit Listing for Review'
@@ -280,8 +385,8 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
 
         <p className="text-xs text-gray-500 text-center mt-4">
           By submitting, you agree to our terms of service and listing guidelines.
-          {selectedPlan === 'free' && ' Your listing will be reviewed by our team before going live.'}
-          {selectedPlan === 'featured' && ' You\'ll be redirected to Stripe to complete your payment.'}
+          {finalSelectedPlan === 'free' && ' Your listing will be reviewed by our team before going live.'}
+          {finalSelectedPlan === 'featured' && ' You\'ll be redirected to Stripe to complete your payment.'}
         </p>
       </div>
     </div>

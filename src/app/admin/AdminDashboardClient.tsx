@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
 
@@ -60,8 +61,10 @@ function getStatusBadgeClasses(status: ParkSubmission['status']) {
 }
 
 export default function AdminDashboardClient() {
+  const router = useRouter();
   const { user, loading, getSessionTokens } = useAuth();
   const [activeTab, setActiveTab] = useState<DashboardTab>('submissions');
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
   const [filter, setFilter] = useState<DashboardFilter>('pending');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState<typeof PAGE_SIZE_OPTIONS[number]>(PAGE_SIZE_OPTIONS[0]);
@@ -88,6 +91,33 @@ export default function AdminDashboardClient() {
   const [toast, setToast] = useState<ToastState | null>(null);
   const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toastIdRef = useRef(0);
+
+  // Client-side authorization check - defense in depth
+  useEffect(() => {
+    // Wait for auth to finish loading
+    if (loading) {
+      return;
+    }
+
+    // If not authenticated, redirect to login
+    if (!user) {
+      router.push('/login?redirect=/admin');
+      return;
+    }
+
+    // Check admin role from user metadata
+    const userMetadata = user.user_metadata as { role?: string } | undefined;
+    const hasAdminRole = userMetadata?.role === 'admin';
+
+    // If not admin, redirect to 403 page
+    if (!hasAdminRole) {
+      router.push('/403');
+      return;
+    }
+
+    // User is authorized
+    setIsAuthorized(true);
+  }, [user, loading, router]);
 
   useEffect(() => {
     return () => {
@@ -422,15 +452,22 @@ export default function AdminDashboardClient() {
     return `Showing ${start}-${end} of ${meta.total}`;
   }, [activeTab, meta.pageSize, meta.total, page, submissions, reviews]);
 
-  if (loading) {
+  // Show loading state while checking authorization
+  if (loading || isAuthorized === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" role="status" aria-live="polite">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto" />
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto" aria-hidden="true" />
+          <p className="mt-4 text-gray-600">Verifying access...</p>
+          <span className="sr-only">Checking admin permissions</span>
         </div>
       </div>
     );
+  }
+
+  // If not authorized, don't render the dashboard (redirect will happen)
+  if (!isAuthorized || !user) {
+    return null;
   }
 
   return (
@@ -590,9 +627,17 @@ export default function AdminDashboardClient() {
                               {formatStatus(submission.status)}
                             </span>
                             {submission.listingType === 'featured' && (
-                              <span className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-700 ring-1 ring-purple-200">
-                                Featured
-                              </span>
+                              <>
+                                {submission.stripeSubscriptionId ? (
+                                  <span className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-700 ring-1 ring-purple-200">
+                                    Featured
+                                  </span>
+                                ) : (
+                                  <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800 ring-1 ring-amber-200">
+                                    Featured (Unpaid)
+                                  </span>
+                                )}
+                              </>
                             )}
                           </div>
                           <p className="mt-2 text-sm font-medium text-gray-600">{submission.businessType}</p>
@@ -644,6 +689,22 @@ export default function AdminDashboardClient() {
                               'N/A'
                             )}
                           </p>
+                          {submission.listingType === 'featured' && !submission.stripeSubscriptionId && (
+                            <div className="mt-3 rounded-md border border-amber-200 bg-amber-50 p-3">
+                              <p className="text-sm font-semibold text-amber-800">⚠️ Payment Not Received</p>
+                              <p className="mt-1 text-xs text-amber-700">
+                                This featured listing was submitted but payment was not completed. The listing should be downgraded to free or payment should be collected.
+                              </p>
+                            </div>
+                          )}
+                          {submission.listingType === 'featured' && submission.stripeSubscriptionId && (
+                            <div className="mt-3 text-xs text-gray-600">
+                              <p><span className="font-medium text-gray-700">Stripe Subscription:</span> {submission.stripeSubscriptionId}</p>
+                              {submission.subscriptionStatus && (
+                                <p className="mt-1"><span className="font-medium text-gray-700">Status:</span> {submission.subscriptionStatus}</p>
+                              )}
+                            </div>
+                          )}
                           {submission.rejectionReason && (
                             <p className="rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">
                               <span className="font-semibold">Rejection reason:</span> {submission.rejectionReason}

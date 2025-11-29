@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
@@ -1211,57 +1210,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.search-loading-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #666;
-}
-
-.search-loading-state .search-loading-spinner {
-  margin: 0 auto 20px;
-  width: 32px;
-  height: 32px;
-  border-width: 3px;
-}
-
-.search-loading-state p {
-  color: #666;
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .search-loading-state {
-    padding: 50px 16px 40px;
-  }
-
-  .search-loading-state .search-loading-spinner {
-    width: 28px;
-    height: 28px;
-    margin-bottom: 16px;
-  }
-
-  .search-loading-state p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-loading-state {
-    padding: 40px 12px 30px;
-  }
-
-  .search-loading-state .search-loading-spinner {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 12px;
-  }
-
-  .search-loading-state p {
-    font-size: 0.95rem;
-  }
-}
-
 /* Search input with clear button */
 .search-input-wrapper {
   position: relative;
@@ -2142,55 +2090,22 @@ mark {
   text-align: center;
   padding: 80px 20px;
   color: #666;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .no-results i {
   font-size: 3rem;
   color: #ddd;
-  display: block;
-  margin-bottom: 20px;
 }
 
 .no-results h3 {
   font-size: 1.5rem;
   margin-top: 20px;
   color: #2c3e50;
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .no-results p {
   font-size: 1rem;
   margin-top: 10px;
-  line-height: 1.6;
-  color: #6b7280;
-}
-
-.no-results ul {
-  text-align: left;
-  max-width: 400px;
-  margin: 30px auto 0;
-  padding-left: 24px;
-  list-style: none;
-}
-
-.no-results li {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  line-height: 1.6;
-  color: #6b7280;
-  position: relative;
-  padding-left: 8px;
-}
-
-.no-results li::before {
-  content: '•';
-  position: absolute;
-  left: -16px;
-  color: #FF5722;
-  font-weight: bold;
 }
 
 /* ========== PARK DETAIL PAGE ========== */
@@ -2619,6 +2534,7 @@ mark {
 .cta-primary {
   background: #FF5722;
   color: white;
+
 }
 
 .cta-primary:hover {
@@ -3035,231 +2951,8 @@ mark {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .park-detail-container {
-    padding: 0 16px 40px;
-  }
-
-  .park-hero {
-    margin-bottom: 30px;
-  }
-
-  .park-hero-image {
-    height: 280px;
-  }
-
-  .park-hero-content {
-    padding: 30px 0 20px;
-  }
-
-  .breadcrumbs {
-    font-size: 0.8rem;
-    gap: 6px;
-    margin-bottom: 12px;
-    padding: 0 16px;
-    flex-wrap: wrap;
-  }
-
-  .breadcrumbs i {
-    font-size: 0.65rem;
-  }
-
   .park-title {
-    font-size: 1.75rem;
-    line-height: 1.2;
-    padding: 0 16px;
-    margin-bottom: 8px;
-  }
-
-  .park-subtitle {
-    font-size: 1rem;
-    padding: 0 16px;
-    margin-bottom: 16px;
-  }
-
-  .park-badges {
-    padding: 0 16px;
-    margin: 12px 0;
-    gap: 8px;
-  }
-
-  .featured-badge-large,
-  .community-badge {
-    padding: 10px 14px;
-    font-size: 0.75rem;
-    min-height: 44px; /* Better touch target */
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .park-quick-info {
-    font-size: 0.85rem;
-    gap: 12px;
-    padding: 0 16px;
-    flex-wrap: wrap;
-  }
-
-  .park-quick-info span {
-    gap: 4px;
-  }
-
-  .park-quick-info i {
-    font-size: 0.9rem;
-  }
-
-  .favorite-btn-quick-info {
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .park-content-grid {
-    gap: 30px;
-    margin-bottom: 40px;
-  }
-
-  .park-main-content {
-    gap: 30px;
-  }
-
-  .content-section {
-    padding: 20px 16px;
-    border-radius: 12px;
-  }
-
-  .content-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-  }
-
-  .park-description {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .amenities-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .amenity-item {
-    padding: 14px;
-    font-size: 0.9rem;
-    min-height: 44px; /* Better touch target */
-  }
-
-  .photo-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .gallery-item {
-    border-radius: 8px;
-  }
-
-  .directions-intro {
-    font-size: 1rem;
-    margin-bottom: 16px;
-  }
-
-  .directions-list {
-    gap: 16px;
-  }
-
-  .direction-item strong {
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-
-  .direction-item p {
-    font-size: 0.95rem;
-  }
-
-  .faq-list {
-    gap: 20px;
-  }
-
-  .faq-item h3 {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-  }
-
-  .faq-item p {
-    font-size: 0.95rem;
-  }
-
-  /* Sidebar mobile optimizations */
-  .park-sidebar {
-    gap: 20px;
-    order: -1; /* Show sidebar first on mobile */
-  }
-
-  .sidebar-card {
-    padding: 20px 16px;
-    border-radius: 12px;
-  }
-
-  .sidebar-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-  }
-
-  .nap-info {
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
-  .nap-item {
-    gap: 10px;
-  }
-
-  .nap-item i {
-    font-size: 1.1rem;
-  }
-
-  .nap-item strong {
-    font-size: 0.85rem;
-  }
-
-  .nap-item p {
-    font-size: 0.9rem;
-  }
-
-  .hours-section {
-    margin-top: 16px;
-    padding-top: 16px;
-  }
-
-  .hours-list li {
-    font-size: 0.85rem;
-    padding: 10px 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .hours-list .day {
-    font-weight: 600;
-  }
-
-  .sidebar-ctas {
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .cta-button {
-    padding: 14px 20px;
-    min-height: 48px; /* Better touch target */
-    font-size: 1rem;
-    border-radius: 8px;
-  }
-
-  .park-map {
-    height: 280px;
-    border-radius: 8px;
+    font-size: 2rem;
   }
 
   .park-card-body {
@@ -3296,148 +2989,25 @@ mark {
     font-size: 0.75rem;
   }
 
-  /* Nearby parks mobile */
-  .nearby-parks-section {
-    margin-top: 40px;
-    padding-top: 40px;
-  }
-
-  .nearby-parks-section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-  }
-
-  .nearby-intro {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .park-detail-container {
-    padding: 0 12px 30px;
-  }
-
   .park-hero-image {
-    height: 250px;
-  }
-
-  .park-hero-content {
-    padding: 24px 0 16px;
-  }
-
-  .breadcrumbs {
-    font-size: 0.75rem;
-    padding: 0 12px;
-    margin-bottom: 10px;
-  }
-
-  .park-title {
-    font-size: 1.5rem;
-    padding: 0 12px;
-  }
-
-  .park-subtitle {
-    font-size: 0.9rem;
-    padding: 0 12px;
-    margin-bottom: 12px;
-  }
-
-  .park-badges {
-    padding: 0 12px;
-    margin: 10px 0;
-  }
-
-  .featured-badge-large,
-  .community-badge {
-    padding: 8px 12px;
-    font-size: 0.7rem;
-    min-height: 40px;
+    height: 300px;
   }
 
   .park-quick-info {
-    font-size: 0.8rem;
-    gap: 10px;
-    padding: 0 12px;
-  }
-
-  .park-quick-info i {
     font-size: 0.85rem;
+    gap: 15px;
   }
 
   .content-section {
-    padding: 16px 12px;
+    padding: 20px;
   }
 
   .content-section h2 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    padding-bottom: 10px;
+    font-size: 1.5rem;
   }
 
-  .park-description {
-    font-size: 0.95rem;
-  }
-
-  .amenity-item {
-    padding: 12px;
-    font-size: 0.85rem;
-  }
-
-  .photo-gallery {
+  .amenities-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .faq-item h3 {
-    font-size: 1rem;
-  }
-
-  .faq-item p {
-    font-size: 0.9rem;
-  }
-
-  .sidebar-card {
-    padding: 16px 12px;
-  }
-
-  .sidebar-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-  }
-
-  .nap-item {
-    gap: 8px;
-  }
-
-  .nap-item i {
-    font-size: 1rem;
-  }
-
-  .nap-item strong {
-    font-size: 0.8rem;
-  }
-
-  .nap-item p {
-    font-size: 0.85rem;
-  }
-
-  .cta-button {
-    padding: 12px 18px;
-    min-height: 44px;
-    font-size: 0.95rem;
-  }
-
-  .park-map {
-    height: 250px;
-  }
-
-  .nearby-parks-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .nearby-intro {
-    font-size: 0.9rem;
   }
 }
 
@@ -4744,9 +4314,6 @@ mark {
     transition: transform 0.2s ease, background 0.2s ease;
     font-size: 1rem;
     -webkit-tap-highlight-color: transparent;
-    min-height: 48px; /* Better touch target */
-    min-width: 120px;
-    justify-content: center;
   }
 
   .mobile-toggle-btn:hover {
@@ -4819,51 +4386,12 @@ mark {
 
 @media (max-width: 768px) {
   .search-results-header-content {
-    padding: 8px 12px;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .search-logo {
-    flex-shrink: 0;
-    order: 1;
-  }
-
-  .search-logo img {
-    height: 36px;
-    max-width: 140px;
-    object-fit: contain;
+    padding: 10px 16px;
+    gap: 12px;
   }
 
   .search-form-compact {
     max-width: 100%;
-    flex: 1 1 100%;
-    min-width: 0;
-    order: 3;
-    width: 100%;
-    margin-top: 8px;
-  }
-
-  .search-input-compact {
-    font-size: 16px; /* Prevent iOS zoom on focus - must be at least 16px */
-    padding: 10px 38px 10px 40px;
-    min-height: 44px; /* Better touch target */
-  }
-
-  .search-icon-compact {
-    left: 12px;
-    font-size: 0.95rem;
-  }
-
-  .search-clear-compact {
-    right: 10px;
-    padding: 6px;
-    min-width: 32px;
-    min-height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .search-header-actions {
@@ -4873,30 +4401,13 @@ mark {
   .search-results-toolbar {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
-    padding: 10px 12px;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: white;
+    gap: 12px;
+    padding: 12px 16px;
   }
 
   .search-results-info {
     justify-content: space-between;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .results-count {
-    font-size: 0.875rem;
-    line-height: 1.4;
-  }
-
-  .results-count strong {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 2px;
   }
 
   .inline-filters {
@@ -4906,10 +4417,9 @@ mark {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     flex-wrap: nowrap;
-    padding-bottom: 6px;
-    margin-top: 4px;
-    gap: 8px;
-    /* Remove gradient mask for better UX on mobile */
+    padding-bottom: 4px; /* Space for potential scrollbar or touch area */
+    mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
   }
 
   .inline-filters::-webkit-scrollbar {
@@ -4918,33 +4428,17 @@ mark {
 
   .filter-select {
     flex-shrink: 0;
-    min-width: 140px;
-    min-height: 44px; /* Better touch target */
-    font-size: 0.875rem;
-    padding: 10px 32px 10px 12px;
-  }
-
-  .clear-filters-btn {
-    flex-shrink: 0;
-    min-height: 44px;
-    padding: 10px 16px;
-    font-size: 0.875rem;
-  }
-
-  .parks-list-vertical {
-    gap: 16px; /* Better spacing between cards */
+    min-width: auto;
   }
 
   .parks-list-vertical .park-card-new {
     flex-direction: column;
     min-height: auto;
-    border-radius: 12px;
-    overflow: hidden;
   }
 
   .parks-list-vertical .park-card-image-wrapper {
     width: 100%;
-    height: 220px; /* Slightly taller for better visibility */
+    height: 200px;
     border-radius: 12px 12px 0 0;
   }
 
@@ -4952,212 +4446,33 @@ mark {
     border-radius: 12px 12px 0 0;
   }
 
-  .parks-list-vertical .park-card-body {
-    padding: 14px 16px;
-  }
-
-  .parks-list-vertical .park-card-title {
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .parks-list-vertical .park-card-location {
-    font-size: 0.875rem;
-    margin-top: 4px;
-  }
-
-  .parks-list-vertical .park-card-footer {
-    margin-top: 12px;
-    padding-top: 12px;
-  }
-
-  .parks-list-vertical .park-card-badges-row {
-    margin-top: 8px;
-    gap: 6px;
-  }
-
-  .parks-list-vertical .park-card-favorite {
-    opacity: 1;
-    pointer-events: auto;
-    top: 8px;
-    right: 8px;
-  }
-
   .search-results-list {
     padding: 12px;
-    padding-bottom: 100px; /* Extra space for mobile toggle button */
   }
 
   .search-results-map {
+    /* Reset height override from previous media query if any */
     height: 100% !important;
-  }
-
-  /* No results mobile optimization */
-  .no-results {
-    padding: 60px 20px 40px;
-  }
-
-  .no-results i {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-
-  .no-results h3 {
-    font-size: 1.25rem;
-    margin-top: 16px;
-  }
-
-  .no-results p {
-    font-size: 0.95rem;
-    margin-top: 8px;
-    line-height: 1.6;
-  }
-
-  .no-results ul {
-    text-align: left;
-    max-width: 280px;
-    margin: 20px auto 0;
-    padding-left: 20px;
-  }
-
-  .no-results li {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-    line-height: 1.5;
-  }
-
-  .clear-search-btn {
-    width: 100%;
-    max-width: 280px;
-    margin-top: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .search-results-header-content {
-    padding: 6px 10px;
-    gap: 6px;
-  }
-
-  .search-logo img {
-    height: 32px;
-    max-width: 120px;
-  }
-
-  .search-form-compact {
-    margin-top: 6px;
+  .search-logo {
+    font-size: 1.1rem;
   }
 
   .search-input-compact {
-    font-size: 16px; /* Prevent iOS zoom - must be at least 16px */
-    padding: 9px 36px 9px 38px;
-    min-height: 42px;
-  }
-
-  .search-icon-compact {
-    left: 10px;
-    font-size: 0.9rem;
-  }
-
-  .search-results-toolbar {
-    padding: 8px 10px;
-    gap: 8px;
-  }
-
-  .results-count {
-    font-size: 0.8rem;
-  }
-
-  .results-count strong {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
+    padding: 8px 36px 8px 38px;
   }
 
   .filter-select {
-    font-size: 0.8rem;
-    padding: 9px 28px 9px 10px;
-    min-width: 120px;
-    min-height: 42px;
+    font-size: 0.75rem;
+    padding: 6px 24px 6px 8px;
   }
 
-  .clear-filters-btn {
-    min-height: 42px;
-    padding: 9px 14px;
-    font-size: 0.8rem;
-  }
-
-  .parks-list-vertical {
-    gap: 12px;
-  }
-
-  .parks-list-vertical .park-card-image-wrapper {
-    height: 200px;
-  }
-
-  .parks-list-vertical .park-card-body {
-    padding: 12px 14px;
-  }
-
-  .parks-list-vertical .park-card-title {
-    font-size: 1rem;
-  }
-
-  .parks-list-vertical .park-card-location {
-    font-size: 0.8rem;
-  }
-
-  .parks-list-vertical .park-card-category {
-    font-size: 0.6rem;
-  }
-
-  .parks-list-vertical .park-card-rating {
-    font-size: 0.8rem;
-  }
-
-  .parks-list-vertical .park-card-pricing {
-    font-size: 0.9rem;
-  }
-
-  .search-results-list {
-    padding: 10px;
-    padding-bottom: 100px;
-  }
-
-  .no-results {
-    padding: 50px 16px 30px;
-  }
-
-  .no-results i {
-    font-size: 2rem;
-  }
-
-  .no-results h3 {
-    font-size: 1.15rem;
-  }
-
-  .no-results p {
-    font-size: 0.9rem;
-  }
-
-  .no-results ul {
-    max-width: 100%;
-    padding-left: 16px;
-  }
-
-  .no-results li {
+  .results-count {
     font-size: 0.85rem;
-  }
-
-  .clear-search-btn {
-    max-width: 100%;
-    padding: 12px 20px;
-    font-size: 0.95rem;
-  }
-
-  /* Mobile toggle button adjustments for very small screens */
-  .mobile-toggle-btn {
-    bottom: 20px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
   }
 }
 
@@ -5602,7 +4917,6 @@ mark {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   padding-left: 1.75rem;
-  list-style-position: outside;
 }
 
 .blog-content ul {
@@ -5614,17 +4928,16 @@ mark {
 }
 
 .blog-content li {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  line-height: 1.7;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.75;
   color: #374151;
-  padding-left: 0.25rem;
-  display: list-item;
+  padding-left: 0.5rem;
 }
 
 .blog-content li > p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Nested lists */
@@ -5772,66 +5085,6 @@ mark {
   text-align: center;
   font-style: italic;
   line-height: 1.6;
-}
-
-/* Video embeds */
-.blog-content .video-figure {
-  margin: 3rem auto;
-  max-width: 100%;
-}
-
-.blog-content .video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  background: #000;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  margin-bottom: 1rem;
-}
-
-.blog-content .video-wrapper iframe,
-.blog-content .video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-}
-
-.blog-content .video-wrapper video {
-  object-fit: contain;
-}
-
-.blog-content .video-figure figcaption {
-  margin-top: 1rem;
-  padding: 0 1rem;
-  font-size: 0.9rem;
-  color: #6b7280;
-  text-align: center;
-  font-style: italic;
-  line-height: 1.6;
-}
-
-/* Responsive video adjustments */
-@media (max-width: 768px) {
-  .blog-content .video-wrapper {
-    border-radius: 6px;
-    margin-bottom: 0.75rem;
-  }
-  
-  .blog-content .video-wrapper iframe,
-  .blog-content .video-wrapper video {
-    border-radius: 6px;
-  }
-  
-  .blog-content .video-figure {
-    margin: 2rem auto;
-  }
 }
 
 /* Image grid for multiple images */
@@ -6078,7 +5331,6 @@ mark {
   background: #0a66c2;
   color: white;
 }
-
 .blog-article-container .flex.flex-wrap.gap-4 a[href*="linkedin"]:hover {
   background: #004182;
 }
@@ -6168,3 +5420,6 @@ mark {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateX(-4px);
 }
+
+
+

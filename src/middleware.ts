@@ -91,6 +91,25 @@ export async function middleware(request: NextRequest) {
     console.warn('middleware: auth session error', error.message);
   }
 
+  // Protect admin routes - industry best practice: middleware-level protection
+  const pathname = request.nextUrl.pathname;
+  if (pathname.startsWith('/admin')) {
+    // Check if user is authenticated
+    if (!user) {
+      const loginUrl = new URL('/login', request.url);
+      loginUrl.searchParams.set('redirect', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    // Check if user has admin role
+    const userMetadata = user.user_metadata as { role?: string } | undefined;
+    if (userMetadata?.role !== 'admin') {
+      // Return 403 Forbidden instead of redirecting to home
+      const forbiddenUrl = new URL('/403', request.url);
+      return NextResponse.rewrite(forbiddenUrl);
+    }
+  }
+
   return response;
 }
 

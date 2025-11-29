@@ -60,7 +60,9 @@ export async function POST(request: NextRequest) {
       size_category: body.sizeCategory,
       surface_type: body.surfaceType,
       pet_friendly_features: body.petFriendlyFeatures || [],
-      listing_type: body.listingType,
+      // For featured listings, start as 'free' until payment is confirmed via webhook
+      // This prevents unpaid featured listings from appearing in admin
+      listing_type: body.listingType === 'featured' ? 'free' : body.listingType,
       status: 'pending',
     };
 

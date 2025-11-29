@@ -41,9 +41,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if submission already has an active subscription
-    if (submission.listing_type === 'featured' && submission.stripe_subscription_id) {
+    // This prevents creating multiple checkout sessions for the same submission
+    if (submission.stripe_subscription_id) {
       return NextResponse.json(
-        { error: 'This listing already has an active featured subscription' },
+        { error: 'This listing already has an active subscription' },
         { status: 400 }
       );
     }

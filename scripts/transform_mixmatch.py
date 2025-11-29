@@ -48,7 +48,8 @@ def transform_working_hours(working_hours: Any) -> Dict[str, str]:
         # Convert to proper format, handling "Closed" and empty strings
         formatted_hours = {}
         for day, hours in working_hours.items():
-            if hours and hours != "Closed" and hours.strip():
+            # Skip non-string values (booleans, etc.) and invalid entries
+            if isinstance(hours, str) and hours != "Closed" and hours.strip():
                 formatted_hours[day] = hours
         return formatted_hours
     

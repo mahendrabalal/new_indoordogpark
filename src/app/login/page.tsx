@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const heroPatternStyle: CSSProperties = {
   backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)',
@@ -120,8 +122,10 @@ function LoginForm() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#F5F6F8] lg:flex-row">
-      <section className="relative hidden min-h-screen flex-1 items-center justify-center overflow-hidden lg:flex">
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <div className="flex flex-1 flex-col bg-[#F5F6F8] lg:flex-row">
+        <section className="relative hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
           src="/images/auth/login-hero.png"
           alt="Dogs enjoying a modern indoor dog park"
@@ -344,6 +348,8 @@ function LoginForm() {
           </p>
         </div>
       </section>
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -112,7 +112,15 @@ export default function PlanSelectionStep({ onSelectPlan, isLoggedIn = false }: 
           <div className="mb-4 mt-4">
             <h4 className="text-2xl font-bold text-gray-900">Premium / Featured</h4>
             <p className="text-3xl font-bold text-purple-600 mt-2">
-              $9.99<span className="text-lg font-normal text-gray-600">/month</span>
+              {process.env.STRIPE_TEST_PRICE_ID && process.env.STRIPE_FEATURED_PRICE_ID !== process.env.STRIPE_TEST_PRICE_ID ? (
+                <span>
+                  <span className="text-lg font-normal text-gray-600">$1.00</span>
+                  <span className="text-sm text-green-600 font-semibold ml-2">TEST</span>
+                  <span className="text-lg font-normal text-gray-600">/month</span>
+                </span>
+              ) : (
+                <span>$9.99<span className="text-lg font-normal text-gray-600">/month</span></span>
+              )}
             </p>
           </div>
 
