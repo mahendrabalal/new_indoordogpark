@@ -32,15 +32,107 @@ export function createSEOTitle(fullTitle: string, maxLength = 60): string {
   }
 }
 
+/**
+ * Generates unique SEO keywords for each park based on its characteristics
+ * This creates more specific, searchable titles instead of generic "Complete Visitor Guide"
+ * Returns unique features/amenities that differentiate this park from others
+ */
+function generateUniqueParkKeywords(park: DogPark): string {
+  const keywords: string[] = [];
+  
+  // Add amenity-based keywords (prioritize unique features)
+  if (park.amenities) {
+    const amenityKeywords: string[] = [];
+    
+    // Priority 1: Unique activity features
+    if (park.amenities.agilityCourse) amenityKeywords.push('Agility Course');
+    if (park.amenities.swimming) amenityKeywords.push('Swimming Pool');
+    if (park.amenities.training) amenityKeywords.push('Training Classes');
+    if (park.amenities.grooming) amenityKeywords.push('Grooming Services');
+    if (park.amenities.daycare) amenityKeywords.push('Daycare');
+    
+    // Priority 2: Size-specific areas
+    if (park.amenities.smallDogArea && park.amenities.largeDogArea) {
+      amenityKeywords.push('All Dog Sizes');
+    } else if (park.amenities.smallDogArea) {
+      amenityKeywords.push('Small Dogs');
+    } else if (park.amenities.largeDogArea) {
+      amenityKeywords.push('Large Dogs');
+    }
+    
+    // Priority 3: Convenience features
+    if (park.amenities.dogWashStation) amenityKeywords.push('Wash Station');
+    if (park.amenities.parking) amenityKeywords.push('Parking Available');
+    
+    // Add top 2 most relevant amenity keywords
+    if (amenityKeywords.length > 0) {
+      keywords.push(...amenityKeywords.slice(0, 2));
+    }
+  }
+  
+  // Add pricing keywords
+  if (park.pricing?.isFree) {
+    keywords.push('Free Entry');
+  } else if (park.pricing?.pricingType === 'membership') {
+    keywords.push('Membership Available');
+  }
+  
+  // Add rating-based keywords for highly-rated parks
+  if (park.rating >= 4.5 && park.reviewCount >= 50) {
+    keywords.push('Top Rated');
+  } else if (park.rating >= 4.0 && park.reviewCount >= 20) {
+    keywords.push('Highly Rated');
+  }
+  
+  // Add 24/7 keyword if applicable
+  if (park.hours24x7) {
+    keywords.push('Open 24/7');
+  }
+  
+  // Add indoor/outdoor distinction if relevant
+  if (park.indoorOutdoor === 'indoor') {
+    keywords.push('Climate Controlled');
+  } else if (park.indoorOutdoor === 'both') {
+    keywords.push('Indoor & Outdoor');
+  }
+  
+  // If no unique keywords found, use business type as fallback
+  if (keywords.length === 0) {
+    if (park.businessType === 'Indoor Dog Park') {
+      keywords.push('Year-Round Access');
+    } else if (park.businessType === 'Dog-Friendly Establishment') {
+      keywords.push('Pet Welcome');
+    } else {
+      keywords.push(park.businessType);
+    }
+  }
+  
+  // Join keywords and ensure it's not too long (max 35 chars for the keyword part)
+  let keywordString = keywords.slice(0, 3).join(' • '); // Use bullet separator for readability
+  if (keywordString.length > 35) {
+    // Keep only the first 2 keywords if too long
+    keywordString = keywords.slice(0, 2).join(' • ');
+    if (keywordString.length > 35) {
+      // If still too long, use just the first keyword
+      keywordString = keywords[0] || park.businessType;
+    }
+  }
+  
+  return keywordString;
+}
+
 export function generateParkMetadata(park: DogPark): Metadata {
   const canonicalPath = `/parks/${park.slug || park.id}`;
   const canonical = `${SITE_URL}${canonicalPath}`;
   
-  // Create full title including template suffix, then truncate to 60 characters for SEO
-  // The template adds " | Indoor Dog Park" (19 chars), so we need to account for that
+  // Generate unique keywords for this park
+  const uniqueKeywords = generateUniqueParkKeywords(park);
   const stateAbbr = park.state || 'CA';
   const stateName = park.state === 'NY' ? 'New York' : park.state === 'CA' ? 'California' : park.state || 'California';
-  const fullTitleWithTemplate = `${park.name} | ${park.businessType} in ${park.city}, ${stateAbbr} | Indoor Dog Park`;
+  
+  // Create full title with unique keywords instead of generic "Indoor Dog Park"
+  // Format: "Park Name | Business Type in City, State | Unique Keywords"
+  const fullTitleWithTemplate = `${park.name} | ${park.businessType} in ${park.city}, ${stateAbbr} | ${uniqueKeywords}`;
   const title = createSEOTitle(fullTitleWithTemplate, 60);
   
   const description = createMetaDescription(

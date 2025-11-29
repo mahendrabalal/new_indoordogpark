@@ -145,3 +145,4 @@ Priority: 10
 
 **Action:** Use `mail.indoordogpark.org` or `inbound.indoordogpark.org` for Resend email receiving, and keep your root domain MX records pointing to ImprovMX.
 
+

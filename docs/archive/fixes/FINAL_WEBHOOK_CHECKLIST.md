@@ -94,3 +94,4 @@ When everything works:
 - ✅ You see "Featured listing activated" message
 - ✅ Payment shows in Stripe Dashboard
 
+

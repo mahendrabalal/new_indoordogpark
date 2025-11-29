@@ -70,3 +70,4 @@ Then re-run your email campaign!
 
 **Note:** The SPF record you're adding (`v=spf1 include:amazonses.com ~all`) is correct for Resend since they use Amazon SES for sending.
 
+

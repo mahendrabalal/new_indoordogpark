@@ -71,3 +71,4 @@ I've updated the script to properly detect and report Resend API errors, so you'
 
 **Status:** Domain verification required before sending emails to external recipients.
 
+

@@ -142,3 +142,4 @@ stripe trigger checkout.session.completed
 
 You should see the event in both terminals!
 
+

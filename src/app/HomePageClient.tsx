@@ -374,6 +374,13 @@ export default function HomePageClient({
           aria-live="polite" 
           aria-label="Search results"
         >
+          {/* Main h1 for search results page - only rendered when showSearchLayout is true */}
+          <h1 className="sr-only">
+            {activeSearchTerm 
+              ? `Search results for "${activeSearchTerm}"` 
+              : 'Search Results - Indoor Dog Parks'}
+          </h1>
+          
           {/* Mobile Map/List Toggle Button */}
           <button 
             className="mobile-toggle-btn"

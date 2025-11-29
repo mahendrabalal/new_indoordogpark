@@ -84,3 +84,4 @@ The admin dashboard now shows a warning for these listings, so you can manually 
 - The webhook handler (`src/app/api/stripe/webhook/route.ts`) already correctly upgrades listings to featured on payment
 - No database migrations needed - existing schema supports this flow
 
+

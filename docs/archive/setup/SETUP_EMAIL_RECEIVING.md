@@ -84,3 +84,4 @@ But Resend's receiving is integrated and works well with your sending setup.
 - **Sending MX:** `send` subdomain → `feedback-smtp.us-east-1.amazonaws.com`
 - **Receiving MX:** `@` root domain → `inbound-smtp.us-east-1.amazonaws.com`
 
+

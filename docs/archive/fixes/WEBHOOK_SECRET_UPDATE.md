@@ -70,3 +70,4 @@ When everything is working:
 - The secret changes each time you restart `stripe listen`
 - Update `.env.local` and restart dev server when secret changes
 
+

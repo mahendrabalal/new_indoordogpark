@@ -50,3 +50,4 @@ If you don't want to set up the promotion code, I can remove it from the email t
 
 **Status:** Promotion code support enabled in checkout. Create the coupon in Stripe Dashboard to activate it.
 
+
