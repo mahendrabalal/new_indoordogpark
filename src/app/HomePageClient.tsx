@@ -79,8 +79,14 @@ export default function HomePageClient({
   );
 
   useEffect(() => {
-    setShowSearchLayout(hasActiveSearch);
-  }, [hasActiveSearch]);
+    // If initialShowSearchLayout was explicitly set to true, respect it
+    // Otherwise, use hasActiveSearch to determine layout
+    if (initialShowSearchLayout) {
+      setShowSearchLayout(true);
+    } else {
+      setShowSearchLayout(hasActiveSearch);
+    }
+  }, [hasActiveSearch, initialShowSearchLayout]);
 
   // Client fallback if server-rendered data was unavailable
   useEffect(() => {
@@ -200,6 +206,7 @@ export default function HomePageClient({
       {/* Conditional Header - Compact when displaying search layout */}
       {!showSearchLayout && <Header />}
       
+      <main id="main-content">
       {showSearchLayout && (
         <header className="search-results-header-bar">
           <div className="search-results-header-content">
@@ -330,8 +337,8 @@ export default function HomePageClient({
                 <a href="/cities/houston" className="hero-quick-link">Houston</a>
                 <a href="/cities/seattle" className="hero-quick-link">Seattle</a>
                 <span className="hero-quick-divider">•</span>
-                <a href="/?type=bar" className="hero-quick-link">Parks with Bars</a>
-                <a href="/?type=training" className="hero-quick-link">Training Facilities</a>
+                <a href="/parks-with-bars" className="hero-quick-link">Parks with Bars</a>
+                <a href="/training-facilities" className="hero-quick-link">Training Facilities</a>
               </div>
             </div>
           </div>
@@ -540,6 +547,7 @@ export default function HomePageClient({
 
       {/* Cities Section (only show when not searching) */}
       {!showSearchLayout && <CitiesSection />}
+      </main>
 
       {/* Footer */}
       <Footer />

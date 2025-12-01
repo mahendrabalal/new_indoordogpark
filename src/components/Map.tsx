@@ -31,6 +31,10 @@ export default function Map({ parks, onParkClick }: MapProps) {
     if (typeof window === 'undefined' || !mapRef.current) return;
 
     const initializeMap = async () => {
+      // Load Leaflet CSS on demand
+      const { loadLeafletStyles } = await import('@/components/LazyStyles')
+      loadLeafletStyles()
+      
       const L = (await import('leaflet')).default;
       
       // Fix for default markers

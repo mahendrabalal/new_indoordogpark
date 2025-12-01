@@ -560,7 +560,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   let title = 'Indoor Dog Park Blog - Tips & Guides';
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
   let canonicalUrl = '/blog';
-  const ogImage = `${siteUrl}/images/hero/hero.png`;
+  const ogImage = `${siteUrl}/images/hero/hero.webp`;
 
   if (searchTerm) {
     title = `Search Results for "${searchTerm}" - Indoor Dog Park Blog`;

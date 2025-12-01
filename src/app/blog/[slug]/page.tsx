@@ -419,7 +419,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
           },
         ] : [
           {
-            url: `${siteUrl}/images/hero/hero.png`,
+            url: `${siteUrl}/images/hero/hero.webp`,
             width: 1200,
             height: 630,
             alt: seoTitle,
@@ -432,7 +432,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         description,
         creator: post.author?.name ? `@${post.author.name.replace(/\s+/g, '')}` : '@indoordogpark',
         site: '@indoordogpark',
-        images: featuredImage ? [featuredImage] : [`${siteUrl}/images/hero/hero.png`],
+        images: featuredImage ? [featuredImage] : [`${siteUrl}/images/hero/hero.webp`],
       },
       robots: {
         index: true,

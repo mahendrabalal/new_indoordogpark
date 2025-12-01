@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero/hero.png',
+        url: '/images/hero/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Indoor Dog Park - Connecting Pet Parents',

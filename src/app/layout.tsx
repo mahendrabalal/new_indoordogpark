@@ -4,8 +4,14 @@ import type { Metadata } from 'next'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/contexts/ToastContext'
 import { FavoritesProvider } from '@/contexts/FavoritesContext'
+import { LazyStyles } from '@/components/LazyStyles'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+})
 
 const sitePublishedTime =
   process.env.NEXT_PUBLIC_SITE_PUBLISHED_AT || '2024-01-15T00:00:00.000Z'
@@ -68,11 +74,11 @@ export const metadata: Metadata = {
     modifiedTime: siteModifiedTime,
     images: [
       {
-        url: '/images/hero/hero.png',
+        url: '/images/hero/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Indoor Dog Park - Find Indoor Dog Parks & Play Areas',
-        type: 'image/png',
+        type: 'image/webp',
       },
     ],
   },
@@ -81,7 +87,7 @@ export const metadata: Metadata = {
     title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
     description:
       'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
-    images: ['/images/hero/hero.png'],
+    images: ['/images/hero/hero.webp'],
     site: '@indoordogpark',
     creator: '@indoordogpark',
   },
@@ -151,8 +157,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://unpkg.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+        
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
@@ -174,6 +184,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <LazyStyles />
         <AuthProvider>
           <FavoritesProvider>
             <ToastProvider>

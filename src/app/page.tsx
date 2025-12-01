@@ -10,57 +10,60 @@ type HomePageProps = {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
-const heroTitle = 'Find Indoor Dog Parks Near Me | Indoor Dog Park';
-const heroDescription =
-  'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
-const publishedTime = '2024-01-15T00:00:00.000Z';
-const modifiedTime = '2025-11-15T00:00:00.000Z';
-const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/hero.png`;
+const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/hero.webp`;
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: heroTitle,
-  description: heroDescription,
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    type: 'article',
-    url: siteUrl,
-    title: heroTitle,
-    description: heroDescription,
-    siteName,
-    publishedTime,
-    modifiedTime,
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1200,
-        height: 630,
-        alt: 'Indoor Dog Park - Find Indoor Dog Parks & Play Areas',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: heroTitle,
-    description: heroDescription,
-    images: [ogImageUrl],
-    site: '@indoordogpark',
-    creator: '@indoordogpark',
-  },
-};
+// Helper to get parameter value from searchParams
+function getParamValue(
+  value: string | string[] | undefined
+): string {
+  if (Array.isArray(value)) {
+    return value[0] ?? '';
+  }
+  return value ?? '';
+}
+
+// Generate metadata for homepage
+export async function generateMetadata(): Promise<Metadata> {
+  const title = 'Find Indoor Dog Parks Near Me | Indoor Dog Park';
+  const description =
+    'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title,
+    description,
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      type: 'website',
+      url: siteUrl,
+      title,
+      description,
+      siteName,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: 'Indoor Dog Park - Find Indoor Dog Parks & Play Areas',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImageUrl],
+      site: '@indoordogpark',
+      creator: '@indoordogpark',
+    },
+  };
+}
 
 function hasActiveSearchParams(
   searchParams: Record<string, string | string[] | undefined> = {}
 ) {
-  const getParamValue = (value: string | string[] | undefined) => {
-    if (Array.isArray(value)) {
-      return value[0] ?? '';
-    }
-    return value ?? '';
-  };
-
   const query = getParamValue(searchParams.q).trim();
   if (query) {
     return true;

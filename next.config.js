@@ -76,11 +76,15 @@ const nextConfig = {
         : []),
     ],
     formats: ['image/avif', 'image/webp'],
-    // Optimize image loading
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Optimize image loading - reduced sizes for better performance
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Cache optimized images
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+    // Enable image optimization
+    dangerouslyAllowSVG: false,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // Security and Performance Headers
   async headers() {
@@ -125,6 +129,16 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Data files with shorter cache for updates
+      {
+        source: '/data/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate',
           },
         ],
       },
@@ -297,6 +311,31 @@ const nextConfig = {
       {
         source: '/parks/digs-canine-hotel-spa-daycare',
         destination: '/parks/digs-canine-hotel-spa-daycare-brooklyn',
+        permanent: true,
+      },
+      // Redirect old query parameter URLs to dedicated routes
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'type',
+            value: 'bar',
+          },
+        ],
+        destination: '/parks-with-bars',
+        permanent: true,
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'type',
+            value: 'training',
+          },
+        ],
+        destination: '/training-facilities',
         permanent: true,
       },
       // Add more redirects as needed for old URLs or common misspellings

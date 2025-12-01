@@ -127,7 +127,7 @@ function LoginForm() {
       <div className="flex flex-1 flex-col bg-[#F5F6F8] lg:flex-row">
         <section className="relative hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
-          src="/images/auth/login-hero.png"
+          src="/images/auth/login-hero.webp"
           alt="Dogs enjoying a modern indoor dog park"
           fill
           priority
