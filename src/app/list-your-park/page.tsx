@@ -14,6 +14,7 @@ import ContactHoursStep from '@/components/listing/ContactHoursStep';
 import AmenitiesStep from '@/components/listing/AmenitiesStep';
 import PhotosPricingStep from '@/components/listing/PhotosPricingStep';
 import ReviewSubmitStep from '@/components/listing/ReviewSubmitStep';
+import NewsletterForm from '@/components/NewsletterForm';
 
 const STEPS = [
   { number: 0, title: 'Choose Plan', description: 'Select your listing plan' },
@@ -280,134 +281,152 @@ export default function ListPropertyPage() {
             <p className="text-lg text-gray-600">Share your park with dog lovers across California</p>
           </div>
 
-        {/* Progress Steps - Only show if past plan selection */}
-        {currentStep > 0 && (
-          <div className="mb-8">
-            <div className="flex items-center justify-between">
-              {STEPS.filter(step => step.number > 0).map((step, index, filteredSteps) => (
-                <div key={step.number} className="flex items-center flex-1">
-                  <div className="flex flex-col items-center flex-1">
-                    <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                        currentStep >= step.number
+          {/* Owner Newsletter Signup - Lead Magnet */}
+          {currentStep === 0 && (
+            <div className="mb-8 bg-white rounded-lg shadow-lg p-6 border-2 border-purple-200">
+              <div className="max-w-2xl mx-auto text-center">
+                <div className="mb-4 flex items-center justify-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-600">
+                    <i className="bi bi-envelope-check text-white"></i>
+                  </div>
+                  <span className="text-sm font-semibold text-purple-600 uppercase tracking-wide">Partner Network</span>
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  📈 Get Industry Insights & Tips
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  Join our partner network to receive exclusive revenue optimization tips, marketing strategies, and early access to new features.
+                </p>
+                <NewsletterForm type="owner" source="list_your_park" />
+              </div>
+            </div>
+          )}
+
+          {/* Progress Steps - Only show if past plan selection */}
+          {currentStep > 0 && (
+            <div className="mb-8">
+              <div className="flex items-center justify-between">
+                {STEPS.filter(step => step.number > 0).map((step, index, filteredSteps) => (
+                  <div key={step.number} className="flex items-center flex-1">
+                    <div className="flex flex-col items-center flex-1">
+                      <div
+                        className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${currentStep >= step.number
                           ? 'bg-purple-600 text-white'
                           : 'bg-gray-200 text-gray-600'
-                      }`}
-                    >
-                      {step.number}
+                          }`}
+                      >
+                        {step.number}
+                      </div>
+                      <div className="text-xs mt-2 text-center hidden sm:block">
+                        <div className="font-medium">{step.title}</div>
+                      </div>
                     </div>
-                    <div className="text-xs mt-2 text-center hidden sm:block">
-                      <div className="font-medium">{step.title}</div>
-                    </div>
+                    {index < filteredSteps.length - 1 && (
+                      <div
+                        className={`h-1 flex-1 mx-2 ${currentStep > step.number ? 'bg-purple-600' : 'bg-gray-200'
+                          }`}
+                      />
+                    )}
                   </div>
-                  {index < filteredSteps.length - 1 && (
-                    <div
-                      className={`h-1 flex-1 mx-2 ${
-                        currentStep > step.number ? 'bg-purple-600' : 'bg-gray-200'
-                      }`}
-                    />
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-
-        {/* Form Container */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          {currentStep > 0 && (
-            <>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{STEPS[currentStep].title}</h2>
-              <p className="text-gray-600 mb-6">{STEPS[currentStep].description}</p>
-            </>
           )}
 
-          {/* Step Content */}
-          {currentStep === 0 && (
-            <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={!!user} />
-          )}
-          {currentStep === 1 && (
-            <BasicInfoStep
-              formData={formData}
-              updateFormData={updateFormData}
-              errors={errors}
-            />
-          )}
-          {currentStep === 2 && (
-            <LocationStep
-              formData={formData}
-              updateFormData={updateFormData}
-              errors={errors}
-            />
-          )}
-          {currentStep === 3 && (
-            <ContactHoursStep
-              formData={formData}
-              updateFormData={updateFormData}
-              errors={errors}
-            />
-          )}
-          {currentStep === 4 && (
-            <AmenitiesStep
-              formData={formData}
-              updateFormData={updateFormData}
-              errors={errors}
-            />
-          )}
-          {currentStep === 5 && (
-            <PhotosPricingStep
-              formData={formData}
-              updateFormData={updateFormData}
-              errors={errors}
-            />
-          )}
-          {currentStep === 6 && selectedPlan && (
-            <ReviewSubmitStep
-              formData={formData}
-              onSubmit={(listingType) => handleSubmit(listingType || selectedPlan)}
-              isSubmitting={isSubmitting}
-              errors={errors}
-              preselectedPlan={selectedPlan}
-            />
-          )}
+          {/* Form Container */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            {currentStep > 0 && (
+              <>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{STEPS[currentStep].title}</h2>
+                <p className="text-gray-600 mb-6">{STEPS[currentStep].description}</p>
+              </>
+            )}
 
-          {/* Navigation Buttons */}
-          {currentStep > 0 && currentStep < 6 && (
-            <div className="flex justify-between mt-8 pt-6 border-t">
-              <button
-                type="button"
-                onClick={previousStep}
-                disabled={currentStep === 1}
-                className={`px-6 py-3 rounded-lg font-medium ${
-                  currentStep === 1
+            {/* Step Content */}
+            {currentStep === 0 && (
+              <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={!!user} />
+            )}
+            {currentStep === 1 && (
+              <BasicInfoStep
+                formData={formData}
+                updateFormData={updateFormData}
+                errors={errors}
+              />
+            )}
+            {currentStep === 2 && (
+              <LocationStep
+                formData={formData}
+                updateFormData={updateFormData}
+                errors={errors}
+              />
+            )}
+            {currentStep === 3 && (
+              <ContactHoursStep
+                formData={formData}
+                updateFormData={updateFormData}
+                errors={errors}
+              />
+            )}
+            {currentStep === 4 && (
+              <AmenitiesStep
+                formData={formData}
+                updateFormData={updateFormData}
+                errors={errors}
+              />
+            )}
+            {currentStep === 5 && (
+              <PhotosPricingStep
+                formData={formData}
+                updateFormData={updateFormData}
+                errors={errors}
+              />
+            )}
+            {currentStep === 6 && selectedPlan && (
+              <ReviewSubmitStep
+                formData={formData}
+                onSubmit={(listingType) => handleSubmit(listingType || selectedPlan)}
+                isSubmitting={isSubmitting}
+                errors={errors}
+                preselectedPlan={selectedPlan}
+              />
+            )}
+
+            {/* Navigation Buttons */}
+            {currentStep > 0 && currentStep < 6 && (
+              <div className="flex justify-between mt-8 pt-6 border-t">
+                <button
+                  type="button"
+                  onClick={previousStep}
+                  disabled={currentStep === 1}
+                  className={`px-6 py-3 rounded-lg font-medium ${currentStep === 1
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
-              >
-                {currentStep === 1 ? 'Back to Plans' : 'Previous'}
-              </button>
-              <button
-                type="button"
-                onClick={nextStep}
-                className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
-              >
-                {currentStep === STEPS.length - 1 ? 'Review' : 'Next'}
-              </button>
-            </div>
-          )}
+                    }`}
+                >
+                  {currentStep === 1 ? 'Back to Plans' : 'Previous'}
+                </button>
+                <button
+                  type="button"
+                  onClick={nextStep}
+                  className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
+                >
+                  {currentStep === STEPS.length - 1 ? 'Review' : 'Next'}
+                </button>
+              </div>
+            )}
 
-          {currentStep === 6 && (
-            <div className="flex justify-start mt-8 pt-6 border-t">
-              <button
-                type="button"
-                onClick={previousStep}
-                className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300"
-              >
-                Previous
-              </button>
-            </div>
-          )}
-        </div>
+            {currentStep === 6 && (
+              <div className="flex justify-start mt-8 pt-6 border-t">
+                <button
+                  type="button"
+                  onClick={previousStep}
+                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300"
+                >
+                  Previous
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </main>
       <Footer />

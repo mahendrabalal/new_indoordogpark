@@ -256,3 +256,4 @@ For more information about dog parks and facilities across California and beyond
 **About the Author:** This guide was compiled through extensive research and firsthand visits to Phoenix indoor dog parks. All data and statistics are sourced from reputable organizations including the American Veterinary Medical Association, American Kennel Club, Centers for Disease Control and Prevention, and the National Weather Service.
 
 **Last Updated:** December 2024
+

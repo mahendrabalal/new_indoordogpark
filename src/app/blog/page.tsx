@@ -11,6 +11,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 // import ErrorBoundary from '@/components/blog/ErrorBoundary';
 import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
 import StructuredData from '@/components/blog/StructuredData';
+import NewsletterForm from '@/components/NewsletterForm';
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
@@ -68,10 +69,10 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   }
 
   const posts: BlogPost[] = blogData.posts || [];
-  const pagination = { 
-    total: blogData.total || 0, 
-    totalPages: blogData.totalPages || 0, 
-    currentPage: page, 
+  const pagination = {
+    total: blogData.total || 0,
+    totalPages: blogData.totalPages || 0,
+    currentPage: page,
     perPage,
   };
 
@@ -222,7 +223,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   const topReads = posts.slice(1, 4);
   // Check if filters are active
   const hasActiveFilters = Boolean(categorySlug || tagSlug || searchTerm);
-  
+
   // Determine grid posts:
   // - When "All" is selected (no filters): show all posts in grid
   // - When a category/filter is active: show only filtered posts (no "The Latest" section)
@@ -373,11 +374,10 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={buildFilterHref({ category: '', tag: '', search: '' })}
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${
-                  !categorySlug && !tagSlug && !searchTerm
-                    ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                    : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                }`}
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
+                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                  }`}
               >
                 All
               </Link>
@@ -387,11 +387,10 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                   <Link
                     key={category.id}
                     href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
-                    className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${
-                      isActive
-                        ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                    }`}
+                    className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
+                      ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                      }`}
                   >
                     {category.name}
                   </Link>
@@ -445,7 +444,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
         <section className="border-t border-gray-200 bg-[#FFF5F2] py-16 relative overflow-hidden">
           {/* Decorative curve on left */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-[#FFE5DD] rounded-r-full opacity-50"></div>
-          
+
           <div className="container mx-auto px-4 relative z-10">
             <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
               {/* Left Card - Image Section */}
@@ -482,28 +481,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 </p>
 
                 {/* Form */}
-                <form action="/api/newsletter" method="POST" className="space-y-4">
-                  <label htmlFor="newsletter-email" className="sr-only">
-                    Your Email
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="newsletter-email"
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      required
-                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 pr-12 text-gray-900 placeholder:text-gray-500 focus:border-[#FF5722] focus:outline-none focus:ring-2 focus:ring-[#FF5722]/20"
-                    />
-                    <i className="bi bi-envelope absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full rounded-lg bg-[#FF5722] px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-[#E64A19] hover:shadow-xl"
-                  >
-                    Subscribe
-                  </button>
-                </form>
+                <NewsletterForm type="consumer" source="blog_page" />
               </div>
             </div>
           </div>

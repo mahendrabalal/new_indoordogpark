@@ -68,7 +68,7 @@ export async function sendEmail(options: EmailOptions) {
 export function generateParkOutreachEmail(data: ParkOutreachData): string {
   const { parkName, parkCity, parkState, personalizedNote } = data;
   const location = parkCity && parkState ? ` in ${parkCity}, ${parkState}` : '';
-  
+
   return `
 <!DOCTYPE html>
 <html>
@@ -145,7 +145,7 @@ export function generateParkOutreachEmail(data: ParkOutreachData): string {
 export function generateFollowUpEmail(data: ParkOutreachData): string {
   const { parkName, parkCity, parkState } = data;
   const location = parkCity && parkState ? ` in ${parkCity}, ${parkState}` : '';
-  
+
   return `
 <!DOCTYPE html>
 <html>
@@ -184,3 +184,134 @@ export function generateFollowUpEmail(data: ParkOutreachData): string {
   `.trim();
 }
 
+/**
+ * Generate welcome email for consumer subscribers (dog park visitors)
+ */
+export function generateConsumerWelcomeEmail(email: string): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to IndoorDogPark.org!</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; border-radius: 12px 12px 0 0;">
+    <h1 style="color: white; margin: 0; font-size: 32px;">🐕 Welcome to the Pack!</h1>
+    <p style="color: rgba(255,255,255,0.95); margin: 15px 0 0 0; font-size: 16px;">California's Premier Indoor Dog Park Directory</p>
+  </div>
+  
+  <div style="background: #ffffff; padding: 40px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
+    <h2 style="color: #667eea; margin-top: 0; font-size: 24px;">Thanks for Subscribing! 🎉</h2>
+    
+    <p style="font-size: 16px; line-height: 1.8;">Hi there!</p>
+    
+    <p style="font-size: 16px; line-height: 1.8;">Welcome to the IndoorDogPark.org community! We're thrilled to have you join thousands of dog lovers discovering amazing indoor dog parks across California.</p>
+    
+    <div style="background: #f3f4f6; padding: 20px; border-left: 4px solid #667eea; margin: 30px 0; border-radius: 4px;">
+      <h3 style="color: #667eea; margin-top: 0; font-size: 18px;">Here's what you'll get:</h3>
+      <ul style="margin: 10px 0; padding-left: 20px; line-height: 2;">
+        <li>🏞️ New park openings in your area</li>
+        <li>💡 Tips for indoor dog park visits</li>
+        <li>🎁 Exclusive deals and discounts</li>
+        <li>📰 Weekly roundup of dog-friendly news</li>
+      </ul>
+    </div>
+    
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="https://indoordogpark.org/parks" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);">Explore Parks Now</a>
+    </div>
+    
+    <p style="font-size: 16px; line-height: 1.8;">In the meantime, check out our latest blog articles or browse parks near you!</p>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+      <p style="margin: 0; color: #6b7280; font-size: 14px;">
+        Happy tail wagging! 🐾<br>
+        <strong>The IndoorDogPark.org Team</strong><br>
+        <a href="mailto:media@indoordogpark.org" style="color: #667eea; text-decoration: none;">media@indoordogpark.org</a><br>
+        <a href="https://indoordogpark.org" style="color: #667eea; text-decoration: none;">indoordogpark.org</a>
+      </p>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #f9fafb; border-radius: 6px; font-size: 12px; color: #6b7280; text-align: center;">
+      <p style="margin: 0;">You're receiving this because you subscribed to IndoorDogPark.org newsletter.</p>
+      <p style="margin: 10px 0 0 0;">
+        <a href="https://indoordogpark.org/unsubscribe?email=${encodeURIComponent(email)}" style="color: #667eea; text-decoration: underline;">Unsubscribe</a> | 
+        <a href="https://indoordogpark.org/privacy" style="color: #667eea; text-decoration: underline;">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+
+/**
+ * Generate welcome email for owner subscribers (park owners)
+ */
+export function generateOwnerWelcomeEmail(email: string): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Our Partner Network!</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb;">
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; border-radius: 12px 12px 0 0;">
+    <h1 style="color: white; margin: 0; font-size: 32px;">🤝 Welcome to Our Partner Network!</h1>
+    <p style="color: rgba(255,255,255,0.95); margin: 15px 0 0 0; font-size: 16px;">Let's Grow Your Dog Park Business Together</p>
+  </div>
+  
+  <div style="background: #ffffff; padding: 40px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
+    <h2 style="color: #667eea; margin-top: 0; font-size: 24px;">Thanks for Joining! 🚀</h2>
+    
+    <p style="font-size: 16px; line-height: 1.8;">Hello fellow dog park enthusiast!</p>
+    
+    <p style="font-size: 16px; line-height: 1.8;">Welcome to the IndoorDogPark.org partner network! We're excited to help you grow your business and connect with more dog owners across California.</p>
+    
+    <div style="background: #f3f4f6; padding: 20px; border-left: 4px solid #667eea; margin: 30px 0; border-radius: 4px;">
+      <h3 style="color: #667eea; margin-top: 0; font-size: 18px;">As a partner, you'll receive:</h3>
+      <ul style="margin: 10px 0; padding-left: 20px; line-height: 2;">
+        <li>📊 Industry insights and trends</li>
+        <li>💰 Revenue optimization tips</li>
+        <li>🎯 Marketing strategies that work</li>
+        <li>🤝 Partnership opportunities</li>
+        <li>⚡ Early access to new features</li>
+      </ul>
+    </div>
+    
+    <div style="background: #fff5f2; border: 2px dashed #FF5722; padding: 25px; border-radius: 8px; margin: 30px 0;">
+      <h3 style="color: #FF5722; margin-top: 0; font-size: 18px;">🎁 Special Offer: First Month 50% Off</h3>
+      <p style="margin: 10px 0; font-size: 15px;">Ready to get featured? Use code <strong style="background: #FF5722; color: white; padding: 4px 8px; border-radius: 4px; font-family: monospace;">FIRST50</strong> at checkout.</p>
+    </div>
+    
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="https://indoordogpark.org/list-your-park" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);">List Your Park Now</a>
+    </div>
+    
+    <p style="font-size: 16px; line-height: 1.8;">Have questions? Just reply to this email or reach out to our partnerships team. We're here to help!</p>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+      <p style="margin: 0; color: #6b7280; font-size: 14px;">
+        To your success! 🌟<br>
+        <strong>The IndoorDogPark.org Partnerships Team</strong><br>
+        <a href="mailto:partnerships@indoordogpark.org" style="color: #667eea; text-decoration: none;">partnerships@indoordogpark.org</a><br>
+        <a href="https://indoordogpark.org" style="color: #667eea; text-decoration: none;">indoordogpark.org</a>
+      </p>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #f9fafb; border-radius: 6px; font-size: 12px; color: #6b7280; text-align: center;">
+      <p style="margin: 0;">You're receiving this because you subscribed to our partner network.</p>
+      <p style="margin: 10px 0 0 0;">
+        <a href="https://indoordogpark.org/unsubscribe?email=${encodeURIComponent(email)}" style="color: #667eea; text-decoration: underline;">Unsubscribe</a> | 
+        <a href="https://indoordogpark.org/privacy" style="color: #667eea; text-decoration: underline;">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+  `.trim();
+}
