@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { DogPark } from '@/types/dog-park';
 import { useSearchParams } from './useSearchParams';
 import { searchParks, SearchResponse } from '@/lib/api';
+import { normalizeTypeParameter } from '@/lib/type-normalizer';
 
 export interface SearchFilters {
   type?: string;
@@ -46,9 +47,15 @@ export function useSearch(
         ? listingTypeParam
         : undefined;
 
+    // Normalize type parameter from URL
+    const rawType = getSearchParam('type');
+    const normalizedType = rawType && rawType !== 'all'
+      ? normalizeTypeParameter(rawType) || undefined
+      : undefined;
+
     return {
-      type: getSearchParam('type') || undefined,
-      businessType: getSearchParam('type') || undefined, // Backwards compat
+      type: normalizedType,
+      businessType: normalizedType, // Backwards compat
       minRating: getSearchParam('minRating') ? Number(getSearchParam('minRating')) : undefined,
       priceRange: getSearchParam('priceRange') || undefined,
       city: getSearchParam('city') || undefined,

@@ -3,6 +3,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { normalizeTypeParameter } from '@/lib/type-normalizer';
 
 export const dynamic = 'force-dynamic';
 
@@ -111,9 +112,15 @@ export async function GET(request: Request) {
         ? listingTypeParam
         : undefined;
 
+    // Normalize type parameter to prevent invalid values from causing empty results
+    const rawType = searchParams.get('type') || undefined;
+    const normalizedType = rawType && rawType !== 'all' 
+      ? normalizeTypeParameter(rawType) || undefined
+      : undefined;
+
     const params: SearchParams = {
       q: searchParams.get('q') || undefined,
-      type: searchParams.get('type') || undefined,
+      type: normalizedType,
       minRating: searchParams.get('minRating') ? parseFloat(searchParams.get('minRating')!) : undefined,
       priceRange: searchParams.get('priceRange') || undefined,
       city: searchParams.get('city') || undefined,
