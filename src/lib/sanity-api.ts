@@ -278,25 +278,63 @@ function sanitizeNumericId(idValue: string | undefined, fallback = 1): number {
 
 function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
   const featuredImage: WPMedia | undefined = sanityPost.mainImage?.asset
-    ? ({
-        id: sanitizeNumericId(sanityPost.mainImage.asset._id, Math.floor(Math.random() * 100000)),
-        date: sanityPost.publishedAt,
-        slug: sanityPost.slug.current,
-        type: 'attachment',
-        link: urlForImage(sanityPost.mainImage).url(),
-        title: { rendered: sanityPost.mainImage.alt || sanityPost.title },
-        author: sanitizeNumericId(sanityPost.author?._id),
-        caption: { rendered: sanityPost.mainImage.caption || '' },
-        alt_text: sanityPost.mainImage.alt || sanityPost.title,
-        media_type: 'image',
-        mime_type: 'image/jpeg',
-        media_details: {
-          width: sanityPost.mainImage.asset.metadata?.dimensions?.width || 1200,
-          height: sanityPost.mainImage.asset.metadata?.dimensions?.height || 630,
-          file: `${sanityPost.slug.current}.jpg`,
-        },
-        source_url: urlForImage(sanityPost.mainImage).width(1200).url(),
-      } satisfies WPMedia)
+    ? (() => {
+        try {
+          const baseWidth = sanityPost.mainImage.asset.metadata?.dimensions?.width || 1200;
+          const baseHeight = sanityPost.mainImage.asset.metadata?.dimensions?.height || 630;
+          const baseImageUrl = urlForImage(sanityPost.mainImage);
+          
+          // Generate different size URLs for responsive images
+          const largeUrl = baseImageUrl.width(1200).url();
+          const mediumUrl = baseImageUrl.width(800).url();
+          const sourceUrl = baseImageUrl.width(1200).url();
+          
+          // Validate URLs are not empty or invalid
+          if (!largeUrl || !mediumUrl || !sourceUrl) {
+            console.warn(`[Sanity API] Invalid image URLs for post: ${sanityPost.slug.current}`);
+            return undefined;
+          }
+          
+          return {
+            id: sanitizeNumericId(sanityPost.mainImage.asset._id, Math.floor(Math.random() * 100000)),
+            date: sanityPost.publishedAt,
+            slug: sanityPost.slug.current,
+            type: 'attachment',
+            link: baseImageUrl.url(),
+            title: { rendered: sanityPost.mainImage.alt || sanityPost.title },
+            author: sanitizeNumericId(sanityPost.author?._id),
+            caption: { rendered: sanityPost.mainImage.caption || '' },
+            alt_text: sanityPost.mainImage.alt || sanityPost.title,
+            media_type: 'image',
+            mime_type: 'image/jpeg',
+            media_details: {
+              width: baseWidth,
+              height: baseHeight,
+              file: `${sanityPost.slug.current}.jpg`,
+              sizes: {
+                large: {
+                  file: `${sanityPost.slug.current}-large.jpg`,
+                  width: 1200,
+                  height: Math.round((1200 / baseWidth) * baseHeight),
+                  mime_type: 'image/jpeg',
+                  source_url: largeUrl,
+                },
+                medium: {
+                  file: `${sanityPost.slug.current}-medium.jpg`,
+                  width: 800,
+                  height: Math.round((800 / baseWidth) * baseHeight),
+                  mime_type: 'image/jpeg',
+                  source_url: mediumUrl,
+                },
+              },
+            },
+            source_url: sourceUrl,
+          } satisfies WPMedia;
+        } catch (error) {
+          console.error(`[Sanity API] Error generating image URLs for post: ${sanityPost.slug.current}`, error);
+          return undefined;
+        }
+      })()
     : undefined;
 
   return {
