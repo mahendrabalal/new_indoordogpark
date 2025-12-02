@@ -253,6 +253,8 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                           fill
                           className="object-cover"
                           priority
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
+                          unoptimized={true}
                         />
                       </div>
                     )}
@@ -313,6 +315,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                                   fill
                                   className="object-cover transition-transform group-hover:scale-105"
                                   sizes="80px"
+                                  unoptimized={true}
                                 />
                               </div>
                             )}

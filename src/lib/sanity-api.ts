@@ -289,9 +289,20 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
           const mediumUrl = baseImageUrl.width(800).url();
           const sourceUrl = baseImageUrl.width(1200).url();
           
-          // Validate URLs are not empty or invalid
-          if (!largeUrl || !mediumUrl || !sourceUrl) {
-            console.warn(`[Sanity API] Invalid image URLs for post: ${sanityPost.slug.current}`);
+          // Validate URLs are not empty, are strings, and are absolute URLs
+          const isValidUrl = (url: string | undefined): boolean => {
+            return !!url && 
+                   typeof url === 'string' && 
+                   url.trim() !== '' && 
+                   (url.startsWith('http://') || url.startsWith('https://'));
+          };
+          
+          if (!isValidUrl(largeUrl) || !isValidUrl(mediumUrl) || !isValidUrl(sourceUrl)) {
+            console.warn(`[Sanity API] Invalid image URLs for post: ${sanityPost.slug.current}`, {
+              largeUrl,
+              mediumUrl,
+              sourceUrl
+            });
             return undefined;
           }
           

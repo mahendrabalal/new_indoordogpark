@@ -63,9 +63,18 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
     return notFound();
   }
 
-  const featuredImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
-                       post.featuredImage?.media_details?.sizes?.medium?.source_url ||
-                       post.featuredImage?.source_url;
+  // Get featured image with validation
+  const rawFeaturedImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
+                           post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+                           post.featuredImage?.source_url;
+  
+  // Validate that the image URL is a valid string and not empty
+  const featuredImage = rawFeaturedImage && 
+                        typeof rawFeaturedImage === 'string' && 
+                        rawFeaturedImage.trim() !== '' &&
+                        rawFeaturedImage.startsWith('http')
+                        ? rawFeaturedImage
+                        : undefined;
 
   // Extract headings for table of contents
   const headings = extractHeadingsFromHtml(post.content);
@@ -195,7 +204,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Hero Image */}
                 {featuredImage && (
-                  <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden">
+                  <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden bg-gray-100">
                     <Image
                       src={featuredImage}
                       alt={post.featuredImage?.alt_text || post.title}
@@ -203,6 +212,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                       className="object-cover"
                       priority
                       sizes="(max-width: 768px) 100vw, 896px"
+                      unoptimized={true}
                     />
                   </div>
                 )}
@@ -341,10 +351,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         : contentText;
     }
 
-    // Get featured image
-    const featuredImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
-                         post.featuredImage?.media_details?.sizes?.medium?.source_url ||
-                         post.featuredImage?.source_url;
+    // Get featured image with validation
+    const rawFeaturedImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
+                             post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+                             post.featuredImage?.source_url;
+    
+    // Validate that the image URL is a valid string and not empty
+    const featuredImage = rawFeaturedImage && 
+                          typeof rawFeaturedImage === 'string' && 
+                          rawFeaturedImage.trim() !== '' &&
+                          rawFeaturedImage.startsWith('http')
+                          ? rawFeaturedImage
+                          : undefined;
 
     // Create SEO-friendly title (60 characters max for optimal SEO)
     // Truncate at word boundary when possible to avoid cutting words
