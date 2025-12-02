@@ -8,7 +8,7 @@ import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
 import CityStats from '@/components/CityStats';
 import ScrollToButton from '@/components/ScrollToButton';
-import { createMetaDescription, SITE_URL } from '@/lib/metadata';
+import { createMetaDescription, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { getAllCitySlugs, getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
@@ -229,6 +229,13 @@ export default async function CityPage({ params }: CityPageProps) {
     })),
   };
 
+  // Generate breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory' },
+    { name: city.name },
+  ]);
+
   const defaultInsightCards: CityInsightCard[] = [
     {
       tag: 'Experience score',
@@ -336,6 +343,11 @@ export default async function CityPage({ params }: CityPageProps) {
           type="application/ld+json"
         suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       <Header />
       <TableOfContents items={tocItems} />

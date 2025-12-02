@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
-import { generateFAQSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
+import { generateBreadcrumbSchema, generateFAQSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { getParkReviews } from '@/lib/reviews-data';
 
 const ParkMap = dynamicImport(() => import('@/components/ParkMap'), {
@@ -107,6 +107,15 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   const parkSchema = generateParkSchema(park);
   const stateName = getStateName(park.state);
+  
+  // Generate breadcrumb schema
+  const citySlug = park.city.toLowerCase().replace(/\s+/g, '-');
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: park.city, url: `/cities/${citySlug}` },
+    { name: park.name },
+  ]);
+  
   const descriptionText =
     park.description?.trim() ||
     `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
@@ -141,6 +150,12 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(parkSchema) }}
+      />
+      {/* BreadcrumbList schema for SEO */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Add Review schemas with proper itemReviewed fields */}
       {reviewSchemas.map((reviewSchema, index) => (
