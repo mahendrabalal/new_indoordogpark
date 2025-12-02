@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface TOCItem {
   id: string;
@@ -15,50 +15,158 @@ interface TableOfContentsProps {
 export default function TableOfContents({ items }: TableOfContentsProps) {
   const [activeSection, setActiveSection] = useState<string>('');
   const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const sectionRefs = useRef<Map<string, IntersectionObserverEntry>>(new Map());
+  const isScrollingRef = useRef<boolean>(false);
 
+  // Calculate scroll progress
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate scroll progress
+    const handleScrollProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = Math.min((scrollTop / docHeight) * 100, 100);
+      const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
       setScrollProgress(progress);
-
-      // Update active section based on scroll position
-      const sections = items.map(item => ({
-        id: item.id,
-        element: document.getElementById(item.id)
-      })).filter(section => section.element);
-
-      if (sections.length === 0) return;
-
-      let currentSection = '';
-      sections.forEach(section => {
-        const rect = section.element!.getBoundingClientRect();
-        if (rect.top <= 100) {
-          currentSection = section.id;
-        }
-      });
-      setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    window.addEventListener('scroll', handleScrollProgress, { passive: true });
+    handleScrollProgress(); // Initial call
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScrollProgress);
+  }, []);
+
+  // Intersection Observer for section highlighting (best practice)
+  useEffect(() => {
+    // Clean up previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    const sections = items
+      .map(item => ({
+        id: item.id,
+        element: document.getElementById(item.id),
+        level: item.level
+      }))
+      .filter(section => section.element);
+
+    if (sections.length === 0) return;
+
+    // Configure Intersection Observer with proper thresholds
+    const observerOptions = {
+      root: null, // Use viewport
+      rootMargin: '-80px 0px -80% 0px', // Account for header + trigger earlier
+      threshold: [0, 0.25, 0.5, 0.75, 1.0] // Multiple thresholds for better accuracy
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      // Don't update while user is clicking TOC links
+      if (isScrollingRef.current) return;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sectionRefs.current.set(entry.target.id, entry);
+        } else {
+          sectionRefs.current.delete(entry.target.id);
+        }
+      });
+
+      // Determine which section should be active
+      // Priority: visible sections with highest intersection ratio
+      const visibleSections = Array.from(sectionRefs.current.values())
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => {
+          // Sort by intersection ratio (highest first)
+          if (b.intersectionRatio !== a.intersectionRatio) {
+            return b.intersectionRatio - a.intersectionRatio;
+          }
+          // If ratios are equal, prefer the one closer to top
+          return a.boundingClientRect.top - b.boundingClientRect.top;
+        });
+
+      if (visibleSections.length > 0) {
+        const mostVisible = visibleSections[0];
+        setActiveSection(mostVisible.target.id);
+      } else {
+        // Fallback: Find the section closest to the top
+        const allSections = sections.map(s => ({
+          id: s.id,
+          element: s.element!,
+          top: s.element!.getBoundingClientRect().top
+        }));
+
+        const topSection = allSections
+          .filter(s => s.top <= 120) // Within header offset
+          .sort((a, b) => b.top - a.top)[0]; // Closest to top
+
+        if (topSection) {
+          setActiveSection(topSection.id);
+        } else if (allSections.length > 0) {
+          // If scrolled past all sections, highlight the last one
+          const lastSection = allSections[allSections.length - 1];
+          if (lastSection.top < window.innerHeight) {
+            setActiveSection(lastSection.id);
+          }
+        }
+      }
+    }, observerOptions);
+
+    // Observe all sections
+    sections.forEach(section => {
+      if (section.element) {
+        observerRef.current!.observe(section.element);
+      }
+    });
+
+    // Initial check
+    const checkInitialSection = () => {
+      const allSections = sections.map(s => ({
+        id: s.id,
+        element: s.element!,
+        top: s.element!.getBoundingClientRect().top
+      }));
+
+      const topSection = allSections
+        .filter(s => s.top <= 120)
+        .sort((a, b) => b.top - a.top)[0] || allSections[0];
+
+      if (topSection) {
+        setActiveSection(topSection.id);
+      }
+    };
+
+    // Delay initial check to ensure DOM is ready
+    setTimeout(checkInitialSection, 100);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, [items]);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      // Prevent observer updates while scrolling
+      isScrollingRef.current = true;
+      
+      // Set active section immediately for instant feedback
+      setActiveSection(sectionId);
+
       const offset = 80; // Account for fixed header
       const elementPosition = element.offsetTop - offset;
+      
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
       });
+
+      // Re-enable observer updates after scroll completes
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000);
     }
-  };
+  }, []);
 
   return (
     <div className="table-of-contents">
@@ -195,11 +303,30 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           background: transparent;
           border-radius: 8px;
           cursor: pointer;
-          transition: all 0.2s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-size: 14px;
           color: #4b5563;
           text-align: left;
           gap: 10px;
+          position: relative;
+        }
+
+        .toc-link::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%) scaleY(0);
+          width: 3px;
+          height: 0;
+          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          border-radius: 0 3px 3px 0;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toc-link:hover::before {
+          height: 60%;
+          transform: translateY(-50%) scaleY(1);
         }
 
         .toc-link:hover {
@@ -210,7 +337,14 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
         .toc-item-active .toc-link {
           background: linear-gradient(135deg, #7c3aed, #a855f7);
           color: white;
-          font-weight: 500;
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+          transform: translateX(4px);
+        }
+
+        .toc-item-active.toc-item-sub .toc-link {
+          border-left: 3px solid rgba(255, 255, 255, 0.5);
+          padding-left: 9px;
         }
 
         .toc-number {
