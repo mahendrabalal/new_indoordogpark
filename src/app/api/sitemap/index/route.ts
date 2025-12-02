@@ -1,24 +1,17 @@
 import { NextResponse } from 'next/server'
 import { SITE_URL } from '@/lib/metadata'
 
-// Revalidate sitemap index every hour
 export const revalidate = 3600
-
-// Ensure sitemap is generated at runtime
 export const dynamic = 'force-dynamic'
-
-// Configure timeout for Vercel (60 seconds for Pro plan)
 export const maxDuration = 10
 export const runtime = 'nodejs'
 
 /**
- * Main sitemap index - Industry best practice for sites with 500+ URLs
- * Returns XML sitemap index pointing to separate sitemaps
- * 
- * Google recommends sitemap index for large sites:
- * https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+ * Sitemap index API route
+ * Returns XML sitemap index pointing to all sub-sitemaps
+ * Industry best practice for sites with 500+ URLs
  */
-export default async function sitemap() {
+export async function GET() {
   const baseUrl = SITE_URL
   const currentDate = new Date()
 
@@ -44,6 +37,7 @@ export default async function sitemap() {
 </sitemapindex>`
 
   return new NextResponse(xml, {
+    status: 200,
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate',
@@ -59,3 +53,4 @@ function escapeXML(str: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;')
 }
+

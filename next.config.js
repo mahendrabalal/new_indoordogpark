@@ -220,6 +220,27 @@ const nextConfig = {
       },
     ];
   },
+  // Rewrites for sitemap API routes (map .xml URLs to API routes)
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap-static.xml',
+        destination: '/api/sitemap/static',
+      },
+      {
+        source: '/sitemap-parks.xml',
+        destination: '/api/sitemap/parks',
+      },
+      {
+        source: '/sitemap-cities.xml',
+        destination: '/api/sitemap/cities',
+      },
+      {
+        source: '/sitemap-blog.xml',
+        destination: '/api/sitemap/blog',
+      },
+    ];
+  },
   // Redirects for SEO
   async redirects() {
     return [

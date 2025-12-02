@@ -82,3 +82,4 @@ For older browsers, Next.js Image component can provide fallbacks, but since you
 - Login/signup pages now load much faster
 - No breaking changes - same visual appearance, much smaller files
 
+

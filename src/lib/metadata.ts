@@ -238,11 +238,11 @@ export function generateParkSchema(park: DogPark) {
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
 
   // Determine business type for schema
-  // Use LocalBusiness for all business-oriented parks to support aggregateRating
-  // Park type doesn't support aggregateRating, so we use LocalBusiness instead
-  const schemaType = park.businessType === 'Indoor Dog Park'
-    ? 'SportsActivityLocation' // Extends LocalBusiness, supports ratings
-    : 'LocalBusiness'; // Supports aggregateRating and all business properties
+  // Use SportsActivityLocation for all dog parks - it's more semantically accurate
+  // for recreational facilities and extends LocalBusiness, supporting aggregateRating
+  // and all business properties. This follows industry best practices (Yelp, TripAdvisor)
+  // and provides better SEO than generic LocalBusiness.
+  const schemaType = 'SportsActivityLocation'; // All dog parks are recreational facilities
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const baseSchema: Record<string, any> = {
@@ -396,10 +396,9 @@ export function generateReviewSchemas(
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
-  // Use LocalBusiness for all business-oriented parks to support aggregateRating
-  const schemaType = park.businessType === 'Indoor Dog Park'
-    ? 'SportsActivityLocation' // Extends LocalBusiness, supports ratings
-    : 'LocalBusiness'; // Supports aggregateRating and all business properties
+  // Use SportsActivityLocation for all dog parks to maintain consistency
+  // and support aggregateRating and all business properties
+  const schemaType = 'SportsActivityLocation'; // All dog parks are recreational facilities
 
   // Create the itemReviewed object (the business being reviewed)
   // This is required by Google for Review snippets to work
@@ -485,7 +484,7 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
           '@type': 'ListItem',
           position: index + 1,
           item: {
-            '@type': park.businessType === 'Indoor Dog Park' ? 'SportsActivityLocation' : 'LocalBusiness',
+            '@type': 'SportsActivityLocation', // All dog parks are recreational facilities
             '@id': parkUrl,
             name: park.name,
             url: parkUrl,

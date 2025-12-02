@@ -154,3 +154,4 @@ After implementing changes, run Lighthouse again:
 - Progressive enhancement approach - site works without JavaScript
 - Backwards compatible with existing code
 
+

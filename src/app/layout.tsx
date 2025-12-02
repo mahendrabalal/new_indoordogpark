@@ -13,11 +13,6 @@ const inter = Inter({
   fallback: ['system-ui', 'arial'],
 })
 
-const sitePublishedTime =
-  process.env.NEXT_PUBLIC_SITE_PUBLISHED_AT || '2024-01-15T00:00:00.000Z'
-const siteModifiedTime =
-  process.env.NEXT_PUBLIC_SITE_MODIFIED_AT || '2025-11-15T00:00:00.000Z'
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org'),
   title: {
@@ -63,15 +58,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'article',
+    type: 'website',
     locale: 'en_US',
     url: 'https://www.indoordogpark.org',
     title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
     description:
       'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
     siteName: 'Indoor Dog Park',
-    publishedTime: sitePublishedTime,
-    modifiedTime: siteModifiedTime,
     images: [
       {
         url: '/images/hero/hero.webp',

@@ -100,7 +100,7 @@ function normalizeSubmissionPhotos(photos: unknown): MediaAsset[] {
     .filter((photo): photo is MediaAsset => !!photo);
 }
 
-interface SubmissionRow {
+export interface SubmissionRow {
   id: string;
   name: string;
   slug?: string | null;
@@ -127,7 +127,7 @@ interface SubmissionRow {
   approved_at?: string | null;
 }
 
-function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
+export function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
   const photos = normalizeSubmissionPhotos(submission.photos);
 
   return {

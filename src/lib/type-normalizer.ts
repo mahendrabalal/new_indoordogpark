@@ -75,3 +75,4 @@ export function normalizeTypeParameter(type: string | undefined | null): ValidBu
 export function isValidTypeParameter(type: string | undefined | null): boolean {
   return normalizeTypeParameter(type) !== null;
 }
+

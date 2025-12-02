@@ -148,3 +148,4 @@ du -sh public/images
 find public/images -type f -name "*.jpg" -exec du -h {} \; | awk '$1 ~ /M/ {count++} END {print count " images over 1MB"}'
 ```
 
+
