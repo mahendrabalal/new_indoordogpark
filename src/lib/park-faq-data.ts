@@ -29,13 +29,24 @@ export function buildParkFAQs(park: DogPark): FAQItem[] {
     },
     {
       question: `What amenities are available at ${park.name}?`,
-      answer: park.amenities
-        ? `${park.name} offers ${Object.entries(park.amenities)
-            .filter(([, value]) => value === true)
-            .map(([key]) => formatAmenityForFAQ(key))
-            .slice(0, 8)
-            .join(', ')}. ${park.amenities.parking ? 'Parking is available on-site.' : 'Please check parking availability before visiting.'}`
-        : `${park.name} offers various amenities for your furry friends. Contact the park or visit their website for a complete list of available facilities and features.`,
+      answer: (() => {
+        if (!park.amenities) {
+          return `${park.name} offers various amenities for your furry friends. Contact the park or visit their website for a complete list of available facilities and features.`;
+        }
+        
+        const availableAmenities = Object.entries(park.amenities)
+          .filter(([, value]) => value === true)
+          .map(([key]) => formatAmenityForFAQ(key))
+          .slice(0, 8);
+        
+        if (availableAmenities.length === 0) {
+          return `${park.name} offers various amenities for your furry friends. Contact the park or visit their website for a complete list of available facilities and features.`;
+        }
+        
+        const amenitiesText = availableAmenities.join(', ');
+        const parkingNote = park.amenities.parking ? 'Parking is available on-site.' : 'Please check parking availability before visiting.';
+        return `${park.name} offers ${amenitiesText}. ${parkingNote}`;
+      })(),
       category: 'facilities',
       popular: true,
     },

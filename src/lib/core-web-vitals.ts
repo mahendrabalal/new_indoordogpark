@@ -159,51 +159,70 @@ export function getCurrentWebVitals(): Promise<Record<string, number>> {
       return;
     }
 
-    import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
-      const metrics: Record<string, number> = {};
+    import('web-vitals')
+      .then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
+        const metrics: Record<string, number> = {};
 
-      const promises: Promise<void>[] = [];
+        const promises: Promise<void>[] = [];
 
-      promises.push(
-        new Promise<void>((res) => {
-          onCLS((metric) => {
-            metrics.CLS = metric.value;
-            res();
+        promises.push(
+          new Promise<void>((res) => {
+            onCLS((metric) => {
+              metrics.CLS = metric.value;
+              res();
+            });
+          })
+        );
+
+        promises.push(
+          new Promise<void>((res) => {
+            onFCP((metric) => {
+              metrics.FCP = metric.value;
+              res();
+            });
+          })
+        );
+
+        promises.push(
+          new Promise<void>((res) => {
+            onLCP((metric) => {
+              metrics.LCP = metric.value;
+              res();
+            });
+          })
+        );
+
+        promises.push(
+          new Promise<void>((res) => {
+            onTTFB((metric) => {
+              metrics.TTFB = metric.value;
+              res();
+            });
+          })
+        );
+
+        promises.push(
+          new Promise<void>((res) => {
+            onINP((metric) => {
+              metrics.INP = metric.value;
+              res();
+            });
+          })
+        );
+
+        Promise.all(promises)
+          .then(() => {
+            resolve(metrics);
+          })
+          .catch((error) => {
+            console.warn('Failed to collect Core Web Vitals metrics:', error);
+            resolve(metrics); // Resolve with partial metrics if available
           });
-        })
-      );
-
-      promises.push(
-        new Promise<void>((res) => {
-          onFCP((metric) => {
-            metrics.FCP = metric.value;
-            res();
-          });
-        })
-      );
-
-      promises.push(
-        new Promise<void>((res) => {
-          onLCP((metric) => {
-            metrics.LCP = metric.value;
-            res();
-          });
-        })
-      );
-
-      promises.push(
-        new Promise<void>((res) => {
-          onTTFB((metric) => {
-            metrics.TTFB = metric.value;
-            res();
-          });
-        })
-      );
-
-      Promise.all(promises).then(() => {
-        resolve(metrics);
+      })
+      .catch((error) => {
+        console.warn('Failed to load web-vitals library:', error);
+        resolve({}); // Resolve with empty metrics object on import failure
       });
-    });
   });
 }
 

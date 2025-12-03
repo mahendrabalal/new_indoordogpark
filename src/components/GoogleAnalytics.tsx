@@ -51,7 +51,7 @@ export default function GoogleAnalytics() {
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
-              send_page_view: true
+              send_page_view: false
             });
           `,
         }}
