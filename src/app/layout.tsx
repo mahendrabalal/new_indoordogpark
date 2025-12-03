@@ -110,6 +110,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   // Structured data for Organization
+  // Social media links can be configured via environment variables:
+  // NEXT_PUBLIC_SOCIAL_FACEBOOK, NEXT_PUBLIC_SOCIAL_TWITTER, NEXT_PUBLIC_SOCIAL_INSTAGRAM, etc.
+  const socialMediaLinks = [
+    process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK,
+    process.env.NEXT_PUBLIC_SOCIAL_TWITTER,
+    process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM,
+    process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN,
+    process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE,
+  ].filter((url): url is string => Boolean(url) && typeof url === 'string')
+
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -117,12 +127,7 @@ export default function RootLayout({
     url: 'https://www.indoordogpark.org',
     logo: 'https://www.indoordogpark.org/images/logo/logo-512.png',
     description: 'California\'s premier directory for indoor dog parks, play areas, and dog-friendly facilities.',
-    sameAs: [
-      // Add your social media profiles here
-      // 'https://www.facebook.com/indoordogpark',
-      // 'https://twitter.com/indoordogpark',
-      // 'https://www.instagram.com/indoordogpark',
-    ],
+    ...(socialMediaLinks.length > 0 && { sameAs: socialMediaLinks }),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',

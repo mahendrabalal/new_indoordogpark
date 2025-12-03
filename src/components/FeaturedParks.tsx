@@ -118,7 +118,7 @@ export default function FeaturedParks() {
                       spotlightPark.photos[0].url ||
                       'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1200&q=80'
                     }
-                    alt={spotlightPark.name}
+                    alt={`${spotlightPark.name} - ${spotlightPark.businessType} in ${spotlightPark.city}, ${spotlightPark.state} | Featured Premium Listing`}
                     fill
                     className="object-cover opacity-60"
                     sizes="(max-width: 1024px) 100vw, 60vw"
@@ -203,7 +203,7 @@ export default function FeaturedParks() {
                       park.photos[0].url ||
                       'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=800&q=80'
                     }
-                    alt={park.name}
+                    alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Featured Indoor Dog Park`}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"

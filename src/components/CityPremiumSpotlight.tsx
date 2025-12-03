@@ -111,7 +111,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
                   park.photos[0].url ||
                   'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80'
                 }
-                alt={park.name}
+                alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Premium Featured Listing`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

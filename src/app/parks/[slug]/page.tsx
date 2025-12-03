@@ -412,15 +412,22 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
           {nearbyParks.length > 0 && (
             <section className="nearby-parks-section">
-              <h2>Other Dog Parks in {park.city}</h2>
-              <p className="nearby-intro">Explore more dog-friendly locations near {park.name}.</p>
+              <div className="nearby-parks-header">
+                <div>
+                  <h2>Other Dog Parks in {park.city}</h2>
+                  <p className="nearby-intro">Explore more dog-friendly locations near {park.name}.</p>
+                </div>
+                <Link href={`/cities/${citySlug}`} className="city-link-btn">
+                  View all parks in {park.city} →
+                </Link>
+              </div>
               <div className="nearby-parks-grid">
                 {nearbyParks.map((nearbyPark) => (
                   <Link key={nearbyPark.id} href={`/parks/${nearbyPark.slug || nearbyPark.id}`} className="nearby-park-card">
                     <div className="nearby-park-image">
                       <Image
                         src={nearbyPark.photo || nearbyPark.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'}
-                        alt={nearbyPark.name}
+                        alt={`${nearbyPark.name} - ${nearbyPark.businessType} in ${nearbyPark.city}, ${nearbyPark.state}`}
                         width={300}
                         height={200}
                       />

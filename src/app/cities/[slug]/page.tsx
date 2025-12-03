@@ -200,31 +200,103 @@ export default async function CityPage({ params }: CityPageProps) {
     containsPlace: structuredPlaces,
   };
 
+  // ItemList schema for carousel - using proper item structure
+  // Limit to top parks to avoid schema bloat and ensure quality
+  const topParks = cityParks
+    .filter((park) => park.rating && park.rating >= 3.5)
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .slice(0, 10);
+
   const itemListStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: cityParks.map((park, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      url: `${SITE_URL}/parks/${park.slug || park.id}`,
-      name: park.name,
-      description: park.description,
-    })),
+    name: `Dog Parks in ${city.name}`,
+    description: `Top-rated dog parks and facilities in ${city.name}, ${city.state}`,
+    numberOfItems: topParks.length,
+    itemListElement: topParks.map((park, index) => {
+      const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
+      const shortDescription = park.description
+        ? park.description.slice(0, 200).replace(/\s+\S*$/, '') + '...'
+        : `${park.businessType} in ${park.city}`;
+      
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'SportsActivityLocation', // Matches park detail page schema for consistency
+          '@id': parkUrl,
+          name: park.name,
+          url: parkUrl,
+          description: shortDescription,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: park.city,
+            addressRegion: park.state,
+            addressCountry: 'US',
+          },
+          ...(park.rating && {
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: park.rating,
+              reviewCount: park.reviewCount || 0,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          }),
+          ...((park.photo || park.photos?.[0]?.url) && {
+            image: park.photo || park.photos?.[0]?.url,
+          }),
+        },
+      };
+    }),
   };
 
   const defaultFaqs = buildDefaultFAQs(city.name, stats.totalParks);
   const faqItems: FAQItem[] =
     customContent?.faqs && customContent.faqs.length > 0 ? customContent.faqs : defaultFaqs;
 
+  // Helper function to clean FAQ answers for schema
+  const cleanFAQAnswer = (answer: string): string => {
+    // Remove HTML tags if present
+    let cleaned = answer.replace(/<[^>]*>/g, '');
+    // Decode HTML entities
+    cleaned = cleaned
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
+    // Normalize whitespace
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    // Ensure answer is within Google's recommended length (max 5000 chars, but keep it reasonable)
+    if (cleaned.length > 5000) {
+      cleaned = cleaned.slice(0, 5000).replace(/\s+\S*$/, '') + '...';
+    }
+    return cleaned;
+  };
+
+  // Filter and validate FAQ items
+  const validFAQs = faqItems
+    .filter((faq) => {
+      // Ensure question and answer exist and are valid
+      const hasQuestion = faq.question && faq.question.trim().length > 0;
+      const hasAnswer = faq.answer && faq.answer.trim().length > 0;
+      // Answers should be at least 10 characters
+      const validAnswerLength = faq.answer && faq.answer.trim().length >= 10;
+      return hasQuestion && hasAnswer && validAnswerLength;
+    })
+    .slice(0, 10); // Limit to top 10 FAQs for performance
+
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqItems.map((faq) => ({
+    mainEntity: validFAQs.map((faq) => ({
       '@type': 'Question',
-      name: faq.question,
+      name: faq.question.trim(),
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: cleanFAQAnswer(faq.answer),
       },
     })),
   };
@@ -334,16 +406,20 @@ export default async function CityPage({ params }: CityPageProps) {
         suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <script
-          type="application/ld+json"
-        suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListStructuredData) }}
-        />
-        <script
-          type="application/ld+json"
-        suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-        />
+        {topParks.length > 0 && (
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListStructuredData) }}
+          />
+        )}
+        {validFAQs.length > 0 && (
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+          />
+        )}
         <script
           type="application/ld+json"
           suppressHydrationWarning
