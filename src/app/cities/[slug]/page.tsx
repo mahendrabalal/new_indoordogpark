@@ -232,7 +232,7 @@ export default async function CityPage({ params }: CityPageProps) {
   // Generate breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory' },
+    { name: city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory', url: '/' },
     { name: city.name },
   ]);
 
