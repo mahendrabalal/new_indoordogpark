@@ -5,6 +5,8 @@ import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/contexts/ToastContext'
 import { FavoritesProvider } from '@/contexts/FavoritesContext'
 import { LazyStyles } from '@/components/LazyStyles'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+import CoreWebVitals from '@/components/CoreWebVitals'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -182,6 +184,8 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <GoogleAnalytics />
+        <CoreWebVitals />
         <LazyStyles />
         <AuthProvider>
           <FavoritesProvider>

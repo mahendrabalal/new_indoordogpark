@@ -159,7 +159,7 @@ export class BlogAnalytics {
     // Send to Google Analytics if available
     if (typeof window !== 'undefined' && 'gtag' in window) {
       try {
-        const gtag = (window as Record<string, unknown>).gtag as (...args: unknown[]) => void;
+        const gtag = (window as unknown as Record<string, unknown>).gtag as (...args: unknown[]) => void;
         gtag('event', eventName, {
           custom_parameter_1: JSON.stringify(properties),
           session_id: this.sessionId,

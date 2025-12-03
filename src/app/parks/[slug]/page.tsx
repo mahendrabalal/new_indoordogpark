@@ -8,7 +8,8 @@ import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
-import { generateBreadcrumbSchema, generateFAQSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
+import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
+import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 
 const ParkMap = dynamicImport(() => import('@/components/ParkMap'), {
@@ -120,29 +121,48 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     park.description?.trim() ||
     `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
   const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
-  const faqItems =
-    park.faqs && park.faqs.length > 0
-      ? park.faqs
-      : [
-          {
-            question: `What are the hours for ${park.name}?`,
-            answer:
-              'Please contact the park directly for current hours of operation. Our team keeps the hours updated on Google Maps and social channels.',
-          },
-          {
-            question: 'Is there an entrance fee?',
-            answer: 'Please check with the park for current pricing information.',
-          },
-          {
-            question: 'What amenities are available?',
-            answer: 'This dog park offers various amenities for your furry friends.',
-          },
-          {
-            question: 'Are there similar dog parks nearby?',
-            answer: `Yes! We have ${nearbyParks.length} other dog parks in ${park.city}. Explore the local recommendations below.`,
-          },
-        ];
-  const faqSchema = park.faqs && park.faqs.length > 0 ? generateFAQSchema(park.faqs) : null;
+  // Use custom FAQs if available, otherwise build comprehensive default FAQs
+  const faqItems = park.faqs && park.faqs.length > 0 ? park.faqs : buildParkFAQs(park);
+  
+  // Helper function to clean FAQ answers for schema (similar to city pages)
+  const cleanFAQAnswer = (answer: string): string => {
+    let cleaned = answer.replace(/<[^>]*>/g, '');
+    cleaned = cleaned
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    if (cleaned.length > 5000) {
+      cleaned = cleaned.slice(0, 5000).replace(/\s+\S*$/, '') + '...';
+    }
+    return cleaned;
+  };
+
+  // Filter and validate FAQ items for schema
+  const validFAQs = faqItems
+    .filter((faq) => {
+      const hasQuestion = faq.question && faq.question.trim().length > 0;
+      const hasAnswer = faq.answer && faq.answer.trim().length > 0;
+      const validAnswerLength = faq.answer && faq.answer.trim().length >= 10;
+      return hasQuestion && hasAnswer && validAnswerLength;
+    })
+    .slice(0, 10); // Limit to top 10 FAQs for performance
+
+  const faqSchema = validFAQs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: validFAQs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question.trim(),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: cleanFAQAnswer(faq.answer),
+      },
+    })),
+  } : null;
 
   return (
     <>
@@ -166,7 +186,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
         />
       ))}
-      {faqSchema && (
+      {faqSchema && validFAQs.length > 0 && (
         <script
           type="application/ld+json"
           suppressHydrationWarning
