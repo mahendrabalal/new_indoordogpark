@@ -54,3 +54,4 @@ function escapeXML(str: string): string {
     .replace(/'/g, '&apos;')
 }
 
+

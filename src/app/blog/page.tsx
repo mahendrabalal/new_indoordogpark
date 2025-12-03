@@ -243,7 +243,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 {/* The Latest - Left Column */}
                 <div>
-                  <h2 className="mb-6 text-2xl font-bold text-gray-900">The Latest</h2>
+                  <h1 className="mb-6 text-2xl font-bold text-gray-900">The Latest</h1>
                   <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
                     {getFeaturedImage(featuredPost) && (
                       <div className="relative h-64 w-full overflow-hidden md:h-80">
@@ -253,8 +253,6 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                           fill
                           className="object-cover"
                           priority
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
-                          unoptimized={true}
                         />
                       </div>
                     )}
@@ -315,7 +313,6 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                                   fill
                                   className="object-cover transition-transform group-hover:scale-105"
                                   sizes="80px"
-                                  unoptimized={true}
                                 />
                               </div>
                             )}

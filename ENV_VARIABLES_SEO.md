@@ -76,3 +76,4 @@ NEXT_PUBLIC_SITE_URL=https://www.indoordogpark.org
 - **Social Media Links**: Verify in page source that `sameAs` array appears in Organization schema
 - **Core Web Vitals**: Events should appear in GA4 under Events → Web Vitals
 
+
