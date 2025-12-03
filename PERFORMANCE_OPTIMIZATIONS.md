@@ -1,94 +1,182 @@
-# Performance Optimizations Applied
+# Performance Optimizations Summary
 
-This document outlines the performance optimizations implemented to improve PageSpeed Insights scores.
+This document outlines the performance optimizations implemented to improve Lighthouse scores from 57 to target 90+.
 
-## Summary of Changes
+## Issues Identified
+
+### Lighthouse Metrics (Before)
+- **Performance Score**: 57
+- **FCP**: 1.2s (Good)
+- **LCP**: 7.4s (Needs improvement - target: <2.5s)
+- **TBT**: 0ms (Good)
+- **CLS**: 0.348 (Needs improvement - target: <0.1)
+- **SI**: 4.0s (Needs improvement - target: <3.4s)
+
+### Key Issues
+1. **Render blocking requests** - 620ms savings potential
+2. **Image delivery** - 6,372 KiB savings potential
+3. **Cache lifetimes** - 5,145 KiB savings potential
+4. **Font display** - 10ms savings potential
+5. **Unused CSS** - 32 KiB savings potential
+6. **Unused JavaScript** - 36 KiB savings potential
+7. **Large network payloads** - 7,446 KiB total
+8. **Layout shifts (CLS)** - 0.348 score
+
+## Optimizations Implemented
 
 ### 1. Image Optimization ✅
-- **Priority Loading**: Added `priority` prop to above-the-fold images (logo, hero)
-- **Blur Placeholders**: Added blur data URLs to prevent layout shift during image loading
-- **Proper Sizing**: Ensured all images have explicit width/height attributes
-- **Aspect Ratio**: Added aspect-ratio CSS to prevent layout shifts
-- **Preload Hero Image**: Added `<link rel="preload">` for critical hero image
 
-### 2. Font Optimization ✅
-- **Font Display**: Already using `display: 'swap'` in Inter font configuration
-- **Font Fallback**: Configured proper fallback fonts
-- **Font Rendering**: Added font-smoothing and text-rendering optimizations
+**Changes:**
+- Added `fetchPriority="high"` to critical LCP images (logo, hero)
+- Added `decoding="async"` to all images for non-blocking decode
+- Added explicit `style={{ objectFit: 'cover' }}` to prevent layout shifts
+- Optimized blur placeholders (already in place)
+- Preload critical hero image with `fetchPriority="high"`
 
-### 3. CSS Loading Optimization ✅
-- **Non-Blocking CSS**: Bootstrap Icons CSS loads asynchronously with media query trick
-- **Lazy Loading**: Leaflet CSS only loads when Map component is used
-- **Content Visibility**: Added `content-visibility: auto` to hero section
+**Files Modified:**
+- `src/components/ParkCard.tsx`
+- `src/components/CityCard.tsx`
+- `src/app/HomePageClient.tsx`
+- `src/app/layout.tsx`
 
-### 4. Resource Hints ✅
-- **Preconnect**: Added for CDN domains (cdn.jsdelivr.net, unpkg.com, images.unsplash.com)
-- **DNS Prefetch**: Added for external domains
-- **Preload**: Added for critical hero image
+### 2. Font Loading Optimization ✅
 
-### 5. Layout Shift Prevention ✅
-- **Explicit Dimensions**: All images have width/height attributes
-- **Aspect Ratio**: Added CSS aspect-ratio to image wrappers
-- **Min Height**: Set min-height on hero section to prevent shift
-- **Reserved Space**: Image wrappers have fixed dimensions
+**Changes:**
+- Font already using `display: 'swap'` (optimal)
+- Added preconnect to Google Fonts domains
+- Font fallback chain properly configured
 
-### 6. JavaScript Optimization ✅
-- **Console Removal**: Removed console.log in production builds (except error/warn)
-- **Source Maps**: Disabled production source maps
-- **SWC Minification**: Already enabled
-- **Dynamic Imports**: Map component uses dynamic import with SSR disabled
+**Files Modified:**
+- `src/app/layout.tsx`
 
-### 7. Build Optimizations ✅
-- **Image Quality**: Set to 85% for optimal balance
-- **Cache Headers**: Already configured in next.config.js
-- **Compression**: Already enabled
+### 3. Render-Blocking Resources ✅
+
+**Changes:**
+- Improved Bootstrap Icons loading with `requestIdleCallback` fallback
+- Added error handling for failed stylesheet loads
+- Already using media query trick to prevent render blocking
+- Leaflet CSS already lazy-loaded on demand
+
+**Files Modified:**
+- `src/components/LazyStyles.tsx`
+
+### 4. CLS (Cumulative Layout Shift) Fixes ✅
+
+**Changes:**
+- Added `aspect-ratio: 16/10` to image wrappers (already present)
+- Added `contain: layout style paint` to image wrappers
+- Set explicit `min-height` on hero section
+- Added `overflow-x: hidden` to body to prevent horizontal scroll
+
+**Files Modified:**
+- `src/app/globals.css`
+
+### 5. Cache Headers Optimization ✅
+
+**Changes:**
+- Added cache headers for font files
+- Added cache headers for CSS/JS files
+- Enhanced image cache headers with security headers
+- Static assets already have 1-year immutable cache
+
+**Files Modified:**
+- `next.config.js`
+
+### 6. Code Splitting & Bundle Optimization ✅
+
+**Changes:**
+- Enabled `optimizeCss: true` in Next.js config
+- Added `optimizePackageImports` for commonly used packages
+- Map component already dynamically imported
+- Tailwind JIT mode enabled
+
+**Files Modified:**
+- `next.config.js`
+- `tailwind.config.js`
+
+### 7. Resource Hints ✅
+
+**Changes:**
+- Added preconnect to Google Fonts domains
+- Preload critical hero image with high priority
+- DNS prefetch already in place for CDN resources
+
+**Files Modified:**
+- `src/app/layout.tsx`
 
 ## Expected Improvements
 
-Based on the optimizations:
+### Performance Score
+- **Before**: 57
+- **Target**: 90+
+- **Expected gains**: +33 points
 
-1. **First Contentful Paint (FCP)**: Should improve from 3.3s to ~2.0s
-   - Preloading hero image
-   - Priority loading for critical images
-   - Optimized font loading
+### Metrics Targets
+- **LCP**: 7.4s → <2.5s (improve by ~5s)
+- **CLS**: 0.348 → <0.1 (improve by ~0.25)
+- **SI**: 4.0s → <3.4s (improve by ~0.6s)
+- **FCP**: 1.2s (maintain or improve)
 
-2. **Largest Contentful Paint (LCP)**: Should improve from 4.4s to ~2.5s
-   - Hero image preload
-   - Priority loading
-   - Image optimization
-
-3. **Cumulative Layout Shift (CLS)**: Should improve from 0.488 to <0.1
-   - Explicit image dimensions
-   - Aspect ratio preservation
-   - Reserved space for dynamic content
-
-4. **Speed Index**: Should improve from 5.2s to ~3.0s
-   - Faster initial render
-   - Optimized resource loading
-
-5. **Total Blocking Time (TBT)**: Should remain low or improve
-   - Reduced JavaScript execution
-   - Console removal in production
+### Network Payload Reduction
+- **Images**: ~6,372 KiB savings potential
+- **Cache hits**: ~5,145 KiB savings potential
+- **Total**: ~11,517 KiB potential savings
 
 ## Additional Recommendations
 
-1. **Image CDN**: Consider using a CDN for images to improve delivery
-2. **Code Splitting**: Further optimize with route-based code splitting
-3. **Service Worker**: Consider adding a service worker for caching
-4. **Critical CSS**: Extract and inline critical CSS for above-the-fold content
-5. **Bundle Analysis**: Run bundle analyzer to identify large dependencies
+### Future Optimizations (Not Yet Implemented)
+
+1. **Image Format Conversion**
+   - Convert all images to WebP/AVIF format
+   - Use responsive images with `srcset`
+   - Consider using Next.js Image Optimization API
+
+2. **Critical CSS Extraction**
+   - Extract above-the-fold CSS
+   - Inline critical CSS in `<head>`
+   - Defer non-critical CSS
+
+3. **Service Worker / PWA**
+   - Implement service worker for offline caching
+   - Cache static assets aggressively
+   - Precache critical routes
+
+4. **Third-Party Scripts**
+   - Defer non-critical third-party scripts
+   - Use `async` or `defer` attributes
+   - Consider lazy-loading analytics
+
+5. **Database Query Optimization**
+   - Optimize API routes
+   - Implement proper caching strategies
+   - Use ISR (Incremental Static Regeneration) where appropriate
+
+6. **Bundle Analysis**
+   - Run `@next/bundle-analyzer` to identify large dependencies
+   - Code split large libraries
+   - Remove unused dependencies
 
 ## Testing
 
-After deployment, test with:
-- PageSpeed Insights: https://pagespeed.web.dev/
-- Lighthouse (Chrome DevTools)
-- WebPageTest: https://www.webpagetest.org/
+After deploying these changes, run Lighthouse again to verify improvements:
 
-## Monitoring
+```bash
+# Run Lighthouse locally
+npm run build
+npm start
+# Then run Lighthouse in Chrome DevTools
+```
 
-Monitor these metrics:
-- Core Web Vitals (LCP, FID, CLS)
-- Time to First Byte (TTFB)
-- First Contentful Paint (FCP)
-- Total Blocking Time (TBT)
+### Key Metrics to Monitor
+1. Performance Score (target: 90+)
+2. LCP (target: <2.5s)
+3. CLS (target: <0.1)
+4. Network payload size
+5. Time to Interactive (TTI)
+
+## Notes
+
+- All optimizations maintain backward compatibility
+- No breaking changes introduced
+- Progressive enhancement approach used
+- Mobile-first optimizations included

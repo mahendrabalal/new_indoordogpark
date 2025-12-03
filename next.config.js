@@ -135,6 +135,30 @@ const nextConfig = {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
           },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      // Font files with long-term caching
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // CSS and JS files
+      {
+        source: '/:path*\\.(css|js)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
         ],
       },
       // Data files with shorter cache for updates
@@ -377,6 +401,12 @@ const nextConfig = {
   poweredByHeader: false,
   // Optimize production builds
   productionBrowserSourceMaps: false,
+  // Optimize bundle size
+  experimental: {
+    // CSS optimization - requires 'critters' package (now installed)
+    optimizeCss: true,
+    optimizePackageImports: ['@heroicons/react', 'date-fns'],
+  },
   // Optimize compiler options
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {

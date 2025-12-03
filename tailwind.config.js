@@ -5,6 +5,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Optimize CSS output
+  corePlugins: {
+    preflight: true,
+  },
+  // Enable JIT mode for better performance
+  mode: 'jit',
   theme: {
     extend: {
       colors: {

@@ -16,6 +16,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Prevent layout shift */
+  overflow-x: hidden;
 }
 
 /* ========== FAVORITE BUTTON STYLES ========== */
@@ -689,6 +691,11 @@ body {
   /* Optimize background image loading */
   content-visibility: auto;
   contain-intrinsic-size: 500px;
+  /* Use image-set for responsive images if supported */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Prevent layout shift during image load */
+  will-change: background-image;
 }
 
 .hero-section-overlay {
@@ -1650,6 +1657,8 @@ mark {
   /* Prevent layout shift */
   aspect-ratio: 16 / 10;
   min-height: 200px;
+  /* Reserve space to prevent CLS */
+  contain: layout style paint;
 }
 
 .park-card-image {

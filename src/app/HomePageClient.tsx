@@ -217,6 +217,7 @@ export default function HomePageClient({
                 width={170} 
                 height={48} 
                 priority
+                fetchPriority="high"
                 style={{ objectFit: 'contain', height: 'auto' }}
               />
             </a>
