@@ -21,6 +21,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      // Google user content images (all variants)
+      {
+        protocol: 'https',
+        hostname: '*.googleusercontent.com',
+      },
       {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',

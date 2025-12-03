@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Script to download Google Places images locally for self-hosting.
-Downloads the first photo from each park and saves to /public/images/parks/
+Downloads images for parks and saves to /public/images/parks/[city]/[slug].jpg
+Supports multiple data files and multiple images per park.
 """
 
 import json
@@ -11,12 +12,13 @@ from pathlib import Path
 from urllib.parse import urlparse
 import sys
 from datetime import datetime
+import argparse
 
 # Configuration
-DATA_FILE = 'public/data/california.json'
 IMAGES_DIR = 'public/images/parks'
 TIMEOUT = 30  # seconds
 MAX_RETRIES = 3
+MAX_IMAGES_PER_PARK = 3  # Download up to 3 images per park
 
 def ensure_images_directory():
     """Create images directory if it doesn't exist."""
@@ -55,18 +57,39 @@ def download_image(url, filename, retries=MAX_RETRIES):
 
     return False
 
-def get_image_filepath(park_city, park_slug):
-    """Generate a filepath for the park image organized by city."""
+def get_image_filepath(park_city, park_slug, image_index=0):
+    """
+    Generate a filepath for the park image organized by city.
+    Structure: /images/parks/[city]/[slug].jpg (primary)
+              /images/parks/[city]/[slug]-2.jpg (secondary)
+              /images/parks/[city]/[slug]-3.jpg (tertiary)
+    """
     # Normalize city name to lowercase with hyphens
-    city_folder = park_city.lower().replace(' ', '-') if park_city else 'unknown'
-    filename = f"{park_slug}.jpg" if park_slug else f"{park_city.lower()}.jpg"
+    city_folder = park_city.lower().replace(' ', '-').replace("'", "") if park_city else 'unknown'
+    
+    # Normalize slug
+    if not park_slug:
+        park_slug = park_city.lower().replace(' ', '-')
+    
+    # Primary image: [slug].jpg, secondary: [slug]-2.jpg, etc.
+    if image_index == 0:
+        filename = f"{park_slug}.jpg"
+    else:
+        filename = f"{park_slug}-{image_index + 1}.jpg"
+    
     return f"{city_folder}/{filename}"
 
-def process_parks():
-    """Load parks data, download images, and update JSON."""
-    print(f"\n📥 Loading parks data from {DATA_FILE}...")
+def is_local_image(url):
+    """Check if URL is already a local path."""
+    if not url or not isinstance(url, str):
+        return False
+    return url.startswith('/images/') or url.startswith('./images/')
 
-    with open(DATA_FILE, 'r') as f:
+def process_parks(data_file):
+    """Load parks data, download images, and update JSON."""
+    print(f"\n📥 Loading parks data from {data_file}...")
+
+    with open(data_file, 'r') as f:
         parks = json.load(f)
 
     print(f"✓ Loaded {len(parks)} parks")
@@ -74,6 +97,7 @@ def process_parks():
     successful_downloads = 0
     failed_downloads = 0
     no_photo_parks = 0
+    already_local = 0
 
     print(f"\n⬇️  Starting image downloads...\n")
 
@@ -81,78 +105,134 @@ def process_parks():
         park_id = park.get('id')
         park_name = park.get('name', 'Unknown')
         park_city = park.get('city', 'Unknown')
-        park_slug = park.get('slug', park_name.lower().replace(' ', '-'))
+        park_slug = park.get('slug', park_name.lower().replace(' ', '-').replace("'", ""))
 
-        # Check if park has photos
+        # Check if already using local images
+        current_photo = park.get('photo') or ''
+        if current_photo and is_local_image(current_photo):
+            already_local += 1
+            continue
+
+        # Get photos array or single photo field
         photos = park.get('photos', [])
+        if not photos and current_photo and not is_local_image(current_photo):
+            # Convert single photo to array format
+            photos = [{"url": current_photo}]
+
         if not photos:
             no_photo_parks += 1
             print(f"[{idx:3d}/{len(parks)}] ⊘ {park_name[:50]:50} (no photos)")
             continue
 
-        # Get the first photo URL
-        first_photo = photos[0]
-        photo_url = first_photo.get('url') if isinstance(first_photo, dict) else first_photo
-
-        if not photo_url:
-            no_photo_parks += 1
-            print(f"[{idx:3d}/{len(parks)}] ⊘ {park_name[:50]:50} (no URL)")
-            continue
-
-        # Download the image with city/slug structure
-        relative_filepath = get_image_filepath(park_city, park_slug)
-        filepath = os.path.join(IMAGES_DIR, relative_filepath)
-
-        # Create city subdirectory if needed
-        os.makedirs(os.path.dirname(filepath), exist_ok=True)
-
+        # Download up to MAX_IMAGES_PER_PARK images
+        downloaded_photos = []
         print(f"[{idx:3d}/{len(parks)}] ↓ {park_name[:50]:50}", end=" ")
 
-        if download_image(photo_url, relative_filepath):
-            successful_downloads += 1
-            print("✓")
+        for img_idx, photo in enumerate(photos[:MAX_IMAGES_PER_PARK]):
+            photo_url = photo.get('url') if isinstance(photo, dict) else photo
+            
+            if not photo_url or is_local_image(photo_url):
+                continue
 
-            # Update the park data to use local image path
-            park['photo'] = f"/images/parks/{relative_filepath}"
-            # Keep photos array for reference but mark as local
-            park['photos'] = [{"url": f"/images/parks/{relative_filepath}", "type": "photo", "source": "local"}]
+            # Download the image with city/slug structure
+            relative_filepath = get_image_filepath(park_city, park_slug, img_idx)
+            filepath = os.path.join(IMAGES_DIR, relative_filepath)
+
+            # Create city subdirectory if needed
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
+
+            if download_image(photo_url, relative_filepath):
+                local_url = f"/images/parks/{relative_filepath}"
+                downloaded_photos.append({
+                    "url": local_url,
+                    "type": "photo",
+                    "source": "local",
+                    "caption": photo.get('caption') if isinstance(photo, dict) else None
+                })
+                successful_downloads += 1
+            else:
+                failed_downloads += 1
+
+        if downloaded_photos:
+            # Update park data with local image paths
+            park['photo'] = downloaded_photos[0]['url']
+            park['photos'] = downloaded_photos
+            print(f"✓ ({len(downloaded_photos)} images)")
         else:
-            failed_downloads += 1
             print("✗")
 
     print(f"\n" + "="*80)
     print(f"📊 Download Summary:")
-    print(f"  ✓ Successful:  {successful_downloads}")
-    print(f"  ✗ Failed:      {failed_downloads}")
-    print(f"  ⊘ No photos:   {no_photo_parks}")
+    print(f"  ✓ Successful:  {successful_downloads} images")
+    print(f"  ✗ Failed:      {failed_downloads} images")
+    print(f"  ⊘ No photos:   {no_photo_parks} parks")
+    print(f"  ⊙ Already local: {already_local} parks")
     print(f"  Total parks:   {len(parks)}")
     print(f"="*80)
 
     # Save updated parks data
-    print(f"\n💾 Saving updated parks data to {DATA_FILE}...")
-    with open(DATA_FILE, 'w') as f:
+    print(f"\n💾 Saving updated parks data to {data_file}...")
+    with open(data_file, 'w') as f:
         json.dump(parks, f, indent=2)
 
-    print(f"✓ Updated {DATA_FILE} with local image paths")
+    print(f"✓ Updated {data_file} with local image paths")
 
     return successful_downloads > 0
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Download park images locally')
+    parser.add_argument(
+        '--data-file',
+        type=str,
+        default='public/data/california.json',
+        help='Path to parks JSON file (default: public/data/california.json)'
+    )
+    parser.add_argument(
+        '--all',
+        action='store_true',
+        help='Process all data files (california.json, washington.json, mixmatch.json)'
+    )
+    
+    args = parser.parse_args()
+
     try:
         print("\n" + "="*80)
-        print("🖼️  Google Places Image Downloader")
+        print("🖼️  Park Image Downloader")
         print("="*80)
 
-        # Check if data file exists
-        if not os.path.exists(DATA_FILE):
-            print(f"❌ Error: {DATA_FILE} not found!")
+        ensure_images_directory()
+
+        data_files = []
+        if args.all:
+            # Process all data files
+            data_files = [
+                'public/data/california.json',
+                'public/data/washington.json',
+                'public/data/mixmatch.json',
+            ]
+            # Filter to only existing files
+            data_files = [f for f in data_files if os.path.exists(f)]
+        else:
+            data_files = [args.data_file]
+
+        if not data_files:
+            print(f"❌ Error: No data files found!")
             sys.exit(1)
 
-        ensure_images_directory()
-        success = process_parks()
+        total_success = 0
+        for data_file in data_files:
+            if not os.path.exists(data_file):
+                print(f"⚠️  Skipping {data_file} (not found)")
+                continue
+            
+            print(f"\n📁 Processing: {data_file}")
+            success = process_parks(data_file)
+            if success:
+                total_success += 1
 
         print(f"\n✅ Image download process completed!")
         print(f"Images stored in: {IMAGES_DIR}")
+        print(f"Structure: /images/parks/[city]/[slug].jpg")
         print("="*80 + "\n")
 
     except KeyboardInterrupt:
@@ -160,4 +240,6 @@ if __name__ == '__main__':
         sys.exit(1)
     except Exception as e:
         print(f"\n❌ Fatal error: {e}")
+        import traceback
+        traceback.print_exc()
         sys.exit(1)

@@ -1,5 +1,4 @@
 import dynamicImport from 'next/dynamic';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
@@ -7,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
+import ParkImage from '@/components/ParkImage';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
@@ -65,6 +65,97 @@ function getStateAbbr(state: string | undefined): string {
     'Wisconsin': 'WI', 'Wyoming': 'WY'
   };
   return abbrMap[state] || state.substring(0, 2).toUpperCase();
+}
+
+// Helper function to get park image URL with validation and fallback
+// Prefers local images over external URLs
+function getParkImageUrl(park: { photo?: string; photos?: Array<{ url?: string }> }): string {
+  // Default fallback image (Unsplash with proper parameters)
+  const defaultImage = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80';
+  
+  // Helper to check if URL is local
+  const isLocalImage = (url: string): boolean => {
+    return url.startsWith('/images/') || url.startsWith('./images/');
+  };
+  
+  // Helper to check if URL is Supabase storage (should work reliably)
+  const isSupabaseImage = (url: string): boolean => {
+    return url.includes('supabase.co/storage/v1/object/public/');
+  };
+  
+  // Helper to check if URL is external and might fail
+  const isExternalUrl = (url: string): boolean => {
+    return url.startsWith('http://') || url.startsWith('https://');
+  };
+  
+  // Priority 1: Check single photo field (prefer local, then Supabase)
+  if (typeof park.photo === 'string' && park.photo.trim() !== '') {
+    const photoUrl = park.photo.trim();
+    
+    // Prefer local images
+    if (isLocalImage(photoUrl)) {
+      return photoUrl;
+    }
+    
+    // Supabase storage URLs are reliable (featured parks)
+    if (isSupabaseImage(photoUrl)) {
+      return photoUrl;
+    }
+    
+    // For other external URLs, validate format
+    if (isExternalUrl(photoUrl)) {
+      try {
+        const url = new URL(photoUrl);
+        if (url.protocol === 'http:' || url.protocol === 'https:') {
+          return photoUrl;
+        }
+      } catch {
+        // Invalid URL, continue to next check
+      }
+    }
+  }
+  
+  // Priority 2: Check photos array (prefer local, then Supabase)
+  if (park.photos && park.photos.length > 0) {
+    // First, try to find a local image
+    for (const photo of park.photos) {
+      if (photo?.url && typeof photo.url === 'string') {
+        const photoUrl = photo.url.trim();
+        if (isLocalImage(photoUrl)) {
+          return photoUrl;
+        }
+      }
+    }
+    
+    // Then, try to find a Supabase image (featured parks)
+    for (const photo of park.photos) {
+      if (photo?.url && typeof photo.url === 'string') {
+        const photoUrl = photo.url.trim();
+        if (isSupabaseImage(photoUrl)) {
+          return photoUrl;
+        }
+      }
+    }
+    
+    // If no local or Supabase image found, use first external URL
+    const firstPhoto = park.photos[0];
+    if (firstPhoto?.url && typeof firstPhoto.url === 'string' && firstPhoto.url.trim() !== '') {
+      const photoUrl = firstPhoto.url.trim();
+      if (isExternalUrl(photoUrl)) {
+        try {
+          const url = new URL(photoUrl);
+          if (url.protocol === 'http:' || url.protocol === 'https:') {
+            return photoUrl;
+          }
+        } catch {
+          // Invalid URL, continue to fallback
+        }
+      }
+    }
+  }
+  
+  // Return default fallback
+  return defaultImage;
 }
 
 export const dynamic = 'force-dynamic'; // Reviews are dynamic, so pages must be dynamic too
@@ -199,8 +290,8 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
       <main className="park-detail-page">
         <section className="park-hero">
           <div className="park-hero-image">
-            <Image
-              src={park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'}
+            <ParkImage
+              src={getParkImageUrl(park)}
               alt={`${park.name} in ${park.city}, ${stateName}`}
               width={1400}
               height={500}
@@ -294,17 +385,20 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <section className="content-section photo-gallery-section">
                   <h2>Photo Gallery</h2>
                   <div className="photo-gallery">
-                    {park.photos.slice(0, 6).map((photo, index) => (
-                      <div key={photo.url ?? index} className="gallery-item">
-                        <Image
-                          src={photo.url}
-                          alt={photo.caption || `${park.name} photo ${index + 1}`}
-                          width={300}
-                          height={200}
-                          className="gallery-image"
-                        />
-                      </div>
-                    ))}
+                    {park.photos.slice(0, 6).map((photo, index) => {
+                      const photoUrl = photo.url || getParkImageUrl({});
+                      return (
+                        <div key={photo.url ?? index} className="gallery-item">
+                          <ParkImage
+                            src={photoUrl}
+                            alt={photo.caption || `${park.name} photo ${index + 1}`}
+                            width={300}
+                            height={200}
+                            className="gallery-image"
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </section>
               )}
@@ -445,8 +539,8 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 {nearbyParks.map((nearbyPark) => (
                   <Link key={nearbyPark.id} href={`/parks/${nearbyPark.slug || nearbyPark.id}`} className="nearby-park-card">
                     <div className="nearby-park-image">
-                      <Image
-                        src={nearbyPark.photo || nearbyPark.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'}
+                      <ParkImage
+                        src={getParkImageUrl(nearbyPark)}
                         alt={`${nearbyPark.name} - ${nearbyPark.businessType} in ${nearbyPark.city}, ${nearbyPark.state}`}
                         width={300}
                         height={200}

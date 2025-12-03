@@ -96,6 +96,15 @@ export const metadata: Metadata = {
     // NEXT_PUBLIC_YANDEX_VERIFICATION
     // NEXT_PUBLIC_BING_VERIFICATION
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+  },
   other: {
     'theme-color': '#7c3aed',
     'msapplication-TileColor': '#7c3aed',
@@ -164,7 +173,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://unpkg.com" />
         
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/icons/icon-192x192.png" type="image/png" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />

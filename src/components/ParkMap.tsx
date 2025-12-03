@@ -16,11 +16,17 @@ interface ParkMapProps {
 export default function ParkMap({ park }: ParkMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<LeafletMap | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const resizeHandlerRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !mapRef.current || !park.latitude || !park.longitude) return;
 
     const initializeMap = async () => {
+      // Load Leaflet CSS on demand
+      const { loadLeafletStyles } = await import('@/components/LazyStyles');
+      loadLeafletStyles();
+
       const L = (await import('leaflet')).default;
 
       // Fix for default markers
@@ -51,12 +57,57 @@ export default function ParkMap({ park }: ParkMapProps) {
             </div>
           `)
           .openPopup();
+
+        // Invalidate map size after a short delay to ensure container is visible
+        // This is important when the map is in a sidebar or initially hidden
+        setTimeout(() => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+          }
+        }, 100);
+
+        // Also invalidate size when the map container becomes visible (using Intersection Observer)
+        observerRef.current = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && mapInstanceRef.current) {
+                setTimeout(() => {
+                  mapInstanceRef.current?.invalidateSize();
+                }, 100);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        if (mapRef.current) {
+          observerRef.current.observe(mapRef.current);
+        }
+
+        // Handle window resize events to ensure map displays correctly
+        resizeHandlerRef.current = () => {
+          if (mapInstanceRef.current) {
+            setTimeout(() => {
+              mapInstanceRef.current?.invalidateSize();
+            }, 100);
+          }
+        };
+
+        window.addEventListener('resize', resizeHandlerRef.current);
       }
     };
 
     initializeMap();
 
     return () => {
+      if (resizeHandlerRef.current) {
+        window.removeEventListener('resize', resizeHandlerRef.current);
+        resizeHandlerRef.current = null;
+      }
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
       if (mapInstanceRef.current) {
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;

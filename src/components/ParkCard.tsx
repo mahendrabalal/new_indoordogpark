@@ -31,12 +31,38 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
     return () => clearInterval(interval);
   }, [park]);
   // Extract the first photo URL from photos array if available, otherwise use single photo field
+  // Prefers local images over external URLs
   const getImageUrl = () => {
-    if (typeof park.photo === 'string' && park.photo.trim() !== '') return park.photo;
+    const isLocalImage = (url: string): boolean => {
+      return url.startsWith('/images/') || url.startsWith('./images/');
+    };
+    
+    // Priority 1: Check single photo field (prefer local)
+    if (typeof park.photo === 'string' && park.photo.trim() !== '') {
+      const photoUrl = park.photo.trim();
+      if (isLocalImage(photoUrl)) {
+        return photoUrl; // Prefer local images
+      }
+      return photoUrl; // Fallback to external if no local
+    }
+    
+    // Priority 2: Check photos array (prefer local)
     if (park.photos && park.photos.length > 0) {
+      // First, try to find a local image
+      for (const photo of park.photos) {
+        if (photo?.url && typeof photo.url === 'string') {
+          const photoUrl = photo.url.trim();
+          if (isLocalImage(photoUrl)) {
+            return photoUrl; // Prefer local images
+          }
+        }
+      }
+      
+      // If no local image, use first available
       const firstPhoto = park.photos[0];
       if (firstPhoto?.url) return firstPhoto.url;
     }
+    
     return 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
   };
 
