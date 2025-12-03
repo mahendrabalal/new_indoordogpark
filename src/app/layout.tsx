@@ -13,6 +13,8 @@ const inter = Inter({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  variable: '--font-inter',
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
@@ -169,8 +171,13 @@ export default function RootLayout({
         {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://unpkg.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
+        {/* Preload critical hero image */}
+        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" />
         
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />

@@ -5,31 +5,17 @@ import { useEffect } from 'react'
 // Load external CSS asynchronously to avoid render-blocking
 export function LazyStyles() {
   useEffect(() => {
-    // Only load if not already loaded
-    const loadStylesheet = (href: string, id?: string) => {
-      if (id && document.getElementById(id)) {
-        return // Already loaded
-      }
-      
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = href
-      link.media = 'all'
-      if (id) link.id = id
-      
-      // Add crossOrigin for CDN resources
-      if (href.includes('cdn.jsdelivr.net') || href.includes('unpkg.com')) {
-        link.crossOrigin = 'anonymous'
-      }
-      
-      document.head.appendChild(link)
+    // Load Bootstrap Icons CSS asynchronously with media query to prevent render blocking
+    const bootstrapIconsLink = document.createElement('link') as HTMLLinkElement
+    bootstrapIconsLink.rel = 'stylesheet'
+    bootstrapIconsLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css'
+    bootstrapIconsLink.id = 'bootstrap-icons-stylesheet'
+    bootstrapIconsLink.media = 'print'
+    bootstrapIconsLink.onload = () => {
+      bootstrapIconsLink.media = 'all'
     }
-
-    // Load Bootstrap Icons CSS asynchronously
-    loadStylesheet(
-      'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css',
-      'bootstrap-icons-stylesheet'
-    )
+    bootstrapIconsLink.crossOrigin = 'anonymous'
+    document.head.appendChild(bootstrapIconsLink)
   }, [])
 
   return null

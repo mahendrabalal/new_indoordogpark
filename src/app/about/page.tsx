@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 export const metadata: Metadata = {
@@ -211,6 +212,43 @@ export default function AboutPage() {
                 <i className="bi bi-envelope"></i>
                 Get in Touch
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Resources Section */}
+        <section className="about-section-alt">
+          <div className="about-container">
+            <h2 className="text-center mb-8">Explore More</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link href="/" className="feature-card hover:shadow-lg transition-shadow">
+                <div className="feature-icon">
+                  <i className="bi bi-map"></i>
+                </div>
+                <h3>Browse Parks</h3>
+                <p>Discover dog parks across California</p>
+              </Link>
+              <Link href="/blog" className="feature-card hover:shadow-lg transition-shadow">
+                <div className="feature-icon">
+                  <i className="bi bi-journal-text"></i>
+                </div>
+                <h3>Blog & Guides</h3>
+                <p>Read articles about dog parks and pet care</p>
+              </Link>
+              <Link href="/guides" className="feature-card hover:shadow-lg transition-shadow">
+                <div className="feature-icon">
+                  <i className="bi bi-book"></i>
+                </div>
+                <h3>Park Guides</h3>
+                <p>Comprehensive guides for visitors</p>
+              </Link>
+              <Link href="/how-it-works" className="feature-card hover:shadow-lg transition-shadow">
+                <div className="feature-icon">
+                  <i className="bi bi-question-circle"></i>
+                </div>
+                <h3>How It Works</h3>
+                <p>Learn how to use our directory</p>
+              </Link>
             </div>
           </div>
         </section>

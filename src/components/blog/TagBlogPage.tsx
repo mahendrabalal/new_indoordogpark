@@ -10,9 +10,10 @@ interface TagBlogPageProps {
   tag: WPTag;
   page: number;
   perPage: number;
+  relatedTags?: WPTag[];
 }
 
-export default function TagBlogPage({ tag, page, perPage }: TagBlogPageProps) {
+export default function TagBlogPage({ tag, page, perPage, relatedTags = [] }: TagBlogPageProps) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [pagination, setPagination] = useState<WPPaginationInfo>({
     total: 0,
@@ -125,6 +126,46 @@ export default function TagBlogPage({ tag, page, perPage }: TagBlogPageProps) {
                 className="mt-8"
               />
             )}
+
+            {/* Related Tags Section */}
+            {relatedTags.length > 0 && (
+              <div className="mt-12 bg-white rounded-lg shadow-sm p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Related Tags</h3>
+                <p className="text-gray-600 mb-6">Explore similar tags you might be interested in.</p>
+                <div className="flex flex-wrap gap-3">
+                  {relatedTags.map((relatedTag) => (
+                    <Link
+                      key={relatedTag.id}
+                      href={`/tag/${relatedTag.slug}`}
+                      className="inline-flex items-center px-4 py-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors font-medium"
+                    >
+                      #{relatedTag.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Explore More Section */}
+            <div className="mt-8 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Explore More</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Link
+                  href="/"
+                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h4 className="font-semibold text-gray-900 mb-2">Browse All Parks</h4>
+                  <p className="text-sm text-gray-600">Discover dog parks across California</p>
+                </Link>
+                <Link
+                  href="/blog"
+                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>
+                  <p className="text-sm text-gray-600">Read all our guides and articles</p>
+                </Link>
+              </div>
+            </div>
           </>
         )}
       </div>

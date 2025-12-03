@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
@@ -136,6 +137,27 @@ export default function ContactPage() {
                 <h3>Can I provide feedback or suggestions?</h3>
                 <p>We&rsquo;d love to hear your ideas! Select &ldquo;Feedback&rdquo; in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Resources Section */}
+        <section className="contact-faq" style={{ backgroundColor: '#f9fafb' }}>
+          <div className="contact-container">
+            <h2 className="text-center mb-8">You Might Also Like</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Link href="/faq" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">FAQ</h3>
+                <p className="text-gray-600">Find answers to common questions</p>
+              </Link>
+              <Link href="/list-your-park" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">List Your Park</h3>
+                <p className="text-gray-600">Add your dog park to our directory</p>
+              </Link>
+              <Link href="/help" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Help Center</h3>
+                <p className="text-gray-600">Get help with using our platform</p>
+              </Link>
             </div>
           </div>
         </section>

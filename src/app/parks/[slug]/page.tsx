@@ -1,5 +1,6 @@
 import dynamicImport from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
@@ -11,6 +12,7 @@ import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
+import { getRelatedBlogPosts } from '@/lib/related-content';
 
 const ParkMap = dynamicImport(() => import('@/components/ParkMap'), {
   ssr: false,
@@ -197,6 +199,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const reviews = await getParkReviews(park.id);
   const reviewSchemas = generateReviewSchemas(reviews, park);
 
+  // Fetch related blog posts
+  const relatedBlogPosts = await getRelatedBlogPosts(park, 4);
+
   const parkSchema = generateParkSchema(park);
   const stateName = getStateName(park.state);
   
@@ -288,6 +293,24 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
       <Header />
 
       <main className="park-detail-page">
+        {/* Breadcrumb Navigation */}
+        <div className="container" style={{ paddingTop: '1rem', paddingBottom: '0.5rem' }}>
+          <nav className="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol className="breadcrumb-list" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem' }}>
+              <li className="breadcrumb-item">
+                <Link href="/" style={{ color: '#667eea', textDecoration: 'none' }}>Home</Link>
+              </li>
+              <li className="breadcrumb-separator" aria-hidden="true" style={{ color: '#9ca3af' }}>/</li>
+              <li className="breadcrumb-item">
+                <Link href={`/cities/${citySlug}`} style={{ color: '#667eea', textDecoration: 'none' }}>{park.city}</Link>
+              </li>
+              <li className="breadcrumb-separator" aria-hidden="true" style={{ color: '#9ca3af' }}>/</li>
+              <li className="breadcrumb-item breadcrumb-current" aria-current="page" style={{ color: '#374151' }}>
+                {park.name}
+              </li>
+            </ol>
+          </nav>
+        </div>
         <section className="park-hero">
           <div className="park-hero-image">
             <ParkImage
@@ -433,6 +456,55 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               </section>
 
               <ReviewSection parkId={park.id} />
+
+              {/* Related Blog Posts Section */}
+              {relatedBlogPosts.length > 0 && (
+                <section className="content-section related-blog-section">
+                  <h2>Related Articles</h2>
+                  <p className="section-intro">
+                    Discover helpful guides and articles about dog parks in {park.city} and {park.businessType.toLowerCase()}s.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                    {relatedBlogPosts.map((post) => {
+                      const featuredImage =
+                        post.featuredImage?.media_details?.sizes?.large?.source_url ||
+                        post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+                        post.featuredImage?.source_url;
+                      
+                      return (
+                        <Link
+                          key={post.id}
+                          href={`/blog/${post.slug}`}
+                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-purple-300 transition-all flex flex-col"
+                        >
+                          {featuredImage && (
+                            <div className="relative w-full aspect-[4/3] overflow-hidden">
+                              <Image
+                                src={featuredImage}
+                                alt={post.featuredImage?.alt_text || post.title}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                unoptimized={true}
+                              />
+                            </div>
+                          )}
+                          <div className="p-5 flex-1">
+                            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 hover:text-purple-600 leading-tight">
+                              {post.title}
+                            </h3>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  <div className="mt-6 text-center">
+                    <Link href="/blog" className="text-purple-600 hover:text-purple-700 font-medium">
+                      View All Articles →
+                    </Link>
+                  </div>
+                </section>
+              )}
             </div>
 
             <aside className="park-sidebar">
@@ -521,6 +593,15 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <ParkMap park={park} />
                 </div>
               )}
+
+              {/* City Link Card */}
+              <div className="sidebar-card city-link-card">
+                <h3>Explore {park.city}</h3>
+                <p>Discover more dog parks and resources in {park.city}.</p>
+                <Link href={`/cities/${citySlug}`} className="cta-button cta-primary">
+                  <i className="bi bi-map"></i> View All Parks in {park.city}
+                </Link>
+              </div>
             </aside>
           </div>
 

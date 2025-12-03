@@ -375,6 +375,14 @@ const nextConfig = {
   swcMinify: true,
   // Power by header
   poweredByHeader: false,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
+  // Optimize compiler options
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
   webpack: (config, { webpack, isServer }) => {
     config.resolve.alias = config.resolve.alias || {};
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');

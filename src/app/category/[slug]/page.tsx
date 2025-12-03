@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import CategoryBlogPage from '@/components/blog/CategoryBlogPage';
 import { WPCategory } from '@/types/wordpress';
 import { getCachedCategories } from '@/lib/sanity-api';
+import { getRelatedCategories } from '@/lib/related-content';
 
 interface CategoryPageProps {
   params: {
@@ -94,5 +95,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const page = parseInt(searchParams.page || '1');
   const perPage = parseInt(searchParams.perPage || '12');
 
-  return <CategoryBlogPage category={category} page={page} perPage={perPage} />;
+  // Get related categories
+  const relatedCategories = await getRelatedCategories(category, 4);
+
+  return <CategoryBlogPage category={category} page={page} perPage={perPage} relatedCategories={relatedCategories} />;
 }

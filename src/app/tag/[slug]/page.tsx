@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import TagBlogPage from '@/components/blog/TagBlogPage';
 import { WPTag } from '@/types/wordpress';
 import { getCachedTags } from '@/lib/sanity-api';
+import { getRelatedTags } from '@/lib/related-content';
 
 interface TagPageProps {
   params: {
@@ -68,5 +69,8 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   const page = parseInt(searchParams.page || '1');
   const perPage = parseInt(searchParams.perPage || '12');
 
-  return <TagBlogPage tag={tag} page={page} perPage={perPage} />;
+  // Get related tags
+  const relatedTags = await getRelatedTags(tag, 4);
+
+  return <TagBlogPage tag={tag} page={page} perPage={perPage} relatedTags={relatedTags} />;
 }

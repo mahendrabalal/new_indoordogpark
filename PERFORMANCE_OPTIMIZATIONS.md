@@ -1,158 +1,94 @@
-# Performance Optimizations - Lighthouse Report Fixes
+# Performance Optimizations Applied
 
-Based on Lighthouse report from Nov 30, 2025 showing Performance score of 55, this document tracks optimizations implemented.
+This document outlines the performance optimizations implemented to improve PageSpeed Insights scores.
 
-## Initial Issues Identified
+## Summary of Changes
 
-### Performance Issues
-- **Performance Score**: 55/100 (needs improvement)
-- **FCP**: 2.6s (slow - target <1.8s)
-- **LCP**: 5.4s (slow - target <2.5s)
-- **CLS**: 0.488 (poor - target <0.1)
-- **Total Network Payload**: 7,729 KiB (very large)
+### 1. Image Optimization ✅
+- **Priority Loading**: Added `priority` prop to above-the-fold images (logo, hero)
+- **Blur Placeholders**: Added blur data URLs to prevent layout shift during image loading
+- **Proper Sizing**: Ensured all images have explicit width/height attributes
+- **Aspect Ratio**: Added aspect-ratio CSS to prevent layout shifts
+- **Preload Hero Image**: Added `<link rel="preload">` for critical hero image
 
-### Key Opportunities
-1. **Image delivery**: 6,533 KiB potential savings
-2. **Render-blocking requests**: 1,620 ms potential savings
-3. **Efficient cache lifetimes**: 5,145 KiB potential savings
-4. **Unused CSS**: 32 KiB potential savings
-5. **Unused JavaScript**: 36 KiB potential savings
+### 2. Font Optimization ✅
+- **Font Display**: Already using `display: 'swap'` in Inter font configuration
+- **Font Fallback**: Configured proper fallback fonts
+- **Font Rendering**: Added font-smoothing and text-rendering optimizations
 
-## Implemented Optimizations
+### 3. CSS Loading Optimization ✅
+- **Non-Blocking CSS**: Bootstrap Icons CSS loads asynchronously with media query trick
+- **Lazy Loading**: Leaflet CSS only loads when Map component is used
+- **Content Visibility**: Added `content-visibility: auto` to hero section
 
-### ✅ 1. Render-Blocking Resources Fixed (1.6s savings)
+### 4. Resource Hints ✅
+- **Preconnect**: Added for CDN domains (cdn.jsdelivr.net, unpkg.com, images.unsplash.com)
+- **DNS Prefetch**: Added for external domains
+- **Preload**: Added for critical hero image
 
-**Problem**: Bootstrap Icons and Leaflet CSS were blocking page render.
+### 5. Layout Shift Prevention ✅
+- **Explicit Dimensions**: All images have width/height attributes
+- **Aspect Ratio**: Added CSS aspect-ratio to image wrappers
+- **Min Height**: Set min-height on hero section to prevent shift
+- **Reserved Space**: Image wrappers have fixed dimensions
 
-**Solution**:
-- Created `LazyStyles` component to load Bootstrap Icons CSS asynchronously after initial render
-- Leaflet CSS now loads on-demand only when Map component is initialized
-- Added preconnect/dns-prefetch hints for external CDNs
+### 6. JavaScript Optimization ✅
+- **Console Removal**: Removed console.log in production builds (except error/warn)
+- **Source Maps**: Disabled production source maps
+- **SWC Minification**: Already enabled
+- **Dynamic Imports**: Map component uses dynamic import with SSR disabled
 
-**Files Modified**:
-- `src/components/LazyStyles.tsx` (new file)
-- `src/app/layout.tsx`
-- `src/components/Map.tsx`
+### 7. Build Optimizations ✅
+- **Image Quality**: Set to 85% for optimal balance
+- **Cache Headers**: Already configured in next.config.js
+- **Compression**: Already enabled
 
-**Impact**: Non-critical CSS no longer blocks initial page render, improving FCP and LCP.
+## Expected Improvements
 
-### ✅ 2. Font Loading Optimization
+Based on the optimizations:
 
-**Problem**: Font loading could cause layout shift and delay rendering.
+1. **First Contentful Paint (FCP)**: Should improve from 3.3s to ~2.0s
+   - Preloading hero image
+   - Priority loading for critical images
+   - Optimized font loading
 
-**Solution**:
-- Added `display: 'swap'` to Inter font for faster text rendering
-- Added font fallback stack
-- Enabled font preloading
+2. **Largest Contentful Paint (LCP)**: Should improve from 4.4s to ~2.5s
+   - Hero image preload
+   - Priority loading
+   - Image optimization
 
-**Files Modified**:
-- `src/app/layout.tsx`
+3. **Cumulative Layout Shift (CLS)**: Should improve from 0.488 to <0.1
+   - Explicit image dimensions
+   - Aspect ratio preservation
+   - Reserved space for dynamic content
 
-**Impact**: Faster text rendering, reduced CLS from font loading.
+4. **Speed Index**: Should improve from 5.2s to ~3.0s
+   - Faster initial render
+   - Optimized resource loading
 
-### ✅ 3. Image Optimization Configuration
+5. **Total Blocking Time (TBT)**: Should remain low or improve
+   - Reduced JavaScript execution
+   - Console removal in production
 
-**Problem**: Large image payload (6.5MB potential savings).
+## Additional Recommendations
 
-**Solution**:
-- Optimized Next.js image configuration
-- Reduced device sizes array to exclude unnecessary breakpoints
-- Enhanced cache headers for images
-- Added proper AVIF/WebP format support
-
-**Files Modified**:
-- `next.config.js`
-
-**Impact**: Better image compression and caching, reduced payload size.
-
-### ✅ 4. Cache Headers Optimization
-
-**Problem**: Inefficient cache lifetimes causing unnecessary reloads.
-
-**Solution**:
-- Long-term caching for static assets (1 year)
-- Shorter cache with revalidation for data files (1 hour)
-- Proper cache headers for images, icons, and static files
-
-**Files Modified**:
-- `next.config.js`
-
-**Impact**: Reduced network requests on repeat visits, 5MB+ savings.
-
-## Remaining Optimizations Needed
-
-### 🔄 4. Fix CLS (Cumulative Layout Shift) - Priority: High
-
-**Current**: 0.488 (needs to be <0.1)
-
-**Actions Needed**:
-1. Add explicit width/height to all images to prevent layout shift
-2. Reserve space for dynamic content with skeleton loaders
-3. Ensure images have aspect-ratio CSS
-4. Add loading="lazy" to below-fold images
-5. Use Next.js Image component with proper sizing
-
-**Files to Update**:
-- `src/components/ParkCard.tsx`
-- `src/components/CityCard.tsx`
-- `src/app/HomePageClient.tsx` (hero image)
-
-### 🔄 5. Reduce Unused CSS (32KB savings)
-
-**Actions Needed**:
-1. Analyze unused Tailwind classes
-2. Enable PurgeCSS/Tailwind JIT mode (if not already)
-3. Remove unused custom CSS
-4. Split CSS into critical and non-critical chunks
-
-### 🔄 6. Reduce Unused JavaScript (36KB savings)
-
-**Actions Needed**:
-1. Analyze bundle size with webpack-bundle-analyzer
-2. Implement code splitting for large components
-3. Lazy load components that aren't immediately visible
-4. Remove unused dependencies
-
-### 🔄 7. Image Delivery Optimization (6.5MB potential savings)
-
-**Actions Needed**:
-1. Compress all images in `/public/images/` directory
-2. Convert large PNGs to WebP/AVIF
-3. Implement responsive image sizes
-4. Use Next.js Image component for automatic optimization
-5. Consider using a CDN for image delivery
-
-### 🔄 8. Accessibility Improvements
-
-**Actions Needed**:
-1. Add `<main>` landmark element to HomePageClient
-2. Fix contrast issues (check all text/background combinations)
-3. Ensure all interactive elements have proper ARIA labels
-4. Test with screen readers
-
-## Expected Performance Improvements
-
-After implementing all optimizations:
-
-- **Performance Score**: 55 → 85+ (target 90+)
-- **FCP**: 2.6s → <1.8s
-- **LCP**: 5.4s → <2.5s
-- **CLS**: 0.488 → <0.1
-- **Total Network Payload**: 7.7MB → <3MB
+1. **Image CDN**: Consider using a CDN for images to improve delivery
+2. **Code Splitting**: Further optimize with route-based code splitting
+3. **Service Worker**: Consider adding a service worker for caching
+4. **Critical CSS**: Extract and inline critical CSS for above-the-fold content
+5. **Bundle Analysis**: Run bundle analyzer to identify large dependencies
 
 ## Testing
 
-After implementing changes, run Lighthouse again:
-1. Chrome DevTools → Lighthouse
-2. Run on mobile and desktop
-3. Check all metrics improved
-4. Verify accessibility score remains 95+
+After deployment, test with:
+- PageSpeed Insights: https://pagespeed.web.dev/
+- Lighthouse (Chrome DevTools)
+- WebPageTest: https://www.webpagetest.org/
 
-## Notes
+## Monitoring
 
-- All optimizations maintain existing functionality
-- Progressive enhancement approach - site works without JavaScript
-- Backwards compatible with existing code
-
-
-
+Monitor these metrics:
+- Core Web Vitals (LCP, FID, CLS)
+- Time to First Byte (TTFB)
+- First Contentful Paint (FCP)
+- Total Blocking Time (TBT)
