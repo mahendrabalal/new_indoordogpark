@@ -77,3 +77,4 @@ NEXT_PUBLIC_SITE_URL=https://www.indoordogpark.org
 - **Core Web Vitals**: Events should appear in GA4 under Events → Web Vitals
 
 
+

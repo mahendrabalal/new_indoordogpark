@@ -205,6 +205,7 @@ export function AccessibleImage({
       priority={priority}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
+      unoptimized={typeof src === 'string' && src.startsWith('http')}
     />
   );
 }

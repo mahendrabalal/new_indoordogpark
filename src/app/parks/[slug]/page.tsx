@@ -293,24 +293,6 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
       <Header />
 
       <main className="park-detail-page">
-        {/* Breadcrumb Navigation */}
-        <div className="container" style={{ paddingTop: '1rem', paddingBottom: '0.5rem' }}>
-          <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-            <ol className="breadcrumb-list" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem' }}>
-              <li className="breadcrumb-item">
-                <Link href="/" style={{ color: '#667eea', textDecoration: 'none' }}>Home</Link>
-              </li>
-              <li className="breadcrumb-separator" aria-hidden="true" style={{ color: '#9ca3af' }}>/</li>
-              <li className="breadcrumb-item">
-                <Link href={`/cities/${citySlug}`} style={{ color: '#667eea', textDecoration: 'none' }}>{park.city}</Link>
-              </li>
-              <li className="breadcrumb-separator" aria-hidden="true" style={{ color: '#9ca3af' }}>/</li>
-              <li className="breadcrumb-item breadcrumb-current" aria-current="page" style={{ color: '#374151' }}>
-                {park.name}
-              </li>
-            </ol>
-          </nav>
-        </div>
         <section className="park-hero">
           <div className="park-hero-image">
             <ParkImage

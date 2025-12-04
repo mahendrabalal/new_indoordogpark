@@ -179,8 +179,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Preload critical hero image with fetchpriority */}
-        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" />
+        {/* Preload critical hero image - used as CSS background, so preload is optional */}
+        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" crossOrigin="anonymous" />
         
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />
