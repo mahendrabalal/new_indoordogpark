@@ -17,8 +17,8 @@ export default function Header() {
             <Image 
               src="/images/logo/logo.png" 
               alt="Indoor Dog Park logo" 
-              width={220} 
-              height={60} 
+              width={140} 
+              height={40} 
               priority 
               style={{ objectFit: 'contain', height: 'auto' }}
             />

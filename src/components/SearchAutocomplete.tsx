@@ -1,5 +1,6 @@
 'use client';
 
+import { forwardRef } from 'react';
 import { AutocompleteSuggestion } from '@/hooks/useAutocomplete';
 
 interface SearchAutocompleteProps {
@@ -12,14 +13,14 @@ interface SearchAutocompleteProps {
   onClose: () => void;
 }
 
-export default function SearchAutocomplete({
+const SearchAutocomplete = forwardRef<HTMLDivElement, SearchAutocompleteProps>(({
   suggestions,
   isOpen,
   isLoading,
   selectedIndex,
   query,
   onSuggestionClick,
-}: SearchAutocompleteProps) {
+}, ref) => {
   if (!isOpen || (suggestions.length === 0 && !isLoading)) {
     return null;
   }
@@ -58,7 +59,7 @@ export default function SearchAutocomplete({
   };
 
   return (
-    <div className="autocomplete-dropdown">
+    <div ref={ref} className="autocomplete-dropdown">
       {isLoading && suggestions.length === 0 ? (
         <div className="autocomplete-loading">
           <div className="autocomplete-spinner"></div>
@@ -106,7 +107,11 @@ export default function SearchAutocomplete({
       </div>
     </div>
   );
-}
+});
+
+SearchAutocomplete.displayName = 'SearchAutocomplete';
+
+export default SearchAutocomplete;
 
 
 

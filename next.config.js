@@ -15,6 +15,9 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // Industry best practice: Configure image optimization properly
+    // Local images in public folder should use unoptimized prop to avoid 402 errors
+    // This prevents hitting Next.js Image Optimization API limits
     remotePatterns: [
       // Only allow local images and essential third-party domains
       {

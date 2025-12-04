@@ -9,6 +9,7 @@ import { fetchParks, PaginationResponse } from '@/lib/api';
 import { getFeaturedParks } from '@/lib/cityData';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
+import { useCloseOnScroll } from '@/hooks/useCloseOnScroll';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CitiesSection from '@/components/CitiesSection';
@@ -46,6 +47,7 @@ export default function HomePageClient({
   const [hasMore, setHasMore] = useState(normalizedPagination.hasMore);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
+  const autocompleteDropdownRef = useRef<HTMLDivElement>(null);
 
   // Use custom search hook with manual trigger (SERVER-SIDE SEARCH)
   const {
@@ -136,6 +138,18 @@ export default function HomePageClient({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [autocomplete]);
 
+  // Close autocomplete when scrolling (industry best practice implementation)
+  // Uses a reusable hook with performance optimizations:
+  // - requestAnimationFrame for smooth performance
+  // - Throttling to reduce overhead
+  // - Proper cleanup and ref management
+  useCloseOnScroll({
+    isOpen: autocomplete.isOpen,
+    onClose: autocomplete.close,
+    excludeElement: autocompleteDropdownRef.current,
+    throttleMs: 50, // Reduced throttle for more responsive closing (50ms is still performant)
+  });
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -214,8 +228,8 @@ export default function HomePageClient({
               <Image 
                 src="/images/logo/logo.png" 
                 alt="Indoor Dog Park logo" 
-                width={170} 
-                height={48} 
+                width={140} 
+                height={40} 
                 priority
                 fetchPriority="high"
                 style={{ objectFit: 'contain', height: 'auto' }}
@@ -248,6 +262,7 @@ export default function HomePageClient({
                   </button>
                 )}
                 <SearchAutocomplete
+                  ref={autocompleteDropdownRef}
                   suggestions={autocomplete.suggestions}
                   isOpen={autocomplete.isOpen}
                   isLoading={autocomplete.isLoading}
@@ -312,6 +327,7 @@ export default function HomePageClient({
                       </button>
                     )}
                     <SearchAutocomplete
+                      ref={autocompleteDropdownRef}
                       suggestions={autocomplete.suggestions}
                       isOpen={autocomplete.isOpen}
                       isLoading={autocomplete.isLoading}
@@ -415,7 +431,12 @@ export default function HomePageClient({
                     <strong>{searchPagination?.totalResults || filteredParks.length}</strong> {(searchPagination?.totalResults || filteredParks.length) === 1 ? 'park' : 'parks'} found
                     {searchMeta && searchMeta.totalParks > 0 && (
                       <span style={{ color: '#9ca3af', fontSize: '0.85rem', marginLeft: '8px' }}>
-                        (from {searchMeta.totalParks} total)
+                        {/* Industry best practice: Clarify that search includes ALL parks (static + featured/premium) */}
+                        (from {searchMeta.totalParks} total parks
+                        {searchMeta.featuredParksCount !== undefined && searchMeta.featuredParksCount > 0 && (
+                          <>, including {searchMeta.featuredParksCount} featured</>
+                        )}
+                        )
                       </span>
                     )}
                   </span>

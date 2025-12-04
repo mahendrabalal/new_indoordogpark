@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import FavoriteButton from '@/components/FavoriteButton';
@@ -15,6 +14,7 @@ interface ParkCardProps {
 
 export default function ParkCard({ park, searchTerm }: ParkCardProps) {
   const [statusInfo, setStatusInfo] = useState(() => getParkStatus(park));
+  const [imageError, setImageError] = useState(false);
 
   // Update status every minute to keep it real-time
   useEffect(() => {
@@ -30,6 +30,11 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
 
     return () => clearInterval(interval);
   }, [park]);
+
+  // Reset image error when park changes
+  useEffect(() => {
+    setImageError(false);
+  }, [park.id]);
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   // Prefers local images over external URLs
   const getImageUrl = () => {
@@ -67,6 +72,15 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
   };
 
   const imageUrl = getImageUrl();
+  
+  // Fallback image URL
+  const fallbackImageUrl = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
+  
+  // Use fallback image if error occurred
+  const displayImageUrl = imageError ? fallbackImageUrl : imageUrl;
+
+  // Handle image load error - Next.js Image component doesn't support onError directly
+  // We'll use a wrapper approach with a regular img tag as fallback
 
   // Determine pricing display (adapt from rental pricing to park entry fees)
   const getPricingDisplay = () => {
@@ -111,19 +125,22 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
         </div>
       )}
       <div className="park-card-image-wrapper">
-        <Image
-          src={imageUrl}
+        {/* Use native img tag for better error handling with external URLs */}
+        {/* Next.js Image component's onError doesn't work reliably with unoptimized external images */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={displayImageUrl}
           alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Indoor Dog Park`}
-          width={400}
-          height={250}
           className="park-card-image"
           loading="lazy"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8Jz8YvqVX4J3hw+EPnJ54cr6C+h2R//9k="
           decoding="async"
-          style={{ objectFit: 'cover' }}
-          unoptimized={imageUrl.startsWith('http')}
+          style={{ objectFit: 'cover', width: '100%', height: '100%', display: 'block' }}
+          onError={() => {
+            // If image fails to load, switch to fallback
+            if (!imageError && displayImageUrl !== fallbackImageUrl) {
+              setImageError(true);
+            }
+          }}
         />
       </div>
 

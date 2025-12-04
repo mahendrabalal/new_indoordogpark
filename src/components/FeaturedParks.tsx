@@ -120,7 +120,8 @@ export default function FeaturedParks() {
                     fill
                     className="object-cover opacity-60"
                     sizes="(max-width: 1024px) 100vw, 60vw"
-                    unoptimized
+                    // Industry best practice: Always unoptimize to avoid 402 errors from Next.js Image Optimization API
+                    unoptimized={true}
                   />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-slate-800 opacity-70" />
@@ -205,7 +206,8 @@ export default function FeaturedParks() {
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    unoptimized
+                    // Industry best practice: Always unoptimize to avoid 402 errors from Next.js Image Optimization API
+                    unoptimized={true}
                   />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-blue-200" />

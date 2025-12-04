@@ -454,7 +454,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  /* Industry standard: Header height typically 64-72px for better space efficiency */
+  height: 72px;
 }
 
 .header-left {
@@ -466,8 +467,9 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.5rem;
-  font-weight: 800;
+  /* Industry standard: Logo text should complement image size */
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #FF5722;
   text-decoration: none;
   transition: opacity 0.2s;
@@ -478,9 +480,10 @@ body {
 }
 
 .logo img {
-  height: 40px;
+  /* Industry standard: Header logos typically 36-40px height on desktop */
+  height: 36px;
   width: auto;
-  max-width: 170px;
+  max-width: 140px;
   display: block;
   object-fit: contain;
 }
@@ -635,8 +638,9 @@ body {
   }
 
   .logo img {
-    height: 36px;
-    max-width: 150px;
+    /* Industry standard: Tablet logos 32-34px height */
+    height: 32px;
+    max-width: 120px;
   }
 
   .header-link-primary {
@@ -648,13 +652,15 @@ body {
 
 @media (max-width: 480px) {
   .header-container {
+    /* Industry standard: Mobile header height 56-60px */
     height: 60px;
     padding: 0 12px;
   }
 
   .logo img {
-    height: 32px;
-    max-width: 140px;
+    /* Industry standard: Mobile logos 28-30px height */
+    height: 28px;
+    max-width: 100px;
   }
 
   .menu-toggle {
@@ -1686,12 +1692,14 @@ mark {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0; /* Allow flex children to shrink below content size */
 }
 
 .park-card-header-top {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0; /* Allow flex children to shrink below content size */
 }
 
 /* Category Badge - Small uppercase text at top */
@@ -1712,10 +1720,12 @@ mark {
   color: #1f2937;
   transition: color 0.2s;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .park-card-new:hover .park-card-title {
@@ -2984,6 +2994,8 @@ mark {
 
   .park-card-title {
     font-size: 1rem;
+    -webkit-line-clamp: 3;
+    word-break: break-word;
   }
 
   .park-card-category {
@@ -3801,7 +3813,8 @@ mark {
 
 .value-icon {
   width: 80px;
-  height: 80px;
+  /* Industry standard: Header height typically 64-72px for better space efficiency */
+  height: 72px;
   background: white;
   border-radius: 50%;
   display: flex;
@@ -3929,7 +3942,8 @@ mark {
 }
 
 .search-logo {
-  font-size: 1.3rem;
+  /* Industry standard: Logo text should match header logo size */
+  font-size: 1.25rem;
   font-weight: 700;
   color: #FF5722;
   text-decoration: none;
@@ -3944,9 +3958,10 @@ mark {
 }
 
 .search-logo img {
-  height: 48px;
+  /* Industry standard: Search page logo should match header logo size (36px) */
+  height: 36px;
   width: auto;
-  max-width: 200px;
+  max-width: 140px;
   display: block;
   object-fit: contain;
 }
@@ -4483,7 +4498,14 @@ mark {
 
 @media (max-width: 480px) {
   .search-logo {
-    font-size: 1.1rem;
+    /* Industry standard: Mobile search logo text size */
+    font-size: 1rem;
+  }
+  
+  .search-logo img {
+    /* Industry standard: Mobile search logo image size */
+    height: 28px;
+    max-width: 100px;
   }
 
   .search-input-compact {

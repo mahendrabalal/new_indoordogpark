@@ -195,7 +195,8 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
                   onError={(e) => {
                     e.currentTarget.src = 'https://via.placeholder.com/300x200?text=Invalid+URL';
                   }}
-                  unoptimized
+                  // Industry best practice: Always unoptimize to avoid 402 errors
+                  unoptimized={true}
                 />
                 <button
                   type="button"

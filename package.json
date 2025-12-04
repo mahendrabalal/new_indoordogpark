@@ -12,7 +12,10 @@
     "outreach:direct": "npx ts-node scripts/send-emails-direct.ts",
     "email:test": "npx ts-node scripts/test-email.ts",
     "email:extract": "python3 scripts/extract-emails-from-websites.py",
-    "email:create-test": "node scripts/create-test-parks-with-emails.js"
+    "email:create-test": "node scripts/create-test-parks-with-emails.js",
+    "deduplicate:parks": "node scripts/deduplicate_parks.js",
+    "cleanup:images": "node scripts/cleanup_orphaned_images.js",
+    "cleanup:images:delete": "node scripts/cleanup_orphaned_images.js --delete"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

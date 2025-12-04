@@ -47,6 +47,10 @@ export interface SearchResponse {
     totalParks: number;
     searchApplied: boolean;
     filtersApplied: boolean;
+    // Additional metadata for transparency
+    staticParksCount?: number;
+    submissionParksCount?: number;
+    featuredParksCount?: number;
   };
 }
 

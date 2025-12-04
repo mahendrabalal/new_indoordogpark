@@ -171,13 +171,16 @@ export async function GET(request: Request) {
       listingType: park.listingType || ('free' as const)
     }));
 
-    // Fetch approved user submissions from database
+    // Fetch approved user submissions from database (includes both featured and free listings)
+    // Industry best practice: Include ALL approved parks in search, regardless of listing type
     let submissionParks: DogPark[] = [];
     try {
       const { data: submissions, error } = await supabaseAdminClient
         .from('park_submissions')
         .select('*')
         .eq('status', 'approved')
+        // Include all approved parks - both featured and free
+        // No filter on listing_type or subscription_status to ensure all parks are searchable
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -245,11 +248,41 @@ export async function GET(request: Request) {
     // Merge both data sources
     let allParks: DogPark[] = [...staticParksWithSource, ...submissionParks];
 
+    // Log counts for debugging
+    console.log(`[SEARCH API] Static parks: ${staticParksWithSource.length}, Submissions: ${submissionParks.length}, Total before dedup: ${allParks.length}`);
+
     // Remove duplicates based on name and city combination
-    allParks = allParks.filter((park, index, arr) => {
-      const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}`;
-      return arr.findIndex(p => `${p.name.toLowerCase()}|${p.city.toLowerCase()}` === key) === index;
-    });
+    // Industry best practice: Prefer user-submitted parks over static parks when duplicates exist
+    const dedupedParks: DogPark[] = [];
+    const seenKeys = new Set<string>();
+    
+    // First, add all user-submitted parks (these take priority)
+    for (const park of allParks) {
+      if (park.source === 'user_submitted') {
+        const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}`;
+        if (!seenKeys.has(key)) {
+          seenKeys.add(key);
+          dedupedParks.push(park);
+        }
+      }
+    }
+    
+    // Then add static parks that aren't duplicates
+    for (const park of allParks) {
+      if (park.source === 'static') {
+        const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}`;
+        if (!seenKeys.has(key)) {
+          seenKeys.add(key);
+          dedupedParks.push(park);
+        }
+      }
+    }
+    
+    allParks = dedupedParks;
+    
+    // Log final count
+    const featuredCount = allParks.filter(p => p.listingType === 'featured').length;
+    console.log(`[SEARCH API] After dedup: ${allParks.length} total parks (${featuredCount} featured, ${allParks.length - featuredCount} free)`);
 
     // APPLY FILTERS
     let filteredParks = allParks;
@@ -390,6 +423,8 @@ export async function GET(request: Request) {
           listingType: params.listingType,
         },
         meta: {
+          // Industry best practice: totalParks should reflect ALL parks available for search
+          // This includes static parks (902) + user-submitted parks (featured + free) - duplicates
           totalParks: allParks.length,
           searchApplied: !!params.q,
           filtersApplied: !!(
@@ -399,7 +434,11 @@ export async function GET(request: Request) {
             params.city ||
             params.amenities?.length ||
             params.listingType
-          )
+          ),
+          // Additional metadata for transparency
+          staticParksCount: staticParksWithSource.length,
+          submissionParksCount: submissionParks.length,
+          featuredParksCount: allParks.filter(p => p.listingType === 'featured').length,
         }
       },
       {

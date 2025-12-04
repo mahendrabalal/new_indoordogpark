@@ -115,7 +115,8 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
-                unoptimized
+                // Industry best practice: Always unoptimize to avoid 402 errors from Next.js Image Optimization API
+                unoptimized={true}
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-blue-200" />

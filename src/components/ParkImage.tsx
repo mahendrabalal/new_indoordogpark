@@ -68,9 +68,9 @@ export default function ParkImage({
   };
 
 
-  // Use native img tag for better error handling with external URLs
-  // Next.js Image component's onError doesn't work reliably with unoptimized external images
-  // This works for both local images and Supabase storage URLs
+  // Industry best practice: Use native img tag for local images to avoid Next.js Image Optimization API
+  // This prevents 402 errors and improves performance for local images
+  // For external images, we still use native img for better error handling
   return (
     <>
       {isLoading && (
@@ -95,6 +95,8 @@ export default function ParkImage({
         </div>
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* Using native img tag to avoid Next.js Image Optimization API 402 errors for local images */}
+      {/* This is intentional - we need onError handler and want to avoid Next.js Image Optimization for local images */}
       <img
         src={imgSrc}
         alt={alt}

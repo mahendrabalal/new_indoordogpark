@@ -179,8 +179,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Preload critical hero image - used as CSS background, so preload is optional */}
-        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" crossOrigin="anonymous" />
+        {/* Note: Hero image preload moved to homepage only (page.tsx) for better performance */}
+        {/* Preloading in root layout causes warnings when hero section isn't visible */}
         
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />
