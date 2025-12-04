@@ -22,32 +22,41 @@ export default function ParkImage({
   priority = false,
 }: ParkImageProps) {
   const [imgSrc, setImgSrc] = useState(src);
-  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // Reset state when src changes
   useEffect(() => {
     setImgSrc(src);
-    setHasError(false);
     setIsLoading(true);
 
-    // Pre-check if image is already loaded (cached)
+    // Pre-check if image is already loaded (cached) or if it fails
     const img = new Image();
+    let isMounted = true;
+    
     img.onload = () => {
-      setIsLoading(false);
+      if (isMounted) {
+        setIsLoading(false);
+      }
     };
     img.onerror = () => {
-      // Will be handled by onError on the actual img element
+      if (isMounted) {
+        // If image fails during pre-check, immediately switch to fallback
+        setImgSrc(DEFAULT_IMAGE);
+        setIsLoading(false);
+      }
     };
     img.src = src;
 
-    // Fallback: if image doesn't load within 3 seconds, show it anyway
-    // This handles cases where onLoad doesn't fire
+    // Fallback timeout: if image doesn't load within 2 seconds, show it anyway
+    // This handles cases where onLoad doesn't fire (cached images, etc.)
     const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+      if (isMounted) {
+        setIsLoading(false);
+      }
+    }, 2000);
 
     return () => {
+      isMounted = false;
       clearTimeout(timeout);
       img.onload = null;
       img.onerror = null;
@@ -55,16 +64,18 @@ export default function ParkImage({
   }, [src]);
 
   const handleError = () => {
-    if (!hasError && imgSrc !== DEFAULT_IMAGE) {
-      setHasError(true);
+    // Always fallback to default image on error, but prevent infinite loops
+    if (imgSrc !== DEFAULT_IMAGE) {
       setImgSrc(DEFAULT_IMAGE);
+      setIsLoading(false);
+    } else {
+      // If default image also fails, just hide loading state
       setIsLoading(false);
     }
   };
 
   const handleLoad = () => {
     setIsLoading(false);
-    setHasError(false);
   };
 
 
@@ -72,18 +83,18 @@ export default function ParkImage({
   // This prevents 402 errors and improves performance for local images
   // For external images, we still use native img for better error handling
   return (
-    <>
+    <div className="park-image-wrapper">
       {isLoading && (
         <div 
-          className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center"
-          style={{ zIndex: 1 }}
+          className="park-image-loading"
           aria-hidden="true"
         >
           <svg 
-            className="w-12 h-12 text-gray-400" 
+            className="park-image-loading-icon" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path 
               strokeLinecap="round" 
@@ -102,21 +113,13 @@ export default function ParkImage({
         alt={alt}
         width={width}
         height={height}
-        className={className}
+        className={`park-image ${className} ${isLoading ? 'park-image-loading-state' : ''}`}
         onError={handleError}
         onLoad={handleLoad}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          display: 'block',
-          opacity: isLoading ? 0 : 1,
-          transition: 'opacity 0.3s ease-in-out',
-        }}
       />
-    </>
+    </div>
   );
 }
 
