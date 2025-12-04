@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const title = `${category.name} Articles - Indoor Dog Park Blog`;
   const description = category.description || `Read all articles in the ${category.name} category. Expert tips, guides, and stories about indoor dog parks.`;
-  const canonicalUrl = `/blog/category/${category.slug}`;
+  const canonicalUrl = `${siteUrl}/blog/category/${category.slug}`;
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
 
   return {

@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 
   const title = `${tag.name} Articles - Indoor Dog Park Blog`;
   const description = tag.description || `Read all articles tagged with ${tag.name}. Expert tips, guides, and stories about indoor dog parks.`;
-  const canonicalUrl = `/blog/tag/${tag.slug}`;
+  const canonicalUrl = `${siteUrl}/blog/tag/${tag.slug}`;
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
 
   return {

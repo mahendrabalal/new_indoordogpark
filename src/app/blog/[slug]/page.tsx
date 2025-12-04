@@ -524,7 +524,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         },
       },
       alternates: {
-        canonical: `/blog/${slug}`,
+        canonical: `${siteUrl}/blog/${slug}`,
       },
     };
   } catch (error) {
