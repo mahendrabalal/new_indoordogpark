@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Hounds Town Brooklyn - Atlantic Ave",
+    "slug": "hounds-town-brooklyn-atlantic-ave",
+    "googlePlaceId": "ChIJx1kZrwokRgqBd-U6fj9p1g",
+    "city": "Brooklyn",
+    "state": "NY",
+    "id": "ChIJx1kZrwokRgqBd-U6fj9p1g"
+  },
+  {
+    "name": "pupculture FiDi",
+    "slug": "pupculture-fidi",
+    "googlePlaceId": "ChIJe-ZhIxZwokR3-OOZ9vXJ_8",
+    "city": "Brooklyn",
+    "state": "NY",
+    "id": "ChIJe-ZhIxZwokR3-OOZ9vXJ_8"
+  },
+  {
+    "name": "Central Bark Fort Lauderdale",
+    "slug": "central-bark-fort-lauderdale",
+    "googlePlaceId": "ChIJu5h64ocB2YgRib1eT3Oor5k",
+    "city": "Oakland Park",
+    "state": "Florida",
+    "id": "ChIJu5h64ocB2YgRib1eT3Oor5k"
+  },
+  {
+    "name": "D is for Doggy - Daycare & Grooming",
+    "slug": "d-is-for-doggy-daycare-grooming",
+    "googlePlaceId": "ChIJR9sCf4NYwokR7dPIiB8G",
+    "city": "New York",
+    "state": "NY",
+    "id": "ChIJR9sCf4NYwokR7dPIiB8G"
+  },
+  {
+    "name": "Playground Pups",
+    "slug": "playground-pups",
+    "googlePlaceId": "ChIJ1W2YqYz-iA38_W42p2w",
+    "city": "New York",
+    "state": "NY",
+    "id": "ChIJ1W2YqYz-iA38_W42p2w"
+  },
+  {
+    "name": "The Drafty Dane",
+    "slug": "the-drafty-dane",
+    "googlePlaceId": "ChIJY5yfBbOtwokRGJ1NKd3eizExc",
+    "city": "Marietta",
+    "state": "GA",
+    "id": "ChIJY5yfBbOtwokRGJ1NKd3eizExc"
+  }
+]

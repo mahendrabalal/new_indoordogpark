@@ -46,6 +46,9 @@ def get_data_completeness(park: Dict[str, Any]) -> int:
     photos = park.get('photos', [])
     if isinstance(photos, list):
         score += len(photos)  # More photos = better
+        # Bonus for local images (downloaded images)
+        local_images = [p for p in photos if isinstance(p, dict) and '/images/parks/' in str(p.get('url', ''))]
+        score += len(local_images) * 2  # Local images are more valuable
 
     # Amenities
     amenities = park.get('amenities', {})

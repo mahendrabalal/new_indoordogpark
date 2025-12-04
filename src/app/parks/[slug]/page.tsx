@@ -530,12 +530,14 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <div className="hours-section">
                     <strong>Hours of Operation</strong>
                     <ul className="hours-list">
-                      {Object.entries(park.openingHours).map(([day, hours]) => (
-                        <li key={day}>
-                          <span className="day">{day}</span>
-                          <span className="hours">{hours}</span>
-                        </li>
-                      ))}
+                      {Object.entries(park.openingHours)
+                        .filter(([, hours]) => hours && typeof hours === 'string')
+                        .map(([day, hours]) => (
+                          <li key={day}>
+                            <span className="day">{day}</span>
+                            <span className="hours">{hours as string}</span>
+                          </li>
+                        ))}
                     </ul>
                   </div>
                 )}

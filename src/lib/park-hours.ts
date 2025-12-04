@@ -103,7 +103,9 @@ export function getParkStatus(park: DogPark): ParkStatusInfo {
   const todayHours = park.openingHours[currentDay];
   
   // If no hours for today, check if it's closed
-  if (!todayHours || todayHours.toLowerCase().includes('closed')) {
+  // Ensure todayHours is a string before calling toLowerCase
+  const todayHoursStr = typeof todayHours === 'string' ? todayHours : String(todayHours || '');
+  if (!todayHours || todayHoursStr.toLowerCase().includes('closed')) {
     // Find next open day
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const currentDayIndex = days.indexOf(currentDay);
@@ -113,8 +115,9 @@ export function getParkStatus(park: DogPark): ParkStatusInfo {
       const nextDay = days[nextDayIndex];
       const nextDayHours = park.openingHours[nextDay];
       
-      if (nextDayHours && !nextDayHours.toLowerCase().includes('closed')) {
-        const parsed = parseHours(nextDayHours);
+      const nextDayHoursStr = typeof nextDayHours === 'string' ? nextDayHours : String(nextDayHours || '');
+      if (nextDayHours && !nextDayHoursStr.toLowerCase().includes('closed')) {
+        const parsed = parseHours(nextDayHoursStr);
         if (parsed) {
           return {
             status: 'closed',
@@ -127,8 +130,8 @@ export function getParkStatus(park: DogPark): ParkStatusInfo {
     return { status: 'closed' };
   }
   
-  // Parse today's hours
-  const parsed = parseHours(todayHours);
+  // Parse today's hours (use the string version)
+  const parsed = parseHours(todayHoursStr);
   if (!parsed) {
     return { status: 'unknown' };
   }
@@ -182,8 +185,9 @@ export function getParkStatus(park: DogPark): ParkStatusInfo {
     const nextDay = days[nextDayIndex];
     const nextDayHours = park.openingHours[nextDay];
     
-    if (nextDayHours && !nextDayHours.toLowerCase().includes('closed')) {
-      const nextParsed = parseHours(nextDayHours);
+    const nextDayHoursStr = typeof nextDayHours === 'string' ? nextDayHours : String(nextDayHours || '');
+    if (nextDayHours && !nextDayHoursStr.toLowerCase().includes('closed')) {
+      const nextParsed = parseHours(nextDayHoursStr);
       if (nextParsed) {
         const dayLabel = i === 1 ? 'tomorrow' : nextDay;
         return {

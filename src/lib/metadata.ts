@@ -275,12 +275,17 @@ export function generateParkSchema(park: DogPark) {
 
   // Add opening hours if available
   if (park.openingHours) {
-    baseSchema.openingHoursSpecification = Object.entries(park.openingHours).map(([day, hours]) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: day,
-      opens: hours.split('-')[0]?.trim() || '00:00',
-      closes: hours.split('-')[1]?.trim() || '23:59',
-    }));
+    baseSchema.openingHoursSpecification = Object.entries(park.openingHours)
+      .filter(([, hours]) => hours && typeof hours === 'string') // Only process string values
+      .map(([day, hours]) => {
+        const hoursStr = String(hours);
+        return {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: day,
+          opens: hoursStr.split('-')[0]?.trim() || '00:00',
+          closes: hoursStr.split('-')[1]?.trim() || '23:59',
+        };
+      });
   }
 
   // Add rating if available
