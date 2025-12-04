@@ -255,16 +255,74 @@ export async function getPaginatedStaticParks(page = 1, limit = 20): Promise<Pag
 
 export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   const parks = await loadStaticParks();
-  const park = parks.find((p) => (p.slug || p.id) === slug);
+  
+  // Try exact match first
+  let park = parks.find((p) => (p.slug || p.id) === slug);
   if (park) {
     return park;
   }
 
+  // Try matching in priority cities
   for (const priorityCity of priorityCityContent) {
     const priorityPark = priorityCity.parks.find((p) => (p.slug || p.id) === slug);
     if (priorityPark) {
       return priorityPark;
     }
+  }
+
+  // Try fuzzy matching: remove common city/state suffixes and try again
+  // This handles cases where URL has "-new-york" or "-brooklyn" but data doesn't
+  const cityStatePatterns = [
+    /-new-york$/i,
+    /-new-york-ny$/i,
+    /-brooklyn$/i,
+    /-brooklyn-ny$/i,
+    /-manhattan$/i,
+    /-queens$/i,
+    /-bronx$/i,
+    /-california$/i,
+    /-los-angeles$/i,
+    /-san-francisco$/i,
+    /-san-diego$/i,
+    /-washington$/i,
+    /-seattle$/i,
+  ];
+  
+  for (const pattern of cityStatePatterns) {
+    const trimmedSlug = slug.replace(pattern, '');
+    if (trimmedSlug !== slug) {
+      park = parks.find((p) => {
+        const parkSlug = (p.slug || slugify(p.name, p.city));
+        return parkSlug === trimmedSlug || parkSlug === slug;
+      });
+      if (park) {
+        return park;
+      }
+      
+      // Also check priority cities
+      for (const priorityCity of priorityCityContent) {
+        const priorityPark = priorityCity.parks.find((p) => {
+          const parkSlug = (p.slug || slugify(p.name, p.city));
+          return parkSlug === trimmedSlug || parkSlug === slug;
+        });
+        if (priorityPark) {
+          return priorityPark;
+        }
+      }
+    }
+  }
+  
+  // Try matching by checking if slug starts with park slug (handles suffixes)
+  const normalizedSlug = slug.toLowerCase().trim();
+  park = parks.find((p) => {
+    const parkSlug = (p.slug || slugify(p.name, p.city)).toLowerCase();
+    // Check if requested slug starts with park slug or vice versa
+    return parkSlug === normalizedSlug || 
+           normalizedSlug.startsWith(parkSlug + '-') ||
+           parkSlug.startsWith(normalizedSlug + '-');
+  });
+  if (park) {
+    return park;
   }
 
   try {
