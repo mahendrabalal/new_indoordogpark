@@ -134,6 +134,7 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
           className="park-card-image"
           loading="lazy"
           decoding="async"
+          fetchPriority="low"
           style={{ objectFit: 'cover', width: '100%', height: '100%', display: 'block' }}
           onError={() => {
             // If image fails to load, switch to fallback

@@ -56,21 +56,67 @@ export default function FeaturedParks() {
     fetchFeaturedParks();
   }, []);
 
+  // Always reserve space to prevent layout shift - match exact dimensions of final content
   if (isLoading) {
     return (
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gradient-to-b from-white via-slate-50 to-white" style={{ minHeight: '800px' }}>
         <div className="container mx-auto px-4">
-          <div className="animate-pulse space-y-4 max-w-3xl mx-auto">
-            <div className="h-8 rounded-full bg-slate-200" />
-            <div className="h-4 rounded-full bg-slate-200 w-3/4" />
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+            {/* Skeleton for header section - matches final dimensions */}
+            <div className="max-w-3xl space-y-4 animate-pulse">
+              <div className="h-4 w-32 rounded-full bg-slate-200" />
+              <div className="h-10 w-full rounded-lg bg-slate-200" />
+              <div className="h-6 w-3/4 rounded-lg bg-slate-200" />
+              <div className="h-6 w-2/3 rounded-lg bg-slate-200" />
+            </div>
+            {/* Skeleton for buttons */}
+            <div className="flex flex-wrap gap-3">
+              <div className="h-10 w-48 rounded-full bg-slate-200" />
+              <div className="h-10 w-40 rounded-full bg-slate-200" />
+            </div>
+          </div>
+          {/* Skeleton for spotlight card - matches final dimensions */}
+          <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-200" style={{ minHeight: '400px' }}>
+              <div className="absolute inset-0 animate-pulse bg-slate-300" />
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="rounded-2xl border border-slate-100 bg-white/80 p-4" style={{ minHeight: '150px' }}>
+                  <div className="h-10 w-10 rounded-full bg-slate-200 mb-3" />
+                  <div className="h-5 w-3/4 rounded bg-slate-200 mb-2" />
+                  <div className="h-4 w-full rounded bg-slate-200" />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Skeleton for park cards grid - matches final dimensions */}
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-2xl border border-slate-100 bg-white" style={{ minHeight: '450px' }}>
+                <div className="h-52 bg-slate-200 animate-pulse" />
+                <div className="p-5 space-y-3">
+                  <div className="h-4 w-24 rounded bg-slate-200" />
+                  <div className="h-6 w-full rounded bg-slate-200" />
+                  <div className="h-4 w-32 rounded bg-slate-200" />
+                  <div className="h-4 w-full rounded bg-slate-200" />
+                  <div className="h-4 w-3/4 rounded bg-slate-200" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
     );
   }
 
+  // Always render section container to prevent layout shift, even when empty
   if (!featuredParks || featuredParks.length === 0) {
-    return null;
+    return (
+      <section className="py-20 bg-gradient-to-b from-white via-slate-50 to-white" style={{ minHeight: '100px' }} aria-hidden="true">
+        {/* Empty state - reserved space to prevent shift */}
+      </section>
+    );
   }
 
   const spotlightPark = featuredParks[0];

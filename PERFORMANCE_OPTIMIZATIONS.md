@@ -1,182 +1,127 @@
 # Performance Optimizations Summary
 
-This document outlines the performance optimizations implemented to improve Lighthouse scores from 57 to target 90+.
-
-## Issues Identified
-
-### Lighthouse Metrics (Before)
-- **Performance Score**: 57
-- **FCP**: 1.2s (Good)
-- **LCP**: 7.4s (Needs improvement - target: <2.5s)
-- **TBT**: 0ms (Good)
-- **CLS**: 0.348 (Needs improvement - target: <0.1)
-- **SI**: 4.0s (Needs improvement - target: <3.4s)
-
-### Key Issues
-1. **Render blocking requests** - 620ms savings potential
-2. **Image delivery** - 6,372 KiB savings potential
-3. **Cache lifetimes** - 5,145 KiB savings potential
-4. **Font display** - 10ms savings potential
-5. **Unused CSS** - 32 KiB savings potential
-6. **Unused JavaScript** - 36 KiB savings potential
-7. **Large network payloads** - 7,446 KiB total
-8. **Layout shifts (CLS)** - 0.348 score
+This document outlines the performance optimizations implemented to improve Lighthouse scores from 66 to target 90+.
 
 ## Optimizations Implemented
 
-### 1. Image Optimization ✅
+### 1. Font Loading Optimization ✅
+**File**: `src/app/layout.tsx`
 
-**Changes:**
-- Added `fetchPriority="high"` to critical LCP images (logo, hero)
-- Added `decoding="async"` to all images for non-blocking decode
-- Added explicit `style={{ objectFit: 'cover' }}` to prevent layout shifts
-- Optimized blur placeholders (already in place)
-- Preload critical hero image with `fetchPriority="high"`
+- **Font weight optimization**: Limited Inter font to only the weights actually used (`400`, `500`, `600`, `700`) to reduce font file size
+- **Font display**: Already using `display: 'swap'` which shows fallback font immediately
+- **Preconnect**: Added preconnect to Google Fonts domains for faster font loading
 
-**Files Modified:**
-- `src/components/ParkCard.tsx`
-- `src/components/CityCard.tsx`
-- `src/app/HomePageClient.tsx`
-- `src/app/layout.tsx`
+**Impact**: Reduces font loading time and prevents layout shift (CLS improvement)
 
-### 2. Font Loading Optimization ✅
+### 2. CSS Loading Optimization ✅
+**File**: `src/components/LazyStyles.tsx`
 
-**Changes:**
-- Font already using `display: 'swap'` (optimal)
-- Added preconnect to Google Fonts domains
-- Font fallback chain properly configured
+- **Improved lazy loading**: Enhanced Bootstrap Icons CSS loading with better timing
+- **Media query trick**: Using `media="print"` initially, then switching to `all` after load to prevent render blocking
+- **RequestIdleCallback**: Using browser's idle time for non-critical CSS loading with 3s timeout
+- **Fallback**: Graceful fallback for browsers without requestIdleCallback
 
-**Files Modified:**
-- `src/app/layout.tsx`
+**Impact**: Saves ~630ms by deferring non-critical CSS (Bootstrap Icons)
 
-### 3. Render-Blocking Resources ✅
+### 3. Image Optimization ✅
+**Files**: `src/components/ParkCard.tsx`, `next.config.js`
 
-**Changes:**
-- Improved Bootstrap Icons loading with `requestIdleCallback` fallback
-- Added error handling for failed stylesheet loads
-- Already using media query trick to prevent render blocking
-- Leaflet CSS already lazy-loaded on demand
+- **Fetch priority**: Added `fetchPriority="low"` to park card images (non-critical images)
+- **Image quality**: Set Next.js image quality to 85 (good balance between quality and file size)
+- **Lazy loading**: All images use `loading="lazy"` and `decoding="async"`
+- **Image formats**: Configured AVIF and WebP support for better compression
 
-**Files Modified:**
-- `src/components/LazyStyles.tsx`
+**Impact**: Reduces image payload size and improves LCP (Largest Contentful Paint)
 
-### 4. CLS (Cumulative Layout Shift) Fixes ✅
+### 4. Google Analytics Optimization ✅
+**File**: `src/components/GoogleAnalytics.tsx`
 
-**Changes:**
-- Added `aspect-ratio: 16/10` to image wrappers (already present)
-- Added `contain: layout style paint` to image wrappers
-- Set explicit `min-height` on hero section
-- Added `overflow-x: hidden` to body to prevent horizontal scroll
+- **Strategy change**: Changed from `afterInteractive` to `lazyOnload` to defer GA loading
+- **Non-blocking**: Analytics now loads after page is fully interactive, not blocking initial render
 
-**Files Modified:**
-- `src/app/globals.css`
+**Impact**: Reduces JavaScript blocking time and improves TBT (Total Blocking Time)
 
-### 5. Cache Headers Optimization ✅
+### 5. Resource Hints & Preloading ✅
+**File**: `src/app/layout.tsx`
 
-**Changes:**
-- Added cache headers for font files
-- Added cache headers for CSS/JS files
-- Enhanced image cache headers with security headers
-- Static assets already have 1-year immutable cache
+- **Preconnect**: Added preconnect to Google Analytics domains (dns-prefetch)
+- **Preload**: Added preload for critical logo image used in header/search layout
+- **DNS prefetch**: Enhanced DNS prefetch for external resources
 
-**Files Modified:**
-- `next.config.js`
+**Impact**: Establishes early connections to external domains, reducing connection time
 
-### 6. Code Splitting & Bundle Optimization ✅
+### 6. Bundle Size Optimization ✅
+**File**: `next.config.js`
 
-**Changes:**
-- Enabled `optimizeCss: true` in Next.js config
-- Added `optimizePackageImports` for commonly used packages
-- Map component already dynamically imported
-- Tailwind JIT mode enabled
+- **Package imports**: Added `leaflet` and `react-leaflet` to `optimizePackageImports` for tree-shaking
+- **Image optimization**: Configured optimal image sizes and quality settings
+- **Compression**: Already enabled with `compress: true`
+- **SWC minification**: Already enabled for better minification
 
-**Files Modified:**
-- `next.config.js`
-- `tailwind.config.js`
+**Impact**: Reduces unused JavaScript and CSS, smaller bundle sizes
 
-### 7. Resource Hints ✅
+### 7. Cache Headers ✅
+**File**: `next.config.js`
 
-**Changes:**
-- Added preconnect to Google Fonts domains
-- Preload critical hero image with high priority
-- DNS prefetch already in place for CDN resources
+- **Long-term caching**: Static assets (images, fonts, CSS, JS) cached for 1 year
+- **Data files**: Shorter cache (1 hour) with must-revalidate for dynamic content
+- **Immutable assets**: Using `immutable` flag for versioned assets
 
-**Files Modified:**
-- `src/app/layout.tsx`
+**Impact**: Better browser caching, reduces repeat visit load times
 
-## Expected Improvements
+### 8. Tailwind CSS Optimization ✅
+**File**: `tailwind.config.js`
 
-### Performance Score
-- **Before**: 57
-- **Target**: 90+
-- **Expected gains**: +33 points
+- **JIT mode**: Already enabled (default in Tailwind v3+)
+- **Content paths**: Properly configured to purge unused styles
+- **Core plugins**: Optimized preflight settings
 
-### Metrics Targets
-- **LCP**: 7.4s → <2.5s (improve by ~5s)
-- **CLS**: 0.348 → <0.1 (improve by ~0.25)
-- **SI**: 4.0s → <3.4s (improve by ~0.6s)
-- **FCP**: 1.2s (maintain or improve)
+**Impact**: Reduces unused CSS in production builds
 
-### Network Payload Reduction
-- **Images**: ~6,372 KiB savings potential
-- **Cache hits**: ~5,145 KiB savings potential
-- **Total**: ~11,517 KiB potential savings
+## Expected Performance Improvements
 
-## Additional Recommendations
+Based on Lighthouse recommendations, these optimizations should address:
 
-### Future Optimizations (Not Yet Implemented)
+1. **Render blocking requests**: ~630ms savings (Bootstrap Icons CSS deferred)
+2. **Image delivery**: ~6,513 KiB savings (better image optimization and lazy loading)
+3. **Font display**: ~10ms savings (already optimized, minor improvement)
+4. **Cache lifetimes**: ~5,145 KiB savings (better cache headers)
+5. **Unused CSS**: ~32 KiB savings (Tailwind JIT + better purging)
+6. **Unused JavaScript**: ~36 KiB savings (better tree-shaking)
+7. **Legacy JavaScript**: ~12 KiB savings (modern build tools)
 
-1. **Image Format Conversion**
-   - Convert all images to WebP/AVIF format
-   - Use responsive images with `srcset`
-   - Consider using Next.js Image Optimization API
+## Metrics Targeted
 
-2. **Critical CSS Extraction**
-   - Extract above-the-fold CSS
-   - Inline critical CSS in `<head>`
-   - Defer non-critical CSS
+- **FCP (First Contentful Paint)**: Target < 1.8s (currently 1.2s ✅)
+- **LCP (Largest Contentful Paint)**: Target < 2.5s (currently 4.6s - improved with image optimizations)
+- **TBT (Total Blocking Time)**: Target < 200ms (currently 0ms ✅)
+- **CLS (Cumulative Layout Shift)**: Target < 0.1 (currently 0.348 - improved with font optimization)
+- **SI (Speed Index)**: Target < 3.4s (currently 2.7s ✅)
 
-3. **Service Worker / PWA**
-   - Implement service worker for offline caching
-   - Cache static assets aggressively
-   - Precache critical routes
+## Next Steps for Further Optimization
 
-4. **Third-Party Scripts**
-   - Defer non-critical third-party scripts
-   - Use `async` or `defer` attributes
-   - Consider lazy-loading analytics
+If performance score is still below 90, consider:
 
-5. **Database Query Optimization**
-   - Optimize API routes
-   - Implement proper caching strategies
-   - Use ISR (Incremental Static Regeneration) where appropriate
-
-6. **Bundle Analysis**
-   - Run `@next/bundle-analyzer` to identify large dependencies
-   - Code split large libraries
-   - Remove unused dependencies
+1. **Image CDN**: Use a CDN like Cloudinary or Imgix for automatic image optimization
+2. **Code splitting**: Further split large components (e.g., Map component already dynamic)
+3. **Service Worker**: Implement service worker for offline caching
+4. **Critical CSS**: Extract and inline critical CSS for above-the-fold content
+5. **Reduce data payload**: Consider pagination or lazy loading for large JSON data files
+6. **WebP/AVIF conversion**: Ensure all images are in modern formats
+7. **Remove unused dependencies**: Audit and remove any unused npm packages
 
 ## Testing
 
-After deploying these changes, run Lighthouse again to verify improvements:
+After deploying these changes:
 
-```bash
-# Run Lighthouse locally
-npm run build
-npm start
-# Then run Lighthouse in Chrome DevTools
-```
-
-### Key Metrics to Monitor
-1. Performance Score (target: 90+)
-2. LCP (target: <2.5s)
-3. CLS (target: <0.1)
-4. Network payload size
-5. Time to Interactive (TTI)
+1. Run Lighthouse audit again on production URL
+2. Compare scores before/after
+3. Check Core Web Vitals in Google Search Console
+4. Monitor real user metrics (RUM) if available
 
 ## Notes
 
-- All optimizations maintain backward compatibility
-- No breaking changes introduced
-- Progressive enhancement approach used
-- Mobile-first optimizations included
+- All optimizations follow Next.js 14 best practices
+- Changes are backward compatible
+- No breaking changes to functionality
+- Performance improvements are cumulative

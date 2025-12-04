@@ -11,13 +11,15 @@ export function LazyStyles() {
     }
 
     // Load Bootstrap Icons CSS asynchronously with media query to prevent render blocking
+    // This technique prevents the CSS from blocking page rendering
     const bootstrapIconsLink = document.createElement('link') as HTMLLinkElement
     bootstrapIconsLink.rel = 'stylesheet'
     bootstrapIconsLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css'
     bootstrapIconsLink.id = 'bootstrap-icons-stylesheet'
-    // Use media query trick to prevent render blocking
+    // Use media query trick to prevent render blocking - set to 'print' initially
     bootstrapIconsLink.media = 'print'
     bootstrapIconsLink.onload = () => {
+      // Switch to 'all' once loaded to apply styles
       bootstrapIconsLink.media = 'all'
     }
     bootstrapIconsLink.onerror = () => {
@@ -25,16 +27,17 @@ export function LazyStyles() {
       bootstrapIconsLink.remove()
     }
     bootstrapIconsLink.crossOrigin = 'anonymous'
-    // Use requestIdleCallback if available, otherwise load immediately
+    // Load after initial render to avoid blocking critical path
+    // Use requestIdleCallback for better performance, with fallback
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         document.head.appendChild(bootstrapIconsLink)
-      }, { timeout: 2000 })
+      }, { timeout: 3000 }) // Increased timeout to ensure it loads after critical resources
     } else {
-      // Fallback for browsers without requestIdleCallback
+      // Fallback: delay slightly to ensure critical CSS loads first
       setTimeout(() => {
         document.head.appendChild(bootstrapIconsLink)
-      }, 0)
+      }, 100)
     }
   }, [])
 

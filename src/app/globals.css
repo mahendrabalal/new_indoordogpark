@@ -18,6 +18,21 @@ body {
   text-rendering: optimizeLegibility;
   /* Prevent layout shift */
   overflow-x: hidden;
+  /* Reserve space for font loading to prevent CLS */
+  font-display: swap;
+}
+
+/* Prevent layout shift from icon fonts loading */
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  /* Reserve space for icons to prevent layout shift */
+  min-width: 1em;
+  /* Prevent icon font loading from causing layout shift */
+  font-display: block;
 }
 
 /* ========== FAVORITE BUTTON STYLES ========== */
@@ -444,6 +459,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  /* Reserve space to prevent layout shift */
+  min-height: 70px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.04);
 }
 
@@ -469,6 +486,9 @@ body {
   gap: 8px;
   /* Industry standard: Logo text should complement image size */
   font-size: 1.25rem;
+  /* Reserve space for logo to prevent layout shift */
+  min-height: 40px;
+  min-width: 140px;
   font-weight: 700;
   color: #FF5722;
   text-decoration: none;
@@ -687,6 +707,8 @@ body {
   text-align: left;
   background-image: url('/images/hero/hero.webp');
   background-size: cover;
+  /* Reserve minimum height to prevent layout shift */
+  min-height: 500px;
   background-position: center right;
   background-repeat: no-repeat;
   color: #f9fafb;
@@ -1281,6 +1303,9 @@ mark {
   left: 0;
   right: 0;
   background: white;
+  /* Prevent layout shift - limit max height */
+  max-height: 400px;
+  overflow-y: auto;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -1522,6 +1547,13 @@ mark {
   gap: 24px;
   margin-top: 40px;
   align-items: start;
+  /* Reserve minimum height to prevent layout shift */
+  min-height: 400px;
+  /* Use fixed row heights to prevent layout shift */
+  grid-auto-rows: 400px; /* All park cards same height */
+  /* Use content-visibility for better performance */
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
 }
 
 @media (max-width: 1200px) {
@@ -1557,6 +1589,9 @@ mark {
   display: flex;
   flex-direction: column;
   color: inherit;
+  /* Fill grid cell height (set by grid-auto-rows: 400px) to prevent layout shift */
+  height: 100%;
+  min-height: 400px;
   height: 100%;
 }
 
@@ -1658,6 +1693,7 @@ mark {
   position: relative;
   width: 100%;
   height: 200px;
+  aspect-ratio: 16 / 9; /* Reserve space to prevent layout shift */
   overflow: hidden;
   background: #f5f5f5;
   /* Prevent layout shift */
@@ -1672,6 +1708,9 @@ mark {
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  /* Prevent layout shift during image load */
+  background-color: #f5f5f5;
+  display: block;
 }
 
 .park-card-new:hover .park-card-image {
@@ -2113,8 +2152,9 @@ mark {
   justify-content: center;
   min-height: 100vh;
   font-size: 1.2rem;
-  color: #666;
-  gap: 10px;
+  /* Prevent layout shift during loading */
+  width: 100%;
+  position: relative;
 }
 
 /* ========== NO RESULTS ========== */
@@ -3198,6 +3238,11 @@ mark {
 .featured-parks-section {
   background: #fafafa;
   padding: 80px 20px;
+  /* Reserve minimum height to prevent layout shift when content loads */
+  min-height: 300px;
+  /* Use content-visibility for better performance */
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
 }
 
 .featured-parks-container {
@@ -4110,6 +4155,8 @@ mark {
   height: calc(100vh - 60px); /* Compact header height */
   position: relative;
   background: #f8f9fa;
+  /* Reserve space to prevent layout shift */
+  min-height: 600px;
 }
 
 /* Left Side - Listings */

@@ -10,11 +10,13 @@ import CoreWebVitals from '@/components/CoreWebVitals'
 
 const inter = Inter({ 
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional', // Use optional for better performance - prevents layout shift by using fallback if font not ready
   preload: true,
-  fallback: ['system-ui', 'arial'],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'arial', 'sans-serif'],
   variable: '--font-inter',
-  adjustFontFallback: true,
+  adjustFontFallback: true, // Automatically adjusts line-height to match fallback font
+  // Optimize font loading - reduce layout shift
+  weight: ['400', '500', '600', '700'], // Only load weights we actually use
 })
 
 export const metadata: Metadata = {
@@ -168,19 +170,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains for faster resource loading */}
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://unpkg.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-        <link rel="dns-prefetch" href="https://unpkg.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        {/* Preconnect to Google Fonts */}
+        {/* Preconnect to most critical domains only (limit to 4 to avoid warnings) */}
+        {/* Google Fonts - highest priority for font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Images - critical for LCP */}
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        {/* CDN for Bootstrap Icons - loaded lazily but preconnect for faster load */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        {/* DNS prefetch for less critical resources */}
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         
-        {/* Note: Hero image preload moved to homepage only (page.tsx) for better performance */}
-        {/* Preloading in root layout causes warnings when hero section isn't visible */}
+        {/* Preload critical resources for faster initial render */}
+        {/* Logo is used in header and search layout - preload for better LCP */}
+        <link rel="preload" href="/images/logo/logo.png" as="image" type="image/png" />
+        {/* Hero image is used in homepage hero section - preload for better LCP */}
+        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" />
         
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />

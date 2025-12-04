@@ -85,10 +85,13 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
     // Optimize image loading - reduced sizes for better performance
+    // Smaller sizes reduce initial load and improve LCP
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // Cache optimized images
+    // Cache optimized images - long cache for better performance
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+    // Note: Image quality is set per-image using the quality prop on Image components
+    // Default Next.js quality is 75, which provides good balance
     // Enable image optimization
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
@@ -408,7 +411,9 @@ const nextConfig = {
   experimental: {
     // CSS optimization - requires 'critters' package (now installed)
     optimizeCss: true,
-    optimizePackageImports: ['@heroicons/react', 'date-fns'],
+    optimizePackageImports: ['@heroicons/react', 'date-fns', 'leaflet', 'react-leaflet'],
+    // Enable partial prerendering for better performance
+    ppr: false, // Disable for now as it's experimental
   },
   // Optimize compiler options
   compiler: {

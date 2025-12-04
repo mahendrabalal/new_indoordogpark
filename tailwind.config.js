@@ -5,12 +5,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // Optimize CSS output
+  // Optimize CSS output - purge unused styles
   corePlugins: {
     preflight: true,
   },
-  // Enable JIT mode for better performance
-  mode: 'jit',
+  // Enable JIT mode for better performance (default in Tailwind v3+)
+  // This ensures only used CSS is generated, reducing bundle size
   theme: {
     extend: {
       colors: {

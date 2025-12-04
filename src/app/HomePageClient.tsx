@@ -364,7 +364,12 @@ export default function HomePageClient({
       )}
 
       {/* Featured Parks Section - User Submitted (only show when not searching) */}
-      {!showSearchLayout && <FeaturedParks />}
+      {/* Always render container to reserve space and prevent layout shift */}
+      {!showSearchLayout && (
+        <div style={{ minHeight: '800px' }}>
+          <FeaturedParks />
+        </div>
+      )}
 
       {/* Featured Parks Section (only show when not searching) */}
       {!showSearchLayout && allParks.length > 0 && (
