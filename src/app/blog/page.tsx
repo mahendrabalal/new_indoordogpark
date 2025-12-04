@@ -245,17 +245,19 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 <div>
                   <h1 className="mb-6 text-2xl font-bold text-gray-900">The Latest</h1>
                   <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
-                    {getFeaturedImage(featuredPost) && (
-                      <div className="relative h-64 w-full overflow-hidden md:h-80">
-                        <Image
-                          src={getFeaturedImage(featuredPost)!}
-                          alt={featuredPost.featuredImage?.alt_text || featuredPost.title}
-                          fill
-                          className="object-cover"
-                          priority
-                        />
-                      </div>
-                    )}
+                    <div className="relative h-64 w-full overflow-hidden bg-gray-100 md:h-80">
+                      <Image
+                        src={getFeaturedImage(featuredPost) || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'}
+                        alt={featuredPost.featuredImage?.alt_text || featuredPost.title}
+                        fill
+                        className="object-cover"
+                        priority
+                        fetchPriority="high"
+                        decoding="async"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8Jz8YvqVX4J3hw+EPnJ54cr6C+h2R//9k="
+                      />
+                    </div>
                     <div className="p-6">
                       <div className="mb-4 flex items-center gap-4 text-sm text-gray-600">
                         <time dateTime={featuredPost.date}>
@@ -305,17 +307,19 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                             href={`/blog/${post.slug}`}
                             className="group flex gap-4 rounded-lg transition-colors hover:bg-gray-50"
                           >
-                            {postImage && (
-                              <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg">
-                                <Image
-                                  src={postImage}
-                                  alt={post.featuredImage?.alt_text || post.title}
-                                  fill
-                                  className="object-cover transition-transform group-hover:scale-105"
-                                  sizes="80px"
-                                />
-                              </div>
-                            )}
+                            <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
+                              <Image
+                                src={postImage || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80'}
+                                alt={post.featuredImage?.alt_text || post.title}
+                                fill
+                                className="object-cover transition-transform group-hover:scale-105"
+                                sizes="80px"
+                                loading="lazy"
+                                decoding="async"
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8Jz8YvqVX4J3hw+EPnJ54cr6C+h2R//9k="
+                              />
+                            </div>
                             <div className="flex-1 min-w-0">
                               <h3 className="mb-1 line-clamp-2 text-sm font-semibold text-gray-900 group-hover:text-[#FF5722]">
                                 {post.title}

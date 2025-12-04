@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types/wordpress';
+import { useState } from 'react';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -11,32 +14,43 @@ interface BlogCardProps {
   className?: string;
 }
 
+// Fallback image for blog posts
+const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+
 export default function BlogCard({
   post,
   showExcerpt = true,
   showDate = true,
   className = '',
 }: BlogCardProps) {
+  const [imageError, setImageError] = useState(false);
+  
   const featuredImage =
     post.featuredImage?.media_details?.sizes?.large?.source_url ||
     post.featuredImage?.media_details?.sizes?.medium?.source_url ||
     post.featuredImage?.source_url;
+
+  // Use fallback if image failed to load or is missing
+  const imageSrc = imageError || !featuredImage ? FALLBACK_IMAGE : featuredImage;
 
   return (
     <div
       className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg ${className}`}
     >
       {/* Featured Image with Tags Overlay */}
-      {featuredImage && (
-        <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/9] overflow-hidden">
-          <Image
-            src={featuredImage}
-            alt={post.featuredImage?.alt_text || post.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            unoptimized={true}
-          />
+      <Link href={`/blog/${post.slug}`} className="relative block aspect-[16/9] overflow-hidden bg-gray-100">
+        <Image
+          src={imageSrc}
+          alt={post.featuredImage?.alt_text || post.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={() => setImageError(true)}
+          loading="lazy"
+          decoding="async"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8Jz8YvqVX4J3hw+EPnJ54cr6C+h2R//9k="
+        />
           {/* Tags Overlay */}
           {post.categories.length > 0 && (
             <div className="absolute left-3 top-3 flex flex-wrap gap-2">
@@ -51,7 +65,6 @@ export default function BlogCard({
             </div>
           )}
         </Link>
-      )}
 
       <div className="flex h-full flex-col p-6">
         {/* Title */}
