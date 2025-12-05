@@ -18,7 +18,7 @@ import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity
 // Use ISR with on-demand revalidation (best practice)
 // Pages are statically generated and cached for performance
 // Revalidate via webhook when new posts are published in Sanity
-export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
+export const revalidate = 60; // Revalidate every 1 minute for faster updates
 
 // Define the BlogPage component props
 interface BlogPageProps {
