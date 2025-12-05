@@ -2,12 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 /**
  * Geocoding API endpoint
- * Converts addresses to latitude/longitude coordinates using Google Maps Geocoding API
+ * Converts addresses to latitude/longitude coordinates using OpenStreetMap Nominatim API
  * 
- * Best practices:
- * - Server-side API key handling (keeps keys secure)
- * - Rate limiting handled by Google
- * - Error handling for invalid addresses
+ * Note: uses Nominatim (free, no API key required)
+ * Usage Limit: Max 1 request per second
  */
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -44,26 +42,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get API key from environment
-    const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
-    
-    if (!apiKey) {
-      console.error('Google Maps API key not configured');
-      return NextResponse.json(
-        { error: 'Geocoding service is not configured. Please contact support.' },
-        { status: 503 }
-      );
-    }
-
-    // Call Google Maps Geocoding API
-    const geocodeUrl = new URL('https://maps.googleapis.com/maps/api/geocode/json');
-    geocodeUrl.searchParams.set('address', addressString.trim());
-    geocodeUrl.searchParams.set('key', apiKey);
+    // Call OpenStreetMap Nominatim API
+    // Docs: https://nominatim.org/release-docs/develop/api/Search/
+    const geocodeUrl = new URL('https://nominatim.openstreetmap.org/search');
+    geocodeUrl.searchParams.set('q', addressString.trim());
+    geocodeUrl.searchParams.set('format', 'json');
+    geocodeUrl.searchParams.set('limit', '1');
+    geocodeUrl.searchParams.set('addressdetails', '1');
+    geocodeUrl.searchParams.set('countrycodes', 'us'); // Limit to US since app is for California
 
     const response = await fetch(geocodeUrl.toString(), {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
+        // User-Agent is REQUIRED by Nominatim usage policy
+        'User-Agent': 'IndoorDogPark/1.0 (internal-dev-testing)',
       },
     });
 
@@ -73,45 +66,37 @@ export async function POST(request: NextRequest) {
 
     const data = await response.json();
 
-    // Handle API errors
-    if (data.status === 'REQUEST_DENIED') {
-      console.error('Geocoding API error:', data.error_message);
-      return NextResponse.json(
-        { error: 'Geocoding service access denied. Please check API key configuration.' },
-        { status: 503 }
-      );
-    }
-
-    if (data.status === 'OVER_QUERY_LIMIT') {
-      return NextResponse.json(
-        { error: 'Geocoding service quota exceeded. Please try again later.' },
-        { status: 429 }
-      );
-    }
-
-    if (data.status === 'ZERO_RESULTS') {
+    if (!Array.isArray(data) || data.length === 0) {
       return NextResponse.json(
         { error: 'Address not found. Please check the address and try again.' },
         { status: 404 }
       );
     }
 
-    if (data.status !== 'OK' || !data.results || data.results.length === 0) {
-      return NextResponse.json(
-        { error: `Geocoding failed: ${data.status}` },
-        { status: 400 }
-      );
-    }
-
     // Extract coordinates from the first result
-    const location = data.results[0].geometry.location;
-    const formattedAddress = data.results[0].formatted_address;
+    const result = data[0];
+
+    // Convert to our standard format
+    // Nominatim returns lat/lon as strings, we need numbers
+    const latitude = parseFloat(result.lat);
+    const longitude = parseFloat(result.lon);
+
+    // Map address components if possible
+    const addressComponents = result.address || {};
 
     return NextResponse.json({
-      latitude: location.lat,
-      longitude: location.lng,
-      formattedAddress,
-      addressComponents: data.results[0].address_components,
+      latitude,
+      longitude,
+      formattedAddress: result.display_name,
+      // Provide raw components just in case
+      addressComponents: [
+        { types: ['street_number'], long_name: addressComponents.house_number },
+        { types: ['route'], long_name: addressComponents.road },
+        { types: ['locality'], long_name: addressComponents.city || addressComponents.town || addressComponents.village },
+        { types: ['administrative_area_level_1'], long_name: addressComponents.state },
+        { types: ['postal_code'], long_name: addressComponents.postcode },
+        { types: ['country'], long_name: addressComponents.country },
+      ].filter(c => c.long_name), // Filter out missing components
     });
 
   } catch (error) {
@@ -122,7 +107,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
 
 
 

@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     // Check authentication (you may want to add admin-only access)
     const authHeader = request.headers.get('authorization');
     const expectedToken = process.env.OUTREACH_API_TOKEN;
-    
+
     if (expectedToken && authHeader !== `Bearer ${expectedToken}`) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },
@@ -37,10 +37,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Rate limiting
-    const ip = request.headers.get('x-forwarded-for') || 
-               request.headers.get('x-real-ip') || 
-               'unknown';
-    
+    const ip = request.headers.get('x-forwarded-for') ||
+      request.headers.get('x-real-ip') ||
+      'unknown';
+
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
         { success: false, error: 'Rate limit exceeded. Please try again later.' },
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Generate email HTML
-    const emailHtml = generateParkOutreachEmail(parkData);
+    const emailHtml = await generateParkOutreachEmail(parkData);
     const subject = `Partner with IndoorDogPark.org - Increase Visibility for ${parkName}`;
 
     // In test mode, return the email HTML without sending

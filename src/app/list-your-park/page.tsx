@@ -48,15 +48,19 @@ export default function ListPropertyPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Load selected plan from URL params if available (coming back from login)
+  // Load selected plan and step from URL params if available (coming back from login)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Only check URL params (in case user came back from login)
+      // Check URL params (in case user came back from login)
       const urlParams = new URLSearchParams(window.location.search);
       const planParam = urlParams.get('plan');
+      const stepParam = urlParams.get('step');
+
       if (planParam === 'free' || planParam === 'featured') {
         setSelectedPlan(planParam);
-        setCurrentStep(1); // Skip plan selection only if coming from login
+        // Restore to saved step (usually step 6 review page) or default to step 1
+        const savedStep = stepParam ? parseInt(stepParam, 10) : 6;
+        setCurrentStep(savedStep >= 1 && savedStep <= 6 ? savedStep : 6);
         // Clean up URL
         window.history.replaceState({}, '', '/list-your-park');
         return;
@@ -192,7 +196,10 @@ export default function ListPropertyPage() {
   const handleSubmit = async (listingType: 'free' | 'featured') => {
     // Require login before submission
     if (!user) {
-      router.push(`/login?redirect=/list-your-park&plan=${listingType}`);
+      // Include step in redirect so user returns to review page
+      // URL encode the redirect path to ensure params are preserved
+      const redirectPath = `/list-your-park?plan=${listingType}&step=6`;
+      router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
       return;
     }
 
@@ -202,7 +209,8 @@ export default function ListPropertyPage() {
     try {
       const { accessToken, refreshToken } = await getSessionTokens();
       if (!accessToken) {
-        router.push(`/login?redirect=/list-your-park&plan=${listingType}`);
+        const redirectPath = `/list-your-park?plan=${listingType}&step=6`;
+        router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
         setIsSubmitting(false);
         return;
       }

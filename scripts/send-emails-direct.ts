@@ -13,7 +13,7 @@ require('dotenv').config({ path: '.env.local' });
 function generateParkOutreachEmail(data: any): string {
   const { parkName, parkCity, parkState, personalizedNote } = data;
   const location = parkCity && parkState ? ` in ${parkCity}, ${parkState}` : '';
-  
+
   return `
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@ function generateParkOutreachEmail(data: any): string {
   <div style="background: #ffffff; padding: 40px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
     <h2 style="color: #667eea; margin-top: 0;">Hello ${parkName}${location ? ` Team` : ''}!</h2>
     
-    <p>We're reaching out because ${parkName}${location} is already featured in our comprehensive directory of indoor dog parks across California. We'd love to help you get more visibility and connect with more dog owners in your area.</p>
+    <p>We're reaching out because ${parkName}${location} is already featured in our comprehensive directory of indoor dog parks. We'd love to help you get more visibility and connect with more dog owners in your area.</p>
     
     ${personalizedNote ? `<div style="background: #f3f4f6; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0;">
       <p style="margin: 0; font-style: italic;">${personalizedNote}</p>
@@ -168,7 +168,7 @@ function loadParkData(filePath: string): ParkData[] {
   const fullPath = path.resolve(process.cwd(), filePath);
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
   const data = JSON.parse(fileContent);
-  
+
   if (Array.isArray(data)) {
     return data;
   } else if (data.parks && Array.isArray(data.parks)) {
@@ -180,7 +180,7 @@ function loadParkData(filePath: string): ParkData[] {
 
 async function main() {
   const args = process.argv.slice(2);
-  
+
   let dataFile = 'public/data/california.json';
   let limit = 16;
   let delay = 2000;

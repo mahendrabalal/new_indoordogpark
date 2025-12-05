@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
+import { useSearchParams } from 'next/navigation';
 import Footer from '@/components/Footer';
 
 const heroPatternStyle: CSSProperties = {
@@ -76,6 +77,7 @@ function SignupExperience() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const { signUp } = useAuth();
+  const searchParams = useSearchParams();
 
   const passwordChecks = useMemo(
     () => ({
@@ -135,320 +137,325 @@ function SignupExperience() {
       <Header />
       <div className="flex flex-1 flex-col bg-[#F5F6F8] lg:flex-row">
         <section className="relative hidden flex-1 items-center justify-center overflow-hidden lg:flex">
-        <Image
-          src="/images/auth/login-hero.webp"
-          alt="Pet parents enjoying a modern indoor dog park"
-          fill
-          priority
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FF784A] via-[#FF5722] to-[#E64A19] opacity-90" />
-        <div className="absolute inset-0 opacity-40" style={heroPatternStyle} />
+          <Image
+            src="/images/auth/login-hero.webp"
+            alt="Pet parents enjoying a modern indoor dog park"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FF784A] via-[#FF5722] to-[#E64A19] opacity-90" />
+          <div className="absolute inset-0 opacity-40" style={heroPatternStyle} />
 
-        <div className="relative z-10 flex max-w-xl flex-col gap-8 px-12 py-16 text-white">
-          <Link
-            href="/"
-            className="w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur"
-          >
-            IndoorDogPark
-          </Link>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">Indoor members club</p>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight lg:text-5xl">
-              Create a climate-ready indoor plan in just a few clicks
-            </h1>
-            <p className="mt-4 text-lg text-white/85">
-              Know which venues are safe, staffed, and climate-controlled before you leash up. Membership unlocks live capacity, safety notes, and concierge alerts.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.15)] backdrop-blur"
-              >
-                <p className="text-3xl font-semibold lg:text-4xl">{stat.value}</p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">{stat.label}</p>
-                <p className="mt-1 text-sm text-white/75">{stat.helper}</p>
-              </div>
-            ))}
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
-            <p className="text-base leading-relaxed text-white">
-              “IndoorDogPark lets me check humidity-controlled play spaces before every storm. The data is accurate and the onboarding was painless.”
-            </p>
-            <p className="mt-4 text-sm font-semibold">Maya, Marin County member since 2023</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="flex w-full flex-1 items-center justify-center bg-white px-4 py-12 sm:px-8 lg:px-16">
-        <div className="w-full max-w-lg">
-          <div className="mb-8 space-y-3">
+          <div className="relative z-10 flex max-w-xl flex-col gap-8 px-12 py-16 text-white">
             <Link
               href="/"
-              className="text-sm font-medium text-[#FF5722] transition-colors hover:text-[#E64A19]"
+              className="w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur"
             >
-              ← Back to directory
+              IndoorDogPark
             </Link>
-            {!success && (
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7043]">
-                  Step 1 of 2 · Account setup
-                </p>
-                <h2 className="mt-3 text-3xl font-semibold text-gray-900">Create your indoor membership</h2>
-                <p className="mt-3 text-base text-gray-600">
-                  Set up secure credentials now. We’ll guide you through pet and household details after email verification.
-                </p>
-              </div>
-            )}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">Indoor members club</p>
+              <h1 className="mt-4 text-4xl font-semibold leading-tight lg:text-5xl">
+                Create a climate-ready indoor plan in just a few clicks
+              </h1>
+              <p className="mt-4 text-lg text-white/85">
+                Know which venues are safe, staffed, and climate-controlled before you leash up. Membership unlocks live capacity, safety notes, and concierge alerts.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.15)] backdrop-blur"
+                >
+                  <p className="text-3xl font-semibold lg:text-4xl">{stat.value}</p>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">{stat.label}</p>
+                  <p className="mt-1 text-sm text-white/75">{stat.helper}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <p className="text-base leading-relaxed text-white">
+                “IndoorDogPark lets me check humidity-controlled play spaces before every storm. The data is accurate and the onboarding was painless.”
+              </p>
+              <p className="mt-4 text-sm font-semibold">Maya, Marin County member since 2023</p>
+            </div>
           </div>
+        </section>
 
-          <div className="rounded-3xl border border-gray-100 bg-white/90 p-6 shadow-xl shadow-gray-200/60 sm:p-8">
-            {success ? (
-              <div className="space-y-6 text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#FFF3E0] text-[#FF7043]">
-                  <SparklesIcon />
-                </div>
+        <section className="flex w-full flex-1 items-center justify-center bg-white px-4 py-12 sm:px-8 lg:px-16">
+          <div className="w-full max-w-lg">
+            <div className="mb-8 space-y-3">
+              <Link
+                href="/"
+                className="text-sm font-medium text-[#FF5722] transition-colors hover:text-[#E64A19]"
+              >
+                ← Back to directory
+              </Link>
+              {!success && (
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#FF7043]">
-                    Verify & activate
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7043]">
+                    Step 1 of 2 · Account setup
                   </p>
-                  <h3 className="mt-3 text-3xl font-semibold text-gray-900">Check your inbox</h3>
+                  <h2 className="mt-3 text-3xl font-semibold text-gray-900">Create your indoor membership</h2>
                   <p className="mt-3 text-base text-gray-600">
-                    We just sent a secure link to <span className="font-semibold text-gray-900">{email}</span>. Open it within 24 hours to confirm your membership.
+                    Set up secure credentials now. We’ll guide you through pet and household details after email verification.
                   </p>
                 </div>
-                <div className="space-y-4 text-sm text-gray-500">
-                  <p>Didn’t see the email? Check your spam folder or request another link.</p>
-                  <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold text-[#FF5722]">
-                    <button
-                      type="button"
-                      className="underline-offset-4 hover:underline"
-                      onClick={() => setSuccess(false)}
-                    >
-                      Use a different email
-                    </button>
-                    <Link href="/login" className="underline-offset-4 hover:underline">
-                      Ready? Sign in
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-                {error && (
-                  <div
-                    role="alert"
-                    aria-live="assertive"
-                    className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
-                  >
-                    <p className="font-semibold">We couldn’t complete your signup</p>
-                    <p className="mt-1">{error}</p>
-                  </div>
-                )}
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="email" className="text-sm font-semibold text-gray-700">
-                      Email address
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      className="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
-                      placeholder="you@indoordogpark.com"
-                      value={email}
-                      onChange={(event) => {
-                        setEmail(event.target.value);
-                        if (error) setError('');
-                      }}
-                    />
-                    <p className="mt-2 text-sm text-gray-500">We’ll send verification and capacity alerts here.</p>
-                  </div>
+              )}
+            </div>
 
+            <div className="rounded-3xl border border-gray-100 bg-white/90 p-6 shadow-xl shadow-gray-200/60 sm:p-8">
+              {success ? (
+                <div className="space-y-6 text-center">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#FFF3E0] text-[#FF7043]">
+                    <SparklesIcon />
+                  </div>
                   <div>
-                    <label htmlFor="password" className="text-sm font-semibold text-gray-700">
-                      Password
-                    </label>
-                    <div className="relative mt-2">
-                      <input
-                        id="password"
-                        name="password"
-                        type={showPassword ? 'text' : 'password'}
-                        autoComplete="new-password"
-                        required
-                        className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-28 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
-                        placeholder="Create a secure password"
-                        value={password}
-                        onChange={(event) => {
-                          setPassword(event.target.value);
-                          if (error) setError('');
-                        }}
-                        aria-invalid={Boolean(error)}
-                      />
+                    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#FF7043]">
+                      Verify & activate
+                    </p>
+                    <h3 className="mt-3 text-3xl font-semibold text-gray-900">Check your inbox</h3>
+                    <p className="mt-3 text-base text-gray-600">
+                      We just sent a secure link to <span className="font-semibold text-gray-900">{email}</span>. Open it within 24 hours to confirm your membership.
+                    </p>
+                  </div>
+                  <div className="space-y-4 text-sm text-gray-500">
+                    <p>Didn’t see the email? Check your spam folder or request another link.</p>
+                    <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold text-[#FF5722]">
                       <button
                         type="button"
-                        onClick={() => setShowPassword((prev) => !prev)}
-                        className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
+                        className="underline-offset-4 hover:underline"
+                        onClick={() => setSuccess(false)}
                       >
-                        {showPassword ? 'Hide' : 'Show'}
+                        Use a different email
                       </button>
+                      <Link
+                        href={searchParams.get('redirect') ? `/login?redirect=${encodeURIComponent(searchParams.get('redirect')!)}` : '/login'}
+                        className="underline-offset-4 hover:underline"
+                      >
+                        Ready? Sign in
+                      </Link>
                     </div>
-                    <div className="mt-3">
-                      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-gray-600">
-                        <span>Password strength</span>
-                        <span>{passwordStrengthLabel}</span>
-                      </div>
-                      <div className="mt-2 h-2 rounded-full bg-gray-100">
-                        <div
-                          className="h-full rounded-full bg-[#FF7043] transition-all"
-                          style={{ width: `${passwordStrengthPercent}%` }}
+                  </div>
+                </div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                  {error && (
+                    <div
+                      role="alert"
+                      aria-live="assertive"
+                      className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                    >
+                      <p className="font-semibold">We couldn’t complete your signup</p>
+                      <p className="mt-1">{error}</p>
+                    </div>
+                  )}
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="email" className="text-sm font-semibold text-gray-700">
+                        Email address
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        className="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
+                        placeholder="you@indoordogpark.com"
+                        value={email}
+                        onChange={(event) => {
+                          setEmail(event.target.value);
+                          if (error) setError('');
+                        }}
+                      />
+                      <p className="mt-2 text-sm text-gray-500">We’ll send verification and capacity alerts here.</p>
+                    </div>
+
+                    <div>
+                      <label htmlFor="password" className="text-sm font-semibold text-gray-700">
+                        Password
+                      </label>
+                      <div className="relative mt-2">
+                        <input
+                          id="password"
+                          name="password"
+                          type={showPassword ? 'text' : 'password'}
+                          autoComplete="new-password"
+                          required
+                          className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-28 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
+                          placeholder="Create a secure password"
+                          value={password}
+                          onChange={(event) => {
+                            setPassword(event.target.value);
+                            if (error) setError('');
+                          }}
+                          aria-invalid={Boolean(error)}
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword((prev) => !prev)}
+                          className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
+                        >
+                          {showPassword ? 'Hide' : 'Show'}
+                        </button>
                       </div>
-                      <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-gray-500">
-                        {(Object.keys(passwordChecks) as Array<keyof typeof passwordChecks>).map((key) => (
-                          <div key={key} className="flex items-center gap-2">
-                            <span
-                              className={`inline-flex h-4 w-4 items-center justify-center rounded-full border ${
-                                passwordChecks[key]
+                      <div className="mt-3">
+                        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-gray-600">
+                          <span>Password strength</span>
+                          <span>{passwordStrengthLabel}</span>
+                        </div>
+                        <div className="mt-2 h-2 rounded-full bg-gray-100">
+                          <div
+                            className="h-full rounded-full bg-[#FF7043] transition-all"
+                            style={{ width: `${passwordStrengthPercent}%` }}
+                          />
+                        </div>
+                        <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-gray-500">
+                          {(Object.keys(passwordChecks) as Array<keyof typeof passwordChecks>).map((key) => (
+                            <div key={key} className="flex items-center gap-2">
+                              <span
+                                className={`inline-flex h-4 w-4 items-center justify-center rounded-full border ${passwordChecks[key]
                                   ? 'border-[#FF5722] bg-[#FFEDDE]'
                                   : 'border-gray-300 bg-white'
-                              }`}
-                            >
-                              {passwordChecks[key] && <span className="h-2 w-2 rounded-full bg-[#FF5722]" />}
-                            </span>
-                            <span>{passwordRequirementCopy[key]}</span>
-                          </div>
-                        ))}
+                                  }`}
+                              >
+                                {passwordChecks[key] && <span className="h-2 w-2 rounded-full bg-[#FF5722]" />}
+                              </span>
+                              <span>{passwordRequirementCopy[key]}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div>
-                    <label htmlFor="confirm-password" className="text-sm font-semibold text-gray-700">
-                      Confirm password
-                    </label>
-                    <div className="relative mt-2">
-                      <input
-                        id="confirm-password"
-                        name="confirm-password"
-                        type={showConfirmPassword ? 'text' : 'password'}
-                        autoComplete="new-password"
-                        required
-                        className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-32 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
-                        placeholder="Re-enter your password"
-                        value={confirmPassword}
-                        onChange={(event) => {
-                          setConfirmPassword(event.target.value);
-                          if (error) setError('');
-                        }}
-                        aria-invalid={Boolean(error)}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowConfirmPassword((prev) => !prev)}
-                        className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
-                      >
-                        {showConfirmPassword ? 'Hide' : 'Show'}
-                      </button>
+                    <div>
+                      <label htmlFor="confirm-password" className="text-sm font-semibold text-gray-700">
+                        Confirm password
+                      </label>
+                      <div className="relative mt-2">
+                        <input
+                          id="confirm-password"
+                          name="confirm-password"
+                          type={showConfirmPassword ? 'text' : 'password'}
+                          autoComplete="new-password"
+                          required
+                          className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-32 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722]/15"
+                          placeholder="Re-enter your password"
+                          value={confirmPassword}
+                          onChange={(event) => {
+                            setConfirmPassword(event.target.value);
+                            if (error) setError('');
+                          }}
+                          aria-invalid={Boolean(error)}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowConfirmPassword((prev) => !prev)}
+                          className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
+                        >
+                          {showConfirmPassword ? 'Hide' : 'Show'}
+                        </button>
+                      </div>
                     </div>
+
                   </div>
 
-                </div>
+                  <div className="space-y-4">
+                    <label className="flex items-start gap-3 text-sm text-gray-700">
+                      <input
+                        type="checkbox"
+                        checked={termsAccepted}
+                        onChange={(event) => setTermsAccepted(event.target.checked)}
+                        className="mt-1 h-4 w-4 rounded border-gray-300 text-[#FF5722] focus:ring-[#FF7043]"
+                      />
+                      <span>
+                        I agree to the{' '}
+                        <Link href="/terms" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
+                          Membership Terms
+                        </Link>{' '}
+                        and{' '}
+                        <Link href="/privacy" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
+                          Privacy Policy
+                        </Link>
+                        .
+                      </span>
+                    </label>
 
-                <div className="space-y-4">
-                  <label className="flex items-start gap-3 text-sm text-gray-700">
-                    <input
-                      type="checkbox"
-                      checked={termsAccepted}
-                      onChange={(event) => setTermsAccepted(event.target.checked)}
-                      className="mt-1 h-4 w-4 rounded border-gray-300 text-[#FF5722] focus:ring-[#FF7043]"
-                    />
-                    <span>
-                      I agree to the{' '}
-                      <Link href="/terms" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-                        Membership Terms
-                      </Link>{' '}
-                      and{' '}
-                      <Link href="/privacy" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-                        Privacy Policy
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF5722] px-4 py-3 text-base font-semibold text-white shadow-lg shadow-[#FF5722]/30 transition hover:bg-[#E64A19] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FF5722]/40 disabled:cursor-not-allowed disabled:opacity-70"
+                    >
+                      {loading && (
+                        <svg
+                          className="h-5 w-5 animate-spin text-white"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 4.75c-3.993 0-7.25 3.257-7.25 7.25s3.257 7.25 7.25 7.25 7.25-3.257 7.25-7.25"
+                          />
+                        </svg>
+                      )}
+                      {loading ? 'Creating secure account' : 'Create secure account'}
+                    </button>
+
+                    <p className="text-center text-sm text-gray-600">
+                      Already a member?{' '}
+                      <Link
+                        href={searchParams.get('redirect') ? `/login?redirect=${encodeURIComponent(searchParams.get('redirect')!)}` : '/login'}
+                        className="font-semibold text-[#FF5722] hover:text-[#E64A19]"
+                      >
+                        Sign in instead
                       </Link>
                       .
-                    </span>
-                  </label>
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF5722] px-4 py-3 text-base font-semibold text-white shadow-lg shadow-[#FF5722]/30 transition hover:bg-[#E64A19] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FF5722]/40 disabled:cursor-not-allowed disabled:opacity-70"
-                  >
-                    {loading && (
-                      <svg
-                        className="h-5 w-5 animate-spin text-white"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 4.75c-3.993 0-7.25 3.257-7.25 7.25s3.257 7.25 7.25 7.25 7.25-3.257 7.25-7.25"
-                        />
-                      </svg>
-                    )}
-                    {loading ? 'Creating secure account' : 'Create secure account'}
-                  </button>
-
-                  <p className="text-center text-sm text-gray-600">
-                    Already a member?{' '}
-                    <Link href="/login" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-                      Sign in instead
-                    </Link>
-                    .
-                  </p>
+            {!success && (
+              <>
+                <div className="mt-6 rounded-2xl border border-gray-100 bg-gray-50 px-5 py-5">
+                  <p className="text-sm font-semibold text-gray-900">Indoor essentials included:</p>
+                  <ul className="mt-4 grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
+                    {benefitHighlights.map((item) => (
+                      <li key={item} className="flex items-center gap-3">
+                        <CheckIcon />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </form>
+
+                <div className="mt-6 grid gap-4 rounded-2xl border border-gray-100 bg-white p-5 sm:grid-cols-2">
+                  {onboardingChecklist.map((item) => (
+                    <div key={item} className="rounded-2xl bg-gray-50/70 p-4 text-sm text-gray-700">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-6 text-center text-sm text-gray-500">
+                  Prefer concierge onboarding?{' '}
+                  <Link href="/contact" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
+                    Chat with our team
+                  </Link>
+                  .
+                </p>
+              </>
             )}
           </div>
-
-          {!success && (
-            <>
-              <div className="mt-6 rounded-2xl border border-gray-100 bg-gray-50 px-5 py-5">
-                <p className="text-sm font-semibold text-gray-900">Indoor essentials included:</p>
-                <ul className="mt-4 grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
-                  {benefitHighlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <CheckIcon />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 grid gap-4 rounded-2xl border border-gray-100 bg-white p-5 sm:grid-cols-2">
-                {onboardingChecklist.map((item) => (
-                  <div key={item} className="rounded-2xl bg-gray-50/70 p-4 text-sm text-gray-700">
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-6 text-center text-sm text-gray-500">
-                Prefer concierge onboarding?{' '}
-                <Link href="/contact" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-                  Chat with our team
-                </Link>
-                .
-              </p>
-            </>
-          )}
-        </div>
-      </section>
+        </section>
       </div>
       <Footer />
     </div>

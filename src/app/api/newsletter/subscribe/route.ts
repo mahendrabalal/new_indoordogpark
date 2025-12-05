@@ -19,6 +19,8 @@ interface SubscribeRequest {
     email: string;
     type: 'owner' | 'consumer';
     source?: string;
+    parkName?: string;
+    location?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -39,7 +41,7 @@ export async function POST(req: NextRequest) {
 
         // Parse request body
         const body = await req.json() as SubscribeRequest;
-        const { email, type, source } = body;
+        const { email, type, source, parkName, location } = body;
 
         // Validate inputs
         if (!email || !type) {
@@ -66,15 +68,37 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // Handle additional fields for owners
+        const metadata: Record<string, string> = {};
+        if (type === 'owner') {
+            if (parkName) metadata.parkName = parkName;
+            if (location) metadata.location = location;
+        }
+
         // Check if subscriber already exists
         const { data: existingSubscriber } = await supabase
             .from('subscribers')
-            .select('id, status')
+            .select('id, status, metadata')
             .eq('email', email.toLowerCase())
             .single();
 
         // If subscriber exists and is active, return success (idempotent)
         if (existingSubscriber) {
+            // Merge new metadata with existing
+            const updatedMetadata = { ...existingSubscriber.metadata as object, ...metadata };
+
+            // Should we update metadata for existing users? Yes, might as well capture it.
+            if (Object.keys(metadata).length > 0 || existingSubscriber.status !== 'active') {
+                await supabase
+                    .from('subscribers')
+                    .update({
+                        status: 'active',
+                        updated_at: new Date().toISOString(),
+                        metadata: updatedMetadata
+                    })
+                    .eq('email', email.toLowerCase());
+            }
+
             if (existingSubscriber.status === 'active') {
                 return NextResponse.json({
                     success: true,
@@ -82,12 +106,6 @@ export async function POST(req: NextRequest) {
                     alreadySubscribed: true,
                 });
             } else {
-                // Reactivate if they were unsubscribed
-                await supabase
-                    .from('subscribers')
-                    .update({ status: 'active', updated_at: new Date().toISOString() })
-                    .eq('email', email.toLowerCase());
-
                 return NextResponse.json({
                     success: true,
                     message: 'Subscription reactivated',
@@ -103,6 +121,7 @@ export async function POST(req: NextRequest) {
                 type,
                 source: source || 'unknown',
                 status: 'active',
+                metadata,
             });
 
         if (insertError) {
@@ -114,19 +133,21 @@ export async function POST(req: NextRequest) {
         }
 
         // Send welcome email based on type
-        const welcomeEmailHtml = type === 'consumer'
-            ? generateConsumerWelcomeEmail(email)
-            : generateOwnerWelcomeEmail(email);
+        const welcomeHtml =
+            type === 'consumer'
+                ? await generateConsumerWelcomeEmail(email)
+                : await generateOwnerWelcomeEmail();
 
         const emailSubject = type === 'consumer'
             ? '🐕 Welcome to IndoorDogPark.org!'
             : '🤝 Welcome to Our Partner Network!';
 
         // Send email (non-blocking - don't fail if email fails)
-        sendEmail({
+        await sendEmail({
             to: email,
             subject: emailSubject,
-            html: welcomeEmailHtml,
+            html: welcomeHtml,
+            replyTo: 'media@indoordogpark.org'
         }).catch((error) => {
             console.error('Failed to send welcome email:', error);
             // Log but don't fail the request

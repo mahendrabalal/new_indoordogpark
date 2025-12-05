@@ -2,10 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 
-interface ScrollPosition {
-  y: number;
-  direction: 'up' | 'down' | null;
-}
+
 
 export const useNavbarScroll = () => {
   const [isVisible, setIsVisible] = useState(true);

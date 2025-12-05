@@ -126,228 +126,231 @@ function LoginForm() {
       <Header />
       <div className="flex flex-1 flex-col bg-[#F5F6F8] lg:flex-row">
         <section className="relative hidden flex-1 items-center justify-center overflow-hidden lg:flex">
-        <Image
-          src="/images/auth/login-hero.webp"
-          alt="Dogs enjoying a modern indoor dog park"
-          fill
-          priority
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FF784A] via-[#FF5722] to-[#E64A19] opacity-80" />
-        <div className="absolute inset-0 opacity-35" style={heroPatternStyle} />
-        <div className="relative z-10 flex max-w-xl flex-col gap-10 px-12 py-16 text-white">
-          <Link
-            href="/"
-            className="w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur"
-          >
-            IndoorDogPark
-          </Link>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-              California indoor network
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight lg:text-5xl">
-              Plan safe indoor play sessions with confidence
-            </h1>
-            <p className="mt-4 text-lg text-white/85">
-              Unlock climate-friendly venues, member-only perks, and live capacity alerts for your
-              pup’s next adventure.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.15)] backdrop-blur"
-              >
-                <p className="text-3xl font-semibold lg:text-4xl">{stat.value}</p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">
-                  {stat.label}
-                </p>
-                <p className="mt-1 text-sm text-white/75">{stat.helper}</p>
-              </div>
-            ))}
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
-            <p className="text-base leading-relaxed text-white">
-              “IndoorDogPark is the fastest way to see which climate-controlled parks are open before
-              I leave home. The data is consistently accurate.”
-            </p>
-            <p className="mt-4 text-sm font-semibold">Ariana, East Bay Member</p>
-          </div>
-        </div>
-      </section>
-      <section className="flex w-full flex-1 items-center justify-center bg-white px-4 py-12 sm:px-8 lg:px-16">
-        <div className="w-full max-w-md">
-          <div className="mb-8 space-y-3">
+          <Image
+            src="/images/auth/login-hero.webp"
+            alt="Dogs enjoying a modern indoor dog park"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FF784A] via-[#FF5722] to-[#E64A19] opacity-80" />
+          <div className="absolute inset-0 opacity-35" style={heroPatternStyle} />
+          <div className="relative z-10 flex max-w-xl flex-col gap-10 px-12 py-16 text-white">
             <Link
               href="/"
-              className="text-sm font-medium text-[#FF5722] transition-colors hover:text-[#E64A19]"
+              className="w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur"
             >
-              ← Back to directory
+              IndoorDogPark
             </Link>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7043]">
-                Welcome back
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                California indoor network
               </p>
-              <h2 className="mt-3 text-3xl font-semibold text-gray-900">
-                Sign in to your account
-              </h2>
-              <p className="mt-3 text-base text-gray-600">
-                Continue tracking indoor capacity, park amenities, and curated owner resources.
-              </p>
-            </div>
-          </div>
-          <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/70 px-4 py-3 text-sm text-emerald-900">
-            <ShieldIcon />
-            <div>
-              <p className="font-semibold">Secure login & encrypted credentials</p>
-              <p className="text-emerald-900/80">
-                Powered by Supabase Auth with TLS 1.3, device fingerprinting, and bot protection.
+              <h1 className="mt-4 text-4xl font-semibold leading-tight lg:text-5xl">
+                Plan safe indoor play sessions with confidence
+              </h1>
+              <p className="mt-4 text-lg text-white/85">
+                Unlock climate-friendly venues, member-only perks, and live capacity alerts for your
+                pup’s next adventure.
               </p>
             </div>
+            <div className="grid grid-cols-2 gap-4">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-3xl border border-white/20 bg-white/10 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.15)] backdrop-blur"
+                >
+                  <p className="text-3xl font-semibold lg:text-4xl">{stat.value}</p>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">
+                    {stat.label}
+                  </p>
+                  <p className="mt-1 text-sm text-white/75">{stat.helper}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <p className="text-base leading-relaxed text-white">
+                “IndoorDogPark is the fastest way to see which climate-controlled parks are open before
+                I leave home. The data is consistently accurate.”
+              </p>
+              <p className="mt-4 text-sm font-semibold">Ariana, East Bay Member</p>
+            </div>
           </div>
-          <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-            {error && (
-              <div
-                role="alert"
-                aria-live="assertive"
-                className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+        </section>
+        <section className="flex w-full flex-1 items-center justify-center bg-white px-4 py-12 sm:px-8 lg:px-16">
+          <div className="w-full max-w-md">
+            <div className="mb-8 space-y-3">
+              <Link
+                href="/"
+                className="text-sm font-medium text-[#FF5722] transition-colors hover:text-[#E64A19]"
               >
-                <p className="font-semibold">We couldn’t sign you in</p>
-                <p className="mt-1">{error}</p>
+                ← Back to directory
+              </Link>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#FF7043]">
+                  Welcome back
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-gray-900">
+                  Sign in to your account
+                </h2>
+                <p className="mt-3 text-base text-gray-600">
+                  Continue tracking indoor capacity, park amenities, and curated owner resources.
+                </p>
               </div>
-            )}
-            <div>
-              <label htmlFor="email" className="text-sm font-semibold text-gray-700">
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722] focus:ring-opacity-20"
-                placeholder="founder@indoordogpark.com"
-                value={email}
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                  if (error) setError('');
-                }}
-                aria-invalid={Boolean(error)}
-              />
-              <p className="mt-2 text-sm text-gray-500">Use the email you used when creating your membership.</p>
             </div>
-            <div>
-              <label htmlFor="password" className="text-sm font-semibold text-gray-700">
-                Password
-              </label>
-              <div className="relative mt-2">
+            <div className="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/70 px-4 py-3 text-sm text-emerald-900">
+              <ShieldIcon />
+              <div>
+                <p className="font-semibold">Secure login & encrypted credentials</p>
+                <p className="text-emerald-900/80">
+                  Powered by Supabase Auth with TLS 1.3, device fingerprinting, and bot protection.
+                </p>
+              </div>
+            </div>
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+              {error && (
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                >
+                  <p className="font-semibold">We couldn’t sign you in</p>
+                  <p className="mt-1">{error}</p>
+                </div>
+              )}
+              <div>
+                <label htmlFor="email" className="text-sm font-semibold text-gray-700">
+                  Email address
+                </label>
                 <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  autoComplete="current-password"
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
                   required
-                  className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-28 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722] focus:ring-opacity-20"
-                  placeholder="••••••••"
-                  value={password}
+                  className="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722] focus:ring-opacity-20"
+                  placeholder="founder@indoordogpark.com"
+                  value={email}
                   onChange={(event) => {
-                    setPassword(event.target.value);
+                    setEmail(event.target.value);
                     if (error) setError('');
                   }}
                   aria-invalid={Boolean(error)}
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
-                >
-                  {showPassword ? 'Hide' : 'Show'} password
-                </button>
+                <p className="mt-2 text-sm text-gray-500">Use the email you used when creating your membership.</p>
               </div>
-              <p className="mt-2 text-sm text-gray-500">Minimum 8 characters with at least one number.</p>
-            </div>
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <label className="flex items-center gap-3 text-sm text-gray-700">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(event) => setRememberMe(event.target.checked)}
-                  className="h-4 w-4 rounded border-gray-300 text-[#FF5722] focus:ring-[#FF7043]"
-                />
-                Remember this device
-              </label>
-              <Link
-                href="/help?topic=account"
-                className="text-sm font-semibold text-[#FF5722] transition-colors hover:text-[#E64A19]"
-              >
-                Need help signing in?
-              </Link>
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF5722] px-4 py-3 text-base font-semibold text-white shadow-lg shadow-[#FF5722]/30 transition hover:bg-[#E64A19] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FF5722]/40 disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {loading && (
-                <svg
-                  className="h-5 w-5 animate-spin text-white"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.75c-3.993 0-7.25 3.257-7.25 7.25s3.257 7.25 7.25 7.25 7.25-3.257 7.25-7.25"
+              <div>
+                <label htmlFor="password" className="text-sm font-semibold text-gray-700">
+                  Password
+                </label>
+                <div className="relative mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    autoComplete="current-password"
+                    required
+                    className="w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 pr-28 text-base text-gray-900 shadow-sm transition focus:border-[#FF5722] focus:outline-none focus:ring-4 focus:ring-[#FF5722] focus:ring-opacity-20"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(event) => {
+                      setPassword(event.target.value);
+                      if (error) setError('');
+                    }}
+                    aria-invalid={Boolean(error)}
                   />
-                </svg>
-              )}
-              {loading ? 'Signing in' : 'Sign in securely'}
-            </button>
-          </form>
-          <p className="mt-6 text-sm text-gray-500">
-            By continuing you agree to our{' '}
-            <Link href="/terms" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-              Terms
-            </Link>{' '}
-            and{' '}
-            <Link href="/privacy" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-              Privacy Policy
-            </Link>
-            .
-          </p>
-          <div className="mt-6 rounded-2xl border border-gray-100 bg-gray-50 px-5 py-4">
-            <p className="text-sm font-semibold text-gray-900">Indoor essentials included:</p>
-            <ul className="mt-4 space-y-3 text-sm text-gray-600">
-              {loginChecklist.map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckIcon />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="absolute inset-y-0 right-3 flex items-center text-sm font-semibold text-[#FF5722] transition hover:text-[#E64A19]"
+                  >
+                    {showPassword ? 'Hide' : 'Show'} password
+                  </button>
+                </div>
+                <p className="mt-2 text-sm text-gray-500">Minimum 8 characters with at least one number.</p>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <label className="flex items-center gap-3 text-sm text-gray-700">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={(event) => setRememberMe(event.target.checked)}
+                    className="h-4 w-4 rounded border-gray-300 text-[#FF5722] focus:ring-[#FF7043]"
+                  />
+                  Remember this device
+                </label>
+                <Link
+                  href="/help?topic=account"
+                  className="text-sm font-semibold text-[#FF5722] transition-colors hover:text-[#E64A19]"
+                >
+                  Need help signing in?
+                </Link>
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF5722] px-4 py-3 text-base font-semibold text-white shadow-lg shadow-[#FF5722]/30 transition hover:bg-[#E64A19] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FF5722]/40 disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {loading && (
+                  <svg
+                    className="h-5 w-5 animate-spin text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4.75c-3.993 0-7.25 3.257-7.25 7.25s3.257 7.25 7.25 7.25 7.25-3.257 7.25-7.25"
+                    />
+                  </svg>
+                )}
+                {loading ? 'Signing in' : 'Sign in securely'}
+              </button>
+            </form>
+            <p className="mt-6 text-sm text-gray-500">
+              By continuing you agree to our{' '}
+              <Link href="/terms" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
+                Terms
+              </Link>{' '}
+              and{' '}
+              <Link href="/privacy" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
+                Privacy Policy
+              </Link>
+              .
+            </p>
+            <div className="mt-6 rounded-2xl border border-gray-100 bg-gray-50 px-5 py-4">
+              <p className="text-sm font-semibold text-gray-900">Indoor essentials included:</p>
+              <ul className="mt-4 space-y-3 text-sm text-gray-600">
+                {loginChecklist.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckIcon />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-6 text-center text-sm text-gray-700">
+              New to IndoorDogPark?{' '}
+              <Link
+                href={searchParams.get('redirect') ? `/signup?redirect=${encodeURIComponent(searchParams.get('redirect')!)}` : '/signup'}
+                className="font-semibold text-[#FF5722] hover:text-[#E64A19]"
+              >
+                Create a member account
+              </Link>
+              .{' '}
+            </p>
+            <p className="mt-4 text-center text-sm text-gray-500">
+              Just browsing?{' '}
+              <Link href="/" className="font-semibold text-gray-700 hover:text-gray-900">
+                Explore parks without signing in
+              </Link>
+              .
+            </p>
           </div>
-          <p className="mt-6 text-center text-sm text-gray-700">
-            New to IndoorDogPark?{' '}
-            <Link href="/signup" className="font-semibold text-[#FF5722] hover:text-[#E64A19]">
-              Create a member account
-            </Link>
-            .
-          </p>
-          <p className="mt-4 text-center text-sm text-gray-500">
-            Just browsing?{' '}
-            <Link href="/" className="font-semibold text-gray-700 hover:text-gray-900">
-              Explore parks without signing in
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
+        </section>
       </div>
       <Footer />
     </div>

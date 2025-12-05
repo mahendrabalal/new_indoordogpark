@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export default function Footer() {
   return (
@@ -43,6 +44,13 @@ export default function Footer() {
               <li><Link href="/help">Help center</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
             </ul>
+          </div>
+
+          {/* Subscribe Column */}
+          <div className="footer-column col-span-full md:col-span-2 lg:col-span-1">
+            <h4 className="footer-heading">Join the Pack</h4>
+            <p className="mb-4 text-sm text-gray-500">Get the latest indoor dog park news and updates.</p>
+            <NewsletterForm type="consumer" source="footer" />
           </div>
         </div>
 
