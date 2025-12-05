@@ -142,3 +142,4 @@ With these additional fixes:
 - Focus on shifts during initial page load
 - Test on slow 3G to see shifts more clearly
 
+
