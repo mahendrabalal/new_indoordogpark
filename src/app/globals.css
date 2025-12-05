@@ -456,12 +456,33 @@ body {
 .header {
   background: white;
   border-bottom: 1px solid #e8e8e8;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   /* Reserve space to prevent layout shift */
   min-height: 70px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  /* Auto-hide behavior */
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Hidden state - navbar is above viewport */
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Visible state - navbar is in normal position */
+.header-visible {
+  transform: translateY(0);
+}
+
+/* Add shadow when visible for better depth perception */
+.header-visible {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .header-container {

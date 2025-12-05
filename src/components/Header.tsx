@@ -4,13 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useNavbarScroll } from '@/hooks/useNavbarScroll';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { isVisible } = useNavbarScroll();
 
   return (
-    <header className="header">
+    <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'}`}>
       <div className="header-container">
         <div className="header-left">
           <Link href="/" className="logo">
