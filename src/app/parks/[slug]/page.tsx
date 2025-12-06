@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import ParkImage from '@/components/ParkImage';
+import ParkDetailSchema from '@/components/ParkDetailSchema';
 import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
@@ -204,7 +205,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   const parkSchema = generateParkSchema(park);
   const stateName = getStateName(park.state);
-  
+
   // Generate breadcrumb schema
   const citySlug = park.city.toLowerCase().replace(/\s+/g, '-');
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -262,6 +263,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   return (
     <>
+      {/* LocalBusiness structured data for rich snippets */}
+      <ParkDetailSchema park={park} url={`/parks/${park.slug || park.id}`} />
+
       <script
         type="application/ld+json"
         suppressHydrationWarning

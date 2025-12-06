@@ -10,6 +10,7 @@ import { getFeaturedParks } from '@/lib/cityData';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
 import { useCloseOnScroll } from '@/hooks/useCloseOnScroll';
+import { useMapListSwipeGestures } from '@/hooks/useSwipeGestures';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CitiesSection from '@/components/CitiesSection';
@@ -70,6 +71,13 @@ export default function HomePageClient({
 
   const [showSearchLayout, setShowSearchLayout] = useState(initialShowSearchLayout);
   const [mobileView, setMobileView] = useState<'list' | 'map'>('list');
+
+  // Add swipe gestures for mobile map/list toggle
+  const swipeRef = useMapListSwipeGestures(
+    mobileView === 'map',
+    () => setMobileView(prev => prev === 'list' ? 'map' : 'list'),
+    showSearchLayout // Only enable swipe gestures when in search layout
+  );
 
   const hasFilterSelections = Boolean(
     (filters.type && filters.type !== 'all') ||
@@ -398,10 +406,11 @@ export default function HomePageClient({
 
       {/* Search Results Section - Split View with Map */}
       {showSearchLayout && (
-        <section 
-          className={`search-results-split-view ${mobileView === 'map' ? 'mobile-view-map' : 'mobile-view-list'}`}
-          role="region" 
-          aria-live="polite" 
+        <section
+          ref={swipeRef}
+          className={`search-results-split-view ${mobileView === 'map' ? 'mobile-view-map' : 'mobile-view-list'} swipe-hint`}
+          role="region"
+          aria-live="polite"
           aria-label="Search results"
         >
           {/* Main h1 for search results page - only rendered when showSearchLayout is true */}

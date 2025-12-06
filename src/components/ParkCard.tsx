@@ -4,17 +4,17 @@ import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import FavoriteButton from '@/components/FavoriteButton';
 import SearchHighlight from '@/components/SearchHighlight';
+import OptimizedImage from '@/components/OptimizedImage';
 import { getParkStatus } from '@/lib/park-hours';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 interface ParkCardProps {
   park: DogPark;
   searchTerm?: string;
 }
 
-export default function ParkCard({ park, searchTerm }: ParkCardProps) {
+function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
   const [statusInfo, setStatusInfo] = useState(() => getParkStatus(park));
-  const [imageError, setImageError] = useState(false);
 
   // Update status every minute to keep it real-time
   useEffect(() => {
@@ -30,11 +30,6 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
 
     return () => clearInterval(interval);
   }, [park]);
-
-  // Reset image error when park changes
-  useEffect(() => {
-    setImageError(false);
-  }, [park.id]);
   // Extract the first photo URL from photos array if available, otherwise use single photo field
   // Prefers local images over external URLs
   const getImageUrl = () => {
@@ -72,15 +67,6 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
   };
 
   const imageUrl = getImageUrl();
-  
-  // Fallback image URL
-  const fallbackImageUrl = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
-  
-  // Use fallback image if error occurred
-  const displayImageUrl = imageError ? fallbackImageUrl : imageUrl;
-
-  // Handle image load error - Next.js Image component doesn't support onError directly
-  // We'll use a wrapper approach with a regular img tag as fallback
 
   // Determine pricing display (adapt from rental pricing to park entry fees)
   const getPricingDisplay = () => {
@@ -151,23 +137,15 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
         </div>
       )}
       <div className="park-card-image-wrapper">
-        {/* Use native img tag for better error handling with external URLs */}
-        {/* Next.js Image component's onError doesn't work reliably with unoptimized external images */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={displayImageUrl}
+        <OptimizedImage
+          src={imageUrl}
           alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Indoor Dog Park`}
           className="park-card-image"
-          loading="lazy"
-          decoding="async"
+          fill
           fetchPriority="low"
-          style={{ objectFit: 'cover', width: '100%', height: '100%', display: 'block' }}
-          onError={() => {
-            // If image fails to load, switch to fallback
-            if (!imageError && displayImageUrl !== fallbackImageUrl) {
-              setImageError(true);
-            }
-          }}
+          quality={75}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+          style={{ objectFit: 'cover' }}
         />
       </div>
 
@@ -249,3 +227,36 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
     </Link>
   );
 }
+
+// Custom comparison function for memo
+// Only re-render if park id, name, rating, photo, or searchTerm changes
+const areEqual = (prevProps: ParkCardProps, nextProps: ParkCardProps) => {
+  // Check if the park object is the same reference
+  if (prevProps.park === nextProps.park && prevProps.searchTerm === nextProps.searchTerm) {
+    return true;
+  }
+
+  // Check key properties that affect rendering
+  const parkChanged =
+    prevProps.park.id !== nextProps.park.id ||
+    prevProps.park.name !== nextProps.park.name ||
+    prevProps.park.rating !== nextProps.park.rating ||
+    prevProps.park.reviewCount !== nextProps.park.reviewCount ||
+    prevProps.park.photo !== nextProps.park.photo ||
+    prevProps.park.photos !== nextProps.park.photos ||
+    prevProps.park.businessType !== nextProps.park.businessType ||
+    prevProps.park.city !== nextProps.park.city ||
+    prevProps.park.state !== nextProps.park.state ||
+    prevProps.park.pricing !== nextProps.park.pricing ||
+    prevProps.park.listingType !== nextProps.park.listingType;
+
+  const searchChanged = prevProps.searchTerm !== nextProps.searchTerm;
+
+  // If nothing important changed, don't re-render
+  return !parkChanged && !searchChanged;
+};
+
+// Export the memoized component
+const ParkCard = memo(ParkCardComponent, areEqual);
+
+export default ParkCard;
