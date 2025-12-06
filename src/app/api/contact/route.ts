@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import EmailService from '@/lib/email-service';
 
 type ContactPayload = {
   name: string;
@@ -38,12 +39,29 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: integrate with email provider, CRM, or database logging
-    console.info('[contact] submission received', {
+    // Send notification to admin
+    const notificationResult = await EmailService.sendContactNotification(payload as ContactPayload);
+
+    if (!notificationResult.success) {
+      console.error('[contact] Failed to send admin notification:', notificationResult.error);
+      // Continue with sending user confirmation even if admin notification fails
+    }
+
+    // Send confirmation to user
+    const confirmationResult = await EmailService.sendContactConfirmation(payload as ContactPayload);
+
+    if (!confirmationResult.success) {
+      console.error('[contact] Failed to send user confirmation:', confirmationResult.error);
+      // Still return success since the main notification was sent
+    }
+
+    console.info('[contact] submission processed', {
       name: payload.name,
       email: payload.email,
       subject: payload.subject,
       category: payload.category,
+      adminNotified: notificationResult.success,
+      userNotified: confirmationResult.success,
     });
 
     return NextResponse.json({

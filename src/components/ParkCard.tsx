@@ -84,22 +84,48 @@ export default function ParkCard({ park, searchTerm }: ParkCardProps) {
 
   // Determine pricing display (adapt from rental pricing to park entry fees)
   const getPricingDisplay = () => {
-    if (park.pricing?.isFree) {
+    // Ensure pricing object exists
+    if (!park.pricing) {
       return { current: 'Free', period: null };
     }
-    if (park.pricing?.dropInFee) {
-      const period = park.pricing.pricingType === 'per-visit' ? 'visit' : park.pricing.pricingType || 'visit';
-      return { current: `$${park.pricing.dropInFee}`, period };
+
+    const pricing = park.pricing;
+
+    // Check if it's explicitly marked as free
+    if (pricing.isFree) {
+      return { current: 'Free', period: null };
     }
-    if (park.pricing?.dailyRate) {
-      return { current: `$${park.pricing.dailyRate}`, period: 'daily' };
+
+    // Try drop-in fee first (most common for dog parks)
+    if (pricing.dropInFee && typeof pricing.dropInFee === 'number') {
+      const period = pricing.pricingType === 'per-visit' ? 'visit' : pricing.pricingType || 'visit';
+      return { current: `$${pricing.dropInFee}`, period };
     }
-    if (park.pricing?.hourlyRate) {
-      return { current: `$${park.pricing.hourlyRate}`, period: 'hourly' };
+
+    // Try other pricing options
+    if (pricing.dailyRate && typeof pricing.dailyRate === 'number') {
+      return { current: `$${pricing.dailyRate}`, period: 'daily' };
     }
-    if (park.pricing?.monthlyRate) {
-      return { current: `$${park.pricing.monthlyRate}`, period: 'monthly' };
+
+    if (pricing.hourlyRate && typeof pricing.hourlyRate === 'number') {
+      return { current: `$${pricing.hourlyRate}`, period: 'hourly' };
     }
+
+    if (pricing.monthlyRate && typeof pricing.monthlyRate === 'number') {
+      return { current: `$${pricing.monthlyRate}`, period: 'monthly' };
+    }
+
+    // If pricing type is membership, show that
+    if (pricing.pricingType === 'membership') {
+      return { current: 'Membership', period: null };
+    }
+
+    // If we have a price range, show that
+    if (pricing.priceRange) {
+      return { current: pricing.priceRange, period: null };
+    }
+
+    // Default fallback
     return { current: 'Free', period: null };
   };
 
