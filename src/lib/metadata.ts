@@ -238,29 +238,29 @@ export function generateParkSchema(park: DogPark) {
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
 
   // Determine business type for schema following industry best practices
-  // Use more specific schema types when possible for better SEO
+  // Use most specific schema type available
   let schemaType = 'LocalBusiness'; // Default fallback
-  let additionalType = undefined; // For additionalType property
+  let businessFunction = undefined;
 
   // Use most specific schema type available
   if (park.businessType === 'Dog-Friendly Establishment') {
     schemaType = 'LocalBusiness';
-    additionalType = 'AnimalShelter'; // Many dog-friendly businesses are also pet care facilities
+    businessFunction = 'PetCare'; // More accurate than AnimalShelter
   } else if (park.businessType === 'Dog Park') {
     schemaType = 'SportsActivityLocation';
-    additionalType = 'Park'; // More specific for outdoor dog parks
+    businessFunction = 'RecreationFacility'; // Parks provide recreation services
   } else if (park.businessType === 'Indoor Dog Park') {
     schemaType = 'SportsActivityLocation';
-    additionalType = 'AnimalShelter'; // Indoor facilities often provide shelter services
+    businessFunction = 'RecreationFacility'; // Indoor recreation
   } else {
     schemaType = 'LocalBusiness';
+    businessFunction = 'PetCare';
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const baseSchema: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': schemaType,
-    ...(additionalType && { additionalType }),
     name: park.name,
     description: park.description,
     image: imageUrl,
@@ -275,15 +275,29 @@ export function generateParkSchema(park: DogPark) {
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
-    // Add industry standard properties
+    // Industry standard properties following Google's guidelines
     category: park.businessType,
-    serviceType: 'Dog Care Services',
+    ...(businessFunction && {
+      businessFunction: {
+        '@type': 'BusinessFunction',
+        name: businessFunction,
+      }
+    }),
+    serviceType: park.businessType === 'Dog Park' || park.businessType === 'Indoor Dog Park'
+      ? 'Dog Recreation Services'
+      : 'Pet Care Services',
     keywords: [
       'dog park',
       'pet care',
       park.businessType.toLowerCase(),
       `${park.city.toLowerCase()} dog park`
     ].join(', '),
+    // Additional properties for better SEO
+    knowsAbout: ['Dogs', 'Pet Care', 'Dog Training', 'Dog Recreation'],
+    areaServed: {
+      '@type': 'Place',
+      name: `${park.city}, ${park.state}`,
+    },
   };
 
   // Add geo coordinates if available
@@ -450,22 +464,22 @@ export function generateReviewSchemas(
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
-  // Use most specific schema type available for consistency
   let schemaType = 'LocalBusiness'; // Default fallback
-  let additionalType = undefined;
+  let businessFunction = undefined;
 
   // Use most specific schema type available (must match main park schema)
   if (park.businessType === 'Dog-Friendly Establishment') {
     schemaType = 'LocalBusiness';
-    additionalType = 'AnimalShelter';
+    businessFunction = 'PetCare';
   } else if (park.businessType === 'Dog Park') {
     schemaType = 'SportsActivityLocation';
-    additionalType = 'Park';
+    businessFunction = 'RecreationFacility';
   } else if (park.businessType === 'Indoor Dog Park') {
     schemaType = 'SportsActivityLocation';
-    additionalType = 'AnimalShelter';
+    businessFunction = 'RecreationFacility';
   } else {
     schemaType = 'LocalBusiness';
+    businessFunction = 'PetCare';
   }
 
   // Create the itemReviewed object (the business being reviewed)
@@ -473,7 +487,6 @@ export function generateReviewSchemas(
   // Best practice: Use @id to reference the main schema instead of duplicating all data
   const itemReviewed = {
     '@type': schemaType,
-    ...(additionalType && { additionalType }),
     '@id': canonical, // References the main park schema
     name: park.name,
     // Include minimal required fields for Google's validation
@@ -485,6 +498,13 @@ export function generateReviewSchemas(
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
+    // Include business function to match main schema
+    ...(businessFunction && {
+      businessFunction: {
+        '@type': 'BusinessFunction',
+        name: businessFunction,
+      }
+    }),
   };
 
   // Generate Review schemas for each review

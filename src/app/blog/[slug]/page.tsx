@@ -163,12 +163,25 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               name: post.title,
               description: post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim(),
               thumbnailUrl: post.featuredImage?.source_url || `${SITE_URL}/images/og-image.jpg`,
+              thumbnail: {
+                '@type': 'ImageObject',
+                url: post.featuredImage?.source_url || `${SITE_URL}/images/og-image.jpg`,
+                width: 1280,
+                height: 720,
+              },
               uploadDate: post.date,
+              publicationDate: post.date,
               contentUrl: video.url,
               embedUrl: `https://www.youtube.com/embed/${video.id}`,
+              duration: undefined, // Would need to fetch from YouTube API for exact duration
+              interactionStatistic: {
+                '@type': 'InteractionCounter',
+                interactionType: 'https://schema.org/WatchAction',
+              },
               publisher: {
                 '@type': 'Organization',
                 name: 'Indoor Dog Park',
+                url: SITE_URL,
                 logo: {
                   '@type': 'ImageObject',
                   url: `${SITE_URL}/images/logo/logo.png`,
@@ -180,6 +193,14 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 '@type': 'BlogPosting',
                 '@id': `${SITE_URL}/blog/${post.slug}`,
               },
+              potentialAction: {
+                '@type': 'WatchAction',
+                target: video.url,
+              },
+              inLanguage: 'en-US',
+              requiresSubscription: false,
+              isAccessibleForFree: true,
+              isFamilyFriendly: true,
             })
           }}
         />
