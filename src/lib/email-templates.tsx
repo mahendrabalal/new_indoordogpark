@@ -36,7 +36,7 @@ export function AdminNotificationEmail({
         <Container style={container}>
           <Section style={header}>
             <Heading style={headerHeading}>New Contact Form Submission</Heading>
-            <Text style={headerText}>You've received a new message from your Indoor Dog Park website.</Text>
+            <Text style={headerText}>You&apos;ve received a new message from your Indoor Dog Park website.</Text>
           </Section>
 
           <Section style={content}>

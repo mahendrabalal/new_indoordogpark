@@ -1,5 +1,5 @@
+import React from 'react';
 import { Resend } from 'resend';
-import { render } from '@react-email/render';
 import { AdminNotificationEmail } from './email-templates';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -129,7 +129,7 @@ export class EmailService {
     const emailParams: EmailParams = {
       to: submission.email,
       subject: 'Thank you for contacting Indoor Dog Park',
-      react: { type: 'div', props: { dangerouslySetInnerHTML: { __html: confirmationEmail } } },
+      react: <div dangerouslySetInnerHTML={{ __html: confirmationEmail }} />,
     };
 
     return this.sendEmail(emailParams);
