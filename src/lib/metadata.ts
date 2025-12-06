@@ -237,17 +237,30 @@ export function generateParkSchema(park: DogPark) {
     ? 'Free'
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
 
-  // Determine business type for schema
-  // Use SportsActivityLocation for all dog parks - it's more semantically accurate
-  // for recreational facilities and extends LocalBusiness, supporting aggregateRating
-  // and all business properties. This follows industry best practices (Yelp, TripAdvisor)
-  // and provides better SEO than generic LocalBusiness.
-  const schemaType = 'SportsActivityLocation'; // All dog parks are recreational facilities
+  // Determine business type for schema following industry best practices
+  // Use more specific schema types when possible for better SEO
+  let schemaType = 'LocalBusiness'; // Default fallback
+  let additionalType = undefined; // For additionalType property
+
+  // Use most specific schema type available
+  if (park.businessType === 'Dog-Friendly Establishment') {
+    schemaType = 'LocalBusiness';
+    additionalType = 'AnimalShelter'; // Many dog-friendly businesses are also pet care facilities
+  } else if (park.businessType === 'Dog Park') {
+    schemaType = 'SportsActivityLocation';
+    additionalType = 'Park'; // More specific for outdoor dog parks
+  } else if (park.businessType === 'Indoor Dog Park') {
+    schemaType = 'SportsActivityLocation';
+    additionalType = 'AnimalShelter'; // Indoor facilities often provide shelter services
+  } else {
+    schemaType = 'LocalBusiness';
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const baseSchema: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': schemaType,
+    ...(additionalType && { additionalType }),
     name: park.name,
     description: park.description,
     image: imageUrl,
@@ -262,6 +275,15 @@ export function generateParkSchema(park: DogPark) {
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
+    // Add industry standard properties
+    category: park.businessType,
+    serviceType: 'Dog Care Services',
+    keywords: [
+      'dog park',
+      'pet care',
+      park.businessType.toLowerCase(),
+      `${park.city.toLowerCase()} dog park`
+    ].join(', '),
   };
 
   // Add geo coordinates if available
@@ -288,14 +310,16 @@ export function generateParkSchema(park: DogPark) {
       });
   }
 
-  // Add rating if available
+  // Add rating if available (industry standard for local businesses)
   if (park.rating && park.reviewCount) {
     baseSchema.aggregateRating = {
       '@type': 'AggregateRating',
-      ratingValue: park.rating,
+      ratingValue: Number(park.rating.toFixed(1)), // Ensure decimal format
       reviewCount: park.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
+      bestRating: '5',
+      worstRating: '1',
+      // Add rating explanation for better SEO
+      ratingExplanation: `Based on ${park.reviewCount} customer reviews`,
     };
   }
 
@@ -304,10 +328,35 @@ export function generateParkSchema(park: DogPark) {
     baseSchema.priceRange = priceRange;
   }
 
-  // Add website if available
+  // Add website if available (use sameAs for external sites)
   if (park.website) {
     baseSchema.sameAs = [park.website];
   }
+
+  // Add business-specific properties following industry standards
+  if (park.amenities) {
+    const amenitiesList = Object.entries(park.amenities)
+      .filter(([, value]) => value === true)
+      .map(([key]) => {
+        // Format amenity name inline (moved from page component)
+        return key
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, (str) => str.toUpperCase())
+          .trim();
+      });
+
+    if (amenitiesList.length > 0) {
+      baseSchema.amenityFeature = amenitiesList.map(amenity => ({
+        '@type': 'LocationFeatureSpecification',
+        name: amenity,
+        value: 'True'
+      }));
+    }
+  }
+
+  // Add payment information if available
+  baseSchema.paymentAccepted = 'Cash, Credit Card';
+  baseSchema.currenciesAccepted = 'USD';
 
   return baseSchema;
 }
@@ -401,15 +450,30 @@ export function generateReviewSchemas(
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
-  // Use SportsActivityLocation for all dog parks to maintain consistency
-  // and support aggregateRating and all business properties
-  const schemaType = 'SportsActivityLocation'; // All dog parks are recreational facilities
+  // Use most specific schema type available for consistency
+  let schemaType = 'LocalBusiness'; // Default fallback
+  let additionalType = undefined;
+
+  // Use most specific schema type available (must match main park schema)
+  if (park.businessType === 'Dog-Friendly Establishment') {
+    schemaType = 'LocalBusiness';
+    additionalType = 'AnimalShelter';
+  } else if (park.businessType === 'Dog Park') {
+    schemaType = 'SportsActivityLocation';
+    additionalType = 'Park';
+  } else if (park.businessType === 'Indoor Dog Park') {
+    schemaType = 'SportsActivityLocation';
+    additionalType = 'AnimalShelter';
+  } else {
+    schemaType = 'LocalBusiness';
+  }
 
   // Create the itemReviewed object (the business being reviewed)
   // This is required by Google for Review snippets to work
   // Best practice: Use @id to reference the main schema instead of duplicating all data
   const itemReviewed = {
     '@type': schemaType,
+    ...(additionalType && { additionalType }),
     '@id': canonical, // References the main park schema
     name: park.name,
     // Include minimal required fields for Google's validation
@@ -489,24 +553,28 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
           '@type': 'ListItem',
           position: index + 1,
           item: {
-            '@type': 'SportsActivityLocation', // All dog parks are recreational facilities
-            '@id': parkUrl,
-            name: park.name,
-            url: parkUrl,
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: park.city,
-              addressRegion: park.state,
-              addressCountry: 'US',
-            },
-            ...(park.rating && park.reviewCount && {
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: park.rating,
-                reviewCount: park.reviewCount,
-              },
-            }),
+          '@type': (() => {
+            // Determine schema type following same pattern as individual park schemas
+            if (park.businessType === 'Dog-Friendly Establishment') {
+              return 'LocalBusiness';
+            } else if (park.businessType === 'Dog Park' || park.businessType === 'Indoor Dog Park') {
+              return 'SportsActivityLocation';
+            } else {
+              return 'LocalBusiness';
+            }
+          })(),
+          name: park.name,
+          url: parkUrl, // Only use url, not @id, in collection lists
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: park.city,
+            addressRegion: park.state,
+            addressCountry: 'US',
           },
+          // Note: Don't include aggregateRating in collection lists
+          // The individual park pages will have their own aggregateRating
+          // This prevents "multiple aggregate ratings" errors in Google Search Console
+        },
         };
       }),
     },
