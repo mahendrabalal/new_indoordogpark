@@ -25,16 +25,18 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
     const baseUrl = SITE_URL;
     const authorName = post.author?.name || 'Indoor Dog Park Team';
     const authorImage = post.author?.avatar_urls?.['96'];
-    const featuredImage = post.featuredImage?.source_url || 
+    const featuredImage = post.featuredImage?.source_url ||
                          post.featuredImage?.media_details?.sizes?.large?.source_url ||
                          post.featuredImage?.media_details?.sizes?.medium?.source_url;
-    
+
     // Calculate reading time (average 200 words per minute)
     const wordCount = Math.ceil(post.content.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length);
     const timeRequired = `PT${Math.max(3, Math.ceil(wordCount / 200))}M`;
 
     // Extract clean description
     const cleanDescription = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+
+    // Note: YouTube videos are extracted in the page component and added as separate VideoObject schemas
 
     const structuredData: Record<string, unknown> = {
       '@context': 'https://schema.org',

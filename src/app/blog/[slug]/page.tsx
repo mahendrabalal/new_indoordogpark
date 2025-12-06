@@ -14,6 +14,7 @@ import { extractHeadingsFromHtml, addIdsToHeadings } from '@/lib/extract-heading
 import { getRelatedParks, extractMentionedCities } from '@/lib/related-content';
 import { getAllStaticParks } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
+import { SITE_URL } from '@/lib/metadata';
 
 // Use ISR with on-demand revalidation (best practice)
 // Pages are statically generated and cached for performance
@@ -128,11 +129,61 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   const readingTime = estimateReadingTime(post.content);
   const categoryName = post.categories[0]?.name || 'Blog';
   
-  // Pass reading time to structured data component if needed
+  // Extract YouTube videos from content for structured data
+  const extractYouTubeVideos = (content: string): Array<{ id: string; url: string; title?: string }> => {
+    const videos: Array<{ id: string; url: string; title?: string }> = [];
+    const iframeRegex = /<iframe[^>]*src=["']https?:\/\/www\.youtube\.com\/embed\/([^"?&]+)[^"']*["'][^>]*>/gi;
+    let match;
+
+    while ((match = iframeRegex.exec(content)) !== null) {
+      const videoId = match[1];
+      videos.push({
+        id: videoId,
+        url: `https://www.youtube.com/watch?v=${videoId}`,
+      });
+    }
+
+    return videos;
+  };
+
+  const videos = extractYouTubeVideos(post.content);
 
   return (
     <>
       <StructuredData type="BlogPosting" data={post} />
+      {/* Add Video structured data if videos are present */}
+      {videos.length > 0 && videos.map((video, index) => (
+        <script
+          key={`video-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'VideoObject',
+              name: post.title,
+              description: post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim(),
+              thumbnailUrl: post.featuredImage?.source_url || `${SITE_URL}/images/og-image.jpg`,
+              uploadDate: post.date,
+              contentUrl: video.url,
+              embedUrl: `https://www.youtube.com/embed/${video.id}`,
+              publisher: {
+                '@type': 'Organization',
+                name: 'Indoor Dog Park',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${SITE_URL}/images/logo/logo.png`,
+                  width: 200,
+                  height: 60,
+                },
+              },
+              isPartOf: {
+                '@type': 'BlogPosting',
+                '@id': `${SITE_URL}/blog/${post.slug}`,
+              },
+            })
+          }}
+        />
+      ))}
       <StructuredData
         type="BreadcrumbList"
         data={{}}
