@@ -6,7 +6,8 @@ export async function middleware(request: NextRequest) {
   // Industry best practice: Consolidate link equity and prevent duplicate content
   const hostname = request.headers.get('host') || '';
   const url = request.nextUrl.clone();
-  
+  const pathname = url.pathname;
+
   // Only redirect in production to avoid breaking local development
   // Check if it's the production domain without www
   if (
@@ -16,6 +17,37 @@ export async function middleware(request: NextRequest) {
     // Preserve protocol (https), path, and query parameters
     url.host = 'www.indoordogpark.org';
     return NextResponse.redirect(url, 301);
+  }
+
+  // Fix common 404 issues with proper 301 redirects
+  const redirectMap: Record<string, string> = {
+    '/cities/california': '/',
+    '/cities/steiner-st-&': '/cities/steiner-st',
+    '/parks/indoor-dog-park-california-california': '/parks/indoor-dog-park-california',
+  };
+
+  // Check for exact path matches
+  if (redirectMap[pathname]) {
+    const redirectUrl = new URL(url);
+    redirectUrl.pathname = redirectMap[pathname];
+    return NextResponse.redirect(redirectUrl, 301);
+  }
+
+  // Fix malformed URLs with special characters
+  if (pathname.includes('steiner-st-&')) {
+    const cleanUrl = new URL(url);
+    cleanUrl.pathname = pathname.replace('steiner-st-&', 'steiner-st');
+    return NextResponse.redirect(cleanUrl, 301);
+  }
+
+  // Fix trailing slash issues (remove trailing slash except for root)
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    const cleanUrl = new URL(url);
+    cleanUrl.pathname = pathname.slice(0, -1);
+    // Check if this would cause a redirect loop
+    if (!redirectMap[cleanUrl.pathname]) {
+      return NextResponse.redirect(cleanUrl, 301);
+    }
   }
 
   let response = NextResponse.next({

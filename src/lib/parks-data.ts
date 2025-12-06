@@ -286,6 +286,9 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
     /-san-diego$/i,
     /-washington$/i,
     /-seattle$/i,
+    /-florida$/i,
+    /-nc$/i,
+    /-ca$/i,
   ];
   
   for (const pattern of cityStatePatterns) {
@@ -317,12 +320,28 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   park = parks.find((p) => {
     const parkSlug = (p.slug || slugify(p.name, p.city)).toLowerCase();
     // Check if requested slug starts with park slug or vice versa
-    return parkSlug === normalizedSlug || 
+    return parkSlug === normalizedSlug ||
            normalizedSlug.startsWith(parkSlug + '-') ||
            parkSlug.startsWith(normalizedSlug + '-');
   });
   if (park) {
     return park;
+  }
+
+  // Special case fallbacks for known 404s - industry best practice: name-based matching
+  const fallbackMappings: Record<string, string> = {
+    'alamo-square-dog-play-area': 'Alamo Square Dog Play Area',
+    'down-town-indoor-dog-park-durham': 'Down Town Indoor Dog Park Durham',
+  };
+
+  if (fallbackMappings[normalizedSlug]) {
+    const searchName = fallbackMappings[normalizedSlug];
+    park = parks.find((p) =>
+      p.name.toLowerCase().includes(searchName.toLowerCase())
+    );
+    if (park) {
+      return park;
+    }
   }
 
   try {
