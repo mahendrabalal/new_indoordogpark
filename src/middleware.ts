@@ -124,7 +124,6 @@ export async function middleware(request: NextRequest) {
   }
 
   // Protect admin routes - industry best practice: middleware-level protection
-  const pathname = request.nextUrl.pathname;
   if (pathname.startsWith('/admin')) {
     // Check if user is authenticated
     if (!user) {
