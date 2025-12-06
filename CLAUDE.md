@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a California Dog Parks Directory - a Next.js application that displays dog parks across California with filtering, search, and mapping capabilities. The app combines data sourced from Google Places API with custom transformations and displays parks on an interactive Leaflet map.
+This is a indoor Dog Parks Directory - a Next.js application that displays dog parks across California with filtering, search, and mapping capabilities. The app combines data sourced from Google Places API with custom transformations and displays parks on an interactive Leaflet map.
 
 ## Tech Stack
 
