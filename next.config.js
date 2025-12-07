@@ -369,6 +369,17 @@ const nextConfig = {
         destination: '/parks/digs-canine-hotel-spa-daycare-brooklyn',
         permanent: true,
       },
+      // Fix broken redirects
+      {
+        source: '/blog/starting-indoor-dog-park-business-guide',
+        destination: '/blog/how-to-start-an-indoor-dog-park-a-step-by-step-guide',
+        permanent: true,
+      },
+      {
+        source: '/parks/indoor-dog-park-california-california',
+        destination: '/parks/indoor-dog-park-california',
+        permanent: true,
+      },
       // Redirect old query parameter URLs to dedicated routes
       {
         source: '/',
