@@ -291,18 +291,8 @@ const nextConfig = {
         destination: '/privacy',
         permanent: true,
       },
-      // Redirect old blog category URLs to new structure
-      {
-        source: '/blog/category/:slug',
-        destination: '/category/:slug',
-        permanent: true,
-      },
-      // Redirect old blog tag URLs to new structure
-      {
-        source: '/blog/tag/:slug',
-        destination: '/tag/:slug',
-        permanent: true,
-      },
+      // Note: Removed old blog category/tag redirects to avoid sitemap conflicts
+  // Search engines should discover the new URLs naturally
       // Redirect old park slugs to new city-inclusive slugs
       {
         source: '/parks/oneida-run',
