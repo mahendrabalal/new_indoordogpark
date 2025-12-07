@@ -16,12 +16,13 @@ export default function Header() {
       <div className="header-container">
         <div className="header-left">
           <Link href="/" className="logo">
-            <Image 
-              src="/images/logo/logo.png" 
-              alt="Indoor Dog Park logo" 
-              width={140} 
-              height={40} 
-              priority 
+            <Image
+              src="/images/logo/logo.png"
+              alt="Indoor Dog Park logo"
+              width={140}
+              height={40}
+              priority
+              unoptimized
               style={{ objectFit: 'contain', height: 'auto' }}
             />
           </Link>

@@ -233,14 +233,15 @@ export default function HomePageClient({
         <header className="search-results-header-bar">
           <div className="search-results-header-content">
             <a href="/" className="search-logo" aria-label="IndoorDogPark home">
-              <Image 
-                src="/images/logo/logo.png" 
-                alt="Indoor Dog Park logo" 
-                width={140} 
-                height={40} 
+              <Image
+                src="/images/logo/logo.png"
+                alt="Indoor Dog Park logo"
+                width={140}
+                height={40}
                 priority
                 fetchPriority="high"
                 style={{ objectFit: 'contain', height: 'auto' }}
+                unoptimized
               />
             </a>
             

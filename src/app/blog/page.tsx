@@ -462,6 +462,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 0vw, 50vw"
+                    unoptimized
                   />
                 </div>
               </div>

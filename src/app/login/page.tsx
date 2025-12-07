@@ -133,6 +133,7 @@ function LoginForm() {
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover object-center"
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#FF784A] via-[#FF5722] to-[#E64A19] opacity-80" />
           <div className="absolute inset-0 opacity-35" style={heroPatternStyle} />
