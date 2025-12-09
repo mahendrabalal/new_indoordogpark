@@ -45,7 +45,7 @@ export async function GET() {
       // URL-encode category slug to handle spaces and special characters
       const encodedSlug = encodeURIComponent(category.slug)
       categoryPages.push({
-        url: `${baseUrl}/category/${encodedSlug}`,
+        url: `${baseUrl}/blog/category/${encodedSlug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.6,
@@ -58,7 +58,7 @@ export async function GET() {
 
     for (const tag of tags) {
       tagPages.push({
-        url: `${baseUrl}/tag/${tag.slug}`,
+        url: `${baseUrl}/blog/tag/${tag.slug}`,
         lastModified: currentDate,
         changeFrequency: 'weekly' as const,
         priority: 0.5,
