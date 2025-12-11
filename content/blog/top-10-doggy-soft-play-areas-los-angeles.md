@@ -41,7 +41,7 @@ Before we dive into LA's best venues, let's look at why soft play matters for do
 
 **Why soft play?** Traditional dog parks require constant owner supervision, expose dogs to unpredictable animals, and offer no climate control. Soft play facilities eliminate these concerns with **safety protocols, staff supervision, padded surfaces, and climate control**—making them ideal for LA's diverse canine population.
 
-[LINK: compare-dog-daycare-options-california]
+[Learn more about comparing dog daycare options across California](/blog/compare-dog-daycare-options-california)
 
 ---
 
@@ -278,7 +278,7 @@ The best soft play facilities implement rigorous cleaning protocols: multiple cl
 
 **What to ask:** "What disinfectants do you use? How often do you clean the padded flooring? Do you have HEPA filters?"
 
-[LINK: dog-daycare-safety-checklist]
+**[Read our complete dog daycare safety checklist](/blog/dog-daycare-safety-checklist)** to evaluate any facility.
 
 ### 2. **Staff-to-Dog Ratios Matter**
 Professional soft play facilities maintain **1 staff member per 4–8 dogs** depending on energy level and size diversity. This ensures individualized attention, early intervention in play conflicts, and quick response to emergencies. Facilities with ratios higher than 1:8 struggle to monitor play effectively.
@@ -309,7 +309,7 @@ Top facilities maintain **65–75°F** indoor temperatures and offer cool-down z
 **A:** Most dogs benefit from soft play, but **anxious, reactive, or unsocialized dogs** may need a gradual introduction. Top LA facilities offer trial sessions and behavioral consultations. Dogs recovering from surgery or with orthopedic issues are ideal candidates.
 
 ### **Q: How often should my dog attend soft play?**
-**A:** For young dogs (1–5 years), 2–3 days/week provides good socialization and exercise. Senior dogs (8+ years) benefit from 1–2 gentle sessions/week. Puppies (under 6 months) should start slowly—once/week—until fully vaccinated and comfortable. [LINK: dog-exercise-guidelines-by-age]
+**A:** For young dogs (1–5 years), 2–3 days/week provides good socialization and exercise. Senior dogs (8+ years) benefit from 1–2 gentle sessions/week. Puppies (under 6 months) should start slowly—once/week—until fully vaccinated and comfortable. [Check our dog exercise guidelines by age](/blog/dog-exercise-guidelines-by-age) for personalized recommendations.
 
 ### **Q: What's included in a typical day?**
 **A:** Most facilities offer:
@@ -391,13 +391,13 @@ Choose based on **facility quality, staff professionalism, pricing, and your dog
 
 ## Internal Links & Resources
 
-- [LINK: compare-dog-daycare-options-california]
-- [LINK: dog-daycare-safety-checklist]
-- [LINK: dog-exercise-guidelines-by-age]
-- [LINK: best-indoor-dog-parks-los-angeles]
-- [LINK: puppy-socialization-guide]
-- [LINK: senior-dog-care-tips]
-- [LINK: dog-anxiety-solutions]
+- [Compare Dog Daycare Options Across California](/blog/compare-dog-daycare-options-california)
+- [Dog Daycare Safety Checklist](/blog/dog-daycare-safety-checklist)
+- [Dog Exercise Guidelines by Age](/blog/dog-exercise-guidelines-by-age)
+- [Best Indoor Dog Parks in Los Angeles](/blog/best-indoor-dog-parks-los-angeles)
+- [Puppy Socialization Guide](/blog/puppy-socialization-guide)
+- [Senior Dog Care Tips](/blog/senior-dog-care-tips)
+- [Dog Anxiety Solutions & Tips](/blog/dog-anxiety-solutions)
 
 ---
 
