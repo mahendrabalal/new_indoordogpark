@@ -13,10 +13,9 @@ import * as React from 'react';
 
 interface ConsumerWelcomeEmailProps {
     email: string;
-    baseUrl: string;
 }
 
-export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailProps) => {
+export const ConsumerWelcomeEmail = ({ email }: ConsumerWelcomeEmailProps) => {
     return (
         <Html>
             <Head />
@@ -25,7 +24,7 @@ export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailPro
                 <Container style={container}>
                     <Section style={header}>
                         <Heading style={headerTitle}>🐕 Welcome to the Pack!</Heading>
-                        <Text style={headerSubtitle}>California&apos;s Premier Indoor Dog Park Directory</Text>
+                        <Text style={headerSubtitle}>USA&apos;s Premier Indoor Dog Park Directory</Text>
                     </Section>
 
                     <Section style={content}>
@@ -36,7 +35,7 @@ export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailPro
                         <Text style={paragraph}>Hi there!</Text>
 
                         <Text style={paragraph}>
-                            Welcome to the IndoorDogPark.org community! We&apos;re thrilled to have you join thousands of dog lovers discovering amazing indoor dog parks across California.
+                            Welcome to the IndoorDogPark.org community! We&apos;re thrilled to have you join thousands of dog lovers discovering amazing indoor dog parks across the USA.
                         </Text>
 
                         <Section style={benefitsContainer}>
@@ -52,7 +51,7 @@ export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailPro
                         </Section>
 
                         <Section style={ctaContainer}>
-                            <Link href={`${baseUrl}/parks`} style={button}>
+                            <Link href="https://indoordogpark.org" style={button}>
                                 Explore Parks Now
                             </Link>
                         </Section>
@@ -66,7 +65,7 @@ export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailPro
                                 Happy tail wagging! 🐾<br />
                                 <strong>The IndoorDogPark.org Team</strong><br />
                                 <Link href="mailto:media@indoordogpark.org" style={link}>media@indoordogpark.org</Link><br />
-                                <Link href={baseUrl} style={link}>indoordogpark.org</Link>
+                                <Link href="https://indoordogpark.org" style={link}>indoordogpark.org</Link>
                             </Text>
                         </Section>
 
@@ -75,8 +74,8 @@ export const ConsumerWelcomeEmail = ({ email, baseUrl }: ConsumerWelcomeEmailPro
                                 You&apos;re receiving this because you subscribed to IndoorDogPark.org newsletter.
                             </Text>
                             <Text style={unsubscribeLinks}>
-                                <Link href={`${baseUrl}/unsubscribe?email=${encodeURIComponent(email)}`} style={link}>Unsubscribe</Link> |
-                                <Link href={`${baseUrl}/privacy`} style={link}>Privacy Policy</Link>
+                                <Link href={`https://indoordogpark.org/unsubscribe?email=${encodeURIComponent(email)}`} style={link}>Unsubscribe</Link> |
+                                <Link href="https://indoordogpark.org/privacy" style={link}>Privacy Policy</Link>
                             </Text>
                         </Section>
                     </Section>

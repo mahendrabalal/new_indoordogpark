@@ -106,11 +106,9 @@ export async function generateFollowUpEmail(data: ParkOutreachData): Promise<str
  * Generate welcome email for consumer subscribers (dog park visitors)
  */
 export async function generateConsumerWelcomeEmail(email: string): Promise<string> {
-  const baseUrl = getBaseUrl();
   return await render(
     ConsumerWelcomeEmail({
       email,
-      baseUrl,
     })
   );
 }

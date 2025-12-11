@@ -49,15 +49,6 @@ export const OwnerWelcomeEmail = ({ baseUrl }: OwnerWelcomeEmailProps) => {
                             <li style={listItem}>⚡ Early access to new features</li>
                         </ul>
 
-                        <Section style={offerContainer}>
-                            <Heading as="h3" style={offerTitle}>
-                                🎁 Special Offer: First Month 50% Off
-                            </Heading>
-                            <Text style={offerText}>
-                                Ready to get featured? Use code <strong style={code}>FIRST50</strong> at checkout.
-                            </Text>
-                        </Section>
-
                         <Section style={ctaContainer}>
                             <Link href={`${baseUrl}/list-your-park`} style={button}>
                                 List Your Park Now
@@ -65,7 +56,7 @@ export const OwnerWelcomeEmail = ({ baseUrl }: OwnerWelcomeEmailProps) => {
                         </Section>
 
                         <Text style={paragraph}>
-                            Have questions? Just reply to this email or reach out to our partnerships team. We&apos;re here to help!
+                            Have questions? Just reply to this email or reach out to us at media@indoordogpark.org. We&apos;re here to help!
                         </Text>
 
                         <Section style={footer}>
@@ -145,32 +136,6 @@ const list = {
 
 const listItem = {
     marginBottom: '8px',
-};
-
-const offerContainer = {
-    background: '#f3f4f6',
-    padding: '20px',
-    borderRadius: '6px',
-    margin: '30px 0',
-    borderLeft: '4px solid #667eea',
-};
-
-const offerTitle = {
-    color: '#667eea',
-    marginTop: '0',
-};
-
-const offerText = {
-    margin: '10px 0',
-    fontSize: '15px',
-};
-
-const code = {
-    background: '#FF5722',
-    color: 'white',
-    padding: '4px 8px',
-    borderRadius: '4px',
-    fontFamily: 'monospace',
 };
 
 const ctaContainer = {
