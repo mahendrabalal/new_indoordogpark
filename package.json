@@ -12,13 +12,16 @@
     "outreach:send": "npx ts-node scripts/send-park-outreach.ts",
     "import:owners": "npx ts-node scripts/import-subscribers.ts",
     "outreach:direct": "npx ts-node scripts/send-emails-direct.ts",
+    "outreach:owners": "npx tsx scripts/send-campaign.ts",
+    "outreach:update-list": "npx ts-node scripts/import-subscribers.ts",
     "email:test": "npx ts-node scripts/test-email.ts",
     "email:preview": "npx tsx scripts/generate-email-previews.ts",
     "email:extract": "python3 scripts/extract-emails-from-websites.py",
     "email:create-test": "node scripts/create-test-parks-with-emails.js",
     "deduplicate:parks": "node scripts/deduplicate_parks.js",
     "cleanup:images": "node scripts/cleanup_orphaned_images.js",
-    "cleanup:images:delete": "node scripts/cleanup_orphaned_images.js --delete"
+    "cleanup:images:delete": "node scripts/cleanup_orphaned_images.js --delete",
+    "broadcast:blog": "npx tsx scripts/broadcast-blog-post.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
