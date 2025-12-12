@@ -1,10 +1,11 @@
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
+import { createClient } from '@supabase/supabase-js';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         const supabase = createServerClient();
         const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -29,7 +30,6 @@ export async function GET(request: NextRequest) {
 
         // We use a direct REST call or separate client instance for admin operations
         // Importing createClient from @supabase/supabase-js specifically for admin tasks
-        const { createClient } = require('@supabase/supabase-js');
         const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
         const { count: total, error: e1 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active');

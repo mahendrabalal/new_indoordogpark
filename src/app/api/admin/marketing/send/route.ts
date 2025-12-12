@@ -6,8 +6,8 @@ import { render } from '@react-email/render';
 import BlogPostEmail from '@/emails/BlogPostEmail';
 import MarketingEmail from '@/emails/MarketingEmail';
 import { fetchPostBySlug } from '@/lib/sanity-api';
-import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
+import { createClient } from '@supabase/supabase-js';
 
 // Initialize Clients
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -20,9 +20,6 @@ const sanityConfig = {
 };
 
 const builder = imageUrlBuilder(sanityConfig);
-function urlFor(source: any) {
-    return builder.image(source);
-}
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // Allow 5 minutes for execution (if on Pro, otherwise 10s limit might apply)
@@ -67,13 +64,9 @@ export async function POST(request: NextRequest) {
             // Get image URL
             let imageUrl: string | undefined = undefined;
             if (post.featuredImage) {
-                // The helper returns an object usually, or string? 
-                // fetchPostBySlug returns formatted BlogPost which has WPMedia structure or similar
-                // Let's assume post.featuredImage.source_url based on `src/lib/sanity-api.ts`
-                // Actually checking sanity-api.ts earlier:
-                // It returns `BlogPost` type which matches WP structure. 
-                // `featuredImage` is `WPMedia`. `source_url` is the string.
-                imageUrl = post.featuredImage.source_url;
+                // The builder returns a string-like object or string. 
+                // If the line is error-free, we don't need ts-ignore.
+                imageUrl = builder.image(post.featuredImage.source_url).url();
             }
 
             const emailComponent = BlogPostEmail({
@@ -116,7 +109,6 @@ export async function POST(request: NextRequest) {
                 return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
             }
 
-            const { createClient } = require('@supabase/supabase-js');
             const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
             let query = adminClient.from('subscribers').select('email, id').eq('status', 'active');
@@ -177,10 +169,11 @@ export async function POST(request: NextRequest) {
                     successCount++;
                     details.push({ email: recipient.email, status: 'success' });
                 }
-            } catch (e: any) {
+            } catch (e: unknown) {
+                const errorMessage = e instanceof Error ? e.message : 'Unknown error';
                 console.error(`Exception sending to ${recipient.email}:`, e);
                 failCount++;
-                details.push({ email: recipient.email, status: 'failed', error: e.message || 'Unknown error' });
+                details.push({ email: recipient.email, status: 'failed', error: errorMessage });
             }
 
             // Strict rate limiting: Wait 1 second between emails

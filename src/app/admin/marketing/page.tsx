@@ -1,8 +1,6 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { createBrowserClient } from '@supabase/ssr';
 
 // Types
@@ -10,6 +8,12 @@ interface BlogPost {
     title: string;
     slug: string;
     publishedAt: string;
+}
+
+interface FailureDetail {
+    email: string;
+    status: 'failed';
+    error: string;
 }
 
 export default function MarketingPage() {
@@ -29,9 +33,8 @@ export default function MarketingPage() {
 
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');
-    const [details, setDetails] = useState<any[]>([]);
+    const [details, setDetails] = useState<FailureDetail[]>([]);
 
-    const router = useRouter();
     const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -42,9 +45,12 @@ export default function MarketingPage() {
         fetchPosts();
 
         // Populate test email with current user
-        supabase.auth.getUser().then(({ data }) => {
+        const getUser = async () => {
+            const { data } = await supabase.auth.getUser();
             if (data.user?.email) setTestEmail(data.user.email);
-        });
+        };
+        getUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const fetchSubscribers = async () => {
@@ -131,7 +137,7 @@ export default function MarketingPage() {
                 setStatus('success');
                 setMessage(json.message || 'Sent successfully');
                 if (json.details) {
-                    setDetails(json.details.filter((d: any) => d.status === 'failed'));
+                    setDetails(json.details.filter((d: FailureDetail) => d.status === 'failed'));
                 } else {
                     setDetails([]);
                 }
@@ -140,7 +146,7 @@ export default function MarketingPage() {
                 setMessage(json.error || 'Failed to send');
                 setDetails([]);
             }
-        } catch (e) {
+        } catch {
             setStatus('error');
             setMessage('Network error');
         }
@@ -323,12 +329,10 @@ export default function MarketingPage() {
                     {message && (
                         <div className={`p-4 rounded-md ${status === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
                             {message}
-                            {/* @ts-ignore */}
                             {details.length > 0 && (
                                 <div className="mt-2 text-sm">
                                     <p className="font-semibold">Failures:</p>
                                     <ul className="list-disc pl-5 mt-1 overflow-y-auto max-h-32">
-                                        {/* @ts-ignore */}
                                         {details.map((d, i) => (
                                             <li key={i}>{d.email} - {d.error}</li>
                                         ))}
