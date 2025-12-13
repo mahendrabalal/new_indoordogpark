@@ -25,10 +25,14 @@ function getParamValue(
 }
 
 // Generate metadata for homepage
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  searchParams = {},
+}: HomePageProps): Promise<Metadata> {
   const title = 'Find Indoor Dog Parks Near Me | Indoor Dog Park';
   const description =
     'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
+
+  const isFiltered = hasActiveSearchParams(searchParams);
 
   return {
     metadataBase: new URL(siteUrl),
@@ -36,6 +40,19 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     alternates: {
       canonical: '/',
+    },
+    // Best practice: don't index infinite combinations of filter/search URLs
+    // Keep them crawlable so bots can discover park/city pages.
+    robots: {
+      index: !isFiltered,
+      follow: true,
+      googleBot: {
+        index: !isFiltered,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     openGraph: {
       type: 'website',

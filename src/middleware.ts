@@ -1,6 +1,15 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+function applyNoIndexHeader(response: NextResponse) {
+  // Best practice: never allow Vercel Preview/Dev deployments to be indexed.
+  // Vercel provides VERCEL_ENV = 'production' | 'preview' | 'development'
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  return response;
+}
+
 export async function middleware(request: NextRequest) {
   // Redirect non-www to www for SEO (301 permanent redirect)
   // Industry best practice: Consolidate link equity and prevent duplicate content
@@ -16,7 +25,7 @@ export async function middleware(request: NextRequest) {
   ) {
     // Preserve protocol (https), path, and query parameters
     url.host = 'www.indoordogpark.org';
-    return NextResponse.redirect(url, 301);
+    return applyNoIndexHeader(NextResponse.redirect(url, 301));
   }
 
   // Fix common 404 issues with proper 301 redirects
@@ -30,14 +39,14 @@ export async function middleware(request: NextRequest) {
   if (redirectMap[pathname]) {
     const redirectUrl = new URL(url);
     redirectUrl.pathname = redirectMap[pathname];
-    return NextResponse.redirect(redirectUrl, 301);
+    return applyNoIndexHeader(NextResponse.redirect(redirectUrl, 301));
   }
 
   // Fix malformed URLs with special characters
   if (pathname.includes('steiner-st-&')) {
     const cleanUrl = new URL(url);
     cleanUrl.pathname = pathname.replace('steiner-st-&', 'steiner-st');
-    return NextResponse.redirect(cleanUrl, 301);
+    return applyNoIndexHeader(NextResponse.redirect(cleanUrl, 301));
   }
 
   // Fix trailing slash issues (remove trailing slash except for root)
@@ -46,7 +55,7 @@ export async function middleware(request: NextRequest) {
     cleanUrl.pathname = pathname.slice(0, -1);
     // Check if this would cause a redirect loop
     if (!redirectMap[cleanUrl.pathname]) {
-      return NextResponse.redirect(cleanUrl, 301);
+      return applyNoIndexHeader(NextResponse.redirect(cleanUrl, 301));
     }
   }
 
@@ -55,6 +64,7 @@ export async function middleware(request: NextRequest) {
       headers: request.headers,
     },
   });
+  response = applyNoIndexHeader(response);
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -153,10 +163,12 @@ export const config = {
      * - favicon.ico (favicon file)
      * - studio (Sanity Studio)
      * - sitemap.xml (SEO sitemap)
+     * - sitemap-*.xml (SEO sitemap index children)
      * - robots.txt (robots file)
      * - .txt files (IndexNow key file and other text files)
+     * - .xml files (sitemaps and other XML endpoints)
      * Feel free to modify this pattern to include more paths.
      */
-    '/((?!_next/static|_next/image|favicon.ico|studio|sitemap\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|txt)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|studio|sitemap\\.xml|sitemap-[^/]+\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|txt|xml)$).*)',
   ],
 };

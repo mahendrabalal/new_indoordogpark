@@ -122,7 +122,7 @@ export default function TagBlogPage({ tag, page, perPage, relatedTags = [] }: Ta
             {pagination.totalPages > 1 && (
               <BlogPagination
                 pagination={pagination}
-                basePath={`/tag/${tag.slug}`}
+                basePath={`/blog/tag/${encodeURIComponent(tag.slug)}`}
                 className="mt-8"
               />
             )}
@@ -136,7 +136,7 @@ export default function TagBlogPage({ tag, page, perPage, relatedTags = [] }: Ta
                   {relatedTags.map((relatedTag) => (
                     <Link
                       key={relatedTag.id}
-                      href={`/tag/${relatedTag.slug}`}
+                      href={`/blog/tag/${encodeURIComponent(relatedTag.slug)}`}
                       className="inline-flex items-center px-4 py-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors font-medium"
                     >
                       #{relatedTag.name}

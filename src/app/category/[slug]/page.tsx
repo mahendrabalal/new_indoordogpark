@@ -1,17 +1,11 @@
 import { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
-import CategoryBlogPage from '@/components/blog/CategoryBlogPage';
 import { WPCategory } from '@/types/wordpress';
 import { getCachedCategories } from '@/lib/sanity-api';
-import { getRelatedCategories } from '@/lib/related-content';
 
 interface CategoryPageProps {
   params: {
     slug: string;
-  };
-  searchParams: {
-    page?: string;
-    perPage?: string;
   };
 }
 
@@ -44,10 +38,9 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     };
   }
 
-  // Use canonical slug for URLs (URL-encode to handle spaces and special characters)
-  const canonicalSlug = category.slug;
-  const encodedSlug = encodeURIComponent(canonicalSlug);
-  const canonicalUrl = `/category/${encodedSlug}`;
+  // Legacy route: redirect to canonical /blog/category/:slug (avoid duplicate content)
+  const encodedSlug = encodeURIComponent(category.slug);
+  const canonicalUrl = `/blog/category/${encodedSlug}`;
 
   return {
     title: `${category.name} Articles | Indoor Dog Park Blog`,
@@ -70,13 +63,13 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       type: 'website',
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
     },
   };
 }
 
-export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   // Decode slug for lookup
   const decodedSlug = decodeURIComponent(params.slug);
   const category = await getCategory(decodedSlug);
@@ -85,18 +78,6 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     return notFound();
   }
 
-  // Redirect to canonical slug if different (301 permanent redirect for SEO)
-  // URL-encode the canonical slug to handle spaces and special characters
-  if (category.slug !== decodedSlug) {
-    const encodedCanonicalSlug = encodeURIComponent(category.slug);
-    permanentRedirect(`/category/${encodedCanonicalSlug}`);
-  }
-
-  const page = parseInt(searchParams.page || '1');
-  const perPage = parseInt(searchParams.perPage || '12');
-
-  // Get related categories
-  const relatedCategories = await getRelatedCategories(category, 4);
-
-  return <CategoryBlogPage category={category} page={page} perPage={perPage} relatedCategories={relatedCategories} />;
+  // Always 301 redirect legacy route to canonical blog route
+  permanentRedirect(`/blog/category/${encodeURIComponent(category.slug)}`);
 }

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlogCard from '@/components/blog/BlogCard';
@@ -43,6 +44,26 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   const searchTerm = searchParams.search;
   const categorySlug = searchParams.category;
   const tagSlug = searchParams.tag;
+
+  // Canonicalize legacy query-based category/tag filters to dedicated routes
+  // (prevents duplicate content and matches sitemap URLs)
+  if (categorySlug) {
+    const encoded = encodeURIComponent(categorySlug);
+    const qs = new URLSearchParams();
+    if (page > 1) qs.set('page', String(page));
+    if (perPage !== 12) qs.set('perPage', String(perPage));
+    const suffix = qs.toString() ? `?${qs.toString()}` : '';
+    permanentRedirect(`/blog/category/${encoded}${suffix}`);
+  }
+
+  if (tagSlug) {
+    const encoded = encodeURIComponent(tagSlug);
+    const qs = new URLSearchParams();
+    if (page > 1) qs.set('page', String(page));
+    if (perPage !== 12) qs.set('perPage', String(perPage));
+    const suffix = qs.toString() ? `?${qs.toString()}` : '';
+    permanentRedirect(`/blog/tag/${encoded}${suffix}`);
+  }
 
   // Fetch blog posts from Sanity
   let blogData;
@@ -544,21 +565,19 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
 
   let title = 'Indoor Dog Park Blog - Tips & Guides';
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
-  let canonicalUrl = '/blog';
+  const canonicalUrl = '/blog';
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
+  const isFiltered = Boolean(searchTerm || categorySlug || tagSlug);
 
   if (searchTerm) {
     title = `Search Results for "${searchTerm}" - Indoor Dog Park Blog`;
     description = `Search results for "${searchTerm}" in our indoor dog park blog. Find expert tips, guides, and stories about indoor dog parks.`;
-    canonicalUrl = `/blog?search=${encodeURIComponent(searchTerm)}`;
   } else if (categorySlug) {
     title = `${categorySlug} Articles - Indoor Dog Park Blog`;
     description = `Read expert articles about ${categorySlug} in indoor dog parks and facilities. Tips, guides, and insights for dog owners.`;
-    canonicalUrl = `/blog?category=${encodeURIComponent(categorySlug)}`;
   } else if (tagSlug) {
     title = `${tagSlug} Articles - Indoor Dog Park Blog`;
     description = `Discover articles tagged with ${tagSlug} for indoor dog park enthusiasts. Expert advice and helpful guides.`;
-    canonicalUrl = `/blog?tag=${encodeURIComponent(tagSlug)}`;
   }
 
   return {
@@ -593,10 +612,11 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
       creator: '@indoordogpark',
     },
     robots: {
-      index: true,
+      // Avoid indexing infinite combinations of filtered/search URLs; category/tag routes are canonical.
+      index: !isFiltered,
       follow: true,
       googleBot: {
-        index: true,
+        index: !isFiltered,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',

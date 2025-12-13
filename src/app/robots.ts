@@ -24,6 +24,8 @@ export default function robots(): MetadataRoute.Robots {
           '/private/',
           '/_next/static/media/', // Internal Next.js files
         ],
+        // Be polite to smaller bots/scrapers without slowing down Google/Bing (they ignore crawlDelay anyway)
+        crawlDelay: 1,
       },
       {
         userAgent: 'Googlebot',
@@ -146,11 +148,6 @@ export default function robots(): MetadataRoute.Robots {
           'AspiegelBot',
         ],
         disallow: '/',
-      },
-      // Add crawl delay for any remaining bots to prevent server overload
-      {
-        userAgent: '*',
-        crawlDelay: 1,
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

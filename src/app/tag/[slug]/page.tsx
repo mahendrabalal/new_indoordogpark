@@ -1,17 +1,12 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import TagBlogPage from '@/components/blog/TagBlogPage';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { WPTag } from '@/types/wordpress';
 import { getCachedTags } from '@/lib/sanity-api';
-import { getRelatedTags } from '@/lib/related-content';
+import { SITE_URL } from '@/lib/metadata';
 
 interface TagPageProps {
   params: {
     slug: string;
-  };
-  searchParams: {
-    page?: string;
-    perPage?: string;
   };
 }
 
@@ -32,8 +27,15 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     return {
       title: 'Tag Not Found | Indoor Dog Park',
       description: 'The tag you are looking for could not be found.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
+
+  // Legacy route: canonicalize to /blog/tag/:slug (avoid duplicate content)
+  const canonicalUrl = `/blog/tag/${encodeURIComponent(tag.slug)}`;
 
   return {
     title: `${tag.name} Articles | Indoor Dog Park Blog`,
@@ -46,31 +48,29 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       'pet care',
       'California dog parks'
     ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${tag.name} Articles | Indoor Dog Park Blog`,
       description: `Articles tagged with ${tag.name}`,
-      url: `https://www.indoordogpark.org/tag/${tag.slug}`,
+      url: `${SITE_URL}${canonicalUrl}`,
       type: 'website',
     },
     robots: {
-      index: true,
+      index: false,
       follow: true,
     },
   };
 }
 
-export default async function TagPage({ params, searchParams }: TagPageProps) {
+export default async function TagPage({ params }: TagPageProps) {
   const tag = await getTag(params.slug);
 
   if (!tag) {
     return notFound();
   }
 
-  const page = parseInt(searchParams.page || '1');
-  const perPage = parseInt(searchParams.perPage || '12');
-
-  // Get related tags
-  const relatedTags = await getRelatedTags(tag, 4);
-
-  return <TagBlogPage tag={tag} page={page} perPage={perPage} relatedTags={relatedTags} />;
+  // Always 301 redirect legacy route to canonical blog route
+  permanentRedirect(`/blog/tag/${encodeURIComponent(tag.slug)}`);
 }

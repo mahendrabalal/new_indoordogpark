@@ -122,7 +122,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
             {pagination.totalPages > 1 && (
               <BlogPagination
                 pagination={pagination}
-                basePath={`/category/${category.slug}`}
+                basePath={`/blog/category/${encodeURIComponent(category.slug)}`}
                 className="mt-8"
               />
             )}
@@ -138,7 +138,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
                     return (
                       <Link
                         key={relatedCat.id}
-                        href={`/category/${encodedSlug}`}
+                        href={`/blog/category/${encodedSlug}`}
                         className="inline-flex items-center px-4 py-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors font-medium"
                       >
                         {relatedCat.name}

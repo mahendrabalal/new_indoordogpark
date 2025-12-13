@@ -27,20 +27,31 @@ interface ParkData {
 async function importSubscribers() {
     console.log('🚀 Starting subscriber import...');
 
-    const dataPath = path.join(process.cwd(), 'public/data/california.json');
+    const dataFiles = [
+        'public/data/california.json',
+        'public/data/washington.json',
+        'public/data/mixmatch.json'
+    ];
+    let allParks: ParkData[] = [];
 
-    if (!fs.existsSync(dataPath)) {
-        console.error(`Error: Data file not found at ${dataPath}`);
-        process.exit(1);
+    for (const file of dataFiles) {
+        const dataPath = path.join(process.cwd(), file);
+        if (fs.existsSync(dataPath)) {
+            const content = fs.readFileSync(dataPath, 'utf-8');
+            const data = JSON.parse(content);
+            // Handle both array and object with parks array
+            const parks = Array.isArray(data) ? data : (data.parks || []);
+            console.log(`📂 Loaded ${parks.length} parks from ${file}`);
+            allParks = [...allParks, ...parks];
+        } else {
+            console.warn(`⚠️ File not found: ${file}`);
+        }
     }
 
-    const fileContent = fs.readFileSync(dataPath, 'utf-8');
-    const parks: ParkData[] = JSON.parse(fileContent);
-
-    console.log(`📂 Loaded ${parks.length} parks.`);
+    console.log(`📂 Total loaded parks: ${allParks.length}`);
+    const parksWithEmails = allParks.filter(p => p.email && p.email.trim() !== '');
 
     // Filter parks with emails
-    const parksWithEmails = parks.filter(p => p.email && p.email.trim() !== '');
     console.log(`📊 Found ${parksWithEmails.length} parks with email addresses.`);
 
     let successCount = 0;
