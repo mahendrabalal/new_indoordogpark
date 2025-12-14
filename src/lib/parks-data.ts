@@ -469,7 +469,44 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   const city = findCityBySlug(staticParks, slug);
 
   if (city) {
-    // For regular cities: merge static parks + user submissions for this city
+    // Before processing as a static city, check if a priority city exists for this city/state
+    // This ensures that static slugs like "las-vegas" will redirect to priority slugs like "las-vegas-nv"
+    const priorityCityForStatic = getPriorityCityByName(city.name, city.state);
+    if (priorityCityForStatic) {
+      // Return priority city data instead, which will trigger a redirect to the canonical slug
+      const priorityParks = priorityCityForStatic.parks;
+      const staticCityParks = getParksByCity(staticParks, priorityCityForStatic.city);
+      const submissionCityParks = getParksByCity(userSubmissions, priorityCityForStatic.city);
+      
+      const allCityParks = dedupeParks([...priorityParks, ...staticCityParks, ...submissionCityParks]);
+      const parksByType = getParksByType(allCityParks);
+      const stats = getCityStatistics(allCityParks);
+
+      const priorityCityData: CityData = {
+        slug: priorityCityForStatic.slug,
+        name: priorityCityForStatic.city,
+        parkCount: allCityParks.length,
+        avgRating: stats.avgRating,
+        totalReviews: stats.totalReviews,
+        featuredImage: priorityCityForStatic.featuredImage,
+        latitude: allCityParks[0]?.latitude || priorityParks[0]?.latitude,
+        longitude: allCityParks[0]?.longitude || priorityParks[0]?.longitude,
+        state: priorityCityForStatic.state,
+      };
+
+      const nearbyCities = getNearbyCities(staticParks, priorityCityForStatic.city, priorityCityForStatic.state);
+
+      return {
+        city: priorityCityData,
+        cityParks: allCityParks,
+        parksByType,
+        stats,
+        customContent: priorityCityForStatic.customContent,
+        nearbyCities,
+      };
+    }
+    
+    // For regular cities without priority equivalents: merge static parks + user submissions for this city
     const staticCityParks = getParksByCity(staticParks, city.name);
     const submissionCityParks = getParksByCity(userSubmissions, city.name);
     
@@ -499,12 +536,67 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   return null;
 }
 
+/**
+ * Get the correct city slug for a given city name (and optionally state)
+ * This checks priority cities first, then static cities, and returns the canonical slug
+ */
+export async function getCitySlugByName(cityName: string, state?: string): Promise<string | null> {
+  const normalizedCityName = cityName.toLowerCase().trim();
+  const normalizedState = state?.toLowerCase().trim();
+  
+  // First check priority cities
+  const priorityCity = getPriorityCityByName(cityName, state);
+  if (priorityCity) {
+    return priorityCity.slug;
+  }
+  
+  // Then check static cities
+  const parks = await loadStaticParks();
+  const cities = getAllCities(parks);
+  const staticCity = cities.find(
+    (c) =>
+      c.name.toLowerCase() === normalizedCityName &&
+      (!normalizedState || c.state.toLowerCase() === normalizedState)
+  );
+  
+  if (staticCity) {
+    // Check if this static city has a priority equivalent
+    const priorityEquivalent = getPriorityCityByName(staticCity.name, staticCity.state);
+    if (priorityEquivalent) {
+      return priorityEquivalent.slug;
+    }
+    return staticCity.slug;
+  }
+  
+  return null;
+}
+
 export async function getAllCitySlugs(): Promise<string[]> {
   const parks = await loadStaticParks();
   const cities = getAllCities(parks);
   const staticSlugs = cities.map((city) => city.slug);
   const prioritySlugs = getPriorityCitySlugs();
-  const combined = new Set([...staticSlugs, ...prioritySlugs]);
+  
+  // Exclude static city slugs that conflict with priority cities
+  // (e.g., exclude "las-vegas" if "las-vegas-nv" exists as a priority city)
+  const priorityCities = priorityCityContent;
+  const filteredStaticSlugs = staticSlugs.filter((staticSlug) => {
+    // Find the static city by slug
+    const staticCity = cities.find((c) => c.slug === staticSlug);
+    if (!staticCity) return true;
+    
+    // Check if a priority city exists for the same city name and state
+    const conflictingPriority = priorityCities.find(
+      (pc) =>
+        pc.city.toLowerCase() === staticCity.name.toLowerCase() &&
+        pc.state.toLowerCase() === staticCity.state.toLowerCase()
+    );
+    
+    // Exclude this static slug if a priority city exists for the same city/state
+    return !conflictingPriority;
+  });
+  
+  const combined = new Set([...filteredStaticSlugs, ...prioritySlugs]);
   return Array.from(combined);
 }
 

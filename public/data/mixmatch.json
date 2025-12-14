@@ -8046,5 +8046,221 @@
     "amenities": {
       "daycare": true
     }
+  },
+  {
+    "id": "ChIJ_Skiptown_Denver_CO",
+    "name": "Skiptown",
+    "businessType": "Indoor Dog Park",
+    "description": "Skiptown Denver is a premier 50,000-square-foot indoor and outdoor dog park facility featuring an expansive off-leash turfed dog park, seasonal splash pad, and full-service bar. This facility offers premium pet care services including daycare, boarding, grooming, and training. The climate-controlled indoor areas provide year-round play opportunities, while the outdoor areas are perfect for Colorado's sunny days. Owners can enjoy craft cocktails, beer, coffee, and non-alcoholic beverages while their dogs play. The facility requires up-to-date vaccinations (bordetella, distemper/parvo, and rabies) and registration through the Skiptown app. Conveniently located in Denver's York Street Yards neighborhood.",
+    "slug": "skiptown-denver",
+    "address": "3833 Steele Street, Suite 1332",
+    "street": "3833 Steele Street, Suite 1332",
+    "city": "Denver",
+    "state": "CO",
+    "zipCode": "80205",
+    "full_address": "3833 Steele Street, Suite 1332, Denver, CO 80205",
+    "latitude": 39.76996,
+    "longitude": -104.95451,
+    "phone": "+1 720-706-1163",
+    "email": "denver@skiptown.io",
+    "website": "https://skiptown.io/denver-co/",
+    "rating": 4.7,
+    "reviewCount": 150,
+    "userRatingsTotal": 150,
+    "openingHours": {
+      "Sunday": "7AM-9PM",
+      "Monday": "7AM-9PM",
+      "Tuesday": "7AM-9PM",
+      "Wednesday": "7AM-9PM",
+      "Thursday": "7AM-9PM",
+      "Friday": "7AM-9PM",
+      "Saturday": "7AM-9PM"
+    },
+    "pricing": {
+      "isFree": false,
+      "pricingType": "membership",
+      "priceRange": "$$",
+      "pricingDetails": "Membership and day pass options available. Visit website or app for current pricing.",
+      "pricingUrl": "https://skiptown.io/denver-co/",
+      "currency": "USD",
+      "pricingSource": "website"
+    },
+    "amenities": {
+      "parking": true,
+      "waterFountains": true,
+      "seating": true,
+      "smallDogArea": true,
+      "largeDogArea": true,
+      "fencing": true,
+      "restrooms": true,
+      "handicapAccess": true,
+      "lighting": true,
+      "grooming": true,
+      "daycare": true,
+      "training": true,
+      "socializing": true,
+      "bar": true,
+      "food": true,
+      "wifi": true
+    },
+    "indoorOutdoor": "both",
+    "sizeCategory": "large",
+    "surfaceType": "artificial turf",
+    "petFriendlyFeatures": [
+      "Climate-controlled indoor areas",
+      "Seasonal splash pad",
+      "Full-service bar for owners",
+      "Premium pet care services",
+      "App-based registration",
+      "Vaccination requirements"
+    ],
+    "photos": [
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHo9R2oIiyVdV_zxflXKafl3YPZ8ADY3bxxZsK6tMMTQl83s3p5GJ_SdzRb5Lw4StZDkz98kVl-fQJPYd9kffGPrUiYrXxvo1h64YMno_EGBiFHdjO7dsOVwtIem8qaY4ySAFbTBtm_C17GIl91L8MduPVRx820KsrLT3VOimEZiADOqsyHLp3kSu_UphOimgS0piyeGrQ_2pc2HgsgJa_Q3VrpDXCHrN5Md8BMIbw23owJBKNjpS1YLri1NFVWTxniOVdXXf1k24mxez2L0B14gjjbOl3aNiDxY2sunxk0bmnMcwZ70DRCyTmBQHIdbKY_OAkknqXLEtbA1q7VBry1fWOJpOXp9xGNHcGmZEclkYMIEdn_EPRTVj3DWKneJ-YY5Q00MMumihU2k6wKwWmVUjhTqXrjnBt85Z_3ghzzJug/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHrvoIW7XSHi6briUdq_dhdsyzyl0gwP3UF5GJ8X23u0VkKazsx3UnlTBvvDtyglLFdckwqmysYd2JZSpxu3bp8iBENu0I27LYFWbYDzlM2HGGhRw3nKrNgGevOD_vmInE5TPuGSgGn-ra0fMirslYkRal_BNrRfOhEwb1wSSlXB1sHGYRivo4ZRV38Rj7EH-fswkwhuA6NoN1P93teVSHqQGQSAA7gfHs--ad7vgBTCQHETqcpqDjZDntNDa2yHs41OWvBE_WS6WrmD9l3NF2yeTsPrTo60D1N2GWGvhCU/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHog4kwaXDAZ9LMVT5PKu2GGWGtkhJGazG9xK--rUHlBO0Wb01hH-4L0-uWFukMf76qXaBVzSX4WvRLwH2Ca4-25-ZBalH8El5ahk2awxZS-Q0embuvjZQeohVAUvb6iwzxvVYoGy4e7KPqiRaGnECy_w74hhBUj4LEMJkDdGHkYBQ3JYUNzYBdQM8RI0lwM9Rsr5OdrbZuZrZyMZSl9pchee9YFA2K8N7XoDHMMqLe03TASxeTXbtAc0Nus2UL6VwFE7qVUyckm1LhxgZMcMKKHj4wE6DsIhkNcnJt3t9vh85Bj1C2Emkh2-Ma4XWdTiYG5MW11Zig909SP7-Zb_G9Env1sBuoCXJHrltzU7vvLcCAtntXapkofowFs0n-wW1WIE_35ZpyqQlGshZVSQ1UDWgdsSoa3Xcr7nkdOw12Nqpb_/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHrIYhvqhkrBimmTJnjqMD3919cYCwno52V3iX0wCAGc5vvRiXrcs-0DR8CyoWPG883QXFuJEyPHhZvpDgTrcSBPHqhMcw7W8bsYtRTYjIyQyfF6aqec3Wq17G26Wy1ktM68B_z9HCwR2830FtWXcxq7g_8pnyVFgjemS9I7PqEAbOX8oqABz8wEXhoITakRW07FHICaHqpRXxLnPZEGkQKXTMkbRULwVAkm9TbcyImiaLlQpgq3FuTurokZvfoUDjntWkH4jlcTLWGFE8rxFPma1rtP4FFSbcNnVY6uSsbS1RAYvlYtj0L4gObRBNL--M4RbOnKUazJzjXeGiKiAGssnuIN6iQ26sasjbvPKjPPLX9Z3AeIo9nkUJiWE-Z6tebp6U7C4ZYWZaF4C1uYJuYwCp31NblW3smTOwckC_Da0FK-yf4NOep38dC3IRjS/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHq4t_rG1mAIKchB89PX5QZJzt99SEOEAZoKgsn-QOYaYGj5oI_56fOHCPvliLdXBZL792A2aJcPomq3n_cCkVveseJ3p1_X1EciDigJkc1ay2Jbx7QmGRZD0uT3_5UcF8GYBKJ1R1GV25j_eu1u02ltTgv1QaKbYKVmK4d8lvxan0vT0H7-HcUlBRuP84emZ8k2eDD66NsL9WtfYjBzJ7c-y0ATQNUJ6_tjR-5SHfiNjfFNHE6c6LEaFJpUtUzgjAjOjnnd_GKSj4Y_lzFCouqhQsGxFhQLrAYMVR2v6kocxUnURGjl3O2Lkg5Lj2GgE-_vTs4uFmsmlrNT9BzjfvbM-aagcuQLuYtVr8TTuGSPdBOht1Ql9_6HqDcMPiyyNu0bhQ7DkMusLzfMdwrodCs5swbuGrxEH-_bdUm5nw_mFLDE3EtqU43OC_oMGQ/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      }
+    ],
+    "placeTypes": [
+      "Dog park",
+      "Dog day care center",
+      "Pet boarding service",
+      "Pet groomer",
+      "Dog cafe"
+    ],
+    "dataQuality": "verified",
+    "lastUpdated": "2024-12-19T00:00:00Z",
+    "photo": "https://places.googleapis.com/v1/places/ChIJv9qA6Vl5bIcRaguIWoTk2wk/photos/AZLasHo9R2oIiyVdV_zxflXKafl3YPZ8ADY3bxxZsK6tMMTQl83s3p5GJ_SdzRb5Lw4StZDkz98kVl-fQJPYd9kffGPrUiYrXxvo1h64YMno_EGBiFHdjO7dsOVwtIem8qaY4ySAFbTBtm_C17GIl91L8MduPVRx820KsrLT3VOimEZiADOqsyHLp3kSu_UphOimgS0piyeGrQ_2pc2HgsgJa_Q3VrpDXCHrN5Md8BMIbw23owJBKNjpS1YLri1NFVWTxniOVdXXf1k24mxez2L0B14gjjbOl3aNiDxY2sunxk0bmnMcwZ70DRCyTmBQHIdbKY_OAkknqXLEtbA1q7VBry1fWOJpOXp9xGNHcGmZEclkYMIEdn_EPRTVj3DWKneJ-YY5Q00MMumihU2k6wKwWmVUjhTqXrjnBt85Z_3ghzzJug/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0"
+  },
+  {
+    "id": "ChIJ_PubDog_Colorado_Springs_CO",
+    "name": "PubDog Colorado",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "PubDog Colorado is the only restaurant in Colorado where you can dine indoors with your dog. This unique establishment features 9,000 square feet of combined indoor and outdoor off-leash space for dogs, a full bar, scratch kitchen, and local drafts. The facility offers both heated indoor and outdoor dog parks, making it perfect for year-round visits. Owners can enjoy a full menu while their dogs play in the off-leash areas. The venue is ADA compliant with accessible bathrooms and ramps. Additional amenities include free Wi-Fi, air conditioning, free parking, happy hour specials, and private dining rooms. A special doggie menu is also available for your furry friends.",
+    "slug": "pubdog-colorado-springs",
+    "address": "2207 Bott Ave",
+    "street": "2207 Bott Ave",
+    "city": "Colorado Springs",
+    "state": "CO",
+    "zipCode": "80904",
+    "full_address": "2207 Bott Ave, Colorado Springs, CO 80904",
+    "latitude": 38.8405953,
+    "longitude": -104.8632122,
+    "phone": "+1 719-375-0771",
+    "website": "https://pubdogcolorado.com/",
+    "rating": 4.5,
+    "reviewCount": 200,
+    "userRatingsTotal": 200,
+    "openingHours": {
+      "Sunday": "10:30AM-8PM",
+      "Monday": "12PM-9PM",
+      "Tuesday": "Closed",
+      "Wednesday": "12PM-9PM",
+      "Thursday": "12PM-9PM",
+      "Friday": "12PM-9PM",
+      "Saturday": "10:30AM-9PM"
+    },
+    "pricing": {
+      "isFree": false,
+      "pricingType": "per-visit",
+      "priceRange": "$$",
+      "pricingDetails": "Restaurant pricing with dog park access. Visit website for current menu and pricing.",
+      "pricingUrl": "https://pubdogcolorado.com/",
+      "currency": "USD",
+      "pricingSource": "website"
+    },
+    "amenities": {
+      "parking": true,
+      "waterFountains": true,
+      "seating": true,
+      "smallDogArea": true,
+      "largeDogArea": true,
+      "fencing": true,
+      "restrooms": true,
+      "handicapAccess": true,
+      "lighting": true,
+      "socializing": true,
+      "bar": true,
+      "food": true,
+      "wifi": true,
+      "airConditioning": true
+    },
+    "indoorOutdoor": "both",
+    "sizeCategory": "large",
+    "surfaceType": "mixed",
+    "petFriendlyFeatures": [
+      "Indoor dining with dogs",
+      "Heated indoor and outdoor areas",
+      "Doggie menu available",
+      "Full bar and scratch kitchen",
+      "Private dining rooms",
+      "Happy hour specials"
+    ],
+    "photos": [
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHo7RUi3MsFJGXvxpHq0IGZH4p-oDGYNvHmOrkJEcmTw26kPisEpvVSnT6GbTKkGjImYMHwST4pF7zgAtqRfpfMWT23c9ZqK43V8buKeHhUPSrILr-MYdPrJPYyiU-9_qH6fzH31BlValHHYsMmDbUZYsz9S-tiFbim8E9-Bm8PFteZhxho4-k__DDGxE5zkiVH2cVGOHkNR8Uo9NrcMdNP7yBzlsTqZsEb09RvHFbxgO-W7B0pK4mI2TmZi1qDaXrqQ_N8NlhvqLtSiCmAPEeEMLiBfW7Ti5B-wS3Q-yX7yRQ/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHqQ3CZAnqDfhg8nAKPXHJ9opgyxbO3UtWvPgllzKx-qpLiGhMQsg07hp4GR6BBNTbpTTAo0U3wd3JYEyjHNAYCDm4AgpNGInuZnxdZ0Dcw4sBM3W-H09efs9wKMSbB__CjQpNfl_4-K7KwTPLewlUhy0AR_2eI5fwOXY4kK7unwi02RsbibN7_WAsRKSLcrC53om1iKATv2KKf-_81venafEH3Y82vEvhVHQb48Uj0JAd8dGbDB9H7J4Fa_GEmEe5t6r_gkCxKUwPnSh9ny4mdOM4wc6U_Bqcrih4pUHVfI_Q/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHrMHw-V52bHVpRx3zIww6xb5swN0-IF6IPf3jHExNH_4k0d6xWwlSjb1DPDu_l0Y0rzv01TqxU_7h8hHcmQ4rWMU625F3vzxUVakuMaL77B8e4XHN-Qevgk82_KZ32byBdK85GV63_VUqM9PmwLbDj3wgM7tVMFeyPKMnvWpQk0x3nlNKInaRhyZkXWDagyPoFc_AF_DH_aE96cp1wXBJHk0sjjlnD_1lyu8Efg0_tsN2lwThib1Rxm5eNNjdRu4k5_MXoEwYErlAHZ_6f0Fuzzp8DyH5K06BarzMA99CF1QQ/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHoHumz9nzVg7uwqpAKx63JEh8fakLzFnvxiKkYPkX6Bbg2rl4Mf-ahAvgSLms8jSjIISrDgf9wr2XbEAKO4UKcMV800FQSbfktDmiNSIwwVHMdhsYzECBpy-uHuZ-kj9enRrJjfwLV5CRKCHAn90yLFc4jILPYXYf4fs6m5Qx43Z_bptnQslgYFmqlFof9BarLlPVueeykaOKN9hgLPphprTR_dH6NWuS2Ac-cDSqVQP8mlKrWMwC9GMXE9KNwQtzEFCilJUHOQSEcGQQoUuz2ZzDjmTMaQDYqPvSmyHn6aWQ/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      },
+      {
+        "url": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHo80Tl9iiyRBlwFsDP6ie_Z9C8WreH07srogE3sKwjMZ-ryBr3IMYayLjXFG63AQ4Ja-Cq4yS9JjX3YHnmpD6zYSlgce0Ps23QEnuJbSecsgZOerJDjO1aYa7KitrBO6mHTfXHOwUiecJQ6vFAUgP3ReDBM-4EfnDRGqD8o3u8I0rXO5NlYOqesZg4H3s1xAqu0ntOuFaVrc3b1R9FNW229BQXSDh29FSeWZOGsf9HiT4zIOwKZLKDpcotM_32RgHytvPyCxaBhGniOOg8s96DMV0euYV2W5kfyxuGjaQtZNyhxZzHNu3IJfFgQigKUdY905_WxNjSiomii6Lmd-OAYO7thl0Lwl2iIRUqhPwORONXWXCrVsM7A37wjRn21ZErzXEIXu5KkekbXI8602Z-ldFziJZvjPrLcvpvdtDIUAveS367BheHNWEgeowSL/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0",
+        "type": "photo",
+        "source": "google_places",
+        "caption": null
+      }
+    ],
+    "placeTypes": [
+      "Restaurant",
+      "Dog park",
+      "Bar",
+      "Dog-friendly establishment"
+    ],
+    "dataQuality": "verified",
+    "lastUpdated": "2024-12-19T00:00:00Z",
+    "photo": "https://places.googleapis.com/v1/places/ChIJUa2JVL9aE4cRrWHU_MXtzTc/photos/AZLasHo7RUi3MsFJGXvxpHq0IGZH4p-oDGYNvHmOrkJEcmTw26kPisEpvVSnT6GbTKkGjImYMHwST4pF7zgAtqRfpfMWT23c9ZqK43V8buKeHhUPSrILr-MYdPrJPYyiU-9_qH6fzH31BlValHHYsMmDbUZYsz9S-tiFbim8E9-Bm8PFteZhxho4-k__DDGxE5zkiVH2cVGOHkNR8Uo9NrcMdNP7yBzlsTqZsEb09RvHFbxgO-W7B0pK4mI2TmZi1qDaXrqQ_N8NlhvqLtSiCmAPEeEMLiBfW7Ti5B-wS3Q-yX7yRQ/media?maxWidthPx=800&key=AIzaSyBPxnMU83FCG8BV6wd78WsSecdRlCm-ZX0"
   }
 ]

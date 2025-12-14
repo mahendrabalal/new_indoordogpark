@@ -567,7 +567,10 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
   const canonicalUrl = '/blog';
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
-  const isFiltered = Boolean(searchTerm || categorySlug || tagSlug);
+  
+  // Category and tag query params redirect to canonical routes, so they should be indexable
+  // Only block search query params from indexing (they're truly filtered pages)
+  const shouldBlockIndexing = Boolean(searchTerm);
 
   if (searchTerm) {
     title = `Search Results for "${searchTerm}" - Indoor Dog Park Blog`;
@@ -612,11 +615,12 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
       creator: '@indoordogpark',
     },
     robots: {
-      // Avoid indexing infinite combinations of filtered/search URLs; category/tag routes are canonical.
-      index: !isFiltered,
+      // Only block search query params from indexing (they're filtered pages)
+      // Category/tag query params redirect to canonical routes, so allow indexing
+      index: !shouldBlockIndexing,
       follow: true,
       googleBot: {
-        index: !isFiltered,
+        index: !shouldBlockIndexing,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',

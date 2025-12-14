@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import CategoryBlogPage from '@/components/blog/CategoryBlogPage';
 import { WPCategory } from '@/types/wordpress';
 
@@ -27,7 +27,38 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
     const data = await response.json();
     const categories: WPCategory[] = data.data || [];
 
-    return categories.find(cat => cat.slug === slug) || null;
+    // Try exact match first
+    let category = categories.find(cat => cat.slug === slug);
+    
+    // If not found, try normalizing the slug (handle spaces, URL encoding, etc.)
+    if (!category) {
+      // Normalize slug: convert spaces to hyphens, lowercase, trim
+      const normalizedSlug = slug
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-+|-+$/g, '');
+      
+      category = categories.find(cat => {
+        const catSlug = cat.slug.toLowerCase();
+        return catSlug === normalizedSlug || catSlug === slug.toLowerCase();
+      });
+      
+      // Also try matching by name (in case slug doesn't match but name does)
+      if (!category) {
+        const normalizedName = slug
+          .toLowerCase()
+          .trim()
+          .replace(/\s+/g, ' ');
+        category = categories.find(cat => 
+          cat.name.toLowerCase() === normalizedName || 
+          cat.name.toLowerCase().replace(/\s+/g, '-') === normalizedSlug
+        );
+      }
+    }
+
+    return category || null;
   } catch (error) {
     console.error('Error fetching category:', error);
     return null;
@@ -100,6 +131,16 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
   if (!category) {
     return notFound();
+  }
+
+  // Redirect to canonical slug if the requested slug doesn't match
+  // (handles cases like "indoor dog park" or "indoor%20dog%20park" -> "indoor-dog-park")
+  if (category.slug !== params.slug) {
+    const qs = new URLSearchParams();
+    if (searchParams.page && searchParams.page !== '1') qs.set('page', searchParams.page);
+    if (searchParams.perPage && searchParams.perPage !== '12') qs.set('perPage', searchParams.perPage);
+    const suffix = qs.toString() ? `?${qs.toString()}` : '';
+    permanentRedirect(`/blog/category/${category.slug}${suffix}`);
   }
 
   const page = parseInt(searchParams.page || '1');

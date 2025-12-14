@@ -12,7 +12,7 @@ import BlogCard from '@/components/blog/BlogCard';
 import { getCachedPosts, getCachedPostBySlug } from '@/lib/sanity-api';
 import { extractHeadingsFromHtml, addIdsToHeadings } from '@/lib/extract-headings';
 import { getRelatedParks, extractMentionedCities } from '@/lib/related-content';
-import { getAllStaticParks } from '@/lib/parks-data';
+import { getAllStaticParks, getCitySlugByName } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
 import { SITE_URL } from '@/lib/metadata';
 
@@ -124,7 +124,24 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   // Get related parks and mentioned cities
   const allParks = await getAllStaticParks();
   const relatedParks = await getRelatedParks(post, 6);
-  const mentionedCities = extractMentionedCities(post, allParks);
+  const mentionedCityNames = extractMentionedCities(post, allParks);
+  
+  // Get correct city slugs for mentioned cities (respecting priority cities)
+  const mentionedCitiesWithSlugs = await Promise.all(
+    mentionedCityNames.map(async (cityName) => {
+      // Find a park in this city to get the state
+      const parkInCity = allParks.find((p) => p.city.toLowerCase() === cityName.toLowerCase());
+      const state = parkInCity?.state;
+      
+      // Get the correct canonical slug (handles priority cities)
+      const slug = await getCitySlugByName(cityName, state);
+      
+      return {
+        name: cityName,
+        slug: slug || cityName.toLowerCase().replace(/\s+/g, '-'), // Fallback to basic slug if not found
+      };
+    })
+  );
 
   const readingTime = estimateReadingTime(post.content);
   const categoryName = post.categories[0]?.name || 'Blog';
@@ -422,7 +439,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* Mentioned Cities Section */}
-        {mentionedCities.length > 0 && (
+        {mentionedCitiesWithSlugs.length > 0 && (
           <div className="bg-gradient-to-r from-purple-50 to-purple-100 py-12 mt-12">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Explore These Cities</h2>
@@ -430,16 +447,21 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 This article mentions the following cities. Discover dog parks and resources in these locations.
               </p>
               <div className="flex flex-wrap gap-3">
-                {mentionedCities.map((cityName) => {
-                  const citySlug = cityName.toLowerCase().replace(/\s+/g, '-');
+                {mentionedCitiesWithSlugs.map((city) => {
+                  // Capitalize first letter of each word for display
+                  const displayName = city.name
+                    .split(' ')
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                  
                   return (
                     <Link
-                      key={cityName}
-                      href={`/cities/${citySlug}`}
+                      key={city.name}
+                      href={`/cities/${city.slug}`}
                       className="inline-flex items-center px-4 py-2 bg-white text-purple-700 rounded-lg hover:bg-purple-50 transition-colors font-medium shadow-sm"
                     >
                       <i className="bi bi-geo-alt mr-2"></i>
-                      {cityName}
+                      {displayName}
                     </Link>
                   );
                 })}
