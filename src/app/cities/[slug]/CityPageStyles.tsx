@@ -5,7 +5,7 @@ export default function CityPageStyles() {
     <style jsx global>{`
         .city-page-layout {
           padding: 32px 32px 72px 320px;
-          background: linear-gradient(180deg, #faf7ff 0%, #ffffff 40%, #f6f7fb 100%);
+          background: #ffffff;
         }
 
         @media (min-width: 1440px) {
@@ -42,10 +42,10 @@ export default function CityPageStyles() {
           padding: 10px 16px;
           border-radius: 999px;
           border: none;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           color: white;
           font-weight: 600;
-          box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+          box-shadow: 0 10px 30px rgba(255, 87, 34, 0.18);
         }
 
         @media (max-width: 1024px) {
@@ -96,21 +96,21 @@ export default function CityPageStyles() {
           font-size: 12px;
           text-transform: uppercase;
           letter-spacing: 0.2em;
-          color: #a855f7;
+          color: #FF5722;
           margin-bottom: 12px;
           font-weight: 700;
         }
 
         .city-hero-copy h1 {
-          font-size: clamp(32px, 4vw, 56px);
+          font-size: clamp(28px, 3.4vw, 48px);
           line-height: 1.1;
-          color: #0f172a;
+          color: #2c3e50;
           margin-bottom: 16px;
         }
 
         .hero-description {
-          font-size: 18px;
-          color: #475569;
+          font-size: 16px;
+          color: #666;
           line-height: 1.6;
           margin-bottom: 28px;
         }
@@ -134,12 +134,12 @@ export default function CityPageStyles() {
           display: block;
           font-size: 20px;
           font-weight: 700;
-          color: #111827;
+          color: #2c3e50;
         }
 
         .chip-label {
           font-size: 12px;
-          color: #64748b;
+          color: #777;
           text-transform: uppercase;
           letter-spacing: 0.08em;
         }
@@ -152,7 +152,7 @@ export default function CityPageStyles() {
         }
 
         .hero-metric {
-          background: #111827;
+          background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
           color: white;
           border-radius: 16px;
           padding: 18px;
@@ -177,7 +177,7 @@ export default function CityPageStyles() {
           font-size: 12px;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #cbd5f5;
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .metric-value {
@@ -189,7 +189,7 @@ export default function CityPageStyles() {
 
         .metric-caption {
           font-size: 12px;
-          color: #cbd5f5;
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .hero-cta-row {
@@ -212,20 +212,20 @@ export default function CityPageStyles() {
         }
 
         .hero-cta.primary {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: #FF5722;
           color: white;
-          box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+          box-shadow: 0 15px 30px rgba(255, 87, 34, 0.2);
         }
 
         .hero-cta.ghost {
           background: white;
-          color: #111827;
+          color: #2c3e50;
           border: 1px solid #e2e8f0;
         }
 
         .hero-cta.text-link {
           background: transparent;
-          color: #7c3aed;
+          color: #FF5722;
           padding-left: 0;
         }
 
@@ -234,11 +234,11 @@ export default function CityPageStyles() {
           flex-wrap: wrap;
           gap: 16px;
           font-size: 13px;
-          color: #475569;
+          color: #666;
         }
 
         .hero-footnotes i {
-          color: #7c3aed;
+          color: #FF5722;
           margin-right: 6px;
         }
 
@@ -294,7 +294,7 @@ export default function CityPageStyles() {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           font-size: 11px;
-          color: #a855f7;
+          color: #FF5722;
           margin-bottom: 4px;
         }
 
@@ -367,21 +367,21 @@ export default function CityPageStyles() {
           font-size: 12px;
           text-transform: uppercase;
           letter-spacing: 0.2em;
-          background: rgba(124, 58, 237, 0.1);
-          color: #7c3aed;
+          background: rgba(255, 87, 34, 0.1);
+          color: #FF5722;
           margin-bottom: 12px;
           font-weight: 700;
         }
 
         .section-heading h2 {
           font-size: clamp(28px, 3vw, 40px);
-          color: #0f172a;
+          color: #2c3e50;
           margin-bottom: 12px;
         }
 
         .section-heading p {
-          color: #475569;
-          font-size: 18px;
+          color: #666;
+          font-size: 16px;
           line-height: 1.6;
           max-width: 70ch;
           margin: 0;
@@ -400,7 +400,7 @@ export default function CityPageStyles() {
         }
 
         .city-premium-header p {
-          color: #475569;
+          color: #666;
         }
 
         .city-premium-header-actions {
@@ -437,13 +437,13 @@ export default function CityPageStyles() {
         .city-premium-value-card h4 {
           margin: 8px 0 6px;
           font-size: 16px;
-          color: #0f172a;
+          color: #2c3e50;
         }
 
         .city-premium-value-card p {
           margin: 0;
           font-size: 14px;
-          color: #64748b;
+          color: #666;
           line-height: 1.5;
         }
 
@@ -451,8 +451,8 @@ export default function CityPageStyles() {
           width: 40px;
           height: 40px;
           border-radius: 12px;
-          background: rgba(124, 58, 237, 0.1);
-          color: #7c3aed;
+          background: rgba(255, 87, 34, 0.1);
+          color: #FF5722;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -509,14 +509,14 @@ export default function CityPageStyles() {
         .city-premium-copy h3 {
           margin: 6px 0;
           font-size: 20px;
-          color: #0f172a;
+          color: #2c3e50;
         }
 
         .city-premium-eyebrow {
           font-size: 12px;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #a855f7;
+          color: #FF5722;
           font-weight: 600;
         }
 
@@ -525,13 +525,13 @@ export default function CityPageStyles() {
           align-items: center;
           gap: 6px;
           font-size: 14px;
-          color: #475569;
+          color: #666;
           margin-bottom: 8px;
         }
 
         .city-premium-description {
           font-size: 14px;
-          color: #475569;
+          color: #666;
           margin: 0;
           line-height: 1.5;
         }
@@ -560,11 +560,11 @@ export default function CityPageStyles() {
           gap: 16px;
           flex-wrap: wrap;
           font-size: 14px;
-          color: #475569;
+          color: #666;
         }
 
         .city-premium-meta a {
-          color: #6366f1;
+          color: #FF5722;
           text-decoration: none;
         }
 
@@ -624,7 +624,7 @@ export default function CityPageStyles() {
         }
 
         .insight-card.accent {
-          background: linear-gradient(135deg, #111827, #312e81);
+          background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
           color: white;
           border: none;
         }
@@ -633,7 +633,7 @@ export default function CityPageStyles() {
           font-size: 11px;
           text-transform: uppercase;
           letter-spacing: 0.2em;
-          color: #a855f7;
+          color: #FF5722;
         }
 
         .insight-card.accent .insight-tag {
@@ -651,7 +651,7 @@ export default function CityPageStyles() {
         }
 
         .insight-card:not(.accent) p {
-          color: #475569;
+          color: #666;
         }
 
         .insight-footer {
@@ -664,7 +664,7 @@ export default function CityPageStyles() {
         }
 
         .park-collections-section {
-          background: #f7f0ff;
+          background: #fff7f3;
         }
 
         .collection-grid {
@@ -692,7 +692,7 @@ export default function CityPageStyles() {
           font-size: 12px;
           text-transform: uppercase;
           letter-spacing: 0.2em;
-          color: #7c3aed;
+          color: #FF5722;
         }
 
         .collection-card h3 {
@@ -701,7 +701,7 @@ export default function CityPageStyles() {
         }
 
         .collection-card p {
-          color: #475569;
+          color: #666;
           flex: 1;
         }
 
@@ -718,7 +718,7 @@ export default function CityPageStyles() {
           gap: 8px;
           border: none;
           background: transparent;
-          color: #7c3aed;
+          color: #FF5722;
           font-weight: 600;
           cursor: pointer;
         }
@@ -757,8 +757,8 @@ export default function CityPageStyles() {
         }
 
         .map-sidebar-card.muted {
-          background: #0f172a;
-          color: #cbd5f5;
+          background: #2c3e50;
+          color: rgba(255, 255, 255, 0.9);
         }
 
         .map-sidebar-card h3 {
@@ -781,7 +781,7 @@ export default function CityPageStyles() {
           align-items: center;
           justify-content: space-between;
           font-weight: 600;
-          color: #475569;
+          color: #666;
           cursor: pointer;
         }
 
@@ -807,7 +807,7 @@ export default function CityPageStyles() {
 
         .mini-park-card span {
           font-size: 12px;
-          color: #64748b;
+          color: #777;
         }
 
         .planning-essentials-section {
@@ -832,8 +832,8 @@ export default function CityPageStyles() {
           width: 48px;
           height: 48px;
           border-radius: 16px;
-          background: rgba(124, 58, 237, 0.1);
-          color: #7c3aed;
+          background: rgba(255, 87, 34, 0.1);
+          color: #FF5722;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -847,12 +847,12 @@ export default function CityPageStyles() {
 
         .planning-card ul {
           padding-left: 18px;
-          color: #475569;
+          color: #666;
           line-height: 1.6;
         }
 
         .park-directory-section {
-          background: #f8f8ff;
+          background: #f9fafb;
         }
 
         .category-chip-row {
@@ -870,7 +870,7 @@ export default function CityPageStyles() {
           padding: 8px 18px;
           font-weight: 600;
           cursor: pointer;
-          color: #475569;
+          color: #666;
         }
 
         .directory-category {
@@ -898,7 +898,7 @@ export default function CityPageStyles() {
         }
 
         .directory-count {
-          background: #111827;
+          background: #2c3e50;
           color: white;
           border-radius: 999px;
           padding: 6px 14px;
@@ -922,7 +922,7 @@ export default function CityPageStyles() {
         }
 
         .related-resources-section {
-          background: #0f172a;
+          background: #2c3e50;
           color: white;
         }
 

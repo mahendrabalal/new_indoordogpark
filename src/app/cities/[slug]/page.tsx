@@ -8,17 +8,18 @@ import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
 import CityStats from '@/components/CityStats';
 import ScrollToButton from '@/components/ScrollToButton';
-import { createMetaDescription, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
+import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { getAllCitySlugs, getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Amenities, DogPark } from '@/types/dog-park';
 import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
-const Map = dynamic(() => import('@/components/Map'), {
+const CityMap = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
 });
@@ -35,6 +36,12 @@ function formatNumber(value: number) {
 
 function getCollectionDescription(type: string, cityName: string) {
   switch (type) {
+    case 'Indoor Dog Park':
+      return `Weather-proof, climate-controlled play spaces in ${cityName}—ideal for hot days, storms, or winter sessions.`;
+    case 'Dog Park':
+      return `Traditional outdoor off‑leash areas and fenced runs across ${cityName}, optimized for everyday exercise.`;
+    case 'Dog-Friendly Establishment':
+      return `Pet-welcoming hangouts in ${cityName} (cafés, patios, bars) where dogs can tag along while you relax.`;
     case 'General Play / Daycare Parks':
       return `Everyday play zones and daycare-style spaces in ${cityName} for safe, supervised romps and social time.`;
     case 'Agility & Training Parks':
@@ -46,6 +53,95 @@ function getCollectionDescription(type: string, cityName: string) {
     default:
       return `Community-loved spaces designed for safe play and connection throughout ${cityName}.`;
   }
+}
+
+const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
+
+function shouldIndexCity(totalParks: number, totalReviews: number) {
+  // Avoid thin-city indexation, but allow “single great listing” cities with strong review depth.
+  return totalParks >= MIN_CITY_LISTINGS_FOR_INDEXING || totalReviews >= 200;
+}
+
+function formatAmenityName(key: string): string {
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => str.toUpperCase())
+    .trim();
+}
+
+function getTopAmenities(parks: DogPark[], limit = 6) {
+  const counts = new Map<string, number>();
+  const parksWithAmenities = parks.filter((p) => p.amenities && Object.keys(p.amenities).length > 0);
+  if (parksWithAmenities.length === 0) return [];
+
+  for (const park of parksWithAmenities) {
+    const amenities = park.amenities as Amenities | undefined;
+    if (!amenities) continue;
+    for (const [key, value] of Object.entries(amenities)) {
+      if (value === true) {
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+    }
+  }
+
+  const denominator = parksWithAmenities.length;
+  return Array.from(counts.entries())
+    .map(([key, count]) => ({
+      key,
+      label: formatAmenityName(key),
+      count,
+      share: Math.round((count / denominator) * 100),
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, limit);
+}
+
+function getLocalBusinessSchemaType(businessType: string): 'SportsActivityLocation' | 'LocalBusiness' {
+  if (businessType === 'Dog Park' || businessType === 'Indoor Dog Park') return 'SportsActivityLocation';
+  return 'LocalBusiness';
+}
+
+function getCityH1(cityName: string, state: string, indoorCount: number) {
+  if (indoorCount > 0) {
+    return indoorCount === 1
+      ? `Indoor Dog Park in ${cityName}, ${state}`
+      : `Indoor Dog Parks in ${cityName}, ${state}`;
+  }
+  return `Dog Parks in ${cityName}, ${state}`;
+}
+
+function buildUniqueHeroDescription(params: {
+  cityName: string;
+  state: string;
+  totalParks: number;
+  totalReviews: number;
+  indoorCount: number;
+  topRatedPark?: { name: string; rating: number };
+  topAmenities: Array<{ label: string; share: number }>;
+}) {
+  const { cityName, state, totalParks, totalReviews, indoorCount, topRatedPark, topAmenities } = params;
+
+  const inventoryLine =
+    indoorCount > 0
+      ? `Explore ${totalParks} verified dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
+      : `Explore ${totalParks} verified dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
+
+  const reviewLine = totalReviews > 0 ? `Powered by ${formatNumber(totalReviews)} local reviews.` : '';
+
+  const amenityLine =
+    topAmenities.length > 0
+      ? `Common highlights: ${topAmenities
+          .slice(0, 3)
+          .map((a) => `${a.label} (${a.share}%)`)
+          .join(', ')}.`
+      : '';
+
+  const topLine =
+    topRatedPark && topRatedPark.rating > 0
+      ? `Top-rated pick: ${topRatedPark.name} (${topRatedPark.rating.toFixed(1)}★).`
+      : '';
+
+  return [inventoryLine, reviewLine, amenityLine, topLine].filter(Boolean).join(' ');
 }
 
 export async function generateStaticParams() {
@@ -60,28 +156,52 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   }
 
   const { city, stats } = cityContent;
+  const parksByType = cityContent.parksByType;
+  const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
+  const shouldIndex = shouldIndexCity(stats.totalParks, stats.totalReviews);
   // Use canonical slug (city.slug) not params.slug for SEO
   const canonicalSlug = city.slug;
-  const cityTitle = `Complete Dog Park Guide: ${city.name}, ${city.state}`;
+  // Use an absolute title here to avoid the root `template` appending another suffix.
+  // This keeps the final rendered <title> closer to the intended 55–65 char range.
+  const cityTitle = createSEOTitle(
+    indoorCount > 0
+      ? `Indoor Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`
+      : `Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`,
+  );
   const pageDescription = createMetaDescription(
-    `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with interactive maps.`
+    indoorCount > 0
+      ? `Explore ${stats.totalParks} dog-friendly spots in ${city.name} including ${indoorCount} indoor options. Compare ratings, amenities, hours, and map locations.`
+      : `Explore ${stats.totalParks} dog parks and dog-friendly spots in ${city.name}. Compare ratings, amenities, hours, and map locations.`,
   );
   const canonicalUrl = `/cities/${canonicalSlug}`;
+  const absoluteCanonicalUrl = `${SITE_URL}${canonicalUrl}`;
   const featuredImage =
     city.featuredImage ||
     'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
 
   return {
-    title: cityTitle,
+    title: { absolute: cityTitle },
     description: pageDescription,
     alternates: {
       canonical: canonicalUrl,
     },
+    robots: {
+      index: shouldIndex,
+      follow: true,
+      googleBot: {
+        index: shouldIndex,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: cityTitle,
       description: pageDescription,
-      url: canonicalUrl,
-      type: 'article',
+      url: absoluteCanonicalUrl,
+      type: 'website',
+      siteName: 'Indoor Dog Park',
       images: [
         {
           url: featuredImage,
@@ -123,6 +243,9 @@ export default async function CityPage({ params }: CityPageProps) {
   }
 
   const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
+  if (stats.totalParks < 1) {
+    notFound();
+  }
 
   const featuredImage =
     city.featuredImage ||
@@ -141,6 +264,16 @@ export default async function CityPage({ params }: CityPageProps) {
   const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
   const indoorShare = stats.totalParks > 0 ? Math.round((indoorCount / stats.totalParks) * 100) : 0;
   const showThinContentPrompt = stats.totalParks < 2;
+  const shouldIndex = shouldIndexCity(stats.totalParks, stats.totalReviews);
+  const topAmenities = getTopAmenities(cityParks, 6);
+  const topRatedPark =
+    cityParks
+      .filter((park) => typeof park.rating === 'number' && park.rating > 0)
+      .sort((a, b) => (b.rating || 0) - (a.rating || 0))[0] || undefined;
+  const mostReviewedParks = [...cityParks]
+    .filter((park) => typeof park.reviewCount === 'number')
+    .sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0))
+    .slice(0, 3);
   const heroChips = [
     { label: 'Verified parks', value: formatNumber(stats.totalParks) },
     { label: 'Avg rating', value: `${stats.avgRating.toFixed(1)} / 5` },
@@ -150,12 +283,18 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const heroEyebrow = customContent?.heroEyebrow || 'City spotlight';
   const heroHeading =
-    customContent?.heroHeading || `Complete dog park playbook for ${city.name}, ${city.state}`;
+    customContent?.heroHeading || getCityH1(city.name, city.state, indoorCount);
   const heroDescriptionCopy =
     customContent?.heroDescription ||
-    `Navigate ${stats.totalParks} curated dog parks, ${parkCategories.length} experience types, and ${formatNumber(
-      stats.totalReviews,
-    )} local reviews. Build the perfect outing with insider planning tips and an interactive map built for modern pet parents.`;
+    buildUniqueHeroDescription({
+      cityName: city.name,
+      state: city.state,
+      totalParks: stats.totalParks,
+      totalReviews: stats.totalReviews,
+      indoorCount,
+      topRatedPark: topRatedPark ? { name: topRatedPark.name, rating: topRatedPark.rating } : undefined,
+      topAmenities,
+    });
   const heroFootnotes = customContent?.heroFootnotes || [
     'Data refreshed weekly',
     'Live availability coming soon',
@@ -166,16 +305,36 @@ export default async function CityPage({ params }: CityPageProps) {
   // Use canonical slug for all URLs
   const canonicalSlug = city.slug;
   const canonicalUrl = `/cities/${canonicalSlug}`;
+  const absoluteCanonicalUrl = `${SITE_URL}${canonicalUrl}`;
   const pageDescription =
     customContent?.heroDescription ||
-    `Discover ${stats.totalParks} dog parks, indoor runs, and pet-friendly hangouts in ${city.name}. Compare ratings, amenities, and plan visits with live filters and interactive maps.`;
+    buildUniqueHeroDescription({
+      cityName: city.name,
+      state: city.state,
+      totalParks: stats.totalParks,
+      totalReviews: stats.totalReviews,
+      indoorCount,
+      topRatedPark: topRatedPark ? { name: topRatedPark.name, rating: topRatedPark.rating } : undefined,
+      topAmenities,
+    });
 
   const structuredPlaces = cityParks.slice(0, 10).map((park) => {
+    const schemaType = getLocalBusinessSchemaType(park.businessType);
+    const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
     const place: Record<string, unknown> = {
-      '@type': 'LocalBusiness',
+      '@type': schemaType,
+      '@id': parkUrl,
       name: park.name,
-      address: park.full_address || park.address,
-      url: park.website,
+      url: parkUrl,
+      ...(park.website ? { sameAs: [park.website] } : {}),
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: park.street || undefined,
+        addressLocality: park.city || undefined,
+        addressRegion: park.state || undefined,
+        postalCode: park.zipCode || undefined,
+        addressCountry: 'US',
+      },
       telephone: park.phone,
       image: park.photo || (park.photos && park.photos.length > 0 ? park.photos[0].url : undefined),
     };
@@ -199,16 +358,6 @@ export default async function CityPage({ params }: CityPageProps) {
     return place;
   });
 
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'City',
-    name: `${city.name}, ${city.state}`,
-    description: pageDescription,
-    url: canonicalUrl,
-    image: featuredImage,
-    containsPlace: structuredPlaces,
-  };
-
   // ItemList schema for carousel - using proper item structure
   // Limit to top parks to avoid schema bloat and ensure quality
   const topParks = cityParks
@@ -216,9 +365,32 @@ export default async function CityPage({ params }: CityPageProps) {
     .sort((a, b) => (b.rating || 0) - (a.rating || 0))
     .slice(0, 10);
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${absoluteCanonicalUrl}#webpage`,
+    name: getCityH1(city.name, city.state, indoorCount),
+    description: pageDescription,
+    url: absoluteCanonicalUrl,
+    image: featuredImage,
+    about: {
+      '@type': 'City',
+      name: `${city.name}, ${city.state}`,
+    },
+    ...(topParks.length > 0
+      ? {
+          mainEntity: {
+            '@id': `${absoluteCanonicalUrl}#itemlist`,
+          },
+        }
+      : {}),
+    containsPlace: structuredPlaces,
+  };
+
   const itemListStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    '@id': `${absoluteCanonicalUrl}#itemlist`,
     name: `Dog Parks in ${city.name}`,
     description: `Top-rated dog parks and facilities in ${city.name}, ${city.state}`,
     numberOfItems: topParks.length,
@@ -243,15 +415,6 @@ export default async function CityPage({ params }: CityPageProps) {
             addressRegion: park.state,
             addressCountry: 'US',
           },
-          ...(park.rating && {
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: park.rating,
-              reviewCount: park.reviewCount || 0,
-              bestRating: 5,
-              worstRating: 1,
-            },
-          }),
           ...((park.photo || park.photos?.[0]?.url) && {
             image: park.photo || park.photos?.[0]?.url,
           }),
@@ -261,8 +424,31 @@ export default async function CityPage({ params }: CityPageProps) {
   };
 
   const defaultFaqs = buildDefaultFAQs(city.name, stats.totalParks);
-  const faqItems: FAQItem[] =
+  const faqItemsBase: FAQItem[] =
     customContent?.faqs && customContent.faqs.length > 0 ? customContent.faqs : defaultFaqs;
+
+  // Make the "indoor options" FAQ accurate (don’t claim indoor options if none exist)
+  const faqItems: FAQItem[] = faqItemsBase.map((faq) => {
+    const normalizedQuestion = faq.question.toLowerCase();
+    const isIndoorQuestion =
+      normalizedQuestion.includes('indoor dog park options') ||
+      normalizedQuestion.includes('walk my dog indoors') ||
+      normalizedQuestion.includes('indoors in');
+
+    if (!isIndoorQuestion) return faq;
+
+    if (indoorCount > 0) {
+      return {
+        ...faq,
+        answer: `Yes. Our directory currently lists ${indoorCount} indoor dog park${indoorCount === 1 ? '' : 's'} in ${city.name}. Use the “Indoor Dog Park” filter on this page to jump straight to climate-controlled options.`,
+      };
+    }
+
+    return {
+      ...faq,
+      answer: `Not yet in our verified directory for ${city.name}. If you know a great indoor option, you can submit it and we’ll review it for inclusion.`,
+    };
+  });
 
   // Helper function to clean FAQ answers for schema
   const cleanFAQAnswer = (answer: string): string => {
@@ -398,6 +584,7 @@ export default async function CityPage({ params }: CityPageProps) {
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
     { id: 'city-insights', title: 'Insights & Scores', level: 1 },
+    { id: 'city-highlights', title: 'Local Highlights', level: 1 },
     { id: 'park-collections', title: 'Park Collections', level: 1 },
     { id: 'park-types-guide', title: 'Park Type Guide', level: 1 },
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
@@ -552,6 +739,65 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
+        <section id="city-highlights" className="city-insights-section">
+          <div className="section-shell">
+            <div className="section-heading">
+              <span className="section-eyebrow">Local highlights</span>
+              <h2>What stands out in {city.name}</h2>
+              <p>
+                {shouldIndex
+                  ? 'Based on the listings on this page—no filler, no guesswork.'
+                  : 'This is a preview page while we collect more verified listings.'}
+              </p>
+            </div>
+
+            <div className="insights-grid">
+              <article className="insight-card accent">
+                <span className="insight-tag">Inventory</span>
+                <h3>{formatNumber(stats.totalParks)}</h3>
+                <p>Total verified listings currently live for {city.name}.</p>
+              </article>
+              <article className="insight-card">
+                <span className="insight-tag">Indoor coverage</span>
+                <h3>{indoorCount > 0 ? `${indoorShare}%` : '—'}</h3>
+                <p>{indoorCount > 0 ? `${indoorCount} indoor option${indoorCount === 1 ? '' : 's'} available.` : 'No indoor listings yet in our directory.'}</p>
+              </article>
+              <article className="insight-card">
+                <span className="insight-tag">Most reviewed</span>
+                <h3>{mostReviewedParks[0]?.reviewCount ? formatNumber(mostReviewedParks[0].reviewCount) : '—'}</h3>
+                <p>
+                  {mostReviewedParks.length > 0
+                    ? `${mostReviewedParks[0].name} leads on review volume.`
+                    : 'We’ll highlight review leaders once listings are available.'}
+                </p>
+              </article>
+              <article className="insight-card">
+                <span className="insight-tag">Top amenities</span>
+                <h3>{topAmenities.length > 0 ? topAmenities[0].label : '—'}</h3>
+                <p>
+                  {topAmenities.length > 0
+                    ? `${topAmenities[0].share}% of listed parks mention it.`
+                    : 'Amenity details are still being filled in across listings.'}
+                </p>
+              </article>
+            </div>
+
+            {topAmenities.length > 0 && (
+              <div style={{ marginTop: 20 }}>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Most common amenities</h3>
+                <div className="category-chip-row" style={{ marginTop: 12 }}>
+                  {topAmenities.map((amenity) => (
+                    <span key={amenity.key} className="hero-chip">
+                      <span className="chip-value">{amenity.share}%</span>
+                      <span className="chip-label">{amenity.label}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
         <section id="park-collections" className="park-collections-section">
           <div className="section-shell">
             <div className="section-heading">
@@ -570,6 +816,9 @@ export default async function CityPage({ params }: CityPageProps) {
 
               {parkCategories.map(([type, parks]) => {
                 const typeSlug = `${type.toLowerCase().replace(/\s+/g, '-')}-parks`;
+                const avgRating = parks.length
+                  ? (parks.reduce((sum, park) => sum + (park.rating || 0), 0) / parks.length).toFixed(1)
+                  : '—';
                 return (
                   <article key={type} className="collection-card">
                     <div className="collection-card-head">
@@ -580,7 +829,7 @@ export default async function CityPage({ params }: CityPageProps) {
                     <div className="collection-card-footer">
                       <span>
                         <i className="bi bi-star-fill" />{' '}
-                        {(parks.reduce((sum, park) => sum + park.rating, 0) / parks.length).toFixed(1)} avg rating
+                        {avgRating} avg rating
                       </span>
                       <ScrollToButton targetId={typeSlug}>
                         Jump to list
@@ -608,7 +857,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
             <div className="map-grid">
               <div className="map-panel">
-                <Map parks={cityParks} />
+                <CityMap parks={cityParks} />
               </div>
               <div className="map-sidebar">
                 <div className="map-sidebar-card">
@@ -727,10 +976,16 @@ export default async function CityPage({ params }: CityPageProps) {
                 <div key={type} id={slug} className="directory-category">
                   <div className="directory-header">
                     <div>
-                      <h3>{type}s in {city.name}</h3>
+                      <h3>
+                        {type}
+                        {type.endsWith('s') ? '' : 's'} in {city.name}
+                      </h3>
                       <p>
                         {parks.length} locations ·{' '}
-                        {(parks.reduce((sum, park) => sum + park.rating, 0) / parks.length).toFixed(1)} average rating
+                        {parks.length
+                          ? (parks.reduce((sum, park) => sum + (park.rating || 0), 0) / parks.length).toFixed(1)
+                          : '—'}{' '}
+                        average rating
                       </p>
                     </div>
                     <span className="directory-count">{parks.length}</span>
@@ -806,7 +1061,12 @@ export default async function CityPage({ params }: CityPageProps) {
 
         <section id="faq-section" className="city-faq-section">
           <div className="section-shell">
-            <FAQSection cityName={city.name} parkCount={stats.totalParks} />
+            <FAQSection
+              cityName={city.name}
+              parkCount={stats.totalParks}
+              faqs={faqItems}
+              supportCard={customContent?.faqSupportCard}
+            />
           </div>
         </section>
 

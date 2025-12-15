@@ -7,6 +7,7 @@ import { generateCollectionPageSchema } from '@/lib/metadata';
 import { DogPark } from '@/types/dog-park';
 import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogPost } from '@/types/wordpress';
+import SeoContentSection from '@/components/SeoContentSection';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -143,6 +144,110 @@ export default async function ParksWithBarsPage() {
           initialShowSearchLayout={true}
         />
       </Suspense>
+
+      <SeoContentSection
+        eyebrow="Dog-friendly nightlife"
+        title="Indoor dog parks with bars: what to expect and how to choose"
+        intro={[
+          'Indoor dog parks with bars combine a climate-controlled play space for dogs with a bar, restaurant, or café area for people. These venues are popular when it is too hot, too cold, or too rainy for outdoor parks—and they can be a great option for social dogs and owners who want a relaxed place to hang out.',
+          'Because food and drinks are involved, the best “parks with bars” tend to have clear safety rules, strong supervision, and thoughtful layouts that separate play zones from serving areas. Use the listings above to compare locations, then read the guide below for practical tips before you go.',
+        ]}
+        sections={[
+          {
+            heading: 'What makes a great park-with-bar venue',
+            paragraphs: [
+              'The best experiences come from venues that treat the dog park as the main attraction, not an afterthought. Look for clean flooring, ample room for dogs to move, and a clear plan for separating dogs by size or play style when needed.',
+              'For humans, comfortable seating with good sight lines matters. Many venues also offer water stations, waste disposal, and staff who actively monitor play.',
+            ],
+            listItems: [
+              'Clear rules posted at check-in (vaccines, age, temperament, supervision).',
+              'Separate entry/exit and double-gated vestibules to prevent escapes.',
+              'Visible staff oversight and an easy way to report issues.',
+              'Good ventilation and routine cleaning throughout the day.',
+              'Designated food/drink zones away from high-energy play.',
+            ],
+          },
+          {
+            heading: 'Etiquette and safety tips (especially around food and drinks)',
+            paragraphs: [
+              'Food and drinks can increase excitement. Plan for your dog’s success by arriving after a short walk, bringing high-value treats only if allowed, and avoiding peak hours if your dog is still learning polite greetings.',
+              'If your venue serves alcohol, remember: dogs take cues from us. Staying attentive—rather than treating the park like a “hands-off” daycare—helps keep the space safe for everyone.',
+            ],
+            listItems: [
+              'Watch body language: stiff posture, hard staring, or repeated mounting are signs to intervene.',
+              'Avoid bringing toys if the venue discourages them (resource guarding).',
+              'Keep drinks and food out of reach; ask staff about spill cleanup procedures.',
+              'Know when to leave: overtired dogs can get snippy even if they started happy.',
+            ],
+          },
+          {
+            heading: 'How to use this page to find the right match',
+            paragraphs: [
+              'Start by searching your city, then refine by rating and price. Click a listing to open details, photos, and website links so you can confirm requirements and hours.',
+              'If you are traveling, bookmark a few options. Policies vary, and some venues require registration, waivers, or proof of vaccinations before entry.',
+            ],
+            listItems: [
+              'Use “Any Rating” to quickly narrow down to the most loved venues.',
+              'Check the description for clues like “brewery,” “café,” or “restaurant.”',
+              'Open the website to verify vaccination rules and whether reservations are needed.',
+              'Use the map to pick spots close to your hotel, event, or neighborhood.',
+            ],
+          },
+          {
+            heading: 'For owners: add or update your venue',
+            paragraphs: [
+              'If you run an indoor dog park with a bar or food service, a complete listing helps customers understand your rules and reduces friction at check-in. Strong listings typically include accurate hours, pricing, photos of the play zones, and a short description of how you handle safety.',
+              'You can submit your venue for free, or choose a featured placement for extra visibility.',
+            ],
+            listItems: [
+              'Include vaccine requirements and any age restrictions.',
+              'Mention play area separation (small/large, high/low energy).',
+              'Add details about food/drink areas and leash policies.',
+              'Upload multiple photos showing the space and seating layout.',
+            ],
+          },
+        ]}
+        faqs={[
+          {
+            question: 'Do indoor dog parks with bars usually require vaccinations?',
+            answer:
+              'Yes. Most venues require proof of core vaccines, and many also require bordetella and a current rabies vaccine. Always check the venue website for the exact list and acceptable documentation.',
+          },
+          {
+            question: 'Are these venues safe for puppies?',
+            answer:
+              'It depends on the venue rules and your puppy’s age and vaccine status. Some locations have age minimums or puppy-specific play times. If your puppy is still learning social skills, choose off-peak hours and start with short visits.',
+          },
+          {
+            question: 'How long should a first visit be?',
+            answer:
+              'For many dogs, 30–60 minutes is a great first session. Watch for signs of overstimulation and leave while your dog is still having a good time so the experience ends on a positive note.',
+          },
+          {
+            question: 'Can I bring outside food or treats?',
+            answer:
+              'Policies vary. Some venues allow treats; others restrict them to prevent resource guarding. When in doubt, keep food and toys in your bag and follow staff guidance.',
+          },
+        ]}
+        links={[
+          {
+            href: '/list-your-park',
+            title: 'List your park',
+            description: 'Own a dog-friendly venue? Submit a free listing or upgrade to featured placement.',
+          },
+          {
+            href: '/training-facilities',
+            title: 'Training facilities',
+            description: 'Find indoor training centers and agility spaces for skill-building and enrichment.',
+          },
+          {
+            href: '/contact',
+            title: 'Contact',
+            description: 'Found an incorrect listing or want to suggest a venue? Send us a message.',
+          },
+        ]}
+        className="border-t border-gray-100"
+      />
 
       {/* Related Resources Section */}
       <div className="bg-gray-50 py-12 mt-12">

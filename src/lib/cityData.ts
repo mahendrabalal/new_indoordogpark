@@ -1,4 +1,5 @@
 import { DogPark } from '@/types/dog-park';
+import { normalizeState, normalizeStateKey } from '@/lib/state';
 
 export interface CityData {
   slug: string;
@@ -26,16 +27,34 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
   // Group parks by city
   parks.forEach(park => {
-    const key = park.city.toLowerCase();
+    const cityKey = (park.city || '').toLowerCase().trim();
+    const stateKey = normalizeStateKey(park.state);
+    const key = `${cityKey}|${stateKey}`;
     if (!cityMap.has(key)) {
       cityMap.set(key, []);
     }
     cityMap.get(key)!.push(park);
   });
 
-  // Convert to CityData array
-  const cities: CityData[] = Array.from(cityMap.values()).map((cityParks) => {
+  const grouped = Array.from(cityMap.values());
+
+  // Determine slug collisions (same city name across different states)
+  const baseSlugCounts = new Map<string, number>();
+  for (const cityParks of grouped) {
     const cityName = cityParks[0].city;
+    const baseSlug = cityNameToSlug(cityName);
+    baseSlugCounts.set(baseSlug, (baseSlugCounts.get(baseSlug) || 0) + 1);
+  }
+
+  const stateToSlugPart = (state: string | undefined) =>
+    normalizeStateKey(state);
+
+  // Convert to CityData array
+  const cities: CityData[] = grouped.map((cityParks) => {
+    const cityName = cityParks[0].city;
+    const cityState = normalizeState(cityParks[0].state);
+    const baseSlug = cityNameToSlug(cityName);
+    const needsState = (baseSlugCounts.get(baseSlug) || 0) > 1;
     const avgRating = cityParks.length > 0
       ? parseFloat((cityParks.reduce((sum, p) => sum + p.rating, 0) / cityParks.length).toFixed(1))
       : 0;
@@ -52,7 +71,7 @@ export function getAllCities(parks: DogPark[]): CityData[] {
     }
 
     return {
-      slug: cityNameToSlug(cityName),
+      slug: needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug,
       name: cityName,
       parkCount: cityParks.length,
       avgRating,
@@ -60,7 +79,7 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       featuredImage,
       latitude: cityParks[0].latitude,
       longitude: cityParks[0].longitude,
-      state: cityParks[0].state,
+      state: cityState,
     };
   });
 
@@ -87,8 +106,16 @@ export function getCityBySlug(parks: DogPark[], slug: string): CityData | null {
 /**
  * Get parks for a specific city
  */
-export function getParksByCity(parks: DogPark[], cityName: string): DogPark[] {
-  return parks.filter(park => park.city.toLowerCase() === cityName.toLowerCase());
+export function getParksByCity(parks: DogPark[], cityName: string, state?: string): DogPark[] {
+  const normalizedCity = cityName.toLowerCase().trim();
+  const normalizedState = state ? normalizeStateKey(state) : undefined;
+
+  return parks.filter((park) => {
+    const matchesCity = park.city.toLowerCase().trim() === normalizedCity;
+    if (!matchesCity) return false;
+    if (!normalizedState) return true;
+    return normalizeStateKey(park.state) === normalizedState;
+  });
 }
 
 /**

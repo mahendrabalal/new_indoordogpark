@@ -183,7 +183,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
       <style jsx>{`
         .park-types-guide-section {
           padding: 80px 20px;
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+          background: transparent;
         }
 
         .section-header {
@@ -195,7 +195,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         .section-eyebrow {
           display: inline-block;
           padding: 6px 16px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           color: white;
           border-radius: 20px;
           font-size: 12px;
@@ -206,15 +206,15 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         }
 
         .section-header h2 {
-          font-size: 42px;
+          font-size: 32px;
           font-weight: 700;
-          color: #1f2937;
+          color: #2c3e50;
           margin: 0 0 16px;
           line-height: 1.2;
         }
 
         .section-description {
-          font-size: 18px;
+          font-size: 16px;
           color: #6b7280;
           line-height: 1.6;
           margin: 0;
@@ -254,7 +254,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
           width: 60px;
           height: 60px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -271,7 +271,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
 
         .park-count {
           font-size: 14px;
-          color: #7c3aed;
+          color: #FF5722;
           font-weight: 500;
         }
 
@@ -317,7 +317,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         .best-for-tag {
           padding: 6px 12px;
           background: #ede9fe;
-          color: #7c3aed;
+          color: #FF5722;
           border-radius: 16px;
           font-size: 12px;
           font-weight: 500;
@@ -337,7 +337,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         .checklist-item input[type="checkbox"] {
           width: 16px;
           height: 16px;
-          accent-color: #7c3aed;
+          accent-color: #FF5722;
         }
 
         .checklist-item label {
@@ -378,7 +378,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
           align-items: center;
           gap: 8px;
           padding: 12px 24px;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           color: white;
           text-decoration: none;
           border-radius: 8px;
@@ -387,7 +387,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         }
 
         .cta-button:hover {
-          background: linear-gradient(135deg, #6d28d9, #9333ea);
+          background: linear-gradient(135deg, #E64A19, #D84315);
           transform: translateY(-1px);
         }
 

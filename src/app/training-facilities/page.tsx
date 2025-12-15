@@ -7,6 +7,7 @@ import { generateCollectionPageSchema } from '@/lib/metadata';
 import { DogPark } from '@/types/dog-park';
 import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogPost } from '@/types/wordpress';
+import SeoContentSection from '@/components/SeoContentSection';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -149,6 +150,110 @@ export default async function TrainingFacilitiesPage() {
           initialShowSearchLayout={true}
         />
       </Suspense>
+
+      <SeoContentSection
+        eyebrow="Year-round skill building"
+        title="Indoor dog training facilities: how to pick the right program"
+        intro={[
+          'Indoor dog training facilities and agility centers provide structured environments for learning, confidence-building, and enrichment. Many locations offer group classes, private lessons, puppy socialization, and agility or scent work—often in climate-controlled spaces that make training possible year-round.',
+          'Use the listings above to find training centers near you, then review the guidance below so you can choose a program that matches your dog’s age, temperament, and goals.',
+        ]}
+        sections={[
+          {
+            heading: 'Common types of indoor training programs',
+            paragraphs: [
+              'Not every training facility offers the same approach. Some focus on foundational manners; others specialize in sports or behavior modification. Understanding the difference helps you choose the best fit and sets expectations before you enroll.',
+            ],
+            listItems: [
+              'Puppy kindergarten and safe socialization classes.',
+              'Basic manners (sit, stay, leash walking, recall foundations).',
+              'Agility and sport foundations (tunnels, jumps, handling skills).',
+              'Scent work and nose games for mental enrichment.',
+              'Behavior consults for reactivity, fear, or separation-related issues.',
+            ],
+          },
+          {
+            heading: 'What to look for in a facility',
+            paragraphs: [
+              'A good facility will prioritize safety, cleanliness, and clear communication. You should feel comfortable asking about instructor certifications, training methods, class size, and what happens when dogs need extra space.',
+              'If your dog is anxious or reactive, look for options like smaller classes, private lessons, or separate training areas.',
+            ],
+            listItems: [
+              'Transparent training philosophy (reward-based methods are common and effective).',
+              'Clean floors and good ventilation to reduce odor and illness risk.',
+              'Appropriate class sizes and structured rotations to prevent chaos.',
+              'Clear policies for vaccination requirements and illness symptoms.',
+              'Options for private lessons or “quiet hours” when needed.',
+            ],
+          },
+          {
+            heading: 'How to prepare for your first class',
+            paragraphs: [
+              'A little preparation goes a long way. Before class, make sure your dog has had a bathroom break and a short decompression walk. Bring high-value rewards (if allowed) and a harness or collar that fits well.',
+              'If you’re working on behavior challenges, share context with the instructor ahead of time so they can plan space and exercises appropriately.',
+            ],
+            listItems: [
+              'Bring treats your dog loves and can eat quickly.',
+              'Use a 4–6 foot leash (avoid retractable leashes for class).',
+              'Arrive a few minutes early to settle in without rushing.',
+              'Ask about homework between sessions—progress happens at home.',
+            ],
+          },
+          {
+            heading: 'Using this page to find a facility near you',
+            paragraphs: [
+              'Search by city and explore the map to compare locations. Filter by rating to quickly find trusted programs, and open each listing to review amenities, website details, and contact information.',
+              'Because training schedules change often, it’s best to verify class times and registration steps on the facility’s website.',
+            ],
+            listItems: [
+              'Check the listing description for keywords like “agility,” “obedience,” or “puppy.”',
+              'Confirm whether classes are drop-in, session-based, or appointment-only.',
+              'Look for clear guidance on vaccination requirements and age minimums.',
+              'If you’re unsure, start with a private lesson or evaluation.',
+            ],
+          },
+        ]}
+        faqs={[
+          {
+            question: 'Do indoor training facilities require vaccines?',
+            answer:
+              'Most do. Requirements commonly include rabies and core vaccines, and many also require bordetella. Puppies may be allowed with age-appropriate vaccine series—check the facility’s policy before registering.',
+          },
+          {
+            question: 'Is agility training only for high-energy dogs?',
+            answer:
+              'No. Agility can be adapted for many dogs and focuses on teamwork, confidence, and body awareness. A quality program will scale obstacles and exercises to your dog’s ability and comfort.',
+          },
+          {
+            question: 'How do I choose between group classes and private lessons?',
+            answer:
+              'Group classes are great for foundational skills and controlled social learning. Private lessons can be better for specific goals, busy schedules, or behavior concerns like reactivity, fear, or distraction.',
+          },
+          {
+            question: 'What if my dog struggles in class?',
+            answer:
+              'Tell the instructor right away. Good programs can create distance, adjust exercises, or recommend private sessions. Leaving early is also okay—ending on a calm note can help your dog build positive associations over time.',
+          },
+        ]}
+        links={[
+          {
+            href: '/parks-with-bars',
+            title: 'Parks with bars',
+            description: 'Looking for social play and a place to relax? Explore dog parks with bars and cafés.',
+          },
+          {
+            href: '/guides',
+            title: 'Guides',
+            description: 'Read practical tips for park visits, safety, etiquette, and enrichment.',
+          },
+          {
+            href: '/contact',
+            title: 'Contact',
+            description: 'Know a training facility we should add? Send details and we’ll review it.',
+          },
+        ]}
+        className="border-t border-gray-100"
+      />
 
       {/* Related Resources Section */}
       <div className="bg-gray-50 py-12 mt-12">

@@ -9,7 +9,7 @@ import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import ParkImage from '@/components/ParkImage';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
-import { getAllStaticParks, getParkBySlug } from '@/lib/parks-data';
+import { getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
@@ -207,7 +207,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const stateName = getStateName(park.state);
 
   // Generate breadcrumb schema
-  const citySlug = park.city.toLowerCase().replace(/\s+/g, '-');
+  const citySlug = (await getCitySlugByName(park.city, park.state)) || park.city.toLowerCase().replace(/\s+/g, '-');
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: park.city, url: `/cities/${citySlug}` },
@@ -313,7 +313,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               <div className="breadcrumbs">
                 <Link href="/">Home</Link>
                 <i className="bi bi-chevron-right"></i>
-                <Link href={`/cities/${park.city.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Link href={`/cities/${citySlug}`}>
                   {park.city}
                 </Link>
                 <i className="bi bi-chevron-right"></i>

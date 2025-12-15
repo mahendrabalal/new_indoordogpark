@@ -15,9 +15,39 @@ interface TableOfContentsProps {
 export default function TableOfContents({ items }: TableOfContentsProps) {
   const [activeSection, setActiveSection] = useState<string>('');
   const [scrollProgress, setScrollProgress] = useState<number>(0);
+  const [isFooterVisible, setIsFooterVisible] = useState<boolean>(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionRefs = useRef<Map<string, IntersectionObserverEntry>>(new Map());
   const isScrollingRef = useRef<boolean>(false);
+
+  // Hide TOC when footer becomes visible to avoid overlap.
+  useEffect(() => {
+    // TOC is hidden on mobile/tablet already; only apply this behavior on desktop.
+    const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
+    if (!isDesktop()) return;
+
+    const footer = document.querySelector('footer.footer-new') ?? document.querySelector('footer');
+    if (!footer) return;
+
+    const footerObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsFooterVisible(Boolean(entry?.isIntersecting));
+      },
+      {
+        root: null,
+        // Trigger a bit early so the footer is never covered.
+        rootMargin: '0px 0px -20% 0px',
+        threshold: 0.01,
+      },
+    );
+
+    footerObserver.observe(footer);
+
+    return () => {
+      footerObserver.disconnect();
+    };
+  }, []);
 
   // Calculate scroll progress
   useEffect(() => {
@@ -169,7 +199,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   }, []);
 
   return (
-    <div className="table-of-contents">
+    <div className={`table-of-contents ${isFooterVisible ? 'toc-hidden-for-footer' : ''}`}>
       {/* Progress Bar */}
       <div className="toc-progress-bar">
         <div
@@ -244,6 +274,12 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           transition: all 0.3s ease;
         }
 
+        .toc-hidden-for-footer {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(12px);
+        }
+
         .toc-progress-bar {
           height: 3px;
           background: #f3f4f6;
@@ -252,7 +288,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
 
         .toc-progress-fill {
           height: 100%;
-          background: linear-gradient(90deg, #7c3aed, #a855f7);
+          background: linear-gradient(90deg, #FF5722, #E64A19);
           transition: width 0.3s ease;
         }
 
@@ -319,7 +355,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
           transform: translateY(-50%) scaleY(0);
           width: 3px;
           height: 0;
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           border-radius: 0 3px 3px 0;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -331,14 +367,14 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
 
         .toc-link:hover {
           background: #f9fafb;
-          color: #7c3aed;
+          color: #FF5722;
         }
 
         .toc-item-active .toc-link {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           color: white;
           font-weight: 600;
-          box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+          box-shadow: 0 2px 8px rgba(255, 87, 34, 0.25);
           transform: translateX(4px);
         }
 
@@ -407,18 +443,18 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
 
         .toc-action-btn:hover {
           background: #f9fafb;
-          border-color: #7c3aed;
-          color: #7c3aed;
+          border-color: #FF5722;
+          color: #FF5722;
         }
 
         .toc-action-top {
-          background: linear-gradient(135deg, #7c3aed, #a855f7);
+          background: linear-gradient(135deg, #FF5722, #E64A19);
           color: white;
-          border-color: #7c3aed;
+          border-color: #FF5722;
         }
 
         .toc-action-top:hover {
-          background: linear-gradient(135deg, #6d28d9, #9333ea);
+          background: linear-gradient(135deg, #E64A19, #D84315);
         }
 
         /* Responsive Design - Match content breakpoints */

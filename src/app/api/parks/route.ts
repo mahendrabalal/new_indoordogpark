@@ -3,6 +3,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { normalizeState, normalizeStateKey } from '@/lib/state';
 
 export const dynamic = 'force-dynamic';
 
@@ -120,7 +121,7 @@ export async function GET(request: Request) {
             address: sub.address,
             street: sub.street,
             city: sub.city,
-            state: sub.state,
+            state: normalizeState(sub.state),
             zipCode: sub.zip_code,
             full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
             latitude: sub.latitude,
@@ -133,7 +134,7 @@ export async function GET(request: Request) {
           photo: normalizedPhotos[0]?.url,
             priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
             openingHours: sub.opening_hours,
-            amenities: sub.amenities || [],
+            amenities: sub.amenities || {},
             userRatingsTotal: 0,
             source: 'user_submitted',
             listingType: sub.listing_type || 'free',
@@ -154,8 +155,8 @@ export async function GET(request: Request) {
 
     // Remove duplicates based on name and city combination
     const uniqueParks = allParks.filter((park, index, arr) => {
-      const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}`;
-      return arr.findIndex(p => `${p.name.toLowerCase()}|${p.city.toLowerCase()}` === key) === index;
+      const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}|${normalizeStateKey(park.state)}`;
+      return arr.findIndex(p => `${p.name.toLowerCase()}|${p.city.toLowerCase()}|${normalizeStateKey(p.state)}` === key) === index;
     });
 
     // Sort featured parks first, then by name

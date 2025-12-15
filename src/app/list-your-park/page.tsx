@@ -6,6 +6,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SeoContentSection from '@/components/SeoContentSection';
 // Step components
 import PlanSelectionStep from '@/components/listing/PlanSelectionStep';
 import BasicInfoStep from '@/components/listing/BasicInfoStep';
@@ -435,6 +436,108 @@ export default function ListPropertyPage() {
               </div>
             )}
           </div>
+
+          <SeoContentSection
+            eyebrow="For venue owners"
+            title="List your dog park on IndoorDogPark: how it works"
+            intro={[
+              'A complete listing helps dog owners find safe, well-run spaces—and it helps your venue attract the right customers. On IndoorDogPark, listings are used by people searching by city, browsing the map, and filtering by type, rating, and price.',
+              'Use the form above to submit your venue. Below are practical tips on what information matters most, what to expect after submission, and how to make your listing stand out.',
+            ]}
+            sections={[
+              {
+                heading: 'What information to include (and why it matters)',
+                paragraphs: [
+                  'The most helpful listings answer the questions people ask before visiting: where is it, what does it cost, what are the rules, and what amenities are available. Clear details reduce last-minute calls and help visitors arrive prepared.',
+                ],
+                listItems: [
+                  'Accurate location details (city, address, and map pin).',
+                  'A short description that explains your space, size separation, and vibe.',
+                  'Hours of operation (including special hours and closures).',
+                  'Pricing details (free vs paid entry, memberships, day passes, add-ons).',
+                  'Photos that show the play zones, seating, and entry/check-in area.',
+                ],
+              },
+              {
+                heading: 'Tips to make your listing convert',
+                paragraphs: [
+                  'Think of your listing as your “first impression” for new customers. Helpful photos and clear policies build trust, especially for indoor venues where owners want to understand cleanliness and safety.',
+                  'If your venue has unique features—turf vs rubber flooring, staff monitoring, separate small-dog areas, training classes, or a café/bar—call that out in the description.',
+                ],
+                listItems: [
+                  'Add multiple photos from different angles (play area + seating + signage).',
+                  'Mention vaccination requirements and age minimums if applicable.',
+                  'State whether reservations, waivers, or memberships are required.',
+                  'Describe how you handle safety (supervision, separation, timeouts).',
+                  'Include links and contact info so customers can verify details quickly.',
+                ],
+              },
+              {
+                heading: 'Free vs featured listings',
+                paragraphs: [
+                  'Free listings make your venue discoverable in search and on the map. Featured listings are designed for owners who want extra visibility and higher-intent traffic from people actively comparing options.',
+                  'You can start free and upgrade later if you want more exposure—your core listing information stays the same.',
+                ],
+                listItems: [
+                  'Free: get discovered and show the essentials.',
+                  'Featured: increased visibility and priority placement (when available).',
+                  'Both: keep your details accurate to reduce support requests and bad experiences.',
+                ],
+              },
+              {
+                heading: 'After you submit',
+                paragraphs: [
+                  'After submission, we review the details for completeness and consistency. If something is unclear (for example, missing city/state, incomplete hours, or unclear pricing), we may reach out for clarification so the listing is accurate for visitors.',
+                  'Keeping your listing current is one of the best ways to build trust with new customers.',
+                ],
+                listItems: [
+                  'Make sure your website and phone number are correct.',
+                  'Update your listing when you change hours or pricing.',
+                  'Share high-quality photos that reflect the current space.',
+                ],
+              },
+            ]}
+            faqs={[
+              {
+                question: 'Do I need an account to submit a listing?',
+                answer:
+                  'You can fill out the form at any time, but you’ll be asked to sign in before final submission so we can link the listing to your account and follow up if we have questions.',
+              },
+              {
+                question: 'How long does approval take?',
+                answer:
+                  'Timing can vary based on completeness and current volume. Submissions with accurate location details, clear hours, and a solid description typically move through faster than listings missing key information.',
+              },
+              {
+                question: 'What types of venues are allowed?',
+                answer:
+                  'We focus on indoor dog parks, dog parks, and dog-friendly establishments that provide a safe, pet-friendly experience. If you’re unsure, submit your venue with a clear description and we’ll review it.',
+              },
+              {
+                question: 'Can I edit my listing later?',
+                answer:
+                  'Yes. The best listings stay up to date. If you need to change hours, pricing, photos, or contact information, use your account dashboard (or contact us) and we’ll help you update it.',
+              },
+            ]}
+            links={[
+              {
+                href: '/owner-resources',
+                title: 'Owner resources',
+                description: 'Browse tips for operations, safety, marketing, and improving your listing performance.',
+              },
+              {
+                href: '/contact',
+                title: 'Contact support',
+                description: 'Have questions about submission or upgrades? Send us a message and we’ll help.',
+              },
+              {
+                href: '/parks-with-bars',
+                title: 'Parks with bars',
+                description: 'If your venue includes food or drinks, see how visitors browse these listings.',
+              },
+            ]}
+            className="mt-10 rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+          />
         </div>
       </main>
       <Footer />
