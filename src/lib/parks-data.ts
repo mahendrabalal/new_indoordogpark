@@ -3,6 +3,7 @@ import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
+import { priorityCityContent } from '@/data/priorityCityContent';
 import {
   CityData,
   CityStats,
@@ -40,6 +41,16 @@ const washingtonDataPath = path.join(process.cwd(), 'public/data/washington.json
 const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
+
+function getPriorityCityConfigBySlug(slug: string) {
+  const normalized = slug.toLowerCase().trim();
+  return (
+    priorityCityContent.find((c) => c.slug === normalized) ||
+    priorityCityContent.find(
+      (c) => c.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${c.slug}-`),
+    )
+  );
+}
 
 function slugify(name: string, city?: string): string {
   const base = `${name}-${city || ''}`.trim().toLowerCase();
@@ -444,6 +455,39 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     };
   }
 
+  // Priority city fallback (content-led city pages even if we don't have listings yet)
+  const priorityConfig = getPriorityCityConfigBySlug(normalizedSlug);
+  if (priorityConfig) {
+    const dataCityParks = getParksByCity(allParks, priorityConfig.city, priorityConfig.state);
+    const priorityParks = (priorityConfig.parks || []).map(normalizePark);
+    const allCityParks = dedupeParks([...dataCityParks, ...priorityParks]);
+    const parksByType = getParksByType(allCityParks);
+    const stats = getCityStatistics(allCityParks);
+
+    const hydratedCity: CityData = {
+      slug: priorityConfig.slug,
+      name: priorityConfig.city,
+      state: normalizeState(priorityConfig.state),
+      parkCount: allCityParks.length,
+      avgRating: stats.avgRating,
+      totalReviews: stats.totalReviews,
+      featuredImage: priorityConfig.featuredImage,
+      latitude: allCityParks.find((p) => typeof p.latitude === 'number')?.latitude,
+      longitude: allCityParks.find((p) => typeof p.longitude === 'number')?.longitude,
+    };
+
+    const nearbyCities = getNearbyCities(allParks, hydratedCity.name, hydratedCity.state);
+
+    return {
+      city: hydratedCity,
+      cityParks: allCityParks,
+      parksByType,
+      stats,
+      customContent: priorityConfig.customContent,
+      nearbyCities,
+    };
+  }
+
   return null;
 }
 
@@ -455,6 +499,16 @@ export async function getCitySlugByName(cityName: string, state?: string): Promi
   const normalizedCityName = cityName.toLowerCase().trim();
   const normalizedState = state ? normalizeStateKey(state) : undefined;
   
+  // Check priority cities first
+  const priorityMatch = priorityCityContent.find(
+    (city) =>
+      city.city.toLowerCase() === normalizedCityName &&
+      (!normalizedState || normalizeStateKey(city.state) === normalizedState),
+  );
+  if (priorityMatch) {
+    return priorityMatch.slug;
+  }
+
   // Then check static cities
   const staticParks = await loadStaticParks();
   const userSubmissions = await loadUserSubmissions();
@@ -480,9 +534,18 @@ export async function getAllCitySlugs(): Promise<string[]> {
   const userSubmissions = await loadUserSubmissions();
   const allParks = dedupeParks([...staticParks, ...userSubmissions]);
   const cities = getAllCities(allParks);
-  return cities
-    .filter((city) => city.parkCount >= MIN_CITY_LISTINGS_FOR_INDEXING)
-    .map((city) => city.slug);
+  const slugs = new Set(
+    cities
+      .filter((city) => city.parkCount >= MIN_CITY_LISTINGS_FOR_INDEXING)
+      .map((city) => city.slug),
+  );
+
+  // Always include priority city pages (content-led, may have < MIN listings)
+  for (const city of priorityCityContent) {
+    slugs.add(city.slug);
+  }
+
+  return Array.from(slugs);
 }
 
 

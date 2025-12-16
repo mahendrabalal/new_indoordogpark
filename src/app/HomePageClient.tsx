@@ -300,13 +300,13 @@ export default function HomePageClient({
             <div className="hero-content">
               <div className="hero-badge">
                 <i className="bi bi-stars" aria-hidden="true"></i>
-                Find Indoor Dog Parks Near Me
+                Find Indoor Parks for Dogs Near Me
               </div>
               <h1 className="hero-title-new">
                 Find <span className="hero-title-highlight">Indoor Dog Parks</span> Near Me
               </h1>
               <p className="hero-subtitle-new">
-                Search 500+ climate-controlled indoor dog parks across the US. Find parks with bars, training facilities, and more.
+                Search 500+ climate-controlled indoor parks for dogs across the US. Find indoor dog parks with bars, training facilities, and more.
               </p>
 
               <div className="search-container-new">
@@ -316,7 +316,7 @@ export default function HomePageClient({
                       ref={searchInputRef}
                       type="text"
                       className="search-input-new"
-                      placeholder="Search indoor dog parks by city, neighborhood, or zip code"
+                      placeholder="Search indoor parks for dogs by city, neighborhood, or zip code"
                       value={searchTerm}
                       onChange={(e) => handleSearchInputChange(e.target.value)}
                       onKeyDown={handleAutocompleteKeyDown}

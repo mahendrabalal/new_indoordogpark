@@ -28,9 +28,9 @@ function getParamValue(
 export async function generateMetadata({
   searchParams = {},
 }: HomePageProps): Promise<Metadata> {
-  const title = 'Find Indoor Dog Parks Near Me | Indoor Dog Park';
+  const title = 'Indoor Parks for Dogs Near Me | Find Indoor Dog Parks';
   const description =
-    'Search 500+ indoor dog parks across the US. Find climate-controlled play spaces, parks with bars, and training facilities. Search by city or zip code.';
+    'Find indoor parks for dogs near you. Search 500+ climate-controlled indoor dog parks across the US. Bars, training facilities & more. Search by city or zip code.';
 
   const isFiltered = hasActiveSearchParams(searchParams);
 

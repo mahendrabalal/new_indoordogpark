@@ -243,9 +243,6 @@ export default async function CityPage({ params }: CityPageProps) {
   }
 
   const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
-  if (stats.totalParks < 1) {
-    notFound();
-  }
 
   const featuredImage =
     city.featuredImage ||
@@ -656,13 +653,17 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="hero-metrics">
                 <div className="hero-metric">
                   <span className="metric-label">City score</span>
-                  <span className="metric-value">{city.avgRating.toFixed(1)}</span>
-                  <span className="metric-caption">From {formatNumber(stats.totalReviews)} reviews</span>
+                  <span className="metric-value">{stats.totalReviews > 0 ? city.avgRating.toFixed(1) : '—'}</span>
+                  <span className="metric-caption">
+                    {stats.totalReviews > 0 ? `From ${formatNumber(stats.totalReviews)} reviews` : 'No reviews yet'}
+                  </span>
                 </div>
                 <div className="hero-metric">
                   <span className="metric-label">Indoor coverage</span>
-                  <span className="metric-value">{indoorShare}%</span>
-                  <span className="metric-caption">{indoorCount} climate-controlled spots</span>
+                  <span className="metric-value">{stats.totalParks > 0 ? `${indoorShare}%` : '—'}</span>
+                  <span className="metric-caption">
+                    {stats.totalParks > 0 ? `${indoorCount} climate-controlled spots` : 'No listings yet'}
+                  </span>
                 </div>
                 <div className="hero-metric">
                   <span className="metric-label">Top park type</span>
@@ -857,7 +858,30 @@ export default async function CityPage({ params }: CityPageProps) {
 
             <div className="map-grid">
               <div className="map-panel">
-                <CityMap parks={cityParks} />
+                {cityParks.length > 0 ? (
+                  <CityMap parks={cityParks} />
+                ) : (
+                  <div className="map-empty-state" style={{ minHeight: 320, background: '#f8fafc', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <div style={{ width: 44, height: 44, borderRadius: 999, background: '#ede9fe', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6d28d9' }}>
+                        <i className="bi bi-geo-alt" />
+                      </div>
+                      <div>
+                        <p style={{ margin: 0, fontWeight: 700, color: '#0f172a' }}>Map coming soon for {city.name}</p>
+                        <p style={{ margin: 0, color: '#64748b' }}>We’ll light up this map once we verify listings and coordinates.</p>
+                      </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                      <Link href="/list-your-park" className="hero-cta primary" style={{ display: 'inline-flex' }}>
+                        <i className="bi bi-plus-circle" />
+                        Submit a park
+                      </Link>
+                      <Link href="/contact" className="hero-cta ghost" style={{ display: 'inline-flex' }}>
+                        Contact us
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="map-sidebar">
                 <div className="map-sidebar-card">
