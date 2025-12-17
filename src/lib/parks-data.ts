@@ -527,6 +527,133 @@ export async function getCitySlugByName(cityName: string, state?: string): Promi
   return null;
 }
 
+/**
+ * Extract city and state from a park slug pattern
+ * Handles patterns like: "central-park-new-york", "golden-gate-park-san-francisco"
+ * Returns { city: string, state: string } | null
+ */
+export function extractLocationFromSlug(slug: string): { city: string; state: string } | null {
+  if (!slug) return null;
+
+  const parts = slug.toLowerCase().split('-');
+  if (parts.length < 2) return null;
+
+  // Common city patterns to match at the end of slug
+  const cityPatterns: Array<{ pattern: RegExp; city: string; state: string }> = [
+    // Multi-word cities
+    { pattern: /-new-york(-ny)?$/i, city: 'New York', state: 'NY' },
+    { pattern: /-san-francisco(-ca)?$/i, city: 'San Francisco', state: 'CA' },
+    { pattern: /-los-angeles(-ca)?$/i, city: 'Los Angeles', state: 'CA' },
+    { pattern: /-san-diego(-ca)?$/i, city: 'San Diego', state: 'CA' },
+    { pattern: /-long-beach(-ca)?$/i, city: 'Long Beach', state: 'CA' },
+    { pattern: /-new-orleans(-la)?$/i, city: 'New Orleans', state: 'LA' },
+    { pattern: /-kansas-city(-mo)?$/i, city: 'Kansas City', state: 'MO' },
+    { pattern: /-oakland(-ca)?$/i, city: 'Oakland', state: 'CA' },
+    { pattern: /-san-jose(-ca)?$/i, city: 'San Jose', state: 'CA' },
+    { pattern: /-santa-barbara(-ca)?$/i, city: 'Santa Barbara', state: 'CA' },
+    { pattern: /-palo-alto(-ca)?$/i, city: 'Palo Alto', state: 'CA' },
+    { pattern: /-west-palm-beach(-fl)?$/i, city: 'West Palm Beach', state: 'FL' },
+    { pattern: /-fort-lauderdale(-fl)?$/i, city: 'Fort Lauderdale', state: 'FL' },
+    { pattern: /-colorado-springs(-co)?$/i, city: 'Colorado Springs', state: 'CO' },
+    { pattern: /-salt-lake-city(-ut)?$/i, city: 'Salt Lake City', state: 'UT' },
+  ];
+
+  // Try to match known city patterns first
+  for (const { pattern, city, state } of cityPatterns) {
+    if (pattern.test(slug)) {
+      return { city, state };
+    }
+  }
+
+  // Try to extract state abbreviation from the end (2-letter pattern)
+  const stateAbbrMap: Record<string, string> = {
+    'al': 'Alabama', 'ak': 'Alaska', 'az': 'Arizona', 'ar': 'Arkansas',
+    'ca': 'California', 'co': 'Colorado', 'ct': 'Connecticut', 'de': 'Delaware',
+    'fl': 'Florida', 'ga': 'Georgia', 'hi': 'Hawaii', 'id': 'Idaho',
+    'il': 'Illinois', 'in': 'Indiana', 'ia': 'Iowa', 'ks': 'Kansas',
+    'ky': 'Kentucky', 'la': 'Louisiana', 'me': 'Maine', 'md': 'Maryland',
+    'ma': 'Massachusetts', 'mi': 'Michigan', 'mn': 'Minnesota', 'ms': 'Mississippi',
+    'mo': 'Missouri', 'mt': 'Montana', 'ne': 'Nebraska', 'nv': 'Nevada',
+    'nh': 'New Hampshire', 'nj': 'New Jersey', 'nm': 'New Mexico', 'ny': 'New York',
+    'nc': 'North Carolina', 'nd': 'North Dakota', 'oh': 'Ohio', 'ok': 'Oklahoma',
+    'or': 'Oregon', 'pa': 'Pennsylvania', 'ri': 'Rhode Island', 'sc': 'South Carolina',
+    'sd': 'South Dakota', 'tn': 'Tennessee', 'tx': 'Texas', 'ut': 'Utah',
+    'vt': 'Vermont', 'va': 'Virginia', 'wa': 'Washington', 'wv': 'West Virginia',
+    'wi': 'Wisconsin', 'wy': 'Wyoming',
+  };
+
+  // Check if last part is a state abbreviation
+  const lastPart = parts[parts.length - 1];
+  if (lastPart && lastPart.length === 2 && stateAbbrMap[lastPart]) {
+    const state = stateAbbrMap[lastPart];
+    // Try to extract city name (everything before the state)
+    // For multi-word cities, we need to check common patterns
+    if (parts.length >= 3) {
+      // Try to match common city patterns before state
+      const cityPart = parts.slice(0, -1).join('-');
+      
+      // Check if it matches a known city pattern
+      for (const { pattern, city: knownCity, state: knownState } of cityPatterns) {
+        if (pattern.test(cityPart + '-' + lastPart)) {
+          return { city: knownCity, state: knownState };
+        }
+      }
+      
+      // Fallback: try to reconstruct city name from parts
+      // Capitalize first letter of each word
+      const cityName = parts
+        .slice(0, -1)
+        .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ');
+      
+      return { city: cityName, state };
+    }
+  }
+
+  // Try to match full state names at the end
+  const stateNameMap: Record<string, string> = {
+    'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AR',
+    'california': 'CA', 'colorado': 'CO', 'connecticut': 'CT', 'delaware': 'DE',
+    'florida': 'FL', 'georgia': 'GA', 'hawaii': 'HI', 'idaho': 'ID',
+    'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA', 'kansas': 'KS',
+    'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME', 'maryland': 'MD',
+    'massachusetts': 'MA', 'michigan': 'MI', 'minnesota': 'MN', 'mississippi': 'MS',
+    'missouri': 'MO', 'montana': 'MT', 'nebraska': 'NE', 'nevada': 'NV',
+    'new-hampshire': 'NH', 'new-jersey': 'NJ', 'new-mexico': 'NM', 'new-york': 'NY',
+    'north-carolina': 'NC', 'north-dakota': 'ND', 'ohio': 'OH', 'oklahoma': 'OK',
+    'oregon': 'OR', 'pennsylvania': 'PA', 'rhode-island': 'RI', 'south-carolina': 'SC',
+    'south-dakota': 'SD', 'tennessee': 'TN', 'texas': 'TX', 'utah': 'UT',
+    'vermont': 'VT', 'virginia': 'VA', 'washington': 'WA', 'west-virginia': 'WV',
+    'wisconsin': 'WI', 'wyoming': 'WY',
+  };
+
+  // Check if last 1-2 parts form a state name
+  const lastTwoParts = parts.slice(-2).join('-');
+  const lastOnePart = parts[parts.length - 1];
+  
+  if (stateNameMap[lastTwoParts]) {
+    const state = stateNameMap[lastTwoParts];
+    const cityName = parts
+      .slice(0, -2)
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+    if (cityName) {
+      return { city: cityName, state };
+    }
+  } else if (stateNameMap[lastOnePart]) {
+    const state = stateNameMap[lastOnePart];
+    const cityName = parts
+      .slice(0, -1)
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+    if (cityName) {
+      return { city: cityName, state };
+    }
+  }
+
+  return null;
+}
+
 const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
 
 export async function getAllCitySlugs(): Promise<string[]> {

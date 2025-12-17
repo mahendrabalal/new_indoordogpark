@@ -45,7 +45,7 @@ export default function NotFound() {
               Oops! Page Not Found
             </h2>
             <p className="mb-8 text-lg text-gray-600">
-              We couldn&apos;t find the page you&apos;re looking for. The park might have moved, or the URL might be incorrect.
+              We couldn&apos;t find the page you&apos;re looking for. The park might have moved, or the URL might be incorrect. Use the search below to find dog parks near you.
             </p>
 
             {/* Quick Actions */}
@@ -75,6 +75,29 @@ export default function NotFound() {
               >
                 Browse Blog
               </Link>
+            </div>
+
+            {/* Search Section */}
+            <div className="mb-12 rounded-3xl border border-gray-200 bg-white p-8 shadow-lg">
+              <h3 className="mb-4 text-xl font-semibold text-gray-900">
+                Search for Dog Parks
+              </h3>
+              <form action="/" method="get" className="mb-4">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder="Search by park name, city, or state..."
+                    className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-lg bg-purple-600 px-6 py-3 font-semibold text-white transition hover:bg-purple-700"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Helpful Links */}

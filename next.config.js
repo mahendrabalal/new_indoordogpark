@@ -73,6 +73,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'streetviewpixels-na.googleapis.com',
       },
+      // Park website images
+      {
+        protocol: 'https',
+        hostname: 'baetailsdogdaycare.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.nycgovparks.org',
+      },
       ...(supabaseHostname
         ? [
             {
