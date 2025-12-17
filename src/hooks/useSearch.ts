@@ -183,8 +183,9 @@ export function useSearch(
     setFilters(prev => {
       const updated = { ...prev, ...newFilters };
       // Keep backwards compatibility
-      if (newFilters.type) {
-        updated.businessType = newFilters.type;
+      if ('type' in newFilters) {
+        // Ensure legacy `businessType` stays in sync even when clearing type.
+        updated.businessType = newFilters.type || undefined;
       }
       return updated;
     });

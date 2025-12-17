@@ -49,8 +49,10 @@ export default function Footer() {
           {/* Subscribe Column */}
           <div className="footer-column col-span-full md:col-span-2 lg:col-span-1">
             <h4 className="footer-heading">Join the Pack</h4>
-            <p className="mb-4 text-sm text-gray-500">Get the latest indoor dog park news and updates.</p>
-            <NewsletterForm type="consumer" source="footer" />
+            <p className="mb-4 text-sm text-white/70">Get the latest indoor dog park news and updates.</p>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+              <NewsletterForm type="consumer" source="footer" variant="dark" />
+            </div>
           </div>
         </div>
 

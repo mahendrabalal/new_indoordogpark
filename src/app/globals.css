@@ -4042,6 +4042,12 @@ mark {
   background: white;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /*
+    The site globally uses `body { padding-top: 70px; }` to account for the fixed navbar.
+    In search layout we render this compact header instead of the fixed navbar, so we
+    offset that reserved space to avoid a blank strip at the top.
+  */
+  margin-top: -70px;
 }
 
 .search-results-header-content {
@@ -4197,26 +4203,29 @@ mark {
   position: sticky;
   top: 0;
   background: white;
-  padding: 14px 20px;
+  padding: 10px 16px;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   z-index: 10;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .search-results-info {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 0 0 auto;
+  min-width: 220px;
 }
 
 .results-count {
   font-size: 0.95rem;
   color: #4b5563;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
 }
 
 .results-count strong {
@@ -4224,18 +4233,103 @@ mark {
   font-weight: 600;
 }
 
+.results-meta {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-left: 8px;
+}
+
 /* Inline Filters */
 .inline-filters {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
-  flex: 1;
-  justify-content: flex-end;
+  flex-wrap: nowrap;
+  /* Critical for horizontal scrolling inside a flex row */
+  flex: 1 1 0%;
+  min-width: 0;
+  justify-content: flex-start;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; /* Firefox */
+  padding-bottom: 2px;
+  mask-image: linear-gradient(to right, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 92%, transparent 100%);
+  width: 100%;
+  max-width: 100%;
+}
+
+.inline-filters::-webkit-scrollbar {
+  height: 6px;
+}
+
+.inline-filters::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.inline-filters::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+}
+
+.inline-filters-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.inline-filters-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inline-filters-nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inline-filters-nav:hover {
+  border-color: #FF5722;
+  color: #FF5722;
+}
+
+.inline-filters-nav-left {
+  order: 0;
+}
+
+.inline-filters-nav-right {
+  order: 2;
+}
+
+.inline-filters-wrapper .inline-filters {
+  order: 1;
+}
+
+@media (min-width: 1025px) {
+  .inline-filters-nav {
+    display: inline-flex;
+  }
 }
 
 .filter-select {
-  padding: 8px 32px 8px 12px;
+  padding: 8px 30px 8px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   background: white;
@@ -4247,8 +4341,9 @@ mark {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
-  min-width: 120px;
+  min-width: 108px;
   min-height: 36px;
+  flex-shrink: 0; /* Ensure overflow exists so the row can scroll on desktop */
 }
 
 /* Mobile touch target optimization */
@@ -4272,10 +4367,10 @@ mark {
 }
 
 .clear-filters-btn {
-  padding: 8px 14px;
-  background: #fee2e2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+  padding: 8px 12px;
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -4285,11 +4380,12 @@ mark {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .clear-filters-btn:hover {
-  background: #fecaca;
-  border-color: #fca5a5;
+  border-color: #FF5722;
+  background: #f9fafb;
 }
 
 .search-results-list {

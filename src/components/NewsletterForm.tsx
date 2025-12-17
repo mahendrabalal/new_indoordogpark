@@ -1,45 +1,111 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, FormEvent } from 'react';
 
 interface NewsletterFormProps {
     type: 'owner' | 'consumer';
     source: string;
     className?: string;
+    variant?: 'light' | 'dark';
 }
 
-export default function NewsletterForm({ type: initialType, source, className = '' }: NewsletterFormProps) {
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export default function NewsletterForm({
+    type: initialType,
+    source,
+    className = '',
+    variant = 'light',
+}: NewsletterFormProps) {
     const [selectedType, setSelectedType] = useState<'owner' | 'consumer'>(initialType);
     const [email, setEmail] = useState('');
     const [parkName, setParkName] = useState('');
     const [location, setLocation] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');
-    const [isFocused, setIsFocused] = useState(false);
+    const emailInputRef = useRef<HTMLInputElement | null>(null);
+    const parkNameInputRef = useRef<HTMLInputElement | null>(null);
+    const locationInputRef = useRef<HTMLInputElement | null>(null);
+    const formId = useId();
 
-    // Expand if user focuses email or has entered any data, OR if they are an owner (since fields are required now)
-    // Actually, for progressive disclosure, we can still hide them until interaction, but since they are required, 
-    // it might be better to show them or just reveal them when they pick "Park Owner".
-    // Let's keep the reveal-on-focus for email, but if they switch to "Park Owner", maybe auto-expand or keep logic same?
-    // User asked for "Compulsory field", implying they should definitely see them or be blocked.
-    // Let's reveal fields immediately if "Park Owner" is selected to ensure they know it's required.
-    const isExpanded = isFocused || email.length > 0 || parkName.length > 0 || location.length > 0 || selectedType === 'owner';
+    const isDark = variant === 'dark';
+
+    const styles = useMemo(() => {
+        const surface = isDark
+            ? 'bg-white/10 border-white/15 text-white placeholder:text-white/50'
+            : 'bg-white border-gray-200 text-gray-900 placeholder:text-gray-400';
+        const surfaceMuted = isDark ? 'text-white/70' : 'text-gray-600';
+        const surfaceStrong = isDark ? 'text-white' : 'text-gray-900';
+        const toggleTrack = isDark ? 'bg-white/10 border border-white/15' : 'bg-gray-100';
+        const toggleThumb = isDark ? 'bg-white shadow-sm' : 'bg-white shadow-sm';
+        const toggleActiveText = isDark ? 'text-gray-900' : 'text-gray-900';
+        const toggleInactiveText = isDark ? 'text-white/70 hover:text-white' : 'text-gray-500 hover:text-gray-700';
+
+        return {
+            surface,
+            surfaceMuted,
+            surfaceStrong,
+            toggleTrack,
+            toggleThumb,
+            toggleActiveText,
+            toggleInactiveText,
+        };
+    }, [isDark]);
+
+    // If the user edits inputs after an error, reset to idle so styling + messaging stays responsive.
+    useEffect(() => {
+        if (status !== 'error') return;
+        setStatus('idle');
+        setMessage('');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [email, parkName, location, selectedType]);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const trimmedEmail = email.trim();
+        const trimmedParkName = parkName.trim();
+        const trimmedLocation = location.trim();
+
+        // Client-side validation for a faster, more polished UX (API still validates).
+        if (!trimmedEmail) {
+            setStatus('error');
+            setMessage('Please enter your email address.');
+            emailInputRef.current?.focus();
+            return;
+        }
+        if (!EMAIL_REGEX.test(trimmedEmail)) {
+            setStatus('error');
+            setMessage('Please enter a valid email address.');
+            emailInputRef.current?.focus();
+            return;
+        }
+        if (selectedType === 'owner' && !trimmedParkName) {
+            setStatus('error');
+            setMessage('Please enter your dog park name.');
+            parkNameInputRef.current?.focus();
+            return;
+        }
+        if (selectedType === 'owner' && !trimmedLocation) {
+            setStatus('error');
+            setMessage('Please enter your city and state.');
+            locationInputRef.current?.focus();
+            return;
+        }
+
         setStatus('loading');
         setMessage('');
 
         // Prepare body based on selectedType
         const requestBody: Record<string, string | undefined> = {
-            email,
+            email: trimmedEmail,
             type: selectedType,
             source,
         };
 
         if (selectedType === 'owner') {
-            requestBody.parkName = parkName;
-            requestBody.location = location;
+            requestBody.parkName = trimmedParkName;
+            requestBody.location = trimmedLocation;
         }
 
         try {
@@ -74,72 +140,70 @@ export default function NewsletterForm({ type: initialType, source, className = 
     return (
         <div className={`${className} w-full`}>
             {/* User Type Toggle */}
-            <div className="mb-4 flex p-1 bg-gray-100 rounded-xl relative">
+            <div className={`mb-4 flex p-1 rounded-xl relative ${styles.toggleTrack}`} role="tablist" aria-label="Newsletter audience">
                 <div
-                    className={`absolute inset-y-1 w-[calc(50%-4px)] bg-white rounded-lg shadow-sm transition-all duration-300 ease-in-out ${selectedType === 'consumer' ? 'left-1' : 'left-[calc(50%+4px)]'}`}
-                ></div>
-
+                    className={`absolute inset-y-1 w-[calc(50%-4px)] rounded-lg transition-all duration-300 ease-in-out ${styles.toggleThumb} ${selectedType === 'consumer' ? 'left-1' : 'left-[calc(50%+4px)]'}`}
+                    aria-hidden="true"
+                />
                 <button
                     type="button"
                     onClick={() => setSelectedType('consumer')}
-                    className={`relative z-10 w-1/2 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 ${selectedType === 'consumer' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                    className={`relative z-10 w-1/2 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 ${selectedType === 'consumer' ? styles.toggleActiveText : styles.toggleInactiveText}`}
+                    role="tab"
+                    aria-selected={selectedType === 'consumer'}
+                    aria-controls={`${formId}-panel`}
                 >
-                    🐶 Dog Owner
+                    Dog owner
                 </button>
                 <button
                     type="button"
                     onClick={() => setSelectedType('owner')}
-                    className={`relative z-10 w-1/2 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 ${selectedType === 'owner' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                    className={`relative z-10 w-1/2 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 ${selectedType === 'owner' ? styles.toggleActiveText : styles.toggleInactiveText}`}
+                    role="tab"
+                    aria-selected={selectedType === 'owner'}
+                    aria-controls={`${formId}-panel`}
                 >
-                    🏞️ Park Owner
+                    Park owner
                 </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="relative transition-all duration-300">
+            <form onSubmit={handleSubmit} className="relative transition-all duration-300" aria-describedby={message ? `${formId}-message` : undefined}>
+                <div id={`${formId}-panel`} role="tabpanel">
                 {/* Email Field - Always Visible */}
                 <div className="relative z-10">
                     <label htmlFor={`newsletter-email-${source}`} className="sr-only">
                         Your Email
                     </label>
-                    <div className="relative group">
+                    <div className="relative group focus-within:text-inherit">
                         <input
                             id={`newsletter-email-${source}`}
                             type="email"
                             name="email"
                             value={email}
-                            onFocus={() => setIsFocused(true)}
+                            ref={emailInputRef}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder={selectedType === 'owner' ? "Enter your business email" : "Enter your email address"}
                             required
                             disabled={status === 'loading' || status === 'success'}
-                            className={`w-full rounded-lg border-2 bg-white px-5 py-4 pr-12 text-gray-900 placeholder:text-gray-400 transition-all duration-200 outline-none
-                                ${status === 'error' ? 'border-red-300 focus:border-red-500 focus:ring-red-200' : 'border-gray-100 hover:border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100'}
-                                shadow-sm hover:shadow-md
+                            aria-invalid={status === 'error' ? true : undefined}
+                            className={`peer w-full rounded-xl border px-4 py-3 pr-11 text-sm transition-all duration-200 outline-none shadow-sm
+                                ${styles.surface}
+                                ${status === 'error' ? 'border-red-400 focus:border-red-400 focus:ring-4 focus:ring-red-500/20' : (isDark ? 'hover:border-white/25 focus:border-white/35 focus:ring-4 focus:ring-white/10' : 'hover:border-gray-300 focus:border-[#FF5722] focus:ring-4 focus:ring-[#FF5722]/15')}
                             `}
                         />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-hover:text-purple-500 peer-focus:text-purple-600">
+                        <div className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors ${isDark ? 'text-white/60' : 'text-gray-400'} ${status === 'error' ? 'text-red-500' : ''} group-hover:text-[#FF5722] peer-focus:text-[#FF5722]`}>
                             {status === 'loading' ? (
-                                <div className="h-5 w-5 animate-spin rounded-full border-2 border-purple-500 border-t-transparent" />
+                                <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#FF5722] border-t-transparent" />
                             ) : (
-                                <i className={`bi bi-envelope text-xl ${email ? 'text-purple-600' : ''}`}></i>
+                                <i className={`bi bi-envelope text-lg ${email ? 'text-[#FF5722]' : ''}`}></i>
                             )}
                         </div>
                     </div>
                 </div>
 
                 {/* Fields for Owners - Reveal when type is owner or expanded */}
-                {/* Note: User asked for 'compulsory' fields for owners. We render them if selectedType === 'owner' */}
                 {selectedType === 'owner' && (
-                    <div
-                        className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
-                            // Always show implementation for owners to make it clear what is required? 
-                            // Or keep disclosure? "progressive disclosure" was requested.
-                            // But "compulsory field" implies high visibility.
-                            // Let's auto-expand if 'owner' is selected.
-                            (isExpanded || selectedType === 'owner') ? 'grid-rows-[1fr] opacity-100 mt-3 pb-1' : 'grid-rows-[0fr] opacity-0 mt-0'
-                            }`}
-                    >
-                        <div className="min-h-0 space-y-3">
+                    <div className="mt-3 space-y-3">
                             <div className="relative group">
                                 <label htmlFor={`newsletter-park-${source}`} className="sr-only">Park Name</label>
                                 <input
@@ -147,9 +211,14 @@ export default function NewsletterForm({ type: initialType, source, className = 
                                     type="text"
                                     value={parkName}
                                     onChange={(e) => setParkName(e.target.value)}
-                                    placeholder="Dog Park Name (Required)"
-                                    required // Compulsory field
-                                    className="w-full rounded-lg border-2 border-gray-100 bg-gray-50/50 px-5 py-3 text-gray-900 placeholder:text-gray-400 transition-all outline-none focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
+                                ref={parkNameInputRef}
+                                placeholder="Dog park name"
+                                required
+                                disabled={status === 'loading' || status === 'success'}
+                                className={`w-full rounded-xl border px-4 py-3 text-sm transition-all duration-200 outline-none shadow-sm
+                                    ${styles.surface}
+                                    ${status === 'error' ? 'border-red-400 focus:border-red-400 focus:ring-4 focus:ring-red-500/20' : (isDark ? 'hover:border-white/25 focus:border-white/35 focus:ring-4 focus:ring-white/10' : 'hover:border-gray-300 focus:border-[#FF5722] focus:ring-4 focus:ring-[#FF5722]/15')}
+                                `}
                                 />
                             </div>
                             <div className="relative group">
@@ -159,41 +228,46 @@ export default function NewsletterForm({ type: initialType, source, className = 
                                     type="text"
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
-                                    placeholder="City, State (Required)"
-                                    required // Compulsory field
-                                    className="w-full rounded-lg border-2 border-gray-100 bg-gray-50/50 px-5 py-3 text-gray-900 placeholder:text-gray-400 transition-all outline-none focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
+                                ref={locationInputRef}
+                                placeholder="City, state"
+                                required
+                                disabled={status === 'loading' || status === 'success'}
+                                className={`w-full rounded-xl border px-4 py-3 text-sm transition-all duration-200 outline-none shadow-sm
+                                    ${styles.surface}
+                                    ${status === 'error' ? 'border-red-400 focus:border-red-400 focus:ring-4 focus:ring-red-500/20' : (isDark ? 'hover:border-white/25 focus:border-white/35 focus:ring-4 focus:ring-white/10' : 'hover:border-gray-300 focus:border-[#FF5722] focus:ring-4 focus:ring-[#FF5722]/15')}
+                                `}
                                 />
                             </div>
-                        </div>
                     </div>
                 )}
 
                 {/* Submit Button */}
-                <div
-                    className={`transition-all duration-500 ease-in-out overflow-hidden ${selectedType ? 'max-h-20 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0 hidden'
-                        }`}
-                >
+                <div className="mt-4">
                     <button
                         type="submit"
                         disabled={status === 'loading' || status === 'success'}
-                        className="w-full rounded-xl bg-gradient-to-r from-[#FF5722] to-[#FF7043] px-6 py-4 font-bold text-white shadow-lg shadow-orange-200 transition-all hover:shadow-xl hover:shadow-orange-300 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none active:translate-y-0"
+                        className="w-full rounded-xl bg-[#FF5722] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#E64A19] hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#FF5722]/25 disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                        {status === 'loading' ? 'Joining...' : status === 'success' ? 'Welcome! 🎉' : (selectedType === 'owner' ? 'Join Partner Network' : 'Join the Pack')}
+                        {status === 'loading'
+                            ? 'Submitting…'
+                            : status === 'success'
+                                ? 'Subscribed'
+                                : (selectedType === 'owner' ? 'Join partner updates' : 'Join the pack')}
                     </button>
 
-                    {selectedType === 'owner' && (
-                        <p className="mt-3 text-center text-xs text-gray-400">
-                            🔒 Your info is safe. Unsubscribe at any time.
-                        </p>
-                    )}
+                    <p className={`mt-3 text-center text-xs ${styles.surfaceMuted}`}>
+                        We’ll only email you when we have something worth sharing. Unsubscribe anytime.
+                    </p>
+                </div>
                 </div>
             </form>
 
             {message && (
                 <div
-                    className={`mt-4 rounded-xl p-4 text-sm font-medium animate-in fade-in slide-in-from-top-2 ${status === 'success'
-                        ? 'bg-green-50 text-green-700 border border-green-100 shadow-sm'
-                        : 'bg-red-50 text-red-700 border border-red-100 shadow-sm'
+                    id={`${formId}-message`}
+                    className={`mt-4 rounded-xl p-4 text-sm font-medium ${status === 'success'
+                        ? (isDark ? 'bg-green-500/15 text-green-50 border border-green-400/20' : 'bg-green-50 text-green-700 border border-green-100')
+                        : (isDark ? 'bg-red-500/15 text-red-50 border border-red-400/20' : 'bg-red-50 text-red-700 border border-red-100')
                         }`}
                     role="alert"
                 >

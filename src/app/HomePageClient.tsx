@@ -49,6 +49,9 @@ export default function HomePageClient({
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
   const autocompleteDropdownRef = useRef<HTMLDivElement>(null);
+  const inlineFiltersRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   // Use custom search hook with manual trigger (SERVER-SIDE SEARCH)
   const {
@@ -87,6 +90,20 @@ export default function HomePageClient({
       filters.listingType ||
       (filters.amenities && filters.amenities.length > 0)
   );
+
+  const handleClearFiltersOnly = useCallback(() => {
+    // Best practice: "Clear" in the filters bar should reset FILTERS only,
+    // not the active search term (otherwise it feels like navigation/home reset).
+    updateFilters({
+      type: '',
+      minRating: undefined,
+      priceRange: undefined,
+      city: undefined,
+      amenities: undefined,
+      sortBy: undefined,
+      listingType: undefined,
+    });
+  }, [updateFilters]);
 
   useEffect(() => {
     // If initialShowSearchLayout was explicitly set to true, respect it
@@ -178,6 +195,55 @@ export default function HomePageClient({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [hasActiveSearch, clearSearch, autocomplete]);
+
+  // Desktop UX: Allow mouse wheel to scroll the horizontal filter row.
+  // (Trackpads already support horizontal scrolling; mouse wheels typically don't.)
+  useEffect(() => {
+    const el = inlineFiltersRef.current;
+    if (!el) return;
+
+    const onWheel = (e: WheelEvent) => {
+      // Only hijack wheel when this element is actually horizontally scrollable.
+      const canScrollHorizontally = el.scrollWidth > el.clientWidth;
+      if (!canScrollHorizontally) return;
+
+      // If the user is already performing horizontal scrolling (trackpad), don't interfere.
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+      // Convert vertical wheel motion into horizontal scrolling.
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    };
+
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel as EventListener);
+  }, []);
+
+  // Track scroll position to enable/disable nav buttons
+  useEffect(() => {
+    const el = inlineFiltersRef.current;
+    if (!el) return;
+
+    const updateScrollState = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setCanScrollLeft(scrollLeft > 2);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 2);
+    };
+
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState);
+    window.addEventListener('resize', updateScrollState);
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, []);
+
+  const scrollFiltersBy = (delta: number) => {
+    const el = inlineFiltersRef.current;
+    if (!el) return;
+    el.scrollBy({ left: delta, behavior: 'smooth' });
+  };
 
   // Handle search form submission
   const handleSearch = (e: React.FormEvent) => {
@@ -445,7 +511,7 @@ export default function HomePageClient({
                   <span className="results-count">
                     <strong>{searchPagination?.totalResults || filteredParks.length}</strong> {(searchPagination?.totalResults || filteredParks.length) === 1 ? 'park' : 'parks'} found
                     {searchMeta && searchMeta.totalParks > 0 && (
-                      <span style={{ color: '#9ca3af', fontSize: '0.85rem', marginLeft: '8px' }}>
+                      <span className="results-meta">
                         {/* Industry best practice: Clarify that search includes ALL parks (static + featured/premium) */}
                         (from {searchMeta.totalParks} total parks
                         {searchMeta.featuredParksCount !== undefined && searchMeta.featuredParksCount > 0 && (
@@ -459,7 +525,16 @@ export default function HomePageClient({
               </div>
 
               {/* Inline Filters */}
-              <div className="inline-filters">
+              <div className="inline-filters-wrapper">
+                <button
+                  type="button"
+                  className={`inline-filters-nav inline-filters-nav-left ${canScrollLeft ? 'visible' : ''}`}
+                  onClick={() => scrollFiltersBy(-220)}
+                  aria-label="Scroll filters left"
+                >
+                  <i className="bi bi-chevron-left"></i>
+                </button>
+                <div className="inline-filters" ref={inlineFiltersRef}>
                 <select
                   className="filter-select"
                   value={filters.listingType || ''}
@@ -523,15 +598,25 @@ export default function HomePageClient({
                   <option value="name">Name (A-Z)</option>
                 </select>
 
-                {(hasFilterSelections || !!searchTerm) && (
-                  <button 
+                {hasFilterSelections && (
+                  <button
+                    type="button"
                     className="clear-filters-btn"
-                    onClick={clearSearch}
-                    title="Clear all filters"
+                    onClick={handleClearFiltersOnly}
+                    title="Clear filters"
                   >
                     <i className="bi bi-x-circle"></i> Clear
                   </button>
                 )}
+                </div>
+                <button
+                  type="button"
+                  className={`inline-filters-nav inline-filters-nav-right ${canScrollRight ? 'visible' : ''}`}
+                  onClick={() => scrollFiltersBy(220)}
+                  aria-label="Scroll filters right"
+                >
+                  <i className="bi bi-chevron-right"></i>
+                </button>
               </div>
             </div>
 
