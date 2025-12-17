@@ -117,3 +117,4 @@ Your blog posts are stored locally in `content/blog/` folder. You can:
 **Ready to start?** Follow the steps above and you'll be up and running in minutes!
 
 
+
