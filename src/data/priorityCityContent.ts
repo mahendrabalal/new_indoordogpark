@@ -291,6 +291,35 @@ const seattleFaqs: FAQItem[] = [
   },
 ];
 
+const santaAnaFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog in Santa Ana, CA?',
+    answer:
+      'Santa Ana sits in the heart of Orange County, so most dog families mix local neighborhood parks with quick drives to nearby Costa Mesa, Tustin, and Irvine. Use this page to browse verified listings as we refresh our directory weekly.',
+    category: 'general',
+    popular: true,
+  },
+  {
+    question: 'Are there indoor dog park options available in Santa Ana?',
+    answer:
+      'Not yet in our verified directory for Santa Ana. If you know a great indoor option, you can submit it and we’ll review it for inclusion.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What should I bring when visiting dog parks in Santa Ana?',
+    answer:
+      'Bring a leash for entry/exit control, waste bags, fresh water + a bowl, and high-value treats. For warmer months, add paw protection (hot pavement) and a cooling towel—especially for midday outings.',
+    category: 'planning',
+  },
+  {
+    question: 'What are the best times to visit dog parks in Santa Ana?',
+    answer:
+      'Early mornings and evenings are usually the most comfortable (cooler temps) and most social. Midday can be quieter but hotter—choose shaded parks, bring extra water, and shorten play sessions if it’s warm.',
+    category: 'planning',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -1769,6 +1798,77 @@ export const priorityCityContent: PriorityCityConfig[] = [
           'Navigate NYC real estate to launch an indoor dog park. We provide space optimization strategies, reservation system templates, and building partnership playbooks.',
         primary: { label: 'Download owner playbook', href: '/owner-resources' },
         secondary: { label: 'Talk to strategy', href: '/contact' },
+      },
+    },
+  },
+  {
+    slug: 'santa-ana',
+    city: 'Santa Ana',
+    state: 'CA',
+    featuredImage: 'https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?auto=format&fit=crop&w=1600&q=80',
+    summary:
+      'Orange County hub with year-round outdoor play—use early/late windows, and lean on shaded parks during warm afternoons.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Orange County spotlight',
+      heroHeading: 'Dog Parks in Santa Ana, CA',
+      heroDescription:
+        'Plan your next dog outing in Santa Ana with neighborhood-friendly parks and nearby Orange County favorites. Our directory refreshes weekly—submit a spot to help us verify more listings.',
+      heroPill: 'OC dog-friendly picks',
+      heroFootnotes: ['Data refreshed weekly', 'Submit a park to help us verify more locations'],
+      heroChips: [
+        { label: 'Verified parks', value: '—', caption: 'In review' },
+        { label: 'Indoor coverage', value: '—', caption: 'Being scouted' },
+        { label: 'Nearby cities', value: 'Tustin · Irvine · Costa Mesa' },
+      ],
+      insightIntro:
+        'Santa Ana dog families often rotate between local parks and nearby Orange County neighborhoods depending on shade, crowd levels, and weekend events.',
+      insightCards: [
+        {
+          tag: 'Warm weather',
+          title: 'Pick shaded windows',
+          copy: 'Aim for early mornings or after 4 PM for cooler temps. Midday sessions work best at shaded parks with water nearby.',
+          accent: true,
+        },
+        {
+          tag: 'OC access',
+          title: 'Short drives unlock variety',
+          copy: 'If a park is crowded, nearby Costa Mesa, Tustin, and Irvine add more options without a long commute.',
+        },
+        {
+          tag: 'Safety basics',
+          title: 'Hydration + supervision',
+          copy: 'Bring water, scan the park before entering, and step in early if play gets too intense—especially with mixed sizes.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-clock',
+          title: 'Best time blocks',
+          items: ['6–9 AM: peak social window', '10 AM–3 PM weekdays: quieter (watch heat)', 'After 4 PM: cooler + after-work crowd'],
+        },
+        {
+          icon: 'bi-bag',
+          title: 'Essentials checklist',
+          items: ['Leash + harness', 'Waste bags', 'Fresh water + bowl', 'Cooling towel in warm months'],
+        },
+        {
+          icon: 'bi-shield-check',
+          title: 'Quick safety tips',
+          items: ['Avoid crowded gates—wait your turn', 'Remove prong collars before play', 'Leave early if your dog is stressed'],
+        },
+      ],
+      mapSidebarNote:
+        'Use the map to compare nearby neighborhoods—toggle categories to find the vibe that fits (training, social, or quick exercise).',
+      faqs: santaAnaFaqs,
+      ownerCta: {
+        kicker: 'Park owners',
+        title: 'List your Santa Ana dog-friendly business',
+        description:
+          'Own a dog-friendly business or manage a play facility in Santa Ana? Submit your listing to get verified and show up when local pet parents search.',
+        primary: { label: 'List your park', href: '/list-your-park' },
+        secondary: { label: 'Contact us', href: '/contact' },
+        footnote: 'We review submissions and refresh city pages weekly.',
       },
     },
   },
