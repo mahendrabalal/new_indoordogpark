@@ -9,7 +9,7 @@ import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import ParkImage from '@/components/ParkImage';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
-import { getAllStaticParks, getCitySlugByName, getParkBySlug, extractLocationFromSlug } from '@/lib/parks-data';
+import { getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
@@ -182,15 +182,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const park = await getParkBySlug(params.slug);
 
   if (!park) {
-    // Try to extract location from slug and redirect to city page (301 redirect for SEO)
-    const location = extractLocationFromSlug(params.slug);
-    if (location?.city && location?.state) {
-      const citySlug = await getCitySlugByName(location.city, location.state);
-      if (citySlug) {
-        permanentRedirect(`/cities/${citySlug}`);
-      }
-    }
-    // Fallback to 404 if redirect not possible
+    // Park not found - return 404
     notFound();
   }
 
