@@ -425,7 +425,12 @@
     "placeTypes": [
       "Dog trainer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJv0F_dC7zYwokR_dPIiB8G",
@@ -700,7 +705,12 @@
     "placeTypes": [
       "Dog day care center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJ-0YJ_xoE9YgRB5A26qlD_e4",
@@ -787,7 +797,12 @@
       "Pet groomer",
       "Pet supply store"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJxwxEXDdawokR2LYcQFUnsMs__blue-heron-nature-preserve-atlanta",
@@ -1418,7 +1433,12 @@
       "Dog park",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJWS997hkE9YgRu1zLn4S_AM4",
@@ -2059,7 +2079,12 @@
       "Tourist attraction",
       "Zoo"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJ24h4akSl9YgRBayatmBHDeY",
@@ -2178,7 +2203,12 @@
       "Dog day care center",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJgXhKdnER9YgRkBjkdd9cv5U",
@@ -2334,7 +2364,12 @@
     "placeTypes": [
       "Sports bar"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJY5yfBbOtwokRGJ1NKd3eizExc",
@@ -2538,7 +2573,13 @@
       "Pet sitter",
       "Pet trainer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJpcxB-Tag9YgRZQCQM1QkBp4",
@@ -2616,7 +2657,12 @@
       "Sports complex",
       "Tourist attraction"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJrZIFWa1Uci8R5ni6P4N8CgU",
@@ -2771,7 +2817,12 @@
       "Pet sitter",
       "Pet trainer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJtUbvdpcO9YgR3zvN_LaqXPY",
@@ -2949,7 +3000,12 @@
       "Event venue",
       "Museum"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJX0qxgMMP9YgRupXTxaLVj9E",
@@ -3694,7 +3750,12 @@
       "Dog park",
       "Indoor swimming pool"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJ0UTrL4z5DogR4Q8TKK91me0",
@@ -3850,7 +3911,12 @@
       "Pet sitter",
       "Pet trainer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJYR6I6Owzs1IRGFIDv9NEdsU",
@@ -4114,7 +4180,12 @@
       "Dog park",
       "Bar"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJaawx_zNfrIkRdXJ1kMUfB4o",
@@ -4885,7 +4956,12 @@
       "Pet boarding service",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJTwiKz7O3w4kRyzeX7VXF3-8",
@@ -5243,7 +5319,12 @@
       "Pet boarding service",
       "Pet sitter"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJg5MXhxdZwokRgqiq2TZPxUc",
@@ -5483,7 +5564,8 @@
       "Friday": "6AM-10PM",
       "Saturday": "6AM-10PM"
     },
-    "faqs": []
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJGe1VSeLywokR672ztIubiJc",
@@ -5687,7 +5769,12 @@
     "placeTypes": [
       "Dog day care center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJBWNJh3tfwokRWi4OLdU5wnY",
@@ -5837,7 +5924,13 @@
       "Pet groomer",
       "Swimming basin"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJeQK8JjNawokRHe4x0TextbU",
@@ -6653,7 +6746,12 @@
     "placeTypes": [
       "Dog park"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJxwxEXDdawokR2LYcQFUnsMs__hillside-dog-park-brooklyn",
@@ -6806,7 +6904,13 @@
     "placeTypes": [
       "Dog day care center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJx1kZrwokRgqBd-U6fj9p1g",
@@ -6897,7 +7001,12 @@
       "Pet boarding service",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJq3mMh4hawokR1Rl_U7p-K5c",
@@ -7069,7 +7178,12 @@
     "placeTypes": [
       "Recreation center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJ0_U5Vew4okRiEI8K7p-2HHq93CI-8Q",
@@ -7174,7 +7288,12 @@
     "placeTypes": [
       "Dog trainer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJDV2tM7RbwokRkgi8Vy9WD04",
@@ -7618,7 +7737,12 @@
       "Softball field",
       "Tourist attraction"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJK9O7f_tZwokR6RzXQf7L9x9",
@@ -7671,7 +7795,12 @@
       "Veterinary care",
       "Veterinarian"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJb_aSL61bwokRAzabvRs7_3g",
@@ -7821,7 +7950,12 @@
       "Kennel",
       "Pet supply store"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJlw0O7UZZwokRdAM8qb1adjM",
@@ -7952,7 +8086,12 @@
       "Pet sitter",
       "Pet supply store"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJe-ZhIxZwokR3-OOZ9vXJ_8",
@@ -8051,7 +8190,12 @@
       "Dog park",
       "Tourist attraction"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJAWIrqX5ewokRyJu29sSHLTs",
@@ -8309,7 +8453,12 @@
       "Dog day care center",
       "Pet boarding service"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJPY-jPwJZwokRcSs-fwR_WB8",
@@ -8507,6 +8656,61 @@
     }
   },
   {
+    "id": "ChIJ4yx722WZawokR5cK8FE8pgsg",
+    "name": "Chelsea Park",
+    "businessType": "Dog Park",
+    "description": "Chelsea Park has become a favorite among New York residents. This facility features open green spaces, family-friendly atmosphere, offering recreational activities. Their dog park provides safe play areas. conveniently located in New York. Visit Chelsea Park for outdoor fun",
+    "slug": "chelsea-park",
+    "address": "West 27th Street &, 9th Ave",
+    "street": "West 27th Street &, 9th Ave",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "full_address": "West 27th Street &, 9th Ave, New York, NY 10001",
+    "googlePlaceId": "ChIJ4yx722WZawokR5cK8FE8pgsg",
+    "phone": "+1 212-639-9675",
+    "website": "https://www.nycgovparks.org/parks/chelsea-park",
+    "rating": 4.4,
+    "reviewCount": 1387,
+    "userRatingsTotal": 1387,
+    "openingHours": {
+      "Sunday": "6AM-11PM",
+      "Monday": "6AM-11PM",
+      "Tuesday": "6AM-11PM",
+      "Wednesday": "6AM-11PM",
+      "Thursday": "6AM-11PM",
+      "Friday": "6AM-11PM",
+      "Saturday": "6AM-11PM"
+    },
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google_street_view",
+        "caption": null
+      }
+    ],
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
+    "placeTypes": [
+      "Park",
+      "Baseball field",
+      "Basketball court",
+      "Handball court",
+      "Playground",
+      "Softball field",
+      "Tourist attraction"
+    ],
+    "dataQuality": "partial",
+    "latitude": 40.7500587,
+    "longitude": -74.001196,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
+  },
+  {
     "id": "ChIJR9sCf4NYwokRgzG2xtxZVNM",
     "name": "D is for Doggy - Daycare & Grooming",
     "businessType": "Dog-Friendly Establishment",
@@ -8583,7 +8787,12 @@
       "Pet boarding service",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJR9sCf4NYwokR7dPIiB8G",
@@ -9113,6 +9322,52 @@
     "slug": "doggington-s-day-care-establishment-new-york"
   },
   {
+    "id": "mixmatch_dream-come-true-k9",
+    "name": "Dream Come True K9",
+    "businessType": "Dog Park",
+    "description": "",
+    "slug": "dream-come-true-k9",
+    "address": "174 Attorney St",
+    "street": "174 Attorney St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10002",
+    "full_address": "174 Attorney St, New York, NY 10002",
+    "phone": "+1 212-677-1800",
+    "website": "http://www.dctk9.com/",
+    "rating": 4.9,
+    "reviewCount": 87,
+    "userRatingsTotal": 87,
+    "openingHours": {
+      "Monday": "8AM-8PM",
+      "Tuesday": "8AM-8PM",
+      "Wednesday": "8AM-8PM",
+      "Thursday": "8AM-8PM",
+      "Friday": "8AM-8PM",
+      "Saturday": "8AM-8PM",
+      "Sunday": "8AM-8PM"
+    },
+    "amenities": {
+      "handicapAccess": true
+    },
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google_street_view",
+        "caption": null
+      }
+    ],
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
+    "placeTypes": [
+      "Dog trainer",
+      "Dog day care center",
+      "Dog walker",
+      "Pet trainer"
+    ],
+    "dataQuality": "partial"
+  },
+  {
     "id": "mixmatch_east-river-esplanade-dog-run",
     "name": "East River Esplanade Dog Run",
     "businessType": "Dog Park",
@@ -9495,7 +9750,13 @@
     "placeTypes": [
       "Dog day care center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJL1DP2C72wokRh3Lfn4T0Z3w",
@@ -9866,7 +10127,12 @@
       "Park",
       "Tourist attraction"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJT2enA-VZwokRLesDgDrIBXs",
@@ -9985,7 +10251,12 @@
       "Pet boarding service",
       "Pet groomer"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": []
   },
   {
     "id": "ChIJW9JjNctbwokRQInWwqpuCSc",
@@ -10176,7 +10447,13 @@
     "placeTypes": [
       "Dog day care center"
     ],
-    "dataQuality": "verified"
+    "dataQuality": "verified",
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "faqs": [],
+    "amenities": {}
   },
   {
     "id": "ChIJ7RQ5DYpZwokRvCH_Y2pthHs",
@@ -10955,98 +11232,5 @@
       "Dog facility"
     ],
     "dataQuality": "verified"
-  },
-  {
-    "id": "mixmatch_dream-come-true-k9",
-    "name": "Dream Come True K9",
-    "businessType": "Dog Park",
-    "description": "",
-    "slug": "dream-come-true-k9",
-    "address": "174 Attorney St",
-    "street": "174 Attorney St",
-    "city": "New York",
-    "state": "NY",
-    "zipCode": "10002",
-    "full_address": "174 Attorney St, New York, NY 10002",
-    "phone": "+1 212-677-1800",
-    "website": "http://www.dctk9.com/",
-    "rating": 4.9,
-    "reviewCount": 87,
-    "userRatingsTotal": 87,
-    "openingHours": {
-      "Monday": "8AM-8PM",
-      "Tuesday": "8AM-8PM",
-      "Wednesday": "8AM-8PM",
-      "Thursday": "8AM-8PM",
-      "Friday": "8AM-8PM",
-      "Saturday": "8AM-8PM",
-      "Sunday": "8AM-8PM"
-    },
-    "amenities": {
-      "handicapAccess": true
-    },
-    "photos": [
-      {
-        "url": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
-        "type": "photo",
-        "source": "google_street_view",
-        "caption": null
-      }
-    ],
-    "photo": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
-    "placeTypes": [
-      "Dog trainer",
-      "Dog day care center",
-      "Dog walker",
-      "Pet trainer"
-    ],
-    "dataQuality": "partial"
-  },
-  {
-    "id": "ChIJ4yx722WZawokR5cK8FE8pgsg",
-    "name": "Chelsea Park",
-    "businessType": "Dog Park",
-    "description": "Chelsea Park has become a favorite among New York residents. This facility features open green spaces, family-friendly atmosphere, offering recreational activities. Their dog park provides safe play areas. conveniently located in New York. Visit Chelsea Park for outdoor fun",
-    "slug": "chelsea-park",
-    "address": "West 27th Street &, 9th Ave",
-    "street": "West 27th Street &, 9th Ave",
-    "city": "New York",
-    "state": "NY",
-    "zipCode": "10001",
-    "full_address": "West 27th Street &, 9th Ave, New York, NY 10001",
-    "googlePlaceId": "ChIJ4yx722WZawokR5cK8FE8pgsg",
-    "phone": "+1 212-639-9675",
-    "website": "https://www.nycgovparks.org/parks/chelsea-park",
-    "rating": 4.4,
-    "reviewCount": 1387,
-    "userRatingsTotal": 1387,
-    "openingHours": {
-      "Sunday": "6AM-11PM",
-      "Monday": "6AM-11PM",
-      "Tuesday": "6AM-11PM",
-      "Wednesday": "6AM-11PM",
-      "Thursday": "6AM-11PM",
-      "Friday": "6AM-11PM",
-      "Saturday": "6AM-11PM"
-    },
-    "photos": [
-      {
-        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
-        "type": "photo",
-        "source": "google_street_view",
-        "caption": null
-      }
-    ],
-    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
-    "placeTypes": [
-      "Park",
-      "Baseball field",
-      "Basketball court",
-      "Handball court",
-      "Playground",
-      "Softball field",
-      "Tourist attraction"
-    ],
-    "dataQuality": "partial"
   }
 ]
