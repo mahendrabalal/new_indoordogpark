@@ -11463,5 +11463,38 @@
     "photo": null,
     "amenities": {},
     "source": "google_places"
+  },
+  {
+    "id": "ChIJNUwaa-pZwokRh_DHYDHBWkc",
+    "googlePlaceId": "ChIJNUwaa-pZwokRh_DHYDHBWkc",
+    "name": "Pier 51 at Hudson River Park",
+    "businessType": "Dog Park",
+    "description": "Pier 51 at Hudson River Park is a popular dog-friendly destination in New York, NY. Located at Pier 51 at Hudson River Park, Hudson River Greenway, New York, NY 10014, USA, it offers a welcoming environment for dogs and their owners.",
+    "slug": "pier-51-at-hudson-river-park-new-york",
+    "address": "Pier 51 at Hudson River Park",
+    "street": "Pier 51 at Hudson River Park",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10014",
+    "full_address": "Pier 51 at Hudson River Park, Hudson River Greenway, New York, NY 10014, USA",
+    "latitude": 40.7382019,
+    "longitude": -74.0108455,
+    "phone": "(212) 627-2020",
+    "website": "http://hudsonriverpark.org/",
+    "rating": 4.8,
+    "reviewCount": 581,
+    "openingHours": {
+      "Monday": "7:30 AM – 8:00 PM",
+      "Tuesday": "7:30 AM – 8:00 PM",
+      "Wednesday": "7:30 AM – 8:00 PM",
+      "Thursday": "7:30 AM – 8:00 PM",
+      "Friday": "7:30 AM – 8:00 PM",
+      "Saturday": "7:30 AM – 8:00 PM",
+      "Sunday": "7:30 AM – 8:00 PM"
+    },
+    "photos": [],
+    "photo": null,
+    "amenities": {},
+    "source": "google_places"
   }
 ]
