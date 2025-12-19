@@ -326,6 +326,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   const fallbackMappings: Record<string, string> = {
     'alamo-square-dog-play-area': 'Alamo Square Dog Play Area',
     'down-town-indoor-dog-park-durham': 'Down Town Indoor Dog Park Durham',
+    'barking-hound-village-inn-atlanta': 'Barking Hound Village Inn',
   };
 
   if (fallbackMappings[normalizedSlug]) {
@@ -366,6 +367,23 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
 
       if (matchingSubmission) {
         return mapSubmissionToDogPark(matchingSubmission as SubmissionRow);
+      }
+
+      // Last resort: try name-based matching (case-insensitive, partial match)
+      // This handles cases where the slug doesn't match exactly
+      const normalizedSearchSlug = slug.toLowerCase().trim();
+      const nameBasedMatch = allApproved.find((sub) => {
+        const subName = sub.name.toLowerCase().trim();
+        const expectedSlug = slugify(sub.name, sub.city).toLowerCase();
+        
+        // Check if the search slug contains the park name or vice versa
+        return normalizedSearchSlug.includes(subName.replace(/[^a-z0-9]+/g, '-')) ||
+               expectedSlug.includes(normalizedSearchSlug) ||
+               normalizedSearchSlug.includes(expectedSlug);
+      });
+
+      if (nameBasedMatch) {
+        return mapSubmissionToDogPark(nameBasedMatch as SubmissionRow);
       }
     }
   } catch (submissionError) {

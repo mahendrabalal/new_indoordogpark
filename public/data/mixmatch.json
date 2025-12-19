@@ -11907,5 +11907,87 @@
     ],
     "dataQuality": "verified",
     "faqs": []
+  },
+  {
+    "id": "barking-hound-village-inn-atlanta",
+    "name": "Barking Hound Village Inn",
+    "businessType": "Dog-Friendly Establishment",
+    "description": "Barking Hound Village Inn is a premier dog boarding and daycare facility in Atlanta. This facility features spacious indoor and outdoor play areas, professional grooming stations, and certified pet care experts, offering dog boarding, daycare, grooming, and training services. Their services provide essential exercise, socialization, and care for your pet. Conveniently located in Atlanta's Virginia Highland area. Contact Barking Hound Village Inn today to schedule your dog's visit.",
+    "slug": "barking-hound-village-inn-atlanta",
+    "address": "777 Lambert Dr NE",
+    "street": "777 Lambert Dr NE",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "zipCode": "30324",
+    "full_address": "777 Lambert Dr NE, Atlanta, GA 30324",
+    "latitude": 33.7996,
+    "longitude": -84.3561,
+    "googlePlaceId": "ChIJbarking-hound-inn",
+    "phone": "+1 404-873-4960",
+    "website": "https://www.barkinghoundvillage.com/",
+    "photos": [
+      {
+        "url": "/images/parks/atlanta/barking-hound-village-lofts.jpg",
+        "type": "photo",
+        "source": "local",
+        "caption": "Barking Hound Village Inn facility"
+      },
+      {
+        "url": "/images/parks/atlanta/barking-hound-village-lofts-2.jpg",
+        "type": "photo",
+        "source": "local",
+        "caption": "Indoor play area"
+      },
+      {
+        "url": "/images/parks/atlanta/barking-hound-village-lofts-3.jpg",
+        "type": "photo",
+        "source": "local",
+        "caption": "Dog daycare space"
+      },
+      {
+        "url": "/images/parks/atlanta/barking-hound-village-lofts-4.jpg",
+        "type": "photo",
+        "source": "local",
+        "caption": "Pet care area"
+      },
+      {
+        "url": "/images/parks/atlanta/barking-hound-village-lofts-5.jpg",
+        "type": "photo",
+        "source": "local",
+        "caption": "Grooming station"
+      }
+    ],
+    "rating": 4.6,
+    "reviewCount": 150,
+    "userRatingsTotal": 150,
+    "pricing": {
+      "pricingSource": "unknown",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": "/images/parks/atlanta/barking-hound-village-lofts.jpg",
+    "openingHours": {
+      "Sunday": "12PM-5PM",
+      "Monday": "12PM-5PM",
+      "Tuesday": "7:30AM-7PM",
+      "Wednesday": "7:30AM-7PM",
+      "Thursday": "7:30AM-7PM",
+      "Friday": "7:30AM-7PM",
+      "Saturday": "7:30AM-7PM"
+    },
+    "faqs": [],
+    "amenities": {
+      "handicapAccess": true,
+      "parking": true,
+      "daycare": true,
+      "grooming": true,
+      "boarding": true,
+      "training": true
+    }
   }
 ]
