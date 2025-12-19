@@ -11496,5 +11496,38 @@
     "photo": null,
     "amenities": {},
     "source": "google_places"
+  },
+  {
+    "id": "ChIJz1YttJJZwokRZtZyCKbuzMU",
+    "googlePlaceId": "ChIJz1YttJJZwokRZtZyCKbuzMU",
+    "name": "James J Walker Park",
+    "businessType": "Dog Park",
+    "description": "James J Walker Park is a popular dog-friendly destination in New York, NY. Located at Hudson St, New York, NY 10013, USA, it offers a welcoming environment for dogs and their owners.",
+    "slug": "james-j-walker-park-new-york",
+    "address": "Hudson St",
+    "street": "Hudson St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10013",
+    "full_address": "Hudson St, New York, NY 10013, USA",
+    "latitude": 40.729819899999995,
+    "longitude": -74.0063953,
+    "phone": "(212) 639-9675",
+    "website": "https://www.nycgovparks.org/parks/james-j-walker-park/",
+    "rating": 4.4,
+    "reviewCount": 553,
+    "openingHours": {
+      "Monday": "6:00 AM – 10:00 PM",
+      "Tuesday": "6:00 AM – 10:00 PM",
+      "Wednesday": "6:00 AM – 10:00 PM",
+      "Thursday": "6:00 AM – 10:00 PM",
+      "Friday": "6:00 AM – 10:00 PM",
+      "Saturday": "6:00 AM – 10:00 PM",
+      "Sunday": "6:00 AM – 10:00 PM"
+    },
+    "photos": [],
+    "photo": null,
+    "amenities": {},
+    "source": "google_places"
   }
 ]
