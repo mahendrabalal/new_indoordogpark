@@ -13,6 +13,7 @@ import {
   getParksByCity,
   getParksByType,
   getNearbyCities,
+  slugToCityName,
 } from '@/lib/cityData';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
@@ -488,7 +489,54 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     };
   }
 
-  return null;
+  // Final fallback: render a lightweight "coming soon" city page instead of 404.
+  // This improves UX for users landing on `/cities/<slug>` links we haven't verified yet.
+  // These pages are still set to noindex by `shouldIndexCity()` in the city page when there are 0 listings.
+  const slugParts = normalizedSlug.split('-').filter(Boolean);
+  const lastPart = slugParts[slugParts.length - 1] || '';
+  const inferredState = lastPart.length === 2 ? lastPart.toUpperCase() : 'CA';
+  const citySlugBase = lastPart.length === 2 ? slugParts.slice(0, -1).join('-') : normalizedSlug;
+  const inferredCityName = slugToCityName(citySlugBase);
+
+  const hydratedCity: CityData = {
+    slug: normalizedSlug,
+    name: inferredCityName,
+    state: normalizeState(inferredState) || inferredState,
+    parkCount: 0,
+    avgRating: 0,
+    totalReviews: 0,
+    featuredImage: undefined,
+    latitude: undefined,
+    longitude: undefined,
+  };
+
+  const emptyStats: CityStats = {
+    totalParks: 0,
+    avgRating: 0,
+    totalReviews: 0,
+  };
+
+  return {
+    city: hydratedCity,
+    cityParks: [],
+    parksByType: {},
+    stats: emptyStats,
+    customContent: {
+      heroEyebrow: 'City spotlight',
+      heroHeading: `Dog Parks in ${hydratedCity.name}, ${hydratedCity.state}`,
+      heroDescription:
+        `We’re building out our verified directory for ${hydratedCity.name}. Submit a park to help us review and publish more dog-friendly spots in this area.`,
+      heroPill: 'Listings in review',
+      heroFootnotes: ['Data refreshed weekly', 'Submit a park to help us verify more locations'],
+      heroChips: [
+        { label: 'Verified parks', value: '—', caption: 'In review' },
+        { label: 'Avg rating', value: '—', caption: 'Pending data' },
+        { label: 'Park types', value: '—', caption: 'Pending data' },
+        { label: 'Local reviews', value: '—', caption: 'Pending data' },
+      ],
+    },
+    nearbyCities: undefined,
+  };
 }
 
 /**
