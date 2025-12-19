@@ -10955,5 +10955,98 @@
       "Dog facility"
     ],
     "dataQuality": "verified"
+  },
+  {
+    "id": "mixmatch_dream-come-true-k9",
+    "name": "Dream Come True K9",
+    "businessType": "Dog Park",
+    "description": "",
+    "slug": "dream-come-true-k9",
+    "address": "174 Attorney St",
+    "street": "174 Attorney St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10002",
+    "full_address": "174 Attorney St, New York, NY 10002",
+    "phone": "+1 212-677-1800",
+    "website": "http://www.dctk9.com/",
+    "rating": 4.9,
+    "reviewCount": 87,
+    "userRatingsTotal": 87,
+    "openingHours": {
+      "Monday": "8AM-8PM",
+      "Tuesday": "8AM-8PM",
+      "Wednesday": "8AM-8PM",
+      "Thursday": "8AM-8PM",
+      "Friday": "8AM-8PM",
+      "Saturday": "8AM-8PM",
+      "Sunday": "8AM-8PM"
+    },
+    "amenities": {
+      "handicapAccess": true
+    },
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google_street_view",
+        "caption": null
+      }
+    ],
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipMBahbsA0SpFQR8fnSdBerCN9ZjHuXYUacR_w8H=w1600-h1000-k-no",
+    "placeTypes": [
+      "Dog trainer",
+      "Dog day care center",
+      "Dog walker",
+      "Pet trainer"
+    ],
+    "dataQuality": "partial"
+  },
+  {
+    "id": "ChIJ4yx722WZawokR5cK8FE8pgsg",
+    "name": "Chelsea Park",
+    "businessType": "Dog Park",
+    "description": "Chelsea Park has become a favorite among New York residents. This facility features open green spaces, family-friendly atmosphere, offering recreational activities. Their dog park provides safe play areas. conveniently located in New York. Visit Chelsea Park for outdoor fun",
+    "slug": "chelsea-park",
+    "address": "West 27th Street &, 9th Ave",
+    "street": "West 27th Street &, 9th Ave",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "full_address": "West 27th Street &, 9th Ave, New York, NY 10001",
+    "googlePlaceId": "ChIJ4yx722WZawokR5cK8FE8pgsg",
+    "phone": "+1 212-639-9675",
+    "website": "https://www.nycgovparks.org/parks/chelsea-park",
+    "rating": 4.4,
+    "reviewCount": 1387,
+    "userRatingsTotal": 1387,
+    "openingHours": {
+      "Sunday": "6AM-11PM",
+      "Monday": "6AM-11PM",
+      "Tuesday": "6AM-11PM",
+      "Wednesday": "6AM-11PM",
+      "Thursday": "6AM-11PM",
+      "Friday": "6AM-11PM",
+      "Saturday": "6AM-11PM"
+    },
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
+        "type": "photo",
+        "source": "google_street_view",
+        "caption": null
+      }
+    ],
+    "photo": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noHduyZO2O6btNseNqoC0u0xqjoq0q5_lXU7tmPMl3B3GAdgfv7O2Cv2oW7HFJYmcZNghPW4zNgMIeRBJ0ZxRDTQL6b--fUW3bTPKyMPvprFaBn-EwCq7Oy5vONus-DFA37rUad=w1600-h1000-k-no",
+    "placeTypes": [
+      "Park",
+      "Baseball field",
+      "Basketball court",
+      "Handball court",
+      "Playground",
+      "Softball field",
+      "Tourist attraction"
+    ],
+    "dataQuality": "partial"
   }
 ]
