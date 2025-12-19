@@ -11430,5 +11430,38 @@
     "photo": null,
     "amenities": {},
     "source": "google_places"
+  },
+  {
+    "id": "ChIJNdmrSyIR9YgR5OFFwnvWt-4",
+    "googlePlaceId": "ChIJNdmrSyIR9YgR5OFFwnvWt-4",
+    "name": "Puppy Haven - Smyrna",
+    "businessType": "Dog Park",
+    "description": "Puppy Haven - Smyrna is a popular dog-friendly destination in Smyrna, GA. Located at 2170 Windy Hill Rd Suite A, Smyrna, GA 30080, USA, it offers a welcoming environment for dogs and their owners.",
+    "slug": "puppy-haven-smyrna-smyrna",
+    "address": "2170 Windy Hill Rd Suite A",
+    "street": "2170 Windy Hill Rd Suite A",
+    "city": "Smyrna",
+    "state": "GA",
+    "zipCode": "30080",
+    "full_address": "2170 Windy Hill Rd Suite A, Smyrna, GA 30080, USA",
+    "latitude": 33.9001406,
+    "longitude": -84.4899781,
+    "phone": "(404) 885-8788",
+    "website": "https://www.puppyhaven.com/locations/smyrna/",
+    "rating": 4.8,
+    "reviewCount": 272,
+    "openingHours": {
+      "Monday": "7:00 AM – 7:30 PM",
+      "Tuesday": "7:00 AM – 7:30 PM",
+      "Wednesday": "7:00 AM – 7:30 PM",
+      "Thursday": "7:00 AM – 7:30 PM",
+      "Friday": "7:00 AM – 7:00 PM",
+      "Saturday": "8:00 AM – 4:00 PM",
+      "Sunday": "12:00 – 7:00 PM"
+    },
+    "photos": [],
+    "photo": null,
+    "amenities": {},
+    "source": "google_places"
   }
 ]
