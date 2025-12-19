@@ -280,6 +280,10 @@ const nextConfig = {
         destination: '/api/sitemap/cities',
       },
       {
+        source: '/sitemap-states.xml',
+        destination: '/api/sitemap/states',
+      },
+      {
         source: '/sitemap-blog.xml',
         destination: '/api/sitemap/blog',
       },

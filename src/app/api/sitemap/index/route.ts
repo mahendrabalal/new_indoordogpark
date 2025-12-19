@@ -31,6 +31,10 @@ export async function GET() {
     <lastmod>${currentDate.toISOString()}</lastmod>
   </sitemap>
   <sitemap>
+    <loc>${escapeXML(`${baseUrl}/sitemap-states.xml`)}</loc>
+    <lastmod>${currentDate.toISOString()}</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>${escapeXML(`${baseUrl}/sitemap-blog.xml`)}</loc>
     <lastmod>${currentDate.toISOString()}</lastmod>
   </sitemap>

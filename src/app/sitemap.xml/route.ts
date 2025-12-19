@@ -23,6 +23,7 @@ export async function GET() {
     { loc: `${baseUrl}/sitemap-static.xml`, lastmod: currentDate },
     { loc: `${baseUrl}/sitemap-parks.xml`, lastmod: currentDate },
     { loc: `${baseUrl}/sitemap-cities.xml`, lastmod: currentDate },
+    { loc: `${baseUrl}/sitemap-states.xml`, lastmod: currentDate },
     { loc: `${baseUrl}/sitemap-blog.xml`, lastmod: currentDate },
   ])
 
