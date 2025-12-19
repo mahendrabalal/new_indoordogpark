@@ -3,7 +3,7 @@ import type { DogPark } from '@/types/dog-park';
 import type { CityData } from '@/lib/cityData';
 import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data';
 import { normalizeStateKey } from '@/lib/state';
-import { getAllStates, getCityCardsForState, getIndexableStateSlugs, getStateBySlug, type StateData } from '@/lib/stateData';
+import { getCityCardsForState, getIndexableStateSlugs, getStateBySlug, type StateData } from '@/lib/stateData';
 
 export type StateStats = {
   totalParks: number;
