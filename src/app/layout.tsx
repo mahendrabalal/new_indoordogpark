@@ -196,7 +196,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
-        <meta name="google-adsense-account" content="ca-pub-5274561866192746" />
         
         {/* Structured Data */}
         <script

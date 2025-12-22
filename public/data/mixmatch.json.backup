@@ -2663,44 +2663,7 @@
     "googlePlaceId": "ChIJR9sCf4NYwokR7dPIiB8G",
     "phone": "+1 646-559-1913",
     "website": "http://www.disfordoggy.com/",
-    "photos": [
-      {
-        "url": "/images/parks/new-york/d-is-for-doggy-daycare-grooming.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/d-is-for-doggy-daycare-grooming-2.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/d-is-for-doggy-daycare-grooming-3.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/d-is-for-doggy-daycare-grooming-4.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/d-is-for-doggy-daycare-grooming-5.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "https://lh4.googleusercontent.com/-5wdxjorZcnQ/AAAAAAAAAAI/AAAAAAAAAAA/gCQtEAeMXY0/s44-p-k-no-ns-nd/photo.jpg",
-        "type": "photo",
-        "source": "website",
-        "caption": "Logo"
-      }
-    ],
+    "photos": [],
     "rating": 4.6,
     "reviewCount": 56,
     "userRatingsTotal": 56,
@@ -2727,8 +2690,7 @@
       "daycare": true,
       "grooming": true,
       "training": true
-    },
-    "photo": "/images/parks/new-york/d-is-for-doggy-daycare-grooming.jpg"
+    }
   },
   {
     "id": "ChIJEWFIP5dZwokRPHTVsdSWORM",
@@ -5153,50 +5115,7 @@
     "googlePlaceId": "ChIJx1kZrwokRgqBd-U6fj9p1g",
     "phone": "+1 929-730-7877",
     "website": "https://houndstownusa.com/locations/brooklyn-atlantic-ave/?utm_source=google",
-    "photos": [
-      {
-        "url": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave-2.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave-3.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave-4.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave-5.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "https://lh6.googleusercontent.com/-8dRj8XrJ0Hg/AAAAAAAAAAI/AAAAAAAAAAA/fCZkx0DznRs/s44-p-k-no-ns-nd/photo.jpg",
-        "type": "photo",
-        "source": "website",
-        "caption": "Logo"
-      },
-      {
-        "url": "https://lh3.googleusercontent.com/p/AF1QipMczJTWrVyupiSbQXt1-oDzla-RXZEY84rocaIU=w1600-h1000-k-no",
-        "type": "photo",
-        "source": "google_street_view",
-        "caption": "Street View"
-      }
-    ],
+    "photos": [],
     "rating": 5,
     "reviewCount": 33,
     "userRatingsTotal": 33,
@@ -5213,8 +5132,7 @@
     "faqs": [],
     "amenities": {
       "daycare": true
-    },
-    "photo": "/images/parks/brooklyn/hounds-town-brooklyn-atlantic-ave.jpg"
+    }
   },
   {
     "id": "ChIJS9O7fVtZwokR1RzXQf7L9x4",
@@ -7268,7 +7186,7 @@
     }
   },
   {
-    "id": "ChIJ4xQWzlSJsIkRKgH8nFwlymc",
+    "id": "mixmatch_paws-pet-resort",
     "name": "Paws Pet Resort",
     "businessType": "Dog Park",
     "description": "Paws Pet Resort provides professional pet care services including dog daycare, pet boarding, grooming, and training in a convenient Williamsburg location.",
@@ -7306,44 +7224,10 @@
     "pricing": {
       "pricingSource": "unknown",
       "isFree": false
-    },
-    "photos": [
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHo1QOeFEe15PBoZRMS2yox4GfYrQlorp8nPZFBSsBlKZ7UEtEB96j7vRxmeFd2qVt5S_OhyTyirALQWG_si8jQ0Z5uKuzLC9nwo4fi-BJ0DN8k1_4JxNgOxCs6EGky6mSgiGUxkKF7YXm22ZIc4PfSXxJJdcsNih4XZ9axLRZShyVFuz6oiu7E4RiN_mrVGdxN0-4dJffM3cadNbPjMXm1icVgiIp3iXw5WOf-AiIsIj9afC1YBEC28YimjkR1yvh3ekAA790F6CaN-bpr_cf-uquLavCr7TmFrLSnOuJCYvQ/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 1"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHpXV2cgf8ws1pRhS1bW3Tzxw97bIqMyEmP9OIU3ZMoWaM_K5JB5QlYe2wHKK4choBsfQj__yWXY-uQdljGmE8NR8i0z8GpfaWNKvh85jkC-wAt5NL9LDXG2-Gi1D_NM9TJ-a-ya3iFdVoe-8z0MsX50APlVB7aBURX3UkUPQcpZ4pR85oEY2lyaGBCyw3J0x0CUBhdghe3ETxleCnafaRawKxAW8xzcvaskxGE7PLIG_I0djjP-KoRL51IaIZL6u1QA0U0rLNrUls2hH3JQRp9aMdMlmfEz9dj_J0_-wAHFEQ/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 2"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHp0LNJBKFgcQQuGhd0ZipvyNQID1Xiw-m66xfAnF6B6E-fMUs3VS3Np90oXl3nxyoXsJE3TuCNzYboPFai8HdsXnersTI7n4UK38rWgVpVqly3R_HSubwKWPQedrEbCeGwfnrQCCxhMfc5RiIHoWtI1UnLW__U29K7lZMJFt03ZWPFccAUtJVmm5ePF1i1ApQ3PhpXE80LcD2erK0bougOUKa7jf7Z4FdyLdSQ_ciaEpMsPIZVbSECSKnrTpdGS-XHcygRWO0PA5szQh7iTKwMuI1Z5PSUUoXKeCWpP6fS1gA/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 3"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHrIhyqXZ8TpwM2NMWctpQ9ePDGxQHS3q2SeTT0eKWYAUbkFrrXB45FpgQRLiTf9T1aOAjetT4r7YXK1n-QjqquBVwLUY1VeS1s6SNN1kUc_hsdLGj3EcvWVEpiSO-4I7H_13pqSrh9vQ4BMTE8Xu4XY31AfsUKaqAc2Y5lL625t-WS_pS05ruNFOBQ_lXl1eFiZFbotsdQbZcsGCEVQYnXt9niuuc0f4txb2_ps-BRSbHCbNkyKnxa5AwItVf2wn2Fp0tir65qvYxSOAEfRJ3sdxGi_r2QHlc4CKN8Uve7W4A/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 4"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHp9OTuXscXY_tPeGwHvnLSMxK8KqcDVyZdLm-XrEvSgecss6F5yuYCmWl3kDm7WSS4LEQZbOSqiCA1o-Xdqiwt2EY670ef9DzxBcBmPTAepeAhLcDrqN8FVJiNgyfrPglOeryqBULtlqYkDqsKDB8YjOTDPwoMgcMKmHE38pVY1B7RevL5OjYMWulfUW3l4ZaKMgQIqwrJm5pR_N_FKxspWI9HtLQAKzFxm0KhG9906Pbmuhm8xFl8FmhR6rD3I5smogjoHo2lTCukyDzlV779etsXypRThNGfCIux1BcDeKiYzVrUY7Pu788Q4Eyzgp4Odk666LlRkKpXR2YjMwiPBP7_kUuwjbPr3eaDFJqhU5GwXf_jiLF75p_gL_eisBPaeS1Q3iDthuvtXCionSKnDUV8Togvn84frJ0REEid2sAbl/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 5"
-      }
-    ],
-    "photo": "https://places.googleapis.com/v1/places/ChIJ4xQWzlSJsIkRKgH8nFwlymc/photos/AZLasHo1QOeFEe15PBoZRMS2yox4GfYrQlorp8nPZFBSsBlKZ7UEtEB96j7vRxmeFd2qVt5S_OhyTyirALQWG_si8jQ0Z5uKuzLC9nwo4fi-BJ0DN8k1_4JxNgOxCs6EGky6mSgiGUxkKF7YXm22ZIc4PfSXxJJdcsNih4XZ9axLRZShyVFuz6oiu7E4RiN_mrVGdxN0-4dJffM3cadNbPjMXm1icVgiIp3iXw5WOf-AiIsIj9afC1YBEC28YimjkR1yvh3ekAA790F6CaN-bpr_cf-uquLavCr7TmFrLSnOuJCYvQ/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-    "googlePlaceId": "ChIJ4xQWzlSJsIkRKgH8nFwlymc"
+    }
   },
   {
-    "id": "ChIJvaDo48Lp3IARskAaqMwGOZU",
+    "id": "mixmatch_paws-pet-resort-lake-forest",
     "name": "Paws Pet Resort - Lake Forest",
     "businessType": "Indoor Dog Park",
     "description": "Paws Pet Resort - Lake Forest provides professional pet care services with climate-controlled indoor play areas and professional staff.",
@@ -7376,44 +7260,10 @@
     "pricing": {
       "pricingSource": "unknown",
       "isFree": false
-    },
-    "photos": [
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHqWhVB90zBKc5JLoe6sUiRB2QHpZfxKlaS3RNmCY_Arr_p9qJw6pOKkN5CHA4wwOxNaJaizg898s22SClxzCs14pgN5I9WXCMw3S0LVsWTVk4pAVHY1qK5nVOBud45rkdDfq4cU-MsquQcEb3nCK0il1jwKOiKnxclMJ_RYqRkuU2HalIDxyISdGzUs3szwLPdchwaAkKUGQGwv2HKnL94lc3zJKBstHZ-y4O95nCENt3bsQ9ZQB5nPt3hbvDMvDRqz0Ls-Sxcs2Co-tU6fYpznUtNxrQyWbZ1UeHpObs-cIgyyhVMhEdcueEwoBdBz0Udrffx-DIdYt4tvjK6iLuR3mLv3p_xppurRpNbq385QQjJJa8SduLG1dkiU76U4AxwtW00l5srSO2rYWLUZpUsQHa9j1NflqMi7-jd4g9q3B26AQUvYFVSJfLosRONm/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 1"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHofVB1G6bEqimoH11M9EcghPLBX9zwuRLLiGWs5TZhNvWxMCCe3dqZdpSU8IckjGiZRpCAgyibWVEnkdryB7gGfCZmy3oZNr2P_IXxQOcqrWkXmlIBbniAwqZp__IbIE2YQzCwO6qPS-tR4rHJbv0Qftl0LVr7ca0ovSg-l_JUh9qqJGvz5GQPaHQ8ACEiBDkwGHsX6NbfYEoxEe6D9abepgeLRJrGfB9B8swZhI4WKXb9jNFJxLqyy1WyRS6mTpzPM5iif2h_NaDdMV0Gz6lTJR7LOmb1-zz9Z415bK3RM_7AwxZcw2hs4eaUWl3-1RbLPY8_R2SToOcL1-az1EdBSPpLTF4qLYAt23b9MCwVRqnHVT9yZPMajJP5nlGtdyVpsgXsDhy10acFJqfyLhVS8zhyP1cScLzu2N9w-GjIKIyvOVBQ3JoEdtZxaY7Mg/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 2"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHqmCcjGwg_UwMiL_TmWq47ywo1ryDVbYTIaa7KrHHgkCJm33nvIP3jpopId2BdC4PBNuTN2rlqBcYBC--_H4kq0vpfBwUtQTY--1jPZUdok4BhA2wm-V79ginXczq_1uxmyDGYZoC7F2jO9m1rQFG658RQpkVQXeU5YEW0alSZMR0yjXgZgp3I0HpaP-31AO8vLFf_ZjMh0KTHLq7wvhwzhWsJtk7XjW_sr6RVs4nomIQaNxIN6vKD9CKYFH-3fm1nxZsB4tZdNdozPWRTbf8x7xiYL91jxo8U3sgMsWxfBcR7NrynQ0Ri1G7titgtUayJkIGcjwEdnqgqsIPyZ6wgTSNTU1b4u0OR7uRqjuYq_XbMCdogbLq_Ph-q138dtuVKYut_2QoFoXukfZzcGAx7IEr_ozyoZZTpnq1_EXHDmmsgWQox3xIeoXyjO9FSC/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 3"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHrtumJhWMrWj15zKxlE6-tYwn5U4wI5bIc2IJpHRItcEOPeQWIjSVLZYl-SEFq8xVpYdlMJn7Gxi4hiitZrUmIjtLbN_bcNYlxHdd9ymTGJEWAa9hfgM9b-Q5dra93HEQKO0uRF78OGhmWj496JZJvprqPv8rF1z-7WcbAfU4L5fiJJz0A94zOJPAHQP6k8eHT098gXIfXk-2sT0Z-mAeWocXLaO9rQx-7CoUqlPdeDZSL7DiAASgkDNsZLALjAtYFWsr0BIdAIseWKDPVlWQjhKSZl2RNPS-MPHgbDTJEL02zySfiTI1VNCPpEHH-o8OdOnNzeA-3HKEvDWS79YrQfHZdxl0UO_2F0WIj7gk8m5M_P-SriInAkJNvODMTiVH8mfL4Zhip954tyf8yRj53334CmRa0H2eVUaUmaC8ZPquQsY9Wq8JybllDkrw/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 4"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHoAFL91obgqk61m-AYzw45_0kO8p6VHMkdedXugVaHk6RoddNImepvTSuFx25-0HrXf0KVdC-ZlhxjghQ33zpm-womiFg8xco2_tYiDZw_icci-kw0W4kqqMBLMnS1qC6KbX69usBOMPtWdymflQTFgwkkEu3ChH2Fb-vp0lDwbqqiS-BLi9wIagobOdoXdwGHig3X5CyKF9n4X3lBvuhcCyqE-O2cd9FgyHsX8OCR9YWfL86mPerzonq_SIajH6ziVnuDGJaM0WHhrwtFnJEninizGd0so-123kZgKigyx-2ONZVzSFit3lKmY4lbVe1cHBr8Uzl0Xxtu9ZX_9PRRTfkjSIDHXb_xynwZcB2Ge9Ph4LkucgUUutbYbinjHJsLyuYTnMj1kV1EGUM9sZwCznG1_e3lPn-ZCVpbHA3WBgVMnEezNLEc0uziukTdo/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 5"
-      }
-    ],
-    "photo": "https://places.googleapis.com/v1/places/ChIJvaDo48Lp3IARskAaqMwGOZU/photos/AZLasHqWhVB90zBKc5JLoe6sUiRB2QHpZfxKlaS3RNmCY_Arr_p9qJw6pOKkN5CHA4wwOxNaJaizg898s22SClxzCs14pgN5I9WXCMw3S0LVsWTVk4pAVHY1qK5nVOBud45rkdDfq4cU-MsquQcEb3nCK0il1jwKOiKnxclMJ_RYqRkuU2HalIDxyISdGzUs3szwLPdchwaAkKUGQGwv2HKnL94lc3zJKBstHZ-y4O95nCENt3bsQ9ZQB5nPt3hbvDMvDRqz0Ls-Sxcs2Co-tU6fYpznUtNxrQyWbZ1UeHpObs-cIgyyhVMhEdcueEwoBdBz0Udrffx-DIdYt4tvjK6iLuR3mLv3p_xppurRpNbq385QQjJJa8SduLG1dkiU76U4AxwtW00l5srSO2rYWLUZpUsQHa9j1NflqMi7-jd4g9q3B26AQUvYFVSJfLosRONm/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-    "googlePlaceId": "ChIJvaDo48Lp3IARskAaqMwGOZU"
+    }
   },
   {
-    "id": "ChIJq9ax-3Dz3IARiq_0L2kr3Zg",
+    "id": "mixmatch_paws-pet-resort-san-clemente",
     "name": "Paws Pet Resort - San Clemente",
     "businessType": "Indoor Dog Park",
     "description": "Paws Pet Resort - San Clemente provides professional pet care services with climate-controlled indoor play areas and professional staff.",
@@ -7446,41 +7296,7 @@
     "pricing": {
       "pricingSource": "unknown",
       "isFree": false
-    },
-    "photos": [
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHpUkZavI3qnNz5cGqLrWbfHXUOSwG8EnxC0GlAOAFByWqqH05NWBgs5j-G8oBw-g7Rdy-6OlUKYhibnwXbLfEr3k6S7feZmOU4g8kZYfI8cdMAyGdMEg1CCqZ0RbzkrUfoCQLh2A5RIUcrrqCoZmCtep1AhztJov2je-ADvE_5V5a5FLuGBoODWpN0yFQFiORA_ZTOC7CV5UssVMIpK8xkN3wuHJcHz_DJd03qLYkWHYOECbaCEa_YTk1vlTIpAP3kfgZTliHK7E3P4iCZ-xXS-hPzMJdlbCCS4DEDILc4HOECn0x423HZhxgG2pAfP_PJcjgJ4q9WxgFKj5UgIro6_jgtZJUhhojTZb_UlZV1j56bqlf-b0wpzuzH_BdcYKvkHntwMUycyFoLe6Z8qf-btpr9IW4xdgua0eaObOe_4jsU-DacVUY7Ub1b86Q/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 1"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHovW3klldO4vqoQZxfbAWm2tdRenKjpxYVNCmlutdv4gtHZm9s_8n6DQPYIscoW1fldUW_y92B0ggYxLkMbzloHyVoU8FopC98xE2BIcJaMgzZv4aSJ1ZcTeJA9yqyLD6dzbPUL9nPHy_K7DFjnAUCimIyNHQQg1870h2BK1DNx8dMJ1apMa9GkX0woyYdAWCTm_NHfU2uqDCIc7dVmVcu-5nnZStIAiHb8ar0ssrEsLdNCE29h-W-ZIK0T9EICFyeKRdTLvMVyQOudSh1bJDMKKkCiB1sQdNGWfadfsXenTF9GSuX6QmvafdjkIVeJ_4PNi_D5q9J1Pz79bbo8nnFjnhDcluJAMFdpySktl51e9hK0YPHpYTr7c0QM0m77Eka2uSU0YCSOobfEHtges83MNw7yjpESbpY7NOBeH5CA9hktQsZO3fluDLfCXChz/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 2"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHrpN-GKQryaO7JRPvQe6odkwQu8NbC3yaNRxhoJJF_pB8Z2YehLb7qp2Ur43jAhfVmJZdLn-GBGSUv8Eycktg8NCTlOsar-ZSPl9URxkHVv86BuY7FJLXoOZuu5RbaV0jwV3RJeRXWZS3aXi7Er_6kzHWvcNHaPrsgIcdmkUMf5zyYqsdwG4nN1LZd0mwbKqrQoOVr9DcSzxV1Zt0AMwIeZoUY6gvHjWgawGqDPSPQ9jpK85q15drHvpP-X-CfEEOMIXrTbFLtiUcGbRgiXvBLzncKAyVICS-rF94CyrIegkpg9RWCmzjkTAmeiltNjLfMTLwnnbYvhkoKvT9Qcno9KyWU7LtTPRALcBMtjuQNYX5qL3NdGq9t-b06Orhykw1fi6qZiTcvbGHJQS7_h_rLdQJn80bVe7pCSfsG4HzZ6v4BE/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 3"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHrlBx9OhABboy8u_z71-8xiM6qHWjXqCIKlRAzpYN7BXPa0jD-sl-ug7RCo1n_v-GwZ4mrWkkXKCA85aRVck6sO9qOCGDlUa7UR1hbkxXXpYjtxkodQ-TdWUM3L_IlFPxMzB-fVLRGRQ2qOk-dvzcmDcgKlguuz0ZVXUwmzNo_A4KCBbx6xyrCJMObYC3p_edmjQtfDCnmK25sIqSoq3qqa-swBfyOdetP57oPdF2IlQPGERrWVXfCfFsjLoK-H1VmwyNgSV0ofRGmKLGyyWLo10WkeTh4PVE8DPDlu52JM3X0vV29zwdg4c6-NWJwU74w6c5S_cD-I4_lvNPfq3qHNpxQVLzto-FkWCe6X42pHLbZTTK6Ep18rWEtvtH_jigTLEi_5gck0fZfXBuROqfJQgh9FsTkh007hVOEcJbyOQ8i_pc-rSqhDh2EukBbH/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 4"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHpCblSyZ-hBR_ASrEL2B143Wrp1tHzhRFprjmEio44z6fz-ruYqmEIKuRX-XJPEVrZPGAsHVbopHwpBHwEdGWdY-2u0AyRT70LV7-btKQqJH2x270CCPxAFzo5F4U10JMHfnIXRIe28MJydOnXpapwmq29jcDTdM9uVQ7q8dyrlNU6yPPSkx9Th_UaNyOJ9PCknLKo3xBnC7RTmtAouqxv-Td4CxQ22KEsiAEfc02mXqwLszphkBv222WQNkyE1OjUjzvQLejGUkctCduMH5NnXfMmwQw95mhov_cKcESuVlske0zjKv95Ct_EoKfZ23BkcpTSYfTAtwG7NIy80BD6swNir0RF_XVF4s4dmTZRp79Ea7_JvnzbWEI0Yp16wlbhTNhVpwWepQpWwjY--qSgo9y3HVIDc2enrS5P5FCD8qJtKEXolWMcwBLWZWF-i/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 5"
-      }
-    ],
-    "photo": "https://places.googleapis.com/v1/places/ChIJq9ax-3Dz3IARiq_0L2kr3Zg/photos/AZLasHpUkZavI3qnNz5cGqLrWbfHXUOSwG8EnxC0GlAOAFByWqqH05NWBgs5j-G8oBw-g7Rdy-6OlUKYhibnwXbLfEr3k6S7feZmOU4g8kZYfI8cdMAyGdMEg1CCqZ0RbzkrUfoCQLh2A5RIUcrrqCoZmCtep1AhztJov2je-ADvE_5V5a5FLuGBoODWpN0yFQFiORA_ZTOC7CV5UssVMIpK8xkN3wuHJcHz_DJd03qLYkWHYOECbaCEa_YTk1vlTIpAP3kfgZTliHK7E3P4iCZ-xXS-hPzMJdlbCCS4DEDILc4HOECn0x423HZhxgG2pAfP_PJcjgJ4q9WxgFKj5UgIro6_jgtZJUhhojTZb_UlZV1j56bqlf-b0wpzuzH_BdcYKvkHntwMUycyFoLe6Z8qf-btpr9IW4xdgua0eaObOe_4jsU-DacVUY7Ub1b86Q/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-    "googlePlaceId": "ChIJq9ax-3Dz3IARiq_0L2kr3Zg"
+    }
   },
   {
     "id": "ChIJs0_We7xYwokRWU9l_RkZhR0",
@@ -8373,50 +8189,7 @@
     "googlePlaceId": "ChIJ1W2YqYz-iA38_W42p2w",
     "phone": "+1 212-362-5221",
     "website": "http://www.playgroundpups.com/",
-    "photos": [
-      {
-        "url": "/images/parks/new-york/playground-pups.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/playground-pups-2.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/playground-pups-3.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/playground-pups-4.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/new-york/playground-pups-5.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "https://lh6.googleusercontent.com/-Ye32Nj-V4TI/AAAAAAAAAAI/AAAAAAAAAAA/Fl4F9z2FQYA/s44-p-k-no-ns-nd/photo.jpg",
-        "type": "photo",
-        "source": "website",
-        "caption": "Logo"
-      },
-      {
-        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq08PKDfta2QFFB0QGguTbSwk0Juglm1VACDTbaylu7ALXpp14pY7NMms9jBRy3PFJHWV68UZqAl_pJU17bHC7Z-BdiLeD8UOZVuWeyhKlprpV4pdpoXtgdlI9Ns-BnBv2cbPnKzQ=w1600-h1000-k-no",
-        "type": "photo",
-        "source": "google_street_view",
-        "caption": "Street View"
-      }
-    ],
+    "photos": [],
     "rating": 4.6,
     "reviewCount": 79,
     "userRatingsTotal": 79,
@@ -8435,8 +8208,7 @@
     "faqs": [],
     "amenities": {
       "daycare": true
-    },
-    "photo": "/images/parks/new-york/playground-pups.jpg"
+    }
   },
   {
     "id": "ChIJkfztx4JYwokRXP8cIV1wE8U",
@@ -8892,7 +8664,7 @@
     "faqs": []
   },
   {
-    "id": "ChIJP8ip-QFbwokRosk7Uv-tS9A",
+    "id": "ChIJe-ZhIxZwokR3-OOZ9vXJ_8",
     "name": "pupculture FiDi",
     "businessType": "Dog-Friendly Establishment",
     "description": "Pet parents in Brooklyn consistently rave about pupculture FiDi. This facility features comfortable boarding accommodations, knowledgeable animal handlers, offering pet care. Their services maintains your pet's routine even when you're away. conveniently located in East New York. Contact pupculture FiDi today to schedule your dog's visit",
@@ -8905,41 +8677,10 @@
     "full_address": "357 Van Brunt St, Brooklyn, NY 11238",
     "latitude": 40.6742558,
     "longitude": -73.9340414,
-    "googlePlaceId": "ChIJP8ip-QFbwokRosk7Uv-tS9A",
+    "googlePlaceId": "ChIJe-ZhIxZwokR3-OOZ9vXJ_8",
     "phone": "+1 862-335-4800",
     "website": "https://www.pupculture.com/locations/fidi",
-    "photos": [
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHrXhwaC5Kug4hyJISLzP3v9UG93bzHup_svwmDi7wnrKedPKNuwad_WneDRJ_kBlxyQHKfd8nj2pKP9LTM8pcDNmfy8S75vbEhGj6I-R2fA8I0Wj_VURWEOpfdupkmFL4zwEDtE0vcVHSo9FjRwQzwsBdhsvWRVGsPxnL10GARIVk4lIOeYl89RJH43IvSW2rFSLKCObvgeasoeGH10UNbl340t1jJuvlivy6KudNytizR0R8k7SCjP-vyvKFsV44p1t-LRSdMwdH7opxfLXzlpBG3-G5scXapwIEEv-CBWKjLvR0xaAOmYDmhbli1-1Q4SiW49ssOMkWyE047YyEHbG7NvphymLFJA8q-NKnwxzAlpW7-hUvguhL1OCgcfF6fUI6ZkQtdGTWdgLxxPXKRSAtLP1yhWXOb1DpN75xmDwg/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 1"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHqrpCIEJMRUnb3-ALcp7gr7qdiPT2nSyUXjMZY9Lfg48zjxAv7X0a0g6N_0_P18nCZDM_vfMtEMX4BD5zpdCMmfacNP7KNLx8aOgBOS2RnONX15UUmLhFEP_G9sCdcMCKAC2gyyYkjxsFaEVZaEjquMTr0U1-hLBkB-Yj40IWrvb6aDNELSMy7WfV9qO3zLXykBra4jvEfVSoJCQ_bGYP-twsvXeu9NjeK5PCOvvu6IMivmK7TORfs0eyisHWaRQSM1PokSYoCYolBjdA66bSP7UMWvbu9aJ8x1FPJzzb1X5MCY533rezr7378ZmvkP8POT7s1MWiA9bUv4w1j_1BUHDHMxKUonBxx724OkoJ9Ib8V343kvNlrE93xUhRSEajbWUeUnrK1aSdwOP3e-Q9Z-_VDrKyjryWVt3XDcKsCHbA/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 2"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHoZ-4BaopoPRCdaVpsF7HkoxZLhg3qxS6ShC64eqqZ9Xl9J_uOiF1bpBw5pglyWTZ2c2PVf3SkiMokAX14Yqc9Udyq0DwGhFbs2-K-_ZaC7TLTv0AKJy1e5sIMAYF4ktp7VZsuH60tlhlvWXRAa5WDoDTWyca6mqPnW5fs1xnJdFg3jl-eD6kSPZ3vOUuvrBJktkMzo-r-V-5Wjng8aPICGVMhYyoTlv0bni_eWnGk1pZ6nKAt1gBfadvvBAXmT0Tlg7mufvsJ3r5e2vQJe3do9tjJLEIO5Q0MrPpjsWO_u2A/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 3"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHoc-yFKQlg1YQvrPQhYYgX2CGpj1_Tv8Icv-EFp1o0G7RMC5VWmwuOkGLDJEq4gFu1M7aeBQU_c2lvQsbj3JfcAE7976FZuIm0P9VUxVbYvLKsG6MmQHEXtHdnBoqNQ_qkncMJQ5c5YUtp09qSeOoa5K2iZ0M07P_tAUc-nMkPEtXtdRiP2GVWsj-kvvWC3Wi-zey-1IrhC2egO2NrDalhLUcb2BrKXiP3Wquri9ggbHrWSCVs_fCBahYxyQ8O3otNo9SMvpfhhk8GJKm-1uyEaeoCYhF94ywlalQa8X2Obeg/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 4"
-      },
-      {
-        "url": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHo8TotqiBVPiIz14DYD114Fgkje4VGs1QFOcZhBNUOGYF1KLLYcg6tYMMLubfPiuWVLpfzVlFg5i0Jy3mkGyN2VfvVnZzshB2ccCfxAF1SOV1YTv7T74wmZwKs_2Yktq_RnHtGyTCD8VDKMRawJebJ7Ptvyjfl-BstM38evqVNwp46obVaTNwhPH76uwnVN9TtEGX2npWWvRK62lPM4I992tMlJIEI5OF4j6GZKcV9lfjSYkqLa-1bKnyLZyKMABewCfHYvBV2KficMBjT6TzZfZWqhYF62QmyqQmDOk2nUs012vKtxiU-abn9DPgYdCApskHUfEkIK6uDivHePSqFnGjHukMIeP7CEnLWvzuP1uORzrPsvvggFBVHt0SQzBZffUleFuEW8q1wCoA7dep9AckQyqLzNwJilMiZZlCC1fKSN6bOfPIbq53V1p9JK/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs",
-        "type": "photo",
-        "source": "google_places",
-        "caption": "Photo 5"
-      }
-    ],
+    "photos": [],
     "rating": 4.9,
     "reviewCount": 134,
     "userRatingsTotal": 134,
@@ -8965,8 +8706,7 @@
     "amenities": {
       "daycare": true,
       "grooming": true
-    },
-    "photo": "https://places.googleapis.com/v1/places/ChIJP8ip-QFbwokRosk7Uv-tS9A/photos/AZLasHrXhwaC5Kug4hyJISLzP3v9UG93bzHup_svwmDi7wnrKedPKNuwad_WneDRJ_kBlxyQHKfd8nj2pKP9LTM8pcDNmfy8S75vbEhGj6I-R2fA8I0Wj_VURWEOpfdupkmFL4zwEDtE0vcVHSo9FjRwQzwsBdhsvWRVGsPxnL10GARIVk4lIOeYl89RJH43IvSW2rFSLKCObvgeasoeGH10UNbl340t1jJuvlivy6KudNytizR0R8k7SCjP-vyvKFsV44p1t-LRSdMwdH7opxfLXzlpBG3-G5scXapwIEEv-CBWKjLvR0xaAOmYDmhbli1-1Q4SiW49ssOMkWyE047YyEHbG7NvphymLFJA8q-NKnwxzAlpW7-hUvguhL1OCgcfF6fUI6ZkQtdGTWdgLxxPXKRSAtLP1yhWXOb1DpN75xmDwg/media?maxWidthPx=800&key=AIzaSyBwiYT6XzCLmZh9aNsVhtpK_ghgwBJ9VEs"
+    }
   },
   {
     "id": "ChIJEfSrB8AI9YgRUrprnuoGs9U",
@@ -10499,50 +10239,7 @@
     "googlePlaceId": "ChIJY5yfBbOtwokRGJ1NKd3eizExc",
     "phone": "+1 470-787-2861",
     "website": "https://www.draftydane.com/",
-    "photos": [
-      {
-        "url": "/images/parks/marietta/the-drafty-dane.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/marietta/the-drafty-dane-2.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/marietta/the-drafty-dane-3.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/marietta/the-drafty-dane-4.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "/images/parks/marietta/the-drafty-dane-5.jpg",
-        "type": "photo",
-        "source": "google_places",
-        "caption": null
-      },
-      {
-        "url": "https://lh4.googleusercontent.com/-_uC5x21I8PY/AAAAAAAAAAI/AAAAAAAAAAA/-KiFANGwB80/s44-p-k-no-ns-nd/photo.jpg",
-        "type": "photo",
-        "source": "website",
-        "caption": "Logo"
-      },
-      {
-        "url": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noaCxC7DC-kQ9vpN-eXPyy5QqHk18_7sNBolg0gU7MpvkgcJl1ziqF2vbqrQ8mlx7k-fupkraB6nOQbSa5MF7Xjnc9CNyjEwgwP-1GzIuKt5IhqTfwhbsaR94L9aixsStnDjHAX0A=w1600-h1000-k-no",
-        "type": "photo",
-        "source": "google_street_view",
-        "caption": "Street View"
-      }
-    ],
+    "photos": [],
     "rating": 4.6,
     "reviewCount": 39,
     "userRatingsTotal": 39,
@@ -10568,8 +10265,7 @@
     "amenities": {
       "handicapAccess": true,
       "parking": true
-    },
-    "photo": "/images/parks/marietta/the-drafty-dane.jpg"
+    }
   },
   {
     "id": "ChIJd959VI-HwokRVuWHoBuw_xc",
