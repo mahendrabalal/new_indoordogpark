@@ -206,7 +206,32 @@ export default function FAQSection({ cityName, parkCount, faqs, supportCard }: F
                     </button>
 
                     <div className={`faq-panel ${isExpanded ? 'open' : ''}`}>
-                      <p>{faq.answer}</p>
+                      <div className="faq-answer">
+                        {faq.answer.split('\n\n').map((paragraph, idx) => {
+                          // Handle bullet points (lines starting with •)
+                          if (paragraph.trim().startsWith('•')) {
+                            const bulletItems = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
+                            return (
+                              <ul key={idx} style={{ marginTop: idx > 0 ? '1rem' : '0', marginBottom: '1rem', paddingLeft: '1.5rem' }}>
+                                {bulletItems.map((item, itemIdx) => (
+                                  <li key={itemIdx} style={{ marginBottom: '0.5rem', lineHeight: '1.6' }}>
+                                    {item.replace(/^•\s*/, '')}
+                                  </li>
+                                ))}
+                              </ul>
+                            );
+                          }
+                          // Handle regular paragraphs
+                          if (paragraph.trim()) {
+                            return (
+                              <p key={idx} style={{ marginBottom: '1rem', lineHeight: '1.7' }}>
+                                {paragraph.trim()}
+                              </p>
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
                       <div className="faq-panel-actions">
                         <span>Category · {categoryLabelMap[faq.category] || faq.category}</span>
                         <div className="panel-buttons">

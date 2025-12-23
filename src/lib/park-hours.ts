@@ -41,10 +41,30 @@ function parseTime(timeStr: string): number | null {
 }
 
 /**
- * Parses hours string like "6:00 AM - 6:00 PM" into open and close times
+ * Parses hours string like "6:00 AM - 6:00 PM" or "11:00 AM – 9:30 PM" into open and close times
+ * Handles various separators: hyphen (-), en-dash (–), em-dash (—), and "to"
  */
 function parseHours(hoursStr: string): { open: number; close: number } | null {
-  const parts = hoursStr.split('-').map(s => s.trim());
+  // Normalize the string and handle different separators
+  let parts: string[] = [];
+  
+  // Try en-dash first (common in formatted text)
+  if (hoursStr.includes('–')) {
+    parts = hoursStr.split('–').map(s => s.trim());
+  }
+  // Try em-dash
+  else if (hoursStr.includes('—')) {
+    parts = hoursStr.split('—').map(s => s.trim());
+  }
+  // Try "to" separator
+  else if (hoursStr.toLowerCase().includes(' to ')) {
+    parts = hoursStr.split(/to/i).map(s => s.trim());
+  }
+  // Default to regular hyphen
+  else {
+    parts = hoursStr.split('-').map(s => s.trim());
+  }
+  
   if (parts.length !== 2) return null;
   
   const openTime = parseTime(parts[0]);
@@ -56,19 +76,125 @@ function parseHours(hoursStr: string): { open: number; close: number } | null {
 }
 
 /**
- * Gets the current day name (e.g., "Monday", "Tuesday")
+ * Gets the timezone for a park based on its state/location
+ * Returns IANA timezone identifier (e.g., 'America/New_York')
  */
-function getCurrentDay(): string {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return days[new Date().getDay()];
+function getParkTimezone(park: { state?: string; latitude?: number; longitude?: number }): string {
+  // Map US states to their primary timezones
+  const stateTimezones: Record<string, string> = {
+    // Eastern Time
+    'Alabama': 'America/New_York',
+    'Connecticut': 'America/New_York',
+    'Delaware': 'America/New_York',
+    'Florida': 'America/New_York', // Most of Florida is ET, panhandle is CT
+    'Georgia': 'America/New_York',
+    'Indiana': 'America/Indiana/Indianapolis', // Most of Indiana
+    'Kentucky': 'America/New_York', // Eastern part
+    'Maine': 'America/New_York',
+    'Maryland': 'America/New_York',
+    'Massachusetts': 'America/New_York',
+    'Michigan': 'America/Detroit',
+    'New Hampshire': 'America/New_York',
+    'New Jersey': 'America/New_York',
+    'New York': 'America/New_York',
+    'North Carolina': 'America/New_York',
+    'Ohio': 'America/New_York',
+    'Pennsylvania': 'America/New_York',
+    'Rhode Island': 'America/New_York',
+    'South Carolina': 'America/New_York',
+    'Tennessee': 'America/New_York', // Eastern part
+    'Vermont': 'America/New_York',
+    'Virginia': 'America/New_York',
+    'West Virginia': 'America/New_York',
+    'District of Columbia': 'America/New_York',
+    'DC': 'America/New_York',
+    'Washington DC': 'America/New_York',
+    // Central Time
+    'Arkansas': 'America/Chicago',
+    'Illinois': 'America/Chicago',
+    'Iowa': 'America/Chicago',
+    'Kansas': 'America/Chicago',
+    'Louisiana': 'America/Chicago',
+    'Minnesota': 'America/Chicago',
+    'Mississippi': 'America/Chicago',
+    'Missouri': 'America/Chicago',
+    'Nebraska': 'America/Chicago',
+    'North Dakota': 'America/Chicago',
+    'Oklahoma': 'America/Chicago',
+    'South Dakota': 'America/Chicago',
+    'Texas': 'America/Chicago', // Most of Texas
+    'Wisconsin': 'America/Chicago',
+    // Mountain Time
+    'Arizona': 'America/Phoenix',
+    'Colorado': 'America/Denver',
+    'Idaho': 'America/Denver', // Most of Idaho
+    'Montana': 'America/Denver',
+    'New Mexico': 'America/Denver',
+    'Utah': 'America/Denver',
+    'Wyoming': 'America/Denver',
+    // Pacific Time
+    'California': 'America/Los_Angeles',
+    'Nevada': 'America/Los_Angeles', // Most of Nevada
+    'Oregon': 'America/Los_Angeles', // Most of Oregon
+    'Washington': 'America/Los_Angeles',
+    // Alaska and Hawaii
+    'Alaska': 'America/Anchorage',
+    'Hawaii': 'Pacific/Honolulu',
+  };
+
+  // Check for DC/Washington DC first (before Washington state)
+  if (park.state) {
+    const normalizedState = park.state.trim();
+    const stateUpper = normalizedState.toUpperCase();
+    
+    // Check for DC variations
+    if (stateUpper === 'DC' || stateUpper === 'D.C.' || normalizedState.toLowerCase().includes('district of columbia') || normalizedState.toLowerCase() === 'washington dc') {
+      return 'America/New_York';
+    }
+    
+    // Check full state name
+    if (stateTimezones[normalizedState]) {
+      return stateTimezones[normalizedState];
+    }
+    
+    // Try abbreviation (but exclude DC since we already checked)
+    if (stateUpper.length === 2 && stateUpper !== 'DC' && stateTimezones[stateUpper]) {
+      return stateTimezones[stateUpper];
+    }
+  }
+
+  // Default to Eastern Time if we can't determine
+  return 'America/New_York';
 }
 
 /**
- * Gets current time in minutes since midnight
+ * Gets the current day name in the park's timezone (e.g., "Monday", "Tuesday")
  */
-function getCurrentTimeInMinutes(): number {
+function getCurrentDay(park: { state?: string; latitude?: number; longitude?: number }): string {
+  const timezone = getParkTimezone(park);
   const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
+  const dayInTimezone = new Intl.DateTimeFormat('en-US', { 
+    weekday: 'long', 
+    timeZone: timezone 
+  }).format(now);
+  return dayInTimezone;
+}
+
+/**
+ * Gets current time in minutes since midnight in the park's timezone
+ */
+function getCurrentTimeInMinutes(park: { state?: string; latitude?: number; longitude?: number }): number {
+  const timezone = getParkTimezone(park);
+  const now = new Date();
+  const timeString = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+    timeZone: timezone
+  }).format(now);
+  
+  const [hours, minutes] = timeString.split(':').map(Number);
+  return hours * 60 + minutes;
 }
 
 /**
@@ -96,8 +222,8 @@ export function getParkStatus(park: DogPark): ParkStatusInfo {
     return { status: 'unknown' };
   }
   
-  const currentDay = getCurrentDay();
-  const currentTime = getCurrentTimeInMinutes();
+  const currentDay = getCurrentDay(park);
+  const currentTime = getCurrentTimeInMinutes(park);
   
   // Get today's hours
   const todayHours = park.openingHours[currentDay];

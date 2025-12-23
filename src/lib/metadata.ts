@@ -337,14 +337,47 @@ export function generateParkSchema(park: DogPark) {
     };
   }
 
-  // Add price range if available
-  if (priceRange) {
-    baseSchema.priceRange = priceRange;
+  // Add pricing information if available
+  if (park.pricing) {
+    if (park.pricing.isFree) {
+      baseSchema.priceRange = 'Free';
+    } else if (priceRange) {
+      baseSchema.priceRange = priceRange;
+    }
+    
+    // Add specific pricing details if available
+    if (park.pricing.hourlyRate || park.pricing.dailyRate || park.pricing.monthlyRate || park.pricing.dropInFee) {
+      const priceDetails: string[] = [];
+      if (park.pricing.hourlyRate) priceDetails.push(`$${park.pricing.hourlyRate}/hour`);
+      if (park.pricing.dailyRate) priceDetails.push(`$${park.pricing.dailyRate}/day`);
+      if (park.pricing.monthlyRate) priceDetails.push(`$${park.pricing.monthlyRate}/month`);
+      if (park.pricing.dropInFee) priceDetails.push(`$${park.pricing.dropInFee} drop-in`);
+      
+      if (priceDetails.length > 0 && !baseSchema.priceRange) {
+        baseSchema.priceRange = priceDetails.join(', ');
+      }
+    }
   }
 
-  // Add website if available (use sameAs for external sites)
+  // Add website and social media links (use sameAs for external sites)
+  const sameAsLinks: string[] = [];
   if (park.website) {
-    baseSchema.sameAs = [park.website];
+    sameAsLinks.push(park.website);
+  }
+  if (park.socialMedia) {
+    if (park.socialMedia.facebook) sameAsLinks.push(park.socialMedia.facebook);
+    if (park.socialMedia.instagram) sameAsLinks.push(park.socialMedia.instagram);
+    if (park.socialMedia.twitter) sameAsLinks.push(park.socialMedia.twitter);
+    if (park.socialMedia.tiktok) sameAsLinks.push(park.socialMedia.tiktok);
+    if (park.socialMedia.youtube) sameAsLinks.push(park.socialMedia.youtube);
+  }
+  if (sameAsLinks.length > 0) {
+    baseSchema.sameAs = sameAsLinks;
+  }
+  
+  // Add email if available
+  if (park.email) {
+    baseSchema.email = park.email;
   }
 
   // Add business-specific properties following industry standards

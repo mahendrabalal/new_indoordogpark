@@ -9,6 +9,7 @@ import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
 import ParkImage from '@/components/ParkImage';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
+import ParkStatusBadge from '@/components/ParkStatusBadge';
 import { getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
@@ -325,20 +326,28 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 {park.businessType} in {park.city}, {stateName}
               </p>
 
-              {park.listingType === 'featured' && (
-                <div className="park-badges">
+              <div className="park-badges">
+                {park.listingType === 'featured' && (
                   <span className="featured-badge-large">
                     <i className="bi bi-star-fill"></i> FEATURED LISTING
                   </span>
-                </div>
-              )}
-              {park.source === 'user_submitted' && (
-                <div className="park-badges">
+                )}
+                {park.source === 'user_submitted' && (
                   <span className="community-badge">
                     <i className="bi bi-people-fill"></i> COMMUNITY ADDED
                   </span>
-                </div>
-              )}
+                )}
+                {park.indoorOutdoor && (
+                  <span className="indoor-outdoor-badge">
+                    <i className={park.indoorOutdoor === 'indoor' ? 'bi bi-house-door-fill' : park.indoorOutdoor === 'outdoor' ? 'bi bi-tree-fill' : 'bi bi-houses-fill'}></i> {formatIndoorOutdoor(park.indoorOutdoor)}
+                  </span>
+                )}
+                {park.pricing?.isFree && (
+                  <span className="free-badge">
+                    <i className="bi bi-check-circle-fill"></i> FREE
+                  </span>
+                )}
+              </div>
 
               <div className="park-quick-info">
                 <span className="rating">
@@ -347,6 +356,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <span className="location">
                   <i className="bi bi-geo-alt-fill"></i> {park.city}, {getStateAbbr(park.state)}
                 </span>
+                <div className="park-status-inline">
+                  <ParkStatusBadge park={park} showNextChange={false} />
+                </div>
                 <FavoriteButton 
                   parkId={park.id} 
                   parkSlug={park.slug} 
@@ -375,6 +387,76 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
               </section>
 
+              {park.pricing && (
+                <section className="content-section pricing-section">
+                  <h2>Pricing Information</h2>
+                  <div className="pricing-info">
+                    {park.pricing.isFree ? (
+                      <div className="pricing-type-badge free-pricing">
+                        <i className="bi bi-check-circle-fill"></i>
+                        <span>Free to Use</span>
+                      </div>
+                    ) : (
+                      <>
+                        {park.pricing.pricingType && (
+                          <div className="pricing-type-badge">
+                            <i className="bi bi-currency-dollar"></i>
+                            <span>{formatPricingType(park.pricing.pricingType)}</span>
+                          </div>
+                        )}
+                        <div className="pricing-details">
+                          {park.pricing.hourlyRate && (
+                            <div className="pricing-item">
+                              <strong>Hourly Rate:</strong>
+                              <span>${park.pricing.hourlyRate}/hour</span>
+                            </div>
+                          )}
+                          {park.pricing.dailyRate && (
+                            <div className="pricing-item">
+                              <strong>Daily Rate:</strong>
+                              <span>${park.pricing.dailyRate}/day</span>
+                            </div>
+                          )}
+                          {park.pricing.monthlyRate && (
+                            <div className="pricing-item">
+                              <strong>Monthly Membership:</strong>
+                              <span>${park.pricing.monthlyRate}/month</span>
+                            </div>
+                          )}
+                          {park.pricing.dropInFee && (
+                            <div className="pricing-item">
+                              <strong>Drop-in Fee:</strong>
+                              <span>${park.pricing.dropInFee}</span>
+                            </div>
+                          )}
+                          {park.pricing.priceRange && (
+                            <div className="pricing-item">
+                              <strong>Price Range:</strong>
+                              <span>{park.pricing.priceRange}</span>
+                            </div>
+                          )}
+                          {park.pricing.pricingDetails && (
+                            <div className="pricing-details-text">
+                              <p>{park.pricing.pricingDetails}</p>
+                            </div>
+                          )}
+                          {park.pricing.pricingUrl && (
+                            <div className="pricing-link">
+                              <a href={park.pricing.pricingUrl} target="_blank" rel="noopener noreferrer" className="pricing-cta-link">
+                                <i className="bi bi-box-arrow-up-right"></i> View Full Pricing Details
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      </>
+                    )}
+                    <p className="pricing-disclaimer">
+                      <i className="bi bi-info-circle"></i> Pricing may vary. Please contact {park.name} directly for the most current rates and membership information.
+                    </p>
+                  </div>
+                </section>
+              )}
+
               {park.amenities && (
                 <section className="content-section amenities-section">
                   <h2>Amenities & Features</h2>
@@ -387,6 +469,54 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                           <span>{formatAmenityName(key)}</span>
                         </div>
                       ))}
+                  </div>
+                </section>
+              )}
+
+              {(park.indoorOutdoor || park.sizeCategory || park.surfaceType || (park.petFriendlyFeatures && park.petFriendlyFeatures.length > 0)) && (
+                <section className="content-section park-characteristics-section">
+                  <h2>Park Characteristics</h2>
+                  <div className="park-characteristics">
+                    {park.indoorOutdoor && (
+                      <div className="characteristic-item">
+                        <i className="bi bi-houses-fill"></i>
+                        <div>
+                          <strong>Type:</strong>
+                          <span>{formatIndoorOutdoor(park.indoorOutdoor)}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.sizeCategory && (
+                      <div className="characteristic-item">
+                        <i className="bi bi-arrows-fullscreen"></i>
+                        <div>
+                          <strong>Size:</strong>
+                          <span>{formatSizeCategory(park.sizeCategory)}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.surfaceType && (
+                      <div className="characteristic-item">
+                        <i className="bi bi-grid-3x3-gap-fill"></i>
+                        <div>
+                          <strong>Surface:</strong>
+                          <span>{park.surfaceType}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.petFriendlyFeatures && park.petFriendlyFeatures.length > 0 && (
+                      <div className="characteristic-item full-width">
+                        <i className="bi bi-heart-fill"></i>
+                        <div>
+                          <strong>Pet-Friendly Features:</strong>
+                          <div className="pet-friendly-features-list">
+                            {park.petFriendlyFeatures.map((feature, idx) => (
+                              <span key={idx} className="feature-tag">{feature}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </section>
               )}
@@ -529,11 +659,56 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                       </div>
                     </div>
                   )}
+                  {park.email && (
+                    <div className="nap-item">
+                      <i className="bi bi-envelope-fill"></i>
+                      <div>
+                        <strong>Email</strong>
+                        <p>
+                          <a href={`mailto:${park.email}`}>{park.email}</a>
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
+                {park.socialMedia && (park.socialMedia.facebook || park.socialMedia.instagram || park.socialMedia.twitter || park.socialMedia.tiktok || park.socialMedia.youtube) && (
+                  <div className="social-media-section">
+                    <strong>Follow Us</strong>
+                    <div className="social-media-links">
+                      {park.socialMedia.facebook && (
+                        <a href={park.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+                          <i className="bi bi-facebook"></i>
+                        </a>
+                      )}
+                      {park.socialMedia.instagram && (
+                        <a href={park.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+                          <i className="bi bi-instagram"></i>
+                        </a>
+                      )}
+                      {park.socialMedia.twitter && (
+                        <a href={park.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
+                          <i className="bi bi-twitter"></i>
+                        </a>
+                      )}
+                      {park.socialMedia.tiktok && (
+                        <a href={park.socialMedia.tiktok} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="TikTok">
+                          <i className="bi bi-tiktok"></i>
+                        </a>
+                      )}
+                      {park.socialMedia.youtube && (
+                        <a href={park.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="YouTube">
+                          <i className="bi bi-youtube"></i>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {park.openingHours && (
                   <div className="hours-section">
                     <strong>Hours of Operation</strong>
+                    <ParkStatusBadge park={park} showNextChange={true} />
                     <ul className="hours-list">
                       {Object.entries(park.openingHours)
                         .filter(([, hours]) => hours && typeof hours === 'string')
@@ -544,13 +719,24 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                           </li>
                         ))}
                     </ul>
+                    {park.hoursNote && (
+                      <p className="hours-note">
+                        <i className="bi bi-info-circle"></i> {park.hoursNote}
+                      </p>
+                    )}
                   </div>
                 )}
 
                 {park.hours24x7 && (
                   <div className="hours-section">
                     <strong>Hours of Operation</strong>
+                    <ParkStatusBadge park={park} showNextChange={false} />
                     <p className="hours-24-7">Open 24/7</p>
+                    {park.hoursNote && (
+                      <p className="hours-note">
+                        <i className="bi bi-info-circle"></i> {park.hoursNote}
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -644,4 +830,36 @@ function formatAmenityName(key: string): string {
     .replace(/([A-Z])/g, ' $1')
     .replace(/^./, (str) => str.toUpperCase())
     .trim();
+}
+
+// Helper function to format pricing type for display
+function formatPricingType(type?: string): string {
+  if (!type) return 'Contact for Pricing';
+  const typeMap: Record<string, string> = {
+    'free': 'Free',
+    'hourly': 'Hourly Rate',
+    'daily': 'Daily Rate',
+    'monthly': 'Monthly Membership',
+    'membership': 'Membership Required',
+    'per-visit': 'Per Visit',
+    'mixed': 'Multiple Pricing Options'
+  };
+  return typeMap[type] || type.charAt(0).toUpperCase() + type.slice(1);
+}
+
+// Helper function to format indoor/outdoor for display
+function formatIndoorOutdoor(type?: string): string {
+  if (!type) return '';
+  const typeMap: Record<string, string> = {
+    'indoor': 'Indoor',
+    'outdoor': 'Outdoor',
+    'both': 'Indoor & Outdoor'
+  };
+  return typeMap[type] || type.charAt(0).toUpperCase() + type.slice(1);
+}
+
+// Helper function to format size category
+function formatSizeCategory(size?: string): string {
+  if (!size) return '';
+  return size.charAt(0).toUpperCase() + size.slice(1);
 }
