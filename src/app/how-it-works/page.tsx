@@ -45,14 +45,14 @@ const ownerProcess = [
 ];
 
 export const metadata: Metadata = {
-  title: 'How We Verify & Rank Indoor Dog Parks | IndoorDogPark Standards',
-  description: 'Learn about our rigorous 12-point safety check and how we verify indoor dog parks for cleanliness, staff training, and vaccination policies.',
+  title: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards',
+  description: 'Learn about our rigorous 12-point safety check and how we review indoor dog parks for cleanliness, staff training, and vaccination policies.',
   alternates: {
     canonical: '/how-it-works',
   },
   openGraph: {
-    title: 'How We Verify & Rank Indoor Dog Parks | IndoorDogPark Standards',
-    description: 'Learn about our rigorous 12-point safety check and how we verify indoor dog parks for cleanliness, staff training, and vaccination policies.',
+    title: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards',
+    description: 'Learn about our rigorous 12-point safety check and how we review indoor dog parks for cleanliness, staff training, and vaccination policies.',
     url: 'https://www.indoordogpark.org/how-it-works',
     type: 'website',
   },
@@ -69,7 +69,7 @@ export default function HowItWorksPage() {
           </div>
           <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl mb-6">
             Connecting dog families with<br />
-            <span className="text-violet-400">verified park owners.</span>
+            <span className="text-violet-400">trusted park owners.</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-300 md:text-xl leading-relaxed">
             IndoorDogPark is the trusted platform where dog owners find vetted safe spaces, and premium park businesses connect with their ideal customers.
@@ -94,7 +94,7 @@ export default function HowItWorksPage() {
                 Understanding our listing types
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Our directory features two types of parks. While all listings are reviewed for basic legitimacy, our <strong>Verified Premium Listings</strong> undergo a rigorous audit to ensure the highest safety standards.
+                Our directory features two types of parks. While all listings are reviewed for basic legitimacy, our <strong>Premium Partner Listings</strong> undergo a rigorous audit to ensure the highest safety standards.
               </p>
 
               <div className="mb-8 rounded-2xl bg-violet-50 p-6 border border-violet-100">
@@ -102,10 +102,10 @@ export default function HowItWorksPage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-600 text-white">
                     <i className="bi bi-patch-check-fill text-xl"></i>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">Verified Premium Standard</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Premium Standard</h3>
                 </div>
                 <p className="text-slate-700 mb-4">
-                  For our premium partners, we personally verify these 4 pillars of safety before awarding the badge:
+                  For our premium partners, we personally highlight these 4 pillars of safety before awarding the badge:
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {safetyChecklist.map((item) => (
@@ -207,7 +207,7 @@ export default function HowItWorksPage() {
                 </div>
                 <h2 className="text-3xl font-bold mb-6">Do you set the standard for safety?</h2>
                 <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                  We don&rsquo;t accept every listing. But if your facility prioritizes safety, hygiene, and staff training, we want to help you reach serious dog owners who value those standards.
+                  We curate our directory carefully. If your facility prioritizes safety, hygiene, and staff training, we want to help you reach serious dog owners who value those standards.
                 </p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-start gap-3">
@@ -225,15 +225,18 @@ export default function HowItWorksPage() {
                 </ul>
                 <div>
                   <Link href="/list-your-park" className="inline-flex items-center rounded-full bg-emerald-500 px-8 py-3.5 font-bold text-slate-900 hover:bg-emerald-400 transition-colors">
-                    Apply for listing verification
+                    Apply to be a Premium Partner
                   </Link>
                 </div>
               </div>
-              <div className="bg-slate-800 relative min-h-[400px]">
-                {/* Abstract visual for data/dashboard */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                  <i className="bi bi-graph-up-arrow text-9xl text-slate-600"></i>
-                </div>
+              <div className="relative h-full min-h-[400px] w-full bg-slate-800">
+                <OptimizedImage
+                  src="/images/modern-indoor-dog-park-interior.png"
+                  alt="Modern indoor dog park facility with agility equipment"
+                  fill
+                  className="object-cover h-full w-full opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-slate-900/50 via-transparent to-transparent" />
               </div>
             </div>
           </div>
@@ -254,7 +257,7 @@ export default function HowItWorksPage() {
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
               <h3 className="font-bold text-slate-900 text-lg mb-2">Does &quot;Indoor&quot; mean climate-controlled?</h3>
               <p className="text-slate-600 leading-relaxed">
-                Usually, yes. However, we specifically tag listings as &quot;Climate Controlled&quot; only if they have HVAC systems. Some converted warehouse spaces may be covered but not heated/cooled, so we verify this detail explicitly.
+                Usually, yes. However, we specifically tag listings as &quot;Climate Controlled&quot; only if they have HVAC systems. Some converted warehouse spaces may be covered but not heated/cooled, so we review this detail explicitly.
               </p>
             </div>
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">

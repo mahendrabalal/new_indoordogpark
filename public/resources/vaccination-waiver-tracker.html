@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination & Waiver Tracker - Indoor Dog Park</title>
+    <style>
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .no-print { display: none; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .download-bar {
+            background: #f3f4f6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .download-bar button {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .download-bar button:hover {
+            background: #6d28d9;
+        }
+        h1 {
+            color: #7c3aed;
+            border-bottom: 3px solid #7c3aed;
+            padding-bottom: 10px;
+        }
+        .instructions {
+            background: #fef3c7;
+            padding: 20px;
+            border-left: 4px solid #f59e0b;
+            margin: 20px 0;
+        }
+        .formula-box {
+            background: #e0f2fe;
+            padding: 15px;
+            border-left: 4px solid #0284c7;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #7c3aed;
+            color: white;
+            font-weight: bold;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 5px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="download-bar no-print">
+        <p><strong>📊 Vaccination & Waiver Tracker Template</strong></p>
+        <p style="font-size: 0.9em; color: #666; margin: 10px 0;">Download as Excel/CSV or copy to Google Sheets. Includes auto-calculation formulas for expiration dates.</p>
+        <button onclick="exportToCSV()">📥 Download CSV</button>
+        <button onclick="window.print()">🖨️ Print Instructions</button>
+        <a href="/owner-resources" style="color: #7c3aed; text-decoration: none; margin-left: 10px;">← Back to Resources</a>
+    </div>
+    
+    <h1>Vaccination & Waiver Tracker</h1>
+    <p><strong>Version:</strong> 1.0 | <strong>Last Updated:</strong> January 2025</p>
+    
+    <div class="instructions">
+        <h2>📋 Simple 3-Step Setup</h2>
+        <ol>
+            <li><strong>Download the template</strong> - Click "Download CSV" button above</li>
+            <li><strong>Open in Google Sheets or Excel</strong> - The formulas are already included!</li>
+            <li><strong>Add your dog records</strong> - Just enter vaccination dates, and expiration dates calculate automatically</li>
+        </ol>
+        <p style="margin-top: 15px; font-weight: bold; color: #7c3aed;">✨ No technical knowledge needed - everything is pre-configured!</p>
+    </div>
+
+    <h2>Spreadsheet Structure</h2>
+    <p>This tracker includes the following columns with auto-calculation formulas:</p>
+    
+    <table id="trackerTable">
+        <thead>
+            <tr>
+                <th>Column</th>
+                <th>Description</th>
+                <th>Example</th>
+                <th>Formula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Dog Name</strong></td>
+                <td>Name of the dog</td>
+                <td>Max</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Owner Name</strong></td>
+                <td>Owner's full name</td>
+                <td>John Smith</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>Owner's email address</td>
+                <td>john@example.com</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>Owner's phone number</td>
+                <td>(555) 123-4567</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Rabies Vaccination Date</strong></td>
+                <td>Date of last rabies vaccination</td>
+                <td>2024-01-15</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Rabies Expiration Date</strong></td>
+                <td>Auto-calculated expiration (1 or 3 years)</td>
+                <td>2025-01-15</td>
+                <td class="formula-box">=EDATE([Rabies Date], 12)</td>
+            </tr>
+            <tr>
+                <td><strong>Rabies Days Until Expiry</strong></td>
+                <td>Days remaining until expiration</td>
+                <td>45</td>
+                <td class="formula-box">=[Expiration Date]-TODAY()</td>
+            </tr>
+            <tr>
+                <td><strong>Rabies Status</strong></td>
+                <td>Current/Expiring/Expired</td>
+                <td>Expiring Soon</td>
+                <td class="formula-box">=IF([Days]&lt;0,"EXPIRED",IF([Days]&lt;30,"Expiring Soon","Current"))</td>
+            </tr>
+            <tr>
+                <td><strong>DHPP Vaccination Date</strong></td>
+                <td>Date of last DHPP vaccination</td>
+                <td>2024-06-01</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>DHPP Expiration Date</strong></td>
+                <td>Auto-calculated (typically 1 year)</td>
+                <td>2025-06-01</td>
+                <td class="formula-box">=EDATE([DHPP Date], 12)</td>
+            </tr>
+            <tr>
+                <td><strong>DHPP Days Until Expiry</strong></td>
+                <td>Days remaining</td>
+                <td>120</td>
+                <td class="formula-box">=[Expiration Date]-TODAY()</td>
+            </tr>
+            <tr>
+                <td><strong>DHPP Status</strong></td>
+                <td>Current/Expiring/Expired</td>
+                <td>Current</td>
+                <td class="formula-box">=IF([Days]&lt;0,"EXPIRED",IF([Days]&lt;30,"Expiring Soon","Current"))</td>
+            </tr>
+            <tr>
+                <td><strong>Bordetella Date</strong></td>
+                <td>Date of last Bordetella vaccination</td>
+                <td>2024-09-15</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Bordetella Expiration</strong></td>
+                <td>Auto-calculated (typically 6 months)</td>
+                <td>2025-03-15</td>
+                <td class="formula-box">=EDATE([Bordetella Date], 6)</td>
+            </tr>
+            <tr>
+                <td><strong>Bordetella Days Until Expiry</strong></td>
+                <td>Days remaining</td>
+                <td>60</td>
+                <td class="formula-box">=[Expiration Date]-TODAY()</td>
+            </tr>
+            <tr>
+                <td><strong>Bordetella Status</strong></td>
+                <td>Current/Expiring/Expired</td>
+                <td>Current</td>
+                <td class="formula-box">=IF([Days]&lt;0,"EXPIRED",IF([Days]&lt;30,"Expiring Soon","Current"))</td>
+            </tr>
+            <tr>
+                <td><strong>Waiver Signed Date</strong></td>
+                <td>Date waiver was signed</td>
+                <td>2024-01-10</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Waiver Expiration</strong></td>
+                <td>Waiver expiration (typically 1 year)</td>
+                <td>2025-01-10</td>
+                <td class="formula-box">=EDATE([Waiver Date], 12)</td>
+            </tr>
+            <tr>
+                <td><strong>Waiver Days Until Expiry</strong></td>
+                <td>Days remaining</td>
+                <td>20</td>
+                <td class="formula-box">=[Expiration Date]-TODAY()</td>
+            </tr>
+            <tr>
+                <td><strong>Waiver Status</strong></td>
+                <td>Current/Expiring/Expired</td>
+                <td>Expiring Soon</td>
+                <td class="formula-box">=IF([Days]&lt;0,"EXPIRED",IF([Days]&lt;30,"Expiring Soon","Current"))</td>
+            </tr>
+            <tr>
+                <td><strong>Overall Status</strong></td>
+                <td>Combined status of all requirements</td>
+                <td>Expiring Soon</td>
+                <td class="formula-box">=IF(OR([Any Status]="EXPIRED"),"EXPIRED",IF(OR([Any Status]="Expiring Soon"),"Expiring Soon","Current"))</td>
+            </tr>
+            <tr>
+                <td><strong>Last Reminder Sent</strong></td>
+                <td>Date last reminder email was sent</td>
+                <td>2024-12-15</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td><strong>Notes</strong></td>
+                <td>Additional notes or special requirements</td>
+                <td>Needs 3-year rabies</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>✨ How It Works (Automatic!)</h2>
+    
+    <div class="instructions">
+        <h3>What Happens Automatically:</h3>
+        <ul style="line-height: 2;">
+            <li>✅ <strong>Expiration dates calculate automatically</strong> - Just enter the vaccination date</li>
+            <li>✅ <strong>Days until expiry updates daily</strong> - Shows how many days are left</li>
+            <li>✅ <strong>Status updates automatically</strong> - Shows "Current", "Expiring Soon" (within 30 days), or "EXPIRED"</li>
+            <li>✅ <strong>Overall status combines everything</strong> - See at a glance which dogs need attention</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>You just need to:</strong> Enter vaccination dates when dogs visit. Everything else calculates itself!</p>
+    </div>
+
+    <details style="margin: 20px 0; padding: 15px; background: #f3f4f6; border-radius: 5px;">
+        <summary style="cursor: pointer; font-weight: bold; color: #7c3aed;">🔧 Advanced: Want to customize formulas? (Optional)</summary>
+        <div style="margin-top: 15px;">
+            <p><em>Most owners don't need this - the template works out of the box!</em></p>
+            <div class="formula-box" style="margin-top: 10px;">
+                <h4>Expiration Date (1 Year)</h4>
+                <p><code>=EDATE([Vaccination Date], 12)</code></p>
+            </div>
+            <div class="formula-box">
+                <h4>Days Until Expiry</h4>
+                <p><code>=[Expiration Date]-TODAY()</code></p>
+            </div>
+            <div class="formula-box">
+                <h4>Status</h4>
+                <p><code>=IF([Days]&lt;0,"EXPIRED",IF([Days]&lt;30,"Expiring Soon","Current"))</code></p>
+            </div>
+        </div>
+    </details>
+
+    <h2>📧 Sending Reminder Emails (Simple Methods)</h2>
+    
+    <div class="instructions">
+        <h3>✅ Easy Method: Filter & Send (Recommended for Most Owners)</h3>
+        <ol style="line-height: 2;">
+            <li><strong>Open your tracker</strong> in Google Sheets or Excel</li>
+            <li><strong>Filter by "Overall Status"</strong> - Click the filter icon, select "Expiring Soon" or "EXPIRED"</li>
+            <li><strong>Copy the email addresses</strong> from the filtered list</li>
+            <li><strong>Send a group email</strong> using your regular email (Gmail, Outlook, etc.)</li>
+            <li><strong>Update "Last Reminder Sent"</strong> column with today's date</li>
+        </ol>
+        <p style="margin-top: 15px; font-weight: bold; color: #059669;">💡 Tip: Do this once a week or month - takes just 5 minutes!</p>
+    </div>
+
+    <details style="margin: 20px 0; padding: 15px; background: #f3f4f6; border-radius: 5px;">
+        <summary style="cursor: pointer; font-weight: bold; color: #7c3aed;">🤖 Advanced: Automated Email Reminders (Optional - For Tech-Savvy Owners)</summary>
+        <div style="margin-top: 15px;">
+            <p><em>This sets up automatic emails that send themselves. Only do this if you're comfortable with technology.</em></p>
+            
+            <h4 style="margin-top: 15px;">Google Sheets Automated Emails:</h4>
+            <ol>
+                <li>Open your tracker in <strong>Google Sheets</strong></li>
+                <li>Go to <strong>Extensions → Apps Script</strong></li>
+                <li>Paste the script code (available in full template)</li>
+                <li>Set up a daily/weekly trigger</li>
+            </ol>
+            <p style="margin-top: 10px; color: #dc2626;"><strong>Note:</strong> This requires some technical setup. If you're not comfortable, stick with the simple filter method above!</p>
+        </div>
+    </details>
+
+    <h2>💡 Quick Tips</h2>
+    <div class="instructions">
+        <ul style="line-height: 2;">
+            <li>✅ <strong>Update when dogs visit:</strong> Enter new vaccination dates right away - takes 30 seconds per dog</li>
+            <li>✅ <strong>Check weekly:</strong> Filter by "Expiring Soon" once a week to see who needs reminders</li>
+            <li>✅ <strong>Save your work:</strong> Google Sheets saves automatically, Excel users should save regularly</li>
+            <li>✅ <strong>Keep it simple:</strong> You don't need to use all columns - just track what matters to your park</li>
+        </ul>
+    </div>
+
+    <h2>📥 Ready to Get Started?</h2>
+    <div class="instructions" style="text-align: center; padding: 30px;">
+        <h3 style="color: #7c3aed; margin-bottom: 15px;">Download Your Free Template</h3>
+        <p style="font-size: 1.1em; margin-bottom: 20px;">Click the button above to download. Open in Google Sheets or Excel - <strong>everything is already set up!</strong></p>
+        <p style="color: #059669; font-weight: bold;">✨ No setup needed - just start adding your dog records!</p>
+    </div>
+
+    <div class="footer">
+        <p><strong>This template is customizable to fit your facility's specific requirements.</strong></p>
+        <p><em>Adjust vaccination periods, reminder thresholds, and email content to match your policies and local regulations.</em></p>
+    </div>
+
+    <script>
+        function exportToCSV() {
+            // Create CSV content with headers
+            var csv = 'Dog Name,Owner Name,Email,Phone,Rabies Vaccination Date,Rabies Expiration Date,Rabies Days Until Expiry,Rabies Status,DHPP Vaccination Date,DHPP Expiration Date,DHPP Days Until Expiry,DHPP Status,Bordetella Date,Bordetella Expiration,Bordetella Days Until Expiry,Bordetella Status,Waiver Signed Date,Waiver Expiration,Waiver Days Until Expiry,Waiver Status,Overall Status,Last Reminder Sent,Notes\n';
+            csv += 'Sample Dog,John Smith,john@example.com,(555) 123-4567,2024-01-15,=EDATE(E2,12),=F2-TODAY(),=IF(G2<0,"EXPIRED",IF(G2<30,"Expiring Soon","Current")),2024-06-01,=EDATE(I2,12),=J2-TODAY(),=IF(K2<0,"EXPIRED",IF(K2<30,"Expiring Soon","Current")),2024-09-15,=EDATE(M2,6),=N2-TODAY(),=IF(O2<0,"EXPIRED",IF(O2<30,"Expiring Soon","Current")),2024-01-10,=EDATE(Q2,12),=R2-TODAY(),=IF(S2<0,"EXPIRED",IF(S2<30,"Expiring Soon","Current")),=IF(OR(H2="EXPIRED",L2="EXPIRED",P2="EXPIRED",T2="EXPIRED"),"EXPIRED",IF(OR(H2="Expiring Soon",L2="Expiring Soon",P2="Expiring Soon",T2="Expiring Soon"),"Expiring Soon","Current")),,';
+            
+            // Create download link
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement('a');
+            var url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'vaccination-waiver-tracker.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
+
