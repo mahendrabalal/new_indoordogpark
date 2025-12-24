@@ -51,8 +51,8 @@ const pressContacts = [
     title: 'Urgent story support',
     person: 'On-call team',
     role: '24/7 newsroom hotline',
-    email: '415-555-8110',
-    response: 'Call or text for same-day deadlines',
+    email: 'newsroom@indoordogpark.org',
+    response: 'Email for urgent deadlines',
   },
 ];
 
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };

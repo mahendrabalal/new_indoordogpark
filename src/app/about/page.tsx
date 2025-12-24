@@ -2,9 +2,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
 export const metadata: Metadata = {
   title: 'About Us | Indoor Dog Park Directory & Reviews',
-  description: 'IndoorDogPark is the leading directory for indoor dog parks, dog-friendly establishments, and canine play areas. Learn about our mission to connect pet parents with safe, climate-controlled play spaces.',
+  description: 'IndoorDogPark is an independent directory helping pet parents discover indoor dog parks, dog-friendly establishments, and canine play areas. Learn about our mission.',
   keywords: [
     'about indoor dog park',
     'dog park directory',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'About Us | Indoor Dog Park Directory',
-    description: 'Connecting dog owners with the best indoor dog parks and play areas across California. Discover our mission and community.',
+    description: 'Connecting dog owners with the best indoor dog parks and play areas. Discover our mission and community.',
     url: 'https://www.indoordogpark.org/about',
     type: 'website',
     images: [
@@ -35,219 +36,177 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen about-page-modern">
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="about-hero">
-          <div className="about-hero-content">
-            <h1>About IndoorDogPark</h1>
-            <p>Your trusted companion in discovering the perfect parks for your furry friends</p>
+        {/* Hero / About Us Section */}
+        <section className="about-modern-hero">
+          <div className="about-modern-container">
+            <div className="about-modern-hero-content">
+              <h1 className="about-modern-title">
+                HELPING DOG OWNERS FIND <span className="text-accent-green">INDOOR PLAY SPACES</span>
+              </h1>
+              <p className="about-modern-mission">
+                IndoorDogPark is an independent directory helping pet parents discover climate-controlled
+                dog parks, daycare facilities, and training centers. We verify listings, aggregate reviews,
+                and make it easy to find the right space for your dog.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="about-section">
-          <div className="about-container">
-            <div className="about-content-grid">
-              <div className="about-text">
-                <h2>Our Mission</h2>
-                <p>
-                  At IndoorDogPark, we believe every dog deserves a safe, fun, and engaging place to play,
-                  socialize, and exercise. Our mission is to connect dog owners with the best dog parks
-                  across California, making it easier than ever to find the perfect spot for your pup.
+        {/* Meet the Team Section */}
+        <section className="about-modern-section">
+          <div className="about-modern-container">
+            <div className="about-modern-content-layout">
+              <div className="about-modern-text-content">
+                <h2 className="about-modern-section-title">Meet Our Team</h2>
+                <p className="about-modern-text">
+                  The IndoorDogPark team started this project after struggling to find reliable information
+                  about indoor dog facilities. What began as a personal research project evolved into
+                  a comprehensive directory serving dog owners across the United States.
                 </p>
-                <p>
-                  Whether you&rsquo;re looking for a spacious outdoor park with agility equipment, a cozy
-                  indoor facility for rainy days, or a dog-friendly establishment where you can enjoy
-                  time with your four-legged companion, IndoorDogPark has you covered.
+                <p className="about-modern-text">
+                  We&apos;re a small team of dog lovers, researchers, and developers dedicated to making it easier
+                  for pet parents to find safe, climate-controlled play spaces for their dogs. Every listing
+                  is verified, every detail matters.
                 </p>
+
+                <div className="about-modern-stats-grid">
+                  <div className="about-modern-stat-card">
+                    <div className="stat-number stat-green">500+</div>
+                    <div className="stat-label">Verified Listings</div>
+                  </div>
+                  <div className="about-modern-stat-card">
+                    <div className="stat-number stat-pink">150+</div>
+                    <div className="stat-label">Cities Covered</div>
+                  </div>
+                  <div className="about-modern-stat-card">
+                    <div className="stat-number stat-green">50</div>
+                    <div className="stat-label">States</div>
+                  </div>
+                  <div className="about-modern-stat-card">
+                    <div className="stat-number stat-pink">24/7</div>
+                    <div className="stat-label">Free Access</div>
+                  </div>
+                </div>
               </div>
-              <div className="about-image-placeholder">
-                <i className="bi bi-heart-fill"></i>
-                <p>Happy dogs, happy owners</p>
+              <div className="about-modern-image-content">
+                <figure style={{ margin: 0 }}>
+                  <img
+                    src="/images/about/team.webp"
+                    alt="The IndoorDogPark.org team working together to build the best dog park directory"
+                    style={{
+                      width: '100%',
+                      height: '500px',
+                      borderRadius: '1rem',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
+                  <figcaption style={{
+                    textAlign: 'center',
+                    marginTop: '0.75rem',
+                    fontSize: '0.875rem',
+                    color: '#64748b',
+                    fontStyle: 'italic'
+                  }}>
+                    The IndoorDogPark.org Team — Building the most comprehensive dog park directory
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </div>
         </section>
 
         {/* What We Do Section */}
-        <section className="about-section-alt">
-          <div className="about-container">
-            <h2 className="text-center">What We Do</h2>
-            <div className="features-grid">
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="bi bi-search"></i>
+        <section className="about-modern-section-alt">
+          <div className="about-modern-container">
+            <h2 className="about-modern-section-title-center">What We Do</h2>
+            <div className="about-modern-timeline">
+              <div className="timeline-item">
+                <div className="timeline-dot timeline-green"></div>
+                <div className="timeline-card">
+                  <div className="timeline-year">Research</div>
+                  <p>We research and verify indoor dog parks, daycare centers, and training facilities to ensure accurate, up-to-date information for pet parents.</p>
                 </div>
-                <h3>Comprehensive Directory</h3>
-                <p>
-                  Browse our extensive database of dog parks, indoor facilities, and dog-friendly
-                  establishments across California. We provide detailed information including amenities,
-                  hours, and visitor reviews.
-                </p>
               </div>
-
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="bi bi-star-fill"></i>
+              <div className="timeline-item">
+                <div className="timeline-dot timeline-pink"></div>
+                <div className="timeline-card">
+                  <div className="timeline-year">Organize</div>
+                  <p>We organize listings with detailed amenities, hours, pricing, and photos so you can compare options and find the perfect fit for your dog.</p>
                 </div>
-                <h3>Verified Reviews</h3>
-                <p>
-                  Read honest reviews from fellow dog owners to make informed decisions. Our community
-                  shares their experiences to help you find the best parks for your dog&rsquo;s needs.
-                </p>
               </div>
-
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="bi bi-geo-alt-fill"></i>
+              <div className="timeline-item">
+                <div className="timeline-dot timeline-green"></div>
+                <div className="timeline-card">
+                  <div className="timeline-year">Connect</div>
+                  <p>We connect dog owners with facilities through our directory, helping parks reach new customers and helping owners discover new spaces.</p>
                 </div>
-                <h3>Location-Based Search</h3>
-                <p>
-                  Find parks near you with our easy-to-use location search. Filter by city, amenities,
-                  and park type to discover the perfect spot for your next adventure.
-                </p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon">
-                  <i className="bi bi-info-circle-fill"></i>
-                </div>
-                <h3>Detailed Information</h3>
-                <p>
-                  Get all the details you need including park rules, size restrictions, available
-                  amenities, parking information, and accessibility features.
-                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Story Section */}
-        <section className="about-section">
-          <div className="about-container">
-            <div className="about-content-grid-reverse">
-              <div className="about-image-placeholder">
-                <i className="bi bi-flag-fill"></i>
-                <p>Founded in California</p>
+        {/* Our Values Section */}
+        <section className="about-modern-section">
+          <div className="about-modern-container">
+            <h2 className="about-modern-section-title-center">Our Commitment</h2>
+            <div className="about-modern-values-grid">
+              <div className="about-modern-value-card">
+                <div className="value-icon-modern value-icon-green">
+                  <i className="bi bi-check-circle-fill"></i>
+                </div>
+                <h3>Accurate Information</h3>
+                <p>We verify listings and regularly update our directory to ensure the information you find is current and reliable.</p>
               </div>
-              <div className="about-text">
-                <h2>Our Story</h2>
-                <p>
-                  IndoorDogPark was founded by a team of passionate dog lovers who experienced firsthand
-                  the challenge of finding quality dog parks. After countless hours spent searching
-                  online and asking for recommendations, we realized there needed to be a better way.
-                </p>
-                <p>
-                  We started by visiting and documenting dog parks throughout California, gathering
-                  information that would be valuable to other dog owners. What began as a small
-                  project quickly grew into a comprehensive directory trusted by thousands of dog
-                  owners across the state.
-                </p>
-                <p>
-                  Today, IndoorDogPark continues to grow, adding new parks and features to help you and
-                  your furry friend discover amazing places to play, explore, and make new friends.
-                </p>
+              <div className="about-modern-value-card">
+                <div className="value-icon-modern value-icon-pink">
+                  <i className="bi bi-unlock-fill"></i>
+                </div>
+                <h3>Free to Use</h3>
+                <p>Our directory is free for dog owners. We believe everyone should have access to information about safe play spaces for their pets.</p>
+              </div>
+              <div className="about-modern-value-card">
+                <div className="value-icon-modern value-icon-green">
+                  <i className="bi bi-shield-check-fill"></i>
+                </div>
+                <h3>Community First</h3>
+                <p>Park owners can list their facilities, and dog owners can submit new discoveries. We grow through community contributions.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Values Section */}
-        <section className="about-section-alt">
-          <div className="about-container">
-            <h2 className="text-center">Our Values</h2>
-            <div className="values-grid">
-              <div className="value-item">
-                <div className="value-icon">
-                  <i className="bi bi-shield-check"></i>
-                </div>
-                <h3>Trust & Safety</h3>
-                <p>We prioritize the safety and well-being of all dogs and their owners.</p>
-              </div>
-
-              <div className="value-item">
-                <div className="value-icon">
-                  <i className="bi bi-people-fill"></i>
-                </div>
-                <h3>Community</h3>
-                <p>Building a supportive community of dog lovers who help each other.</p>
-              </div>
-
-              <div className="value-item">
-                <div className="value-icon">
-                  <i className="bi bi-check-circle"></i>
-                </div>
-                <h3>Accuracy</h3>
-                <p>Providing verified, up-to-date information you can rely on.</p>
-              </div>
-
-              <div className="value-item">
-                <div className="value-icon">
-                  <i className="bi bi-heart"></i>
-                </div>
-                <h3>Passion</h3>
-                <p>Driven by our love for dogs and dedication to their happiness.</p>
-              </div>
+        {/* Who We Serve Section */}
+        <section className="about-modern-section-alt">
+          <div className="about-modern-container">
+            <h2 className="about-modern-section-title-center">Who We Serve</h2>
+            <div className="about-modern-partners-grid">
+              <div className="about-modern-partner-card">DOG OWNERS</div>
+              <div className="about-modern-partner-card">PARK OPERATORS</div>
+              <div className="about-modern-partner-card">DAYCARE FACILITIES</div>
+              <div className="about-modern-partner-card">TRAINING CENTERS</div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="about-cta">
-          <div className="about-container">
-            <h2>Join Our Community</h2>
-            <p>
-              Help us build the most comprehensive dog park directory in California.
-              List your park, share reviews, and connect with fellow dog lovers.
+        {/* Join Our Mission Section */}
+        <section className="about-modern-cta">
+          <div className="about-modern-container">
+            <h2 className="about-modern-cta-title">Have a Park to Add?</h2>
+            <p className="about-modern-cta-text">
+              Know of an indoor dog park that&apos;s not in our directory? Own a facility you&apos;d like listed?
+              We welcome submissions from the community.
             </p>
-            <div className="cta-buttons">
-              <a href="/list-your-park" className="btn-primary-large">
-                <i className="bi bi-plus-circle"></i>
-                List Your Park
-              </a>
-              <a href="/contact" className="btn-secondary-large">
-                <i className="bi bi-envelope"></i>
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Related Resources Section */}
-        <section className="about-section-alt">
-          <div className="about-container">
-            <h2 className="text-center mb-8">Explore More</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Link href="/" className="feature-card hover:shadow-lg transition-shadow">
-                <div className="feature-icon">
-                  <i className="bi bi-map"></i>
-                </div>
-                <h3>Browse Parks</h3>
-                <p>Discover dog parks across California</p>
+            <div className="about-modern-cta-buttons">
+              <Link href="/list-your-park" className="btn-modern-green">
+                Submit a Park
               </Link>
-              <Link href="/blog" className="feature-card hover:shadow-lg transition-shadow">
-                <div className="feature-icon">
-                  <i className="bi bi-journal-text"></i>
-                </div>
-                <h3>Blog & Guides</h3>
-                <p>Read articles about dog parks and pet care</p>
-              </Link>
-              <Link href="/guides" className="feature-card hover:shadow-lg transition-shadow">
-                <div className="feature-icon">
-                  <i className="bi bi-book"></i>
-                </div>
-                <h3>Park Guides</h3>
-                <p>Comprehensive guides for visitors</p>
-              </Link>
-              <Link href="/how-it-works" className="feature-card hover:shadow-lg transition-shadow">
-                <div className="feature-icon">
-                  <i className="bi bi-question-circle"></i>
-                </div>
-                <h3>How It Works</h3>
-                <p>Learn how to use our directory</p>
+              <Link href="/contact" className="btn-modern-pink">
+                Contact Us
               </Link>
             </div>
           </div>

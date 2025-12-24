@@ -4,39 +4,39 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 
 const helpTopics = [
-  { 
-    title: 'Account & profiles', 
-    description: 'Update saved parks, notification preferences, and membership details.', 
+  {
+    title: 'Account & profiles',
+    description: 'Update saved parks, notification preferences, and membership details.',
     icon: 'bi-person-check',
     keywords: ['account', 'profile', 'settings', 'preferences', 'membership', 'saved parks', 'notifications']
   },
-  { 
-    title: 'Listing support', 
-    description: 'Need edits or have a new photo set? Submit updates in minutes.', 
+  {
+    title: 'Listing support',
+    description: 'Need edits or have a new photo set? Submit updates in minutes.',
     icon: 'bi-building',
     keywords: ['listing', 'edit', 'update', 'photo', 'submit', 'park listing', 'property']
   },
-  { 
-    title: 'Billing & invoices', 
-    description: 'Download receipts, update payment methods, or request tax forms.', 
+  {
+    title: 'Billing & invoices',
+    description: 'Download receipts, update payment methods, or request tax forms.',
     icon: 'bi-receipt',
     keywords: ['billing', 'invoice', 'payment', 'receipt', 'tax', 'subscription', 'pricing']
   },
-  { 
-    title: 'Trust & safety', 
-    description: 'Report an issue, request moderation, or review our verification standards.', 
+  {
+    title: 'Trust & safety',
+    description: 'Report an issue, request moderation, or review our verification standards.',
     icon: 'bi-shield-lock',
     keywords: ['safety', 'trust', 'report', 'moderation', 'verification', 'security', 'issue']
   },
-  { 
-    title: 'Technical help', 
-    description: 'App issues, map errors, or trouble submitting reviews? We&rsquo;re on it.', 
+  {
+    title: 'Technical help',
+    description: 'App issues, map errors, or trouble submitting reviews? We&rsquo;re on it.',
     icon: 'bi-bug',
     keywords: ['technical', 'bug', 'error', 'app', 'map', 'review', 'troubleshoot', 'issue']
   },
-  { 
-    title: 'Community programs', 
-    description: 'Join meetups, volunteer drives, or education workshops across California.', 
+  {
+    title: 'Community programs',
+    description: 'Join meetups, volunteer drives, or education workshops across California.',
     icon: 'bi-people',
     keywords: ['community', 'meetup', 'volunteer', 'workshop', 'event', 'program', 'education']
   },
@@ -44,8 +44,8 @@ const helpTopics = [
 
 const contactOptions = [
   { channel: 'Email support', detail: 'support@indoordogpark.org', response: 'Replies within 24h', href: 'mailto:support@indoordogpark.org' },
-  { channel: 'Live chat', detail: 'Weekdays 9 AM – 6 PM PT', response: 'Look for the bubble in the bottom right corner', href: '/contact' },
-  { channel: 'SMS hotline', detail: '(415) 555-7410', response: 'Urgent listing or safety issues', href: 'tel:+14155557410' },
+  { channel: 'Contact form', detail: 'Available 24/7', response: 'Best for detailed inquiries', href: '/contact' },
+  { channel: 'Urgent issues', detail: 'safety@indoordogpark.org', response: 'Safety reports prioritized', href: 'mailto:safety@indoordogpark.org' },
 ];
 
 const statusNotices = [
@@ -82,16 +82,16 @@ export default function HelpPageClient() {
           <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">Help center</h1>
           <p className="mt-4 text-lg text-slate-200">Find quick answers, send us a message, or check real-time platform status.</p>
           <form onSubmit={handleSearchSubmit} className="mt-8 flex flex-col gap-3 rounded-2xl border border-white/30 bg-white/10 p-4 backdrop-blur md:flex-row">
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Search articles or keywords" 
+            <input
+              type="search"
+              name="q"
+              placeholder="Search articles or keywords"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 rounded-xl border border-transparent bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-400" 
+              className="flex-1 rounded-xl border border-transparent bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-400"
             />
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="rounded-xl bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-violet-50 transition-colors"
             >
               Search

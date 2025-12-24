@@ -69,20 +69,20 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // Get featured image with validation
   const rawFeaturedImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
-                           post.featuredImage?.media_details?.sizes?.medium?.source_url ||
-                           post.featuredImage?.source_url;
-  
+    post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+    post.featuredImage?.source_url;
+
   // Validate that the image URL is a valid string and not empty
-  const featuredImage = rawFeaturedImage && 
-                        typeof rawFeaturedImage === 'string' && 
-                        rawFeaturedImage.trim() !== '' &&
-                        rawFeaturedImage.startsWith('http')
-                        ? rawFeaturedImage
-                        : undefined;
+  const featuredImage = rawFeaturedImage &&
+    typeof rawFeaturedImage === 'string' &&
+    rawFeaturedImage.trim() !== '' &&
+    rawFeaturedImage.startsWith('http')
+    ? rawFeaturedImage
+    : undefined;
 
   // Extract headings for table of contents
   const headings = extractHeadingsFromHtml(post.content);
-  
+
   // Add IDs to headings in content
   const contentWithIds = addIdsToHeadings(post.content);
 
@@ -91,26 +91,26 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const categorySlug = post.categories[0]?.slug;
     if (categorySlug) {
-      const relatedData = await getCachedPosts({ 
-        category: categorySlug, 
-        perPage: 4 
+      const relatedData = await getCachedPosts({
+        category: categorySlug,
+        perPage: 4
       });
       relatedPosts = relatedData.posts.filter(p => p.slug !== post.slug).slice(0, 3);
     }
-    
+
     // If not enough related posts, get by tag
     if (relatedPosts.length < 3 && post.tags.length > 0) {
       const tagSlug = post.tags[0]?.slug;
       if (tagSlug) {
-        const tagData = await getCachedPosts({ 
-          tag: tagSlug, 
-          perPage: 4 
+        const tagData = await getCachedPosts({
+          tag: tagSlug,
+          perPage: 4
         });
         const tagPosts = tagData.posts.filter(p => p.slug !== post.slug && !relatedPosts.find(rp => rp.slug === p.slug));
         relatedPosts = [...relatedPosts, ...tagPosts].slice(0, 3);
       }
     }
-    
+
     // If still not enough, get latest posts
     if (relatedPosts.length < 3) {
       const latestData = await getCachedPosts({ perPage: 4 });
@@ -125,17 +125,17 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   const allParks = await getAllStaticParks();
   const relatedParks = await getRelatedParks(post, 6);
   const mentionedCityNames = extractMentionedCities(post, allParks);
-  
+
   // Get correct city slugs for mentioned cities (respecting priority cities)
   const mentionedCitiesWithSlugs = await Promise.all(
     mentionedCityNames.map(async (cityName) => {
       // Find a park in this city to get the state
       const parkInCity = allParks.find((p) => p.city.toLowerCase() === cityName.toLowerCase());
       const state = parkInCity?.state;
-      
+
       // Get the correct canonical slug (handles priority cities)
       const slug = await getCitySlugByName(cityName, state);
-      
+
       return {
         name: cityName,
         slug: slug || cityName.toLowerCase().replace(/\s+/g, '-'), // Fallback to basic slug if not found
@@ -145,7 +145,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const readingTime = estimateReadingTime(post.content);
   const categoryName = post.categories[0]?.name || 'Blog';
-  
+
   // Extract YouTube videos from content for structured data
   const extractYouTubeVideos = (content: string): Array<{ id: string; url: string; title?: string }> => {
     const videos: Array<{ id: string; url: string; title?: string }> = [];
@@ -248,8 +248,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.categories[0] && (
                 <>
                   <span>/</span>
-                  <Link 
-                    href={`/blog/category/${post.categories[0].slug}`} 
+                  <Link
+                    href={`/blog/category/${post.categories[0].slug}`}
                     className="hover:text-green-600 transition-colors"
                   >
                     {post.categories[0].name}
@@ -276,27 +276,39 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Subtitle/Introduction */}
                 {post.excerpt && (
-                  <div 
+                  <div
                     className="text-lg text-gray-600 leading-relaxed mb-6"
-                    dangerouslySetInnerHTML={{ __html: post.excerpt }} 
+                    dangerouslySetInnerHTML={{ __html: post.excerpt }}
                   />
                 )}
 
                 {/* Meta Information */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
                   {post.author && (
-                    <span>By {post.author.name}</span>
+                    <div className="flex items-center gap-2">
+                      {post.author.avatar_urls && post.author.avatar_urls['96'] && (
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200">
+                          <Image
+                            src={post.author.avatar_urls['96']}
+                            alt={post.author.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+                      <span className="font-medium text-gray-900">{post.author.name}</span>
+                    </div>
                   )}
                   <span>|</span>
                   <time dateTime={post.date}>
-                    Last updated: {new Date(post.date).toLocaleDateString('en-US', {
+                    {new Date(post.date).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
                       year: 'numeric',
                     })}
                   </time>
                   <span>|</span>
-                  <span>{readingTime} minutes read</span>
+                  <span>{readingTime} min read</span>
                 </div>
 
                 {/* Hero Image */}
@@ -316,9 +328,9 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               </header>
 
               {/* Article Content */}
-              <div 
+              <div
                 className="prose prose-lg max-w-none blog-content"
-                dangerouslySetInnerHTML={{ __html: contentWithIds }} 
+                dangerouslySetInnerHTML={{ __html: contentWithIds }}
               />
             </article>
 
@@ -342,12 +354,24 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Author Info */}
               <div>
                 {post.author && (
-                  <>
-                    <p className="text-sm font-semibold text-gray-900 mb-2">Posted by {post.author.name}</p>
-                    {post.author.description && (
-                      <p className="text-sm text-gray-600">{post.author.description}</p>
+                  <div className="flex gap-4">
+                    {post.author.avatar_urls && post.author.avatar_urls['96'] && (
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
+                        <Image
+                          src={post.author.avatar_urls['96']}
+                          alt={post.author.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     )}
-                  </>
+                    <div>
+                      <p className="text-base font-bold text-gray-900 mb-1">About {post.author.name}</p>
+                      {post.author.description && (
+                        <p className="text-sm text-gray-600 leading-relaxed">{post.author.description}</p>
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
 
@@ -380,7 +404,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                       aria-label="Share on Twitter"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
                     <a
@@ -453,7 +477,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     .split(' ')
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(' ');
-                  
+
                   return (
                     <Link
                       key={city.name}
@@ -492,7 +516,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     // Extract clean text from HTML for description
     const textContent = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
-    
+
     // Create SEO-optimized description (150-160 characters is optimal)
     let description = textContent;
     if (textContent.length > 160) {
@@ -500,23 +524,23 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     } else if (textContent.length < 120 && post.content) {
       // If excerpt is too short, use beginning of content
       const contentText = post.content.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
-      description = contentText.length > 160 
+      description = contentText.length > 160
         ? contentText.substring(0, 157) + '...'
         : contentText;
     }
 
     // Get featured image with validation
     const rawFeaturedImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
-                             post.featuredImage?.media_details?.sizes?.medium?.source_url ||
-                             post.featuredImage?.source_url;
-    
+      post.featuredImage?.media_details?.sizes?.medium?.source_url ||
+      post.featuredImage?.source_url;
+
     // Validate that the image URL is a valid string and not empty
-    const featuredImage = rawFeaturedImage && 
-                          typeof rawFeaturedImage === 'string' && 
-                          rawFeaturedImage.trim() !== '' &&
-                          rawFeaturedImage.startsWith('http')
-                          ? rawFeaturedImage
-                          : undefined;
+    const featuredImage = rawFeaturedImage &&
+      typeof rawFeaturedImage === 'string' &&
+      rawFeaturedImage.trim() !== '' &&
+      rawFeaturedImage.startsWith('http')
+      ? rawFeaturedImage
+      : undefined;
 
     // Create SEO-friendly title (60 characters max for optimal SEO)
     // Truncate at word boundary when possible to avoid cutting words

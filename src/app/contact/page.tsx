@@ -59,14 +59,15 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+
                 <div className="contact-info-card">
                   <div className="contact-info-icon">
-                    <i className="bi bi-telephone"></i>
+                    <i className="bi bi-chat-dots"></i>
                   </div>
                   <div className="contact-info-content">
-                    <h3>Phone</h3>
-                    <p><a href="tel:+1-555-123-4567">(555) 123-4567</a></p>
-                    <p className="contact-info-subtitle">Monday - Friday, 9 AM - 5 PM PST</p>
+                    <h3>Response Time</h3>
+                    <p>Within 24 hours</p>
+                    <p className="contact-info-subtitle">Email is the fastest way to reach us</p>
                   </div>
                 </div>
 
@@ -120,7 +121,7 @@ export default function ContactPage() {
 
               <div className="faq-item">
                 <h3>How long does it take to get a response?</h3>
-                <p>We typically respond to inquiries within 24 business hours. For urgent matters, please call us during business hours.</p>
+                <p>We typically respond to inquiries within 24 business hours. Please mark your message as urgent if you need a faster response.</p>
               </div>
 
               <div className="faq-item">

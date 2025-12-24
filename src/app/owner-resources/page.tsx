@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };

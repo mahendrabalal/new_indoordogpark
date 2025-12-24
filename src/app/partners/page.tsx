@@ -3,10 +3,10 @@ import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 
 const partnerStats = [
-  { label: 'California metros covered', value: '48' },
-  { label: 'Monthly park discovery sessions', value: '2.4M' },
-  { label: 'Qualified leads delivered (2024)', value: '12,500+' },
-  { label: 'Average partner response time', value: '4h' },
+  { label: 'States covered', value: '50' },
+  { label: 'Cities in directory', value: '150+' },
+  { label: 'Active park listings', value: '500+' },
+  { label: 'Email response time', value: '24h' },
 ];
 
 const partnerBenefits = [
@@ -60,14 +60,7 @@ const partnerTiers = [
   },
 ];
 
-const partnerLogos = [
-  'CityPaws Collective',
-  'Golden State Wag Lab',
-  'Pacific Pup Resorts',
-  'Downtown Bark Club',
-  'Urban Tails Studio',
-  'Silverlake Canine Loft',
-];
+// Partner testimonials section removed - will add real partner quotes when available
 
 export const metadata: Metadata = {
   title: 'IndoorDogPark Partners Program',
@@ -190,14 +183,7 @@ export default function PartnersPage() {
 
       <section className="bg-slate-900/95 py-16 text-white">
         <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Trusted by forward-thinking teams</p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {partnerLogos.map((logo) => (
-              <span key={logo} className="rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white/70">
-                {logo}
-              </span>
-            ))}
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Building trust together</p>
           <p className="mt-8 text-lg text-slate-200">We partner with safety-first operators, training collectives, animal welfare groups, and tourism boards to elevate dog experiences across the state.</p>
         </div>
       </section>
