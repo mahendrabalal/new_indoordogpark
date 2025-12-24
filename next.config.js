@@ -84,12 +84,12 @@ const nextConfig = {
       },
       ...(supabaseHostname
         ? [
-            {
-              protocol: 'https',
-              hostname: supabaseHostname,
-              pathname: '/storage/v1/object/public/**',
-            },
-          ]
+          {
+            protocol: 'https',
+            hostname: supabaseHostname,
+            pathname: '/storage/v1/object/public/**',
+          },
+        ]
         : []),
     ],
     formats: ['image/avif', 'image/webp'],
@@ -305,8 +305,13 @@ const nextConfig = {
         permanent: true,
       },
       // Note: Removed old blog category/tag redirects to avoid sitemap conflicts
-  // Search engines should discover the new URLs naturally
+      // Search engines should discover the new URLs naturally
       // Redirect old park slugs to new city-inclusive slugs
+      {
+        source: '/guides',
+        destination: '/blog',
+        permanent: true,
+      },
       {
         source: '/parks/oneida-run',
         destination: '/parks/oneida-run-bronx',
@@ -438,7 +443,7 @@ const nextConfig = {
   webpack: (config, { webpack, isServer, dev }) => {
     config.resolve.alias = config.resolve.alias || {};
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
-    
+
     // Fix Supabase Edge Runtime warnings by providing polyfills for Node.js APIs
     // These are used by @supabase/supabase-js and @supabase/realtime-js but aren't
     // actually required for Edge Runtime functionality
@@ -449,7 +454,7 @@ const nextConfig = {
         'process.versions': JSON.stringify(process.versions || {}),
       })
     );
-    
+
     return config;
   },
 };

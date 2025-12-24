@@ -40,7 +40,7 @@ export function useSearch(
   const [activeSearchTerm, setActiveSearchTerm] = useState(initialQuery);
   const [filters, setFilters] = useState<SearchFilters>(() => {
     if (!enableUrlState) return {};
-    
+
     const listingTypeParam = getSearchParam('listingType');
     const listingType =
       listingTypeParam === 'featured' || listingTypeParam === 'free'
@@ -53,6 +53,10 @@ export function useSearch(
       ? normalizeTypeParameter(rawType) || undefined
       : undefined;
 
+    // Parse amenities from URL (comma separated)
+    const rawAmenities = getSearchParam('amenities');
+    const amenities = rawAmenities ? rawAmenities.split(',').filter(Boolean) : undefined;
+
     return {
       type: normalizedType,
       businessType: normalizedType, // Backwards compat
@@ -61,9 +65,10 @@ export function useSearch(
       city: getSearchParam('city') || undefined,
       sortBy: (getSearchParam('sortBy') as SearchFilters['sortBy']) || 'relevance',
       listingType,
+      amenities,
     };
   });
-  
+
   const [results, setResults] = useState<DogPark[]>(fallbackParks);
   const [isSearching, setIsSearching] = useState(false);
   const [searchMeta, setSearchMeta] = useState<SearchResponse['meta'] | null>(null);
@@ -155,6 +160,7 @@ export function useSearch(
       city: filters.city || '',
       sortBy: filters.sortBy || '',
       listingType: filters.listingType || '',
+      amenities: filters.amenities ? filters.amenities.join(',') : '',
     };
 
     setSearchParams(updates);
@@ -204,7 +210,7 @@ export function useSearch(
   // Get highlighted text (for showing matched terms)
   const getHighlightedText = (text: string) => {
     if (!activeSearchTerm) return text;
-    
+
     const regex = new RegExp(`(${activeSearchTerm})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
   };

@@ -30,6 +30,12 @@ export default function Header() {
 
         <div className="header-center">
           {/* Desktop navigation - hidden on mobile */}
+          <nav className="header-nav" aria-label="Main navigation">
+            <Link href="/" className="header-nav-link">Browse Parks</Link>
+
+            <Link href="/how-it-works" className="header-nav-link">How It Works</Link>
+            <Link href="/about" className="header-nav-link">About</Link>
+          </nav>
         </div>
 
         <div className="header-right">
@@ -38,7 +44,7 @@ export default function Header() {
           <Link href="/list-your-park" className="header-link header-link-primary">
             List your park
           </Link>
-          
+
           {user ? (
             <>
               <span className="header-link">Welcome, {user.email}</span>
@@ -69,28 +75,32 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-          <Link href="/blog" className="mobile-menu-item">Blog</Link>
-          <Link href="/contact" className="mobile-menu-item">Contact us</Link>
-          <Link href="/list-your-park" className="mobile-menu-item">List your park</Link>
-          
-          {user ? (
-            <>
-              <span className="mobile-menu-item">Welcome, {user.email}</span>
-              <button
-                onClick={signOut}
-                className="mobile-menu-item"
-                style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}
-              >
-                Log out
-              </button>
-            </>
-          ) : (
-            <>
-              <Link href="/signup" className="mobile-menu-item">Sign up</Link>
-              <Link href="/login" className="mobile-menu-item">Log in</Link>
-            </>
-          )}
-        </div>
+        <Link href="/" className="mobile-menu-item">Browse Parks</Link>
+
+        <Link href="/how-it-works" className="mobile-menu-item">How It Works</Link>
+        <Link href="/about" className="mobile-menu-item">About</Link>
+        <Link href="/blog" className="mobile-menu-item">Blog</Link>
+        <Link href="/contact" className="mobile-menu-item">Contact us</Link>
+        <Link href="/list-your-park" className="mobile-menu-item">List your park</Link>
+
+        {user ? (
+          <>
+            <span className="mobile-menu-item">Welcome, {user.email}</span>
+            <button
+              onClick={signOut}
+              className="mobile-menu-item"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/signup" className="mobile-menu-item">Sign up</Link>
+            <Link href="/login" className="mobile-menu-item">Log in</Link>
+          </>
+        )}
+      </div>
     </header>
   );
 }

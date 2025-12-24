@@ -68,25 +68,25 @@ export async function generateMetadata(): Promise<Metadata> {
 // Filter parks that offer training services
 function filterTrainingFacilities(parks: DogPark[]): DogPark[] {
   const trainingKeywords = ['training', 'agility', 'obedience', 'class', 'instructor', 'trainer'];
-  
+
   return parks.filter(park => {
     // Check if park has training amenity
     const hasTrainingAmenity = park.amenities?.training === true;
-    
+
     // Check if business type is training-related
     const isTrainingBusinessType = park.businessType === 'Agility & Training Parks';
-    
+
     // Check name, description for training keywords
     const nameLower = park.name.toLowerCase();
     const descriptionLower = (park.description || '').toLowerCase();
     const businessTypeLower = (park.businessType || '').toLowerCase();
-    
-    const hasTrainingKeyword = trainingKeywords.some(keyword => 
-      nameLower.includes(keyword) || 
+
+    const hasTrainingKeyword = trainingKeywords.some(keyword =>
+      nameLower.includes(keyword) ||
       descriptionLower.includes(keyword) ||
       businessTypeLower.includes(keyword)
     );
-    
+
     return hasTrainingAmenity || isTrainingBusinessType || hasTrainingKeyword;
   });
 }
@@ -97,7 +97,7 @@ export default async function TrainingFacilitiesPage() {
   // Get all parks and filter for training facilities
   const allParks = await getAllStaticParks();
   const filteredParks = filterTrainingFacilities(allParks);
-  
+
   // Take first 20 for initial display
   const initialParks = filteredParks.slice(0, 20);
   const collectionPageSchema = generateCollectionPageSchema(initialParks);
@@ -241,11 +241,7 @@ export default async function TrainingFacilitiesPage() {
             title: 'Parks with bars',
             description: 'Looking for social play and a place to relax? Explore dog parks with bars and cafés.',
           },
-          {
-            href: '/guides',
-            title: 'Guides',
-            description: 'Read practical tips for park visits, safety, etiquette, and enrichment.',
-          },
+
           {
             href: '/contact',
             title: 'Contact',
@@ -259,7 +255,7 @@ export default async function TrainingFacilitiesPage() {
       <div className="bg-gray-50 py-12 mt-12">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Resources</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <Link href="/parks-with-bars" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Parks with Bars</h3>
@@ -269,10 +265,7 @@ export default async function TrainingFacilitiesPage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Blog & Guides</h3>
               <p className="text-gray-600">Read articles about dog training and pet care.</p>
             </Link>
-            <Link href="/guides" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Training Guides</h3>
-              <p className="text-gray-600">Comprehensive guides for dog training and behavior.</p>
-            </Link>
+
           </div>
 
           {relatedBlogPosts.length > 0 && (

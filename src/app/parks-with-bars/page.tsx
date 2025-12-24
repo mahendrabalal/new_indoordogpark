@@ -68,19 +68,19 @@ export async function generateMetadata(): Promise<Metadata> {
 // Filter parks that have bars, restaurants, or food service
 function filterParksWithBars(parks: DogPark[]): DogPark[] {
   const barKeywords = ['bar', 'restaurant', 'cafe', 'food', 'dining', 'pub', 'brewery', 'bistro', 'grill'];
-  
+
   return parks.filter(park => {
     const nameLower = park.name.toLowerCase();
     const descriptionLower = (park.description || '').toLowerCase();
     const businessTypeLower = (park.businessType || '').toLowerCase();
-    
+
     // Check if name, description, or business type contains bar-related keywords
-    const hasBarKeyword = barKeywords.some(keyword => 
-      nameLower.includes(keyword) || 
+    const hasBarKeyword = barKeywords.some(keyword =>
+      nameLower.includes(keyword) ||
       descriptionLower.includes(keyword) ||
       businessTypeLower.includes(keyword)
     );
-    
+
     return hasBarKeyword;
   });
 }
@@ -91,7 +91,7 @@ export default async function ParksWithBarsPage() {
   // Get all parks and filter for those with bars
   const allParks = await getAllStaticParks();
   const filteredParks = filterParksWithBars(allParks);
-  
+
   // Take first 20 for initial display
   const initialParks = filteredParks.slice(0, 20);
   const collectionPageSchema = generateCollectionPageSchema(initialParks);
@@ -253,7 +253,7 @@ export default async function ParksWithBarsPage() {
       <div className="bg-gray-50 py-12 mt-12">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Resources</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <Link href="/training-facilities" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Training Facilities</h3>
@@ -263,10 +263,7 @@ export default async function ParksWithBarsPage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Blog & Guides</h3>
               <p className="text-gray-600">Read articles about dog parks, training, and pet care.</p>
             </Link>
-            <Link href="/guides" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Dog Park Guides</h3>
-              <p className="text-gray-600">Comprehensive guides for dog park visitors and owners.</p>
-            </Link>
+
           </div>
 
           {relatedBlogPosts.length > 0 && (

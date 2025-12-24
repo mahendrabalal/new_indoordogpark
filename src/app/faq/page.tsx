@@ -75,10 +75,7 @@ export default function FAQPage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Blog & Guides</h3>
               <p className="text-gray-600">Read helpful articles about dog parks and pet care</p>
             </Link>
-            <Link href="/guides" className="bg-slate-50 p-6 rounded-lg hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Park Guides</h3>
-              <p className="text-gray-600">Comprehensive guides for dog park visitors</p>
-            </Link>
+
             <Link href="/how-it-works" className="bg-slate-50 p-6 rounded-lg hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">How It Works</h3>
               <p className="text-gray-600">Learn how to use our directory effectively</p>

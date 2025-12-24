@@ -139,12 +139,7 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
-    {
-      url: `${baseUrl}/guides`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
+
     {
       url: `${baseUrl}/how-it-works`,
       lastModified: currentDate,

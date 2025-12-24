@@ -38,7 +38,7 @@ export default function robots(): MetadataRoute.Robots {
           '/about',
           '/contact',
           '/faq',
-          '/guides',
+
           '/help',
           '/how-it-works',
           '/list-your-park',
@@ -79,7 +79,7 @@ export default function robots(): MetadataRoute.Robots {
           '/about',
           '/contact',
           '/faq',
-          '/guides',
+
           '/help',
           '/how-it-works',
           '/list-your-park',
