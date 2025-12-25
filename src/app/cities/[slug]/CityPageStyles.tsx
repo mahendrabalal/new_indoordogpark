@@ -964,27 +964,470 @@ export default function CityPageStyles() {
 
         @media (max-width: 768px) {
           .city-page-layout {
-            padding-top: 80px;
+            padding-top: 72px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 32px;
           }
 
-          .section-heading {
-            text-align: center;
+          .section-shell {
+            padding: 0 8px;
           }
 
-          .section-heading p {
-            margin: 0 auto;
+          .city-hero-section {
+            padding: 12px 0 32px;
           }
 
-          .hero-metrics {
-            grid-template-columns: 1fr;
+          .city-hero-shell {
+            gap: 24px;
+          }
+
+          .hero-breadcrumbs {
+            font-size: 11px;
+            margin-bottom: 8px;
+            gap: 6px;
+          }
+
+          .hero-eyebrow {
+            font-size: 10px;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+          }
+
+          .city-hero-copy h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+          }
+
+          .hero-description {
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
           }
 
           .hero-chip-row {
             grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+          }
+
+          .hero-chip {
+            padding: 8px 10px;
+          }
+
+          .chip-value {
+            font-size: 16px;
+          }
+
+          .chip-label {
+            font-size: 10px;
+          }
+
+          .hero-metrics {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+          }
+
+          .hero-metric {
+            padding: 14px;
+          }
+
+          .metric-value {
+            font-size: 26px;
+            margin: 4px 0 2px;
+          }
+
+          .metric-label,
+          .metric-caption {
+            font-size: 11px;
+          }
+
+          .hero-cta-row {
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+          }
+
+          .hero-cta {
+            width: 100%;
+            justify-content: center;
+            padding: 12px 18px;
+            font-size: 14px;
+          }
+
+          .hero-footnotes {
+            flex-direction: column;
+            gap: 6px;
+            font-size: 11px;
+            margin-top: 0;
+          }
+
+          .hero-image-card {
+            min-height: 280px;
+            border-radius: 20px;
+            margin-top: 16px;
+          }
+
+          .section-heading {
+            text-align: center;
+            margin-bottom: 20px;
+          }
+
+          .section-heading h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+          }
+
+          .section-heading p {
+            font-size: 13px;
+            margin: 0 auto;
+          }
+
+          .section-eyebrow {
+            font-size: 10px;
+            padding: 4px 10px;
+            margin-bottom: 8px;
+          }
+
+          .city-insights-section,
+          .park-collections-section,
+          .map-experience-section,
+          .planning-essentials-section,
+          .park-directory-section,
+          .city-faq-section,
+          .related-resources-section {
+            padding: 32px 0;
+          }
+
+          .insights-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+          }
+
+          .insight-card {
+            padding: 16px;
+          }
+
+          .insight-card h3 {
+            font-size: 24px;
+            margin: 8px 0;
+          }
+
+          .insight-card p {
+            font-size: 13px;
+          }
+
+          .collection-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+          }
+
+          .collection-card {
+            padding: 16px;
+          }
+
+          .collection-card h3 {
+            font-size: 18px;
+          }
+
+          .map-grid {
+            gap: 16px;
+          }
+
+          .map-panel {
+            min-height: 280px;
+            border-radius: 16px;
+          }
+
+          .map-sidebar-card {
+            padding: 14px;
+          }
+
+          .map-chip-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+          }
+
+          .planning-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .planning-card {
+            padding: 16px;
+          }
+
+          .planning-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+
+          .directory-category {
+            padding: 16px 12px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+          }
+
+          .directory-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+          }
+
+          .directory-header h3 {
+            font-size: 18px;
+            margin: 0;
+          }
+
+          .directory-header p {
+            font-size: 13px;
+            margin: 0;
           }
 
           .directory-grid {
             grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .category-chip-row {
+            gap: 6px;
+            margin-bottom: 20px;
+          }
+
+          .category-chip-row button {
+            padding: 6px 12px;
+            font-size: 13px;
+          }
+
+          .resources-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .resource-card {
+            padding: 16px;
+          }
+
+          .city-premium-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .city-premium-card {
+            padding: 14px;
+          }
+
+          .city-premium-media {
+            height: 120px;
+          }
+
+          .hero-meta-card {
+            position: static;
+            width: 100%;
+            margin-top: 12px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .city-page-layout {
+            padding-top: 64px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 24px;
+          }
+
+          .section-shell {
+            padding: 0 6px;
+          }
+
+          .city-hero-section {
+            padding: 8px 0 24px;
+          }
+
+          .city-hero-shell {
+            gap: 20px;
+          }
+
+          .hero-breadcrumbs {
+            font-size: 10px;
+            margin-bottom: 6px;
+          }
+
+          .city-hero-copy h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+          }
+
+          .hero-description {
+            font-size: 13px;
+            margin-bottom: 12px;
+          }
+
+          .hero-chip-row {
+            grid-template-columns: 1fr;
+            gap: 6px;
+            margin-bottom: 12px;
+          }
+
+          .hero-chip {
+            padding: 10px;
+          }
+
+          .chip-value {
+            font-size: 15px;
+          }
+
+          .chip-label {
+            font-size: 9px;
+          }
+
+          .hero-metrics {
+            gap: 8px;
+            margin-bottom: 12px;
+          }
+
+          .hero-metric {
+            padding: 12px;
+          }
+
+          .metric-value {
+            font-size: 22px;
+          }
+
+          .hero-cta-row {
+            gap: 6px;
+            margin-bottom: 12px;
+          }
+
+          .hero-cta {
+            padding: 11px 16px;
+            font-size: 13px;
+          }
+
+          .hero-footnotes {
+            gap: 4px;
+            font-size: 10px;
+          }
+
+          .hero-image-card {
+            min-height: 240px;
+            border-radius: 16px;
+            margin-top: 12px;
+          }
+
+          .section-heading {
+            margin-bottom: 16px;
+          }
+
+          .section-heading h2 {
+            font-size: 20px;
+            margin-bottom: 6px;
+          }
+
+          .section-heading p {
+            font-size: 12px;
+          }
+
+          .city-insights-section,
+          .park-collections-section,
+          .map-experience-section,
+          .planning-essentials-section,
+          .park-directory-section,
+          .city-faq-section,
+          .related-resources-section {
+            padding: 24px 0;
+          }
+
+          .insights-grid {
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+
+          .insight-card {
+            padding: 14px;
+          }
+
+          .insight-card h3 {
+            font-size: 22px;
+            margin: 6px 0;
+          }
+
+          .insight-card p {
+            font-size: 12px;
+          }
+
+          .collection-grid {
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+
+          .collection-card {
+            padding: 14px;
+          }
+
+          .collection-card h3 {
+            font-size: 16px;
+          }
+
+          .map-panel {
+            min-height: 240px;
+          }
+
+          .map-sidebar-card {
+            padding: 12px;
+          }
+
+          .planning-grid {
+            gap: 10px;
+          }
+
+          .planning-card {
+            padding: 14px;
+          }
+
+          .directory-category {
+            padding: 14px 10px;
+            margin-bottom: 20px;
+          }
+
+          .directory-header {
+            gap: 8px;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+          }
+
+          .directory-header h3 {
+            font-size: 16px;
+          }
+
+          .directory-grid {
+            gap: 10px;
+          }
+
+          .category-chip-row {
+            gap: 5px;
+            margin-bottom: 16px;
+          }
+
+          .category-chip-row button {
+            padding: 5px 10px;
+            font-size: 12px;
+          }
+
+          .resources-grid {
+            gap: 10px;
+          }
+
+          .resource-card {
+            padding: 14px;
           }
         }
     `}</style>

@@ -1326,7 +1326,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'phoenix',
     city: 'Phoenix',
     state: 'AZ',
-    featuredImage: 'https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/Phoenix/hero.webp',
     summary:
       'Peak search volume in summer—pair landing page with heat alerts and membership waitlist CTAs.',
     parks: [],
@@ -1711,7 +1711,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'new-york',
     city: 'New York',
     state: 'NY',
-    featuredImage: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/new-york/hero.webp',
     summary:
       'Dense urban environment + year-round demand: indoor parks in converted spaces, high-rise amenities, and dedicated facilities serve NYC dog families.',
     parks: [],
@@ -1934,7 +1934,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'seattle',
     city: 'Seattle',
     state: 'WA',
-    featuredImage: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/seattle/hero.webp',
     summary:
       'Rainy winters + active dog community: indoor parks with year-round climate control, training classes, and craft beverage partnerships serve Seattle dog families.',
     parks: [],
@@ -2005,6 +2005,33 @@ export const priorityCityContent: PriorityCityConfig[] = [
         secondary: { label: 'Schedule a consult', href: '/contact' },
       },
     },
+  },
+  {
+    slug: 'san-francisco',
+    city: 'San Francisco',
+    state: 'CA',
+    featuredImage: '/images/cities/san-francisco/hero.webp',
+    summary: 'Bay Area hub with diverse dog park options and strong indoor coverage.',
+    parks: [],
+    customContent: {},
+  },
+  {
+    slug: 'los-angeles',
+    city: 'Los Angeles',
+    state: 'CA',
+    featuredImage: '/images/cities/los-angeles/hero.webp',
+    summary: 'Major metropolitan area with extensive dog park options and strong indoor coverage.',
+    parks: [],
+    customContent: {},
+  },
+  {
+    slug: 'san-diego',
+    city: 'San Diego',
+    state: 'CA',
+    featuredImage: '/images/cities/san-diego/hero.webp',
+    summary: 'Coastal city with diverse dog park options and strong indoor coverage.',
+    parks: [],
+    customContent: {},
   },
 ];
 

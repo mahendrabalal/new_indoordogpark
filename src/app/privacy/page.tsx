@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       <section className="terms-title-section">
         <div className="mx-auto max-w-4xl px-4 py-6">
           <h1 className="terms-page-title">Privacy Policy</h1>
-          <p className="terms-page-date">Last Updated: January 10, 2025</p>
+          <p className="terms-page-date">Last Updated: December 25, 2025</p>
         </div>
       </section>
 

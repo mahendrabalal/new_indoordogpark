@@ -11,10 +11,11 @@ const defaultPreferences: Record<PreferenceKey, boolean> = {
   marketing: false,
 };
 
-const preferenceCopy: Record<PreferenceKey, { title: string; description: string }> = {
+const preferenceCopy: Record<PreferenceKey, { title: string; description: string; note?: string }> = {
   necessary: {
     title: 'Strictly necessary',
-    description: 'Required for authentication, security, and remembering your basic site preferences. These cookies are always on.',
+    description: 'Required for authentication, security, and remembering your basic site preferences. These cookies are always on and cannot be disabled.',
+    note: 'Required for site reliability',
   },
   functional: {
     title: 'Functional experience',
@@ -22,11 +23,12 @@ const preferenceCopy: Record<PreferenceKey, { title: string; description: string
   },
   analytics: {
     title: 'Analytics & performance',
-    description: 'Allows us to understand usage patterns so we can improve maps, search speed, and park discovery journeys.',
+    description: 'Allows us to understand usage patterns so we can improve maps, search speed, and park discovery journeys. We use Google Analytics 4 with IP anonymization enabled.',
   },
   marketing: {
-    title: 'Community & marketing',
-    description: 'Used to show relevant partnership offers, newsletter content, and retargeting for upcoming events.',
+    title: 'Marketing & advertising',
+    description: 'Enables personalized advertising through third-party advertising partners. These cookies help display relevant ads based on your browsing behavior. You can opt out anytime.',
+    note: 'Third-party advertising',
   },
 };
 
@@ -85,16 +87,35 @@ export default function CookiePreferencesForm() {
       <div className="grid gap-4 md:grid-cols-2">
         {(Object.keys(preferenceCopy) as PreferenceKey[]).map((key) => {
           const isLocked = key === 'necessary';
+          const isMarketing = key === 'marketing';
           return (
             <label
               key={key}
               htmlFor={`cookie-${key}`}
-              className="group relative flex cursor-pointer flex-col gap-3 rounded-2xl border border-slate-200 bg-white/70 p-5 transition hover:border-violet-200 hover:bg-white"
+              className={`group relative flex cursor-pointer flex-col gap-3 rounded-2xl border p-5 transition-all ${
+                isMarketing
+                  ? 'border-violet-300 bg-violet-50/50 hover:border-violet-400 hover:bg-violet-50 hover:shadow-md'
+                  : 'border-slate-200 bg-white/70 hover:border-violet-200 hover:bg-white'
+              }`}
             >
               <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-base font-semibold text-slate-900">{preferenceCopy[key].title}</p>
-                  <p className="text-sm text-slate-500">{preferenceCopy[key].description}</p>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    {isMarketing && (
+                      <i className="bi bi-megaphone-fill text-violet-600 text-sm" aria-hidden="true"></i>
+                    )}
+                    <p className={`text-base font-semibold ${isMarketing ? 'text-violet-900' : 'text-slate-900'}`}>
+                      {preferenceCopy[key].title}
+                    </p>
+                  </div>
+                  <p className={`text-sm leading-relaxed ${isMarketing ? 'text-slate-700' : 'text-slate-500'}`}>
+                    {preferenceCopy[key].description}
+                  </p>
+                  {isMarketing && (
+                    <p className="mt-2 text-xs text-slate-600 italic">
+                      When enabled, third-party advertising partners may use cookies to personalize ads.
+                    </p>
+                  )}
                 </div>
                 <input
                   id={`cookie-${key}`}
@@ -102,13 +123,21 @@ export default function CookiePreferencesForm() {
                   checked={preferences[key]}
                   onChange={() => handleToggle(key)}
                   disabled={isLocked}
-                  className="h-5 w-5 rounded border-slate-300 text-violet-600 focus:ring-violet-500 disabled:cursor-not-allowed"
+                  className={`h-5 w-5 rounded border-slate-300 text-violet-600 focus:ring-violet-500 disabled:cursor-not-allowed flex-shrink-0 ${
+                    isMarketing ? 'border-violet-400' : ''
+                  }`}
                 />
               </div>
-              {isLocked && (
-                <span className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                  <i className="bi bi-shield-lock" aria-hidden />
-                  Required for site reliability
+              {preferenceCopy[key].note && (
+                <span className={`inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${
+                  isLocked 
+                    ? 'bg-slate-100 text-slate-600' 
+                    : isMarketing
+                    ? 'bg-violet-100 text-violet-800'
+                    : 'bg-violet-50 text-violet-700'
+                }`}>
+                  <i className={`bi ${isLocked ? 'bi-shield-lock' : isMarketing ? 'bi-megaphone' : 'bi-info-circle'}`} aria-hidden />
+                  {preferenceCopy[key].note}
                 </span>
               )}
             </label>

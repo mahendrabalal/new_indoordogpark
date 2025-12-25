@@ -451,7 +451,9 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   }
 
   if (city) {
-    // For regular cities without priority equivalents: merge static parks + user submissions for this city
+    // For regular cities: merge static parks + user submissions for this city
+    // Also check if there's a priority config to merge custom content and featured image
+    const priorityConfig = getPriorityCityConfigBySlug(normalizedSlug);
     const allCityParks = getParksByCity(allParks, city.name, city.state);
     const parksByType = getParksByType(allCityParks);
     const stats = getCityStatistics(allCityParks);
@@ -461,6 +463,8 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
       parkCount: allCityParks.length,
+      // Merge featured image from priority config if available
+      featuredImage: priorityConfig?.featuredImage || city.featuredImage,
     };
 
     const nearbyCities = getNearbyCities(allParks, city.name, city.state);
@@ -470,6 +474,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       cityParks: allCityParks,
       parksByType,
       stats,
+      customContent: priorityConfig?.customContent,
       nearbyCities,
     };
   }

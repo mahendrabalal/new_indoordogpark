@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ParkCard from '@/components/ParkCard';
+import ParkDirectoryGrid from '@/components/ParkDirectoryGrid';
 import TableOfContents from '@/components/TableOfContents';
 import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
@@ -19,6 +19,7 @@ import type { Amenities, DogPark } from '@/types/dog-park';
 import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
+import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 const CityMap = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
@@ -704,6 +705,7 @@ export default async function CityPage({ params }: CityPageProps) {
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 540px"
+                  unoptimized={featuredImage.startsWith('/images/')}
                 />
                 <div className="hero-image-gradient" />
               </div>
@@ -734,9 +736,11 @@ export default async function CityPage({ params }: CityPageProps) {
             ))}
           </div>
 
-            <div className="city-stats-wrapper">
-              <CityStats parks={cityParks} cityName={city.name} />
-            </div>
+            {cityParks.length > 0 && (
+              <div className="city-stats-wrapper">
+                <CityStats parks={cityParks} cityName={city.name} />
+              </div>
+            )}
           </div>
         </section>
 
@@ -1014,17 +1018,7 @@ export default async function CityPage({ params }: CityPageProps) {
                     </div>
                     <span className="directory-count">{parks.length}</span>
                   </div>
-                  <div className="directory-grid">
-                    {parks.map((park) => (
-                      <ParkCard key={park.id} park={park} />
-                    ))}
-                  </div>
-                  {parks.length === 0 && (
-                    <div className="directory-empty">
-                      <i className="bi bi-chat-square" />
-                      <p>No listings yet—submit a favorite to help other pet parents.</p>
-                    </div>
-                  )}
+                  <ParkDirectoryGrid parks={parks} />
                 </div>
               );
             })}
@@ -1054,31 +1048,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
               </div>
               
-              <div className="nearby-cities-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
-                {nearbyCities.map((nearby) => (
-                  <Link key={nearby.slug} href={`/cities/${nearby.slug}`} className="nearby-city-card" style={{ display: 'block', textDecoration: 'none', borderRadius: '12px', overflow: 'hidden', background: 'white', border: '1px solid #e2e8f0', transition: 'transform 0.2s' }}>
-                    <div className="nearby-city-image" style={{ position: 'relative', height: '180px', backgroundColor: '#f1f5f9' }}>
-                      {nearby.featuredImage ? (
-                        <Image 
-                          src={nearby.featuredImage} 
-                          alt={`Dog parks in ${nearby.name}, ${nearby.state}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 300px"
-                          style={{ objectFit: 'cover' }}
-                        />
-                      ) : (
-                        <div className="city-card-placeholder" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
-                          <i className="bi bi-image" style={{ fontSize: '2rem' }} />
-                        </div>
-                      )}
-                    </div>
-                    <div className="nearby-city-content" style={{ padding: '1rem' }}>
-                      <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem', color: '#0f172a' }}>{nearby.name}</h3>
-                      <p style={{ fontSize: '0.875rem', color: '#64748b' }}>{nearby.parkCount} parks · {nearby.avgRating.toFixed(1)} avg rating</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              <NearbyCitiesGrid cities={nearbyCities} />
             </div>
           </section>
         )}

@@ -54,22 +54,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="footer-social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i className="bi bi-instagram"></i>
-          </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <i className="bi bi-youtube"></i>
-          </a>
-          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-            <i className="bi bi-pinterest"></i>
-          </a>
-        </div>
-
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p>&copy; 2025 IndoorDogPark. All rights reserved</p>

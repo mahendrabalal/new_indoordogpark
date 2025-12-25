@@ -126,10 +126,10 @@ export default function Header() {
                 Locations <i className={`bi bi-chevron-down dropdown-icon ${openDropdown === 'locations' ? 'rotated' : ''}`}></i>
               </button>
               <div className={`header-dropdown ${openDropdown === 'locations' ? 'open' : ''}`}>
-                <Link href="/cities/austin" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Austin</Link>
-                <Link href="/cities/phoenix" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Phoenix</Link>
+                <Link href="/cities/san-francisco" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>San Francisco</Link>
+                <Link href="/cities/los-angeles" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Los Angeles</Link>
+                <Link href="/cities/san-diego" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>San Diego</Link>
                 <Link href="/cities/new-york" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>New York</Link>
-                <Link href="/cities/houston" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Houston</Link>
                 <Link href="/cities/seattle" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Seattle</Link>
               </div>
             </div>
