@@ -187,14 +187,16 @@ export default function OwnerResourcesPage() {
                     href={template.link} 
                     className="inline-flex items-center text-sm font-semibold text-violet-700 hover:text-violet-500"
                     {...(template.link.endsWith('.pdf') ? { download: true } : {})}
+                    target={template.link.endsWith('.pdf') ? undefined : '_blank'}
                   >
-                    <i className="bi bi-download mr-1" aria-hidden></i>
-                    Download PDF
+                    <i className={`bi ${template.link.endsWith('.pdf') ? 'bi-download' : 'bi-file-earmark-text'} mr-1`} aria-hidden></i>
+                    {template.link.endsWith('.pdf') ? 'Download PDF' : 'View Template'}
                   </Link>
                   {template.secondaryLink && (
                     <Link 
                       href={template.secondaryLink} 
                       className="inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900"
+                      target="_blank"
                     >
                       {template.secondaryLabel || 'View Online'}
                       <i className="bi bi-arrow-right-short text-xl ml-1" aria-hidden />

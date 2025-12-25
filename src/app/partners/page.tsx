@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 
 const partnerStats = [
@@ -41,22 +42,16 @@ const partnerProcess = [
 
 const partnerTiers = [
   {
-    name: 'Featured spotlight',
-    price: '$349 / mo',
-    description: 'Ideal for established parks looking to dominate a metro area.',
-    perks: ['Priority placement across search & maps', 'Quarterly creative refresh', 'Lead routing via SMS + email', 'Dedicated success manager'],
+    name: 'Normal Listing',
+    price: '$0 / mo',
+    description: 'Free listing for all dog parks. Perfect for getting started.',
+    perks: ['Basic listing on the platform', 'Appears in search results', 'Shows on map', 'Pending admin approval'],
   },
   {
-    name: 'Community partner',
-    price: '$189 / mo',
-    description: 'Built for boutique facilities, trainers, and indoor pop-ups.',
-    perks: ['Verified listing & review boost', 'Inclusion in discovery campaigns', 'Access to owner resource portal', 'Monthly metrics digest'],
-  },
-  {
-    name: 'Network collaborator',
-    price: 'Custom',
-    description: 'For franchises, real-estate groups, and tourism boards.',
-    perks: ['Multi-location rollout support', 'Joint research & events', 'API + data sharing options', 'Co-branded marketing playbooks'],
+    name: 'Premium Listing',
+    price: '$9.99 / mo',
+    description: 'Enhanced visibility and priority placement for your park.',
+    perks: ['Everything in Normal plan', 'Featured section on homepage', 'Priority in search results', 'Premium badge on listing', 'Highlighted on map', 'Cancel anytime'],
   },
 ];
 
@@ -80,30 +75,44 @@ export default function PartnersPage() {
   return (
     <PageLayout>
       <section className="bg-slate-900 py-20 text-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 lg:flex-row lg:items-center">
-          <div className="space-y-6 lg:w-2/3">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Partners program</p>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">Grow your park with California&rsquo;s most trusted dog community</h1>
-            <p className="text-lg text-slate-200">
-              IndoorDogPark connects motivated pet parents with safe, well-run facilities. Tap into an audience that is actively searching, planning,
-              and ready to visit today.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg shadow-slate-900/30 hover:bg-violet-50">
-                Apply to partner
-              </Link>
-              <Link href="/media" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:border-white">
-                Download program deck
-              </Link>
-            </div>
-          </div>
-          <div className="grid flex-1 grid-cols-2 gap-4">
-            {partnerStats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
-                <p className="text-xs uppercase tracking-widest text-violet-200">{stat.label}</p>
-                <p className="mt-2 text-3xl font-bold">{stat.value}</p>
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
+            <div className="space-y-6 lg:w-1/2">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Partners program</p>
+              <h1 className="text-4xl font-bold leading-tight md:text-5xl">Grow your park with California&rsquo;s most trusted dog community</h1>
+              <p className="text-lg text-slate-200">
+                IndoorDogPark connects motivated pet parents with safe, well-run facilities. Tap into an audience that is actively searching, planning,
+                and ready to visit today.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg shadow-slate-900/30 hover:bg-violet-50">
+                  Apply to partner
+                </Link>
+                <Link href="/media" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:border-white">
+                  Download program deck
+                </Link>
               </div>
-            ))}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                {partnerStats.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                    <p className="text-xs uppercase tracking-widest text-violet-200">{stat.label}</p>
+                    <p className="mt-2 text-2xl font-bold">{stat.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 lg:pl-8">
+              <div className="relative h-[500px] w-full overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/partners/dog-in-partner-page.jpg"
+                  alt="Dog standing on green artificial turf in an indoor dog park facility"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,6 +123,17 @@ export default function PartnersPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Why partner with us</p>
             <h2 className="mt-2 text-3xl font-bold text-slate-900">Purpose-built distribution for indoor parks, daycares, and trainers</h2>
             <p className="mt-4 text-lg text-slate-600">We combine editorial storytelling, conversion-optimized listings, and hands-on support to help you fill every play session.</p>
+            <div className="mt-6 space-y-4 text-slate-700">
+              <p>
+                IndoorDogPark.org serves as California&apos;s most comprehensive directory for indoor dog facilities, attracting thousands of pet owners each month who are actively searching for safe, climate-controlled spaces for their dogs. Unlike generic business directories, we focus exclusively on indoor dog parks, training facilities, and daycare centers, ensuring your business reaches an audience with genuine intent to visit.
+              </p>
+              <p>
+                Our platform combines search engine optimization, user reviews, detailed amenities information, and local market insights to help dog owners discover facilities that match their specific needs. By partnering with us, you gain access to a dedicated audience of committed pet parents who value quality, safety, and exceptional service for their dogs.
+              </p>
+              <p>
+                We understand that running an indoor dog facility requires significant investment in safety protocols, staff training, and facility maintenance. Our partnership program is designed to help you maximize your marketing efforts and connect with the right customers who appreciate the value of professional, well-maintained indoor dog spaces.
+              </p>
+            </div>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {partnerBenefits.map((benefit) => (
@@ -136,6 +156,14 @@ export default function PartnersPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-700">Go live in days</p>
               <h2 className="mt-2 text-3xl font-bold text-slate-900">White-glove onboarding</h2>
               <p className="mt-4 text-slate-600">No complicated dashboards to learn. We guide the entire process so your team can keep delighting dogs.</p>
+              <div className="mt-6 space-y-3 text-slate-600">
+                <p>
+                  Our streamlined onboarding process is designed to get your facility listed quickly without overwhelming your team with complex setup requirements. We handle the technical aspects of listing creation, optimization, and publication, allowing you to focus on what you do best: providing exceptional experiences for dogs and their owners.
+                </p>
+                <p>
+                  Once your listing goes live, you&apos;ll have access to a simple dashboard where you can view visitor statistics, update information, respond to inquiries, and manage your subscription. Our support team is available to answer questions and help you maximize the value of your partnership.
+                </p>
+              </div>
             </div>
             <div className="grid flex-1 gap-4 md:grid-cols-2">
               {partnerProcess.map((step) => (
@@ -155,25 +183,46 @@ export default function PartnersPage() {
           <div className="mb-8 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Programs</p>
             <h2 className="mt-3 text-3xl font-bold text-slate-900">Choose a tier that matches your goals</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-slate-600">
+              We offer flexible listing options to accommodate facilities at every stage of growth. Whether you&apos;re just getting started or looking to maximize your visibility, we have a plan that fits your needs and budget. All listings are reviewed for quality to ensure our directory maintains high standards.
+            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {partnerTiers.map((tier) => (
-              <div key={tier.name} className="flex flex-col rounded-3xl border border-slate-200 bg-slate-50/70 p-6 shadow-lg shadow-slate-900/5">
+          <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+            {partnerTiers.map((tier, index) => (
+              <div key={tier.name} className={`flex flex-col rounded-3xl border-2 p-6 shadow-lg shadow-slate-900/5 ${
+                index === 1 
+                  ? 'border-violet-600 bg-gradient-to-br from-violet-50 to-purple-50' 
+                  : 'border-slate-200 bg-slate-50/70'
+              }`}>
+                {index === 1 && (
+                  <div className="mb-4">
+                    <span className="inline-block bg-gradient-to-r from-violet-600 to-purple-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                      Recommended
+                    </span>
+                  </div>
+                )}
                 <div>
                   <p className="text-sm uppercase tracking-[0.3em] text-slate-500">{tier.name}</p>
-                  <p className="mt-2 text-3xl font-bold text-slate-900">{tier.price}</p>
+                  <p className={`mt-2 text-3xl font-bold ${index === 1 ? 'text-violet-600' : 'text-slate-900'}`}>{tier.price}</p>
                   <p className="mt-1 text-sm text-slate-600">{tier.description}</p>
                 </div>
                 <ul className="mt-6 space-y-3 text-sm text-slate-700">
                   {tier.perks.map((perk) => (
                     <li key={perk} className="flex items-start gap-2">
-                      <i className="bi bi-check-circle-fill text-emerald-500" aria-hidden />
+                      <i className={`bi bi-check-circle-fill ${index === 1 ? 'text-violet-600' : 'text-emerald-500'}`} aria-hidden />
                       <span>{perk}</span>
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="mt-8 inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-700">
-                  Schedule a walkthrough
+                <Link 
+                  href={index === 0 ? "/list-your-park" : "/list-your-park?plan=premium"} 
+                  className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold ${
+                    index === 1 
+                      ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:from-violet-700 hover:to-purple-700' 
+                      : 'bg-slate-900 text-white hover:bg-slate-800'
+                  }`}
+                >
+                  {index === 0 ? 'Get Started Free' : 'Choose Premium'}
                 </Link>
               </div>
             ))}
@@ -181,10 +230,60 @@ export default function PartnersPage() {
         </div>
       </section>
 
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="mb-10 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Frequently asked questions</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900">Common questions about our partnership program</h2>
+          </div>
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">What types of facilities qualify for partnership?</h3>
+              <p className="text-slate-600">
+                We work with indoor dog parks, climate-controlled play facilities, dog daycare centers, training facilities with indoor spaces, and dog-friendly establishments with dedicated play areas. Facilities must maintain appropriate safety standards, have clear vaccination requirements, and provide a professional, welcoming environment for dogs and their owners.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">How does the Normal listing differ from Premium?</h3>
+              <p className="text-slate-600">
+                Normal listings are free and include basic features like search visibility, map placement, and standard listing information. Premium listings at $9.99/month provide enhanced visibility through featured homepage placement, priority search ranking, premium badges, and highlighted map markers. Both options require admin approval to ensure quality standards.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">What information do I need to provide for listing?</h3>
+              <p className="text-slate-600">
+                You&apos;ll need to provide basic facility information including name, address, business type, description, contact details, operating hours, amenities, pricing information, and photos. We also ask about safety protocols, vaccination requirements, and any special features that make your facility unique. Our team reviews all submissions to ensure accuracy and completeness.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">How long does the approval process take?</h3>
+              <p className="text-slate-600">
+                Most listings are reviewed and approved within 24-48 hours. For Premium listings, once payment is confirmed through Stripe, your listing is typically upgraded within the same timeframe. We verify facility information, confirm contact details, and ensure listings meet our quality standards before going live.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Can I update my listing after it&apos;s published?</h3>
+              <p className="text-slate-600">
+                Yes, you can update your listing at any time through your dashboard. Changes to basic information, hours, amenities, photos, and descriptions can be made instantly. Significant changes like location updates may require re-approval. Premium listing subscribers also have access to priority support for updates and optimizations.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">What if I want to cancel my Premium listing?</h3>
+              <p className="text-slate-600">
+                Premium listings can be cancelled at any time through the Stripe Customer Portal, accessible from your dashboard. Your listing will remain active until the end of your current billing period, then revert to a Normal listing. You&apos;ll retain all your listing information and can upgrade again in the future if desired.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-900/95 py-16 text-white">
         <div className="mx-auto max-w-5xl px-4 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Building trust together</p>
-          <p className="mt-8 text-lg text-slate-200">We partner with safety-first operators, training collectives, animal welfare groups, and tourism boards to elevate dog experiences across the state.</p>
+          <p className="mt-8 text-lg text-slate-200">We partner with safety-first operators, training collectives, animal welfare groups, and tourism boards to elevate dog experiences across the state. Our commitment to quality ensures that every listing on our platform represents a facility dedicated to providing safe, enjoyable experiences for dogs and their families.</p>
+          <p className="mt-4 text-slate-300">
+            By maintaining high standards for all listings and providing detailed, accurate information, we help dog owners make informed decisions while supporting facilities that prioritize animal welfare, proper safety protocols, and exceptional customer service.
+          </p>
         </div>
       </section>
 
