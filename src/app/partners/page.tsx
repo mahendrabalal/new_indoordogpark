@@ -88,9 +88,6 @@ export default function PartnersPage() {
                 <Link href="/contact" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 shadow-lg shadow-slate-900/30 hover:bg-violet-50">
                   Apply to partner
                 </Link>
-                <Link href="/media" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:border-white">
-                  Download program deck
-                </Link>
               </div>
               <div className="grid grid-cols-2 gap-4 pt-4">
                 {partnerStats.map((stat) => (

@@ -59,9 +59,69 @@ export default function FAQPage() {
             <Link href="/contact" className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-slate-900 hover:bg-violet-50">
               Contact support
             </Link>
-            <Link href="/help" className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 font-semibold text-white hover:border-white">
-              Visit help center
-            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Options Section */}
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-700">Contact options</p>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5">
+                <h3 className="text-lg font-semibold text-slate-900">Email support</h3>
+                <a href="mailto:support@indoordogpark.org" className="mt-2 inline-flex items-center text-sm font-semibold text-violet-700 hover:text-violet-500">
+                  support@indoordogpark.org
+                </a>
+                <p className="mt-1 text-sm text-slate-500">Replies within 24h</p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5">
+                <h3 className="text-lg font-semibold text-slate-900">Contact form</h3>
+                <Link href="/contact" className="mt-2 inline-flex items-center text-sm font-semibold text-violet-700 hover:text-violet-500">
+                  Available 24/7
+                </Link>
+                <p className="mt-1 text-sm text-slate-500">Best for detailed inquiries</p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5">
+                <h3 className="text-lg font-semibold text-slate-900">Urgent issues</h3>
+                <a href="mailto:safety@indoordogpark.org" className="mt-2 inline-flex items-center text-sm font-semibold text-violet-700 hover:text-violet-500">
+                  safety@indoordogpark.org
+                </a>
+                <p className="mt-1 text-sm text-slate-500">Safety reports prioritized</p>
+              </div>
+            </div>
+            <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50/80 p-6 text-sm text-slate-600">
+              <p className="font-semibold text-slate-800">Emergency situations</p>
+              <p className="mt-2">If there is an immediate safety concern at a park, contact the facility directly, notify local authorities if needed, and then email safety@indoordogpark.org so our team can investigate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* System Status Section */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="rounded-3xl border border-slate-200 bg-slate-900/95 p-8 text-white">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">System status</p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-200">Maps & search</p>
+                <h3 className="mt-2 text-lg font-semibold">Operational</h3>
+                <p className="mt-2 text-sm text-slate-200">No incidents reported.</p>
+              </div>
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-200">Owner dashboard</p>
+                <h3 className="mt-2 text-lg font-semibold">Operational</h3>
+                <p className="mt-2 text-sm text-slate-200">Scheduled maintenance every Sunday 10–11 PM PT.</p>
+              </div>
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-200">Payments & billing</p>
+                <h3 className="mt-2 text-lg font-semibold">Operational</h3>
+                <p className="mt-2 text-sm text-slate-200">Stripe-powered billing with redundant monitoring.</p>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-slate-200">Subscribe to proactive updates by emailing <a className="underline" href="mailto:support@indoordogpark.org?subject=Status%20updates">support@indoordogpark.org</a>.</p>
           </div>
         </div>
       </section>

@@ -147,12 +147,6 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/help`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
       url: `${baseUrl}/owner-resources`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
@@ -163,12 +157,6 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/media`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
     },
     {
       url: `${baseUrl}/cookie-preferences`,

@@ -282,7 +282,7 @@ function LoginForm() {
                   Remember this device
                 </label>
                 <Link
-                  href="/help?topic=account"
+                  href="/faq"
                   className="text-sm font-semibold text-[#FF5722] transition-colors hover:text-[#E64A19]"
                 >
                   Need help signing in?

@@ -669,9 +669,6 @@ export default function HomePageClient({
           </section>
         )}
 
-        {/* Cities Section (only show when not searching) */}
-        {!showSearchLayout && <CitiesSection />}
-
         {/* Informational Content Section (AdSense Compliance) */}
         {!showSearchLayout && (
           <SeoContentSection
@@ -743,6 +740,9 @@ export default function HomePageClient({
             className="border-t border-gray-100 mt-12"
           />
         )}
+
+        {/* Cities Section (only show when not searching) */}
+        {!showSearchLayout && <CitiesSection />}
       </main>
 
       {/* Footer */}

@@ -38,11 +38,8 @@ export default function robots(): MetadataRoute.Robots {
           '/about',
           '/contact',
           '/faq',
-
-          '/help',
           '/how-it-works',
           '/list-your-park',
-          '/media',
           '/owner-resources',
           '/partners',
           '/privacy',
@@ -79,11 +76,8 @@ export default function robots(): MetadataRoute.Robots {
           '/about',
           '/contact',
           '/faq',
-
-          '/help',
           '/how-it-works',
           '/list-your-park',
-          '/media',
           '/owner-resources',
           '/partners',
           '/privacy',

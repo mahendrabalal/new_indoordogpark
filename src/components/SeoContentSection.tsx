@@ -79,7 +79,16 @@ export default function SeoContentSection({
 
         {faqs.length > 0 && (
           <div className="mt-12 max-w-4xl">
-            <h3 className="text-2xl font-bold text-gray-900">Frequently asked questions</h3>
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900">Frequently asked questions</h3>
+              <Link
+                href="/faq"
+                className="inline-flex items-center gap-2 text-purple-700 font-semibold hover:text-purple-800 transition-colors whitespace-nowrap"
+              >
+                More
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
             <div className="mt-4 space-y-3">
               {faqs.map((faq) => (
                 <details
@@ -122,6 +131,7 @@ export default function SeoContentSection({
     </section>
   );
 }
+
 
 
 

@@ -36,7 +36,7 @@ export default function ContactPage() {
         <section className="contact-hero">
           <div className="contact-hero-content">
             <h1>Get in Touch</h1>
-            <p>We&rsquo;d love to hear from you. Send us a message and we&rsquo;ll respond as soon as possible.</p>
+            <p>At IndoorDogPark, we&rsquo;re committed to providing you with the most comprehensive directory of indoor dog parks and play areas. Whether you&rsquo;re a dog owner looking for the perfect spot, a business owner wanting to list your facility, or have questions about our platform, we&rsquo;re here to help. Our team typically responds within 24 hours. For the fastest response, please use the contact form below or email us directly.</p>
           </div>
         </section>
 
@@ -54,15 +54,13 @@ export default function ContactPage() {
                   </div>
                   <div className="contact-info-content">
                     <h3>Email</h3>
-                    <p><a href="mailto:support@indoordogpark.org">support@indoordogpark.org</a></p>
-                    <p className="contact-info-subtitle">We&rsquo;ll respond within 24 hours</p>
+                    <p><a href="mailto:media@indoordogpark.org">media@indoordogpark.org</a></p>
                   </div>
                 </div>
 
-
                 <div className="contact-info-card">
                   <div className="contact-info-icon">
-                    <i className="bi bi-chat-dots"></i>
+                    <i className="bi bi-clock"></i>
                   </div>
                   <div className="contact-info-content">
                     <h3>Response Time</h3>
@@ -73,23 +71,17 @@ export default function ContactPage() {
 
                 <div className="contact-info-card">
                   <div className="contact-info-icon">
-                    <i className="bi bi-geo-alt"></i>
+                    <i className="bi bi-info-circle"></i>
                   </div>
                   <div className="contact-info-content">
-                    <h3>Location</h3>
-                    <p>San Francisco, CA 94102</p>
-                    <p className="contact-info-subtitle">United States</p>
-                  </div>
-                </div>
-
-                <div className="contact-info-card">
-                  <div className="contact-info-icon">
-                    <i className="bi bi-clock"></i>
-                  </div>
-                  <div className="contact-info-content">
-                    <h3>Business Hours</h3>
-                    <p>Mon - Fri: 9 AM - 5 PM</p>
-                    <p>Sat - Sun: 10 AM - 4 PM</p>
+                    <h3>What We Can Help With</h3>
+                    <ul className="contact-help-list">
+                      <li>Park listings and submissions</li>
+                      <li>Directory information updates</li>
+                      <li>Technical support</li>
+                      <li>Partnership opportunities</li>
+                      <li>General inquiries</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -98,6 +90,39 @@ export default function ContactPage() {
               <div className="contact-form-section">
                 <h2>Send us a Message</h2>
                 <ContactForm />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What Can You Contact Us About Section */}
+        <section className="contact-topics">
+          <div className="contact-container">
+            <h2 className="text-center">What Can You Contact Us About?</h2>
+            <div className="contact-topics-grid">
+              <div className="contact-topic-card">
+                <h3>List Your Park</h3>
+                <p>Add your indoor dog park to our directory and reach thousands of dog owners. Select &ldquo;List a Park&rdquo; in the contact form to get started.</p>
+              </div>
+              <div className="contact-topic-card">
+                <h3>Report an Issue</h3>
+                <p>Found incorrect information or have a concern? Use the contact form and select &ldquo;Report an Issue&rdquo; to let us know.</p>
+              </div>
+              <div className="contact-topic-card">
+                <h3>Partnership Opportunities</h3>
+                <p>Interested in collaborating? Select &ldquo;Partnership&rdquo; in the contact form to discuss opportunities with our team.</p>
+              </div>
+              <div className="contact-topic-card">
+                <h3>Technical Support</h3>
+                <p>Experiencing issues with the website or app? Select &ldquo;Technical Support&rdquo; and we&rsquo;ll help troubleshoot.</p>
+              </div>
+              <div className="contact-topic-card">
+                <h3>Feedback & Suggestions</h3>
+                <p>Have ideas to improve IndoorDogPark? Select &ldquo;Feedback&rdquo; to share your thoughts and suggestions.</p>
+              </div>
+              <div className="contact-topic-card">
+                <h3>General Inquiries</h3>
+                <p>Have a question that doesn&rsquo;t fit into other categories? Select &ldquo;General Inquiry&rdquo; and we&rsquo;ll be happy to help.</p>
               </div>
             </div>
           </div>
@@ -138,6 +163,16 @@ export default function ContactPage() {
                 <h3>Can I provide feedback or suggestions?</h3>
                 <p>We&rsquo;d love to hear your ideas! Select &ldquo;Feedback&rdquo; in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
               </div>
+
+              <div className="faq-item">
+                <h3>Can I request a park to be added if it&rsquo;s not in the directory?</h3>
+                <p>Absolutely! Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;General Inquiry&rdquo; to request that we add a park to our directory.</p>
+              </div>
+
+              <div className="faq-item">
+                <h3>How do I update information about my listed park?</h3>
+                <p>Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;Report an Issue&rdquo; to request updates. Include the park name and the information that needs to be changed.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -149,15 +184,11 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Link href="/faq" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">FAQ</h3>
-                <p className="text-gray-600">Find answers to common questions</p>
+                <p className="text-gray-600">Find answers to common questions about using our directory and finding the perfect indoor dog park for your pet.</p>
               </Link>
               <Link href="/list-your-park" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">List Your Park</h3>
-                <p className="text-gray-600">Add your dog park to our directory</p>
-              </Link>
-              <Link href="/help" className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Help Center</h3>
-                <p className="text-gray-600">Get help with using our platform</p>
+                <p className="text-gray-600">Add your dog park to our directory and reach thousands of dog owners searching for quality indoor play spaces.</p>
               </Link>
             </div>
           </div>

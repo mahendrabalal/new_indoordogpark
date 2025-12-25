@@ -84,12 +84,6 @@ export async function GET() {
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/help`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
       url: `${baseUrl}/owner-resources`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
@@ -100,12 +94,6 @@ export async function GET() {
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/media`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
     },
     {
       url: `${baseUrl}/cookie-preferences`,

@@ -3981,10 +3981,11 @@ mark {
 }
 
 .contact-hero-content p {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   opacity: 0.95;
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* Contact Main Section */
@@ -4264,6 +4265,112 @@ mark {
 .faq-item a:hover {
   color: #E64A19;
   text-decoration: underline;
+}
+
+/* Contact Intro Section */
+.contact-intro {
+  background: white;
+  padding: 60px 20px;
+}
+
+.contact-intro h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.contact-intro-text {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Contact Help List */
+.contact-help-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+.contact-help-list li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-help-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #FF5722;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Contact Topics Section */
+.contact-topics {
+  background: white;
+  padding: 80px 20px;
+}
+
+.contact-topics h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 50px;
+}
+
+.contact-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .contact-topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-topic-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.contact-topic-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: #FF5722;
+}
+
+.contact-topic-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.contact-topic-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 /* ========== ABOUT PAGE ========== */
@@ -7617,6 +7724,90 @@ mark {
   .btn-modern-pink {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ========== TERMS & PRIVACY PAGE TITLE SECTION ========== */
+.terms-title-section {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.terms-page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.terms-page-date {
+  font-size: 1rem;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* ========== TERMS & PRIVACY HERO SECTION ========== */
+.terms-hero-section {
+  background: white;
+  padding: 1rem 0 0 0;
+  margin-bottom: 0;
+}
+
+.terms-hero-background {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.terms-hero-image {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive styles for terms page */
+@media (max-width: 768px) {
+  .terms-page-title {
+    font-size: 2rem;
+  }
+
+  .terms-page-date {
+    font-size: 0.95rem;
+  }
+
+  .terms-hero-background {
+    min-height: 250px;
+  }
+
+  .terms-hero-section {
+    padding: 0.75rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-title-section {
+    padding: 16px;
+  }
+
+  .terms-page-title {
+    font-size: 1.75rem;
+  }
+
+  .terms-page-date {
+    font-size: 0.875rem;
+  }
+
+  .terms-hero-background {
+    min-height: 200px;
+  }
+
+  .terms-hero-section {
+    padding: 0.5rem 0;
   }
 }
 

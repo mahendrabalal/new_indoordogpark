@@ -12,7 +12,6 @@ export default function Footer() {
             <ul className="footer-links">
               <li><Link href="/about">About us</Link></li>
               <li><Link href="/partners">Partners</Link></li>
-              <li><Link href="/media">Media</Link></li>
             </ul>
           </div>
 
@@ -41,7 +40,6 @@ export default function Footer() {
             <h4 className="footer-heading">Support</h4>
             <ul className="footer-links">
               <li><Link href="/contact">Contact us</Link></li>
-              <li><Link href="/help">Help center</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
             </ul>
           </div>
