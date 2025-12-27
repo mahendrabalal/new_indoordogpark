@@ -102,6 +102,11 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
     return notFound();
   }
 
+  // Return 404 if tag exists but has no posts (prevents Soft 404 errors)
+  if (tag.count === 0) {
+    return notFound();
+  }
+
   const page = parseInt(searchParams.page || '1');
   const perPage = parseInt(searchParams.perPage || '12');
 

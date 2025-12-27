@@ -107,7 +107,6 @@ export default function Header() {
               <div className={`header-dropdown ${openDropdown === 'discover' ? 'open' : ''}`}>
                 <Link href="/parks-with-bars" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Parks with Bars</Link>
                 <Link href="/training-facilities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Training Facilities</Link>
-                <Link href="/blog" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Blog & Guides</Link>
                 <Link href="/how-it-works" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>How It Works</Link>
               </div>
             </div>
@@ -135,11 +134,11 @@ export default function Header() {
             </div>
 
             <Link href="/about" className="header-nav-link">About</Link>
+            <Link href="/blog" className="header-nav-link">Blog</Link>
           </nav>
         </div>
 
         <div className="header-right">
-          <Link href="/blog" className="header-link">Blog</Link>
           <Link href="/contact" className="header-link">Contact us</Link>
           <Link href="/list-your-park" className="header-link header-link-primary">
             List your park

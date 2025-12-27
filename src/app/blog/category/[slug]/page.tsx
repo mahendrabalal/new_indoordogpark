@@ -133,6 +133,11 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     return notFound();
   }
 
+  // Return 404 if category exists but has no posts (prevents Soft 404 errors)
+  if (category.count === 0) {
+    return notFound();
+  }
+
   // Redirect to canonical slug if the requested slug doesn't match
   // (handles cases like "indoor dog park" or "indoor%20dog%20park" -> "indoor-dog-park")
   if (category.slug !== params.slug) {

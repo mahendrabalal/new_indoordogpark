@@ -38,13 +38,52 @@ Based on data from the [Association of Professional Dog Trainers (APDT)](https:/
 
 ### Quick Cost Overview
 
-| Training Type | Average Cost | Session Length | Best For |
-|---------------|--------------|----------------|----------|
-| Group Classes | $150-$200 (6-8 weeks) | 45-60 min/week | Basic obedience, socialization |
-| Private Training | $50-$150/session | 60 min | Specific issues, personalized attention |
-| Board & Train | $1,000-$2,500 (2-4 weeks) | Full immersion | Busy owners, intensive training |
-| Online Courses | $50-$300 | Self-paced | Budget-conscious, basic commands |
-| Puppy Kindergarten | $125-$175 (4-6 weeks) | 45-60 min/week | Young puppies (8-16 weeks) |
+<div class="table-wrapper">
+
+<table>
+<thead>
+<tr>
+<th>Training Type</th>
+<th>Average Cost</th>
+<th>Session Length</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group Classes</td>
+<td>$150-$200 (6-8 weeks)</td>
+<td>45-60 min/week</td>
+<td>Basic obedience, socialization</td>
+</tr>
+<tr>
+<td>Private Training</td>
+<td>$50-$150/session</td>
+<td>60 min</td>
+<td>Specific issues, personalized attention</td>
+</tr>
+<tr>
+<td>Board & Train</td>
+<td>$1,000-$2,500 (2-4 weeks)</td>
+<td>Full immersion</td>
+<td>Busy owners, intensive training</td>
+</tr>
+<tr>
+<td>Online Courses</td>
+<td>$50-$300</td>
+<td>Self-paced</td>
+<td>Budget-conscious, basic commands</td>
+</tr>
+<tr>
+<td>Puppy Kindergarten</td>
+<td>$125-$175 (4-6 weeks)</td>
+<td>45-60 min/week</td>
+<td>Young puppies (8-16 weeks)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 
 ---
 
@@ -146,14 +185,51 @@ Certified trainers typically charge 20-40% more than uncertified trainers, but t
 
 Training costs vary dramatically by region. Here's what the data shows:
 
-| Metro Area | Average Group Class Cost | Average Private Session |
-|------------|-------------------------|-------------------------|
-| New York City | $250-$350 | $100-$175 |
-| Los Angeles | $200-$300 | $85-$150 |
-| Chicago | $175-$275 | $75-$125 |
-| Denver | $150-$225 | $65-$100 |
-| Austin | $150-$200 | $60-$100 |
-| Phoenix | $125-$175 | $50-$85 |
+<div class="table-wrapper">
+
+<table>
+<thead>
+<tr>
+<th>Metro Area</th>
+<th>Average Group Class Cost</th>
+<th>Average Private Session</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New York City</td>
+<td>$250-$350</td>
+<td>$100-$175</td>
+</tr>
+<tr>
+<td>Los Angeles</td>
+<td>$200-$300</td>
+<td>$85-$150</td>
+</tr>
+<tr>
+<td>Chicago</td>
+<td>$175-$275</td>
+<td>$75-$125</td>
+</tr>
+<tr>
+<td>Denver</td>
+<td>$150-$225</td>
+<td>$65-$100</td>
+</tr>
+<tr>
+<td>Austin</td>
+<td>$150-$200</td>
+<td>$60-$100</td>
+</tr>
+<tr>
+<td>Phoenix</td>
+<td>$125-$175</td>
+<td>$50-$85</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 
 *Data compiled from APDT trainer surveys and local market research, 2024*
 
@@ -175,12 +251,36 @@ Let's look at the numbers:
 
 ### Cost of NOT Training Your Puppy
 
-| Problem | Average Cost to Address |
-|---------|------------------------|
-| Behavioral rehabilitation (aggression) | $2,000-$5,000+ |
-| Property damage (untrained destructive behavior) | $500-$3,000+/year |
-| Veterinary visits (stress-related illness) | $200-$1,000/year |
-| Rehoming fees and emotional cost | Immeasurable |
+<div class="table-wrapper">
+
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Average Cost to Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Behavioral rehabilitation (aggression)</td>
+<td>$2,000-$5,000+</td>
+</tr>
+<tr>
+<td>Property damage (untrained destructive behavior)</td>
+<td>$500-$3,000+/year</td>
+</tr>
+<tr>
+<td>Veterinary visits (stress-related illness)</td>
+<td>$200-$1,000/year</td>
+</tr>
+<tr>
+<td>Rehoming fees and emotional cost</td>
+<td>Immeasurable</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 
 According to the [National Council on Pet Population Study and Policy](https://petpopulation.org/), **behavioral problems are the #1 reason dogs are surrendered to shelters**.[^4] Training isn't just about convenience—it's about keeping your puppy in their forever home.
 
