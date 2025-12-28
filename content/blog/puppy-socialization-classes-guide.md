@@ -26,7 +26,7 @@ In my 15 years as a veterinary behaviorist, I've seen one pattern repeat itself 
 
 The science is clear. Research published in the [Journal of Veterinary Behavior](https://www.sciencedirect.com/journal/journal-of-veterinary-behavior) shows that puppies who attend socialization classes are **significantly less likely** to develop behavioral problems later in life.[^1] The [American Veterinary Society of Animal Behavior (AVSAB)](https://avsab.org/) considers early socialization so critical that they recommend starting classes as early as 7-8 weeks of age.[^2]
 
-This guide will help you understand **why puppy socialization matters, what to look for in quality classes, and how to find excellent programs near you**—including the often-overlooked option of [indoor dog parks with socialization programs](/parks).
+This guide will help you understand **why puppy socialization matters, what to look for in quality classes, and how to find excellent programs near you**—including the often-overlooked option of [indoor dog parks with socialization programs](https://indoordogpark.org/parks).
 
 ---
 
@@ -40,12 +40,37 @@ Puppy socialization is the **process of exposing young dogs to a wide variety of
 
 Here's the timeline every puppy owner needs to understand:
 
-| Age | Developmental Stage | Socialization Priority |
-|-----|--------------------|-----------------------|
-| 3-7 weeks | Neonatal/Transitional | Breeder-managed exposure |
-| 8-12 weeks | **Primary Socialization** | **Most critical period** |
-| 12-16 weeks | Secondary Socialization | Continued exposure, fear periods |
-| 16+ weeks | Juvenile | Ongoing but less impactful |
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Developmental Stage</th>
+<th>Socialization Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3-7 weeks</td>
+<td>Neonatal/Transitional</td>
+<td>Breeder-managed exposure</td>
+</tr>
+<tr>
+<td>8-12 weeks</td>
+<td><strong>Primary Socialization</strong></td>
+<td><strong>Most critical period</strong></td>
+</tr>
+<tr>
+<td>12-16 weeks</td>
+<td>Secondary Socialization</td>
+<td>Continued exposure, fear periods</td>
+</tr>
+<tr>
+<td>16+ weeks</td>
+<td>Juvenile</td>
+<td>Ongoing but less impactful</td>
+</tr>
+</tbody>
+</table>
 
 The **8-16 week window** is when puppies are neurologically primed to accept new experiences as "normal." After 16 weeks, the window begins closing, and novel experiences become increasingly likely to trigger fear responses rather than curiosity.
 
@@ -87,7 +112,7 @@ Sessions typically run 45-60 minutes weekly for 4-6 weeks. Class sizes range fro
 
 Unlike structured classes, puppy play groups focus primarily on play and interaction. These drop-in sessions allow puppies to practice social skills in controlled environments.
 
-Many [indoor dog parks](/parks) offer puppy play sessions as part of their regular programming—a convenient option for ongoing socialization.
+Many [indoor dog parks](https://indoordogpark.org/parks) offer puppy play sessions as part of their regular programming—a convenient option for ongoing socialization.
 
 ### 3. Specialty Socialization Classes
 
@@ -105,11 +130,11 @@ Some trainers offer specialized socialization focusing on:
 **Cost:** $50-$150 per package
 **Best For:** Controlled, climate-proof socialization
 
-[Indoor dog parks with dedicated puppy programs](/parks) offer a unique advantage: **controlled, climate-proof environments** where puppies can socialize year-round, regardless of weather or outdoor conditions.
+[Indoor dog parks with dedicated puppy programs](https://indoordogpark.org/parks) offer a unique advantage: **controlled, climate-proof environments** where puppies can socialize year-round, regardless of weather or outdoor conditions.
 
 These facilities typically feature:
 - Separate puppy areas away from adult dogs
-- Padded or [soft play flooring](/blog/top-10-doggy-soft-play-areas-los-angeles) that's gentle on developing joints
+- Padded or [soft play flooring](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles) that's gentle on developing joints
 - Staff trained in puppy behavior and development
 - Vaccination requirements for all participating puppies
 
@@ -174,13 +199,13 @@ Socialization isn't just about other puppies. Quality classes expose puppies to:
 
 #### 1. Indoor Dog Parks and Training Facilities
 
-Many [indoor dog parks](/parks) have expanded to include dedicated puppy programs. These facilities offer unique advantages:
+Many [indoor dog parks](https://indoordogpark.org/parks) have expanded to include dedicated puppy programs. These facilities offer unique advantages:
 - Climate-controlled year-round access
 - Purpose-built play environments
 - Staff experienced with managing dog groups
 - Often combined with daycare and training services
 
-Use our [park finder](/parks) to locate facilities near you that offer puppy programs.
+Use our [park finder](https://indoordogpark.org/parks) to locate facilities near you that offer puppy programs.
 
 #### 2. Local Dog Training Schools
 
@@ -218,7 +243,7 @@ Indoor facilities deserve special attention as socialization venues—yet they'r
 
 #### 1. Controlled Environment
 
-Unlike outdoor parks where you have no control over which dogs enter, [indoor facilities](/parks) require:
+Unlike outdoor parks where you have no control over which dogs enter, [indoor facilities](https://indoordogpark.org/parks) require:
 - Vaccination proof for all dogs
 - Behavioral screening
 - Staff supervision
@@ -233,7 +258,7 @@ The 8-16 week window doesn't pause for rain, snow, or extreme heat. Indoor facil
 #### 3. Purpose-Built for Dogs
 
 Quality indoor parks feature:
-- [Soft play surfaces](/blog/top-10-doggy-soft-play-areas-los-angeles) gentle on developing joints
+- [Soft play surfaces](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles) gentle on developing joints
 - Appropriately sized equipment for puppies
 - Separate areas for small dogs and puppies
 - Climate control for optimal comfort
@@ -328,13 +353,13 @@ By 16 weeks, your puppy should have positive exposure to:
 
 **The Problem:** The critical socialization window closes around 16 weeks—often before the final puppy vaccine series is complete.
 
-**The Solution:** The AVSAB states that **the behavioral risks of inadequate socialization exceed the minimal disease risk** in controlled, well-managed settings like puppy classes and [indoor facilities](/parks) with vaccination requirements.[^2]
+**The Solution:** The AVSAB states that **the behavioral risks of inadequate socialization exceed the minimal disease risk** in controlled, well-managed settings like puppy classes and [indoor facilities](https://indoordogpark.org/parks) with vaccination requirements.[^2]
 
 ### Mistake 2: Using Dog Parks for Puppy Socialization
 
 **The Problem:** Public dog parks are unpredictable, uncontrolled environments. Unknown dogs with unknown vaccination status and behavioral issues can traumatize puppies during their most impressionable period.
 
-**The Solution:** Use controlled environments only: puppy classes, [indoor dog parks](/parks) with designated puppy areas, and playdates with known, vaccinated dogs.
+**The Solution:** Use controlled environments only: puppy classes, [indoor dog parks](https://indoordogpark.org/parks) with designated puppy areas, and playdates with known, vaccinated dogs.
 
 ### Mistake 3: Overwhelming the Puppy
 
@@ -361,23 +386,68 @@ When you see these signs, **create distance and reduce intensity.**
 
 ### What to Budget
 
-| Program Type | Average Cost | Duration |
-|-------------|--------------|----------|
-| Puppy Kindergarten | $150-$200 | 4-6 weeks |
-| Puppy Play Groups | $15-$30/session | Ongoing |
-| Indoor Park Puppy Programs | $75-$150 | Package deals |
-| Private Socialization Sessions | $75-$125/hour | As needed |
+<table>
+<thead>
+<tr>
+<th>Program Type</th>
+<th>Average Cost</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Puppy Kindergarten</td>
+<td>$150-$200</td>
+<td>4-6 weeks</td>
+</tr>
+<tr>
+<td>Puppy Play Groups</td>
+<td>$15-$30/session</td>
+<td>Ongoing</td>
+</tr>
+<tr>
+<td>Indoor Park Puppy Programs</td>
+<td>$75-$150</td>
+<td>Package deals</td>
+</tr>
+<tr>
+<td>Private Socialization Sessions</td>
+<td>$75-$125/hour</td>
+<td>As needed</td>
+</tr>
+</tbody>
+</table>
 
 ### The Cost of NOT Socializing
 
 Behavioral issues from poor socialization cost dramatically more to address:
 
-| Issue | Treatment Cost |
-|-------|----------------|
-| Fear/aggression rehabilitation | $1,500-$5,000+ |
-| Anxiety medication (ongoing) | $600-$1,200/year |
-| Property damage from anxiety | $500-$3,000+/year |
-| Dog walker for reactive dogs | Premium pricing |
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Treatment Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fear/aggression rehabilitation</td>
+<td>$1,500-$5,000+</td>
+</tr>
+<tr>
+<td>Anxiety medication (ongoing)</td>
+<td>$600-$1,200/year</td>
+</tr>
+<tr>
+<td>Property damage from anxiety</td>
+<td>$500-$3,000+/year</td>
+</tr>
+<tr>
+<td>Dog walker for reactive dogs</td>
+<td>Premium pricing</td>
+</tr>
+</tbody>
+</table>
 
 Spending $150-$300 on proper puppy socialization is one of the highest-return investments you'll make in your dog's life.
 
@@ -424,7 +494,7 @@ Socialization should continue throughout your dog's life, but the **8-16 week wi
 
 Ready to find puppy socialization opportunities near you? Here's your action plan:
 
-1. **Search our [indoor dog park directory](/parks)** for facilities with puppy programs
+1. **Search our [indoor dog park directory](https://indoordogpark.org/parks)** for facilities with puppy programs
 2. **Find certified trainers** through [APDT](https://apdt.com/find-a-trainer/) or [IAABC](https://iaabc.org/consultant)
 3. **Ask your veterinarian** for local recommendations
 4. **Observe a class** before enrolling to evaluate methods and environment
@@ -450,11 +520,11 @@ Your puppy's future behavior, confidence, and quality of life depend on the expe
 
 ## Related Articles
 
-- [How Much Is Puppy Obedience Training? Complete Cost Guide](/blog/how-much-is-puppy-obedience-training)
-- [Top 10 Doggy Soft Play Areas in Los Angeles](/blog/top-10-doggy-soft-play-areas-los-angeles)
-- [Best Indoor Dog Parks in New York City](/blog/best-indoor-dog-parks-new-york-city)
-- [Why Aren't There More Indoor Dog Parks?](/blog/why-arent-there-more-indoor-dog-parks)
-- [Starting an Indoor Dog Park Business Guide](/blog/starting-indoor-dog-park-business-guide)
+- [How Much Is Puppy Obedience Training? Complete Cost Guide](https://indoordogpark.org/blog/how-much-is-puppy-obedience-training)
+- [Top 10 Doggy Soft Play Areas in Los Angeles](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles)
+- [Best Indoor Dog Parks in New York City](https://indoordogpark.org/blog/best-indoor-dog-parks-new-york-city)
+- [Why Aren't There More Indoor Dog Parks?](https://indoordogpark.org/blog/why-arent-there-more-indoor-dog-parks)
+- [Starting an Indoor Dog Park Business Guide](https://indoordogpark.org/blog/starting-indoor-dog-park-business-guide)
 
 ---
 
