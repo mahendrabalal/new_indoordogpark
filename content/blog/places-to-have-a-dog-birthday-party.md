@@ -36,15 +36,68 @@ After planning over 200 dog birthday events in my decade as a pet event coordina
 
 ### Quick Comparison
 
-| Venue Type | Average Cost | Party Size | Best For | Weather-Proof |
-|------------|--------------|------------|----------|---------------|
-| Indoor Dog Parks | $50-$200 | 5-15 dogs | Active dogs, year-round parties | ✓ Yes |
-| Doggy Soft Play | $75-$250 | 5-10 dogs | Puppies, small breeds | ✓ Yes |
-| Dog-Friendly Breweries | $0-$100 | 5-20 dogs | Adult owners, casual vibes | ✗ Varies |
-| Private Party Rentals | $100-$400 | 10-30 dogs | Large groups, exclusive access | ✓ Yes |
-| Dog Daycare Facilities | $50-$150 | 5-15 dogs | Regular daycare clients | ✓ Yes |
-| Public Dog Parks | Free | Unlimited | Budget parties, socialized dogs | ✗ No |
-| Your Backyard | $0-$50 | 2-10 dogs | Small groups, familiar dogs | ✗ No |
+<table>
+<thead>
+<tr>
+<th>Venue Type</th>
+<th>Average Cost</th>
+<th>Party Size</th>
+<th>Best For</th>
+<th>Weather-Proof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indoor Dog Parks</td>
+<td>$50-$200</td>
+<td>5-15 dogs</td>
+<td>Active dogs, year-round parties</td>
+<td>✓ Yes</td>
+</tr>
+<tr>
+<td>Doggy Soft Play</td>
+<td>$75-$250</td>
+<td>5-10 dogs</td>
+<td>Puppies, small breeds</td>
+<td>✓ Yes</td>
+</tr>
+<tr>
+<td>Dog-Friendly Breweries</td>
+<td>$0-$100</td>
+<td>5-20 dogs</td>
+<td>Adult owners, casual vibes</td>
+<td>✗ Varies</td>
+</tr>
+<tr>
+<td>Private Party Rentals</td>
+<td>$100-$400</td>
+<td>10-30 dogs</td>
+<td>Large groups, exclusive access</td>
+<td>✓ Yes</td>
+</tr>
+<tr>
+<td>Dog Daycare Facilities</td>
+<td>$50-$150</td>
+<td>5-15 dogs</td>
+<td>Regular daycare clients</td>
+<td>✓ Yes</td>
+</tr>
+<tr>
+<td>Public Dog Parks</td>
+<td>Free</td>
+<td>Unlimited</td>
+<td>Budget parties, socialized dogs</td>
+<td>✗ No</td>
+</tr>
+<tr>
+<td>Your Backyard</td>
+<td>$0-$50</td>
+<td>2-10 dogs</td>
+<td>Small groups, familiar dogs</td>
+<td>✗ No</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
@@ -53,13 +106,13 @@ After planning over 200 dog birthday events in my decade as a pet event coordina
 **Cost:** $50-$200 for private party packages
 **Best For:** Active dogs, year-round celebrations, climate-controlled fun
 
-Indoor dog parks have become the go-to venue for dog birthday parties, and for good reason. These [climate-controlled facilities](/blog/why-arent-there-more-indoor-dog-parks) offer everything dog parties need: safe play areas, professional supervision, and protection from weather surprises.
+Indoor dog parks have become the go-to venue for dog birthday parties, and for good reason. These [climate-controlled facilities](https://indoordogpark.org/blog/why-arent-there-more-indoor-dog-parks) offer everything dog parties need: safe play areas, professional supervision, and protection from weather surprises.
 
 ### Why Indoor Dog Parks Excel for Parties
 
 **Climate Control Matters More Than You Think**
 
-I once planned an outdoor August party in Phoenix where temperatures hit 105°F. Half the dogs spent the entire time panting under shade tents. Since then, I always recommend [indoor facilities](/parks) for any party during extreme weather seasons.
+I once planned an outdoor August party in Phoenix where temperatures hit 105°F. Half the dogs spent the entire time panting under shade tents. Since then, I always recommend [indoor facilities](https://indoordogpark.org/parks) for any party during extreme weather seasons.
 
 According to the [American Kennel Club](https://www.akc.org/expert-advice/health/heat-stroke-in-dogs/), dogs can suffer heat stroke in temperatures as low as 80°F—especially brachycephalic breeds like Bulldogs and Pugs.[^3] Indoor facilities maintain comfortable 65-75°F temperatures year-round.
 
@@ -91,7 +144,7 @@ Most facilities offer party packages that include:
 
 **Pro Tip:** Ask about weekday discounts. Many indoor parks offer **20-30% off** for Monday-Thursday party bookings.
 
-Find [indoor dog parks near you](/parks) that offer party hosting.
+Find [indoor dog parks near you](https://indoordogpark.org/parks) that offer party hosting.
 
 ---
 
@@ -100,7 +153,7 @@ Find [indoor dog parks near you](/parks) that offer party hosting.
 **Cost:** $75-$250 for party packages
 **Best For:** Puppies, senior dogs, small breeds, anxious dogs
 
-[Doggy soft play facilities](/blog/top-10-doggy-soft-play-areas-los-angeles) take indoor parties to another level with padded flooring, obstacle courses, and lower-impact play environments. If your birthday pup is a puppy under a year old or a small breed that gets overwhelmed by larger dogs, soft play is the ideal choice.
+[Doggy soft play facilities](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles) take indoor parties to another level with padded flooring, obstacle courses, and lower-impact play environments. If your birthday pup is a puppy under a year old or a small breed that gets overwhelmed by larger dogs, soft play is the ideal choice.
 
 ### What Makes Soft Play Different
 
@@ -118,11 +171,32 @@ Most soft play venues maintain strict size separation—meaning your Chihuahua w
 
 ### Typical Soft Play Party Packages
 
-| Package Level | Price Range | Includes |
-|--------------|-------------|----------|
-| Basic | $75-$100 | 1 hour play, 5-8 dogs, minimal decorations |
-| Standard | $125-$175 | 1.5 hours, 8-10 dogs, decorations, cake time |
-| Premium | $200-$250 | 2 hours, 10-12 dogs, photos, goodie bags |
+<table>
+<thead>
+<tr>
+<th>Package Level</th>
+<th>Price Range</th>
+<th>Includes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>$75-$100</td>
+<td>1 hour play, 5-8 dogs, minimal decorations</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>$125-$175</td>
+<td>1.5 hours, 8-10 dogs, decorations, cake time</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>$200-$250</td>
+<td>2 hours, 10-12 dogs, photos, goodie bags</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
@@ -131,7 +205,7 @@ Most soft play venues maintain strict size separation—meaning your Chihuahua w
 **Cost:** $0-$100 (food/drink purchases)
 **Best For:** Social owners, adult-focused gatherings, casual vibes
 
-The rise of [dog-friendly bars and breweries](/parks-with-bars) has created a unique party option: venues where humans can enjoy craft beers and great food while their dogs socialize in designated dog areas.
+The rise of [dog-friendly bars and breweries](https://indoordogpark.org/parks-with-bars) has created a unique party option: venues where humans can enjoy craft beers and great food while their dogs socialize in designated dog areas.
 
 ### The Appeal of Brewery Parties
 
@@ -186,7 +260,7 @@ Most private rentals offer:
 - **Agility centers** – Great for active dogs who love obstacles
 - **Doggy daycares** – May offer after-hours private parties
 
-Search our [indoor dog park directory](/parks) and filter for facilities offering private party options.
+Search our [indoor dog park directory](https://indoordogpark.org/parks) and filter for facilities offering private party options.
 
 ---
 
@@ -354,7 +428,7 @@ Keep it manageable: **5-10 dogs** is ideal for most venues. Quality over quantit
 
 ### What age should my dog be for a birthday party?
 
-Dogs as young as **4-6 months** (after completing initial vaccinations) can enjoy parties. For puppies, choose [soft play venues](/blog/top-10-doggy-soft-play-areas-los-angeles) with age-appropriate environments.
+Dogs as young as **4-6 months** (after completing initial vaccinations) can enjoy parties. For puppies, choose [soft play venues](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles) with age-appropriate environments.
 
 ### Are dog birthday cakes safe?
 
@@ -383,14 +457,14 @@ Have an exit plan. Bring a crate, carrier, or designate a quiet room where your 
 Your dog's birthday party should be a joyful celebration—for both your pup and you. The right venue makes all the difference between a stressful event and a wonderful memory.
 
 **My top recommendations:**
-- **For most dogs:** [Indoor dog parks](/parks) offer the best balance of safety, convenience, and fun
-- **For puppies and small breeds:** [Soft play facilities](/blog/top-10-doggy-soft-play-areas-los-angeles) with padded environments
+- **For most dogs:** [Indoor dog parks](https://indoordogpark.org/parks) offer the best balance of safety, convenience, and fun
+- **For puppies and small breeds:** [Soft play facilities](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles) with padded environments
 - **For social owners:** Dog-friendly breweries combine human and canine celebration
 - **For intimate gatherings:** Your backyard with familiar doggy friends
 
 Whatever venue you choose, the most important ingredient is love. Your dog doesn't care about elaborate decorations—they care about the people (and pups) who celebrate with them.
 
-**Ready to start planning?** Browse our [indoor dog park directory](/parks) to find party-friendly venues near you.
+**Ready to start planning?** Browse our [indoor dog park directory](https://indoordogpark.org/parks) to find party-friendly venues near you.
 
 ---
 
@@ -406,11 +480,11 @@ Whatever venue you choose, the most important ingredient is love. Your dog doesn
 
 ## Related Articles
 
-- [Top 10 Doggy Soft Play Areas in Los Angeles](/blog/top-10-doggy-soft-play-areas-los-angeles)
-- [Best Indoor Dog Parks in New York City](/blog/best-indoor-dog-parks-new-york-city)
-- [Why Aren't There More Indoor Dog Parks?](/blog/why-arent-there-more-indoor-dog-parks)
-- [How Much Is Puppy Obedience Training?](/blog/how-much-is-puppy-obedience-training)
-- [Find Dog Parks with Bars Near You](/parks-with-bars)
+- [Top 10 Doggy Soft Play Areas in Los Angeles](https://indoordogpark.org/blog/top-10-doggy-soft-play-areas-los-angeles)
+- [Best Indoor Dog Parks in New York City](https://indoordogpark.org/blog/best-indoor-dog-parks-new-york-city)
+- [Why Aren't There More Indoor Dog Parks?](https://indoordogpark.org/blog/why-arent-there-more-indoor-dog-parks)
+- [How Much Is Puppy Obedience Training?](https://indoordogpark.org/blog/how-much-is-puppy-obedience-training)
+- [Find Dog Parks with Bars Near You](https://indoordogpark.org/parks-with-bars)
 
 ---
 
