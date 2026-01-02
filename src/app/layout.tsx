@@ -217,6 +217,14 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5274561866192746"
           crossOrigin="anonymous"
         />
+        
+        {/* Grow by Mediavine */}
+        <script
+          data-grow-initializer=""
+          dangerouslySetInnerHTML={{
+            __html: `(function(){window.growMe=window.growMe||{},window.growMe._=window.growMe._||[],window.growMe._.push([function(e){var t=document.createElement("script");t.type="text/javascript",t.src="https://faves.grow.me/main.js",t.defer=!0,t.setAttribute("data-grow-faves-site-id","U2I0ZTo2NWU3MDY3YS0wNzI0LTQ0NjktYTZmYS1iYzU0YWYzNWYzOTg="),document.getElementsByTagName("script")[0].parentNode.insertBefore(t,document.getElementsByTagName("script")[0])}])})();`,
+          }}
+        />
       </head>
       <body className={inter.className}>
         <ErrorBoundary level="page">
