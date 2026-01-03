@@ -3,8 +3,10 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import BlogCard from '@/components/blog/BlogCard';
 import BlogPagination from '@/components/blog/BlogPagination';
+import StructuredData from '@/components/blog/StructuredData';
 import { WPCategory, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories } from '@/lib/sanity-api';
+import { SITE_URL } from '@/lib/metadata';
 
 interface CategoryPageProps {
   params: {
@@ -166,17 +168,74 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     perPage,
   };
 
+  // Generate structured data for CollectionPage
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${category.name} Articles`,
+    description: category.description || `Articles in the ${category.name} category about indoor dog parks, dog training, and pet care.`,
+    url: `${SITE_URL}/blog/category/${category.slug}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: pagination.total,
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'BlogPosting',
+          headline: post.title,
+          url: `${SITE_URL}/blog/${post.slug}`,
+          datePublished: post.date,
+        },
+      })),
+    },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Blog',
+          item: `${SITE_URL}/blog`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: category.name,
+          item: `${SITE_URL}/blog/category/${category.slug}`,
+        },
+      ],
+    },
+  };
+
+  const breadcrumbs = [
+    { name: 'Blog', url: '/blog' },
+    { name: category.name, url: `/blog/category/${category.slug}` },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+    <>
+      <StructuredData type="BreadcrumbList" data={{}} breadcrumbs={breadcrumbs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData, null, 2) }}
+      />
+      <div className="min-h-screen bg-gray-50">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="container mx-auto px-4 py-16">
-          <nav className="text-sm mb-4">
-            <Link href="/blog" className="hover:text-purple-200">Blog</Link>
-            <span className="mx-2">/</span>
-            <span>{category.name}</span>
+          <nav aria-label="Breadcrumb" className="text-sm mb-4">
+            <ol className="flex items-center space-x-2">
+              <li>
+                <Link href="/blog" className="hover:text-purple-200">Blog</Link>
+              </li>
+              <li aria-hidden="true" className="text-purple-300">/</li>
+              <li className="text-purple-200" aria-current="page">
+                {category.name}
+              </li>
+            </ol>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{category.name}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{category.name} Articles</h1>
           {category.description && (
             <p className="text-xl text-purple-100 max-w-2xl">{category.description}</p>
           )}
@@ -238,5 +297,6 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         )}
       </div>
     </div>
+    </>
   );
 }
