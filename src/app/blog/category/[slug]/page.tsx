@@ -13,6 +13,16 @@ interface CategoryPageProps {
   };
 }
 
+// Normalize slug for matching (handles URL encoding, spaces, case, etc.)
+function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')  // Replace spaces with hyphens
+    .replace(/-+/g, '-')    // Replace multiple hyphens with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+}
+
 async function getCategory(slug: string): Promise<WPCategory | null> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
@@ -27,35 +37,28 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
     const data = await response.json();
     const categories: WPCategory[] = data.data || [];
 
-    // Try exact match first
+    // Normalize the requested slug
+    const normalizedSlug = normalizeSlug(slug);
+
+    // Try exact match first (with original slug)
     let category = categories.find(cat => cat.slug === slug);
     
-    // If not found, try normalizing the slug (handle spaces, URL encoding, etc.)
+    // If not found, try normalized match
     if (!category) {
-      // Normalize slug: convert spaces to hyphens, lowercase, trim
-      const normalizedSlug = slug
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-+|-+$/g, '');
-      
       category = categories.find(cat => {
-        const catSlug = cat.slug.toLowerCase();
-        return catSlug === normalizedSlug || catSlug === slug.toLowerCase();
+        const catSlug = normalizeSlug(cat.slug);
+        return catSlug === normalizedSlug;
       });
-      
-      // Also try matching by name (in case slug doesn't match but name does)
-      if (!category) {
-        const normalizedName = slug
-          .toLowerCase()
-          .trim()
-          .replace(/\s+/g, ' ');
-        category = categories.find(cat => 
-          cat.name.toLowerCase() === normalizedName || 
-          cat.name.toLowerCase().replace(/\s+/g, '-') === normalizedSlug
-        );
-      }
+    }
+
+    // If still not found, try matching by name (case-insensitive, normalized)
+    if (!category) {
+      const normalizedName = normalizedSlug.replace(/-/g, ' ');
+      category = categories.find(cat => {
+        const catNameNormalized = cat.name.toLowerCase().trim().replace(/\s+/g, '-');
+        return catNameNormalized === normalizedSlug || 
+               cat.name.toLowerCase().trim() === normalizedName;
+      });
     }
 
     return category || null;
@@ -73,6 +76,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     return {
       title: 'Category Not Found',
       description: 'The category you are looking for could not be found.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -134,18 +141,18 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   }
 
   // Return 404 if category exists but has no posts (prevents Soft 404 errors)
-  if (category.count === 0) {
+  if (!category.count || category.count === 0) {
     return notFound();
   }
 
-  // Redirect to canonical slug if the requested slug doesn't match
-  // (handles cases like "indoor dog park" or "indoor%20dog%20park" -> "indoor-dog-park")
-  if (category.slug !== params.slug) {
+  // Redirect to canonical slug if the requested slug doesn't match exactly
+  // (handles URL encoding, spaces, case differences)
+  if (category.slug !== params.slug && normalizeSlug(category.slug) === normalizeSlug(params.slug)) {
     const qs = new URLSearchParams();
     if (searchParams.page && searchParams.page !== '1') qs.set('page', searchParams.page);
     if (searchParams.perPage && searchParams.perPage !== '12') qs.set('perPage', searchParams.perPage);
     const suffix = qs.toString() ? `?${qs.toString()}` : '';
-    permanentRedirect(`/blog/category/${category.slug}${suffix}`);
+    permanentRedirect(`/blog/category/${encodeURIComponent(category.slug)}${suffix}`);
   }
 
   const page = parseInt(searchParams.page || '1');

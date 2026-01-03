@@ -9,13 +9,33 @@ interface CategoryPageProps {
   };
 }
 
+// Normalize slug for matching (handles URL encoding, spaces, case, etc.)
+function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 async function getCategory(slug: string): Promise<WPCategory | null> {
   try {
-    // Decode URL-encoded slugs (e.g., "indoor%20dog%20park" -> "indoor dog park")
-    const decodedSlug = decodeURIComponent(slug);
-    // Also try the slug as-is in case it's already decoded
     const categories = await getCachedCategories();
-    return categories.find(cat => cat.slug === decodedSlug || cat.slug === slug) || null;
+    const normalizedSlug = normalizeSlug(slug);
+    
+    // Try exact match first
+    let category = categories.find(cat => cat.slug === slug);
+    
+    // If not found, try normalized match
+    if (!category) {
+      category = categories.find(cat => {
+        const catSlug = normalizeSlug(cat.slug);
+        return catSlug === normalizedSlug;
+      });
+    }
+    
+    return category || null;
   } catch (error) {
     console.error('Error fetching category:', error);
     return null;

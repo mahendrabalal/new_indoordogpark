@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import TagBlogPage from '@/components/blog/TagBlogPage';
 import { WPTag } from '@/types/wordpress';
 
@@ -11,6 +11,16 @@ interface TagPageProps {
     page?: string;
     perPage?: string;
   };
+}
+
+// Normalize slug for matching (handles URL encoding, spaces, case, etc.)
+function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')  // Replace spaces with hyphens
+    .replace(/-+/g, '-')    // Replace multiple hyphens with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
 }
 
 async function getTag(slug: string): Promise<WPTag | null> {
@@ -27,7 +37,31 @@ async function getTag(slug: string): Promise<WPTag | null> {
     const data = await response.json();
     const tags: WPTag[] = data.data || [];
 
-    return tags.find(tag => tag.slug === slug) || null;
+    // Normalize the requested slug
+    const normalizedSlug = normalizeSlug(slug);
+
+    // Try exact match first (with original slug)
+    let tag = tags.find(tag => tag.slug === slug);
+    
+    // If not found, try normalized match
+    if (!tag) {
+      tag = tags.find(tag => {
+        const tagSlug = normalizeSlug(tag.slug);
+        return tagSlug === normalizedSlug;
+      });
+    }
+
+    // If still not found, try matching by name (case-insensitive, normalized)
+    if (!tag) {
+      const normalizedName = normalizedSlug.replace(/-/g, ' ');
+      tag = tags.find(tag => {
+        const tagNameNormalized = tag.name.toLowerCase().trim().replace(/\s+/g, '-');
+        return tagNameNormalized === normalizedSlug || 
+               tag.name.toLowerCase().trim() === normalizedName;
+      });
+    }
+
+    return tag || null;
   } catch (error) {
     console.error('Error fetching tag:', error);
     return null;
@@ -42,6 +76,10 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     return {
       title: 'Tag Not Found',
       description: 'The tag you are looking for could not be found.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -103,8 +141,18 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   }
 
   // Return 404 if tag exists but has no posts (prevents Soft 404 errors)
-  if (tag.count === 0) {
+  if (!tag.count || tag.count === 0) {
     return notFound();
+  }
+
+  // Redirect to canonical slug if the requested slug doesn't match exactly
+  // (handles URL encoding, spaces, case differences)
+  if (tag.slug !== params.slug && normalizeSlug(tag.slug) === normalizeSlug(params.slug)) {
+    const qs = new URLSearchParams();
+    if (searchParams.page && searchParams.page !== '1') qs.set('page', searchParams.page);
+    if (searchParams.perPage && searchParams.perPage !== '12') qs.set('perPage', searchParams.perPage);
+    const suffix = qs.toString() ? `?${qs.toString()}` : '';
+    permanentRedirect(`/blog/tag/${encodeURIComponent(tag.slug)}${suffix}`);
   }
 
   const page = parseInt(searchParams.page || '1');

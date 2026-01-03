@@ -10,10 +10,33 @@ interface TagPageProps {
   };
 }
 
+// Normalize slug for matching (handles URL encoding, spaces, case, etc.)
+function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 async function getTag(slug: string): Promise<WPTag | null> {
   try {
     const tags = await getCachedTags();
-    return tags.find(tag => tag.slug === slug) || null;
+    const normalizedSlug = normalizeSlug(slug);
+    
+    // Try exact match first
+    let tag = tags.find(tag => tag.slug === slug);
+    
+    // If not found, try normalized match
+    if (!tag) {
+      tag = tags.find(tag => {
+        const tagSlug = normalizeSlug(tag.slug);
+        return tagSlug === normalizedSlug;
+      });
+    }
+    
+    return tag || null;
   } catch (error) {
     console.error('Error fetching tag:', error);
     return null;
