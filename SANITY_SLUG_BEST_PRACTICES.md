@@ -184,6 +184,57 @@ After updating schemas:
 4. Test legacy routes: `/tag/[slug]` (should redirect)
 5. Test edge cases: spaces, special chars, URL encoding
 
+## Next.js Best Practices
+
+### Server-Side Rendering (SSR)
+
+**Best Practice:** Fetch all data on the server, not in client components.
+
+**Why:**
+- ✅ Better SEO (content is in initial HTML)
+- ✅ Faster initial page load (no loading states)
+- ✅ Better performance (no client-side API calls)
+- ✅ Works without JavaScript
+
+**Implementation:**
+- Use server components (default in Next.js App Router)
+- Call `getCachedPosts()` directly from server components
+- Avoid client-side `useEffect` for data fetching
+- Only use client components for interactivity (forms, animations)
+
+**Example (Good):**
+```typescript
+// Server component - fetches data on server
+export default async function TagPage({ params }) {
+  const tag = await getTag(params.slug);
+  const blogData = await getCachedPosts({ tag: tag.slug });
+  // Render directly - no loading state needed
+  return <div>{/* posts */}</div>;
+}
+```
+
+**Example (Bad):**
+```typescript
+// Client component - fetches data in browser
+'use client';
+export default function TagPage({ tag }) {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetch('/api/blog?tag=' + tag.slug).then(...);
+  }, []);
+  // Shows loading state, slower, worse SEO
+}
+```
+
+### API Routes
+
+**When to use:**
+- ✅ External API consumers (mobile apps, third-party integrations)
+- ✅ Webhooks or server-to-server communication
+- ❌ NOT for internal Next.js page components
+
+**Best Practice:** Server components should call data functions directly, not through API routes.
+
 ## Summary
 
 **Key Principles:**
@@ -192,18 +243,28 @@ After updating schemas:
 3. ✅ Normalize at route level for backward compatibility
 4. ✅ Return proper 404s for missing/empty content
 5. ✅ Use consistent normalization functions
+6. ✅ **Fetch data server-side (SSR) for better performance and SEO**
 
 **Files Updated:**
 - `sanity/schemas/category.ts` - Added custom slugify and validation
 - `sanity/schemas/tag.ts` - Added custom slugify and validation
-- `src/app/blog/tag/[slug]/page.tsx` - Improved slug normalization
-- `src/app/blog/category/[slug]/page.tsx` - Improved slug normalization
+- `src/app/blog/tag/[slug]/page.tsx` - Server-side rendering, improved slug normalization
+- `src/app/blog/category/[slug]/page.tsx` - Server-side rendering, improved slug normalization
 - `src/app/tag/[slug]/page.tsx` - Added normalization for legacy routes
 - `src/app/category/[slug]/page.tsx` - Added normalization for legacy routes
+- `src/app/api/blog/route.ts` - API route for external consumers (optional)
+
+**Architecture Improvements:**
+- ✅ Removed client-side data fetching from tag/category pages
+- ✅ All data fetched server-side for better performance
+- ✅ No loading states needed (content in initial HTML)
+- ✅ Better SEO (content crawlable by search engines)
+- ✅ Faster page loads (no client-side API calls)
 
 These changes ensure:
 - Consistent slug format across all content
 - Proper handling of legacy URLs
 - Prevention of soft 404 errors
 - Better SEO and user experience
+- **Optimal performance with server-side rendering**
 

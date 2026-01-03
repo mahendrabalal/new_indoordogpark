@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
-import TagBlogPage from '@/components/blog/TagBlogPage';
-import { WPTag } from '@/types/wordpress';
+import Link from 'next/link';
+import BlogCard from '@/components/blog/BlogCard';
+import BlogPagination from '@/components/blog/BlogPagination';
+import { WPTag, BlogPost, WPPaginationInfo } from '@/types/wordpress';
+import { getCachedPosts, getCachedTags } from '@/lib/sanity-api';
 
 interface TagPageProps {
   params: {
@@ -25,17 +28,7 @@ function normalizeSlug(slug: string): string {
 
 async function getTag(slug: string): Promise<WPTag | null> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/blog/tags`, {
-      next: { revalidate: 3600 },
-    });
-
-    if (!response.ok) {
-      return null;
-    }
-
-    const data = await response.json();
-    const tags: WPTag[] = data.data || [];
+    const tags = await getCachedTags();
 
     // Normalize the requested slug
     const normalizedSlug = normalizeSlug(slug);
@@ -158,5 +151,92 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   const page = parseInt(searchParams.page || '1');
   const perPage = parseInt(searchParams.perPage || '12');
 
-  return <TagBlogPage tag={tag} page={page} perPage={perPage} />;
+  // Fetch posts server-side (best practice)
+  const blogData = await getCachedPosts({
+    page,
+    perPage,
+    tag: tag.slug,
+  });
+
+  const posts: BlogPost[] = blogData.posts || [];
+  const pagination: WPPaginationInfo = {
+    total: blogData.total || 0,
+    totalPages: blogData.totalPages || 0,
+    currentPage: page,
+    perPage,
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+        <div className="container mx-auto px-4 py-16">
+          <nav className="text-sm mb-4">
+            <Link href="/blog" className="hover:text-purple-200">Blog</Link>
+            <span className="mx-2">/</span>
+            <span>Tag: {tag.name}</span>
+          </nav>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">#{tag.name}</h1>
+          {tag.description && (
+            <p className="text-xl text-purple-100 max-w-2xl">{tag.description}</p>
+          )}
+          <div className="mt-6 text-purple-100">
+            <span className="font-semibold">{tag.count}</span> articles tagged with &quot;{tag.name}&quot;
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 py-12">
+        {posts.length === 0 ? (
+          <div className="bg-white rounded-lg shadow-md p-8 text-center">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+            <p className="text-gray-600 mb-4">
+              No articles have been tagged with &quot;{tag.name}&quot; yet.
+            </p>
+            <Link href="/blog" className="text-purple-600 hover:text-purple-700">
+              ← Browse all articles
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+              {posts.map((post) => (
+                <BlogCard key={post.id} post={post} />
+              ))}
+            </div>
+
+            {pagination.totalPages > 1 && (
+              <BlogPagination
+                pagination={pagination}
+                basePath={`/blog/tag/${encodeURIComponent(tag.slug)}`}
+                className="mt-8"
+              />
+            )}
+
+            {/* Explore More Section */}
+            <div className="mt-8 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Explore More</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Link
+                  href="/"
+                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h4 className="font-semibold text-gray-900 mb-2">Browse All Parks</h4>
+                  <p className="text-sm text-gray-600">Discover dog parks across California</p>
+                </Link>
+                <Link
+                  href="/blog"
+                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>
+                  <p className="text-sm text-gray-600">Read all our guides and articles</p>
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
