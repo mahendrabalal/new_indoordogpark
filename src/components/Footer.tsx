@@ -54,6 +54,67 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Social Media Links */}
+        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM) && (
+          <div className="footer-social">
+            {process.env.NEXT_PUBLIC_SOCIAL_TWITTER && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_TWITTER}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on X (Twitter)"
+                title="Follow us on X (Twitter)"
+              >
+                <i className="bi bi-twitter"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
+                title="Follow us on Facebook"
+              >
+                <i className="bi bi-facebook"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+                title="Follow us on Instagram"
+              >
+                <i className="bi bi-instagram"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on LinkedIn"
+                title="Follow us on LinkedIn"
+              >
+                <i className="bi bi-linkedin"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Subscribe to our YouTube channel"
+                title="Subscribe to our YouTube channel"
+              >
+                <i className="bi bi-youtube"></i>
+              </a>
+            )}
+          </div>
+        )}
+
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p>&copy; 2025 IndoorDogPark. All rights reserved</p>

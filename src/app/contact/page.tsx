@@ -84,6 +84,56 @@ export default function ContactPage() {
                     </ul>
                   </div>
                 </div>
+
+                {/* Social Media Links */}
+                {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM) && (
+                  <div className="contact-info-card">
+                    <div className="contact-info-icon">
+                      <i className="bi bi-share-fill"></i>
+                    </div>
+                    <div className="contact-info-content">
+                      <h3>Connect With Us</h3>
+                      <div className="flex flex-wrap gap-4 mt-3">
+                        {process.env.NEXT_PUBLIC_SOCIAL_TWITTER && (
+                          <a
+                            href={process.env.NEXT_PUBLIC_SOCIAL_TWITTER}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                            aria-label="Follow us on X (Twitter)"
+                          >
+                            <i className="bi bi-twitter"></i>
+                            <span>X (Twitter)</span>
+                          </a>
+                        )}
+                        {process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK && (
+                          <a
+                            href={process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                            aria-label="Follow us on Facebook"
+                          >
+                            <i className="bi bi-facebook"></i>
+                            <span>Facebook</span>
+                          </a>
+                        )}
+                        {process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM && (
+                          <a
+                            href={process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                            aria-label="Follow us on Instagram"
+                          >
+                            <i className="bi bi-instagram"></i>
+                            <span>Instagram</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Contact Form */}
