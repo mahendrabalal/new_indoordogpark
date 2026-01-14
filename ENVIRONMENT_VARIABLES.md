@@ -209,6 +209,32 @@ NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
    - Create a container
    - Copy the container ID
 
+### Optional: Social Media Links
+
+```env
+# Social media URLs (displayed in website footer)
+# Add your full profile URLs (e.g., https://www.instagram.com/yourusername/)
+NEXT_PUBLIC_SOCIAL_INSTAGRAM=https://www.instagram.com/yourusername/
+NEXT_PUBLIC_SOCIAL_FACEBOOK=https://www.facebook.com/yourpage
+NEXT_PUBLIC_SOCIAL_TWITTER=https://twitter.com/yourusername
+NEXT_PUBLIC_SOCIAL_LINKEDIN=https://www.linkedin.com/company/yourcompany
+NEXT_PUBLIC_SOCIAL_YOUTUBE=https://www.youtube.com/@yourchannel
+```
+
+**Usage:**
+- These links appear in the website footer as social media icons
+- Footer only shows icons for social media accounts you've added
+- All variables are optional - only add the ones you use
+
+**How to get social media URLs:**
+1. **Instagram**: Go to your profile → Copy profile URL (e.g., `https://www.instagram.com/indoordogpark/`)
+2. **Facebook**: Go to your page → Copy page URL
+3. **Twitter/X**: Go to your profile → Copy profile URL
+4. **LinkedIn**: Go to your company page → Copy page URL
+5. **YouTube**: Go to your channel → Copy channel URL
+
+**See:** `INSTAGRAM_SETUP_GUIDE.md` for detailed Instagram setup instructions
+
 ### Description Generator (LLM-powered copy)
 
 ```env
@@ -295,6 +321,11 @@ OUTREACH_API_TOKEN=your-secure-random-token-here
 
 # Optional: Analytics
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Optional: Social Media (add links to show in footer)
+NEXT_PUBLIC_SOCIAL_INSTAGRAM=https://www.instagram.com/yourusername/
+NEXT_PUBLIC_SOCIAL_FACEBOOK=https://www.facebook.com/yourpage
+NEXT_PUBLIC_SOCIAL_TWITTER=https://twitter.com/yourusername
 ```
 
 ## Vercel Deployment
