@@ -7,9 +7,10 @@ import { useEffect, useState } from 'react';
 interface ParkStatusBadgeProps {
   park: DogPark;
   showNextChange?: boolean;
+  className?: string;
 }
 
-export default function ParkStatusBadge({ park, showNextChange = true }: ParkStatusBadgeProps) {
+export default function ParkStatusBadge({ park, showNextChange = true, className = '' }: ParkStatusBadgeProps) {
   const [statusInfo, setStatusInfo] = useState<ParkStatusInfo>(() => getParkStatus(park));
 
   // Update status every minute to keep it real-time
@@ -29,11 +30,11 @@ export default function ParkStatusBadge({ park, showNextChange = true }: ParkSta
 
   // Only hide if we truly have no hours data at all
   const hasHoursData = park.hours24x7 || (park.openingHours && Object.keys(park.openingHours).length > 0);
-  
+
   if (statusInfo.status === 'unknown' && !hasHoursData) {
     return null;
   }
-  
+
   // If status is unknown but we have hours data, default to closed
   // (This handles edge cases where hours parsing fails but hours exist)
   const effectiveStatus = statusInfo.status === 'unknown' ? 'closed' : statusInfo.status;
@@ -59,7 +60,7 @@ export default function ParkStatusBadge({ park, showNextChange = true }: ParkSta
   const config = statusConfig[effectiveStatus];
 
   return (
-    <div className="park-status-display">
+    <div className={`park-status-display ${className}`}>
       <span className={`status-badge ${config.className}`}>
         <i className={`bi ${config.icon}`}></i>
         <span className="status-text">{config.text}</span>

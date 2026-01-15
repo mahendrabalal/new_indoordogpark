@@ -95,24 +95,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -143,24 +127,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -191,24 +159,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/federal-way/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/federal-way/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -248,24 +200,8 @@
     "rating": 5,
     "reviewCount": 1,
     "userRatingsTotal": 1,
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/marysville/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/marysville/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -305,24 +241,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -353,24 +273,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/redmond/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/redmond/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -401,24 +305,8 @@
     "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
-    "photos": [
-      {
-        "url": "/images/parks/washington/sammamish/just-food-for-dogs-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/just-food-for-dogs-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/just-food-for-dogs-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/sammamish/just-food-for-dogs-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -449,24 +337,8 @@
     "rating": 4.9,
     "reviewCount": 44,
     "userRatingsTotal": 44,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-central-district-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-central-district-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-central-district-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-central-district-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -506,24 +378,8 @@
     "rating": 4.6,
     "reviewCount": 78,
     "userRatingsTotal": 78,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -563,24 +419,8 @@
     "rating": 4.7,
     "reviewCount": 81,
     "userRatingsTotal": 81,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/metro-dog-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/metro-dog-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/metro-dog-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/metro-dog-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -620,24 +460,8 @@
     "rating": 5,
     "reviewCount": 5,
     "userRatingsTotal": 5,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-capitol-hill-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-capitol-hill-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-capitol-hill-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-capitol-hill-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -677,24 +501,8 @@
     "rating": 4.7,
     "reviewCount": 186,
     "userRatingsTotal": 186,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/blue-collar-doghouse-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/blue-collar-doghouse-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/blue-collar-doghouse-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/blue-collar-doghouse-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -734,24 +542,8 @@
     "rating": 4.8,
     "reviewCount": 299,
     "userRatingsTotal": 299,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-lake-city-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-lake-city-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-lake-city-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-lake-city-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -791,24 +583,8 @@
     "rating": 4.7,
     "reviewCount": 347,
     "userRatingsTotal": 347,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-columbia-city-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-columbia-city-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-columbia-city-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-columbia-city-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -848,24 +624,8 @@
     "rating": 4.6,
     "reviewCount": 99,
     "userRatingsTotal": 99,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-queen-anne-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-queen-anne-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-queen-anne-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-queen-anne-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -905,24 +665,8 @@
     "rating": 4.8,
     "reviewCount": 458,
     "userRatingsTotal": 458,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-ballard-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-ballard-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-ballard-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-ballard-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -962,24 +706,8 @@
     "rating": 4.9,
     "reviewCount": 200,
     "userRatingsTotal": 200,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1019,24 +747,8 @@
     "rating": 4.7,
     "reviewCount": 2396,
     "userRatingsTotal": 2396,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/reber-ranch-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/reber-ranch-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/reber-ranch-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/reber-ranch-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1076,24 +788,8 @@
     "rating": 4.6,
     "reviewCount": 544,
     "userRatingsTotal": 544,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/the-whole-cat-and-kaboodle-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/the-whole-cat-and-kaboodle-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/the-whole-cat-and-kaboodle-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/the-whole-cat-and-kaboodle-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1133,24 +829,8 @@
     "rating": 4.2,
     "reviewCount": 176,
     "userRatingsTotal": 176,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/denises-parrot-place-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/denises-parrot-place-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/denises-parrot-place-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/denises-parrot-place-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1190,24 +870,8 @@
     "rating": 4.8,
     "reviewCount": 202,
     "userRatingsTotal": 202,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/eastside-dog-and-cats-too-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/eastside-dog-and-cats-too-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/eastside-dog-and-cats-too-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/eastside-dog-and-cats-too-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1247,24 +911,8 @@
     "rating": 4.3,
     "reviewCount": 1331,
     "userRatingsTotal": 1331,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/sierra-fish-pets-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/sierra-fish-pets-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/sierra-fish-pets-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/sierra-fish-pets-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1304,24 +952,8 @@
     "rating": 4.7,
     "reviewCount": 175,
     "userRatingsTotal": 175,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-greenwood-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-greenwood-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/seattle/all-the-best-pet-care-greenwood-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/all-the-best-pet-care-greenwood-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1361,24 +993,8 @@
     "rating": 4.7,
     "reviewCount": 3413,
     "userRatingsTotal": 3413,
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/bridges-pets-gifts-water-gardens-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/bridges-pets-gifts-water-gardens-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/bridges-pets-gifts-water-gardens-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/bridges-pets-gifts-water-gardens-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1418,24 +1034,8 @@
     "rating": 4.8,
     "reviewCount": 112,
     "userRatingsTotal": 112,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-kendall-yards-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-kendall-yards-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-kendall-yards-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-kendall-yards-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1475,24 +1075,8 @@
     "rating": 4.3,
     "reviewCount": 476,
     "userRatingsTotal": 476,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/northwest-seed-pet-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/northwest-seed-pet-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/northwest-seed-pet-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/northwest-seed-pet-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1532,24 +1116,8 @@
     "rating": 4.9,
     "reviewCount": 194,
     "userRatingsTotal": 194,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-south-hill-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-south-hill-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-south-hill-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/prairie-dog-pet-mercantile-south-hill-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1589,24 +1157,8 @@
     "rating": 4.7,
     "reviewCount": 568,
     "userRatingsTotal": 568,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/the-yuppy-puppy-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/the-yuppy-puppy-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/the-yuppy-puppy-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/the-yuppy-puppy-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1646,24 +1198,8 @@
     "rating": 4.8,
     "reviewCount": 135,
     "userRatingsTotal": 135,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/the-urban-canine-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/the-urban-canine-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/the-urban-canine-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/the-urban-canine-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1703,24 +1239,8 @@
     "rating": 4.1,
     "reviewCount": 566,
     "userRatingsTotal": 566,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1760,24 +1280,8 @@
     "rating": 4.3,
     "reviewCount": 932,
     "userRatingsTotal": 932,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1817,24 +1321,8 @@
     "rating": 4,
     "reviewCount": 754,
     "userRatingsTotal": 754,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/k9-country-club-pet-center-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/k9-country-club-pet-center-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/k9-country-club-pet-center-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/k9-country-club-pet-center-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1874,24 +1362,8 @@
     "rating": 3.7,
     "reviewCount": 91,
     "userRatingsTotal": 91,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/pet-paradise-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/pet-paradise-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/pet-paradise-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/pet-paradise-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1931,24 +1403,8 @@
     "rating": 4.7,
     "reviewCount": 201,
     "userRatingsTotal": 201,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -1988,24 +1444,8 @@
     "rating": 4.8,
     "reviewCount": 352,
     "userRatingsTotal": 352,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/next-to-nature-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/next-to-nature-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/next-to-nature-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/next-to-nature-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2045,24 +1485,8 @@
     "rating": 4.8,
     "reviewCount": 334,
     "userRatingsTotal": 334,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/pet-pros-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/pet-pros-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/pet-pros-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/pet-pros-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2102,24 +1526,8 @@
     "rating": 4.7,
     "reviewCount": 572,
     "userRatingsTotal": 572,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/the-pet-brigade-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/the-pet-brigade-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/the-pet-brigade-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/the-pet-brigade-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2159,24 +1567,8 @@
     "rating": 4.6,
     "reviewCount": 113,
     "userRatingsTotal": 113,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/puppy-village-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/puppy-village-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/puppy-village-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/puppy-village-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2216,24 +1608,8 @@
     "rating": 4.4,
     "reviewCount": 44,
     "userRatingsTotal": 44,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/pacific-northwest-aquatics-and-exotics-rescue-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/pacific-northwest-aquatics-and-exotics-rescue-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/pacific-northwest-aquatics-and-exotics-rescue-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/pacific-northwest-aquatics-and-exotics-rescue-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2273,24 +1649,8 @@
     "rating": 4.8,
     "reviewCount": 68,
     "userRatingsTotal": 68,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/chirp-and-co-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/chirp-and-co-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/chirp-and-co-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/chirp-and-co-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2330,24 +1690,8 @@
     "rating": 4.2,
     "reviewCount": 1549,
     "userRatingsTotal": 1549,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2387,24 +1731,8 @@
     "rating": 4.7,
     "reviewCount": 994,
     "userRatingsTotal": 994,
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/animology-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/animology-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/animology-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/animology-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2444,24 +1772,8 @@
     "rating": 5,
     "reviewCount": 115,
     "userRatingsTotal": 115,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/pet-wants-vancouver-and-portland-north-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pet-wants-vancouver-and-portland-north-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pet-wants-vancouver-and-portland-north-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/pet-wants-vancouver-and-portland-north-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2501,24 +1813,8 @@
     "rating": 4.8,
     "reviewCount": 84,
     "userRatingsTotal": 84,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/neighborhood-pet-boutique-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/neighborhood-pet-boutique-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/neighborhood-pet-boutique-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/neighborhood-pet-boutique-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2558,24 +1854,8 @@
     "rating": 4.8,
     "reviewCount": 426,
     "userRatingsTotal": 426,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2615,24 +1895,8 @@
     "rating": 4.4,
     "reviewCount": 281,
     "userRatingsTotal": 281,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/fang-pet-garden-supply-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/fang-pet-garden-supply-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/fang-pet-garden-supply-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/fang-pet-garden-supply-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2672,24 +1936,8 @@
     "rating": 4.7,
     "reviewCount": 2264,
     "userRatingsTotal": 2264,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/pets-on-broadway-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pets-on-broadway-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pets-on-broadway-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/pets-on-broadway-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2729,24 +1977,8 @@
     "rating": 4.2,
     "reviewCount": 941,
     "userRatingsTotal": 941,
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2786,24 +2018,8 @@
     "rating": 4.8,
     "reviewCount": 146,
     "userRatingsTotal": 146,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/pet-pros-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/pet-pros-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/pet-pros-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/pet-pros-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2843,24 +2059,8 @@
     "rating": 4.8,
     "reviewCount": 92,
     "userRatingsTotal": 92,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2900,24 +2100,8 @@
     "rating": 4.8,
     "reviewCount": 139,
     "userRatingsTotal": 139,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-redmond-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-redmond-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-redmond-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/all-the-best-pet-care-redmond-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -2957,24 +2141,8 @@
     "rating": 4.5,
     "reviewCount": 37,
     "userRatingsTotal": 37,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-mercer-island-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-mercer-island-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-mercer-island-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/all-the-best-pet-care-mercer-island-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3014,24 +2182,8 @@
     "rating": 4.7,
     "reviewCount": 226,
     "userRatingsTotal": 226,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-issaquah-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-issaquah-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-issaquah-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/all-the-best-pet-care-issaquah-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3071,24 +2223,8 @@
     "rating": 4.9,
     "reviewCount": 256,
     "userRatingsTotal": 256,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-kirkland-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-kirkland-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/all-the-best-pet-care-kirkland-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/all-the-best-pet-care-kirkland-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3128,24 +2264,8 @@
     "rating": 4.9,
     "reviewCount": 81,
     "userRatingsTotal": 81,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/natural-pet-pantry-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/natural-pet-pantry-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/natural-pet-pantry-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/natural-pet-pantry-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3185,24 +2305,8 @@
     "rating": 4.6,
     "reviewCount": 145,
     "userRatingsTotal": 145,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/saltwater-city-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/saltwater-city-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/saltwater-city-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/saltwater-city-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3242,24 +2346,8 @@
     "rating": 4.8,
     "reviewCount": 121,
     "userRatingsTotal": 121,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/pet-place-market-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/pet-place-market-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/pet-place-market-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/pet-place-market-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3299,24 +2387,8 @@
     "rating": 4.8,
     "reviewCount": 338,
     "userRatingsTotal": 338,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/the-soggy-doggy-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/the-soggy-doggy-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/the-soggy-doggy-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/the-soggy-doggy-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3356,24 +2428,8 @@
     "rating": 4.8,
     "reviewCount": 89,
     "userRatingsTotal": 89,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3413,24 +2469,8 @@
     "rating": 4.3,
     "reviewCount": 1057,
     "userRatingsTotal": 1057,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/midway-tropical-fish-pets-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/midway-tropical-fish-pets-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/midway-tropical-fish-pets-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/midway-tropical-fish-pets-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3470,24 +2510,8 @@
     "rating": 4.3,
     "reviewCount": 1359,
     "userRatingsTotal": 1359,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3527,24 +2551,8 @@
     "rating": 4.4,
     "reviewCount": 205,
     "userRatingsTotal": 205,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/incas-secret-parrot-bird-toysboarding-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/incas-secret-parrot-bird-toysboarding-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/incas-secret-parrot-bird-toysboarding-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/incas-secret-parrot-bird-toysboarding-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3584,24 +2592,8 @@
     "rating": 4.6,
     "reviewCount": 123,
     "userRatingsTotal": 123,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/poodies-pet-palace-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/poodies-pet-palace-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/poodies-pet-palace-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/poodies-pet-palace-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3641,24 +2633,8 @@
     "rating": 4.7,
     "reviewCount": 291,
     "userRatingsTotal": 291,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/pet-pros-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/pet-pros-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kent/pet-pros-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/pet-pros-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3698,24 +2674,8 @@
     "rating": 4.7,
     "reviewCount": 156,
     "userRatingsTotal": 156,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kent/all-the-best-pet-care-burien-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/all-the-best-pet-care-burien-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kent/all-the-best-pet-care-burien-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kent/all-the-best-pet-care-burien-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3755,24 +2715,8 @@
     "rating": 5,
     "reviewCount": 120,
     "userRatingsTotal": 120,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/everett-pet-nutrition-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/everett-pet-nutrition-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/everett-pet-nutrition-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/everett-pet-nutrition-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3812,24 +2756,8 @@
     "rating": 4.9,
     "reviewCount": 105,
     "userRatingsTotal": 105,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/a-barkery-unleashed-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/a-barkery-unleashed-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/a-barkery-unleashed-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/a-barkery-unleashed-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3869,24 +2797,8 @@
     "rating": 5,
     "reviewCount": 43,
     "userRatingsTotal": 43,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/pet-wants-edmonds-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/pet-wants-edmonds-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/pet-wants-edmonds-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/pet-wants-edmonds-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3926,24 +2838,8 @@
     "rating": 4.7,
     "reviewCount": 425,
     "userRatingsTotal": 425,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/pet-evolution-mill-creek-wa-grooming-self-wash-healthy-food-mobile-nail-trim-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/pet-evolution-mill-creek-wa-grooming-self-wash-healthy-food-mobile-nail-trim-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/pet-evolution-mill-creek-wa-grooming-self-wash-healthy-food-mobile-nail-trim-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/pet-evolution-mill-creek-wa-grooming-self-wash-healthy-food-mobile-nail-trim-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -3983,24 +2879,8 @@
     "rating": 4.2,
     "reviewCount": 1547,
     "userRatingsTotal": 1547,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4040,24 +2920,8 @@
     "rating": 4.6,
     "reviewCount": 850,
     "userRatingsTotal": 850,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/hewitt-reptile-emporium-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/hewitt-reptile-emporium-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/hewitt-reptile-emporium-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/hewitt-reptile-emporium-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4097,24 +2961,8 @@
     "rating": 4.8,
     "reviewCount": 467,
     "userRatingsTotal": 467,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/paddywack-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/paddywack-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/paddywack-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/paddywack-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4154,24 +3002,8 @@
     "rating": 4.9,
     "reviewCount": 246,
     "userRatingsTotal": 246,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/everett/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4211,24 +3043,8 @@
     "rating": 4.6,
     "reviewCount": 125,
     "userRatingsTotal": 125,
-    "photos": [
-      {
-        "url": "/images/parks/washington/everett/critters-co-pet-center-rescue-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/critters-co-pet-center-rescue-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/everett/critters-co-pet-center-rescue-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/everett/critters-co-pet-center-rescue-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4268,24 +3084,8 @@
     "rating": 4.7,
     "reviewCount": 279,
     "userRatingsTotal": 279,
-    "photos": [
-      {
-        "url": "/images/parks/washington/renton/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/renton/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/renton/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/renton/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4325,24 +3125,8 @@
     "rating": 4.2,
     "reviewCount": 612,
     "userRatingsTotal": 612,
-    "photos": [
-      {
-        "url": "/images/parks/washington/renton/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/renton/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/renton/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/renton/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4382,24 +3166,8 @@
     "rating": 4.8,
     "reviewCount": 434,
     "userRatingsTotal": 434,
-    "photos": [
-      {
-        "url": "/images/parks/washington/federal-way/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/federal-way/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4439,24 +3207,8 @@
     "rating": 4.1,
     "reviewCount": 1465,
     "userRatingsTotal": 1465,
-    "photos": [
-      {
-        "url": "/images/parks/washington/federal-way/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/federal-way/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4496,24 +3248,8 @@
     "rating": 5,
     "reviewCount": 1,
     "userRatingsTotal": 1,
-    "photos": [
-      {
-        "url": "/images/parks/washington/federal-way/nts-treat-co-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/nts-treat-co-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/nts-treat-co-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/federal-way/nts-treat-co-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4553,24 +3289,8 @@
     "rating": 4.2,
     "reviewCount": 1333,
     "userRatingsTotal": 1333,
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane-valley/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane-valley/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/spokane-valley/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane-valley/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4610,24 +3330,8 @@
     "rating": 4.8,
     "reviewCount": 445,
     "userRatingsTotal": 445,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/paws-for-a-beer-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/paws-for-a-beer-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/paws-for-a-beer-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/paws-for-a-beer-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4667,24 +3371,8 @@
     "rating": 5,
     "reviewCount": 54,
     "userRatingsTotal": 54,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/kementaris-creatures-bellingham-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/kementaris-creatures-bellingham-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/kementaris-creatures-bellingham-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/kementaris-creatures-bellingham-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4724,24 +3412,8 @@
     "rating": 4.8,
     "reviewCount": 158,
     "userRatingsTotal": 158,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4781,24 +3453,8 @@
     "rating": 4.8,
     "reviewCount": 334,
     "userRatingsTotal": 334,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/reds-aquarium-pet-supply-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/reds-aquarium-pet-supply-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/reds-aquarium-pet-supply-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/reds-aquarium-pet-supply-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4838,24 +3494,8 @@
     "rating": 4.9,
     "reviewCount": 60,
     "userRatingsTotal": 60,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/wild-bird-chalet-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/wild-bird-chalet-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/wild-bird-chalet-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/wild-bird-chalet-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4895,24 +3535,8 @@
     "rating": 4.8,
     "reviewCount": 229,
     "userRatingsTotal": 229,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/shake-shine-llc-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/shake-shine-llc-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/shake-shine-llc-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/shake-shine-llc-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -4952,24 +3576,8 @@
     "rating": 4.3,
     "reviewCount": 1414,
     "userRatingsTotal": 1414,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5009,24 +3617,8 @@
     "rating": 4.3,
     "reviewCount": 35,
     "userRatingsTotal": 35,
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/howdee-kennels-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/howdee-kennels-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/howdee-kennels-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/howdee-kennels-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5066,24 +3658,8 @@
     "rating": 4.3,
     "reviewCount": 743,
     "userRatingsTotal": 743,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5123,24 +3699,8 @@
     "rating": 4.6,
     "reviewCount": 261,
     "userRatingsTotal": 261,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/efc-equipment-feed-pet-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/efc-equipment-feed-pet-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/efc-equipment-feed-pet-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/efc-equipment-feed-pet-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5180,24 +3740,8 @@
     "rating": 4.4,
     "reviewCount": 395,
     "userRatingsTotal": 395,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/pet-medical-center-of-pasco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/pet-medical-center-of-pasco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/pet-medical-center-of-pasco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/pet-medical-center-of-pasco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5237,24 +3781,8 @@
     "rating": 4.8,
     "reviewCount": 202,
     "userRatingsTotal": 202,
-    "photos": [
-      {
-        "url": "/images/parks/washington/auburn/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/auburn/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/auburn/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/auburn/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5294,24 +3822,8 @@
     "rating": 4.6,
     "reviewCount": 420,
     "userRatingsTotal": 420,
-    "photos": [
-      {
-        "url": "/images/parks/washington/auburn/incredible-pets-of-auburn-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/auburn/incredible-pets-of-auburn-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/auburn/incredible-pets-of-auburn-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/auburn/incredible-pets-of-auburn-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5351,24 +3863,8 @@
     "rating": 4.8,
     "reviewCount": 183,
     "userRatingsTotal": 183,
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/nova-reptiles-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/nova-reptiles-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/nova-reptiles-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/nova-reptiles-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5408,24 +3904,8 @@
     "rating": 4.2,
     "reviewCount": 887,
     "userRatingsTotal": 887,
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/marysville/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/marysville/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5465,24 +3945,8 @@
     "rating": 4.8,
     "reviewCount": 263,
     "userRatingsTotal": 263,
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/pet-pros-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/pet-pros-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/pet-pros-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/pet-pros-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5522,24 +3986,8 @@
     "rating": 4.8,
     "reviewCount": 200,
     "userRatingsTotal": 200,
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/spider-shoppe-exotic-pets-supplies-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/spider-shoppe-exotic-pets-supplies-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/spider-shoppe-exotic-pets-supplies-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/spider-shoppe-exotic-pets-supplies-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5579,24 +4027,8 @@
     "rating": 4,
     "reviewCount": 579,
     "userRatingsTotal": 579,
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5636,24 +4068,8 @@
     "rating": 4.7,
     "reviewCount": 252,
     "userRatingsTotal": 252,
-    "photos": [
-      {
-        "url": "/images/parks/washington/redmond/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/redmond/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5693,24 +4109,8 @@
     "rating": 4.1,
     "reviewCount": 531,
     "userRatingsTotal": 531,
-    "photos": [
-      {
-        "url": "/images/parks/washington/redmond/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/redmond/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/redmond/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5750,24 +4150,8 @@
     "rating": 5,
     "reviewCount": 20,
     "userRatingsTotal": 20,
-    "photos": [
-      {
-        "url": "/images/parks/washington/sammamish/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/sammamish/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5807,24 +4191,8 @@
     "rating": 4.2,
     "reviewCount": 606,
     "userRatingsTotal": 606,
-    "photos": [
-      {
-        "url": "/images/parks/washington/sammamish/petco-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/petco-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/sammamish/petco-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/sammamish/petco-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5864,24 +4232,8 @@
     "rating": 4.8,
     "reviewCount": 216,
     "userRatingsTotal": 216,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/all-the-best-pet-care-kenmore-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/all-the-best-pet-care-kenmore-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/all-the-best-pet-care-kenmore-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/all-the-best-pet-care-kenmore-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5921,24 +4273,8 @@
     "rating": 4.1,
     "reviewCount": 162,
     "userRatingsTotal": 162,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/pupscrub-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/pupscrub-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/pupscrub-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/pupscrub-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -5978,24 +4314,8 @@
     "rating": 4.7,
     "reviewCount": 188,
     "userRatingsTotal": 188,
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/mud-bay-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/mud-bay-2.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/washington/kirkland/mud-bay-3.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/mud-bay-1.jpg",
+    "photos": null,
+    "photo": null,
     "placeTypes": [
       "point_of_interest",
       "establishment"
@@ -6054,24 +4374,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/the-seattle-barkery-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/the-seattle-barkery-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/the-seattle-barkery-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/the-seattle-barkery-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ20VCBoQNkFQRSRf_Zf6m-8E",
@@ -6111,24 +4415,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/dennys-pet-world-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/dennys-pet-world-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/dennys-pet-world-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/dennys-pet-world-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJUdvgAKkVkFQR7wHzpHQCEhw",
@@ -6168,24 +4456,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/seattle/earthwise-pet-fremont-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/earthwise-pet-fremont-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/seattle/earthwise-pet-fremont-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/seattle/earthwise-pet-fremont-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJsReliqcZnlQRXgv3oJyEj3c",
@@ -6224,24 +4496,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/northwest-terraria-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/northwest-terraria-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/northwest-terraria-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/northwest-terraria-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJhQ10AnAZnlQRMGcyW5qAxBg",
@@ -6280,24 +4536,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane/priest-river-pets-rosewood-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/priest-river-pets-rosewood-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane/priest-river-pets-rosewood-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane/priest-river-pets-rosewood-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJoe7t_ueqkVQRGCfAoCK_0RE",
@@ -6337,24 +4577,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/fort-fido-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/fort-fido-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/fort-fido-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/fort-fido-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJJ8knh11VkFQR4d2q7nEpi5g",
@@ -6394,24 +4618,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/positive-approach-dog-training-daycare-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/positive-approach-dog-training-daycare-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/positive-approach-dog-training-daycare-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/positive-approach-dog-training-daycare-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ0XKox1f9kFQReDcTlXb5UPs",
@@ -6451,24 +4659,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/puppyland-puyallup-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/puppyland-puyallup-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/puppyland-puyallup-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/puppyland-puyallup-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJdY-0b28BkVQRJfjwaFL5ypg",
@@ -6507,19 +4699,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/four-leg-luxury-living-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/four-leg-luxury-living-2.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/four-leg-luxury-living-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJm9hIbvP_kFQRijrql-nsQC8",
@@ -6558,24 +4739,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/tacoma/asia-gift-aquarium-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/asia-gift-aquarium-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/tacoma/asia-gift-aquarium-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/tacoma/asia-gift-aquarium-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJLWMT9uuvlVQR-UNsUO_QMms",
@@ -6615,24 +4780,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/alley-cat-pet-center-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/alley-cat-pet-center-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/alley-cat-pet-center-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/alley-cat-pet-center-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJB6yGErSllVQRmPJzlScA2qw",
@@ -6672,24 +4821,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/for-pup-sake-pet-food-supplies-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/for-pup-sake-pet-food-supplies-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/for-pup-sake-pet-food-supplies-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/for-pup-sake-pet-food-supplies-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJf7tbtSitlVQRIPWXp-WgoGk",
@@ -6729,24 +4862,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/pine-paw-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pine-paw-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/pine-paw-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/pine-paw-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJmwM136e1lVQRzTpKr2PvTIE",
@@ -6786,24 +4903,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/paws-cascadia-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/paws-cascadia-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/paws-cascadia-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/paws-cascadia-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJw-P0KSu1lVQRD63mJmNjkl8",
@@ -6843,24 +4944,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/all-natural-pet-supply-battle-ground-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/all-natural-pet-supply-battle-ground-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/all-natural-pet-supply-battle-ground-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/all-natural-pet-supply-battle-ground-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJE4I8w_G8lVQR2dvv6d4L9SY",
@@ -6899,24 +4984,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/naturally-healthy-pet-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/naturally-healthy-pet-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/naturally-healthy-pet-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/naturally-healthy-pet-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJq78UHce7lVQRexaXg2Ida8w",
@@ -6956,24 +5025,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/vancouver/vancouver-doodle-buddies-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/vancouver-doodle-buddies-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/vancouver/vancouver-doodle-buddies-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/vancouver/vancouver-doodle-buddies-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJTVaHnrRtkFQRtnaKcgF4hfQ",
@@ -7013,24 +5066,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellevue/pawbillion-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/pawbillion-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellevue/pawbillion-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellevue/pawbillion-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJvUT_b85il1QREjHkS88i18A",
@@ -7070,24 +5107,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/pet-pantry-yakima-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/pet-pantry-yakima-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/pet-pantry-yakima-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/pet-pantry-yakima-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJa85UktZ8l1QRPJQJ36WYG7g",
@@ -7127,24 +5148,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/earthwise-pet-supply-grooming-yakima-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/earthwise-pet-supply-grooming-yakima-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/earthwise-pet-supply-grooming-yakima-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/earthwise-pet-supply-grooming-yakima-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJv2aL8S_WmVQRjK_lzqJuruQ",
@@ -7184,24 +5189,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/petco-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/petco-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/petco-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/petco-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJnZG8z87zmVQRoq9Dc__EEeM",
@@ -7240,24 +5229,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/ellensburg-pet-center-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/ellensburg-pet-center-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/ellensburg-pet-center-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/ellensburg-pet-center-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ-bB2y9LzmVQRf96Y8HIkLVs",
@@ -7297,24 +5270,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/petsense-by-tractor-supply-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/petsense-by-tractor-supply-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/petsense-by-tractor-supply-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/petsense-by-tractor-supply-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJmRuLK20jmFQRR-ZSYaSAX3w",
@@ -7354,24 +5311,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/tractor-supply-co-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/tractor-supply-co-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/tractor-supply-co-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/tractor-supply-co-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJbcL-_B4OmlQR40mfBT--Ixs",
@@ -7410,24 +5351,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/whole-pet-shop-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/whole-pet-shop-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/whole-pet-shop-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/whole-pet-shop-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJIfXLNjjXmVQR-jXbE7vCf3I",
@@ -7457,24 +5382,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/yakima/yaktownbullies-supplies-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/yaktownbullies-supplies-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/yakima/yaktownbullies-supplies-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/yakima/yaktownbullies-supplies-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJHyiIpT9XkFQR7o451n7uSeM",
@@ -7514,24 +5423,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/federal-way/pet-supplies-plus-federal-way-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/pet-supplies-plus-federal-way-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/federal-way/pet-supplies-plus-federal-way-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/federal-way/pet-supplies-plus-federal-way-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ_eJjS28gnlQRjMzp1vOVp2c",
@@ -7570,24 +5463,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/spokane-valley/hawleys-homebred-reptiles-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane-valley/hawleys-homebred-reptiles-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/spokane-valley/hawleys-homebred-reptiles-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/spokane-valley/hawleys-homebred-reptiles-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJSZnRqdCjhVQRwOI8KhpCOlo",
@@ -7627,24 +5504,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/chs-northwest-bellingham-farm-home-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/chs-northwest-bellingham-farm-home-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/chs-northwest-bellingham-farm-home-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/chs-northwest-bellingham-farm-home-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJIftL1jO9hVQRLe5n6IVdaC4",
@@ -7684,24 +5545,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/bellingham/tractor-supply-co-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/tractor-supply-co-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/bellingham/tractor-supply-co-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/bellingham/tractor-supply-co-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJMYdACQV5mFQRKI3hACTeokY",
@@ -7740,24 +5585,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/big-river-pets-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/big-river-pets-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/big-river-pets-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/big-river-pets-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ442bpBZoolQRjET7Miow0HU",
@@ -7797,19 +5626,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/jenees-four-paws-resort-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/jenees-four-paws-resort-2.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/jenees-four-paws-resort-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJN61z5EC5olQRXMeDYCtXRGo",
@@ -7849,24 +5667,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/kennewick/petsense-by-tractor-supply-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/petsense-by-tractor-supply-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/kennewick/petsense-by-tractor-supply-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kennewick/petsense-by-tractor-supply-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJH_W2egb7kFQRDNfnvyLbK1k",
@@ -7906,24 +5708,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/auburn/fort-fido-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/auburn/fort-fido-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/auburn/fort-fido-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/auburn/fort-fido-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJZxRd5OJ7mFQRlMHQaNfaDx4",
@@ -7962,24 +5748,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/pasco/coop-critter-club-pet-wash-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/pasco/coop-critter-club-pet-wash-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/pasco/coop-critter-club-pet-wash-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/pasco/coop-critter-club-pet-wash-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJWaziXUVQhVQRjM2UGP-8O9Q",
@@ -8019,24 +5789,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/julz-animal-houz-marysville-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/julz-animal-houz-marysville-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/julz-animal-houz-marysville-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/julz-animal-houz-marysville-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJzWmTxopThVQR4HNEhSiNfwM",
@@ -8075,24 +5829,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/crystal-clean-pups-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/crystal-clean-pups-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/crystal-clean-pups-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/crystal-clean-pups-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJc0zhzJR1JYgRn2OLOeX7-Z8",
@@ -8131,24 +5869,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/classic-pet-supply-ii-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/classic-pet-supply-ii-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/classic-pet-supply-ii-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/classic-pet-supply-ii-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJe9VW_r_FOIgRHgBDACbnwW4",
@@ -8188,24 +5910,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/pet-supplies-plus-marysville-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/pet-supplies-plus-marysville-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/pet-supplies-plus-marysville-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/pet-supplies-plus-marysville-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJEY0zZf1ghVQR7mMZphRabWs",
@@ -8235,24 +5941,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/marysville/cmpaws-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/cmpaws-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/marysville/cmpaws-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/marysville/cmpaws-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJ1epofz4BkVQR49P_ZCN_YpU",
@@ -8292,24 +5982,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/aquarium-paradise-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/aquarium-paradise-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/aquarium-paradise-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/aquarium-paradise-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJRyjRju4AkVQRf8oz8CFE56w",
@@ -8339,24 +6013,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/dragons-den-reptile-and-pet-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/dragons-den-reptile-and-pet-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/dragons-den-reptile-and-pet-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/dragons-den-reptile-and-pet-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJl7vyA2X_kFQRntR50A9Jpok",
@@ -8396,24 +6054,8 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/lakewood/hedgehog-garden-1.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/hedgehog-garden-2.jpg",
-        "type": "photo",
-        "source": "local"
-      },
-      {
-        "url": "/images/parks/washington/lakewood/hedgehog-garden-3.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/lakewood/hedgehog-garden-1.jpg"
+    "photos": null,
+    "photo": null
   },
   {
     "id": "ChIJp1xOkMITkFQRpgPLxmKBD54",
@@ -8443,13 +6085,7 @@
       "pricingSource": "unknown",
       "isFree": false
     },
-    "photos": [
-      {
-        "url": "/images/parks/washington/kirkland/pawsitive-pet-wares-1.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "photo": "/images/parks/washington/kirkland/pawsitive-pet-wares-1.jpg"
+    "photos": null,
+    "photo": null
   }
 ]

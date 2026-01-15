@@ -15,7 +15,7 @@ function Analytics() {
 
     // Track page views on route change
     const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-    
+
     // Use gtag if available
     if (typeof window !== 'undefined' && 'gtag' in window) {
       const gtag = (window as unknown as Record<string, unknown>).gtag as (...args: unknown[]) => void;
@@ -38,12 +38,12 @@ export default function GoogleAnalytics() {
     <>
       {/* Google Analytics 4 - Load with lazy strategy to avoid blocking page load */}
       <Script
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
       <Script
         id="google-analytics"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

@@ -9,7 +9,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'optional', // Use optional for better performance - prevents layout shift by using fallback if font not ready
   preload: true,
@@ -184,20 +184,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-        
+
         {/* Preload critical resources for faster initial render */}
         {/* Logo is used in header and search layout - preload for better LCP */}
         <link rel="preload" href="/images/logo/logo.png" as="image" type="image/png" />
-        {/* Hero image is used in homepage hero section - preload for better LCP */}
-        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" />
-        
+
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/icons/icon-192x192.png" type="image/png" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -211,14 +209,14 @@ export default function RootLayout({
             __html: JSON.stringify(websiteSchema),
           }}
         />
-        
+
         {/* Google AdSense */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5274561866192746"
           crossOrigin="anonymous"
         />
-        
+
         {/* Grow by Mediavine */}
         <script
           data-grow-initializer=""

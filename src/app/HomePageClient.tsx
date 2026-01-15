@@ -649,7 +649,7 @@ export default function HomePageClient({
                     </div>
                   </div>
                 ) : (
-                  <div className="parks-list-vertical">
+                  <div className="parks-grid-search">
                     {filteredParks.map((park) => (
                       <ParkCard
                         key={park.id}

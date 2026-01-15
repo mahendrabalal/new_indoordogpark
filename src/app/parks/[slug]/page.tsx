@@ -5,13 +5,11 @@ import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import FavoriteButton from '@/components/FavoriteButton';
 import ReviewSection from '@/components/ReviewSection';
-import ParkImage from '@/components/ParkImage';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
 import ParkStatusBadge from '@/components/ParkStatusBadge';
 import { getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
-import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas } from '@/lib/metadata';
+import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas, generateWebPageSchema } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
@@ -71,98 +69,8 @@ function getStateAbbr(state: string | undefined): string {
   return abbrMap[state] || state.substring(0, 2).toUpperCase();
 }
 
-// Helper function to get park image URL with validation and fallback
-// Prefers local images over external URLs
-function getParkImageUrl(park: { photo?: string; photos?: Array<{ url?: string }> }): string {
-  // Default fallback image (Unsplash with proper parameters)
-  const defaultImage = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80';
-  
-  // Helper to check if URL is local
-  const isLocalImage = (url: string): boolean => {
-    return url.startsWith('/images/') || url.startsWith('./images/');
-  };
-  
-  // Helper to check if URL is Supabase storage (should work reliably)
-  const isSupabaseImage = (url: string): boolean => {
-    return url.includes('supabase.co/storage/v1/object/public/');
-  };
-  
-  // Helper to check if URL is external and might fail
-  const isExternalUrl = (url: string): boolean => {
-    return url.startsWith('http://') || url.startsWith('https://');
-  };
-  
-  // Priority 1: Check single photo field (prefer local, then Supabase)
-  if (typeof park.photo === 'string' && park.photo.trim() !== '') {
-    const photoUrl = park.photo.trim();
-    
-    // Prefer local images
-    if (isLocalImage(photoUrl)) {
-      return photoUrl;
-    }
-    
-    // Supabase storage URLs are reliable (featured parks)
-    if (isSupabaseImage(photoUrl)) {
-      return photoUrl;
-    }
-    
-    // For other external URLs, validate format
-    if (isExternalUrl(photoUrl)) {
-      try {
-        const url = new URL(photoUrl);
-        if (url.protocol === 'http:' || url.protocol === 'https:') {
-          return photoUrl;
-        }
-      } catch {
-        // Invalid URL, continue to next check
-      }
-    }
-  }
-  
-  // Priority 2: Check photos array (prefer local, then Supabase)
-  if (park.photos && park.photos.length > 0) {
-    // First, try to find a local image
-    for (const photo of park.photos) {
-      if (photo?.url && typeof photo.url === 'string') {
-        const photoUrl = photo.url.trim();
-        if (isLocalImage(photoUrl)) {
-          return photoUrl;
-        }
-      }
-    }
-    
-    // Then, try to find a Supabase image (featured parks)
-    for (const photo of park.photos) {
-      if (photo?.url && typeof photo.url === 'string') {
-        const photoUrl = photo.url.trim();
-        if (isSupabaseImage(photoUrl)) {
-          return photoUrl;
-        }
-      }
-    }
-    
-    // If no local or Supabase image found, use first external URL
-    const firstPhoto = park.photos[0];
-    if (firstPhoto?.url && typeof firstPhoto.url === 'string' && firstPhoto.url.trim() !== '') {
-      const photoUrl = firstPhoto.url.trim();
-      if (isExternalUrl(photoUrl)) {
-        try {
-          const url = new URL(photoUrl);
-          if (url.protocol === 'http:' || url.protocol === 'https:') {
-            return photoUrl;
-          }
-        } catch {
-          // Invalid URL, continue to fallback
-        }
-      }
-    }
-  }
-  
-  // Return default fallback
-  return defaultImage;
-}
-
-export const dynamic = 'force-dynamic'; // Reviews are dynamic, so pages must be dynamic too
+// Reviews are dynamic, so pages must be dynamic too
+export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams() {
   const parks = await getAllStaticParks();
@@ -206,6 +114,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const relatedBlogPosts = await getRelatedBlogPosts(park, 4);
 
   const parkSchema = generateParkSchema(park);
+  const webPageSchema = generateWebPageSchema(park);
   const stateName = getStateName(park.state);
 
   // Generate breadcrumb schema
@@ -215,14 +124,14 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     { name: park.city, url: `/cities/${citySlug}` },
     { name: park.name },
   ]);
-  
+
   const descriptionText =
     park.description?.trim() ||
     `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
   const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
   // Use custom FAQs if available, otherwise build comprehensive default FAQs
   const faqItems = park.faqs && park.faqs.length > 0 ? park.faqs : buildParkFAQs(park);
-  
+
   // Helper function to clean FAQ answers for schema (similar to city pages)
   const cleanFAQAnswer = (answer: string): string => {
     let cleaned = answer.replace(/<[^>]*>/g, '');
@@ -273,6 +182,11 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(parkSchema) }}
       />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* BreadcrumbList schema for SEO */}
       <script
         type="application/ld+json"
@@ -298,21 +212,11 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
       <Header />
 
-      <main className="park-detail-page">
-        <section className="park-hero">
-          <div className="park-hero-image">
-            <ParkImage
-              src={getParkImageUrl(park)}
-              alt={`${park.name} in ${park.city}, ${stateName}`}
-              width={1400}
-              height={500}
-              className="hero-image"
-              priority
-            />
-          </div>
-          <div className="park-hero-content">
-            <div className="container">
-              <div className="breadcrumbs">
+      <main className="park-detail-premium">
+        <section className="park-hero-premium">
+          <div className="container">
+            <div className="premium-hero-content">
+              <div className="breadcrumbs-white">
                 <Link href="/">Home</Link>
                 <i className="bi bi-chevron-right"></i>
                 <Link href={`/cities/${citySlug}`}>
@@ -321,65 +225,39 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <i className="bi bi-chevron-right"></i>
                 <span>{park.name}</span>
               </div>
-              <h1 className="park-title">{park.name}</h1>
-              <p className="park-subtitle">
-                {park.businessType} in {park.city}, {stateName}
-              </p>
 
-              <div className="park-badges">
-                {park.listingType === 'featured' && (
-                  <span className="featured-badge-large">
-                    <i className="bi bi-star-fill"></i> FEATURED LISTING
-                  </span>
-                )}
-                {park.source === 'user_submitted' && (
-                  <span className="community-badge">
-                    <i className="bi bi-people-fill"></i> COMMUNITY ADDED
-                  </span>
-                )}
-                {park.indoorOutdoor && (
-                  <span className="indoor-outdoor-badge">
-                    <i className={park.indoorOutdoor === 'indoor' ? 'bi bi-house-door-fill' : park.indoorOutdoor === 'outdoor' ? 'bi bi-tree-fill' : 'bi bi-houses-fill'}></i> {formatIndoorOutdoor(park.indoorOutdoor)}
-                  </span>
-                )}
-                {park.pricing?.isFree && (
-                  <span className="free-badge">
-                    <i className="bi bi-check-circle-fill"></i> FREE
-                  </span>
-                )}
+              <div className="premium-badge-row">
+                <span className="premium-badge badge-verified">
+                  <i className="bi bi-patch-check-fill"></i> VERIFIED LISTING
+                </span>
+                <ParkStatusBadge park={park} showNextChange={false} className="premium-badge" />
               </div>
 
-              <div className="park-quick-info">
-                <span className="rating">
-                  <i className="bi bi-star-fill"></i> {park.rating} ({park.reviewCount} reviews)
-                </span>
-                <span className="location">
+              <h1 className="premium-title">{park.name}</h1>
+
+              <div className="premium-meta">
+                <span className="location-inline">
                   <i className="bi bi-geo-alt-fill"></i> {park.city}, {getStateAbbr(park.state)}
                 </span>
-                <div className="park-status-inline">
-                  <ParkStatusBadge park={park} showNextChange={false} />
-                </div>
-                <FavoriteButton 
-                  parkId={park.id} 
-                  parkSlug={park.slug} 
-                  className="favorite-btn-quick-info"
-                  aria-label={`Toggle favorite for ${park.name}`}
-                />
-                {park.phone && (
-                  <span className="phone">
-                    <i className="bi bi-telephone-fill"></i> {park.phone}
-                  </span>
-                )}
+                <span className="rating-inline">
+                  <i className="bi bi-star-fill text-yellow-400"></i>
+                  <i className="bi bi-star-fill text-yellow-400"></i>
+                  <i className="bi bi-star-fill text-yellow-400"></i>
+                  <i className="bi bi-star-fill text-yellow-400"></i>
+                  <i className="bi bi-star-fill text-yellow-400"></i>
+                  <span className="ml-2 font-bold">{park.rating}</span>
+                  <span className="ml-1 text-sm opacity-80">({park.reviewCount} reviews)</span>
+                </span>
               </div>
             </div>
           </div>
         </section>
 
         <div className="container park-detail-container">
-          <div className="park-content-grid">
-            <div className="park-main-content">
-              <section className="content-section">
-                <h2>About {park.name}</h2>
+          <div className="premium-content-grid">
+            <div className="premium-main-column">
+              <section className="premium-content-section">
+                <h2 className="premium-section-title">About {park.name}</h2>
                 <div className="park-description">
                   {descriptionParagraphs.map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>
@@ -388,23 +266,23 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               </section>
 
               {park.pricing && (
-                <section className="content-section pricing-section">
-                  <h2>Pricing Information</h2>
+                <section className="premium-content-section pricing-section">
+                  <h2 className="premium-section-title">Pricing Information</h2>
                   <div className="pricing-info">
                     {park.pricing.isFree ? (
-                      <div className="pricing-type-badge free-pricing">
+                      <div className="pricing-type-badge free-pricing mb-6">
                         <i className="bi bi-check-circle-fill"></i>
                         <span>Free to Use</span>
                       </div>
                     ) : (
                       <>
                         {park.pricing.pricingType && (
-                          <div className="pricing-type-badge">
+                          <div className="pricing-type-badge mb-6">
                             <i className="bi bi-currency-dollar"></i>
                             <span>{formatPricingType(park.pricing.pricingType)}</span>
                           </div>
                         )}
-                        <div className="pricing-details">
+                        <div className="pricing-details grid grid-cols-1 sm:grid-cols-2 gap-4">
                           {park.pricing.hourlyRate && (
                             <div className="pricing-item">
                               <strong>Hourly Rate:</strong>
@@ -435,22 +313,22 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                               <span>{park.pricing.priceRange}</span>
                             </div>
                           )}
-                          {park.pricing.pricingDetails && (
-                            <div className="pricing-details-text">
-                              <p>{park.pricing.pricingDetails}</p>
-                            </div>
-                          )}
-                          {park.pricing.pricingUrl && (
-                            <div className="pricing-link">
-                              <a href={park.pricing.pricingUrl} target="_blank" rel="noopener noreferrer" className="pricing-cta-link">
-                                <i className="bi bi-box-arrow-up-right"></i> View Full Pricing Details
-                              </a>
-                            </div>
-                          )}
                         </div>
+                        {park.pricing.pricingDetails && (
+                          <div className="pricing-details-text mt-4">
+                            <p>{park.pricing.pricingDetails}</p>
+                          </div>
+                        )}
+                        {park.pricing.pricingUrl && (
+                          <div className="pricing-link mt-4">
+                            <a href={park.pricing.pricingUrl} target="_blank" rel="noopener noreferrer" className="pricing-cta-link text-blue-600 hover:underline">
+                              <i className="bi bi-box-arrow-up-right"></i> View Full Pricing Details
+                            </a>
+                          </div>
+                        )}
                       </>
                     )}
-                    <p className="pricing-disclaimer">
+                    <p className="pricing-disclaimer mt-6 text-sm italic text-gray-500">
                       <i className="bi bi-info-circle"></i> Pricing may vary. Please contact {park.name} directly for the most current rates and membership information.
                     </p>
                   </div>
@@ -458,13 +336,13 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               )}
 
               {park.amenities && (
-                <section className="content-section amenities-section">
-                  <h2>Amenities & Features</h2>
-                  <div className="amenities-grid">
+                <section className="premium-content-section">
+                  <h2 className="premium-section-title">Amenities & Features</h2>
+                  <div className="amenities-grid-premium">
                     {Object.entries(park.amenities)
                       .filter(([, value]) => value === true)
                       .map(([key]) => (
-                        <div key={key} className="amenity-item">
+                        <div key={key} className="amenity-item-premium">
                           <i className="bi bi-check-circle-fill"></i>
                           <span>{formatAmenityName(key)}</span>
                         </div>
@@ -474,46 +352,33 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               )}
 
               {(park.indoorOutdoor || park.sizeCategory || park.surfaceType || (park.petFriendlyFeatures && park.petFriendlyFeatures.length > 0)) && (
-                <section className="content-section park-characteristics-section">
-                  <h2>Park Characteristics</h2>
-                  <div className="park-characteristics">
+                <section className="premium-content-section park-characteristics-section">
+                  <h2 className="premium-section-title">Park Characteristics</h2>
+                  <div className="park-characteristics grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {park.indoorOutdoor && (
-                      <div className="characteristic-item">
-                        <i className="bi bi-houses-fill"></i>
+                      <div className="characteristic-item flex items-center gap-4">
+                        <i className="bi bi-houses-fill text-xl text-orange-600"></i>
                         <div>
-                          <strong>Type:</strong>
-                          <span>{formatIndoorOutdoor(park.indoorOutdoor)}</span>
+                          <strong className="block text-xs uppercase text-gray-500">Type</strong>
+                          <span className="font-bold">{formatIndoorOutdoor(park.indoorOutdoor)}</span>
                         </div>
                       </div>
                     )}
                     {park.sizeCategory && (
-                      <div className="characteristic-item">
-                        <i className="bi bi-arrows-fullscreen"></i>
+                      <div className="characteristic-item flex items-center gap-4">
+                        <i className="bi bi-arrows-fullscreen text-xl text-orange-600"></i>
                         <div>
-                          <strong>Size:</strong>
-                          <span>{formatSizeCategory(park.sizeCategory)}</span>
+                          <strong className="block text-xs uppercase text-gray-500">Size</strong>
+                          <span className="font-bold">{formatSizeCategory(park.sizeCategory)}</span>
                         </div>
                       </div>
                     )}
                     {park.surfaceType && (
-                      <div className="characteristic-item">
-                        <i className="bi bi-grid-3x3-gap-fill"></i>
+                      <div className="characteristic-item flex items-center gap-4">
+                        <i className="bi bi-grid-3x3-gap-fill text-xl text-orange-600"></i>
                         <div>
-                          <strong>Surface:</strong>
-                          <span>{park.surfaceType}</span>
-                        </div>
-                      </div>
-                    )}
-                    {park.petFriendlyFeatures && park.petFriendlyFeatures.length > 0 && (
-                      <div className="characteristic-item full-width">
-                        <i className="bi bi-heart-fill"></i>
-                        <div>
-                          <strong>Pet-Friendly Features:</strong>
-                          <div className="pet-friendly-features-list">
-                            {park.petFriendlyFeatures.map((feature, idx) => (
-                              <span key={idx} className="feature-tag">{feature}</span>
-                            ))}
-                          </div>
+                          <strong className="block text-xs uppercase text-gray-500">Surface</strong>
+                          <span className="font-bold">{park.surfaceType}</span>
                         </div>
                       </div>
                     )}
@@ -521,51 +386,37 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </section>
               )}
 
-              {park.photos && park.photos.length > 0 && (
-                <section className="content-section photo-gallery-section">
-                  <h2>Photo Gallery</h2>
-                  <div className="photo-gallery">
-                    {park.photos.slice(0, 6).map((photo, index) => {
-                      const photoUrl = photo.url || getParkImageUrl({});
-                      return (
-                        <div key={photo.url ?? index} className="gallery-item">
-                          <ParkImage
-                            src={photoUrl}
-                            alt={photo.caption || `${park.name} photo ${index + 1}`}
-                            width={300}
-                            height={200}
-                            className="gallery-image"
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </section>
-              )}
 
-              <section className="content-section directions-section">
-                <h2>How to Get Here</h2>
+              <section className="premium-content-section directions-section">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="premium-section-title mb-0">Location Map</h2>
+                  {park.latitude && park.longitude && (
+                    <a
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(park.full_address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-600 font-normal hover:underline"
+                    >
+                      Open Maps <i className="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  )}
+                </div>
+                {park.latitude && park.longitude && (
+                  <div className="mb-6 rounded-xl overflow-hidden shadow-inner border border-gray-100 h-[400px]">
+                    <ParkMap park={park} />
+                  </div>
+                )}
                 <p className="directions-intro">
                   {park.name} is conveniently located at {park.full_address}.
                 </p>
-                <div className="directions-list">
-                  <div className="direction-item">
-                    <strong>From Downtown {park.city}:</strong>
-                    <p>Head to {park.street} and look for this park near key neighborhood landmarks.</p>
-                  </div>
-                  <div className="direction-item">
-                    <strong>Parking:</strong>
-                    <p>Free parking is typically available near the park. Check local signage for specific regulations.</p>
-                  </div>
-                </div>
               </section>
 
-              <section className="content-section faq-section">
-                <h2>Frequently Asked Questions</h2>
+              <section className="premium-content-section faq-section">
+                <h2 className="premium-section-title">Frequently Asked Questions</h2>
                 <div className="faq-list">
                   {faqItems.map((faq) => (
-                    <div key={faq.question} className="faq-item">
-                      <h3>{faq.question}</h3>
+                    <div key={faq.question} className="premium-faq-item">
+                      <h4>{faq.question}</h4>
                       <p>{faq.answer}</p>
                     </div>
                   ))}
@@ -587,7 +438,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                         post.featuredImage?.media_details?.sizes?.large?.source_url ||
                         post.featuredImage?.media_details?.sizes?.medium?.source_url ||
                         post.featuredImage?.source_url;
-                      
+
                       return (
                         <Link
                           key={post.id}
@@ -624,201 +475,120 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               )}
             </div>
 
-            <aside className="park-sidebar">
-              <div className="sidebar-card nap-card">
-                <h3>Visit Information</h3>
-                <div className="nap-info">
-                  <div className="nap-item">
-                    <i className="bi bi-geo-alt-fill"></i>
-                    <div>
-                      <strong>Address</strong>
+            <aside className="premium-sidebar-column">
+              <div className="sidebar-card-premium">
+                <h3>Contact Provider</h3>
+                <div className="contact-info-premium">
+                  <div className="contact-item-premium">
+                    <div className="contact-icon-premium">
+                      <i className="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div className="contact-text-premium">
+                      <strong>Office Address</strong>
                       <p>{park.full_address}</p>
                     </div>
                   </div>
                   {park.phone && (
-                    <div className="nap-item">
-                      <i className="bi bi-telephone-fill"></i>
-                      <div>
-                        <strong>Phone</strong>
-                        <p>
-                          <a href={`tel:${park.phone}`}>{park.phone}</a>
-                        </p>
+                    <div className="contact-item-premium">
+                      <div className="contact-icon-premium">
+                        <i className="bi bi-telephone-fill"></i>
+                      </div>
+                      <div className="contact-text-premium">
+                        <strong>Call Now</strong>
+                        <p><a href={`tel:${park.phone}`}>{park.phone}</a></p>
                       </div>
                     </div>
                   )}
                   {park.website && (
-                    <div className="nap-item">
-                      <i className="bi bi-globe"></i>
-                      <div>
-                        <strong>Website</strong>
+                    <div className="contact-item-premium">
+                      <div className="contact-icon-premium">
+                        <i className="bi bi-globe"></i>
+                      </div>
+                      <div className="contact-text-premium">
+                        <strong>Visit Website</strong>
                         <p>
                           <a href={park.website} target="_blank" rel="noopener noreferrer">
-                            Visit Website
+                            {park.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}
                           </a>
                         </p>
                       </div>
                     </div>
                   )}
-                  {park.email && (
-                    <div className="nap-item">
-                      <i className="bi bi-envelope-fill"></i>
-                      <div>
-                        <strong>Email</strong>
-                        <p>
-                          <a href={`mailto:${park.email}`}>{park.email}</a>
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {park.socialMedia && (park.socialMedia.facebook || park.socialMedia.instagram || park.socialMedia.twitter || park.socialMedia.tiktok || park.socialMedia.youtube) && (
-                  <div className="social-media-section">
-                    <strong>Follow Us</strong>
-                    <div className="social-media-links">
-                      {park.socialMedia.facebook && (
-                        <a href={park.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-                          <i className="bi bi-facebook"></i>
-                        </a>
-                      )}
-                      {park.socialMedia.instagram && (
-                        <a href={park.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-                          <i className="bi bi-instagram"></i>
-                        </a>
-                      )}
-                      {park.socialMedia.twitter && (
-                        <a href={park.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
-                          <i className="bi bi-twitter"></i>
-                        </a>
-                      )}
-                      {park.socialMedia.tiktok && (
-                        <a href={park.socialMedia.tiktok} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="TikTok">
-                          <i className="bi bi-tiktok"></i>
-                        </a>
-                      )}
-                      {park.socialMedia.youtube && (
-                        <a href={park.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="YouTube">
-                          <i className="bi bi-youtube"></i>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {park.openingHours && (
-                  <div className="hours-section">
-                    <strong>Hours of Operation</strong>
-                    <ParkStatusBadge park={park} showNextChange={true} />
-                    <ul className="hours-list">
-                      {Object.entries(park.openingHours)
-                        .filter(([, hours]) => hours && typeof hours === 'string')
-                        .map(([day, hours]) => (
-                          <li key={day}>
-                            <span className="day">{day}</span>
-                            <span className="hours">{hours as string}</span>
-                          </li>
-                        ))}
-                    </ul>
-                    {park.hoursNote && (
-                      <p className="hours-note">
-                        <i className="bi bi-info-circle"></i> {park.hoursNote}
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                {park.hours24x7 && (
-                  <div className="hours-section">
-                    <strong>Hours of Operation</strong>
-                    <ParkStatusBadge park={park} showNextChange={false} />
-                    <p className="hours-24-7">Open 24/7</p>
-                    {park.hoursNote && (
-                      <p className="hours-note">
-                        <i className="bi bi-info-circle"></i> {park.hoursNote}
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                <div className="sidebar-ctas">
-                  <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(park.full_address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-button cta-primary"
-                  >
-                    <i className="bi bi-map"></i> Get Directions
-                  </a>
-                  {park.phone && (
-                    <a href={`tel:${park.phone}`} className="cta-button cta-secondary">
-                      <i className="bi bi-telephone"></i> Call Now
-                    </a>
-                  )}
-                  {park.website && (
-                    <a href={park.website} target="_blank" rel="noopener noreferrer" className="cta-button cta-secondary">
-                      <i className="bi bi-box-arrow-up-right"></i> Visit Website
-                    </a>
-                  )}
                 </div>
               </div>
 
-              {park.latitude && park.longitude && (
-                <div className="sidebar-card map-card">
-                  <h3>Location Map</h3>
-                  <ParkMap park={park} />
+              {park.openingHours && (
+                <div className="sidebar-card-premium">
+                  <h3>Business Hours</h3>
+                  <ul className="hours-list-premium">
+                    {Object.entries(park.openingHours)
+                      .filter(([, hours]) => hours && typeof hours === 'string')
+                      .map(([day, hours]) => {
+                        const isToday = new Date().toLocaleDateString('en-US', { weekday: 'long' }) === day;
+                        return (
+                          <li key={day} className={isToday ? 'today' : ''}>
+                            <span className="day">{day}</span>
+                            <span className="time">{hours as string}</span>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                  {park.hoursNote && (
+                    <p className="mt-4 text-xs italic text-gray-500">
+                      <i className="bi bi-info-circle"></i> {park.hoursNote}
+                    </p>
+                  )}
                 </div>
               )}
 
+              <div className="sidebar-card-premium">
+                <h3>Need a Quote?</h3>
+                <p className="text-sm text-gray-600 mb-6">Compare prices and get the best deal for your pet&apos;s needs.</p>
+                <div className="sidebar-ctas">
+                  <button className="btn-primary w-full py-3 rounded-lg font-bold">Get Free Estimate</button>
+                </div>
+              </div>
+
               {/* City Link Card */}
-              <div className="sidebar-card city-link-card">
+              <div className="sidebar-card-premium">
                 <h3>Explore {park.city}</h3>
-                <p>Discover more dog parks and resources in {park.city}.</p>
-                <Link href={`/cities/${citySlug}`} className="cta-button cta-primary">
-                  <i className="bi bi-map"></i> View All Parks in {park.city}
+                <p className="text-sm text-gray-600 mb-4">Discover more dog parks and resources in {park.city}.</p>
+                <Link href={`/cities/${citySlug}`} className="btn-primary-outline w-full py-3 rounded-lg font-bold text-center block">
+                  View All Parks in {park.city}
                 </Link>
               </div>
             </aside>
           </div>
 
           {nearbyParks.length > 0 && (
-            <section className="nearby-parks-section">
-              <div className="nearby-parks-header">
+            <section className="nearby-parks-section mt-12 pt-12 border-t border-gray-100">
+              <div className="nearby-parks-header flex justify-between items-end mb-8">
                 <div>
-                  <h2>Other Dog Parks in {park.city}</h2>
-                  <p className="nearby-intro">Explore more dog-friendly locations near {park.name}.</p>
+                  <h2 className="text-2xl font-bold text-gray-900">Other Dog Parks in {park.city}</h2>
+                  <p className="text-gray-600 mt-2">Explore more dog-friendly locations near {park.name}.</p>
                 </div>
-                <Link href={`/cities/${citySlug}`} className="city-link-btn">
+                <Link href={`/cities/${citySlug}`} className="text-orange-600 font-bold hover:underline">
                   View all parks in {park.city} →
                 </Link>
               </div>
-              <div className="nearby-parks-grid">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {nearbyParks.map((nearbyPark) => (
-                  <Link key={nearbyPark.id} href={`/parks/${nearbyPark.slug || nearbyPark.id}`} className="nearby-park-card">
-                    <div className="nearby-park-image">
-                      <ParkImage
-                        src={getParkImageUrl(nearbyPark)}
-                        alt={`${nearbyPark.name} - ${nearbyPark.businessType} in ${nearbyPark.city}, ${nearbyPark.state}`}
-                        width={300}
-                        height={200}
-                      />
+                  <Link key={nearbyPark.id} href={`/parks/${nearbyPark.slug || nearbyPark.id}`} className="bg-white p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all group">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors uppercase text-sm tracking-tight">{nearbyPark.name}</h3>
+                      <span className="flex items-center gap-1 text-sm font-bold text-gray-700">
+                        <i className="bi bi-star-fill text-yellow-500"></i> {nearbyPark.rating}
+                      </span>
                     </div>
-                    <div className="nearby-park-info">
-                      <h3>{nearbyPark.name}</h3>
-                      <p className="nearby-park-type">{nearbyPark.businessType}</p>
-                      <div className="nearby-park-meta">
-                        <span className="rating">
-                          <i className="bi bi-star-fill"></i> {nearbyPark.rating}
-                        </span>
-                        <span className="distance">{nearbyPark.city}</span>
-                      </div>
-                    </div>
+                    <p className="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">{nearbyPark.businessType}</p>
+                    <p className="text-sm text-gray-500">{nearbyPark.city}, {nearbyPark.state}</p>
                   </Link>
                 ))}
               </div>
             </section>
           )}
         </div>
-      </main>
+      </main >
 
       <Footer />
     </>

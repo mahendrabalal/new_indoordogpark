@@ -34,9 +34,9 @@ export default function Map({ parks, onParkClick }: MapProps) {
       // Load Leaflet CSS on demand
       const { loadLeafletStyles } = await import('@/components/LazyStyles')
       loadLeafletStyles()
-      
+
       const L = (await import('leaflet')).default;
-      
+
       // Fix for default markers
       delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
       L.Icon.Default.mergeOptions({
@@ -45,10 +45,21 @@ export default function Map({ parks, onParkClick }: MapProps) {
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
       });
 
+      // Create a custom TileLayer to add alt attribute to tiles for SEO/Accessibility
+      const CustomTileLayer = L.TileLayer.extend({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        createTile: function (coords: any, done: any) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const tile = (L.TileLayer.prototype as any).createTile.call(this, coords, done);
+          tile.alt = "Map tile";
+          return tile;
+        }
+      });
+
       if (!mapInstanceRef.current && mapRef.current) {
         mapInstanceRef.current = L.map(mapRef.current).setView([36.7783, -119.4179], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        new CustomTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap contributors'
         }).addTo(mapInstanceRef.current);
       }
@@ -64,7 +75,7 @@ export default function Map({ parks, onParkClick }: MapProps) {
           let iconSymbol = '🐕';
           let labelText = 'Dog Park';
           let bgColor = '#00bfff';
-          
+
           if (park.businessType === 'Indoor Dog Park') {
             iconSymbol = '🏠';
             labelText = 'Indoor';
@@ -148,7 +159,7 @@ export default function Map({ parks, onParkClick }: MapProps) {
                 </a>
               </div>
             `);
-          
+
           markersRef.current.push(marker);
         }
       });

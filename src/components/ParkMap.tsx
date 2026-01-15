@@ -43,7 +43,18 @@ export default function ParkMap({ park }: ParkMapProps) {
           15
         );
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // Create a custom TileLayer to add alt attribute to tiles for SEO/Accessibility
+        const CustomTileLayer = L.TileLayer.extend({
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          createTile: function (coords: any, done: any) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const tile = (L.TileLayer.prototype as any).createTile.call(this, coords, done);
+            tile.alt = "Map tile";
+            return tile;
+          }
+        });
+
+        new CustomTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap contributors'
         }).addTo(mapInstanceRef.current);
 

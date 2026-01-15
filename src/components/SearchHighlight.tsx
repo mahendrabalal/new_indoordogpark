@@ -72,12 +72,6 @@ function SearchHighlightComponent({
           className="search-highlight-mark"
           style={{
             animationDelay: `${matchIndex * 50}ms`,
-            backgroundColor: 'rgba(139, 92, 246, 0.2)',
-            color: '#7c3aed',
-            padding: '2px 4px',
-            borderRadius: '4px',
-            fontWeight: '600',
-            animation: 'highlightFadeIn 0.3s ease-out forwards',
           }}
         >
           {part}

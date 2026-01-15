@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { normalizeTypeParameter } from '@/lib/type-normalizer';
+import { getAllStaticParks } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,38 +22,38 @@ interface SearchParams {
 // Calculate search relevance score
 function calculateRelevance(park: DogPark, searchTerm: string): number {
   if (!searchTerm) return 0;
-  
+
   const term = searchTerm.toLowerCase();
   let score = 0;
-  
+
   // Exact name match = highest score
   if (park.name.toLowerCase() === term) score += 100;
   else if (park.name.toLowerCase().includes(term)) score += 50;
-  
+
   // Slug match (for searching by URL-friendly names)
   if (park.slug?.toLowerCase() === term) score += 90;
   else if (park.slug?.toLowerCase().includes(term)) score += 45;
-  
+
   // City match
   if (park.city.toLowerCase() === term) score += 80;
   else if (park.city.toLowerCase().includes(term)) score += 40;
-  
+
   // Address match
   if (park.address?.toLowerCase().includes(term)) score += 30;
   if (park.full_address?.toLowerCase().includes(term)) score += 20;
-  
+
   // Description match
   if (park.description?.toLowerCase().includes(term)) score += 10;
-  
+
   // Business type match
   if (park.businessType.toLowerCase().includes(term)) score += 15;
-  
+
   // Boost featured listings slightly
   if (park.listingType === 'featured') score += 5;
-  
+
   // Boost highly rated parks
   score += park.rating * 2;
-  
+
   return score;
 }
 
@@ -104,7 +103,7 @@ const normalizePhotos = (photos: unknown): MediaAsset[] => {
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    
+
     // Parse search parameters
     const listingTypeParam = searchParams.get('listingType');
     const listingType =
@@ -114,7 +113,7 @@ export async function GET(request: Request) {
 
     // Normalize type parameter to prevent invalid values from causing empty results
     const rawType = searchParams.get('type') || undefined;
-    const normalizedType = rawType && rawType !== 'all' 
+    const normalizedType = rawType && rawType !== 'all'
       ? normalizeTypeParameter(rawType) || undefined
       : undefined;
 
@@ -131,45 +130,8 @@ export async function GET(request: Request) {
       listingType,
     };
 
-    // Fetch static parks from JSON files
-    const allStaticParks: DogPark[] = [];
-    
-    // Load California parks
-    try {
-      const californiaPath = join(process.cwd(), 'public/data/california.json');
-      const californiaContent = await readFile(californiaPath, 'utf-8');
-      const californiaParks: DogPark[] = JSON.parse(californiaContent);
-      allStaticParks.push(...californiaParks);
-    } catch (error) {
-      console.error('Failed to read California parks data:', error);
-    }
-    
-    // Load Washington parks
-    try {
-      const washingtonPath = join(process.cwd(), 'public/data/washington.json');
-      const washingtonContent = await readFile(washingtonPath, 'utf-8');
-      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
-      allStaticParks.push(...washingtonParks);
-    } catch (error) {
-      console.error('Failed to read Washington parks data:', error);
-    }
-    
-    // Load Mixmatch parks (multi-state parks)
-    try {
-      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
-      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
-      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
-      allStaticParks.push(...mixmatchParks);
-    } catch (error) {
-      console.error('Failed to read Mixmatch parks data:', error);
-    }
-
-    // Add source tracking to static parks
-    const staticParksWithSource = allStaticParks.map(park => ({
-      ...park,
-      source: 'static' as const,
-      listingType: park.listingType || ('free' as const)
-    }));
+    // Fetch static parks using centralized data loader (includes all states: CA, WA, VA, etc.)
+    const staticParksWithSource = await getAllStaticParks();
 
     // Fetch approved user submissions from database (includes both featured and free listings)
     // Industry best practice: Include ALL approved parks in search, regardless of listing type
@@ -255,7 +217,7 @@ export async function GET(request: Request) {
     // Industry best practice: Prefer user-submitted parks over static parks when duplicates exist
     const dedupedParks: DogPark[] = [];
     const seenKeys = new Set<string>();
-    
+
     // First, add all user-submitted parks (these take priority)
     for (const park of allParks) {
       if (park.source === 'user_submitted') {
@@ -266,7 +228,7 @@ export async function GET(request: Request) {
         }
       }
     }
-    
+
     // Then add static parks that aren't duplicates
     for (const park of allParks) {
       if (park.source === 'static') {
@@ -277,9 +239,9 @@ export async function GET(request: Request) {
         }
       }
     }
-    
+
     allParks = dedupedParks;
-    
+
     // Log final count
     const featuredCount = allParks.filter(p => p.listingType === 'featured').length;
     console.log(`[SEARCH API] After dedup: ${allParks.length} total parks (${featuredCount} featured, ${allParks.length - featuredCount} free)`);
@@ -313,8 +275,8 @@ export async function GET(request: Request) {
     // 3. City filter
     if (params.city) {
       const cityTerm = params.city.toLowerCase();
-      filteredParks = filteredParks.filter(park => 
-        park.city.toLowerCase() === cityTerm || 
+      filteredParks = filteredParks.filter(park =>
+        park.city.toLowerCase() === cityTerm ||
         park.city.toLowerCase().includes(cityTerm)
       );
     }
@@ -327,13 +289,13 @@ export async function GET(request: Request) {
     // 5. Price range filter
     if (params.priceRange && params.priceRange !== 'all') {
       if (params.priceRange === 'free') {
-        filteredParks = filteredParks.filter(park => 
-          park.pricing?.isFree || 
+        filteredParks = filteredParks.filter(park =>
+          park.pricing?.isFree ||
           (!park.pricing?.dropInFee && !park.pricing?.dailyRate && !park.priceLevel)
         );
       } else {
         const priceLevel = params.priceRange.length; // $ = 1, $$ = 2, $$$ = 3
-        filteredParks = filteredParks.filter(park => 
+        filteredParks = filteredParks.filter(park =>
           park.priceLevel === priceLevel ||
           (park.pricing?.priceRange && park.pricing.priceRange.length === priceLevel)
         );
@@ -344,7 +306,7 @@ export async function GET(request: Request) {
     if (params.amenities && params.amenities.length > 0) {
       filteredParks = filteredParks.filter(park => {
         if (!park.amenities) return false;
-        return params.amenities!.every(amenity => 
+        return params.amenities!.every(amenity =>
           park.amenities && park.amenities[amenity as keyof typeof park.amenities] === true
         );
       });
@@ -371,21 +333,21 @@ export async function GET(request: Request) {
           if (a.park.listingType === 'featured' && b.park.listingType !== 'featured') return -1;
           if (a.park.listingType !== 'featured' && b.park.listingType === 'featured') return 1;
           return b.relevance - a.relevance;
-        
+
         case 'rating':
           if (b.park.rating !== a.park.rating) return b.park.rating - a.park.rating;
           return b.park.reviewCount - a.park.reviewCount; // Tie-breaker
-        
+
         case 'reviews':
           return b.park.reviewCount - a.park.reviewCount;
-        
+
         case 'name':
           return a.park.name.localeCompare(b.park.name);
-        
+
         case 'distance':
           // TODO: Implement distance calculation when user location is available
           return 0;
-        
+
         default:
           return 0;
       }
@@ -450,7 +412,7 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error('Search API Error:', error);
     return NextResponse.json(
-      { 
+      {
         success: false,
         error: 'Failed to search parks',
         data: [],

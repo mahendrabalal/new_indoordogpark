@@ -39,6 +39,10 @@ export interface CityContentPayload {
 
 const californiaDataPath = path.join(process.cwd(), 'public/data/california.json');
 const washingtonDataPath = path.join(process.cwd(), 'public/data/washington.json');
+const virginiaDataPath = path.join(process.cwd(), 'public/data/virginia.json');
+const texasDataPath = path.join(process.cwd(), 'public/data/texas.json');
+const tennesseeDataPath = path.join(process.cwd(), 'public/data/tennessee.json');
+const pennsylvaniaDataPath = path.join(process.cwd(), 'public/data/pennsylvania.json');
 const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
@@ -201,7 +205,7 @@ async function loadStaticParks(): Promise<DogPark[]> {
 
   try {
     const allParks: DogPark[] = [];
-    
+
     // Load California parks
     try {
       const californiaContent = await readFile(californiaDataPath, 'utf-8');
@@ -210,7 +214,7 @@ async function loadStaticParks(): Promise<DogPark[]> {
     } catch (error) {
       console.error('Failed to read California parks data:', error);
     }
-    
+
     // Load Washington parks
     try {
       const washingtonContent = await readFile(washingtonDataPath, 'utf-8');
@@ -219,7 +223,43 @@ async function loadStaticParks(): Promise<DogPark[]> {
     } catch (error) {
       console.error('Failed to read Washington parks data:', error);
     }
-    
+
+    // Load Virginia parks
+    try {
+      const virginiaContent = await readFile(virginiaDataPath, 'utf-8');
+      const virginiaParks: DogPark[] = JSON.parse(virginiaContent);
+      allParks.push(...virginiaParks);
+    } catch (error) {
+      console.error('Failed to read Virginia parks data:', error);
+    }
+
+    // Load Texas parks
+    try {
+      const texasContent = await readFile(texasDataPath, 'utf-8');
+      const texasParks: DogPark[] = JSON.parse(texasContent);
+      allParks.push(...texasParks);
+    } catch (error) {
+      console.error('Failed to read Texas parks data:', error);
+    }
+
+    // Load Tennessee parks
+    try {
+      const tennesseeContent = await readFile(tennesseeDataPath, 'utf-8');
+      const tennesseeParks: DogPark[] = JSON.parse(tennesseeContent);
+      allParks.push(...tennesseeParks);
+    } catch (error) {
+      console.error('Failed to read Tennessee parks data:', error);
+    }
+
+    // Load Pennsylvania parks
+    try {
+      const pennsylvaniaContent = await readFile(pennsylvaniaDataPath, 'utf-8');
+      const pennsylvaniaParks: DogPark[] = JSON.parse(pennsylvaniaContent);
+      allParks.push(...pennsylvaniaParks);
+    } catch (error) {
+      console.error('Failed to read Pennsylvania parks data:', error);
+    }
+
     // Load Mixmatch parks (multi-state parks)
     try {
       const mixmatchContent = await readFile(mixmatchDataPath, 'utf-8');
@@ -228,7 +268,7 @@ async function loadStaticParks(): Promise<DogPark[]> {
     } catch (error) {
       console.error('Failed to read Mixmatch parks data:', error);
     }
-    
+
     const normalized = allParks.map(normalizePark);
     const deduped = dedupeParks(normalized);
     deduped.sort((a, b) => a.name.localeCompare(b.name));
@@ -268,7 +308,7 @@ export async function getPaginatedStaticParks(page = 1, limit = 20): Promise<Pag
 
 export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   const parks = await loadStaticParks();
-  
+
   // Try exact match first
   let park = parks.find((p) => (p.slug || p.id) === slug);
   if (park) {
@@ -295,7 +335,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
     /-nc$/i,
     /-ca$/i,
   ];
-  
+
   for (const pattern of cityStatePatterns) {
     const trimmedSlug = slug.replace(pattern, '');
     if (trimmedSlug !== slug) {
@@ -308,15 +348,15 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       }
     }
   }
-  
+
   // Try matching by checking if slug starts with park slug (handles suffixes)
   const normalizedSlug = slug.toLowerCase().trim();
   park = parks.find((p) => {
     const parkSlug = (p.slug || slugify(p.name, p.city)).toLowerCase();
     // Check if requested slug starts with park slug or vice versa
     return parkSlug === normalizedSlug ||
-           normalizedSlug.startsWith(parkSlug + '-') ||
-           parkSlug.startsWith(normalizedSlug + '-');
+      normalizedSlug.startsWith(parkSlug + '-') ||
+      parkSlug.startsWith(normalizedSlug + '-');
   });
   if (park) {
     return park;
@@ -375,11 +415,11 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       const nameBasedMatch = allApproved.find((sub) => {
         const subName = sub.name.toLowerCase().trim();
         const expectedSlug = slugify(sub.name, sub.city).toLowerCase();
-        
+
         // Check if the search slug contains the park name or vice versa
         return normalizedSearchSlug.includes(subName.replace(/[^a-z0-9]+/g, '-')) ||
-               expectedSlug.includes(normalizedSearchSlug) ||
-               normalizedSearchSlug.includes(expectedSlug);
+          expectedSlug.includes(normalizedSearchSlug) ||
+          normalizedSearchSlug.includes(expectedSlug);
       });
 
       if (nameBasedMatch) {
@@ -418,7 +458,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   const staticParks = await loadStaticParks();
   const userSubmissions = await loadUserSubmissions();
   const allParks = dedupeParks([...staticParks, ...userSubmissions]);
-  
+
   // Normalize slug: decode URL encoding and handle malformed slugs
   let normalizedSlug = slug;
   try {
@@ -427,7 +467,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     // If decoding fails, use original slug
     normalizedSlug = slug;
   }
-  
+
   // Clean up malformed slugs (e.g., "steiner-st-&" -> "steiner-st")
   normalizedSlug = normalizedSlug.replace(/[&?=]/g, '').trim();
 
@@ -569,7 +609,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
 export async function getCitySlugByName(cityName: string, state?: string): Promise<string | null> {
   const normalizedCityName = cityName.toLowerCase().trim();
   const normalizedState = state ? normalizeStateKey(state) : undefined;
-  
+
   // Check priority cities first
   const priorityMatch = priorityCityContent.find(
     (city) =>
@@ -590,11 +630,11 @@ export async function getCitySlugByName(cityName: string, state?: string): Promi
       c.name.toLowerCase() === normalizedCityName &&
       (!normalizedState || normalizeStateKey(c.state) === normalizedState)
   );
-  
+
   if (staticCity) {
     return staticCity.slug;
   }
-  
+
   return null;
 }
 
@@ -662,21 +702,21 @@ export function extractLocationFromSlug(slug: string): { city: string; state: st
     if (parts.length >= 3) {
       // Try to match common city patterns before state
       const cityPart = parts.slice(0, -1).join('-');
-      
+
       // Check if it matches a known city pattern
       for (const { pattern, city: knownCity, state: knownState } of cityPatterns) {
         if (pattern.test(cityPart + '-' + lastPart)) {
           return { city: knownCity, state: knownState };
         }
       }
-      
+
       // Fallback: try to reconstruct city name from parts
       // Capitalize first letter of each word
       const cityName = parts
         .slice(0, -1)
         .map(part => part.charAt(0).toUpperCase() + part.slice(1))
         .join(' ');
-      
+
       return { city: cityName, state };
     }
   }
@@ -701,7 +741,7 @@ export function extractLocationFromSlug(slug: string): { city: string; state: st
   // Check if last 1-2 parts form a state name
   const lastTwoParts = parts.slice(-2).join('-');
   const lastOnePart = parts[parts.length - 1];
-  
+
   if (stateNameMap[lastTwoParts]) {
     const state = stateNameMap[lastTwoParts];
     const cityName = parts

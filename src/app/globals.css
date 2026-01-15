@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +89,7 @@ body {
 /* Ensure filled heart is always red when favorited - multiple selectors for specificity */
 .favorite-button.favorited .bi-heart-fill,
 .favorite-button.favorited i.bi-heart-fill,
-.favorite-button.favorited > i.bi-heart-fill {
+.favorite-button.favorited>i.bi-heart-fill {
   color: #ef4444 !important;
   fill: #ef4444 !important;
 }
@@ -132,7 +133,7 @@ body {
     height: 28px !important;
     flex-shrink: 0;
   }
-  
+
   .favorite-btn-quick-info i {
     font-size: 0.85rem !important;
     line-height: 1;
@@ -150,7 +151,7 @@ body {
     width: 24px !important;
     height: 24px !important;
   }
-  
+
   .favorite-btn-quick-info i {
     font-size: 0.75rem !important;
   }
@@ -197,14 +198,27 @@ body {
 
 /* Animations */
 @keyframes heartBeat {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* ========== REVIEW SECTION STYLES ========== */
@@ -502,7 +516,7 @@ body {
   z-index: 1000;
   /* Reserve space to prevent layout shift */
   min-height: 70px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   /* Auto-hide behavior */
   transform: translateY(0);
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -521,7 +535,7 @@ body {
 
 /* Add shadow when visible for better depth perception */
 .header-visible {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -979,7 +993,8 @@ body {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
   border-radius: 50px;
-  overflow: visible; /* Changed from hidden to allow autocomplete dropdown */
+  overflow: visible;
+  /* Changed from hidden to allow autocomplete dropdown */
   border: 1px solid rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
   position: relative;
@@ -989,7 +1004,8 @@ body {
 .search-input-new {
   width: 100%;
   min-width: 0;
-  padding: 18px 56px 18px 30px; /* Right padding reserves space for clear button */
+  padding: 18px 56px 18px 30px;
+  /* Right padding reserves space for clear button */
   border: none;
   font-size: 1rem;
   outline: none;
@@ -1074,20 +1090,16 @@ body {
 @media (max-width: 768px) {
   .hero-quick-links {
     position: relative;
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
   }
 }
 
@@ -1187,7 +1199,8 @@ body {
   .search-input-new {
     width: 100%;
     min-width: 0;
-    padding: 16px 52px 16px 24px; /* Reserve space for clear button */
+    padding: 16px 52px 16px 24px;
+    /* Reserve space for clear button */
     font-size: 0.95rem;
   }
 
@@ -1209,7 +1222,8 @@ body {
 /* Mobile-specific styles (768px and below) */
 @media (max-width: 768px) {
   .hero-section-new {
-    padding: 60px 16px 50px;
+    padding: 50px 16px 40px;
+    min-height: 280px;
   }
 
   .search-container-new {
@@ -1227,10 +1241,12 @@ body {
   .search-input-new {
     width: 100%;
     min-width: 0;
-    padding: 12px 48px 12px 16px; /* Reserve space for clear button */
+    padding: 12px 48px 12px 16px;
+    /* Reserve space for clear button */
     border-radius: 50px 0 0 50px;
     font-size: 0.9rem;
-    min-height: 44px; /* Touch target - WCAG 2.1 minimum */
+    min-height: 44px;
+    /* Touch target - WCAG 2.1 minimum */
   }
 
   .search-btn-new {
@@ -1238,7 +1254,8 @@ body {
     padding: 12px 20px;
     border-radius: 0 50px 50px 0;
     font-size: 0.9rem;
-    min-height: 44px; /* Touch target */
+    min-height: 44px;
+    /* Touch target */
     white-space: nowrap;
   }
 
@@ -1260,11 +1277,12 @@ body {
   .hero-quick-links {
     font-size: 0.8rem;
     gap: 8px;
-    padding-bottom: 4px; /* Space for scroll indicator */
+    padding-bottom: 4px;
+    /* Space for scroll indicator */
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
   }
-  
+
   .hero-quick-links::after {
     content: '';
     flex: 0 0 8px;
@@ -1275,13 +1293,15 @@ body {
 /* Very small mobile (480px and below) */
 @media (max-width: 480px) {
   .hero-section-new {
-    padding: 50px 12px 40px;
+    padding: 40px 12px 32px;
+    min-height: 240px;
   }
 
   .search-input-new {
     width: 100%;
     min-width: 0;
-    padding: 10px 44px 10px 14px; /* Reserve space for clear button */
+    padding: 10px 44px 10px 14px;
+    /* Reserve space for clear button */
     font-size: 0.875rem;
   }
 
@@ -1291,21 +1311,22 @@ body {
   }
 
   .hero-title-new {
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 1.35rem;
+    line-height: 1.25;
   }
 
   .hero-subtitle-new {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   .hero-badge {
-    font-size: 0.7rem;
-    padding: 5px 12px;
+    font-size: 0.65rem;
+    padding: 4px 10px;
   }
 
   .hero-quick-links {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     gap: 6px;
   }
 
@@ -1318,7 +1339,7 @@ body {
   padding: 20px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .search-filters-header {
@@ -1438,7 +1459,9 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Search input with clear button */
@@ -1446,7 +1469,8 @@ body {
   position: relative;
   flex: 1;
   z-index: 10;
-  min-width: 0; /* Allow flex item to shrink below content size */
+  min-width: 0;
+  /* Allow flex item to shrink below content size */
 }
 
 .search-input-clear {
@@ -1506,6 +1530,7 @@ mark {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1703,17 +1728,17 @@ mark {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
   .search-filters-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
-  
+
   .search-filter-results {
     width: 100%;
   }
-  
+
   .search-filter-results-count {
     width: 100%;
     text-align: center;
@@ -1730,16 +1755,16 @@ mark {
 .parks-grid-new {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
+  gap: 20px;
+  margin-top: 30px;
   align-items: start;
   /* Reserve minimum height to prevent layout shift */
-  min-height: 400px;
-  /* Use fixed row heights to prevent layout shift */
-  grid-auto-rows: 400px; /* All park cards same height */
+  min-height: 200px;
+  /* Use flexible row heights */
+  grid-auto-rows: minmax(180px, auto);
   /* Use content-visibility for better performance */
   content-visibility: auto;
-  contain-intrinsic-size: 400px;
+  contain-intrinsic-size: 200px;
 }
 
 @media (max-width: 1200px) {
@@ -1759,7 +1784,11 @@ mark {
 @media (max-width: 600px) {
   .parks-grid-new {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
+    margin-top: 20px;
+    min-height: auto;
+    grid-auto-rows: auto;
+    contain-intrinsic-size: auto;
   }
 }
 
@@ -1768,21 +1797,19 @@ mark {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   color: inherit;
-  /* Fill grid cell height (set by grid-auto-rows: 400px) to prevent layout shift */
   height: 100%;
-  min-height: 400px;
-  height: 100%;
+  min-height: 180px;
 }
 
 .park-card-new:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transform: translateY(-4px);
 }
 
@@ -1796,6 +1823,13 @@ mark {
 .park-card-new.featured-park-card:hover {
   border-color: #eab308;
   box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+}
+
+@media (max-width: 768px) {
+  .park-card-new {
+    min-height: auto;
+    height: auto;
+  }
 }
 
 .featured-badge-overlay {
@@ -1909,179 +1943,493 @@ mark {
   font-size: 12px;
 }
 
-.park-card-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  aspect-ratio: 16 / 9; /* Reserve space to prevent layout shift */
+/* ========== NEW CLEAN DIRECTORY PARK CARDS (ULTRA-COMPACT) ========== */
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .directory-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .directory-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.park-card-new-text {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
   overflow: hidden;
-  background: #f5f5f5;
-  /* Prevent layout shift */
-  aspect-ratio: 16 / 10;
-  min-height: 200px;
-  /* Reserve space to prevent CLS */
-  contain: layout style paint;
-}
-
-.park-card-image {
-  width: 100%;
+  position: relative;
+  transition: all 0.2s ease;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  /* Prevent layout shift during image load */
-  background-color: #f5f5f5;
-  display: block;
-}
-
-.park-card-new:hover .park-card-image {
-  transform: scale(1.05);
-}
-
-.park-card-body {
-  padding: 12px 16px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.park-card-new-text:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: #7c3aed;
+}
+
+/* Featured cards get a purple border */
+.park-card-new-text.featured-card {
+  border: 2px solid #7c3aed;
+}
+
+.park-card-body-text {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   flex: 1;
-  position: relative;
+}
+
+.park-card-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 8px;
 }
 
-/* Header Section - Category, Title, Location */
-.park-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0; /* Allow flex children to shrink below content size */
-}
-
-.park-card-header-top {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0; /* Allow flex children to shrink below content size */
-}
-
-/* Category Badge - Small uppercase text at top */
-.park-card-category {
-  font-size: 0.65rem;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  font-weight: 600;
+.park-card-title-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
   line-height: 1.2;
-}
-
-/* Title - Prominent and clear */
-.park-card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: #1f2937;
-  transition: color 0.2s;
+  margin: 0;
+  flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin: 0;
-  word-break: break-word;
-  hyphens: auto;
 }
 
-.park-card-new:hover .park-card-title {
-  color: #FF5722;
+.status-badge-compact {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-/* Location - Clean and simple */
-.park-card-location {
-  font-size: 0.8rem;
-  color: #6b7280;
-  line-height: 1.3;
-  margin: 0;
+.status-badge-compact.status-open {
+  background: #f0fdf4;
+  color: #16a34a;
 }
 
-/* Badges Row - Combined Trusted + Status */
-.park-card-badges-row {
+.park-card-rating-row {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
+  font-size: 0.8rem;
 }
 
-.trusted-badge-text {
-  display: inline-block;
-  font-size: 0.65rem;
-  padding: 3px 7px;
-  background: #f0f9ff;
-  color: #0284c7;
-  border-radius: 4px;
+.park-card-rating-row i {
+  color: #f59e0b;
+  font-size: 0.75rem;
+}
+
+.rating-value {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.rating-count {
+  color: #9ca3af;
+}
+
+.park-card-address-text {
+  display: flex;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.park-card-address-text i {
+  color: #d1d5db;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.park-card-address-text .truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.park-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.park-card-price-text {
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.2px;
-  border: 1px solid #e0f2fe;
-  line-height: 1.2;
+  color: #1a1a1a;
 }
 
-/* Open/Closed Status Badge */
-.park-card-status {
+.park-card-actions-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.btn-details,
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+
+.btn-details {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.btn-details:hover {
+  background: #dcfce7;
+}
+
+.btn-call {
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  background: #ffffff;
+}
+
+.btn-call:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.favorite-btn-minimal {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  color: #9ca3af !important;
+  transition: all 0.2s ease !important;
+}
+
+.favorite-btn-minimal:hover {
+  border-color: #fca5a5 !important;
+  color: #ef4444 !important;
+  background: #fef2f2 !important;
+}
+
+.park-card-favorite-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Helper classes for status badges */
+.status-badge-compact {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.status-badge-compact.status-open {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.status-badge-compact.status-closed {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.status-badge-compact.status-24x7 {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.featured-stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #7c3aed, #db2777);
+  z-index: 5;
+}
+
+/* ========== NEW TEXT-ONLY HERO SECTION ========== */
+/* ========== PREMIUM HERO SECTION (SEPTIC TANK STYLE) ========== */
+.park-hero-premium {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #ffffff;
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.park-hero-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 87, 34, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.park-hero-premium .container {
+  position: relative;
+  z-index: 10;
+}
+
+.breadcrumbs-white {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.breadcrumbs-white a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs-white a:hover {
+  color: #ffffff;
+}
+
+.park-title-large {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.park-subtitle-white {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.park-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.badge-featured,
+.badge-community,
+.badge-type,
+.badge-free {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-featured {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-community {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.badge-type {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.badge-free {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.park-quick-info-white {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.google-attribution {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #94a3b8;
+  padding: 2px 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.location-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+}
+
+.actions-inline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.favorite-btn-hero {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.favorite-btn-hero:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.btn-call-hero {
+  background: #10b981;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-call-hero:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+}
+
+/* ========== NEARBY PARKS TEXT CARDS ========== */
+.nearby-park-card-text {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: block;
+}
+
+.nearby-park-card-text:hover {
+  background: #ffffff;
+  border-color: #7c3aed;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.nearby-park-info-full h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0;
 }
 
-.status-badge {
-  display: inline-flex;
+.rating-compact {
+  display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.65rem;
-  padding: 3px 7px;
-  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.nearby-park-type {
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.2px;
-  line-height: 1.2;
+  color: #7c3aed;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
-.status-badge i {
-  font-size: 0.5rem;
-  line-height: 1;
+.nearby-park-city {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 4px;
 }
 
-.status-badge.status-open {
-  background: #f0fdf4;
-  color: #16a34a;
-  border: 1px solid #bbf7d0;
-}
-
-.status-badge.status-open i {
-  color: #16a34a;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.status-badge.status-closed {
-  background: #fef2f2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
-}
-
-.status-badge.status-closed i {
-  color: #dc2626;
-}
-
-.status-badge.status-24x7 {
-  background: #eff6ff;
-  color: #2563eb;
-  border: 1px solid #bfdbfe;
-}
-
-.status-badge.status-24x7 i {
-  color: #2563eb;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.status-text {
-  font-size: 0.65rem;
+.google-attribution-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -2401,8 +2749,9 @@ mark {
 }
 
 /* ========== PARK DETAIL PAGE ========== */
-.park-detail-page {
-  background: white;
+.park-detail-premium {
+  background: #fdfdfd;
+  color: #333;
 }
 
 .park-not-found {
@@ -2471,7 +2820,7 @@ mark {
 }
 
 .park-hero-content {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2585,11 +2934,14 @@ mark {
   padding: 0 20px 60px;
 }
 
-.park-content-grid {
+/* Premium Layout Grid */
+.premium-content-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 40px;
-  margin-bottom: 60px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 20;
 }
 
 @media (max-width: 1024px) {
@@ -2605,11 +2957,14 @@ mark {
   gap: 40px;
 }
 
-.content-section {
+/* Main Content Sections as Premium Cards */
+.premium-content-section {
   background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 30px;
 }
 
 .content-section h2 {
@@ -2627,16 +2982,39 @@ mark {
   color: #555;
 }
 
-.park-description p + p {
+.park-description p+p {
   margin-top: 1.25rem;
 }
 
 /* Amenities */
-.amenities-grid {
+/* Amenities Premium */
+.amenities-grid-premium {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.amenity-item-premium {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fdfdfd;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.amenity-item-premium:hover {
+  background: #f8f9fa;
+  border-color: #e0e0e0;
+}
+
+.amenity-item-premium i {
+  color: #4caf50;
+  font-size: 1.1rem;
 }
 
 .amenity-item {
@@ -2795,7 +3173,7 @@ mark {
   margin-top: 2px;
 }
 
-.characteristic-item > div {
+.characteristic-item>div {
   flex: 1;
 }
 
@@ -2955,11 +3333,23 @@ mark {
   gap: 25px;
 }
 
-.sidebar-card {
+/* Premium Sidebar Cards */
+.sidebar-card-premium {
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 24px;
+}
+
+.sidebar-card-premium h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .sidebar-card h3 {
@@ -2969,6 +3359,51 @@ mark {
   margin-bottom: 20px;
   padding-bottom: 12px;
   border-bottom: 2px solid #f0f0f0;
+}
+
+/* Contact Items Premium */
+.contact-item-premium {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.contact-icon-premium {
+  width: 48px;
+  height: 48px;
+  background: #f1f8e9;
+  color: #2e7d32;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.contact-text-premium strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.contact-text-premium p {
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+}
+
+.contact-text-premium a {
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-text-premium a:hover {
+  color: #2e7d32;
 }
 
 /* NAP Card */
@@ -3562,14 +3997,14 @@ mark {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   text-decoration: none;
   display: block;
 }
 
 .nearby-park-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transform: translateY(-4px);
 }
 
@@ -3637,7 +4072,7 @@ mark {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-  
+
   .park-subtitle {
     font-size: 1rem;
     line-height: 1.4;
@@ -3706,7 +4141,7 @@ mark {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
@@ -3715,7 +4150,7 @@ mark {
 }
 
 .city-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transform: translateY(-4px);
 }
 
@@ -3810,12 +4245,23 @@ mark {
 /* ========== FEATURED PARKS SECTION ========== */
 .featured-parks-section {
   background: #fafafa;
-  padding: 80px 20px;
+  padding: 60px 20px;
   /* Reserve minimum height to prevent layout shift when content loads */
-  min-height: 300px;
+  min-height: 200px;
   /* Use content-visibility for better performance */
   content-visibility: auto;
-  contain-intrinsic-size: 300px;
+  contain-intrinsic-size: 200px;
+}
+
+@media (max-width: 768px) {
+  .featured-parks-section {
+    padding: 40px 16px;
+    min-height: auto;
+  }
+
+  .featured-parks-subtitle {
+    margin-bottom: 20px;
+  }
 }
 
 .featured-parks-container {
@@ -3902,12 +4348,10 @@ mark {
 }
 
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 25%,
-    #e0e0e0 50%,
-    #f0f0f0 75%
-  );
+  background: linear-gradient(90deg,
+      #f0f0f0 25%,
+      #e0e0e0 50%,
+      #f0f0f0 75%);
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
   border-radius: 4px;
@@ -3917,6 +4361,7 @@ mark {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -4452,6 +4897,7 @@ mark {
 }
 
 @media (max-width: 900px) {
+
   .about-content-grid,
   .about-content-grid-reverse {
     grid-template-columns: 1fr;
@@ -4675,6 +5121,7 @@ mark {
   color: #2c3e50;
   transform: translateY(-2px);
 }
+
 .city-hero {
   background: white;
   margin-bottom: 40px;
@@ -4837,22 +5284,39 @@ mark {
 /* ========== SPLIT VIEW SEARCH RESULTS (Uniplaces-style) ========== */
 .search-results-split-view {
   display: flex;
+  flex-direction: column;
+  /* Mobile Default */
   width: 100%;
-  height: calc(100vh - 60px); /* Compact header height */
+  height: auto;
+  min-height: 100vh;
   position: relative;
   background: #f8f9fa;
-  /* Reserve space to prevent layout shift */
-  min-height: 600px;
 }
 
-/* Left Side - Listings */
+@media (min-width: 1025px) {
+  .search-results-split-view {
+    flex-direction: row;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+  }
+}
+
+/* Listings Container */
 .search-results-listings {
+  width: 100%;
   flex: 1;
-  max-width: 60%;
-  height: 100%;
+  background: #f8fafc;
   overflow-y: auto;
-  background: white;
-  border-right: 1px solid #e5e7eb;
+}
+
+@media (min-width: 1025px) {
+  .search-results-listings {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+    border-right: 1px solid #e2e8f0;
+    overflow-x: hidden;
+  }
 }
 
 /* Compact Toolbar with Inline Filters */
@@ -4870,12 +5334,27 @@ mark {
   flex-wrap: nowrap;
 }
 
+@media (max-width: 768px) {
+  .search-results-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+}
+
 .search-results-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex: 0 0 auto;
-  min-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .search-results-info {
+    min-width: 0;
+    justify-content: space-between;
+  }
 }
 
 .results-count {
@@ -4896,6 +5375,13 @@ mark {
   margin-left: 8px;
 }
 
+@media (max-width: 768px) {
+  .results-meta {
+    display: none;
+    /* Hide redundant text on mobile */
+  }
+}
+
 /* Inline Filters */
 .inline-filters {
   display: flex;
@@ -4908,7 +5394,8 @@ mark {
   justify-content: flex-start;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin;
+  /* Firefox */
   padding-bottom: 2px;
   mask-image: linear-gradient(to right, black 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, black 92%, transparent 100%);
@@ -4952,7 +5439,7 @@ mark {
   color: #374151;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   opacity: 0;
   pointer-events: none;
 }
@@ -5000,7 +5487,8 @@ mark {
   background-position: right 10px center;
   min-width: 108px;
   min-height: 36px;
-  flex-shrink: 0; /* Ensure overflow exists so the row can scroll on desktop */
+  flex-shrink: 0;
+  /* Ensure overflow exists so the row can scroll on desktop */
 }
 
 /* Mobile touch target optimization */
@@ -5049,11 +5537,344 @@ mark {
   padding: 16px;
 }
 
-/* Vertical List Layout for Parks */
-.parks-list-vertical {
+/* Airbnb Grid Layout for Search Results */
+.parks-grid-search {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 16px;
+  padding: 24px;
+  /* Increased padding for better separation from map */
+}
+
+/* Breakpoint adjusted for 50/50 split: 3 columns only on large screens */
+@media (max-width: 1600px) {
+  .parks-grid-search {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .parks-grid-search {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .parks-grid-search {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.park-card-premium-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.park-card-premium {
+  background: #f5f2ed;
+  /* More visible tan/brown background */
+  border: 1px solid #d7d2c8;
+  /* Defined earth-tone border */
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #1e293b;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.park-card-premium-link:hover .park-card-premium {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(139, 115, 85, 0.15);
+  /* Warmer brown shadow */
+  border-color: #FF5722;
+  background: #ffffff;
+}
+
+.park-premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.park-header-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.status-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-pill.open {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-pill.closed {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.park-premium-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+  text-transform: none;
+  /* Removed uppercase for better readability in light theme */
+  letter-spacing: normal;
+}
+
+.park-premium-rating {
+  background: #FF5722;
+  /* Brand Orange */
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.park-premium-rating i {
+  color: #ffffff;
+  font-size: 0.75rem;
+}
+
+.park-status-note {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FF5722;
+  margin-top: -4px;
+}
+
+.park-premium-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8b7355;
+  /* Earthy brown text */
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.park-premium-location i {
+  color: #b08d57;
+  /* Brownish icon color */
+  font-size: 0.9rem;
+}
+
+.park-premium-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.premium-badge {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: 1px solid #e2e8f0;
+}
+
+.premium-badge.type-badge {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #dbeafe;
+}
+
+.premium-badge.price-badge {
+  background: #fdf2f8;
+  color: #9d174d;
+  border-color: #fce7f3;
+}
+
+.premium-badge.feature-badge {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #dcfce7;
+}
+
+.premium-badge.special-badge {
+  background: #fff7ed;
+  color: #9a3412;
+  border-color: #ffedd5;
+}
+
+.park-premium-description {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.4;
+  /* Slightly tighter line height */
+  margin: 2px 0;
+  /* Reduced from 4px */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Reduced from 3 lines to make card shorter */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Unused footer styles removed for compactness */
+.arrow-circle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+}
+
+/* Airbnb-style Park Card */
+.park-card-airbnb {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  cursor: pointer;
+}
+
+.park-card-image-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.park-card-image {
+  transition: transform 0.3s ease;
+}
+
+.park-card-airbnb:hover .park-card-image {
+  transform: scale(1.05);
+}
+
+.park-card-overlay-top {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.guest-favorite-badge {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 4px;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.favorite-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.park-card-content-airbnb {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.park-card-header-airbnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.park-card-name-airbnb {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222222;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.park-card-rating-airbnb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #222222;
+}
+
+.park-card-rating-airbnb i {
+  font-size: 0.75rem;
+  color: #222222;
+}
+
+.park-card-city-airbnb,
+.park-card-type-airbnb {
+  font-size: 0.9rem;
+  color: #717171;
+  margin: 0;
+}
+
+.park-card-footer-airbnb {
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.park-card-price-airbnb {
+  font-size: 0.95rem;
+  color: #222222;
+}
+
+.status-text-airbnb {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-text-airbnb.open {
+  color: #008489;
+}
+
+.status-text-airbnb.closed {
+  color: #e51e13;
 }
 
 /* Adjust Park Card for Horizontal Layout in Search Results */
@@ -5132,14 +5953,25 @@ mark {
   font-size: 0.95rem;
 }
 
-/* Right Side - Map */
+
+
+/* Map Container */
 .search-results-map {
-  flex: 1;
-  max-width: 40%;
-  height: 100%;
-  position: sticky;
-  top: 0;
+  width: 100%;
+  height: 400px;
+  /* Mobile Default */
   background: #e5e7eb;
+}
+
+@media (min-width: 1025px) {
+  .search-results-map {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+    height: 100%;
+    position: sticky;
+    top: 0;
+  }
 }
 
 .search-results-map #map {
@@ -5196,7 +6028,8 @@ mark {
 
 /* ========== MOBILE SEARCH TOGGLE ========== */
 .mobile-toggle-btn {
-  display: none !important; /* Hidden on desktop with !important to override conflicting styles */
+  display: none !important;
+  /* Hidden on desktop with !important to override conflicting styles */
 }
 
 @media (max-width: 1024px) {
@@ -5214,7 +6047,7 @@ mark {
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease, background 0.2s ease;
@@ -5230,7 +6063,7 @@ mark {
   .mobile-toggle-btn:active {
     transform: translateX(-50%) scale(0.95);
   }
-  
+
   .mobile-toggle-btn i {
     font-size: 1.1rem;
   }
@@ -5238,26 +6071,24 @@ mark {
   /* View Switching Logic */
   .search-results-split-view {
     flex-direction: column;
-    height: calc(100vh - 65px); /* Adjust based on header height */
+    height: calc(100vh - 65px);
     overflow: hidden;
   }
 
   .search-results-listings {
-    max-width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-    height: 100%; /* Fill container */
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
     display: block;
-  }
-
-  .search-results-list {
-    padding-bottom: 80px; /* Space for FAB */
+    overflow-y: auto;
   }
 
   .search-results-map {
-    max-width: 100%;
-    position: relative;
-    height: 100%; /* Fill container */
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
     display: block;
   }
 
@@ -5270,9 +6101,8 @@ mark {
   .mobile-view-map .search-results-listings {
     display: none !important;
   }
-  
+
   .mobile-view-map .search-results-split-view {
-    /* Ensure map takes full height */
     height: calc(100vh - 65px);
   }
 
@@ -5294,13 +6124,11 @@ mark {
     transform: translateY(-50%);
     width: 30px;
     height: 60px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(139, 92, 246, 0.1),
-      rgba(139, 92, 246, 0.2),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(139, 92, 246, 0.1),
+        rgba(139, 92, 246, 0.2),
+        transparent);
     border-radius: 15px;
     animation: swipeHintPulse 2s ease-in-out infinite;
     pointer-events: none;
@@ -5308,10 +6136,13 @@ mark {
   }
 
   @keyframes swipeHintPulse {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 0.3;
       transform: translateY(-50%) translateX(0);
     }
+
     50% {
       opacity: 0.6;
       transform: translateY(-50%) translateX(-10px);
@@ -5326,10 +6157,13 @@ mark {
   }
 
   @keyframes swipeHintPulseReverse {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 0.3;
       transform: translateY(-50%) scaleX(-1) translateX(0);
     }
+
     50% {
       opacity: 0.6;
       transform: translateY(-50%) scaleX(-1) translateX(-10px);
@@ -5356,7 +6190,8 @@ mark {
   }
 
   .search-header-actions {
-    display: none; /* Hide secondary nav on mobile */
+    display: none;
+    /* Hide secondary nav on mobile */
   }
 
   .search-results-toolbar {
@@ -5378,7 +6213,8 @@ mark {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     flex-wrap: nowrap;
-    padding-bottom: 4px; /* Space for potential scrollbar or touch area */
+    padding-bottom: 4px;
+    /* Space for potential scrollbar or touch area */
     mask-image: linear-gradient(to right, black 90%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
   }
@@ -5422,7 +6258,7 @@ mark {
     /* Industry standard: Mobile search logo text size */
     font-size: 1rem;
   }
-  
+
   .search-logo img {
     /* Industry standard: Mobile search logo image size */
     height: 28px;
@@ -5652,13 +6488,13 @@ mark {
 /* ========== ARTICLE HEADER & META ========== */
 /* Professional article header styling */
 
-.blog-article-container > header {
+.blog-article-container>header {
   max-width: 720px;
   margin: 0 auto 2rem;
 }
 
 @media (max-width: 768px) {
-  .blog-article-container > header {
+  .blog-article-container>header {
     margin-bottom: 1.5rem;
   }
 }
@@ -5827,9 +6663,9 @@ mark {
 }
 
 /* First paragraph after heading */
-.blog-content h1 + p,
-.blog-content h2 + p,
-.blog-content h3 + p {
+.blog-content h1+p,
+.blog-content h2+p,
+.blog-content h3+p {
   margin-top: 0;
 }
 
@@ -5843,7 +6679,7 @@ mark {
 }
 
 /* First paragraph - larger lead text */
-.blog-content > p:first-of-type {
+.blog-content>p:first-of-type {
   font-size: 1.25rem;
   line-height: 1.7;
   color: #4b5563;
@@ -5903,7 +6739,7 @@ mark {
   padding-left: 0.5rem;
 }
 
-.blog-content li > p {
+.blog-content li>p {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
@@ -6015,6 +6851,7 @@ mark {
 }
 
 @media (max-width: 1024px) {
+
   .blog-content img[alt*="full-width"],
   .blog-content img[alt*="wide"] {
     max-width: calc(100% + 80px);
@@ -6025,6 +6862,7 @@ mark {
 }
 
 @media (max-width: 768px) {
+
   .blog-content img[alt*="full-width"],
   .blog-content img[alt*="wide"] {
     max-width: 100%;
@@ -6100,6 +6938,7 @@ mark {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -6182,7 +7021,7 @@ mark {
     margin-bottom: 0.75rem;
   }
 
-  .blog-content > p:first-of-type {
+  .blog-content>p:first-of-type {
     font-size: 1.15rem;
   }
 
@@ -6226,7 +7065,8 @@ mark {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
   background: #000;
@@ -6266,7 +7106,7 @@ mark {
     margin-left: 0;
     margin-right: 0;
   }
-  
+
   .blog-content .video-figure {
     margin: 2rem auto;
   }
@@ -6378,6 +7218,7 @@ mark {
   background: #0a66c2;
   color: white;
 }
+
 .blog-article-container .flex.flex-wrap.gap-4 a[href*="linkedin"]:hover {
   background: #004182;
 }
@@ -6388,6 +7229,7 @@ mark {
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -6399,6 +7241,7 @@ mark {
     transform: translateX(0);
     opacity: 1;
   }
+
   to {
     transform: translateX(100%);
     opacity: 0;
@@ -6420,7 +7263,7 @@ mark {
     right: 1rem;
     left: 1rem;
   }
-  
+
   .fixed.top-4.right-4 .max-w-md {
     max-width: 100%;
   }
@@ -6429,13 +7272,13 @@ mark {
 /* ========== RELATED ARTICLES SECTION ========== */
 /* Professional related articles styling */
 
-.blog-article-container ~ .bg-gray-50 {
+.blog-article-container~.bg-gray-50 {
   background: #f9fafb;
   padding: 4rem 0;
   margin-top: 4rem;
 }
 
-.blog-article-container ~ .bg-gray-50 h2 {
+.blog-article-container~.bg-gray-50 h2 {
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -6443,14 +7286,14 @@ mark {
   text-align: center;
 }
 
-.blog-article-container ~ .bg-gray-50 p {
+.blog-article-container~.bg-gray-50 p {
   text-align: center;
   color: #6b7280;
   font-size: 1.05rem;
   margin-bottom: 2rem;
 }
 
-.blog-article-container ~ .bg-gray-50 a {
+.blog-article-container~.bg-gray-50 a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -6462,7 +7305,7 @@ mark {
   border-radius: 8px;
 }
 
-.blog-article-container ~ .bg-gray-50 a:hover {
+.blog-article-container~.bg-gray-50 a:hover {
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateX(-4px);
@@ -6472,6 +7315,7 @@ mark {
 
 /* Touch target optimization for all interactive elements */
 @media (max-width: 768px) {
+
   /* Minimum touch target size of 44x44px per WCAG guidelines */
   button,
   a,
@@ -6661,10 +7505,13 @@ mark {
 
 /* Swipe gesture hint animation */
 @keyframes swipeHint {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
     opacity: 0.6;
   }
+
   50% {
     transform: translateX(10px);
     opacity: 1;
@@ -6683,12 +7530,10 @@ mark {
   right: 0;
   width: 30px;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(139, 92, 246, 0.1),
-    rgba(139, 92, 246, 0.2)
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(139, 92, 246, 0.1),
+      rgba(139, 92, 246, 0.2));
   animation: swipeHint 2s ease-in-out infinite;
   pointer-events: none;
 }
@@ -6696,12 +7541,10 @@ mark {
 /* Loading skeleton for mobile */
 @media (max-width: 768px) {
   .skeleton {
-    background: linear-gradient(
-      90deg,
-      #f0f0f0 25%,
-      #e0e0e0 50%,
-      #f0f0f0 75%
-    );
+    background: linear-gradient(90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
     border-radius: 8px;
@@ -6711,6 +7554,7 @@ mark {
     0% {
       background-position: 200% 0;
     }
+
     100% {
       background-position: -200% 0;
     }
@@ -6734,7 +7578,8 @@ mark {
 @media (max-width: 768px) {
   .search-input-new {
     padding: 16px 20px;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
+    /* Prevents zoom on iOS */
     border-radius: 24px;
     min-height: 52px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -6898,8 +7743,13 @@ mark {
   }
 
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .search-loading-text {
@@ -6989,12 +7839,12 @@ mark {
   .park-hero-content {
     padding: 20px 16px;
   }
-  
+
   .park-hero-content .container {
     max-width: 100%;
     padding: 0;
   }
-  
+
   .park-title {
     font-size: 1.75rem;
     line-height: 1.3;
@@ -7004,7 +7854,7 @@ mark {
     word-break: break-word;
     overflow-wrap: anywhere;
   }
-  
+
   .park-subtitle {
     font-size: 0.95rem;
     margin-bottom: 16px;
@@ -7017,7 +7867,7 @@ mark {
     margin-top: 16px;
   }
 
-  .park-quick-info > * {
+  .park-quick-info>* {
     flex: 1 1 calc(50% - 6px);
     min-width: 0;
   }
@@ -7053,6 +7903,7 @@ mark {
 
 /* Touch feedback animations */
 @media (hover: none) and (pointer: coarse) {
+
   button,
   a,
   .clickable {
@@ -7090,9 +7941,11 @@ mark {
     transform: scale(0.95);
     filter: brightness(1.2);
   }
+
   50% {
     transform: scale(1.02);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -7101,59 +7954,28 @@ mark {
 }
 
 /* Improved highlight styling */
+/* Improved highlight styling - Aligned with Orange brand */
 .search-highlight-text mark {
-  background: linear-gradient(
-    120deg,
-    rgba(139, 92, 246, 0.2),
-    rgba(139, 92, 246, 0.3),
-    rgba(139, 92, 246, 0.2)
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.3s ease;
-  border-radius: 4px;
-  padding: 2px 6px;
-  margin: 0 2px;
-  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
+  background: rgba(255, 87, 34, 0.15);
+  /* Subdued brand orange */
+  border-bottom: 2px solid rgba(255, 87, 34, 0.4);
+  border-radius: 2px;
+  padding: 0 4px;
+  margin: 0;
+  color: inherit;
   position: relative;
-  overflow: hidden;
 }
 
-.search-highlight-text mark::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shimmer 2s infinite;
-}
 
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
+/* Shimmer removed for cleaner look */
 
-/* Dark mode support for highlights */
+/* Dark mode support for highlights - Aligned with Orange brand */
 @media (prefers-color-scheme: dark) {
   .search-highlight-text mark {
-    background: linear-gradient(
-      120deg,
-      rgba(139, 92, 246, 0.4),
-      rgba(139, 92, 246, 0.5),
-      rgba(139, 92, 246, 0.4)
-    );
-    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+    background: rgba(255, 87, 34, 0.3);
+    /* Slightly stronger for dark mode visibility */
+    border-bottom-color: rgba(255, 87, 34, 0.6);
+    box-shadow: 0 2px 6px rgba(255, 87, 34, 0.2);
   }
 }
 
@@ -7163,9 +7985,12 @@ mark {
 }
 
 @keyframes highlightPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
   }
+
   50% {
     box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
   }
@@ -7653,6 +8478,7 @@ mark {
 }
 
 @media (max-width: 480px) {
+
   /* Park detail page mobile optimizations */
   .park-title {
     font-size: 1.4rem;
@@ -7664,33 +8490,33 @@ mark {
     overflow-wrap: anywhere;
     padding-right: 0;
   }
-  
+
   .park-subtitle {
     font-size: 0.85rem;
     margin-bottom: 12px;
     max-width: 100%;
   }
-  
+
   .park-hero-content {
     padding: 16px 12px;
   }
-  
+
   .park-hero-content .container {
     max-width: 100%;
     padding: 0;
     width: 100%;
   }
-  
+
   .park-quick-info {
     gap: 6px;
     font-size: 0.75rem;
   }
-  
-  .park-quick-info > * {
+
+  .park-quick-info>* {
     flex: 1 1 calc(50% - 3px);
     min-width: 0;
   }
-  
+
   .breadcrumbs {
     font-size: 0.7rem;
     margin-bottom: 10px;
@@ -7829,5 +8655,972 @@ mark {
   .btn-modern-primary,
   .btn-modern-secondary {
     transition: none !important;
+  }
+}
+
+/* ========== PREMIUM PARK DETAIL REDESIGN ========== */
+.btn-primary-outline {
+  background: transparent;
+  color: #ff5722;
+  border: 2px solid #ff5722;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-primary-outline:hover {
+  background: rgba(255, 87, 34, 0.05);
+  color: #e64a19;
+  border-color: #e64a19;
+  transform: translateY(-2px);
+}
+
+.quote-card-premium {
+  background: linear-gradient(135deg, #fff9f5 0%, #fff 100%);
+  border: 1px solid rgba(255, 87, 34, 0.1);
+}
+
+.btn-premium-quote {
+  width: 100%;
+  padding: 14px;
+  background: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.2);
+}
+
+.btn-premium-quote:hover {
+  background: #e64a19;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.3);
+}
+
+.premium-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.badge-verified {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.premium-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.premium-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.location-inline,
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.premium-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: -0.01em;
+}
+
+.premium-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.premium-faq-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.premium-faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.premium-faq-item h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 12px;
+}
+
+.premium-faq-item p {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .premium-title {
+    font-size: 2.2rem;
+  }
+
+  .premium-content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* ========================================================================
+   STUNNING PARK DETAILS PAGE REDESIGN - PREMIUM EXPERIENCE
+   ======================================================================== */
+
+/* Premium Hero - Compact Style */
+.park-hero-premium {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f172a 100%);
+  position: relative;
+  padding: 50px 0 80px;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay */
+.park-hero-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 87, 34, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Remove particles for cleaner look */
+.park-hero-premium::after {
+  display: none;
+}
+
+@keyframes heroGradientPulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatingParticles {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Enhanced hero content positioning */
+.park-hero-premium .container,
+.premium-hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Premium Breadcrumbs with glow */
+.breadcrumbs-white {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 28px;
+}
+
+.breadcrumbs-white a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.breadcrumbs-white a:hover {
+  color: #ff7849;
+  text-shadow: 0 0 20px rgba(255, 120, 73, 0.5);
+}
+
+.breadcrumbs-white i {
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+
+/* Enhanced Premium Badges with Glow */
+.premium-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.premium-badge:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.badge-verified {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.badge-verified i {
+  color: #34d399;
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.5));
+}
+
+/* Compact Title */
+.premium-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Compact Meta */
+.premium-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.location-inline,
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.location-inline i {
+  color: #ff7849;
+  font-size: 1.1rem;
+}
+
+.rating-inline .bi-star-fill {
+  color: #fbbf24 !important;
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
+}
+
+
+/* ========== GLASSMORPHISM CONTENT CARDS ========== */
+
+.premium-content-section {
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.premium-content-section::before {
+  display: none;
+}
+
+.premium-content-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Section Titles - Compact */
+.premium-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.premium-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #ff5722;
+}
+
+/* Compact Park Description */
+.park-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.park-description p {
+  margin-bottom: 1rem;
+}
+
+.park-description p:first-child {
+  font-size: 1rem;
+  color: #374151;
+}
+
+
+/* ========== PREMIUM AMENITIES GRID ========== */
+
+.amenities-grid-premium {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.amenity-item-premium {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.amenity-item-premium:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.amenity-item-premium i {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+
+/* ========== PRICING SECTION ========== */
+
+.pricing-section {
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+}
+
+.pricing-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 16px;
+}
+
+.pricing-type-badge.free-pricing {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #fde68a;
+}
+
+.pricing-item:hover {
+  background: #fffbeb;
+}
+
+.pricing-item span {
+  color: #d97706;
+  font-weight: 700;
+}
+
+
+/* ========== PARK CHARACTERISTICS - ENHANCED ========== */
+
+.park-characteristics-section {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%) !important;
+  border: 1px solid #e9d5ff !important;
+}
+
+.characteristic-item {
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e9d5ff;
+  transition: all 0.3s ease;
+}
+
+.characteristic-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.12);
+  border-color: #c4b5fd;
+}
+
+.characteristic-item i {
+  color: #8b5cf6 !important;
+  background: linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+
+/* ========== LOCATION MAP SECTION ========== */
+
+.directions-section {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+  border: 1px solid #bae6fd !important;
+}
+
+.directions-section .mb-6 {
+  border-radius: 20px !important;
+  overflow: hidden;
+  border: 3px solid white !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+/* ========== FAQ SECTION ========== */
+
+.faq-section {
+  background: #ffffff !important;
+}
+
+.premium-faq-item {
+  padding: 20px 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0;
+}
+
+.premium-faq-item::before {
+  display: none;
+}
+
+.premium-faq-item:hover {
+  border-color: #e5e7eb;
+  box-shadow: none;
+  transform: none;
+}
+
+.premium-faq-item:last-child {
+  border-bottom: none;
+}
+
+.premium-faq-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.premium-faq-item h4::before {
+  display: none;
+}
+
+.premium-faq-item p {
+  color: #6b7280;
+  line-height: 1.6;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+
+/* ========== SIDEBAR CARDS ========== */
+
+.premium-sidebar-column {
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
+}
+
+.sidebar-card-premium {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.sidebar-card-premium:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-card-premium h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.sidebar-card-premium h3::after {
+  display: none;
+}
+
+/* Contact Card - Simple Style */
+.contact-info-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item-premium {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.contact-item-premium:hover {
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.contact-icon-premium {
+  width: 40px;
+  height: 40px;
+  background: #f0fdf4;
+  color: #15803d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: none;
+  border: 1px solid #dcfce7;
+}
+
+.contact-text-premium strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.contact-text-premium p {
+  margin: 0;
+  font-weight: 500;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.contact-text-premium a {
+  color: #1e293b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-text-premium a:hover {
+  color: #10b981;
+}
+
+
+/* Hours Card - Simple Style */
+.hours-list-premium {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.hours-list-premium li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  background: transparent;
+  border-radius: 0;
+  color: #4b5563;
+}
+
+.hours-list-premium li:last-child {
+  border-bottom: none;
+}
+
+.hours-list-premium li:hover {
+  background: transparent;
+}
+
+.hours-list-premium li.today {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+.hours-list-premium li.today .day {
+  color: #92400e;
+  font-weight: 800;
+}
+
+.hours-list-premium li.today .time {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.hours-list-premium li:last-child {
+  margin-bottom: 0;
+}
+
+.hours-list-premium .day {
+  color: #475569;
+  font-weight: 600;
+}
+
+.hours-list-premium .time {
+  color: #64748b;
+  font-weight: 500;
+}
+
+
+/* CTA Button - Premium with Pulse */
+.sidebar-ctas .btn-primary {
+  background: linear-gradient(135deg, #ff5722 0%, #f97316 100%);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-ctas .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-ctas .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 87, 34, 0.45);
+}
+
+.sidebar-ctas .btn-primary:hover::before {
+  opacity: 1;
+}
+
+/* Outline Button */
+.btn-primary-outline {
+  background: transparent;
+  color: #ff5722;
+  border: 2px solid #ff5722;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-outline:hover {
+  background: linear-gradient(135deg, #ff5722 0%, #f97316 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3);
+}
+
+
+/* ========== NEARBY PARKS - SIMPLE CARDS ========== */
+
+.nearby-parks-section {
+  padding: 40px 0;
+  background: transparent;
+  border-radius: 0;
+  margin-top: 32px !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+.nearby-parks-header h2 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1f2937;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.nearby-parks-header a {
+  padding: 8px 16px;
+  background: white;
+  color: #ea580c !important;
+  border: 1px solid #ea580c;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  box-shadow: none;
+}
+
+.nearby-parks-header a:hover {
+  background: #fff7ed;
+  transform: none;
+  box-shadow: none;
+}
+
+.nearby-parks-section .grid>a {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.nearby-parks-section .grid>a:hover {
+  transform: none;
+  border-color: #d1d5db;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nearby-parks-section .grid>a h3 {
+  font-size: 1rem !important;
+  color: #0f172a !important;
+  transition: color 0.3s ease;
+}
+
+.nearby-parks-section .grid>a:hover h3 {
+  color: #ea580c !important;
+}
+
+/* Constrain Width for Park Details */
+.park-hero-premium .container,
+.container {
+  max-width: 1080px;
+}
+
+
+/* ========== RELATED ARTICLES - PREMIUM ========== */
+
+.related-blog-section {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%) !important;
+  border: none !important;
+  padding: 40px !important;
+  border-radius: 24px !important;
+}
+
+.related-blog-section h2 {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ========== REVIEWS SECTION - ENHANCED ========== */
+
+.reviews-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  margin-top: 30px;
+}
+
+.write-review-btn {
+  background: linear-gradient(135deg, #ff5722 0%, #f97316 100%);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.3);
+  transition: all 0.3s ease;
+}
+
+.write-review-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
+}
+
+.review-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+@media (max-width: 1024px) {
+  .premium-content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: -40px;
+  }
+
+  .premium-sidebar-column {
+    position: static;
+  }
+
+  .park-hero-premium {
+    padding: 80px 0 100px;
+  }
+
+  .premium-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .park-hero-premium {
+    padding: 60px 0 80px;
+  }
+
+  .premium-title {
+    font-size: 2.2rem;
+  }
+
+  .premium-content-section {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .sidebar-card-premium {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .premium-meta {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .amenities-grid-premium {
+    grid-template-columns: 1fr;
+  }
+
+  .nearby-parks-section {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-title {
+    font-size: 1.8rem;
+  }
+
+  .premium-section-title {
+    font-size: 1.3rem;
+  }
+
+  .premium-content-section {
+    padding: 20px;
+    border-radius: 16px;
   }
 }

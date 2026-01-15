@@ -52,7 +52,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         setAverageRating(data.averageRating);
         setTotalReviews(data.totalReviews);
         setUserReview(data.userReview || null);
-        
+
         // If user has an existing review, pre-fill the form
         if (data.userReview) {
           setReviewForm({
@@ -98,8 +98,8 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         await fetchReviews();
         // Show success toast
         showSuccess(
-          userReview 
-            ? 'Your review has been updated successfully!' 
+          userReview
+            ? 'Your review has been updated successfully!'
             : 'Thank you! Your review has been submitted and is pending approval.',
           5000
         );
@@ -180,7 +180,10 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
   return (
     <section className="reviews-section">
       <div className="reviews-header">
-        <h2>Reviews & Ratings</h2>
+        <div className="flex justify-between items-baseline flex-wrap gap-4">
+          <h2>Reviews & Ratings</h2>
+          <span className="google-attribution-label">Powered by Google</span>
+        </div>
         <div className="reviews-summary">
           <div className="average-rating">
             <span className="rating-number">{averageRating}</span>
@@ -204,10 +207,10 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         <div className="review-form">
           <h3>{userReview ? 'Edit Your Review' : 'Share Your Experience'}</h3>
           {userReview && userReview.status === 'pending' && (
-            <div className="review-status-notice" style={{ 
-              padding: '10px', 
-              marginBottom: '15px', 
-              backgroundColor: '#fff3cd', 
+            <div className="review-status-notice" style={{
+              padding: '10px',
+              marginBottom: '15px',
+              backgroundColor: '#fff3cd',
               border: '1px solid #ffc107',
               borderRadius: '4px',
               color: '#856404'
@@ -216,10 +219,10 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
             </div>
           )}
           {userReview && userReview.status === 'rejected' && (
-            <div className="review-status-notice" style={{ 
-              padding: '10px', 
-              marginBottom: '15px', 
-              backgroundColor: '#f8d7da', 
+            <div className="review-status-notice" style={{
+              padding: '10px',
+              marginBottom: '15px',
+              backgroundColor: '#f8d7da',
               border: '1px solid #dc3545',
               borderRadius: '4px',
               color: '#721c24'

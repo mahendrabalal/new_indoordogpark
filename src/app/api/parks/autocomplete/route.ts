@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
 import { DogPark } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { getAllStaticParks } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,40 +29,8 @@ export async function GET(request: Request) {
 
     const searchTerm = query.toLowerCase();
 
-    // Fetch static parks from JSON files
-    const allStaticParks: DogPark[] = [];
-    
-    // Load California parks
-    try {
-      const californiaPath = join(process.cwd(), 'public/data/california.json');
-      const californiaContent = await readFile(californiaPath, 'utf-8');
-      const californiaParks: DogPark[] = JSON.parse(californiaContent);
-      allStaticParks.push(...californiaParks);
-    } catch (error) {
-      console.error('Failed to read California parks data:', error);
-    }
-    
-    // Load Washington parks
-    try {
-      const washingtonPath = join(process.cwd(), 'public/data/washington.json');
-      const washingtonContent = await readFile(washingtonPath, 'utf-8');
-      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
-      allStaticParks.push(...washingtonParks);
-    } catch (error) {
-      console.error('Failed to read Washington parks data:', error);
-    }
-    
-    // Load Mixmatch parks (multi-state parks)
-    try {
-      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
-      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
-      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
-      allStaticParks.push(...mixmatchParks);
-    } catch (error) {
-      console.error('Failed to read Mixmatch parks data:', error);
-    }
-    
-    const staticParks = allStaticParks;
+    // Fetch static parks using centralized data loader
+    const staticParks = await getAllStaticParks();
 
     // Fetch approved user submissions from database
     let submissionParks: DogPark[] = [];
@@ -121,7 +88,7 @@ export async function GET(request: Request) {
 
     // 2. PARK NAME SUGGESTIONS (max 5)
     const parkSuggestions = allParks
-      .filter(park => 
+      .filter(park =>
         park.name.toLowerCase().includes(searchTerm) ||
         park.slug?.toLowerCase().includes(searchTerm)
       )
@@ -131,7 +98,7 @@ export async function GET(request: Request) {
         const aSlugStarts = a.slug?.toLowerCase().startsWith(searchTerm);
         const bNameStarts = b.name.toLowerCase().startsWith(searchTerm);
         const bSlugStarts = b.slug?.toLowerCase().startsWith(searchTerm);
-        
+
         if ((aNameStarts || aSlugStarts) && !(bNameStarts || bSlugStarts)) return -1;
         if (!(aNameStarts || aSlugStarts) && (bNameStarts || bSlugStarts)) return 1;
         // Then by rating
@@ -156,7 +123,7 @@ export async function GET(request: Request) {
     ];
 
     const typeSuggestions = businessTypes
-      .filter(type => 
+      .filter(type =>
         type.value.toLowerCase().includes(searchTerm) ||
         type.display.toLowerCase().includes(searchTerm)
       )
