@@ -4,7 +4,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 // Load environment variables from .env.local
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env.local', override: true });
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -27,25 +27,21 @@ interface ParkData {
 async function importSubscribers() {
     console.log('🚀 Starting subscriber import...');
 
-    const dataFiles = [
-        'public/data/california.json',
-        'public/data/washington.json',
-        'public/data/mixmatch.json'
-    ];
+    // List of state-specific JSON files to import
+    const dataDir = path.join(process.cwd(), 'public/data');
+    const dataFiles = fs.readdirSync(dataDir)
+        .filter((file: string) => file.endsWith('.json') && !file.includes('keyword_clusters'));
+
     let allParks: ParkData[] = [];
 
     for (const file of dataFiles) {
-        const dataPath = path.join(process.cwd(), file);
-        if (fs.existsSync(dataPath)) {
-            const content = fs.readFileSync(dataPath, 'utf-8');
-            const data = JSON.parse(content);
-            // Handle both array and object with parks array
-            const parks = Array.isArray(data) ? data : (data.parks || []);
-            console.log(`📂 Loaded ${parks.length} parks from ${file}`);
-            allParks = [...allParks, ...parks];
-        } else {
-            console.warn(`⚠️ File not found: ${file}`);
-        }
+        const dataPath = path.join(dataDir, file);
+        const content = fs.readFileSync(dataPath, 'utf-8');
+        const data = JSON.parse(content);
+        // Handle both array and object with parks array
+        const parks = Array.isArray(data) ? data : (data.parks || []);
+        console.log(`📂 Loaded ${parks.length} parks from ${file}`);
+        allParks = [...allParks, ...parks];
     }
 
     console.log(`📂 Total loaded parks: ${allParks.length}`);

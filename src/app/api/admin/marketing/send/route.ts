@@ -6,20 +6,10 @@ import { render } from '@react-email/render';
 import BlogPostEmail from '@/emails/BlogPostEmail';
 import MarketingEmail from '@/emails/MarketingEmail';
 import { fetchPostBySlug } from '@/lib/sanity-api';
-import imageUrlBuilder from '@sanity/image-url';
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize Clients
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-const sanityConfig = {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-    apiVersion: '2024-01-01',
-    useCdn: false,
-};
-
-const builder = imageUrlBuilder(sanityConfig);
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // Allow 5 minutes for execution (if on Pro, otherwise 10s limit might apply)
@@ -56,18 +46,14 @@ export async function POST(request: NextRequest) {
             const post = await fetchPostBySlug(slug);
 
             if (!post) {
+                console.error(`[marketing:send] Blog post not found: ${slug}`);
                 return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
             }
 
             subject = `New Post: ${post.title}`;
 
-            // Get image URL
-            let imageUrl: string | undefined = undefined;
-            if (post.featuredImage) {
-                // The builder returns a string-like object or string. 
-                // If the line is error-free, we don't need ts-ignore.
-                imageUrl = builder.image(post.featuredImage.source_url).url();
-            }
+            // Use featured image URL directly if available
+            const imageUrl = post.featuredImage?.source_url;
 
             const emailComponent = BlogPostEmail({
                 title: post.title,
@@ -76,7 +62,13 @@ export async function POST(request: NextRequest) {
                 imageUrl,
                 email: '{{email}}', // Placeholder
             });
-            emailHtml = await render(emailComponent);
+
+            try {
+                emailHtml = await render(emailComponent);
+            } catch (renderError) {
+                console.error('[marketing:send] Render error (blog):', renderError);
+                throw renderError;
+            }
 
         } else if (template === 'marketing') {
             const { headline, bodyContent, ctaText, ctaUrl, imageUrl } = data;
@@ -90,7 +82,13 @@ export async function POST(request: NextRequest) {
                 imageUrl,
                 email: '{{email}}', // Placeholder
             });
-            emailHtml = await render(emailComponent);
+
+            try {
+                emailHtml = await render(emailComponent);
+            } catch (renderError) {
+                console.error('[marketing:send] Render error (marketing):', renderError);
+                throw renderError;
+            }
         } else {
             return NextResponse.json({ error: 'Invalid template type' }, { status: 400 });
         }
@@ -146,7 +144,10 @@ export async function POST(request: NextRequest) {
 
         for (const recipient of recipients) {
             try {
-                const personalizedHtml = emailHtml.replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email));
+                // Handle both literal and URL-encoded placeholders
+                const personalizedHtml = emailHtml
+                    .replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email))
+                    .replace(/%7B%7Bemail%7D%7D/g, encodeURIComponent(recipient.email));
 
                 const { error: sendError } = await resend.emails.send({
                     from: 'IndoorDogPark <newsletter@indoordogpark.org>',

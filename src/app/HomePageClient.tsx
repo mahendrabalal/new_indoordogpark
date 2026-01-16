@@ -16,6 +16,7 @@ import Footer from '@/components/Footer';
 import CitiesSection from '@/components/CitiesSection';
 import ParkCard from '@/components/ParkCard';
 import FeaturedParks from '@/components/FeaturedParks';
+import RecentlyAddedParks from '@/components/RecentlyAddedParks';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 import SeoContentSection from '@/components/SeoContentSection';
 
@@ -445,6 +446,11 @@ export default function HomePageClient({
           <div style={{ minHeight: '800px' }}>
             <FeaturedParks />
           </div>
+        )}
+
+        {/* Recently Added Parks Section - Show newest listings */}
+        {!showSearchLayout && (
+          <RecentlyAddedParks />
         )}
 
         {/* Featured Parks Section (only show when not searching) */}

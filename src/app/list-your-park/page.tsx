@@ -19,12 +19,9 @@ import NewsletterForm from '@/components/NewsletterForm';
 
 const STEPS = [
   { number: 0, title: 'Choose Plan', description: 'Select your listing plan' },
-  { number: 1, title: 'Basic Info', description: 'Tell us about your dog park' },
-  { number: 2, title: 'Location', description: 'Where is your park located?' },
-  { number: 3, title: 'Contact & Hours', description: 'How can people reach you?' },
-  { number: 4, title: 'Amenities', description: 'What features does your park have?' },
-  { number: 5, title: 'Photos & Pricing', description: 'Show off your park' },
-  { number: 6, title: 'Review & Submit', description: 'Review and submit your listing' },
+  { number: 1, title: 'Basic Info & Location', description: 'Tell us about your dog park and where it\'s located' },
+  { number: 2, title: 'Details', description: 'Contact info, hours, amenities, photos & pricing' },
+  { number: 3, title: 'Review & Submit', description: 'Review and submit your listing' },
 ];
 
 export default function ListPropertyPage() {
@@ -57,17 +54,42 @@ export default function ListPropertyPage() {
       const planParam = urlParams.get('plan');
       const stepParam = urlParams.get('step');
 
+      // Case 1: Both plan and step in URL (e.g., from review submit redirect)
       if (planParam === 'free' || planParam === 'featured') {
         setSelectedPlan(planParam);
-        // Restore to saved step (usually step 6 review page) or default to step 1
-        const savedStep = stepParam ? parseInt(stepParam, 10) : 6;
-        setCurrentStep(savedStep >= 1 && savedStep <= 6 ? savedStep : 6);
+        const savedStep = stepParam ? parseInt(stepParam, 10) : 3;
+        setCurrentStep(savedStep >= 1 && savedStep <= 3 ? savedStep : 3);
         // Clean up URL
         window.history.replaceState({}, '', '/list-your-park');
         return;
       }
 
-      // For fresh visits, clear any old plan selection and start at step 0
+      // Case 2: Only step in URL (e.g., from photo upload sign-in redirect)
+      // Restore plan from localStorage
+      if (stepParam) {
+        const savedPlan = localStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
+        if (savedPlan === 'free' || savedPlan === 'featured') {
+          setSelectedPlan(savedPlan);
+          const savedStep = parseInt(stepParam, 10);
+          setCurrentStep(savedStep >= 1 && savedStep <= 3 ? savedStep : 1);
+          // Clean up URL
+          window.history.replaceState({}, '', '/list-your-park');
+          return;
+        }
+      }
+
+      // Case 3: Check if there's a saved draft and plan from a previous session
+      const savedPlan = localStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
+      const savedDraft = localStorage.getItem('parkSubmissionDraft');
+      if (savedPlan && savedDraft) {
+        // User has an existing draft - restore their session
+        setSelectedPlan(savedPlan);
+        // Start at step 1 (they can navigate from there)
+        setCurrentStep(1);
+        return;
+      }
+
+      // Case 4: Fresh visit with no saved data - start at plan selection
       try {
         localStorage.removeItem('selectedListingPlan');
       } catch (error) {
@@ -122,25 +144,24 @@ export default function ListPropertyPage() {
 
     switch (currentStep) {
       case 1:
+        // Step 1: Basic Info + Location combined
         if (!formData.name?.trim()) stepErrors.name = 'Park name is required';
         if (!formData.businessType) stepErrors.businessType = 'Business type is required';
         if (!formData.description || formData.description.length < 50) {
           stepErrors.description = 'Description must be at least 50 characters';
         }
-        break;
-
-      case 2:
         if (!formData.city?.trim()) stepErrors.city = 'City is required';
         if (!formData.state) stepErrors.state = 'State is required';
         break;
 
-      case 3:
+      case 2:
+        // Step 2: Details - optional email validation
         if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
           stepErrors.email = 'Invalid email format';
         }
         break;
 
-      // Steps 4, 5, and 6 are optional or have their own validation
+      // Step 3 is review - no validation needed
     }
 
     return stepErrors;
@@ -199,7 +220,7 @@ export default function ListPropertyPage() {
     if (!user) {
       // Include step in redirect so user returns to review page
       // URL encode the redirect path to ensure params are preserved
-      const redirectPath = `/list-your-park?plan=${listingType}&step=6`;
+      const redirectPath = `/list-your-park?plan=${listingType}&step=3`;
       router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
       return;
     }
@@ -210,7 +231,7 @@ export default function ListPropertyPage() {
     try {
       const { accessToken, refreshToken } = await getSessionTokens();
       if (!accessToken) {
-        const redirectPath = `/list-your-park?plan=${listingType}&step=6`;
+        const redirectPath = `/list-your-park?plan=${listingType}&step=3`;
         router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
         setIsSubmitting(false);
         return;
@@ -356,41 +377,42 @@ export default function ListPropertyPage() {
               <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={!!user} />
             )}
             {currentStep === 1 && (
-              <BasicInfoStep
-                formData={formData}
-                updateFormData={updateFormData}
-                errors={errors}
-              />
+              <div className="space-y-8">
+                <BasicInfoStep
+                  formData={formData}
+                  updateFormData={updateFormData}
+                  errors={errors}
+                />
+                <hr className="border-gray-200" />
+                <LocationStep
+                  formData={formData}
+                  updateFormData={updateFormData}
+                  errors={errors}
+                />
+              </div>
             )}
             {currentStep === 2 && (
-              <LocationStep
-                formData={formData}
-                updateFormData={updateFormData}
-                errors={errors}
-              />
+              <div className="space-y-8">
+                <ContactHoursStep
+                  formData={formData}
+                  updateFormData={updateFormData}
+                  errors={errors}
+                />
+                <hr className="border-gray-200" />
+                <AmenitiesStep
+                  formData={formData}
+                  updateFormData={updateFormData}
+                  errors={errors}
+                />
+                <hr className="border-gray-200" />
+                <PhotosPricingStep
+                  formData={formData}
+                  updateFormData={updateFormData}
+                  errors={errors}
+                />
+              </div>
             )}
-            {currentStep === 3 && (
-              <ContactHoursStep
-                formData={formData}
-                updateFormData={updateFormData}
-                errors={errors}
-              />
-            )}
-            {currentStep === 4 && (
-              <AmenitiesStep
-                formData={formData}
-                updateFormData={updateFormData}
-                errors={errors}
-              />
-            )}
-            {currentStep === 5 && (
-              <PhotosPricingStep
-                formData={formData}
-                updateFormData={updateFormData}
-                errors={errors}
-              />
-            )}
-            {currentStep === 6 && selectedPlan && (
+            {currentStep === 3 && selectedPlan && (
               <ReviewSubmitStep
                 formData={formData}
                 onSubmit={(listingType) => handleSubmit(listingType || selectedPlan)}
@@ -401,7 +423,7 @@ export default function ListPropertyPage() {
             )}
 
             {/* Navigation Buttons */}
-            {currentStep > 0 && currentStep < 6 && (
+            {currentStep > 0 && currentStep < 3 && (
               <div className="flex justify-between mt-8 pt-6 border-t">
                 <button
                   type="button"
@@ -419,12 +441,12 @@ export default function ListPropertyPage() {
                   onClick={nextStep}
                   className="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
                 >
-                  {currentStep === STEPS.length - 1 ? 'Review' : 'Next'}
+                  {currentStep === 2 ? 'Review' : 'Next'}
                 </button>
               </div>
             )}
 
-            {currentStep === 6 && (
+            {currentStep === 3 && (
               <div className="flex justify-start mt-8 pt-6 border-t">
                 <button
                   type="button"

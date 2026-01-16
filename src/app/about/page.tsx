@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -91,9 +92,11 @@ export default function AboutPage() {
               </div>
               <div className="about-modern-image-content">
                 <figure style={{ margin: 0 }}>
-                  <img
+                  <Image
                     src="/images/about/team.webp"
                     alt="The IndoorDogPark.org team working together to build the best dog park directory"
+                    width={600}
+                    height={500}
                     style={{
                       width: '100%',
                       height: '500px',
@@ -214,9 +217,11 @@ export default function AboutPage() {
               </div>
               <div className="about-modern-image-content">
                 <figure style={{ margin: 0 }}>
-                  <img
+                  <Image
                     src="/images/about/indoordogpark-health-&-safety.jpg"
                     alt="Indoor dog park with multiple dogs playing safely in a climate-controlled environment with soft surfaces and proper supervision"
+                    width={600}
+                    height={500}
                     style={{
                       width: '100%',
                       height: '500px',
@@ -319,9 +324,11 @@ export default function AboutPage() {
               </div>
               <div className="about-modern-image-content">
                 <figure style={{ margin: 0 }}>
-                  <img
+                  <Image
                     src="/images/about/indoordogpark-all-age-size.jpg"
                     alt="Dogs of various ages, sizes, and breeds playing together in an indoor dog park facility"
+                    width={600}
+                    height={500}
                     style={{
                       width: '100%',
                       height: '500px',
@@ -351,9 +358,11 @@ export default function AboutPage() {
             <div className="about-modern-content-layout">
               <div className="about-modern-image-content">
                 <figure style={{ margin: 0 }}>
-                  <img
+                  <Image
                     src="/images/about/trend-of-indoordogpark.jpg"
                     alt="A vibrant indoor dog park with multiple dogs playing and owners socializing, showing the growing trend of climate-controlled canine recreation facilities"
+                    width={600}
+                    height={500}
                     style={{
                       width: '100%',
                       height: '500px',

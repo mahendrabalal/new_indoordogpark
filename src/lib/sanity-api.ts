@@ -9,6 +9,7 @@ interface SanitySlug {
 
 interface SanityImageAsset {
   _id: string;
+  _ref?: string;
   url?: string;
   metadata?: {
     dimensions?: {
@@ -119,16 +120,16 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
         if (child.marks?.includes('code')) text = `<code>${text}</code>`;
         if (child.marks?.includes('underline')) text = `<u>${text}</u>`;
         if (child.marks?.includes('strike-through')) text = `<s>${text}</s>`;
-        
+
         // Handle link annotations
-        const linkMark = child.marks?.find((mark: string) => 
+        const linkMark = child.marks?.find((mark: string) =>
           markDefs.some((def) => def._key === mark && def._type === 'link')
         );
         if (linkMark) {
           const linkDef = markDefs.find((def) => def._key === linkMark);
           if (linkDef?.href) text = `<a href="${linkDef.href}">${text}</a>`;
         }
-        
+
         return text;
       })
       .join('');
@@ -146,37 +147,37 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
       const style = block.style || 'normal';
       const markDefs = block.markDefs ?? [];
       const children = processChildren(block.children, markDefs);
-      
+
       // Check if this is a list item
       const listItem = block.listItem;
-      
+
       if (listItem) {
         // If we're starting a new list or changing list type, close previous list
-        if (currentList && (currentListItem !== listItem || i === 0)) {
+        if (currentList && currentListItem !== listItem) {
           const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-          const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+          const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
           result.push(`<${listTag}>${listItems}</${listTag}>`);
           currentList = [];
         }
-        
+
         // Initialize list if needed
         if (!currentList) {
           currentList = [];
           currentListItem = listItem;
         }
-        
+
         // Add item to current list
         currentList.push({ listItem, children });
       } else {
         // Not a list item - close any open list first
         if (currentList) {
           const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-          const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+          const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
           result.push(`<${listTag}>${listItems}</${listTag}>`);
           currentList = null;
           currentListItem = null;
         }
-        
+
         // Process regular block
         switch (style) {
           case 'h1': result.push(`<h1>${children}</h1>`); break;
@@ -192,69 +193,75 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
       // Close any open list before adding image
       if (currentList) {
         const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
         result.push(`<${listTag}>${listItems}</${listTag}>`);
         currentList = null;
         currentListItem = null;
       }
-      
-      const imageUrl = urlForImage(block).width(800).url();
-      const alt = block.alt || '';
-      const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
-      result.push(`<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`);
+
+      let imageUrl = '';
+      try {
+        if (block.asset.url) {
+          imageUrl = block.asset.url + (block.asset.url.includes('?') ? '&' : '?') + 'w=800';
+        } else if (block.asset._id) {
+          imageUrl = urlForImage(block).width(800).url();
+        }
+      } catch (e) {
+        console.warn('[Sanity API] Failed to generate image URL for block:', e);
+        imageUrl = block.asset.url || '';
+      }
+
+      if (imageUrl) {
+        const alt = block.alt || '';
+        const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
+        result.push(`<figure><img src="${imageUrl}" alt="${alt}" />${caption}</figure>`);
+      }
     } else if (block._type === 'videoBlock') {
       // Close any open list before adding video
       if (currentList) {
         const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
         result.push(`<${listTag}>${listItems}</${listTag}>`);
         currentList = null;
         currentListItem = null;
       }
-      
+
       let videoHtml = '';
       const autoplay = block.autoplay ? '1' : '0';
       const loop = block.loop ? '1' : '0';
       const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
-      
+
       if (block.videoType === 'youtube' && block.youtubeUrl) {
-        // Extract YouTube video ID from various URL formats
         const youtubeId = block.youtubeUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)?.[1];
         if (youtubeId) {
           videoHtml = `<div class="video-wrapper video-youtube"><iframe src="https://www.youtube.com/embed/${youtubeId}?rel=0&autoplay=${autoplay}&loop=${loop}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
         }
       } else if (block.videoType === 'vimeo' && block.vimeoUrl) {
-        // Extract Vimeo video ID from URL
         const vimeoId = block.vimeoUrl.match(/(?:vimeo\.com\/)(?:.*\/)?(\d+)/)?.[1];
         if (vimeoId) {
           videoHtml = `<div class="video-wrapper video-vimeo"><iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=${autoplay}&loop=${loop}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
         }
       } else if (block.videoType === 'file' && block.videoFile?.asset) {
-        // Direct video file upload
-        // Sanity file assets have a direct URL property
         const videoUrl = block.videoFile.asset.url;
         const mimeType = block.videoFile.asset.mimeType || 'video/mp4';
         if (videoUrl) {
           videoHtml = `<div class="video-wrapper video-file"><video controls${block.autoplay ? ' autoplay' : ''}${block.loop ? ' loop' : ''} preload="metadata"><source src="${videoUrl}" type="${mimeType}">Your browser does not support the video tag.</video></div>`;
         }
       } else if (block.videoType === 'embed' && block.embedCode) {
-        // Custom embed code
         videoHtml = `<div class="video-wrapper video-embed">${block.embedCode}</div>`;
       }
-      
+
       if (videoHtml) {
         result.push(`<figure class="video-figure">${videoHtml}${caption}</figure>`);
       }
     } else if (block._type === 'htmlBlock' && block.html) {
-      // Close any open list before adding HTML block
       if (currentList) {
         const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-        const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+        const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
         result.push(`<${listTag}>${listItems}</${listTag}>`);
         currentList = null;
         currentListItem = null;
       }
-      
       result.push(block.html);
     }
   }
@@ -262,7 +269,7 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
   // Close any remaining open list
   if (currentList) {
     const listTag = currentListItem === 'bullet' ? 'ul' : 'ol';
-    const listItems = currentList.map(item => `<li>${item.children}</li>`).join('');
+    const listItems = currentList.map((item: { listItem: string; children: string }) => `<li>${item.children}</li>`).join('');
     result.push(`<${listTag}>${listItems}</${listTag}>`);
   }
 
@@ -279,73 +286,95 @@ function sanitizeNumericId(idValue: string | undefined, fallback = 1): number {
 function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
   const featuredImage: WPMedia | undefined = sanityPost.mainImage?.asset
     ? (() => {
-        try {
-          const baseWidth = sanityPost.mainImage.asset.metadata?.dimensions?.width || 1200;
-          const baseHeight = sanityPost.mainImage.asset.metadata?.dimensions?.height || 630;
-          const baseImageUrl = urlForImage(sanityPost.mainImage);
-          
-          // Generate different size URLs for responsive images
-          const largeUrl = baseImageUrl.width(1200).url();
-          const mediumUrl = baseImageUrl.width(800).url();
-          const sourceUrl = baseImageUrl.width(1200).url();
-          
-          // Validate URLs are not empty, are strings, and are absolute URLs
-          const isValidUrl = (url: string | undefined): boolean => {
-            return !!url && 
-                   typeof url === 'string' && 
-                   url.trim() !== '' && 
-                   (url.startsWith('http://') || url.startsWith('https://'));
-          };
-          
-          if (!isValidUrl(largeUrl) || !isValidUrl(mediumUrl) || !isValidUrl(sourceUrl)) {
-            console.warn(`[Sanity API] Invalid image URLs for post: ${sanityPost.slug.current}`, {
-              largeUrl,
-              mediumUrl,
-              sourceUrl
-            });
-            return undefined;
+      try {
+        const baseWidth = sanityPost.mainImage.asset.metadata?.dimensions?.width || 1200;
+        const baseHeight = sanityPost.mainImage.asset.metadata?.dimensions?.height || 630;
+        // Helper to get URL with fallback
+        const getImageUrl = (width: number) => {
+          try {
+            // Priority 1: Use builder if we have what looks like a ref or object
+            const asset = sanityPost.mainImage?.asset;
+            if (sanityPost.mainImage && (asset?._id || (asset as SanityImageAsset)?._ref)) {
+              return urlForImage(sanityPost.mainImage).width(width).url();
+            }
+            // Priority 2: Use direct URL from query if builder fails/skips
+            if (asset?.url) {
+              return asset.url + (asset.url.includes('?') ? '&' : '?') + `w=${width}`;
+            }
+            return '';
+          } catch (e) {
+            console.warn(`[Sanity API] Failed to generate ${width}px image for ${sanityPost.slug.current}:`, e);
+            return sanityPost.mainImage?.asset?.url || '';
           }
-          
-          return {
-            id: sanitizeNumericId(sanityPost.mainImage.asset._id, Math.floor(Math.random() * 100000)),
-            date: sanityPost.publishedAt,
-            slug: sanityPost.slug.current,
-            type: 'attachment',
-            link: baseImageUrl.url(),
-            title: { rendered: sanityPost.mainImage.alt || sanityPost.title },
-            author: sanitizeNumericId(sanityPost.author?._id),
-            caption: { rendered: sanityPost.mainImage.caption || '' },
-            alt_text: sanityPost.mainImage.alt || sanityPost.title,
-            media_type: 'image',
-            mime_type: 'image/jpeg',
-            media_details: {
-              width: baseWidth,
-              height: baseHeight,
-              file: `${sanityPost.slug.current}.jpg`,
-              sizes: {
-                large: {
-                  file: `${sanityPost.slug.current}-large.jpg`,
-                  width: 1200,
-                  height: Math.round((1200 / baseWidth) * baseHeight),
-                  mime_type: 'image/jpeg',
-                  source_url: largeUrl,
-                },
-                medium: {
-                  file: `${sanityPost.slug.current}-medium.jpg`,
-                  width: 800,
-                  height: Math.round((800 / baseWidth) * baseHeight),
-                  mime_type: 'image/jpeg',
-                  source_url: mediumUrl,
-                },
-              },
-            },
-            source_url: sourceUrl,
-          } satisfies WPMedia;
-        } catch (error) {
-          console.error(`[Sanity API] Error generating image URLs for post: ${sanityPost.slug.current}`, error);
+        };
+
+        const largeUrl = getImageUrl(1200);
+        const mediumUrl = getImageUrl(800);
+        const sourceUrl = getImageUrl(1200);
+
+        // Use direct URL for link if builder fails
+        let linkUrl = '';
+        try {
+          if (sanityPost.mainImage) {
+            linkUrl = urlForImage(sanityPost.mainImage).url();
+          }
+        } catch {
+          linkUrl = sanityPost.mainImage?.asset?.url || '';
+        }
+
+        // Validate URLs
+        const isValidUrl = (url: string | undefined): boolean => {
+          return !!url &&
+            typeof url === 'string' &&
+            url.trim() !== '' &&
+            (url.startsWith('http') || url.startsWith('//'));
+        };
+
+        if (!isValidUrl(largeUrl) && !isValidUrl(sanityPost.mainImage.asset.url)) {
+          console.warn(`[Sanity API] No valid image URLs for post: ${sanityPost.slug.current}`);
           return undefined;
         }
-      })()
+
+        return {
+          id: sanitizeNumericId(sanityPost.mainImage.asset._id, Math.floor(Math.random() * 100000)),
+          date: sanityPost.publishedAt,
+          slug: sanityPost.slug.current,
+          type: 'attachment',
+          link: linkUrl || sanityPost.mainImage.asset.url || '',
+          title: { rendered: sanityPost.mainImage.alt || sanityPost.title },
+          author: sanitizeNumericId(sanityPost.author?._id),
+          caption: { rendered: sanityPost.mainImage.caption || '' },
+          alt_text: sanityPost.mainImage.alt || sanityPost.title,
+          media_type: 'image',
+          mime_type: 'image/jpeg',
+          media_details: {
+            width: baseWidth,
+            height: baseHeight,
+            file: `${sanityPost.slug.current}.jpg`,
+            sizes: {
+              large: {
+                file: `${sanityPost.slug.current}-large.jpg`,
+                width: 1200,
+                height: Math.round((1200 / baseWidth) * baseHeight),
+                mime_type: 'image/jpeg',
+                source_url: largeUrl || sanityPost.mainImage.asset.url || '',
+              },
+              medium: {
+                file: `${sanityPost.slug.current}-medium.jpg`,
+                width: 800,
+                height: Math.round((800 / baseWidth) * baseHeight),
+                mime_type: 'image/jpeg',
+                source_url: mediumUrl || sanityPost.mainImage.asset.url || '',
+              },
+            },
+          },
+          source_url: sourceUrl || sanityPost.mainImage.asset.url || '',
+        } satisfies WPMedia;
+      } catch (error) {
+        console.error(`[Sanity API] Error generating image URLs for post: ${sanityPost.slug.current}`, error);
+        return undefined;
+      }
+    })()
     : undefined;
 
   return {
@@ -358,27 +387,27 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
     modified: sanityPost._updatedAt,
     author: sanityPost.author
       ? {
-          id: sanitizeNumericId(sanityPost.author._id),
-          name: sanityPost.author.name,
-          slug: sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-'),
-          description: sanityPost.author.bio || '',
-          url: '',
-          link: `/blog/author/${sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-')}`,
-          avatar_urls: {
-            '96': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(96).height(96).url() : '',
-            '48': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(48).height(48).url() : '',
-            '24': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(24).height(24).url() : '',
-          },
-        }
-      : {
-          id: 1,
-          name: 'California Dog Parks Team',
-          slug: 'california-dog-parks-team',
-          description: 'Dedicated to helping dog owners find the best parks in California',
-          url: '',
-          link: '/blog/author/california-dog-parks-team',
-          avatar_urls: { '96': '', '48': '', '24': '' },
+        id: sanitizeNumericId(sanityPost.author._id),
+        name: sanityPost.author.name,
+        slug: sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-'),
+        description: sanityPost.author.bio || '',
+        url: '',
+        link: `/blog/author/${sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-')}`,
+        avatar_urls: {
+          '96': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(96).height(96).url() : '',
+          '48': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(48).height(48).url() : '',
+          '24': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(24).height(24).url() : '',
         },
+      }
+      : {
+        id: 1,
+        name: 'California Dog Parks Team',
+        slug: 'california-dog-parks-team',
+        description: 'Dedicated to helping dog owners find the best parks in California',
+        url: '',
+        link: '/blog/author/california-dog-parks-team',
+        avatar_urls: { '96': '', '48': '', '24': '' },
+      },
     categories: (sanityPost.categories || []).map((cat, index: number) => ({
       id: sanitizeNumericId(cat._id, index + 1),
       name: cat.title,
@@ -439,7 +468,7 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
     // Use regular client with CDN for performance
     // Cache invalidation handled via Next.js cache tags and revalidation
     const sanityPosts = await sanityClient.fetch<SanityPost[]>(query, params);
-    
+
     // Get the correct total count based on the filter
     let totalCount: number;
     if (searchParams.category) {

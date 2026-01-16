@@ -61,7 +61,8 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
 
       if (!accessToken) {
         setIsUploading(false);
-        setUploadError('Please log in before uploading photos.');
+        // Instead of just an error, we prompt with a clear sign-in link
+        setUploadError('sign-in-required');
         return;
       }
 
@@ -167,18 +168,29 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
                 }
               }
             }}
-            className={`px-6 py-3 rounded-lg font-medium border border-purple-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
-              isUploading
-                ? 'bg-white text-purple-400 cursor-not-allowed opacity-50 pointer-events-none'
-                : 'bg-white text-purple-600 hover:bg-purple-50 cursor-pointer'
-            }`}
+            className={`px-6 py-3 rounded-lg font-medium border border-purple-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${isUploading
+              ? 'bg-white text-purple-400 cursor-not-allowed opacity-50 pointer-events-none'
+              : 'bg-white text-purple-600 hover:bg-purple-50 cursor-pointer'
+              }`}
           >
             {isUploading ? 'Uploading…' : 'Upload from Device'}
           </label>
         </div>
 
         {uploadError && (
-          <p className="text-sm text-red-600">{uploadError}</p>
+          uploadError === 'sign-in-required' ? (
+            <div className="flex items-center gap-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+              <span className="text-sm text-amber-800">Please log in before uploading photos.</span>
+              <a
+                href="/login?redirect=/list-your-park?step=2"
+                className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                Sign In to Upload
+              </a>
+            </div>
+          ) : (
+            <p className="text-sm text-red-600">{uploadError}</p>
+          )
         )}
 
         {/* Photo Gallery */}
