@@ -183,7 +183,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://unpkg.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
         {/* Preload critical resources for faster initial render */}
         {/* Logo is used in header and search layout - preload for better LCP */}
@@ -213,7 +212,7 @@ export default function RootLayout({
         {/* Google AdSense */}
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5274561866192746"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688786543603411"
           crossOrigin="anonymous"
         />
 

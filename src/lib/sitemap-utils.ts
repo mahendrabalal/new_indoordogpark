@@ -193,47 +193,35 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
       try {
         const parksFromFiles: DogPark[] = []
         const projectRoot = process.cwd()
+        const dataPath = resolve(projectRoot, 'public', 'data')
 
-        // Load California parks
+        // Dynamic loading for fallback
         try {
-          const californiaPath = resolve(projectRoot, 'public', 'data', 'california.json')
-          const californiaContent = await readFile(californiaPath, 'utf-8')
-          const californiaParks: DogPark[] = JSON.parse(californiaContent)
-          parksFromFiles.push(...californiaParks)
-          console.log(`[sitemap-parks] Loaded ${californiaParks.length} California parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read California parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'california.json'),
-          })
-        }
+          const { readdir } = await import('fs/promises')
+          const files = await readdir(dataPath)
+          const jsonFiles = files.filter((file) =>
+            file.endsWith('.json') &&
+            !file.startsWith('.') &&
+            file !== 'keyword_clusters.json'
+          )
 
-        // Load Washington parks
-        try {
-          const washingtonPath = resolve(projectRoot, 'public', 'data', 'washington.json')
-          const washingtonContent = await readFile(washingtonPath, 'utf-8')
-          const washingtonParks: DogPark[] = JSON.parse(washingtonContent)
-          parksFromFiles.push(...washingtonParks)
-          console.log(`[sitemap-parks] Loaded ${washingtonParks.length} Washington parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read Washington parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'washington.json'),
-          })
-        }
+          console.log(`[sitemap-parks] Fallback found ${jsonFiles.length} data files`)
 
-        // Load Mixmatch parks
-        try {
-          const mixmatchPath = resolve(projectRoot, 'public', 'data', 'mixmatch.json')
-          const mixmatchContent = await readFile(mixmatchPath, 'utf-8')
-          const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent)
-          parksFromFiles.push(...mixmatchParks)
-          console.log(`[sitemap-parks] Loaded ${mixmatchParks.length} Mixmatch parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read Mixmatch parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'mixmatch.json'),
-          })
+          for (const file of jsonFiles) {
+            try {
+              const filePath = resolve(dataPath, file)
+              const content = await readFile(filePath, 'utf-8')
+              const parks: DogPark[] = JSON.parse(content)
+              parksFromFiles.push(...parks)
+              console.log(`[sitemap-parks] Loaded ${parks.length} parks from ${file}`)
+            } catch (readError) {
+              console.error(`[sitemap-parks] Failed to read ${file}:`, {
+                error: readError instanceof Error ? readError.message : String(readError)
+              })
+            }
+          }
+        } catch (dirError) {
+          console.error('[sitemap-parks] Failed to read data directory for fallback:', dirError)
         }
 
         allParks = parksFromFiles

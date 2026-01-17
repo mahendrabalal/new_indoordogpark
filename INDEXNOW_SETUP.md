@@ -145,12 +145,32 @@ You should see the key displayed (32 hexadecimal characters).
    - Check server logs for `[IndexNow]` messages
    - Verify the URL appears in Bing Webmaster Tools
 
-2. **Manual Test:**
-   - Use the utility function directly:
-   ```typescript
-   import { submitParkToIndexNow } from '@/lib/indexnow';
-   await submitParkToIndexNow('test-park-slug');
-   ```
+### 3. Run the Unified Submission Script
+
+We have a unified script that handles submission of **ALL** content types (Static Pages, Parks, Cities, Blog Posts, Categories, Tags) in one go.
+
+To submit all URLs to IndexNow:
+
+```bash
+npx tsx scripts/submit-all-to-indexnow.ts
+```
+
+**Options:**
+
+- `--dry-run`: View which URLs would be submitted without actually sending them.
+  ```bash
+  npx tsx scripts/submit-all-to-indexnow.ts --dry-run
+  ```
+
+- `--limit=N`: Only submit the first N URLs (useful for testing).
+  ```bash
+  npx tsx scripts/submit-all-to-indexnow.ts --limit=10
+  ```
+
+### 4. Automatic Submission
+
+- **Parks:** New parks are automatically submitted when they are approved in the admin dashboard.
+- **Blog Posts:** Currently manual submission via the script is recommended after publishing new posts.
 
 ### Check Logs
 
@@ -161,14 +181,10 @@ Look for IndexNow-related log messages in your server logs:
 
 ## Troubleshooting
 
-### Key File Not Accessible
-
-**Problem:** Key file returns 404 or is inaccessible.
-
-**Solutions:**
-1. Verify the file exists at `/public/8abd796f2d329b8de96a77235663de27.txt`
-2. Check file permissions (should be readable)
-3. Ensure the file contains only the key (no extra whitespace)
+If you see 403 Forbidden errors:
+1. Verify the API Key in `.env.local` matches the key file content.
+2. Ensure the key file exists at `public/[YOUR_KEY].txt`.
+3. Check that the `keyLocation` parameter in the script points to the correct URL.
 4. Verify the URL is accessible via HTTPS
 
 ### URLs Not Being Submitted
