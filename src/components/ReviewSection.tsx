@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
 
@@ -25,6 +27,7 @@ interface ReviewSectionProps {
 
 export default function ReviewSection({ parkId }: ReviewSectionProps) {
   const { user } = useAuth();
+  const pathname = usePathname();
   const { showSuccess, showError } = useToast();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [averageRating, setAverageRating] = useState(0);
@@ -192,13 +195,21 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
             </div>
             <span className="total-reviews">({totalReviews} reviews)</span>
           </div>
-          {user && (
+          {user ? (
             <button
               className="write-review-btn"
               onClick={() => setShowReviewForm(!showReviewForm)}
             >
               <i className="bi bi-pencil"></i> {userReview ? 'Edit Your Review' : 'Write a Review'}
             </button>
+          ) : (
+            <Link
+              href={`/login?redirect=${encodeURIComponent(pathname || '/')}`}
+              className="write-review-btn"
+              style={{ textDecoration: 'none' }}
+            >
+              <i className="bi bi-box-arrow-in-right"></i> Log in to Review
+            </Link>
           )}
         </div>
       </div>
@@ -286,7 +297,22 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         </div>
       ) : reviews.length === 0 ? (
         <div className="no-reviews">
-          <p>No reviews yet. Be the first to share your experience!</p>
+          <p>
+            No reviews yet. {user ? (
+              'Be the first to share your experience!'
+            ) : (
+              <span>
+                <Link href={`/login?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold">
+                  Log in
+                </Link>
+                {' '}or{' '}
+                <Link href={`/signup?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold">
+                  Sign up
+                </Link>
+                {' '}to be the first to share your experience!
+              </span>
+            )}
+          </p>
         </div>
       ) : (
         <div className="reviews-list">
