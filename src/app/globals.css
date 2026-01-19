@@ -507,8 +507,8 @@ body {
 
 /* ========== HEADER ========== */
 .header {
-  background: white;
-  border-bottom: 1px solid #e8e8e8;
+  background: transparent;
+  border-bottom: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -516,10 +516,10 @@ body {
   z-index: 1000;
   /* Reserve space to prevent layout shift */
   min-height: 70px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
   /* Auto-hide behavior */
   transform: translateY(0);
-  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
 }
 
@@ -531,11 +531,6 @@ body {
 /* Visible state - navbar is in normal position */
 .header-visible {
   transform: translateY(0);
-}
-
-/* Add shadow when visible for better depth perception */
-.header-visible {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -572,14 +567,15 @@ body {
 }
 
 .header-nav-link {
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.9375rem;
-  font-weight: 400;
+  font-weight: 500;
   transition: color 0.2s ease;
   white-space: nowrap;
   padding: 4px 0;
   position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .header-nav-link::after {
@@ -594,7 +590,7 @@ body {
 }
 
 .header-nav-link:hover {
-  color: #FF5722;
+  color: #fff;
 }
 
 .header-nav-link:hover::after {
@@ -712,17 +708,18 @@ body {
 }
 
 .header-link {
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.9375rem;
-  font-weight: 400;
+  font-weight: 500;
   transition: color 0.2s ease;
   white-space: nowrap;
   padding: 4px 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .header-link:hover {
-  color: #FF5722;
+  color: #fff;
 }
 
 .header-link-primary {
@@ -798,7 +795,7 @@ body {
 
 .mobile-menu {
   background: white;
-  border-top: 1px solid #e8e8e8;
+  border-top: none;
   padding: 0;
   max-height: 0;
   overflow: hidden;
@@ -903,7 +900,10 @@ body {
 /* ========== HERO SECTION ========== */
 .hero-section-new {
   position: relative;
-  padding: 100px 20px 70px;
+  /* Pull hero up behind the fixed navbar (navbar height is 72px) */
+  margin-top: -72px;
+  /* Increase top padding to compensate: 72px (navbar) + original 100px content padding */
+  padding: 172px 20px 70px;
   text-align: left;
   background-image: url('/images/hero/hero.webp');
   background-size: cover;
