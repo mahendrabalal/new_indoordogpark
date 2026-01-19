@@ -14,6 +14,9 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_SOCIAL_INSTAGRAM: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || 'https://www.instagram.com/indoordogpark2025/',
+  },
   images: {
     // Industry best practice: Configure image optimization properly
     // Local images in public folder should use unoptimized prop to avoid 402 errors
