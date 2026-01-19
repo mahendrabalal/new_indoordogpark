@@ -138,8 +138,8 @@ export default function ContactPage() {
                             className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
                             aria-label="Follow us on Digg"
                           >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi" viewBox="0 0 24 24">
-                              <path d="M5.76 0v4.608h2.048V0H5.76zM.64 4.608v6.784H3.2V8.96h2.56v2.432h2.56V4.608H.64zm2.56 2.56H2.688v-1.024h.512v1.024zm5.12 4.224v4.608h5.632v-2.176h-2.56v-.256h2.56V9.216H8.32v2.176zm2.56 1.024H10.624v-1.024h.256v1.024zm5.12-5.248v4.608h5.632v-2.176h-2.56v-.256h2.56V9.216H16v2.176zm2.56 1.024H18.304v-1.024h.256v1.024z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi" viewBox="0 0 512 512">
+                              <path d="M81.7 172.3l-81.7 0 0 174.4 132.7 0 0-250.7-51 0 0 76.3zm0 133.4l-30.8 0 0-92.3 30.8 0 0 92.3zM378.9 172.3l0 174.4 81.8 0 0 28.5-81.8 0 0 40.8 133.1 0 0-243.7-133.1 0zm81.8 133.4l-30.8 0 0-92.3 30.8 0 0 92.3zm-235.6 41l82.1 0 0 28.5-82.1 0 0 40.8 133.3 0 0-243.7-133.3 0 0 174.4zm51.2-133.3l30.8 0 0 92.3-30.8 0 0-92.3zM153.3 96l51.3 0 0 51-51.3 0 0-51zm0 76.3l51.3 0 0 174.4-51.3 0 0-174.4z" />
                             </svg>
                             <span>Digg</span>
                           </a>
