@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import OptimizedImage from '@/components/OptimizedImage';
+import AmazonProduct from '@/components/AmazonProduct';
 
 const safetyChecklist = [
   {
@@ -239,6 +240,33 @@ export default function HowItWorksPage() {
                 <div className="absolute inset-0 bg-gradient-to-l from-slate-900/50 via-transparent to-transparent" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Gear Section */}
+      <section className="bg-white py-20 border-t border-slate-100">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Recommended Gear for Dog Owners</h2>
+            <p className="text-lg text-slate-600">
+              Essential tools for training and park visits, hand-picked by our team.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <AmazonProduct
+              title="Raisingwell Dog Treat Pouch with Magnetic Closure"
+              imageUrl="https://m.media-amazon.com/images/I/91Aw0aRTPGL._AC_SX679_.jpg"
+              url="https://www.amazon.com/dp/B0DSVTQ9TY?tag=mahendrabalal-20"
+              price="$13.29"
+              benefits={[
+                "Magnetic closure for quick access to treats",
+                "Built-in poop bag dispenser",
+                "includes clicker for training",
+                "4 ways to wear (zipper, shoulder strap, waist belt, etc.)"
+              ]}
+            />
           </div>
         </div>
       </section>

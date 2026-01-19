@@ -128,6 +128,13 @@ export default function Footer() {
           </div>
         )}
 
+        {/* Amazon Associates Disclaimer */}
+        <div className="mt-8 border-t border-white/10 pt-8 text-center">
+          <p className="text-sm text-white/50">
+            IndoorDogPark is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate I earn from qualifying purchases.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p>&copy; 2025 IndoorDogPark. All rights reserved</p>

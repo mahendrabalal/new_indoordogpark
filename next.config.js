@@ -86,6 +86,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.nycgovparks.org',
       },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+      },
       ...(supabaseHostname
         ? [
           {
