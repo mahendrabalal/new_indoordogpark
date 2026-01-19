@@ -25,7 +25,7 @@ export default async function StatesIndexPage() {
 
   return (
     <>
-      <Header />
+      <Header variant="light" />
       <main className="min-h-screen bg-white pt-20 pb-16">
         <section className="max-w-6xl mx-auto px-4">
           <div className="mb-10">

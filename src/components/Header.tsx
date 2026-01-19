@@ -6,7 +6,11 @@ import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavbarScroll } from '@/hooks/useNavbarScroll';
 
-export default function Header() {
+interface HeaderProps {
+  variant?: 'default' | 'light';
+}
+
+export default function Header({ variant = 'default' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { user, signOut } = useAuth();
@@ -70,7 +74,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'}`}>
+    <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'}${variant === 'light' ? ' header-light' : ''}`}>
       <div className="header-container">
         <div className="header-left">
           <Link href="/" className="logo">

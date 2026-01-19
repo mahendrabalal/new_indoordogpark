@@ -132,9 +132,9 @@ function buildUniqueHeroDescription(params: {
   const amenityLine =
     topAmenities.length > 0
       ? `Common highlights: ${topAmenities
-          .slice(0, 3)
-          .map((a) => `${a.label} (${a.share}%)`)
-          .join(', ')}.`
+        .slice(0, 3)
+        .map((a) => `${a.label} (${a.share}%)`)
+        .join(', ')}.`
       : '';
 
   const topLine =
@@ -377,10 +377,10 @@ export default async function CityPage({ params }: CityPageProps) {
     },
     ...(topParks.length > 0
       ? {
-          mainEntity: {
-            '@id': `${absoluteCanonicalUrl}#itemlist`,
-          },
-        }
+        mainEntity: {
+          '@id': `${absoluteCanonicalUrl}#itemlist`,
+        },
+      }
       : {}),
     containsPlace: structuredPlaces,
   };
@@ -397,7 +397,7 @@ export default async function CityPage({ params }: CityPageProps) {
       const shortDescription = park.description
         ? park.description.slice(0, 200).replace(/\s+\S*$/, '') + '...'
         : `${park.businessType} in ${park.city}`;
-      
+
       return {
         '@type': 'ListItem',
         position: index + 1,
@@ -595,31 +595,31 @@ export default async function CityPage({ params }: CityPageProps) {
 
   return (
     <>
-        <script
-          type="application/ld+json"
+      <script
+        type="application/ld+json"
         suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        {topParks.length > 0 && (
-          <script
-            type="application/ld+json"
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListStructuredData) }}
-          />
-        )}
-        {validFAQs.length > 0 && (
-          <script
-            type="application/ld+json"
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-          />
-        )}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      {topParks.length > 0 && (
         <script
           type="application/ld+json"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListStructuredData) }}
         />
-      <Header />
+      )}
+      {validFAQs.length > 0 && (
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Header variant="light" />
       <TableOfContents items={tocItems} />
 
       <main className="city-page-layout">
@@ -727,14 +727,14 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
 
             <div className="insights-grid">
-            {insightCards.map((card) => (
-              <article key={card.title} className={`insight-card ${card.accent ? 'accent' : ''}`}>
-                <span className="insight-tag">{card.tag}</span>
-                <h3>{card.title}</h3>
-                <p>{card.copy}</p>
-              </article>
-            ))}
-          </div>
+              {insightCards.map((card) => (
+                <article key={card.title} className={`insight-card ${card.accent ? 'accent' : ''}`}>
+                  <span className="insight-tag">{card.tag}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.copy}</p>
+                </article>
+              ))}
+            </div>
 
             {cityParks.length > 0 && (
               <div className="city-stats-wrapper">
@@ -1027,7 +1027,7 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="thin-content-box" style={{ marginTop: '2rem', padding: '2rem', background: '#f8fafc', borderRadius: '12px', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Know a great dog park in {city.name}?</h3>
                 <p style={{ color: '#64748b', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem' }}>
-                  We are actively scouting for more indoor and dog-friendly parks in {city.name}. 
+                  We are actively scouting for more indoor and dog-friendly parks in {city.name}.
                   If you know a hidden gem, help the community by adding it to our directory.
                 </p>
                 <Link href="/list-your-park" className="hero-cta primary" style={{ display: 'inline-flex' }}>
@@ -1047,7 +1047,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 <h2>Dog parks near {city.name}</h2>
                 <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
               </div>
-              
+
               <NearbyCitiesGrid cities={nearbyCities} />
             </div>
           </section>

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen about-page-modern">
-      <Header />
+      <Header variant="light" />
 
       <main className="flex-1">
         {/* Hero / About Us Section */}

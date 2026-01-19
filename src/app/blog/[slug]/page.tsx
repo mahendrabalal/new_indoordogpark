@@ -232,7 +232,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
           { name: post.title, url: `/blog/${post.slug}` }
         ]}
       />
-      <Header />
+      <Header variant="light" />
       <div className="min-h-screen bg-white">
         {/* Breadcrumb Navigation */}
         <div className="border-b border-gray-200 bg-white">

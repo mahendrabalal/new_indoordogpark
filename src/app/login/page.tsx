@@ -123,7 +123,7 @@ function LoginForm() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      <Header variant="light" />
       <div className="flex flex-1 flex-col bg-[#F5F6F8] lg:flex-row">
         <section className="relative hidden flex-1 items-center justify-center overflow-hidden lg:flex">
           <Image

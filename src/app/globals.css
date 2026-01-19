@@ -897,6 +897,33 @@ body {
   }
 }
 
+/* ========== HEADER LIGHT VARIANT ========== */
+/* For pages without dark hero backgrounds (e.g., blog) */
+.header.header-light {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header.header-light .header-nav-link,
+.header.header-light .header-link {
+  color: #374151;
+  text-shadow: none;
+}
+
+.header.header-light .header-nav-link:hover,
+.header.header-light .header-link:hover {
+  color: #FF5722;
+}
+
+.header.header-light .menu-toggle {
+  color: #374151;
+}
+
+.header.header-light .menu-toggle:hover {
+  color: #FF5722;
+}
+
 /* ========== HERO SECTION ========== */
 .hero-section-new {
   position: relative;

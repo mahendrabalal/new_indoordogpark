@@ -113,7 +113,7 @@ function UnsubscribeContent() {
 export default function UnsubscribePage() {
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">
-            <Header />
+            <Header variant="light" />
             <main className="flex-grow flex items-center justify-center px-4 py-12">
                 <Suspense fallback={<div className="text-center">Loading...</div>}>
                     <UnsubscribeContent />

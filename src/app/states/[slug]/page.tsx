@@ -151,7 +151,7 @@ export default async function StatePage({ params }: StatePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <Header />
+      <Header variant="light" />
       <StatePageStyles />
 
       <main className="state-page-layout">

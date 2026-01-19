@@ -168,7 +168,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
       <>
         <LiveRegion />
         <ReadingProgress />
-        <Header />
+        <Header variant="light" />
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" id="main-content" role="main">
           <section className="border-b border-gray-100 bg-gradient-to-b from-purple-50 via-white to-white">
             <div className="container mx-auto px-4 py-16 text-center">
@@ -255,7 +255,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
       <StructuredData type="Blog" data={posts} />
       <LiveRegion />
       <ReadingProgress />
-      <Header />
+      <Header variant="light" />
       <div className="min-h-screen bg-white" id="main-content" role="main">
         {/* The Latest and Top Reads Section */}
         {featuredPost && !hasActiveFilters && (
@@ -567,7 +567,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
   const canonicalUrl = '/blog';
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
-  
+
   // Category and tag query params redirect to canonical routes, so they should be indexable
   // Only block search query params from indexing (they're truly filtered pages)
   const shouldBlockIndexing = Boolean(searchTerm);
