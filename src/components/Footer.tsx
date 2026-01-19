@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Social Media Links */}
-        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM) && (
+        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_DIGG) && (
           <div className="footer-social">
             {process.env.NEXT_PUBLIC_SOCIAL_TWITTER && (
               <a
@@ -110,6 +110,17 @@ export default function Footer() {
                 title="Subscribe to our YouTube channel"
               >
                 <i className="bi bi-youtube"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_DIGG && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_DIGG}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Digg"
+                title="Follow us on Digg"
+              >
+                <i className="bi bi-digg"></i>
               </a>
             )}
           </div>

@@ -16,6 +16,7 @@ try {
 const nextConfig = {
   env: {
     NEXT_PUBLIC_SOCIAL_INSTAGRAM: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || 'https://www.instagram.com/indoordogpark2025/',
+    NEXT_PUBLIC_SOCIAL_DIGG: process.env.NEXT_PUBLIC_SOCIAL_DIGG || 'https://digg.com/indoordogpark',
   },
   images: {
     // Industry best practice: Configure image optimization properly

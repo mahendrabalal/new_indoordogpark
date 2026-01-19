@@ -86,7 +86,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Social Media Links */}
-                {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM) && (
+                {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_DIGG) && (
                   <div className="contact-info-card">
                     <div className="contact-info-icon">
                       <i className="bi bi-share-fill"></i>
@@ -128,6 +128,18 @@ export default function ContactPage() {
                           >
                             <i className="bi bi-instagram"></i>
                             <span>Instagram</span>
+                          </a>
+                        )}
+                        {process.env.NEXT_PUBLIC_SOCIAL_DIGG && (
+                          <a
+                            href={process.env.NEXT_PUBLIC_SOCIAL_DIGG}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium"
+                            aria-label="Follow us on Digg"
+                          >
+                            <i className="bi bi-digg"></i>
+                            <span>Digg</span>
                           </a>
                         )}
                       </div>
