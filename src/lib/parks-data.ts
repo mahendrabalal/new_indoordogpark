@@ -43,6 +43,9 @@ const virginiaDataPath = path.join(process.cwd(), 'public/data/virginia.json');
 const texasDataPath = path.join(process.cwd(), 'public/data/texas.json');
 const tennesseeDataPath = path.join(process.cwd(), 'public/data/tennessee.json');
 const pennsylvaniaDataPath = path.join(process.cwd(), 'public/data/pennsylvania.json');
+const ohioDataPath = path.join(process.cwd(), 'public/data/ohio.json');
+const northCarolinaDataPath = path.join(process.cwd(), 'public/data/northcarolina.json');
+const nyDataPath = path.join(process.cwd(), 'public/data/newyork.json');
 const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
@@ -266,6 +269,33 @@ async function loadStaticParks(): Promise<DogPark[]> {
       allParks.push(...pennsylvaniaParks);
     } catch (error) {
       console.error('Failed to read Pennsylvania parks data:', error);
+    }
+
+    // Load Ohio parks
+    try {
+      const ohioContent = await readFile(ohioDataPath, 'utf-8');
+      const ohioParks: DogPark[] = JSON.parse(ohioContent);
+      allParks.push(...ohioParks);
+    } catch (error) {
+      console.error('Failed to read Ohio parks data:', error);
+    }
+
+    // Load North Carolina parks
+    try {
+      const ncContent = await readFile(northCarolinaDataPath, 'utf-8');
+      const ncParks: DogPark[] = JSON.parse(ncContent);
+      allParks.push(...ncParks);
+    } catch (error) {
+      console.error('Failed to read North Carolina parks data:', error);
+    }
+
+    // Load New York parks
+    try {
+      const nyContent = await readFile(nyDataPath, 'utf-8');
+      const nyParks: DogPark[] = JSON.parse(nyContent);
+      allParks.push(...nyParks);
+    } catch (error) {
+      console.error('Failed to read New York parks data:', error);
     }
 
     // Load Mixmatch parks (multi-state parks)
