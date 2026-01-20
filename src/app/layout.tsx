@@ -8,6 +8,7 @@ import { LazyStyles } from '@/components/LazyStyles'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -219,10 +220,11 @@ export default function RootLayout({
         />
 
         {/* Grow by Mediavine */}
-        <script
-          data-grow-initializer=""
+        <Script
+          id="grow-initializer"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
-            __html: `(function(){window.growMe=window.growMe||{},window.growMe._=window.growMe._||[],window.growMe._.push([function(e){var t=document.createElement("script");t.type="text/javascript",t.src="https://faves.grow.me/main.js",t.defer=!0,t.setAttribute("data-grow-faves-site-id","U2I0ZTo2NWU3MDY3YS0wNzI0LTQ0NjktYTZmYS1iYzU0YWYzNWYzOTg="),document.getElementsByTagName("script")[0].parentNode.insertBefore(t,document.getElementsByTagName("script")[0])}])})();`,
+            __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2I0ZTo2NWU3MDY3MDS0NjktyTzmYS1iYzU0YWYzNWYzOTg=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
           }}
         />
       </head>
