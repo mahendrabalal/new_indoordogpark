@@ -8,7 +8,6 @@ import { LazyStyles } from '@/components/LazyStyles'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
-import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
