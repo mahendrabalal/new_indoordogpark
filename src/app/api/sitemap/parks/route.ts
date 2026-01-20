@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
-import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data'
+import { getAllStaticParks, normalizePark, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data'
 import { supabaseAdminClient } from '@/lib/supabase-admin'
 import { SITE_URL } from '@/lib/metadata'
 import type { DogPark } from '@/types/dog-park'
@@ -82,7 +82,7 @@ export async function GET() {
           })
         }
 
-        allParks = parksFromFiles
+        allParks = parksFromFiles.map(normalizePark)
         console.log(`[sitemap-parks] Total parks loaded from files: ${allParks.length}`)
       } catch (fileError) {
         console.error('[sitemap-parks] Critical: Failed to read parks from files:', {

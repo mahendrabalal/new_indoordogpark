@@ -33,6 +33,8 @@ export async function middleware(request: NextRequest) {
     '/cities/california': '/',
     '/cities/steiner-st-&': '/cities/steiner-st',
     '/parks/indoor-dog-park-california-california': '/parks/indoor-dog-park-california',
+    '/day': '/',
+    '/help': '/contact',
   };
 
   // Check for exact path matches
@@ -56,6 +58,33 @@ export async function middleware(request: NextRequest) {
     // Check if this would cause a redirect loop
     if (!redirectMap[cleanUrl.pathname]) {
       return applyNoIndexHeader(NextResponse.redirect(cleanUrl, 301));
+    }
+  }
+
+  // Handle double-slug patterns (e.g., /parks/some-park-marietta-marietta -> /parks/some-park-marietta)
+  if (pathname.startsWith('/parks/')) {
+    const parkSlug = pathname.replace('/parks/', '');
+    const parts = parkSlug.split('-');
+    if (parts.length >= 2) {
+      const last = parts[parts.length - 1];
+      const secondLast = parts[parts.length - 2];
+      if (last === secondLast && last.length > 2) {
+        const cleanUrl = new URL(url);
+        cleanUrl.pathname = `/parks/${parts.slice(0, -1).join('-')}`;
+        return applyNoIndexHeader(NextResponse.redirect(cleanUrl, 301));
+      }
+    }
+
+    // Handle city-suffix mismatches (e.g., play-pals-nyc-new-york -> play-pals-nyc)
+    // Common suffixes that might be double-appended
+    const citySuffixes = ['new-york', 'los-angeles', 'san-francisco', 'san-diego', 'chicago', 'houston', 'phoenix', 'philadelphia', 'san-antonio', 'dallas', 'seattle', 'portland', 'austin'];
+    for (const suffix of citySuffixes) {
+      const doubleSuffix = `-${suffix}-${suffix}`;
+      if (parkSlug.includes(doubleSuffix)) {
+        const cleanUrl = new URL(url);
+        cleanUrl.pathname = `/parks/${parkSlug.replace(doubleSuffix, `-${suffix}`)}`;
+        return applyNoIndexHeader(NextResponse.redirect(cleanUrl, 301));
+      }
     }
   }
 

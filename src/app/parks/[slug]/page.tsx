@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import ReviewSection from '@/components/ReviewSection';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
 import ParkStatusBadge from '@/components/ParkStatusBadge';
-import { getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
+import { extractLocationFromSlug, getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas, generateWebPageSchema } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
@@ -91,7 +91,17 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const park = await getParkBySlug(params.slug);
 
   if (!park) {
-    // Park not found - return 404
+    // Park not found - try smart redirect before 404
+    const location = extractLocationFromSlug(params.slug);
+    if (location) {
+      const citySlug = await getCitySlugByName(location.city, location.state);
+      if (citySlug) {
+        // Redirect to city page with a query param to show a message if desired later
+        permanentRedirect(`/cities/${citySlug}?ref=missing-park`);
+      }
+    }
+
+    // Final fallback: return 404
     notFound();
   }
 

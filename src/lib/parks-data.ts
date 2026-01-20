@@ -58,13 +58,21 @@ function getPriorityCityConfigBySlug(slug: string) {
 }
 
 function slugify(name: string, city?: string): string {
-  const base = `${name}-${city || ''}`.trim().toLowerCase();
+  const normalizedName = name.toLowerCase().trim();
+  const normalizedCity = city?.toLowerCase().trim();
+
+  // If the city name is already at the end of the park name, don't append it again
+  let base = normalizedName;
+  if (normalizedCity && !normalizedName.endsWith(normalizedCity)) {
+    base = `${normalizedName}-${normalizedCity}`;
+  }
+
   return base
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 }
 
-function normalizePark(rawPark: DogPark): DogPark {
+export function normalizePark(rawPark: DogPark): DogPark {
   const slug = rawPark.slug || slugify(rawPark.name, rawPark.city);
   return {
     ...rawPark,
@@ -310,7 +318,10 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   const parks = await loadStaticParks();
 
   // Try exact match first
-  let park = parks.find((p) => (p.slug || p.id) === slug);
+  let park = parks.find((p) => {
+    const parkSlug = p.slug || p.id;
+    return parkSlug === slug || (parkSlug && parkSlug.toLowerCase() === slug.toLowerCase());
+  });
   if (park) {
     return park;
   }
@@ -653,6 +664,10 @@ export function extractLocationFromSlug(slug: string): { city: string; state: st
   const cityPatterns: Array<{ pattern: RegExp; city: string; state: string }> = [
     // Multi-word cities
     { pattern: /-new-york(-ny)?$/i, city: 'New York', state: 'NY' },
+    { pattern: /-brooklyn(-ny)?$/i, city: 'Brooklyn', state: 'NY' },
+    { pattern: /-queens(-ny)?$/i, city: 'Queens', state: 'NY' },
+    { pattern: /-bronx(-ny)?$/i, city: 'Bronx', state: 'NY' },
+    { pattern: /-staten-island(-ny)?$/i, city: 'Staten Island', state: 'NY' },
     { pattern: /-san-francisco(-ca)?$/i, city: 'San Francisco', state: 'CA' },
     { pattern: /-los-angeles(-ca)?$/i, city: 'Los Angeles', state: 'CA' },
     { pattern: /-san-diego(-ca)?$/i, city: 'San Diego', state: 'CA' },
