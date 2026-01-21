@@ -178,6 +178,7 @@ export default function RootLayout({
             __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTo2NWU3MDY3YS0wNzI0LTQ0NjktYTZmYS1iYzU0YWYzNWYzOTg=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
           }}
         />
+        <meta name="p:domain_verify" content="0563fd1fc3dbf5ddf80e6b177ae94816" />
 
         {/* Preconnect to most critical domains only (limit to 4 to avoid warnings) */}
         {/* Google Fonts - highest priority for font loading */}
