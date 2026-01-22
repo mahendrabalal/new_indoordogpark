@@ -325,7 +325,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'chicago-il',
     city: 'Chicago',
     state: 'IL',
-    featuredImage: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/chicago-il/hero.png',
     summary:
       'Dense downtown population + apartment amenities; perfect for combo pay-to-play memberships and coworking-friendly lounges.',
     parks: [
@@ -610,7 +610,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'minneapolis-mn',
     city: 'Minneapolis',
     state: 'MN',
-    featuredImage: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/minneapolis-mn/hero.png',
     summary:
       'Long winter season and high dog ownership make climate-controlled agility courses and daycare add-ons a fast win.',
     parks: [
@@ -866,7 +866,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'portland-or',
     city: 'Portland',
     state: 'OR',
-    featuredImage: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/portland-or/hero.png',
     summary: 'Rainy climate + craft beverage culture: highlight brewery partnerships and event rentals.',
     parks: [
       {
@@ -1098,7 +1098,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'columbus-oh',
     city: 'Columbus',
     state: 'OH',
-    featuredImage: 'https://images.unsplash.com/photo-1444212477490-ca407925329e?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/columbus-oh/hero.png',
     summary:
       'College-town audience searching for memberships and combined daycare/boarding packages.',
     parks: [
@@ -1402,7 +1402,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'las-vegas-nv',
     city: 'Las Vegas',
     state: 'NV',
-    featuredImage: 'https://images.unsplash.com/photo-1469478715127-2f8a72700288?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/las-vegas-nv/hero.png',
     summary:
       'Tourist-heavy demand for flexible drop-ins during extreme heat; cross-promote with hotels and pet-friendly Airbnbs.',
     parks: [
@@ -1635,7 +1635,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'austin',
     city: 'Austin',
     state: 'TX',
-    featuredImage: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/austin-tx/hero.png',
     summary:
       'Tech hub + extreme summer heat: indoor parks with AC, coworking spaces, and heat alerts are essential for Austin dog families.',
     parks: [],
@@ -1787,7 +1787,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'santa-ana',
     city: 'Santa Ana',
     state: 'CA',
-    featuredImage: 'https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/san-diego/hero.webp',
     summary:
       'Orange County hub with year-round outdoor play—use early/late windows, and lean on shaded parks during warm afternoons.',
     parks: [],
@@ -1858,7 +1858,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'houston',
     city: 'Houston',
     state: 'TX',
-    featuredImage: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=1600&q=80',
+    featuredImage: '/images/cities/los-angeles/hero.webp',
     summary:
       'Extreme summer heat + sprawling metro: indoor parks with premium AC, cooling stations, and extended summer hours serve Houston dog families.',
     parks: [],

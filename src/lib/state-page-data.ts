@@ -4,6 +4,8 @@ import type { CityData } from '@/lib/cityData';
 import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data';
 import { normalizeStateKey } from '@/lib/state';
 import { getCityCardsForState, getIndexableStateSlugs, getStateBySlug, type StateData } from '@/lib/stateData';
+import { priorityStateContent } from '@/data/priorityStateContent';
+import { StateCustomContent, PriorityStateConfig } from '@/types/state-content';
 
 export type StateStats = {
   totalParks: number;
@@ -24,6 +26,7 @@ export type StateContentPayload = {
   stats: StateStats;
   cities: CityData[];
   exampleParks: Array<Pick<DogPark, 'name' | 'city' | 'state'>>;
+  customContent?: StateCustomContent;
 };
 
 const INDEX_THRESHOLDS = { minCities: 5, minListings: 5 };
@@ -64,15 +67,89 @@ export async function getAllStateSlugs(): Promise<string[]> {
   return getIndexableStateSlugs(allParks, INDEX_THRESHOLDS);
 }
 
-function pickFeaturedImage(state: StateData): string {
-  // Keep consistent with existing city/park fallbacks and palette.
-  if (state.slug === 'california') {
-    return 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80';
-  }
-  if (state.slug === 'washington') {
-    return 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80';
-  }
-  return 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80';
+function getPriorityStateConfigBySlug(slug: string) {
+  const normalized = slug.toLowerCase().trim();
+  return (
+    priorityStateContent.find((s) => s.slug === normalized) ||
+    priorityStateContent.find(
+      (s) => s.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${s.slug}-`),
+    )
+  );
+}
+
+const REGIONAL_HEROES: Record<string, string> = {
+  // PNW
+  'WA': '/images/cities/seattle/hero.webp',
+  'OR': '/images/cities/portland-or/hero.png',
+  'ID': '/images/cities/seattle/hero.webp',
+  'MT': '/images/cities/minneapolis-mn/hero.png',
+  'WY': '/images/cities/minneapolis-mn/hero.png',
+
+  // Desert / Mountain West
+  'AZ': '/images/cities/Phoenix/hero.webp',
+  'NV': '/images/cities/las-vegas-nv/hero.png',
+  'UT': '/images/cities/las-vegas-nv/hero.png',
+  'NM': '/images/cities/las-vegas-nv/hero.png',
+  'CO': '/images/cities/minneapolis-mn/hero.png',
+
+  // Midwest / Great Lakes
+  'IL': '/images/cities/chicago-il/hero.png',
+  'MN': '/images/cities/minneapolis-mn/hero.png',
+  'OH': '/images/cities/columbus-oh/hero.png',
+  'MI': '/images/cities/chicago-il/hero.png',
+  'WI': '/images/cities/minneapolis-mn/hero.png',
+  'IN': '/images/cities/columbus-oh/hero.png',
+  'IA': '/images/cities/chicago-il/hero.png',
+  'MO': '/images/cities/chicago-il/hero.png',
+  'NE': '/images/cities/chicago-il/hero.png',
+  'KS': '/images/cities/austin-tx/hero.png',
+  'ND': '/images/cities/minneapolis-mn/hero.png',
+  'SD': '/images/cities/minneapolis-mn/hero.png',
+
+  // Northeast / New England
+  'NY': '/images/cities/new-york/hero.webp',
+  'MA': '/images/cities/new-york/hero.webp',
+  'PA': '/images/cities/columbus-oh/hero.png',
+  'NJ': '/images/cities/new-york/hero.webp',
+  'CT': '/images/cities/new-york/hero.webp',
+  'RI': '/images/cities/new-york/hero.webp',
+  'VT': '/images/cities/portland-or/hero.png', // Rainy/Woodsy vibe
+  'NH': '/images/cities/portland-or/hero.png',
+  'ME': '/images/cities/portland-or/hero.png',
+  'MD': '/images/cities/columbus-oh/hero.png',
+  'DE': '/images/cities/new-york/hero.webp',
+
+  // South / Sunbelt
+  'TX': '/images/cities/austin-tx/hero.png',
+  'GA': '/images/cities/houston-tx/hero.png',
+  'FL': '/images/cities/houston-tx/hero.png', // Or Miami if we had it
+  'NC': '/images/cities/columbus-oh/hero.png',
+  'SC': '/images/cities/houston-tx/hero.png',
+  'AL': '/images/cities/houston-tx/hero.png',
+  'MS': '/images/cities/houston-tx/hero.png',
+  'LA': '/images/cities/houston-tx/hero.png',
+  'AR': '/images/cities/austin-tx/hero.png',
+  'TN': '/images/cities/austin-tx/hero.png',
+  'KY': '/images/cities/columbus-oh/hero.png',
+  'WV': '/images/cities/columbus-oh/hero.png',
+  'VA': '/images/cities/columbus-oh/hero.png',
+  'OK': '/images/cities/austin-tx/hero.png',
+
+  // California
+  'CA': '/images/cities/los-angeles/hero.webp',
+  'AK': '/images/cities/minneapolis-mn/hero.png', // Winter vibe
+  'HI': '/images/cities/san-diego/hero.webp', // Coastal vibe fallback
+};
+
+function pickFeaturedImage(state: StateData, priorityConfig?: PriorityStateConfig): string {
+  if (priorityConfig?.featuredImage) return priorityConfig.featuredImage;
+
+  // Regional Archetype Mapping
+  const regionalHero = REGIONAL_HEROES[state.abbr.toUpperCase()];
+  if (regionalHero) return regionalHero;
+
+  // Final absolute fallback to a verified local asset
+  return '/images/cities/los-angeles/hero.webp';
 }
 
 export async function getStateContentBySlug(slug: string): Promise<StateContentPayload | null> {
@@ -80,6 +157,8 @@ export async function getStateContentBySlug(slug: string): Promise<StateContentP
 
   const state = getStateBySlug(allParks, slug);
   if (!state) return null;
+
+  const priorityConfig = getPriorityStateConfigBySlug(slug);
 
   const indexable = state.totalCities >= INDEX_THRESHOLDS.minCities && state.totalParks >= INDEX_THRESHOLDS.minListings;
   const canonicalSlug = state.slug;
@@ -97,7 +176,7 @@ export async function getStateContentBySlug(slug: string): Promise<StateContentP
       name: state.name,
       abbr: state.abbr,
       slug: state.slug,
-      featuredImage: pickFeaturedImage(state),
+      featuredImage: pickFeaturedImage(state, priorityConfig),
     },
     canonicalSlug,
     indexable,
@@ -109,6 +188,7 @@ export async function getStateContentBySlug(slug: string): Promise<StateContentP
     },
     cities,
     exampleParks,
+    customContent: priorityConfig?.customContent,
   };
 }
 

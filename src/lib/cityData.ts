@@ -11,6 +11,7 @@ export interface CityData {
   latitude?: number;
   longitude?: number;
   state: string;
+  topParks?: string[];
 }
 
 export interface CityStats {
@@ -77,9 +78,15 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       avgRating,
       totalReviews,
       featuredImage,
-      latitude: cityParks[0].latitude,
       longitude: cityParks[0].longitude,
       state: cityState,
+      topParks: [...cityParks]
+        .sort((a, b) => {
+          if (b.rating !== a.rating) return b.rating - a.rating;
+          return b.reviewCount - a.reviewCount;
+        })
+        .slice(0, 3)
+        .map(p => p.name),
     };
   });
 
@@ -242,13 +249,13 @@ export function getFeaturedParks(parks: DogPark[], limit: number = 16): DogPark[
  */
 export function getNearbyCities(parks: DogPark[], currentCity: string, currentState: string, limit: number = 6): CityData[] {
   const allCities = getAllCities(parks);
-  
+
   // Filter cities in the same state, excluding current city
-  const nearby = allCities.filter(city => 
-    city.state === currentState && 
+  const nearby = allCities.filter(city =>
+    city.state === currentState &&
     city.name.toLowerCase() !== currentCity.toLowerCase()
   );
-  
+
   // Sort by park count (proxy for popularity)
   return nearby.sort((a, b) => b.parkCount - a.parkCount).slice(0, limit);
 }

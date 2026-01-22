@@ -75,6 +75,14 @@ export default function StatePageStyles() {
         margin-bottom: 28px;
       }
 
+      .hero-description p {
+        margin-bottom: 1em;
+      }
+
+      .hero-description p:last-child {
+        margin-bottom: 0;
+      }
+
       .hero-chip-row {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -155,7 +163,7 @@ export default function StatePageStyles() {
 
       .hero-image-card {
         position: relative;
-        min-height: 420px;
+        min-height: 540px;
         border-radius: 32px;
         overflow: hidden;
         box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
@@ -221,7 +229,7 @@ export default function StatePageStyles() {
       }
 
       .state-section {
-        padding: 56px 0;
+        padding: 48px 0;
       }
 
       .state-section.alt {
@@ -230,8 +238,18 @@ export default function StatePageStyles() {
 
       .section-heading {
         max-width: 960px;
-        margin: 0 auto 32px;
+        margin: 0 auto 24px;
         text-align: left;
+      }
+
+      .insight-tag {
+        font-size: 11px;
+        color: #FF5722;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       .section-eyebrow {
@@ -250,9 +268,11 @@ export default function StatePageStyles() {
       }
 
       .section-heading h2 {
-        font-size: clamp(28px, 3vw, 40px);
+        font-size: clamp(26px, 2.5vw, 36px);
         color: #2c3e50;
-        margin-bottom: 12px;
+        margin-bottom: 24px;
+        font-weight: 600;
+        line-height: 1.2;
       }
 
       .section-heading p {
@@ -265,16 +285,40 @@ export default function StatePageStyles() {
 
       .feature-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 1024px) {
+        .feature-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       .feature-card {
         background: white;
         border-radius: 20px;
-        padding: 24px;
+        padding: 20px;
         border: 1px solid #e2e8f0;
         box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05);
+      }
+
+      .feature-card.intro-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 240px;
+      }
+
+      .feature-card.intro-card h3 {
+        font-size: 15px;
+        line-height: 1.5;
       }
 
       .feature-icon {
@@ -291,16 +335,31 @@ export default function StatePageStyles() {
       }
 
       .feature-card h3 {
-        margin: 0 0 8px;
-        font-size: 18px;
+        margin: 0 0 10px;
+        font-size: 15px;
         color: #2c3e50;
+        line-height: 1.4;
+        font-weight: 600;
       }
 
       .feature-card p {
         margin: 0;
-        color: #666;
-        line-height: 1.6;
-        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+        font-size: 13px;
+      }
+
+      .planning-card-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #555;
+        font-size: 13px;
+      }
+
+      .planning-card-list li {
+        margin-bottom: 8px;
+        line-height: 1.5;
       }
 
       .cities-grid {

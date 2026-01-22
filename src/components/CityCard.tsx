@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { CityData } from '@/lib/cityData';
 
@@ -7,29 +6,8 @@ interface CityCardProps {
 }
 
 export default function CityCard({ city }: CityCardProps) {
-  // Use featured image or fallback to default
-  const imageUrl = city.featuredImage || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
-
   return (
-    <Link href={`/cities/${city.slug}`} className="city-card">
-      <div className="city-card-image-wrapper">
-        <Image
-          src={imageUrl}
-          alt={`${city.name}, ${city.state} - Dog Parks Directory`}
-          width={400}
-          height={250}
-          className="city-card-image"
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8Jz8YvqVX4J3hw+EPnJ54cr6C+h2R//9k="
-          decoding="async"
-          style={{ objectFit: 'cover' }}
-          // Industry best practice: Unoptimize local images to avoid 402 errors from Next.js Image Optimization API
-          unoptimized={imageUrl.startsWith('http') || imageUrl.startsWith('/images/')}
-        />
-      </div>
-
+    <Link href={`/cities/${city.slug}`} className="city-card no-image">
       <div className="city-card-body">
         {/* City Name */}
         <h3 className="city-card-title">{city.name}</h3>
@@ -47,6 +25,20 @@ export default function CityCard({ city }: CityCardProps) {
           <span className="rating-value">{city.avgRating.toFixed(1)}</span>
           <span className="rating-count">({city.totalReviews} reviews)</span>
         </div>
+
+        {/* Top Parks List */}
+        {city.topParks && city.topParks.length > 0 && (
+          <div className="city-card-top-parks">
+            <div className="top-parks-label">
+              <i className="bi bi-trophy"></i> Top Rated Parks
+            </div>
+            <ul>
+              {city.topParks.map((park) => (
+                <li key={park}>{park}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Explore Button */}
         <div className="city-card-action">
