@@ -25,75 +25,61 @@ interface ParkData {
 }
 
 async function importSubscribers() {
-    console.log('🚀 Starting subscriber import...');
+    console.log('🚀 Starting subscriber import sync...');
 
     // List of state-specific JSON files to import
     const dataDir = path.join(process.cwd(), 'public/data');
     const dataFiles = fs.readdirSync(dataDir)
         .filter((file: string) => file.endsWith('.json') && !file.includes('keyword_clusters'));
 
-    let allParks: ParkData[] = [];
+    let totalProcessed = 0;
+    let successCount = 0;
+    let failCount = 0;
 
     for (const file of dataFiles) {
         const dataPath = path.join(dataDir, file);
         const content = fs.readFileSync(dataPath, 'utf-8');
         const data = JSON.parse(content);
-        // Handle both array and object with parks array
         const parks = Array.isArray(data) ? data : (data.parks || []);
-        console.log(`📂 Loaded ${parks.length} parks from ${file}`);
-        allParks = [...allParks, ...parks];
-    }
 
-    console.log(`📂 Total loaded parks: ${allParks.length}`);
-    const parksWithEmails = allParks.filter(p => p.email && p.email.trim() !== '');
+        const sourceLab = `import_${path.basename(file, '.json')}`;
+        console.log(`📂 Processing ${parks.length} parks from ${file} (Source: ${sourceLab})`);
 
-    // Filter parks with emails
-    console.log(`📊 Found ${parksWithEmails.length} parks with email addresses.`);
+        const parksWithEmails = parks.filter((p: ParkData) => p.email && p.email.trim() !== '');
 
-    let successCount = 0;
-    let failCount = 0;
-    let skipCount = 0;
+        for (const park of parksWithEmails) {
+            totalProcessed++;
+            const email = park.email!.toLowerCase().trim();
+            const metadata = {
+                parkName: park.name,
+                location: `${park.city || ''}, ${park.state || ''}`.replace(/^, |, $/g, '')
+            };
 
-    for (const park of parksWithEmails) {
-        const email = park.email!.toLowerCase().trim();
-        const metadata = {
-            parkName: park.name,
-            location: `${park.city || ''}, ${park.state || ''}`.replace(/^, |, $/g, '')
-        };
+            const { error } = await supabase
+                .from('subscribers')
+                .upsert({
+                    email: email,
+                    type: 'owner',
+                    source: sourceLab,
+                    status: 'active',
+                    metadata: metadata,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'email' });
 
-        console.log(`Processing ${park.name} (${email})...`);
-
-        // Upsert subscriber
-        // We use upsert to avoid errors if they already exist, but we want to make sure we don't overwrite
-        // 'consumer' types if they somehow exist with same email (unlikely for business emails).
-        // For safety, let's just use simple insert and ignore conflicts or use upsert.
-        // Given the requirement "add these data", upsert is safer to ensure metadata is present.
-
-        const { error } = await supabase
-            .from('subscribers')
-            .upsert({
-                email: email,
-                type: 'owner',
-                source: 'import_california_json',
-                status: 'active',
-                metadata: metadata,
-                updated_at: new Date().toISOString()
-            }, { onConflict: 'email' });
-
-        if (error) {
-            console.error(`   ❌ Failed: ${error.message}`);
-            failCount++;
-        } else {
-            console.log(`   ✅ Imported/Updated`);
-            successCount++;
+            if (error) {
+                console.error(`   ❌ Failed ${park.name} (${email}): ${error.message}`);
+                failCount++;
+            } else {
+                successCount++;
+            }
         }
     }
 
     console.log('\n' + '='.repeat(60));
-    console.log('📊 Import Summary');
+    console.log('📊 Sync Summary');
     console.log('='.repeat(60));
-    console.log(`Total processed: ${parksWithEmails.length}`);
-    console.log(`✅ Successful: ${successCount}`);
+    console.log(`Total found with emails: ${totalProcessed}`);
+    console.log(`✅ Successful sync: ${successCount}`);
     console.log(`❌ Failed: ${failCount}`);
 }
 

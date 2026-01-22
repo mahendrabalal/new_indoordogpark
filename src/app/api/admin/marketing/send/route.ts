@@ -5,14 +5,32 @@ import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import BlogPostEmail from '@/emails/BlogPostEmail';
 import MarketingEmail from '@/emails/MarketingEmail';
+import ParkOutreachEmail from '@/emails/ParkOutreachEmail';
 import { fetchPostBySlug } from '@/lib/sanity-api';
 import { createClient } from '@supabase/supabase-js';
+import * as React from 'react';
+
+interface Recipient {
+    email: string;
+    id?: string;
+}
+
+interface SubscriberMetadata {
+    parkName?: string;
+    location?: string;
+}
+
+interface EmailLogDetail {
+    email: string;
+    status: 'success' | 'failed';
+    error?: string;
+}
 
 // Initialize Clients
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const dynamic = 'force-dynamic';
-export const maxDuration = 300; // Allow 5 minutes for execution (if on Pro, otherwise 10s limit might apply)
+export const maxDuration = 300; // Allow 5 minutes for execution
 
 export async function POST(request: NextRequest) {
     try {
@@ -46,68 +64,127 @@ export async function POST(request: NextRequest) {
             const post = await fetchPostBySlug(slug);
 
             if (!post) {
-                console.error(`[marketing:send] Blog post not found: ${slug}`);
                 return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
             }
 
             subject = `New Post: ${post.title}`;
 
-            // Use featured image URL directly if available
-            const imageUrl = post.featuredImage?.source_url;
-
-            const emailComponent = BlogPostEmail({
+            const emailComponent = React.createElement(BlogPostEmail, {
                 title: post.title,
                 excerpt: post.excerpt || 'Read our latest article!',
                 slug: post.slug,
-                imageUrl,
-                email: '{{email}}', // Placeholder
+                imageUrl: post.featuredImage?.source_url,
+                email: '{{email}}',
             });
 
-            try {
-                emailHtml = await render(emailComponent);
-            } catch (renderError) {
-                console.error('[marketing:send] Render error (blog):', renderError);
-                throw renderError;
+            emailHtml = await render(emailComponent);
+
+        } else if (template === 'outreach') {
+            const { parkId, personalizedNote } = data;
+
+            const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+
+            // Try park_submissions first
+            const { data: initialPark, error: parkError } = await adminClient
+                .from('park_submissions')
+                .select('*')
+                .eq('id', parkId)
+                .single();
+
+            let park = initialPark;
+
+            // If not found, try subscribers
+            if (parkError || !park) {
+                const { data: subscriber, error: subscriberError } = await adminClient
+                    .from('subscribers')
+                    .select('*')
+                    .eq('id', parkId)
+                    .single();
+
+                if (subscriberError || !subscriber) {
+                    return NextResponse.json({ error: 'Park not found' }, { status: 404 });
+                }
+
+                // Map subscriber format to park format for the email template
+                const metadata = subscriber.metadata as SubscriberMetadata | null;
+                park = {
+                    id: subscriber.id,
+                    name: metadata?.parkName || subscriber.email,
+                    city: metadata?.location?.split(',')[0]?.trim() || '',
+                    state: metadata?.location?.split(',')[1]?.trim() || '',
+                    email: subscriber.email,
+                };
             }
 
-        } else if (template === 'marketing') {
+            subject = `Partner with IndoorDogPark.org - Increase Visibility for ${park.name}`;
+
+            const emailComponent = React.createElement(ParkOutreachEmail, {
+                parkName: park.name,
+                parkCity: park.city,
+                parkState: park.state,
+                parkEmail: park.email,
+                personalizedNote: personalizedNote,
+                baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://indoordogpark.org',
+            });
+
+            emailHtml = await render(emailComponent);
+
+        } else if (template === 'marketing' || template === 'generic') {
             const { headline, bodyContent, ctaText, ctaUrl, imageUrl } = data;
             subject = data.subject || headline;
 
-            const emailComponent = MarketingEmail({
+            const emailComponent = React.createElement(MarketingEmail, {
                 headline,
                 bodyContent,
                 ctaText,
                 ctaUrl,
                 imageUrl,
-                email: '{{email}}', // Placeholder
+                email: '{{email}}',
             });
 
-            try {
-                emailHtml = await render(emailComponent);
-            } catch (renderError) {
-                console.error('[marketing:send] Render error (marketing):', renderError);
-                throw renderError;
-            }
+            emailHtml = await render(emailComponent);
         } else {
             return NextResponse.json({ error: 'Invalid template type' }, { status: 400 });
         }
 
         // 4. Determine Recipients
-        let recipients: { email: string; id?: string }[] = [];
+        let recipients: Recipient[] = [];
 
         if (testEmail) {
             recipients = [{ email: testEmail }];
-        } else {
-            // Fetch from Supabase based on segment
+        } else if (segment === 'specific-park') {
+            const { parkId } = data;
             const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
             const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
 
-            if (!serviceRoleKey || !supabaseUrl) {
-                return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+            // Check park_submissions
+            const { data: park } = await adminClient
+                .from('park_submissions')
+                .select('email, id')
+                .eq('id', parkId)
+                .single();
+
+            if (park && park.email) {
+                recipients = [{ email: park.email, id: park.id }];
+            } else {
+                // Check subscribers if not found in submissions
+                const { data: subscriber } = await adminClient
+                    .from('subscribers')
+                    .select('email, id')
+                    .eq('id', parkId)
+                    .single();
+
+                if (subscriber && subscriber.email) {
+                    recipients = [{ email: subscriber.email, id: subscriber.id }];
+                }
             }
-
-            const adminClient = createClient(supabaseUrl, serviceRoleKey);
+        } else {
+            const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
 
             let query = adminClient.from('subscribers').select('email, id').eq('status', 'active');
 
@@ -116,15 +193,9 @@ export async function POST(request: NextRequest) {
             } else if (segment === 'consumers') {
                 query = query.eq('type', 'consumer');
             }
-            // 'all' needs no filter on type
 
             const { data: subscribers, error } = await query;
-
-            if (error) {
-                console.error('Database error:', error);
-                return NextResponse.json({ error: 'Database error' }, { status: 500 });
-            }
-
+            if (error) throw error;
             recipients = subscribers || [];
         }
 
@@ -132,19 +203,13 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ message: 'No recipients found', sent: 0 });
         }
 
-        // 5. Send Emails (Batching)
-        // Vercel limit is strict. We'll do a simple loop but acknowledge this might timeout for >50 users.
-        // For 'Pro' verification, we should implement a Queue, but for this 'MVP', we loop.
-
-        // 5. Send Emails (Sequential with Delay for Rate Limiting)
-        // User is on a tier limiting to 2 req/s. We will send 1 per second to be safe.
+        // 5. Send Emails
         let successCount = 0;
         let failCount = 0;
-        const details: { email: string; status: 'success' | 'failed'; error?: string }[] = [];
+        const details: EmailLogDetail[] = [];
 
         for (const recipient of recipients) {
             try {
-                // Handle both literal and URL-encoded placeholders
                 const personalizedHtml = emailHtml
                     .replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email))
                     .replace(/%7B%7Bemail%7D%7D/g, encodeURIComponent(recipient.email));
@@ -158,27 +223,60 @@ export async function POST(request: NextRequest) {
                 });
 
                 if (sendError) {
-                    console.error(`Failed to send to ${recipient.email}:`, sendError);
                     failCount++;
                     details.push({ email: recipient.email, status: 'failed', error: sendError.message });
-
-                    // If rate limit hit, wait longer
-                    if (sendError.message.includes('Too many requests')) {
-                        await new Promise(r => setTimeout(r, 2000));
-                    }
-                } else {
+                } else if (!testEmail) {
                     successCount++;
                     details.push({ email: recipient.email, status: 'success' });
-                }
-            } catch (e: unknown) {
-                const errorMessage = e instanceof Error ? e.message : 'Unknown error';
-                console.error(`Exception sending to ${recipient.email}:`, e);
-                failCount++;
-                details.push({ email: recipient.email, status: 'failed', error: errorMessage });
-            }
 
-            // Strict rate limiting: Wait 1 second between emails
-            // This ensures we never exceed ~1 req/sec, safely under the 2 req/sec limit.
+                    // Prepare admin client for updates
+                    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+                    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+                    const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+
+                    // Record outreach tracking if it's an outreach template and from park_submissions
+                    if (template === 'outreach' && segment === 'specific-park' && recipient.id) {
+                        try {
+                            await adminClient
+                                .from('park_submissions')
+                                .update({
+                                    last_outreach_sent_at: new Date().toISOString(),
+                                    outreach_status: 'sent'
+                                })
+                                .eq('id', recipient.id);
+
+                            // Also try to update subscribers table if they exist there too
+                            await adminClient
+                                .from('subscribers')
+                                .update({
+                                    last_outreach_sent_at: new Date().toISOString(),
+                                    outreach_status: 'sent'
+                                })
+                                .eq('email', recipient.email.toLowerCase().trim());
+                        } catch (updateError) {
+                            console.error('Failed to update outreach tracking:', updateError);
+                        }
+                    }
+                    // Record tracking for general subscribers (broadcasts)
+                    else if (recipient.email) {
+                        try {
+                            await adminClient
+                                .from('subscribers')
+                                .update({
+                                    last_outreach_sent_at: new Date().toISOString(),
+                                    outreach_status: 'sent'
+                                })
+                                .eq('email', recipient.email.toLowerCase().trim());
+                        } catch (updateError) {
+                            console.error('Failed to update subscriber tracking:', updateError);
+                        }
+                    }
+                }
+            } catch (e) {
+                const error = e as Error;
+                failCount++;
+                details.push({ email: recipient.email, status: 'failed', error: error.message });
+            }
             await new Promise(r => setTimeout(r, 1000));
         }
 
@@ -190,7 +288,8 @@ export async function POST(request: NextRequest) {
         });
 
     } catch (error) {
-        console.error('Marketing send error:', error);
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+        const e = error as Error;
+        console.error('Marketing send error:', e);
+        return NextResponse.json({ error: e.message || 'Internal server error' }, { status: 500 });
     }
 }

@@ -2224,9 +2224,10 @@ mark {
 .park-hero-premium {
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   color: #ffffff;
-  padding: 80px 0 100px;
+  padding: 152px 0 100px;
   position: relative;
   overflow: hidden;
+  margin-top: -72px;
 }
 
 .park-hero-premium::before {
@@ -2850,7 +2851,8 @@ mark {
   position: relative;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
-  padding: 60px 0 100px;
+  padding: 132px 0 100px;
+  margin-top: -72px;
   margin-bottom: -60px;
   /* Overlap with content */
   overflow: hidden;
@@ -8571,7 +8573,8 @@ mark {
 .park-hero-premium {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f172a 100%);
   position: relative;
-  padding: 50px 0 80px;
+  padding: 122px 0 80px;
+  margin-top: -72px;
   overflow: hidden;
 }
 

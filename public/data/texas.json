@@ -706,57 +706,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJmXCV7HPHQIYRy137hq8hC0w",
-    "name": "Houston Bark Park and Daycare",
-    "businessType": "Dog Park",
-    "description": "Houston Bark Park and Daycare has become a favorite among Houston residents. The facility excels in peace of mind for owners and great for socialization, making it a trusted choice for dog owners who want the best for their pets. For more information, call (281) 888-1428.",
-    "slug": "houston-bark-park-and-daycare",
-    "address": "710 W 27th St",
-    "street": "710 W 27th St",
-    "city": "Houston",
-    "state": "TX",
-    "zipCode": "77008",
-    "full_address": "710 W 27th St, Houston, TX 77008, USA",
-    "latitude": 29.8107185,
-    "longitude": -95.4107786,
-    "googlePlaceId": "ChIJmXCV7HPHQIYRy137hq8hC0w",
-    "phone": "(281) 888-1428",
-    "website": "http://www.houstonbarkpark.com/",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 509,
-    "openingHours": {
-      "Monday": "7:00 AM – 7:00 PM",
-      "Tuesday": "7:00 AM – 7:00 PM",
-      "Wednesday": "7:00 AM – 7:00 PM",
-      "Thursday": "7:00 AM – 7:00 PM",
-      "Friday": "7:00 AM – 7:00 PM",
-      "Saturday": "8:00 AM – 6:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJN5kGsMbDQIYRUNluicJigpQ",
     "name": "Dogtopia of Galleria - Houston",
     "businessType": "Dog Park",
@@ -1213,7 +1162,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "woof@whatsupdoghtx.com"
   },
   {
     "id": "ChIJVVX5PunBQIYRHJj85FheFS4",
@@ -1264,7 +1214,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@superpawshouston.com"
   },
   {
     "id": "ChIJ2ZiqkJe_QIYR1rhSW1luDY0",
@@ -1315,7 +1266,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "Midtown@JacksonsPlace.com"
   },
   {
     "id": "ChIJVVWBGCbEQIYRJLWaOf0aGs0",
@@ -1468,7 +1420,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "stayhotelkira@gmail.com"
   },
   {
     "id": "ChIJ5Q0fBLaXQIYR4DdEQwde1Hs",
@@ -1519,7 +1472,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "hobby@petparadise.com"
   },
   {
     "id": "ChIJs99CU7iUQIYRytTne8Xn9Ek",
@@ -1570,7 +1524,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@meadowlakepetresort.com"
   },
   {
     "id": "ChIJxaD7BLXFQIYRahNzGXhkahU",
@@ -1600,108 +1555,6 @@
       "Friday": "7:00 AM – 7:00 PM",
       "Saturday": "8:00 AM – 5:00 PM",
       "Sunday": "8:00 AM – 5:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJd0x2RvHHQIYR8wlmdRPBv2A",
-    "name": "Wag'n World",
-    "businessType": "Dog Park",
-    "description": "Wag'n World has become a favorite among Houston residents. The facility excels in peace of mind for owners and excellent customer service and great for socialization, making it a trusted choice for dog owners who want the best for their pets. For more information, call (832) 699-3399.",
-    "slug": "wag-n-world",
-    "address": "1616 W 22nd St",
-    "street": "1616 W 22nd St",
-    "city": "Houston",
-    "state": "TX",
-    "zipCode": "77008",
-    "full_address": "1616 W 22nd St, Houston, TX 77008, USA",
-    "latitude": 29.805342,
-    "longitude": -95.42836319999999,
-    "googlePlaceId": "ChIJd0x2RvHHQIYR8wlmdRPBv2A",
-    "phone": "(832) 699-3399",
-    "website": "https://www.wagnworld.com/",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 161,
-    "openingHours": {
-      "Monday": "6:30 AM – 7:00 PM",
-      "Tuesday": "6:30 AM – 7:00 PM",
-      "Wednesday": "6:30 AM – 7:00 PM",
-      "Thursday": "6:30 AM – 7:00 PM",
-      "Friday": "6:30 AM – 7:00 PM",
-      "Saturday": "9:00 AM – 5:00 PM",
-      "Sunday": "2:00 – 6:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJs99CU7iUQIYRytTne8Xn9Ek",
-    "name": "Meadowlake Pet Resort",
-    "businessType": "Dog Park",
-    "description": "Meadowlake Pet Resort has earned its reputation as a top Dog facility in Houston. Customers consistently mention the spacious play areas and great for socialization and clean and well-maintained, highlighting why this facility is a go-to destination for dog lovers. For more information, call (713) 413-1633.",
-    "slug": "meadowlake-pet-resort",
-    "address": "13500 Furman Rd",
-    "street": "13500 Furman Rd",
-    "city": "Houston",
-    "state": "TX",
-    "zipCode": "77047",
-    "full_address": "13500 Furman Rd, Houston, TX 77047, USA",
-    "latitude": 29.6117001,
-    "longitude": -95.3811891,
-    "googlePlaceId": "ChIJs99CU7iUQIYRytTne8Xn9Ek",
-    "phone": "(713) 413-1633",
-    "website": "https://www.meadowlakepetresort.com/?utm_source=GMB&utm_medium=local&utm_campaign=pearland",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 837,
-    "openingHours": {
-      "Monday": "6:00 AM – 8:00 PM",
-      "Tuesday": "6:00 AM – 8:00 PM",
-      "Wednesday": "6:00 AM – 8:00 PM",
-      "Thursday": "6:00 AM – 8:00 PM",
-      "Friday": "6:00 AM – 8:00 PM",
-      "Saturday": "9:00 AM – 4:00 PM",
-      "Sunday": "9:00 AM – 4:00 PM"
     },
     "amenities": {
       "Onsite services": true,
@@ -1774,7 +1627,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@unleashedretreat.com"
   },
   {
     "id": "ChIJoV3N2G7HQIYRCHpfrUberzg",
@@ -1927,7 +1781,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@pawspetresort.net"
   },
   {
     "id": "ChIJRQ7NW8DyBygRGpsnQiScEsM",
@@ -1978,7 +1833,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "SBHDOGBOARDING@gmail.com"
   },
   {
     "id": "ChIJHb8_OZTDQIYRCHsZGEvhvYI",
@@ -2182,7 +2038,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "kpethotel@gmail.com"
   },
   {
     "id": "ChIJTWObDcK2QIYRB1wqmJU1EqY",
@@ -2335,7 +2192,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@puptownhouston.com"
   },
   {
     "id": "ChIJDS-3QF9KR4YR0ETh9k-rRJw",
@@ -2386,7 +2244,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "contact@beyondthedogtraining.com"
   },
   {
     "id": "ChIJzTTYRfvBQIYRZZKbSpAKbSw",
@@ -2488,7 +2347,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@believeindog.com"
   },
   {
     "id": "ChIJsRalRSDHQIYRn5xxtK-3WJ4",
@@ -2539,7 +2399,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "woof@houstondogworks.com"
   },
   {
     "id": "ChIJOdGi2gPFQIYR7_CXv5fUvc8",
@@ -2641,7 +2502,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@peacelovedogshouston.com"
   },
   {
     "id": "ChIJHajQpHy5QIYR3dMTnbRToFs",
@@ -2692,7 +2554,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "admin@lovefordogscaninetraining.com"
   },
   {
     "id": "ChIJs8GK-ljBQIYRHiTYNqX6Vfo",
@@ -2794,7 +2657,8 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [],
+    "email": "info@puptownhouston.com"
   },
   {
     "id": "ChIJdVImtGK9QIYRWL-qzCx3iXA",
@@ -7059,57 +6923,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJHwIs_x-ZToYRmcTEKRhWqGE",
-    "name": "All Dogs Unleashed Dog Training Dallas",
-    "businessType": "Dog Park",
-    "description": "All Dogs Unleashed Dog Training Dallas is a beloved Dog facility in Dallas that consistently earns praise from pet owners. This facility stands out for being convenient location and excellent customer service. Dog owners appreciate the attention to detail and the genuine care shown to every furry visitor. For more information, call (214) 807-1462.",
-    "slug": "all-dogs-unleashed-dog-training-dallas",
-    "address": "211 N Ervay St STE 300-B",
-    "street": "211 N Ervay St STE 300-B",
-    "city": "Dallas",
-    "state": "TX",
-    "zipCode": "75201",
-    "full_address": "211 N Ervay St STE 300-B, Dallas, TX 75201, USA",
-    "latitude": 32.7822112,
-    "longitude": -96.7975932,
-    "googlePlaceId": "ChIJHwIs_x-ZToYRmcTEKRhWqGE",
-    "phone": "(214) 807-1462",
-    "website": "https://www.alldogsunleashed.com/?utm_source=GMBlistingErvay&utm_medium=organic",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 269,
-    "openingHours": {
-      "Monday": "7:30 AM – 6:30 PM",
-      "Tuesday": "7:30 AM – 6:30 PM",
-      "Wednesday": "7:30 AM – 6:30 PM",
-      "Thursday": "7:30 AM – 6:30 PM",
-      "Friday": "7:30 AM – 6:30 PM",
-      "Saturday": "10:00 AM – 3:00 PM",
-      "Sunday": "10:00 AM – 3:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -16721,57 +16534,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJBeIyCNCKXIYRNN1fGYvQpUE",
-    "name": "Sit Means Sit Dog Training",
-    "businessType": "Dog Park",
-    "description": "Sit Means Sit Dog Training is a beloved Dog facility in San Antonio that consistently earns praise from pet owners. This facility stands out for being professional and reliable and convenient location. Dog owners appreciate the attention to detail and the genuine care shown to every furry visitor. For more information, call (210) 414-2788.",
-    "slug": "sit-means-sit-dog-training",
-    "address": "10025 Broadway",
-    "street": "10025 Broadway",
-    "city": "San Antonio",
-    "state": "TX",
-    "zipCode": "78217",
-    "full_address": "10025 Broadway, San Antonio, TX 78217, USA",
-    "latitude": 29.5318856,
-    "longitude": -98.4498251,
-    "googlePlaceId": "ChIJBeIyCNCKXIYRNN1fGYvQpUE",
-    "phone": "(210) 414-2788",
-    "website": "https://sitmeanssit.com/dog-training-mu/san-antonio-dog-training/?utm_source=google&utm_medium=gmb&utm_campaign=google_listing",
-    "photos": null,
-    "rating": 4.5,
-    "reviewCount": 214,
-    "openingHours": {
-      "Monday": "9:00 AM – 6:00 PM",
-      "Tuesday": "9:00 AM – 6:00 PM",
-      "Wednesday": "9:00 AM – 6:00 PM",
-      "Thursday": "9:00 AM – 6:00 PM",
-      "Friday": "9:00 AM – 6:00 PM",
-      "Saturday": "9:00 AM – 5:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ6YmuqcLpXIYRUyluu01Pot0",
     "name": "JIREH K9 Training Academy",
     "businessType": "Dog Park",
@@ -19945,57 +19707,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJR5G_DdVyToYRyMNvW-NGBY0",
-    "name": "Metro Animals",
-    "businessType": "Dog Park",
-    "description": "Metro Animals has earned its reputation as a top Dog facility in Fort Worth. Customers consistently mention the great for socialization and clean and well-maintained, highlighting why this facility is a go-to destination for dog lovers. For more information, call (817) 210-6355.",
-    "slug": "metro-animals",
-    "address": "6840 Camp Bowie W Blvd",
-    "street": "6840 Camp Bowie W Blvd",
-    "city": "Fort Worth",
-    "state": "TX",
-    "zipCode": "76116",
-    "full_address": "6840 Camp Bowie W Blvd, Fort Worth, TX 76116, USA",
-    "latitude": 32.7218441,
-    "longitude": -97.4360294,
-    "googlePlaceId": "ChIJR5G_DdVyToYRyMNvW-NGBY0",
-    "phone": "(817) 210-6355",
-    "website": "http://www.metroanimals.com/",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 156,
-    "openingHours": {
-      "Monday": "6:30 AM – 7:00 PM",
-      "Tuesday": "6:30 AM – 7:00 PM",
-      "Wednesday": "6:30 AM – 7:00 PM",
-      "Thursday": "6:30 AM – 7:00 PM",
-      "Friday": "6:30 AM – 7:00 PM",
-      "Saturday": "7:00 AM – 7:00 PM",
-      "Sunday": "7:00 AM – 7:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ5a7DTK1tToYR43nchgw1fxA",
     "name": "PetSuites Chisholm Trail",
     "businessType": "Dog Park",
@@ -21427,57 +21138,6 @@
       "Friday": "8:00 AM – 8:00 PM",
       "Saturday": "8:00 AM – 8:00 PM",
       "Sunday": "10:00 AM – 8:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJX_9ObIAMToYReRd_q28ZGio",
-    "name": "Happy K9",
-    "businessType": "Dog Park",
-    "description": "Happy K9 has become a favorite among Fort Worth residents. The facility excels in convenient location and clean and well-maintained, making it a trusted choice for dog owners who want the best for their pets. For more information, call (817) 350-4872.",
-    "slug": "happy-k9",
-    "address": "9501 Clifford St C",
-    "street": "9501 Clifford St C",
-    "city": "Fort Worth",
-    "state": "TX",
-    "zipCode": "76108",
-    "full_address": "9501 Clifford St C, Fort Worth, TX 76108, USA",
-    "latitude": 32.76362759999999,
-    "longitude": -97.481092,
-    "googlePlaceId": "ChIJX_9ObIAMToYReRd_q28ZGio",
-    "phone": "(817) 350-4872",
-    "website": "https://happyk9.com/",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 857,
-    "openingHours": {
-      "Monday": "8:00 AM – 6:00 PM",
-      "Tuesday": "8:00 AM – 6:00 PM",
-      "Wednesday": "8:00 AM – 6:00 PM",
-      "Thursday": "8:00 AM – 6:00 PM",
-      "Friday": "8:00 AM – 6:00 PM",
-      "Saturday": "8:00 AM – 6:00 PM",
-      "Sunday": "10:00 AM – 6:00 PM"
     },
     "amenities": {
       "Onsite services": true,
@@ -43504,57 +43164,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJ_____1OCToYRbv6fT0dmEjE",
-    "name": "PetSmart",
-    "businessType": "Dog Park",
-    "description": "PetSmart has become a favorite among Irving residents. The facility excels in peace of mind for owners and friendly and caring staff and clean and well-maintained, making it a trusted choice for dog owners who want the best for their pets. For more information, call (972) 255-0027.",
-    "slug": "petsmart",
-    "address": "4005 W Airport Fwy",
-    "street": "4005 W Airport Fwy",
-    "city": "Irving",
-    "state": "TX",
-    "zipCode": "75062",
-    "full_address": "4005 W Airport Fwy, Irving, TX 75062, USA",
-    "latitude": 32.8384672,
-    "longitude": -97.0042364,
-    "googlePlaceId": "ChIJ_____1OCToYRbv6fT0dmEjE",
-    "phone": "(972) 255-0027",
-    "website": "https://www.petsmart.com/stores/us/tx/irving-store0181.html?utm_source=google&utm_medium=organic&utm_campaign=google-my-business",
-    "photos": null,
-    "rating": 4.2,
-    "reviewCount": 1487,
-    "openingHours": {
-      "Monday": "9:00 AM – 9:00 PM",
-      "Tuesday": "9:00 AM – 9:00 PM",
-      "Wednesday": "9:00 AM – 9:00 PM",
-      "Thursday": "9:00 AM – 9:00 PM",
-      "Friday": "9:00 AM – 9:00 PM",
-      "Saturday": "9:00 AM – 9:00 PM",
-      "Sunday": "10:00 AM – 7:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ_WfkBJopTIYRL0jyY99Yfes",
     "name": "PCoCo Dog Grooming - Salon",
     "businessType": "Dog Park",
@@ -48261,57 +47870,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJ9ViAHU6IToYRVMuZeE4uTfg",
-    "name": "Petco",
-    "businessType": "Dog Park",
-    "description": "Petco stands out in Grand Prairie for its exceptional service. The facility is known for professional and reliable and dogs love it here, creating an environment where dogs thrive and owners feel confident. For more information, call (972) 522-2202.",
-    "slug": "petco",
-    "address": "5236 S State Hwy 360",
-    "street": "5236 S State Hwy 360",
-    "city": "Grand Prairie",
-    "state": "TX",
-    "zipCode": "75052",
-    "full_address": "5236 S State Hwy 360, Grand Prairie, TX 75052, USA",
-    "latitude": 32.6456743,
-    "longitude": -97.0595749,
-    "googlePlaceId": "ChIJ9ViAHU6IToYRVMuZeE4uTfg",
-    "phone": "(972) 522-2202",
-    "website": "https://stores.petco.com/tx/grandpairie/pet-supplies-grandpairie-tx-1474.html",
-    "photos": null,
-    "rating": 4.2,
-    "reviewCount": 831,
-    "openingHours": {
-      "Monday": "9:00 AM – 9:00 PM",
-      "Tuesday": "9:00 AM – 9:00 PM",
-      "Wednesday": "9:00 AM – 9:00 PM",
-      "Thursday": "9:00 AM – 9:00 PM",
-      "Friday": "9:00 AM – 9:00 PM",
-      "Saturday": "9:00 AM – 9:00 PM",
-      "Sunday": "10:00 AM – 7:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJIX-G7AaJToYReNaMn95Tzp4",
     "name": "Passion Pet Care Services",
     "businessType": "Dog Park",
@@ -51195,57 +50753,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJa2sAQ-2Vb4YRH60OCSDinRM",
-    "name": "Chachalaca Park",
-    "businessType": "Dog Park",
-    "description": "Chachalaca Park has become a favorite among Brownsville residents. The facility excels in professional and reliable and peace of mind for owners and great for socialization, making it a trusted choice for dog owners who want the best for their pets. For more information, call (956) 542-2064.",
-    "slug": "chachalaca-park",
-    "address": "550 Burnett Rd",
-    "street": "550 Burnett Rd",
-    "city": "Brownsville",
-    "state": "TX",
-    "zipCode": "78521",
-    "full_address": "550 Burnett Rd, Brownsville, TX 78521, USA",
-    "latitude": 25.9219838,
-    "longitude": -97.4492912,
-    "googlePlaceId": "ChIJa2sAQ-2Vb4YRH60OCSDinRM",
-    "phone": "(956) 542-2064",
-    "website": "",
-    "photos": null,
-    "rating": 4.5,
-    "reviewCount": 336,
-    "openingHours": {
-      "Monday": "8:00 AM – 10:00 PM",
-      "Tuesday": "8:00 AM – 10:00 PM",
-      "Wednesday": "8:00 AM – 10:00 PM",
-      "Thursday": "8:00 AM – 10:00 PM",
-      "Friday": "8:00 AM – 11:00 PM",
-      "Saturday": "8:00 AM – 11:00 PM",
-      "Sunday": "8:00 AM – 10:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJua1YzOWVb4YRvk7ZQGlslXY",
     "name": "Garfield Park",
     "businessType": "Dog Park",
@@ -52666,57 +52173,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJf6bQKl6YQIYRKirt9KU7aw8",
-    "name": "Petco Grooming",
-    "businessType": "Dog Park",
-    "description": "Petco Grooming stands out in Pasadena for its exceptional service. The facility is known for convenient location and safe environment, creating an environment where dogs thrive and owners feel confident. For more information, call (713) 944-1777.",
-    "slug": "petco-grooming",
-    "address": "3680 Spencer Hwy",
-    "street": "3680 Spencer Hwy",
-    "city": "Pasadena",
-    "state": "TX",
-    "zipCode": "77504",
-    "full_address": "3680 Spencer Hwy, Pasadena, TX 77504, USA",
-    "latitude": 29.6643631,
-    "longitude": -95.1876378,
-    "googlePlaceId": "ChIJf6bQKl6YQIYRKirt9KU7aw8",
-    "phone": "(713) 944-1777",
-    "website": "https://stores.petco.com/tx/pasadena/full-service-grooming-pasadena-tx-492.html",
-    "photos": null,
-    "rating": 4.4,
-    "reviewCount": 54,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "Closed",
-      "Wednesday": "8:00 AM – 6:00 PM",
-      "Thursday": "8:00 AM – 6:00 PM",
-      "Friday": "8:00 AM – 6:00 PM",
-      "Saturday": "8:00 AM – 6:00 PM",
-      "Sunday": "9:00 AM – 6:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJq1X5S06dQIYR6JaH57A-B8I",
     "name": "Apawllo 13 Grooming",
     "businessType": "Dog Park",
@@ -53647,57 +53103,6 @@
     "rating": 4.6,
     "reviewCount": 43,
     "openingHours": {},
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJQf9xP9cXTIYRitquH0h7Aok",
-    "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
-    "description": "Pet parents in McKinney rave about Zoom Room Dog Training. What makes this Dog facility special is its friendly and caring staff, safe environment. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. For more information, call (469) 712-6659.",
-    "slug": "zoom-room-dog-training",
-    "address": "3180 Eldorado Pkwy STE 300",
-    "street": "3180 Eldorado Pkwy STE 300",
-    "city": "McKinney",
-    "state": "TX",
-    "zipCode": "75070",
-    "full_address": "3180 Eldorado Pkwy STE 300, McKinney, TX 75070, USA",
-    "latitude": 33.1693355,
-    "longitude": -96.6660078,
-    "googlePlaceId": "ChIJQf9xP9cXTIYRitquH0h7Aok",
-    "phone": "(469) 712-6659",
-    "website": "https://zoomroom.com/location/mckinney/",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 63,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "11:00 AM – 8:00 PM",
-      "Wednesday": "11:00 AM – 8:00 PM",
-      "Thursday": "11:00 AM – 8:00 PM",
-      "Friday": "11:00 AM – 8:00 PM",
-      "Saturday": "9:00 AM – 6:00 PM",
-      "Sunday": "9:00 AM – 6:00 PM"
-    },
     "amenities": {
       "Onsite services": true,
       "Indoor facilities": true,
@@ -59423,57 +58828,6 @@
       "Friday": "5:00 – 7:00 AM, 9:00 – 10:00 AM, 4:30 – 7:30 PM",
       "Saturday": "9:00 – 10:00 AM",
       "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJB0ZoXZGnZYYRhJBuVV7JWRA",
-    "name": "Petco Dog Training",
-    "businessType": "Dog Park",
-    "description": "Petco Dog Training has earned its reputation as a top Dog facility in Mission. Customers consistently mention the friendly and caring staff and professional and reliable, highlighting why this facility is a go-to destination for dog lovers. For more information, call (956) 682-9217.",
-    "slug": "petco-dog-training",
-    "address": "2519 E Expressway 83",
-    "street": "2519 E Expressway 83",
-    "city": "Mission",
-    "state": "TX",
-    "zipCode": "78572",
-    "full_address": "2519 E Expressway 83, Mission, TX 78572, USA",
-    "latitude": 26.1971701,
-    "longitude": -98.2808841,
-    "googlePlaceId": "ChIJB0ZoXZGnZYYRhJBuVV7JWRA",
-    "phone": "(956) 682-9217",
-    "website": "https://stores.petco.com/tx/mission/dog-training-mission-tx-1477.html",
-    "photos": null,
-    "rating": 4.5,
-    "reviewCount": 2,
-    "openingHours": {
-      "Monday": "9:00 AM – 9:00 PM",
-      "Tuesday": "9:00 AM – 9:00 PM",
-      "Wednesday": "9:00 AM – 9:00 PM",
-      "Thursday": "9:00 AM – 9:00 PM",
-      "Friday": "9:00 AM – 9:00 PM",
-      "Saturday": "9:00 AM – 9:00 PM",
-      "Sunday": "10:00 AM – 7:00 PM"
     },
     "amenities": {
       "Onsite services": true,

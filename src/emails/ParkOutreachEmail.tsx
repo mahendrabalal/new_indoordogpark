@@ -109,7 +109,8 @@ export const ParkOutreachEmail = ({
                                 Best regards,<br />
                                 <strong>The IndoorDogPark.org Team</strong><br />
                                 <Link href="mailto:media@indoordogpark.org" style={link}>media@indoordogpark.org</Link><br />
-                                <Link href={baseUrl} style={link}>indoordogpark.org</Link>
+                                <Link href={baseUrl} style={link}>indoordogpark.org</Link><br />
+                                <span style={address}>123 Pet Friendly Way, Sacramento, CA 95814</span>
                             </Text>
                         </Section>
 
@@ -263,4 +264,11 @@ const unsubscribe = {
 
 const unsubscribeText = {
     margin: '0 0 10px 0',
+};
+
+const address = {
+    fontSize: '12px',
+    color: '#9ca3af',
+    marginTop: '8px',
+    display: 'block',
 };

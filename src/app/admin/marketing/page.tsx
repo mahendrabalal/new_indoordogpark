@@ -16,10 +16,29 @@ interface FailureDetail {
     error: string;
 }
 
+interface ParkContact {
+    id: string;
+    name: string;
+    city: string;
+    state: string;
+    email: string;
+    last_outreach_sent_at?: string;
+    outreach_status?: string;
+    source_type?: 'submission' | 'subscriber';
+}
+
+interface SubscriberMetadata {
+    parkName?: string;
+    location?: string;
+}
+
 export default function MarketingPage() {
-    const [activeTab, setActiveTab] = useState<'blog' | 'generic'>('blog');
+    const [activeTab, setActiveTab] = useState<'blog' | 'generic' | 'outreach'>('blog');
     const [subscribers, setSubscribers] = useState<{ total: number; owners: number; consumers: number }>({ total: 0, owners: 0, consumers: 0 });
     const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+    const [approvedParks, setApprovedParks] = useState<ParkContact[]>([]);
+    const [selectedParkId, setSelectedParkId] = useState('');
+    const [showOnlyPending, setShowOnlyPending] = useState(false);
 
     // Form States
     const [selectedSlug, setSelectedSlug] = useState('');
@@ -43,6 +62,7 @@ export default function MarketingPage() {
     useEffect(() => {
         fetchSubscribers();
         fetchPosts();
+        fetchParks();
 
         // Populate test email with current user
         const getUser = async () => {
@@ -70,15 +90,6 @@ export default function MarketingPage() {
     };
 
     const fetchPosts = async () => {
-        // We'll use the public sanity API or a simplified fetch here since we are client side
-        // Typically we'd have an API route for this, but let's try direct client fetch if configured 
-        // OR simpler: assume we can use the same helper script logic. 
-        // NOTE: Sanity client might need a token if dataset private, but usually public for read.
-        // Let's rely on a server action or just use a small fetch to our existing blog API?
-        // We have /api/revalidate? No...
-        // Let's just hardcode a fetch to the blog page json or similar?
-        // Better: Generic fetch to Sanity via the project ID.
-
         const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
         const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET;
         const query = encodeURIComponent('*[_type == "post"] | order(publishedAt desc)[0...10] {title, "slug": slug.current, publishedAt}');
@@ -95,6 +106,61 @@ export default function MarketingPage() {
             console.error('Failed to fetch posts', e);
         }
     };
+    const fetchParks = async () => {
+        try {
+            // 1. Fetch from park_submissions
+            const { data: submissions } = await supabase
+                .from('park_submissions')
+                .select('id, name, city, state, email, last_outreach_sent_at, outreach_status')
+                .eq('status', 'approved')
+                .not('email', 'is', null)
+                .order('name', { ascending: true });
+
+            // 2. Fetch from subscribers (the new ones we imported)
+            const { data: subscriberParks } = await supabase
+                .from('subscribers')
+                .select('id, email, type, last_outreach_sent_at, outreach_status, metadata')
+                .eq('type', 'owner')
+                .not('email', 'is', null);
+
+            let mergedParks: ParkContact[] = [];
+
+            if (submissions) {
+                mergedParks = [...submissions.map(p => ({ ...p, source_type: 'submission' as const }))];
+            }
+
+            if (subscriberParks) {
+                const subParksMapped = subscriberParks.map(s => {
+                    const metadata = s.metadata as SubscriberMetadata | null;
+                    return {
+                        id: s.id,
+                        name: metadata?.parkName || s.email,
+                        city: metadata?.location?.split(',')[0]?.trim() || '',
+                        state: metadata?.location?.split(',')[1]?.trim() || '',
+                        email: s.email,
+                        last_outreach_sent_at: s.last_outreach_sent_at,
+                        outreach_status: s.outreach_status,
+                        source_type: 'subscriber' as const
+                    };
+                });
+
+                // Avoid duplicates if email exists in both
+                const submissionEmails = new Set(mergedParks.map(p => p.email.toLowerCase()));
+                const uniqueSubParks = subParksMapped.filter(p => !submissionEmails.has(p.email.toLowerCase()));
+
+                mergedParks = [...mergedParks, ...uniqueSubParks];
+            }
+
+            // Sort merged list by name
+            mergedParks.sort((a, b) => a.name.localeCompare(b.name));
+
+            setApprovedParks(mergedParks);
+            if (mergedParks.length > 0 && !selectedParkId) setSelectedParkId(mergedParks[0].id);
+
+        } catch (e) {
+            console.error('Failed to fetch parks', e);
+        }
+    };
 
     const handleSend = async (isTest: boolean) => {
         setStatus('sending');
@@ -102,11 +168,14 @@ export default function MarketingPage() {
         setDetails([]);
 
         const payload = {
-            template: activeTab === 'blog' ? 'blog' : 'marketing',
-            segment: segment,
+            template: activeTab,
+            segment: activeTab === 'outreach' ? 'specific-park' : segment,
             testEmail: isTest ? testEmail : undefined,
             data: activeTab === 'blog' ? {
                 slug: selectedSlug
+            } : activeTab === 'outreach' ? {
+                parkId: selectedParkId,
+                personalizedNote: bodyContent
             } : {
                 subject,
                 headline,
@@ -117,7 +186,8 @@ export default function MarketingPage() {
         };
 
         if (!isTest) {
-            const confirmMsg = `Are you sure you want to broadcast this to ${segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers)} people?`;
+            const recipientCount = activeTab === 'outreach' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers));
+            const confirmMsg = `Are you sure you want to broadcast this to ${recipientCount} recipients?`;
             if (!window.confirm(confirmMsg)) {
                 setStatus('idle');
                 return;
@@ -136,6 +206,7 @@ export default function MarketingPage() {
             if (res.ok) {
                 setStatus('success');
                 setMessage(json.message || 'Sent successfully');
+                fetchParks(); // Refresh data to show updated outreach status
                 if (json.details) {
                     setDetails(json.details.filter((d: FailureDetail) => d.status === 'failed'));
                 } else {
@@ -179,7 +250,7 @@ export default function MarketingPage() {
                         <nav className="flex -mb-px">
                             <button
                                 onClick={() => setActiveTab('blog')}
-                                className={`w-1/2 py-4 text-center text-sm font-medium border-b-2 ${activeTab === 'blog'
+                                className={`w-1/3 py-4 text-center text-sm font-medium border-b-2 ${activeTab === 'blog'
                                     ? 'border-indigo-500 text-indigo-600'
                                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                                     }`}
@@ -188,30 +259,41 @@ export default function MarketingPage() {
                             </button>
                             <button
                                 onClick={() => setActiveTab('generic')}
-                                className={`w-1/2 py-4 text-center text-sm font-medium border-b-2 ${activeTab === 'generic'
+                                className={`w-1/3 py-4 text-center text-sm font-medium border-b-2 ${activeTab === 'generic'
                                     ? 'border-indigo-500 text-indigo-600'
                                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                                     }`}
                             >
                                 Custom Announcement
                             </button>
+                            <button
+                                onClick={() => setActiveTab('outreach')}
+                                className={`w-1/3 py-4 text-center text-sm font-medium border-b-2 ${activeTab === 'outreach'
+                                    ? 'border-indigo-500 text-indigo-600'
+                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                    }`}
+                            >
+                                Park Outreach
+                            </button>
                         </nav>
                     </div>
 
                     <div className="p-6 space-y-6">
-                        {/* Audience Selector */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Audience</label>
-                            <select
-                                value={segment}
-                                onChange={(e) => setSegment(e.target.value)}
-                                className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
-                            >
-                                <option value="all">All Subscribers ({subscribers.total})</option>
-                                <option value="owners">Park Owners Only ({subscribers.owners})</option>
-                                <option value="consumers">Consumers Only ({subscribers.consumers})</option>
-                            </select>
-                        </div>
+                        {/* Audience Selector - Hidden for Outreach */}
+                        {activeTab !== 'outreach' && (
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Audience</label>
+                                <select
+                                    value={segment}
+                                    onChange={(e) => setSegment(e.target.value)}
+                                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                                >
+                                    <option value="all">All Subscribers ({subscribers.total})</option>
+                                    <option value="owners">Park Owners Only ({subscribers.owners})</option>
+                                    <option value="consumers">Consumers Only ({subscribers.consumers})</option>
+                                </select>
+                            </div>
+                        )}
 
                         {activeTab === 'blog' ? (
                             <div>
@@ -228,6 +310,84 @@ export default function MarketingPage() {
                                 <p className="mt-2 text-xs text-gray-500">
                                     The email will automatically pull the featured image, excerpt, and title from the blog post.
                                 </p>
+                            </div>
+                        ) : activeTab === 'outreach' ? (
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between mb-2">
+                                    <label className="block text-sm font-medium text-gray-700">Select Target Park</label>
+                                    <label className="flex items-center text-xs text-gray-500 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={showOnlyPending}
+                                            onChange={(e) => setShowOnlyPending(e.target.checked)}
+                                            className="mr-2 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                        />
+                                        Show Only Pending Outreach
+                                    </label>
+                                </div>
+                                <select
+                                    value={selectedParkId}
+                                    onChange={(e) => setSelectedParkId(e.target.value)}
+                                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                                >
+                                    {approvedParks
+                                        .filter(park => !showOnlyPending || park.outreach_status === 'pending' || !park.outreach_status)
+                                        .map(park => {
+                                            const lastSent = park.last_outreach_sent_at ? new Date(park.last_outreach_sent_at).toLocaleDateString() : 'Never';
+                                            const status = park.outreach_status || 'pending';
+                                            const isNew = status === 'pending';
+                                            return (
+                                                <option key={park.id} value={park.id}>
+                                                    {isNew ? '🆕 ' : ''}[{status.toUpperCase()}] {park.name} ({park.city}) - Sent: {lastSent}
+                                                </option>
+                                            );
+                                        })}
+                                </select>
+
+                                {selectedParkId && (
+                                    <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                                        {(() => {
+                                            const park = approvedParks.find(p => p.id === selectedParkId);
+                                            if (!park) return null;
+                                            const isSent = park.outreach_status === 'sent';
+                                            return (
+                                                <>
+                                                    <div className="flex-1">
+                                                        <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Current Status</div>
+                                                        <div className="flex items-center mt-1">
+                                                            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${isSent ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
+                                                                {park.outreach_status?.toUpperCase() || 'PENDING'}
+                                                            </span>
+                                                            <span className="ml-3 text-sm text-gray-600">
+                                                                {park.last_outreach_sent_at ? `Last sent on ${new Date(park.last_outreach_sent_at).toLocaleString()}` : 'No outreach recorded yet'}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            );
+                                        })()}
+                                    </div>
+                                )}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Personalized Note (Optional)</label>
+                                    <textarea
+                                        value={bodyContent}
+                                        onChange={e => setBodyContent(e.target.value)}
+                                        rows={4}
+                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                        placeholder="Add a personalized message for this park owner..."
+                                    />
+                                </div>
+                                <div className="p-4 bg-blue-50 text-blue-700 rounded-md text-sm">
+                                    <p className="font-semibold mb-1">Outreach Template:</p>
+                                    <p>This will send the standard Partnership Offer email which includes:</p>
+                                    <ul className="list-disc pl-5 mt-1">
+                                        <li>Introduction to IndoorDogPark.org</li>
+                                        <li>Benefits of premium listing</li>
+                                        <li>$9.99/mo pricing & FIRST50 discount code</li>
+                                        <li>Direct link to upgrade their listing</li>
+                                    </ul>
+                                </div>
                             </div>
                         ) : (
                             <div className="space-y-4">
@@ -315,7 +475,7 @@ export default function MarketingPage() {
                     <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 shadow-sm">
                         <h3 className="text-lg font-medium text-indigo-900 mb-2">Broadcast Campaign</h3>
                         <p className="text-sm text-indigo-700 mb-4">
-                            This will send emails to <strong>{segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers)}</strong> subscribers.
+                            This will send emails to <strong>{activeTab === 'outreach' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers))}</strong> recipients.
                         </p>
                         <button
                             onClick={() => handleSend(false)}
