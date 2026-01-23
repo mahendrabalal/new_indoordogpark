@@ -150,8 +150,12 @@ export default function HomePageClient({
 
   // Sync autocomplete query with search term
   useEffect(() => {
-    autocomplete.updateQuery(searchTerm);
-  }, [searchTerm]); // eslint-disable-line react-hooks/exhaustive-deps
+    // Only update if they differ to avoid loops and race conditions.
+    // If updating from here (likely URL or selection sync), prevent opening the dropdown.
+    if (searchTerm !== autocomplete.query) {
+      autocomplete.updateQuery(searchTerm, true);
+    }
+  }, [searchTerm, autocomplete.query, autocomplete.updateQuery]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Close autocomplete when clicking outside
   useEffect(() => {
@@ -257,7 +261,8 @@ export default function HomePageClient({
   // Handle search input change
   const handleSearchInputChange = (value: string) => {
     updateSearchTerm(value);
-    // Don't trigger search, just update the input
+    // Explicitly update autocomplete query to allow dropdown to open (user typing)
+    autocomplete.updateQuery(value);
   };
 
   // Handle autocomplete suggestion selection

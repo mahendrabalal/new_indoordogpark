@@ -5394,29 +5394,53 @@ mark {
   height: 100%;
 }
 
-.park-card-premium {
-  background: #f5f2ed;
-  /* More visible tan/brown background */
-  border: 1px solid #d7d2c8;
-  /* Defined earth-tone border */
-  border-radius: 12px;
+.park-card-standard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #1e293b;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.park-card-premium {
+  background: #fdfaf5;
+  border: 2px solid rgba(255, 87, 34, 0.4);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #1e293b;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(255, 87, 34, 0.08);
+}
+
+.park-card-premium-link:hover .park-card-standard {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.park-card-premium.has-image {
+  padding-top: 0;
+  background: #ffffff;
 }
 
 .park-card-premium-link:hover .park-card-premium {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(139, 115, 85, 0.15);
-  /* Warmer brown shadow */
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(255, 87, 34, 0.12);
   border-color: #FF5722;
-  background: #ffffff;
 }
 
 .park-premium-header {
@@ -9445,4 +9469,86 @@ mark {
     padding: 20px;
     border-radius: 16px;
   }
+}
+
+/* ========== PREMIUM PARK CARD IMAGE STYLES ========== */
+.park-card-premium.has-image {
+  /* No special styles needed on parent, avoiding layout shifts */
+}
+
+.park-premium-image-wrapper {
+  margin: -16px -16px 12px -16px;
+  /* Negative margins to counteract card padding */
+  width: calc(100% + 32px);
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  /* Prevent shrinking in flex container */
+}
+
+.park-premium-image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.park-card-premium:hover .park-premium-image {
+  transform: scale(1.05);
+}
+
+.park-premium-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.05) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.park-card-premium-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 87, 34, 0.9);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.park-card-premium-badge i {
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+/* Glassmorphism for description on image cards */
+.park-card-premium.has-image .park-premium-description {
+  margin-top: 4px;
+  padding: 8px;
+  background: rgba(245, 242, 237, 0.5);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.park-premium-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.park-premium-rating span {
+  font-weight: 700;
+  color: #1a1a1a;
 }

@@ -6,6 +6,8 @@ import SearchHighlight from '@/components/SearchHighlight';
 import { getParkStatus } from '@/lib/park-hours';
 import { useEffect, useState, memo } from 'react';
 
+import OptimizedImage from '@/components/OptimizedImage';
+
 interface ParkCardProps {
   park: DogPark;
   searchTerm?: string;
@@ -13,6 +15,8 @@ interface ParkCardProps {
 
 function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
   const [statusInfo, setStatusInfo] = useState(() => getParkStatus(park));
+  const mainPhoto = park.photos?.[0]?.url || park.photo;
+  const showImage = park.listingType === 'featured' && mainPhoto;
 
   // Update status every minute to keep it real-time
   useEffect(() => {
@@ -29,9 +33,30 @@ function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
     return () => clearInterval(interval);
   }, [park]);
 
+  // Diagnostic logging
+  if (park.name.includes('South Park')) {
+    console.log(`[ParkCard Debug] ${park.name}: listingType=${park.listingType}, mainPhoto=${!!mainPhoto}, showImage=${!!showImage}`);
+  }
+
   return (
     <Link href={`/parks/${park.slug || park.id}`} className="park-card-premium-link">
-      <div className="park-card-premium">
+      <div className={`${park.listingType === 'featured' ? 'park-card-premium' : 'park-card-standard'} ${showImage ? 'has-image' : ''}`}>
+        {showImage && (
+          <div className="park-premium-image-wrapper">
+            <OptimizedImage
+              src={mainPhoto}
+              alt={park.name}
+              fill
+              className="park-premium-image"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="park-premium-image-overlay"></div>
+            <div className="park-card-premium-badge">
+              <i className="bi bi-star-fill"></i>
+              <span>PREMIUM</span>
+            </div>
+          </div>
+        )}
         <div className="park-premium-header">
           <h3 className="park-premium-title">
             {searchTerm ? (
@@ -64,7 +89,7 @@ function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
           {park.indoorOutdoor && <span className="premium-badge type-badge">{park.indoorOutdoor.toUpperCase()}</span>}
           {park.pricing?.priceRange && <span className="premium-badge price-badge">{park.pricing.priceRange}</span>}
           {park.amenities?.parking && <span className="premium-badge feature-badge">PARKING</span>}
-          {park.listingType === 'featured' && <span className="premium-badge special-badge">PREMIUM</span>}
+          {park.listingType === 'featured' && !showImage && <span className="premium-badge special-badge">PREMIUM</span>}
         </div>
 
         <p className="park-premium-description">

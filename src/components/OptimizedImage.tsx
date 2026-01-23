@@ -54,7 +54,8 @@ function OptimizedImageComponent({
     src.startsWith('https://lh3.googleusercontent.com') ||
     src.startsWith('https://lh4.googleusercontent.com') ||
     src.startsWith('https://lh5.googleusercontent.com') ||
-    src.startsWith('https://lh6.googleusercontent.com')
+    src.startsWith('https://lh6.googleusercontent.com') ||
+    src.includes('supabase.co/storage/v1/object/public')
   );
 
   // For local images, use unoptimized to avoid Vercel Image Optimization API limits (402 errors)
@@ -87,7 +88,7 @@ function OptimizedImageComponent({
     const imageSrc = useFallback ? fallbackSrc : src;
 
     return (
-      <div className={`relative ${className}`} style={style}>
+      <div className={`relative ${className}`} style={{ ...style, width: fill ? '100%' : width, height: fill ? '100%' : height }}>
         <Image
           src={imageSrc}
           alt={alt}

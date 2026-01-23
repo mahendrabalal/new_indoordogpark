@@ -25,7 +25,9 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  /* ... existing code ... */
   const abortControllerRef = useRef<AbortController | null>(null);
+  const skipOpenAfterFetch = useRef(false);
 
   // Debounce the query
   const debouncedQuery = useDebounce(query, debounceDelay);
@@ -62,7 +64,15 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
 
       if (data.success) {
         setSuggestions(data.suggestions || []);
-        setIsOpen(data.suggestions.length > 0);
+
+        // Only open if we shouldn't skip (i.e. not a selection event)
+        if (skipOpenAfterFetch.current) {
+          setIsOpen(false);
+          skipOpenAfterFetch.current = false; // Reset the flag
+        } else {
+          setIsOpen(data.suggestions.length > 0);
+        }
+
         setSelectedIndex(-1);
       }
     } catch (error) {
@@ -84,8 +94,12 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
   }, [debouncedQuery, fetchSuggestions]);
 
   // Update query
-  const updateQuery = (value: string) => {
-    setQuery(value);
+  const updateQuery = (value: string, preventOpen?: boolean) => {
+    if (value !== query) {
+      // If the user is typing (value changed), we want to allow opening unless explicitly prevented
+      skipOpenAfterFetch.current = !!preventOpen;
+      setQuery(value);
+    }
   };
 
   // Close dropdown
@@ -103,6 +117,7 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
 
   // Select a suggestion
   const selectSuggestion = (suggestion: AutocompleteSuggestion): string => {
+    skipOpenAfterFetch.current = true; // Prevent re-opening after this update
     setQuery(suggestion.value);
     close();
     return suggestion.value;
@@ -117,7 +132,7 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex(prev => 
+        setSelectedIndex(prev =>
           prev < suggestions.length - 1 ? prev + 1 : prev
         );
         return null;
@@ -130,10 +145,7 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
       case 'Enter':
         if (selectedIndex >= 0 && selectedIndex < suggestions.length) {
           e.preventDefault();
-          const selected = suggestions[selectedIndex];
-          setQuery(selected.value);
-          close();
-          return selected.value;
+          return selectSuggestion(suggestions[selectedIndex]);
         }
         return null;
 

@@ -48,6 +48,10 @@ function calculateRelevance(park: DogPark, searchTerm: string): number {
   // Business type match
   if (park.businessType.toLowerCase().includes(term)) score += 15;
 
+  // State match
+  if (park.state?.toLowerCase() === term) score += 40;
+  else if (park.state?.toLowerCase().includes(term)) score += 20;
+
   // Boost featured listings slightly
   if (park.listingType === 'featured') score += 5;
 
@@ -326,12 +330,16 @@ export async function GET(request: Request) {
     }));
 
     // APPLY SORTING
+    // APPLY SORTING
     parksWithScores.sort((a, b) => {
+      // Priority 1: Featured/Premium parks always come first
+      // This applies to ALL sort orders as requested ("search result ... display first")
+      if (a.park.listingType === 'featured' && b.park.listingType !== 'featured') return -1;
+      if (a.park.listingType !== 'featured' && b.park.listingType === 'featured') return 1;
+
+      // Priority 2: Requested sort criteria
       switch (params.sortBy) {
         case 'relevance':
-          // Featured parks get slight boost, then by relevance score
-          if (a.park.listingType === 'featured' && b.park.listingType !== 'featured') return -1;
-          if (a.park.listingType !== 'featured' && b.park.listingType === 'featured') return 1;
           return b.relevance - a.relevance;
 
         case 'rating':
@@ -354,6 +362,16 @@ export async function GET(request: Request) {
     });
 
     const sortedParks = parksWithScores.map(item => item.park);
+
+    // Diagnostic log for featured parks in sorted list
+    const topFeatured = sortedParks.filter(p => p.listingType === 'featured').slice(0, 3);
+    if (topFeatured.length > 0) {
+      console.log(`[SEARCH API] Top featured matches for "${params.q}":`,
+        topFeatured.map(p => `${p.name} (${p.city}, ${p.state})`).join(', ')
+      );
+    } else {
+      console.log(`[SEARCH API] No featured matches found for "${params.q}"`);
+    }
 
     // APPLY PAGINATION
     const totalResults = sortedParks.length;
