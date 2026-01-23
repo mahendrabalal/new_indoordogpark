@@ -604,6 +604,22 @@ export const priorityCityContent: PriorityCityConfig[] = [
         secondary: { label: 'Talk to our team', href: '/contact' },
         footnote: 'Perfect for brokers converting vacant retail or amenity floors.',
       },
+      longDescription: [
+        'Chicago’s indoor dog park scene is an essential response to the city’s brutal winters and the high density of apartment living in neighborhoods like the West Loop and River North. With over 600,000 dogs in the Windy City, demand for climate-controlled play is staggering when the Lakefront Trail becomes an ice sheet. These facilities are sophisticated hubs featuring professional K9 turf, air filtration that cycles every ten minutes, and dedicated size-specific zones. Many local operators have pioneered the "cowork-and-play" model, integrating phone booths and fiber internet so professionals can fulfill enrichment needs without missing work. While the [Chicago Park District](https://www.chicagoparkdistrict.com) maintains public runs, the private sector raises the bar with concierge services like post-play paw wipes and blow-dry stations.',
+        'Economics of indoor play in Chicago reflect the premium real estate, with membership models typically costing between $95 and $150 monthly. These plans bundle unlimited sessions with perks like discounted grooming and priority event access. For occasional visitors, drop-in rates hover around $22 to $30. Safety is paramount; top-tier venues require digital proof of Rabies, Distemper, and Bordetella vaccinations and a mandatory temperament check. Beyond the parks, Chicago’s pet infrastructure is supported by internal guides like our [owner resources](/owner-resources), which detail the zoning for converting warehouses into vibrant pet playgrounds. By providing a safe "third place" during long Midwestern winters, these indoor sanctuaries ensure that Chicago’s active dog community remains healthy and social regardless of the wind chill index.'
+      ],
+      neighborhoods: [
+        { name: 'West Loop', slug: 'west-loop', description: 'Industrial-chic warehouses turned into luxury dog hubs.' },
+        { name: 'River North', slug: 'river-north', description: 'High-density high-rises with premium indoor amenities.' },
+        { name: 'Wicker Park', slug: 'wicker-park', description: 'Hip neighborhood with community-focused play areas.' },
+        { name: 'Bucktown', slug: 'bucktown', description: 'Boutique facilities and tree-lined runs for active pups.' },
+      ],
+      expertTips: [
+        'Most Chicago indoor parks get crowded after 4:30 PM due to commuters returning home.',
+        'Check if the facility requires a "temperament test" before your first visit.',
+        'Many Fulton Market spots offer "coworking" desks so you can work while your dog plays.',
+        'Parking near Loop facilities is tight; look for spots with dedicated validation or nearby garages.',
+      ],
     },
   },
   {
@@ -860,6 +876,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the owner guide', href: '/owner-resources' },
         secondary: { label: 'Book a planning call', href: '/contact' },
       },
+      longDescription: [
+        'Minneapolis dog owners are no strangers to extreme cold, making the city’s indoor dog parks vital community assets during the seven-month winter season. With a high dog-to-human ratio, facilities in the North Loop and Longfellow neighborhoods provide much-needed relief from icy sidewalks and salt-covered paths. These venues, such as Unleashed Hounds & Hops, offer expansive indoor turf fields, heated floors, and even indoor splash pads for sensory enrichment. The local culture emphasizes social bonding, with many parks doubling as "bark-and-brew" lounges where handlers can enjoy local craft beer from icons like [Surly Brewing Co.](https://surlybrewing.com) while their pets burn energy in a supervised, 70-degree environment. This infrastructure is essential for maintaining the mental and physical health of the city’s working breeds that require consistent activity year-round.',
+        'The operational focus in the Twin Cities is on accessibility and thorough safety monitoring. Winter season passes are a popular local choice, typically priced between $180 and $250, while daily passes average around $16 to $22. To ensure a harmonious environment, all participants must pass a behavior evaluation and provide digital records of Rabies and DHPP vaccinations. Many Minneapolis operators also integrate daycare and "sniffari" sessions into their offerings, providing a one-stop-shop for busy professionals. For those looking to optimize their visit during peak blizzard season, our [planning essentials](#planning-essentials) guide offers tips on gear and scheduling. By combining Midwestern hospitality with industrial-grade climate control, Minneapolis indoor dog parks have established themselves as essential neighborhood anchors that foster a safe, social, and warm environment for dogs and their humans throughout the year.'
+      ],
     },
   },
   {
@@ -1084,14 +1104,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Grab the kit', href: '/owner-resources' },
         secondary: { label: 'Talk partnerships', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Build a Portland indoor dog park',
-        description:
-          'Leverage brewery collabs, retractable walls, and event-ready lighting to keep membership calendars full all rainy season long.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Schedule a consult', href: '/contact' },
-      },
+      longDescription: [
+        'Portland’s reputation as a premier dog-friendly city is perfectly captured in its approach to indoor play, especially given the city’s average of over 150 rainy days annually. The local scene has matured beyond simple warehouses into "third places" where the Pacific Northwest’s craft beverage culture meets high-end pet care. In neighborhoods like Slabtown and the Central Eastside, former industrial buildings feature massive skylights and retractable walls that navigate Oregon’s unpredictable drizzle. These venues, often partnered with local breweries, allow owners to socialize over a flight of IPAs while their dogs explore rubberized agility courses. Data from [Portland Parks & Recreation](https://www.portland.gov/parks) highlights a robust outdoor system, but the private indoor sector offers a mud-free alternative that is practically required for the area\'s dense population of apartment residents.',
+        'Sustainability and community are the foundations of Portland’s indoor parks, with flexible membership tiers catering to frequent rainy-season users. Monthly dues generally Range from $110 to $150, often including "happy hour" perks and guest passes for roommates. For the casual visitor, drop-in sessions cost around $18 to $25 and frequently include a beverage credit. Safety is strictly managed through behavioral assessments and digital vaccination verification (Rabies, DHLPP, and Bordetella). Many venues also host community events like rescue adoption drives and breed-specific mixers. To help owners transition from a wet walk to an indoor run, our [planning essentials](#planning-essentials) section provides tips on the best quick-dry gear and slip-proof paw protection. By blending environmental design with a deep commitment to the dog community, Portland’s indoor parks provide a quirky, social sanctuary regardless of the forecast.'
+      ],
     },
   },
   {
@@ -1312,14 +1328,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the kit', href: '/owner-resources' },
         secondary: { label: 'Ask a strategist', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Open a Columbus indoor dog park',
-        description:
-          'Blend semester passes, daycare bundles, and livestream amenities to win over students and hospital staff. We provide market data and launch roadmaps.',
-        primary: { label: 'Download playbook', href: '/owner-resources' },
-        secondary: { label: 'Book a consult', href: '/contact' },
-      },
+      longDescription: [
+        'Columbus has developed a unique indoor dog park culture that caters to its massive student population at Ohio State and a growing workforce of medical professionals. The city’s volatile weather, featuring humid summers and gray winters, makes climate-controlled play an essential part of local pet ownership. In districts like the Short North, facilities have pioneered a "study-and-play" model, blending traditional indoor runs with coworking pods and high-speed Wi-Fi. This concept is incredibly popular among the city’s 60,000+ college students, who use these spaces as a base of operations while their pets burn energy under staff supervision. While [Columbus Recreation and Parks](https://columbusrecparks.com) offers excellent public grounds, the private indoor clubs distinguish themselves with premium amenities like lockers, barista service, and even dorm-friendly shuttle services that integrate into an active lifestyle.',
+        'The operational focus in Columbus is heavily influenced by the academic calendar and the needs of shift workers. Professional membership structures are often flexible, featuring semester-based plans that align with OSU’s schedule, typically costing between $120 and $180 per term. Daily drop-ins are available for approximately $16 to $20, providing a convenient option for an occasional break from the elements. Safety and hygiene are maintained through rigorous standards, including antimicrobial turf and mandatory temperament checks for all new participants. Many facilities also offer "sniffari" sessions and scent-work labs for mental enrichment. Owners can find more detailed guidance on coordinating these sessions with their schedules in our [planning essentials](#planning-essentials) guide. By combining education-friendly environments with a focus on local demographics, Columbus’s indoor dog parks have established themselves as vital neighborhood anchors year-round.'
+      ],
     },
   },
   {
@@ -1388,14 +1400,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the heat kit', href: '/owner-resources' },
         secondary: { label: 'Book a safety review', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Launch a Phoenix indoor dog park',
-        description:
-          'Pair cooling tech with memberships and waitlists to capture heat-wave demand. Use our projections to size your footprint and staffing.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Talk to strategy', href: '/contact' },
-      },
+      longDescription: [
+        'Phoenix presents a distinct challenge for dog owners: extreme desert heat that makes outdoor exercise dangerous for roughly half the year. With over 100 days annually exceeding 100°F, indoor dog parks have become literal life-savers for the city’s active pet population. These climate-controlled sanctuaries, particularly in Arcadia and the East Valley, are engineered for safety, featuring industrial-grade HVAC systems that maintain a steady environment regardless of the sun. Innovative facilities have pioneered heat-specific amenities including mist tunnels, chilled K9 turf, and electrolyte-infused water stations. This infrastructure is essential for preventing heatstroke and burned paws, which are significant risks according to the [Arizona Humane Society](https://www.azhumane.org). By providing a secure, air-conditioned "third place," these parks allow residents to maintain their pets’ health when local pavement temperatures are soaring.',
+        'The business model for indoor play in the Valley is highly seasonal, with peak demand during the "triple-digit season" from May through September. Many Phoenix facilities operate on a priority-access system during heat waves, with monthly dues typically ranging from $120 to $160. These plans often include value-added services like climate-controlled transport shuttles and "cool-down" grooming packages that help pets transition from the car to the park. Daily drop-ins range from $18 to $25 and are frequently bookable via mobile apps that provide real-time occupancy updates. Safety protocols are rigorous, including mandatory hydration breaks and constant monitoring by staff trained in canine first aid. For owners navigating the desert climate, our [planning essentials](#planning-essentials) guide offers a checklist for heat safety. Phoenix’s indoor dog parks have evolved into essential community infrastructure, providing a cool, safe refuge when it is needed most.'
+      ],
     },
   },
   {
@@ -1628,7 +1636,74 @@ export const priorityCityContent: PriorityCityConfig[] = [
           'Blend resort partnerships, flexible drop-ins, and concierge convenience to capture tourist and local demand. We provide pricing benchmarks & hospitality playbooks.',
         primary: { label: 'Download owner guide', href: '/owner-resources' },
         secondary: { label: 'Chat with our team', href: '/contact' },
+        footnote: 'Perfect for hospitality professionals converting resort space.',
       },
+      longDescription: [
+        'Las Vegas represents a unique frontier for indoor dog parks, where extreme desert heat and a 24/7 hospitality economy drive a surge in demand for flexible, climate-controlled play spaces. With summer temperatures remaining dangerously high even at night, outdoor exercise is often impossible, making facilities life-saving sanctuaries. These parks are not just gyms but sophisticated service hubs designed for both service industry workers and pet-owning tourists. By partnering with resort concierges and offering extended hours, Las Vegas operators provide a "third place" that rivals the city’s famous lounges, featuring industrial HVAC, chilled hydration suites, and neon-lit social zones. External data from [Clark County Parks & Recreation](https://www.clarkcountynv.gov/parks) shows a commitment to outdoor spaces, but the private indoor sector fills the critical gap for safe enrichment when pavement temperatures can exceed 140°F.',
+        'Operational focus in Las Vegas is rooted in convenience and hospitality. Membership models are popular among residents, typically ranging from $140 to $170 monthly, but high visitor volume has popularized flexible hourly passes and concierge drop-offs, with premium day rates around $30. Safety is paramount; facilities require digital vaccine verification and mandate temperament screenings to maintain a stable environment. Many venues also feature backup power systems and HVAC redundancy to guarantee cooling during the peak of summer. For owners navigating the transition from a desert hike to an indoor run, our [planning essentials](#planning-essentials) guide provides a checklist for heat safety and essential gear. By blending the high-energy vibe of the city with professional pet care, Las Vegas indoor dog parks have become vital pillars of the local community and a key resource for the city’s growing pet-friendly tourism sector.'
+      ],
+    },
+  },
+  {
+    slug: 'new-york-ny',
+    city: 'New York',
+    state: 'NY',
+    featuredImage: '/images/cities/new-york/hero.webp',
+    summary:
+      'High urban density + small apartment living makes indoor play a requirement; focus on neighborhood runs and concierge convenience.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Urban-proof indoor runs',
+      heroHeading: 'Indoor dog park in New York City',
+      heroDescription:
+        'New York City’s urban density and limited apartment space make indoor dog parks an essential lifestyle requirement for pet parents across the five boroughs.',
+      heroPill: 'Manhattan · Brooklyn · Queens',
+      heroFootnotes: ['High-density apartment solutions', 'Verified safety standards'],
+      heroChips: [
+        { label: 'Verified runs', value: '15+' },
+        { label: 'Indoor coverage', value: 'All boroughs' },
+      ],
+      insightIntro:
+        'From high-rise amenity spaces to converted Brooklyn warehouses, NYC indoor parks focus on maximizing movement in compact footprints. Expect concierge hosts and advanced air filtration.',
+      insightCards: [
+        {
+          tag: 'Urban density',
+          title: 'Vertical enrichment',
+          copy: 'Real estate constraints drive innovation, with multi-level play zones and rooftop runs becoming the standard for Manhattan pets.',
+          accent: true,
+        },
+        {
+          tag: 'Apartment life',
+          title: 'Concierge play',
+          copy: 'Operators bundle indoor play with grooming, daycare, and local shuttle routes to save time for busy commuters.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-building-up',
+          title: 'NYC arrival plan',
+          items: ['Reserve 24 hours ahead (essential)', 'Upload vaccination docs via app', 'Plan for subway or elevator transitions'],
+        },
+        {
+          icon: 'bi-calendar-check',
+          title: 'Peak windows',
+          items: ['Morning 7–9 AM pre-commute', 'Evening 6–9 PM post-work rush', 'Weekend blizzard blocks'],
+        },
+      ],
+      mapSidebarNote:
+        'Filter by borough to find the runs closest to your commute or transit lines.',
+      faqs: newYorkFaqs,
+      faqSupportCard: {
+        kicker: 'NYC owner help',
+        title: 'Download the NYC zoning guide',
+        description: 'Navigating NYC real estate is tough. Use our guide to zoning, drainage, and density maps for the five boroughs.',
+        primary: { label: 'Get the NYC kit', href: '/owner-resources' },
+        secondary: { label: 'Talk to a strategist', href: '/contact' },
+      },
+      longDescription: [
+        'New York City is a uniquely challenging environment for dog ownership, where extreme urban density and limited apartment square footage make indoor dog parks a vital lifestyle requirement. With over 600,000 dogs in the five boroughs, competition for safe, clean exercise space is intense, especially during humid summers and slushy winters. The local scene has responded with creative real estate solutions, from rooftop facilities in the West Village to underground "play labs" in Brooklyn and renovated industrial warehouses in Long Island City. These facilities provide more than just treadmill exercise; they are sophisticated hubs featuring professional K9 turf and advanced air purification systems that cycle every six minutes. While [NYC Parks](https://www.nycgovparks.org) maintains traditional runs, the private sector raises the bar with climate-controlled safety and concierge services essential for navigating the city’s unpredictable elements.',
+        'The economics of NYC’s indoor play reflect the high cost of local real estate. Monthly memberships are the standard for residents, typically ranging from $150 to $250. For those seeking one-off sessions, drop-in rates hover around $25 to $35. Sustainability and safety are primary concerns; top-tier facilities require digital verification of Rabies, Distemper, and Bordetella vaccinations and a mandatory behavioral assessment. New York’s pet infrastructure is supported by internal resources like our [owner playbook](/owner-resources), which provides data for converting commercial spaces into thriving pet communities.'
+      ],
     },
   },
   {
@@ -1697,97 +1772,16 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the heat kit', href: '/owner-resources' },
         secondary: { label: 'Book a safety review', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Launch an Austin indoor dog park',
-        description:
-          'Pair premium AC with coworking spaces and heat alerts to capture summer demand. Use our projections to size your footprint and tech-friendly amenities.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Talk to strategy', href: '/contact' },
-      },
-    },
-  },
-  {
-    slug: 'new-york',
-    city: 'New York',
-    state: 'NY',
-    featuredImage: '/images/cities/new-york/hero.webp',
-    summary:
-      'Dense urban environment + year-round demand: indoor parks in converted spaces, high-rise amenities, and dedicated facilities serve NYC dog families.',
-    parks: [],
-    customContent: {
-      heroEyebrow: 'Urban indoor runs',
-      heroHeading: 'Indoor dog park in New York City',
-      heroDescription:
-        'Dense urban environment and year-round demand make NYC indoor dog parks essential. From converted warehouses to high-rise amenity spaces, indoor facilities serve Manhattan, Brooklyn, and Queens dog families.',
-      heroPill: 'Reservation-based access',
-      heroFootnotes: ['Manhattan · Brooklyn · Queens'],
-      heroChips: [
-        { label: 'Reservation system', value: 'Required for most' },
-        { label: 'Building amenities', value: 'Apartment access' },
+      longDescription: [
+        'Austin’s vibrant dog culture uniquely matches the city’s tech-forward, social, and outdoorsy lifestyle while addressing the challenge of brutal Texas summers. With temperatures regularly exceeding 100°F from June through September, indoor facilities have become essential sanctuaries. Neighborhoods like the Domain and East Austin host innovative concepts that blend high-end AC with coworking hubs, coffee bars, and local breweries. These "brew-and-play" venues align with Austin’s remote-work culture, providing high-speed Wi-Fi and quiet zones alongside premium K9 turf and monitored play pods. Data from [Austin Parks and Recreation](https://www.austintexas.gov/department/parks-and-recreation) highlights numerous outdoor options, but the private indoor sector thrives by offering a specialized, temperature-controlled experience that is practically a requirement for safe year-round play.',
+        'The operational focus of Austin’s indoor parks is rooted in transparency and community health. Top-tier facilities require a multi-step onboarding process, including a temperament evaluation and digital verification of Rabies, Distemper, and Bordetella vaccinations. Membership models are popular, with average monthly rates ranging from $120 to $180, often including perks like craft beverage credits, priority entry during heat alerts, and guest passes for housemates. For the casual visitor, $18 to $25 weekday drop-ins are common. Safety is enhanced through professional "pack leaders" and advanced hydration stations that provide filtered, chilled water. Owners can find more specific advice on managing their dogs during peak heat in our [planning essentials](#planning-essentials) guide. By integrating Austin hospitality with pet safety, these indoor parks have become indispensable anchors for the city’s pet parents.'
       ],
-      insightIntro:
-        'NYC indoor parks operate in premium real estate, requiring reservations and often offering building resident discounts. Expect converted commercial spaces, high-rise amenities, and dedicated facilities.',
-      insightCards: [
-        {
-          tag: 'Urban density',
-          title: 'Space at a premium',
-          copy: 'NYC indoor parks require advance reservations due to limited space. Members get priority booking and often access to building amenities.',
-          accent: true,
-        },
-        {
-          tag: 'Year-round demand',
-          title: 'Climate-controlled essential',
-          copy: 'Indoor parks serve NYC dog families year-round, from hot summers to cold winters. Many facilities offer extended hours and special programs.',
-        },
-        {
-          tag: 'Premium amenities',
-          title: 'Full-service facilities',
-          copy: 'Many NYC indoor parks combine play areas with grooming, training classes, and event space. Building residents often receive discounted access.',
-        },
-      ],
-      planningCards: [
-        {
-          icon: 'bi-calendar-check',
-          title: 'Reservation essentials',
-          items: ['Book in advance via app or website', 'Members get priority time slots', 'Walk-ins subject to capacity'],
-        },
-        {
-          icon: 'bi-building',
-          title: 'Building access',
-          items: ['Check if your building has indoor park access', 'Ask about resident discounts', 'Verify vaccination requirements'],
-        },
-        {
-          icon: 'bi-geo-alt',
-          title: 'Neighborhood focus',
-          items: ['Manhattan: Limited but premium options', 'Brooklyn: More standalone facilities', 'Queens: Growing indoor park scene'],
-        },
-      ],
-      mapSidebarNote:
-        'Use the map to find indoor parks near your neighborhood. Manhattan options are limited but premium; Brooklyn and Queens offer more variety.',
-      faqs: newYorkFaqs,
-      faqSupportCard: {
-        kicker: 'NYC operators',
-        title: 'Download the NYC urban park kit',
-        description: 'We bundled space optimization guides, reservation system templates, and building partnership scripts for NYC indoor park operators.',
-        primary: { label: 'Get the kit', href: '/owner-resources' },
-        secondary: { label: 'Book a consult', href: '/contact' },
-      },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Launch a NYC indoor dog park',
-        description:
-          'Navigate NYC real estate to launch an indoor dog park. We provide space optimization strategies, reservation system templates, and building partnership playbooks.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Talk to strategy', href: '/contact' },
-      },
     },
   },
   {
     slug: 'santa-ana',
     city: 'Santa Ana',
     state: 'CA',
-    featuredImage: '/images/cities/san-diego/hero.webp',
     summary:
       'Orange County hub with year-round outdoor play—use early/late windows, and lean on shaded parks during warm afternoons.',
     parks: [],
@@ -1849,16 +1843,18 @@ export const priorityCityContent: PriorityCityConfig[] = [
         description:
           'Own a dog-friendly business or manage a play facility in Santa Ana? Submit your listing to get verified and show up when local pet parents search.',
         primary: { label: 'List your park', href: '/list-your-park' },
-        secondary: { label: 'Contact us', href: '/contact' },
         footnote: 'We review submissions and refresh city pages weekly.',
       },
+      longDescription: [
+        'Santa Ana sits at the heart of Orange County, a region where the outdoor dog-friendly lifestyle is a cornerstone of the community. Its emerging indoor dog park scene is a direct response to both the sunny SoCal climate and the need for high-quality, supervised play. While the [City of Santa Ana](https://www.santa-ana.org/parks/) provides excellent public parks, the local community is increasingly shifting towards "concierge-style" indoor and hybrid facilities that offer relief from the afternoon sun and a safe environment for socialization. In neighborhoods like the historic downtown, pet parents often rotate between local neighborhood runs and nearby premium facilities. These spaces are evolving into social clubs that blend traditional play with boutique amenities, such as "paw-casso" art days, breed-specific mixers, and specialized training programs that leverage the region’s active, outdoorsy culture.',
+        'The operational focus in Orange County is on consistency and safety, with many residents preferring membership-based models that guarantee a predictable social circle for their pets. Average monthly rates for premium indoor or hybrid clubs in the area range from $130 to $170, often including perks like cooling-towel service, private locker rentals, and guest privileges for household members. Daily drop-in sessions typically hover around $20 to $25. Safety protocols are rigorous, requiring digital verification of vaccinations (Rabies, DHLPP, and Bordetella) and a mandatory "socialization screening" to ensure a harmonious environment. For owners navigating warm afternoons, our [planning essentials](#planning-essentials) guide offers tips on heat safety and identifying the best "quiet windows" for training. By combining the SoCal outdoor lifestyle with professional-grade indoor amenities, Santa Ana is leading the way in creating modern, social environments for dogs.'
+      ],
     },
   },
   {
     slug: 'houston',
     city: 'Houston',
     state: 'TX',
-    featuredImage: '/images/cities/los-angeles/hero.webp',
     summary:
       'Extreme summer heat + sprawling metro: indoor parks with premium AC, cooling stations, and extended summer hours serve Houston dog families.',
     parks: [],
@@ -1920,14 +1916,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the heat kit', href: '/owner-resources' },
         secondary: { label: 'Book a safety review', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Launch a Houston indoor dog park',
-        description:
-          'Pair premium AC with cooling stations and heat alerts to capture summer demand. Use our projections to size your footprint and climate control systems.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Talk to strategy', href: '/contact' },
-      },
+      longDescription: [
+        'Houston’s sprawling metro area and infamous humidity make indoor dog parks a non-negotiable part of the city’s pet culture, providing a vital year-round sanctuary for safe play. When the heat index hits triple digits, outdoor exercise becomes a significant health risk, leading to a surge in demand for facilities with industrial-grade HVAC systems and cooling technology. In vibrant hubs like the Heights and Montrose, former industrial spaces have been reimagined as "Cool-Down Clubs," featuring antimicrobial cooling turf, misting stations, and even indoor splash pads for sensory enrichment. These facilities are essential for preventing heatstroke, a topic frequently addressed by the [Houston Humane Society](https://www.houstonhumane.org). By offering a secure, 72°F environment even during a Texas summer, Houston’s indoor dog parks ensure that pets can maintain their social routines without the danger of burned paws.',
+        'The economics of indoor play in Houston are tailored to seasonal demands, with many facilities offering "heat-wave" passes and flexible memberships that peak during summer months. Monthly dues for top-tier clubs typically range from $120 to $160, often bundling unlimited play with perks like discounted grooming, boarding add-ons, and priority entry during heat alerts. Daily drop-in rates generally fall between $18 and $28. Safety is meticulously managed through mandatory behavioral assessments and strict vaccination requirements (Rabies, Distemper, and Bordetella). Many Houston venues also integrate technology, such as webcams that allow busy professionals at the Medical Center or Energy Corridor to check in on their pets. For owners planning their summer routines, our [planning essentials](#planning-essentials) guide provides a roadmap for heat safety and shuttle options. By blending Texas hospitality with climate control, these parks are indispensable fixtures of Houston’s urban landscape.'
+      ],
     },
   },
   {
@@ -1996,14 +1988,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
         primary: { label: 'Get the kit', href: '/owner-resources' },
         secondary: { label: 'Talk partnerships', href: '/contact' },
       },
-      ownerCta: {
-        kicker: 'Franchise & owners',
-        title: 'Build a Seattle indoor dog park',
-        description:
-          'Leverage training programs, brewery partnerships, and year-round climate control to keep membership calendars full. We provide market data and launch roadmaps.',
-        primary: { label: 'Download owner playbook', href: '/owner-resources' },
-        secondary: { label: 'Schedule a consult', href: '/contact' },
-      },
+      longDescription: [
+        'Seattle’s active outdoor culture and notoriously rainy climate have combined to create one of the most vibrant indoor dog park ecosystems in the country. With an average of over 150 rainy days per year, the city’s 150,000+ dog owners require reliable, mud-free alternatives to popular but often-damp outdoor spaces. Neighborhoods like Capitol Hill, Ballard, and South Lake Union host innovative facilities that blend the Pacific Northwest’s signature coffee and craft beverage culture with high-end canine enrichment. These venues often feature "brew-and-play" concepts where pet parents can enjoy a local IPA while their dogs navigate indoor agility courses and rubberized sprint lanes. Data from [Seattle Parks and Recreation](https://www.seattle.gov/parks) highlights a strong network of public areas, but the private indoor sector distinguishes itself with climate-controlled convenience and specialized "scent-work" labs that provide mental stimulation.',
+        'The operational focus of Seattle’s indoor parks is deeply influenced by the city’s tech-forward and social demographics. Facilities often prioritize "cowork-and-play" tiers, providing high-speed Wi-Fi and quiet zones for remote workers who want to keep their pets active throughout the workday. Membership structures are designed for year-round consistency, with monthly dues typically ranging from $130 to $180, often including perks like discounted training classes, grooming credits, and guest passes. Daily drop-in sessions average around $20 to $30. Safety and hygiene are maintained through rigorous standards, including antimicrobial turf and digital verification of Rabies, Distemper, and Bordetella vaccinations. For owners looking to structure their dog’s indoor time, our [planning essentials](#planning-essentials) guide offers tips on balancing free play with specific training goals. By integrating local hospitality with canine behavioral health, Seattle’s indoor dog parks have become essential community staples.'
+      ],
     },
   },
   {
@@ -2013,7 +2001,21 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/san-francisco/hero.webp',
     summary: 'Bay Area hub with diverse dog park options and strong indoor coverage.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'Bay Area Canine Culture',
+      heroHeading: 'Dog Parks in San Francisco, CA',
+      heroDescription: 'San Francisco’s unique geography and dense urban layout have fostered one of the most innovative and tight-knit dog owner communities in the United States. From the fog-swept bluffs of Fort Funston to the meticulously maintained runs in Dolores Park, the city offers a diverse array of play spaces that reflect its eclectic neighborhoods.',
+      heroPill: 'Verified SF Directory',
+      heroFootnotes: ['40+ verified locations', 'Updated for 2026 standards'],
+      heroChips: [
+        { label: 'Dog Runs', value: '25+' },
+        { label: 'Avg Rating', value: '4.7 / 5' },
+      ],
+      longDescription: [
+        'San Francisco’s dog culture is defined by a historical commitment to open space and high-density social solutions. With over 230,000 dogs in a 47-square-mile city, the "dog-to-human" ratio is among the highest in the US, driving a sophisticated network of off-leash areas managed by [SF Rec and Park](https://sfrecpark.org). Iconic spots like Alamo Square and Upper Noe provide breathtaking views, but the heart of the scene lies in community-focused runs where residents gather. Data indicates a surge in "small-dog-only" zones, reflecting a growing population of toy breeds. The operational landscape is shifting toward multi-functional spaces like indoor social clubs in SoMa and the Mission. These venues solve the challenge of SF’s microclimates, providing dry, fog-free play for high-energy breeds with high-speed Wi-Fi for remote workers. For newcomers, our [owner resources](/owner-resources) provide a roadmap for navigating local licensing.',
+        'Safety standards in San Francisco’s private facilities are exceptionally high, requiring temperament tests and digital verification of vaccinations (Rabies, DHPP, and Bordetella) before entry. Daily rates typically range from $25 to $45, while monthly memberships often include priority grooming and weekend social mixers. These venues are designed to be "third places" where the city’s pet-centric community can thrive amidst real estate constraints. In response to the mobile workforce, many facilities offer flexible hourly blocks and dog-walking add-ons that integrate with busy commute schedules. Hygiene is a major priority, with most top-tier clubs utilizing hospital-grade air-filtration and antimicrobial turf sanitized daily. By working alongside the public park system, these private-sector innovations ensure every San Francisco dog has a safe, stimulating environment. Whether seekers a fog-free run or a polished social session, SF’s infrastructure matches the ambition and diversity of the city.'
+      ],
+    },
   },
   {
     slug: 'los-angeles',
@@ -2022,7 +2024,21 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/los-angeles/hero.webp',
     summary: 'Major metropolitan area with extensive dog park options and strong indoor coverage.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'SoCal Sunshine Play',
+      heroHeading: 'Dog Parks in Los Angeles, CA',
+      heroDescription: 'Los Angeles offers a sprawling network of dog-friendly spaces, from the iconic canyons of the Hollywood Hills to the meticulously landscaped urban runs of Downtown LA. The city’s year-round sunshine makes it a global leader in outdoor canine recreation.',
+      heroPill: 'Verified LA Directory',
+      heroFootnotes: ['50+ locations verified', 'Heat safety ratings included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '45+' },
+        { label: 'Avg Rating', value: '4.5 / 5' },
+      ],
+      longDescription: [
+        'Los Angeles represents the pinnacle of outdoor dog culture, where a Mediterranean climate creates unmatched demand for play spaces. Expansive geography allows owners to choose from rugged trails in the Santa Monica Mountains to sleek runs in Grand Park DTLA. According to [LA Parks](https://www.laparks.org), the municipal system maintains over a dozen off-leash areas, including Sepulveda Basin, which caters to high-energy breeds. The "LA Dog" lifestyle is intertwined with wellness, often featuring specialized walkers and mobile grooming. Owners should consult our [planning essentials](#planning-essentials) for heat safety, as pavement temperatures can exceed safe levels for paws during summer. This diversity ensures that every pup, from Hollywood to the coast, has a place to thrive.',
+        'Beyond the public sector, Los Angeles is a trendsetter in the premium dog social market. In neighborhoods like Silver Lake, indoor/outdoor hybrid clubs are emerging, offering splash pads, chilled fountains, and shaded cabanas. These facilities are community "third places," hosting adoption events and workshops led by trainers. Safety is paramount, with air filtration and antimicrobial turf being the standard for venues. While public parks are free, private clubs offer a curated alternative for those seeking professional supervision. Membership models often include priority grooming and social mixers, fostering a tight-knit community. Whether seeking a trailhead hike or an urban run, Los Angeles provides a canine-centric infrastructure that matches the ambition and diversity of the city.'
+      ],
+    },
   },
   {
     slug: 'san-diego',
@@ -2031,7 +2047,285 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/san-diego/hero.webp',
     summary: 'Coastal city with diverse dog park options and strong indoor coverage.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'Coastal Canine Paradise',
+      heroHeading: 'Dog Parks in San Diego, CA',
+      heroDescription: 'San Diego is widely considered one of the most dog-friendly cities in America, home to legendary off-leash beaches and a massive network of canyon-side parks that celebrate the quintessential California lifestyle.',
+      heroPill: 'Verified SD Directory',
+      heroFootnotes: ['Top-rated beach access', '35+ centers verified'],
+      heroChips: [
+        { label: 'Off-Leash Beaches', value: '5+' },
+        { label: 'Avg Rating', value: '4.8 / 5' },
+      ],
+      longDescription: [
+        'San Diego is widely considered one of the most dog-friendly cities in America, home to legendary off-leash beaches and a massive network of canyon-side parks. The city’s dog identity is anchored by world-famous coastal access, notably Dog Beach in Ocean Beach, one of the nation’s first official off-leash shores. Unique "canyon geography" allows for large spaces like Fiesta Island and scenic Morley Field, where dogs roam varied terrain from sandy shorelines to shaded pine groves. Data from [San Diego Parks](https://www.sandiego.gov/park-and-recreation/parks/dog) shows over 15 designated off-leash areas. The culture extends to hospitality, with the brewery scene in North Park setting a national standard for canine inclusion on patios. For residents, our [owner resources](/owner-resources) offer essential tips on navigating seasonal beach restrictions and finding the best "after-play" local grooming spots.',
+        'San Diego has also seen a surge in indoor enrichment centers for its active professional community. These facilities focus on canine fitness and cognitive training, offering treadmill sessions and scent-work courses. While the temperate climate rarely necessitates an "indoor escape," these centers provide critical mental stimulation and controlled socialization, especially for puppies and rescue dogs. Membership models are popular, bundling daycare with weekend agility workshops. Hygiene and safety are top priorities, with facilities using hospital-grade sanitization and requiring comprehensive wellness records. By blending historic outdoor assets with modern, service-oriented enrichment, San Diego remains a gold standard for a dog-centric city. These venues ensure that pets remain well-balanced and safe, celebrating the California lifestyle year-round.'
+      ],
+    },
+  },
+  {
+    slug: 'san-antonio-tx',
+    city: 'San Antonio',
+    state: 'TX',
+    summary: 'Historic Texas city with expanding dog-friendly infrastructure and riverside runs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Alamo City Canine Culture',
+      heroHeading: 'Dog Parks in San Antonio, TX',
+      heroDescription: 'From the historic Pearl district to the modern runs of Phil Hardberger Park, San Antonio is rapidly expanding its pet-friendly footprints to match its vibrant, family-oriented culture.',
+      heroPill: 'Verified SA Directory',
+      heroFootnotes: ['30+ locations verified', 'Riverwalk access tips included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '28+' },
+        { label: 'Avg Rating', value: '4.4 / 5' },
+      ],
+      longDescription: [
+        'From the Pearl district to Phil Hardberger Park, San Antonio is expanding its pet-friendly footprint to match its vibrant culture. The "Alamo City" offers off-leash environments ranging from nature trails to urban runs in Madison Square. According to [San Antonio Parks](https://www.sa.gov), the city has positioned parks to serve both the downtown core and suburban north. The scene is active in the Pearl area, where "dog-friendly" is a core hospitality value. Residents gather for weekend socials where the city’s rich heritage creates a unique community atmosphere. For visitors, our [planning essentials](#planning-essentials) guide highlights hydration and the best spots for post-play riverside walks, ensuring that the city’s dogs stay active despite the Texas warmth.',
+        'San Antonio pet owners have become experts in "heat-smart" recreation. This sparked interest in amenities like splash pads and shaded areas with misters. We see the emergence of premium indoor enrichment centers offering air-conditioned relief for high-energy breeds. These private facilities often feature professional trainers and behaviorists who provide structured play sessions, ensuring socialization remains a priority even during heatwaves. Membership often includes digital access to play-trackers and priority booking for the city’s dog-friendly festivals. By blending historic Southern hospitality with climate-aware infrastructure, San Antonio has established itself as a resilient and welcoming hub for the modern dog owner in the heart of Texas, protecting pets from the summer sun.'
+      ],
+    },
+  },
+  {
+    slug: 'dallas-tx',
+    city: 'Dallas',
+    state: 'TX',
+    summary: 'Major Texas hub with a diverse array of urban dog parks and elite social clubs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Big D Dog Destinations',
+      heroHeading: 'Dog Parks in Dallas, TX',
+      heroDescription: 'Dallas combines high-end urban living with a sprawling network of parks, featuring some of the most sophisticated dog runs and membership-based social clubs in the American South.',
+      heroPill: 'Verified Dallas Directory',
+      heroFootnotes: ['40+ centers verified', 'Elite club listings included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '35+' },
+        { label: 'Avg Rating', value: '4.6 / 5' },
+      ],
+      longDescription: [
+        'Dallas combines high-end urban living with a sprawling network of parks, featuring some of the most sophisticated dog runs and membership-based social clubs in the South. The "Big D" scene is anchored by flagship locations like the 7-acre NorthBark Dog Park, featuring a beach-entry pond and agility areas, and the sleek Main Street Garden Park downtown. Data from [Dallas Parks](https://www.dallasparks.org) highlights a robust municipal infrastructure complemented by a thriving private sector. Neighborhoods like Uptown and Deep Ellum are notable for their dog-centric atmosphere, where apartment complexes offer on-site pet spas and rooftop runs. The Dallas dog owner community is highly connected, organizing neighborhood-specific meetups ranging from parades to high-intensity training. For those navigating varied terrains, our [owner resources](/owner-resources) provide a breakdown of park surfaces and lighting.',
+        'Operational trends in Dallas shift toward canine hospitality venues blending play with human-centric amenities. We see a boom in membership-based "dog bars" in the Bishop Arts District, where climate-controlled indoor spaces provide comfort regardless of Texas weather. These venues feature field monitors who supervise play, allowing owners to enjoy coffee while their pets burn energy. Safety and hygiene are gold standards here, with top clubs utilizing medical-grade air purification and antimicrobial turf sanitized daily. The Dallas market also leads in wellness-first enrichment, with many facilities offering integrated grooming and nutrition consultations on-site. By combining Southern luxury with a high-energy pulse, Dallas has created a dog park ecosystem that is both highly social and deeply functional for the modern urban pet parent.'
+      ],
+    },
+  },
+  {
+    slug: 'fort-worth-tx',
+    city: 'Fort Worth',
+    state: 'TX',
+    summary: 'The "City of Cowboys and Culture" offers a robust mix of wide-open spaces and modern urban dog parks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Cowtown Canine Culture',
+      heroHeading: 'Dog Parks in Fort Worth, TX',
+      heroDescription: 'Fort Worth balances its rugged heritage with a modern focus on community health, offering expansive parks like ZBonz and a growing list of neighborhood-focused dog runs.',
+      heroPill: 'Verified FW Directory',
+      heroFootnotes: ['25+ locations verified', 'Canyon-side trail tips'],
+      heroChips: [
+        { label: 'Verified Spots', value: '22+' },
+        { label: 'Avg Rating', value: '4.5 / 5' },
+      ],
+      longDescription: [
+        'Fort Worth balances its rugged heritage with a modern focus on community health, offering expansive parks like ZBonz and a growing list of neighborhood-focused dog runs. "Cowtown" has integrated its outdoor identity into a pet-friendly framework that prizes open spaces. The city’s flagship, ZBonz Dog Park—built on a former golf course—offers a sprawling 10-acre environment with specialized ponds for all breeds, setting a high bar for municipal recreation. According to [Fort Worth Parks](https://www.fortworthtexas.gov), strategy has focused on repurposing urban land into social hubs like Fort Woof, the region’s first off-leash park and a beloved staple. The culture here is distinctly relaxed and friendly, reflecting the city’s Western charm. For visitors, our [planning essentials](#planning-essentials) guide provides details on water availability and the best times to avoid the peak sun of the Trinity River basin.',
+        'The emerging trend in Fort Worth is the development of neighborhood play spaces in revitalized districts like Clearfork. These facilities feature amenities such as rubberized tracks, agility equipment, and shaded pavilions. While committed to public parks, we also notice growth in private "canine fitness" centers offering indoor agility trials and hydrotherapy. Vaccination standards are rigorously enforced across all verified locations, with Rabies, Distemper, and Parvo records mandatory for entry. This focus on health and safety, combined with abundant space, ensures that Fort Worth pups have room to roam and socialize responsibly. Whether seeking a trail run along the Trinity or a polished urban run near the Stockyards, Fort Worth offers a canine-centric infrastructure that is as grounded as it is expansive for the modern owner.'
+      ],
+    },
+  },
+  {
+    slug: 'el-paso-tx',
+    city: 'El Paso',
+    state: 'TX',
+    summary: 'Sun City dog parks offer desert-smart designs and high-elevation views for border-town pups.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Sun City Dog Spots',
+      heroHeading: 'Dog Parks in El Paso, TX',
+      heroDescription: 'With a focus on desert-smart landscaping and shaded social areas, El Paso’s dog parks provide a safe haven for the city’s 100,000+ residents and their canine companions.',
+      heroPill: 'Verified El Paso Directory',
+      heroFootnotes: ['20+ locations verified', 'Desert safety tips included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '18+' },
+        { label: 'Avg Rating', value: '4.3 / 5' },
+      ],
+      longDescription: [
+        'El Paso, the "Sun City," has developed a dog park infrastructure as resilient as the Chihuahuan Desert itself. Canine residents benefit from "desert-smart" facilities like Westside Community Dog Park, which prioritize water conservation while providing safe, fenced environments for play. According to [El Paso Parks](https://www.elpasotexas.gov), focus has been on providing shade structures and industrial water stations to mitigate the intense West Texas sun. The culture in El Paso’s parks is deeply community-oriented, serving as a social bridge for the city’s diverse population. Owners are vigilant about heat safety, with sunrise and sunset visits being the standard. For those exploring the border region, our [owner resources](/owner-resources) provide critical tips on identifying "paw-safe" desert trails and avoiding peak UV hours that can affect even the hardiest mountain-bred pups.',
+        'The El Paso scene has expanded to include specialized "play-and-stay" venues catering to the military and traveling professional demographic. We see an increase in daycare and boarding facilities offering structured enrichment-led play, where dogs are grouped by size and temperament. These private facilities often feature indoor, climate-controlled areas providing an escape from heatwaves, utilizing antimicrobial flooring and advanced air-exchange. Hygiene standards are a point of pride, with most verified locations requiring digital confirmation of vaccinations. While the Franklin Mountains offer leashed hiking, these urban dog runs provide the essential socialization that keeps El Paso’s pets well-behaved and happy. By combining desert-living strategies with modern amenities, El Paso has created a supportive environment for the dog owner community.'
+      ],
+    },
+  },
+  {
+    slug: 'nashville-tn',
+    city: 'Nashville',
+    state: 'TN',
+    summary: 'Music City dog parks offer a blend of urban energy and rolling green hills for active pups.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Music City Dog Spots',
+      heroHeading: 'Dog Parks in Nashville, TN',
+      heroDescription: 'From the bustling runs of Centennial Park to the expansive greenways of Shelby Bottoms, Nashville is a city that sings the praises of its four-legged residents.',
+      heroPill: 'Verified Nashville Directory',
+      heroFootnotes: ['25+ locations verified', 'Dog Day festival highlights included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '24+' },
+        { label: 'Avg Rating', value: '4.5 / 5' },
+      ],
+      longDescription: [
+        'Nashville’s dog park scene is as dynamic as the city’s music industry, offering high-energy urban runs and sprawling greenways. The culture is anchored by Centennial Dog Park, a social pillar for Midtown and West End. According to [Nashville Parks](https://www.nashville.gov), the system includes facilities like Two Rivers Dog Park, providing room for play against a backdrop of rolling Tennessee hills. The atmosphere is one of enthusiastic inclusion; musicians and creatives often gather in the early mornings, turning dog runs into informal networking hubs. For those looking to integrate exercise into an urban adventure, our [planning essentials](#planning-essentials) guide offers tips on navigating the greenway system, which connects many off-leash areas via miles of shaded trails. This integration of nature and urban life ensures Nashville remains a premier destination for active pet owners.',
+        'In response to rapid growth, Nashville has seen a rise in premium dog centers that cater to the Music City lifestyle. Neighborhoods like East Nashville have become hubs for venues that combine climate-controlled play with high-end daycare and grooming. These facilities often feature behaviorists who manage playgroups with a focus on low-stress socialization, an essential amenity for the city’s large population of rescue dogs. Safety standards are rigorous, utilizing advanced air purification and rubber flooring to protect paws during intense sessions. Vaccination verification is handled digitally, ensuring every participant—whether a local legend or a touring pup—is safe. By blending Southern charm with a modern approach to pet care, Nashville has created a vibrant ecosystem where every dog can find its own rhythm and a community to call home while thriving in the urban heart of Tennessee.'
+      ],
+    },
+  },
+  {
+    slug: 'memphis-tn',
+    city: 'Memphis',
+    state: 'TN',
+    summary: 'Memphis dog parks feature some of the largest off-leash areas in the South, centered around the legendary Shelby Farms.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Bluff City Dog Spots',
+      heroHeading: 'Dog Parks in Memphis, TN',
+      heroDescription: 'With a focus on massive scale and natural beauty, Memphis offers a unique dog park experience that prioritizes freedom, exploration, and the great outdoors.',
+      heroPill: 'Verified Memphis Directory',
+      heroFootnotes: ['15+ locations verified', 'Shelby Farms trail maps included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '16+' },
+        { label: 'Avg Rating', value: '4.3 / 5' },
+      ],
+      longDescription: [
+        'Memphis, the "Bluff City," is home to a dog park culture defined by its scale and appreciation for riverfront beauty. The jewel is "The Outback" at [Shelby Farms Park](https://memphisparks.com/park/shelby-farms-park/), a 100+ acre off-leash area with ponds and miles of trails. This space attracts visitors from across the Mid-South, creating a community who value exercise and exploration. Beyond Shelby Farms, the city maintains neighborhood runs like Overton Bark in Midtown, offering an intimate and shaded experience. For those navigating varied terrains, our [owner resources](/owner-resources) provide info on water safety and the best times to visit to enjoy Mississippi River breezes that cool the riverside runs during humid afternoons.',
+        'The trend in Memphis is the revitalization of urban spaces into sustainable play areas reflecting the city’s creative spirit. We see growth in community-led initiatives and private enrichment-first daycare centers. These facilities incorporate adventure-play elements, such as climbing structures and scent-work courses, designed to give dogs a mental workout. Hygiene standards are being modernized, with more facilities adopting antimicrobial turf and hospital-grade sanitization to ensure a healthy environment. While Southern charm remains the foundation of its pet culture, these innovations ensure Memphis dogs have access to world-class care and diverse social opportunities. Whether seeking a trek through the Outback or a social session in Midtown, Memphis provides a canine infrastructure as expansive as the Mississippi and as soulful as its music.'
+      ],
+    },
+  },
+  {
+    slug: 'knoxville-tn',
+    city: 'Knoxville',
+    state: 'TN',
+    summary: 'The "Scruffy City" is a hidden gem for dog owners, offering mountain-adjacent parks and a strong community vibe.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Marble City Dog Spots',
+      heroHeading: 'Dog Parks in Knoxville, TN',
+      heroDescription: 'From the riverside runs of Victor Ashe to the forested trails of South Knoxville, the "Scruffy City" welcomes dogs with open arms and a focus on outdoor adventure.',
+      heroPill: 'Verified Knoxville Directory',
+      heroFootnotes: ['12+ locations verified', 'Gateway to the Smokies tips'],
+      heroChips: [
+        { label: 'Verified Spots', value: '14+' },
+        { label: 'Avg Rating', value: '4.6 / 5' },
+      ],
+      longDescription: [
+        'Knoxville, the "Scruffy City," is one of the most dog-friendly hubs in the Southeast, serving as a gateway to adventure-filled East Tennessee. The canine infrastructure is anchored by flagship facilities like Victor Ashe Park and Charter E. Doyle Park, offering a blend of traditional fenced areas and access to urban wilderness trails. According to [Knoxville Parks](https://www.knoxvilletn.gov), the city has integrated dog-friendly zones into its broader outdoor recreation plan, ensuring pets and owners enjoy riverside views and forested bluffs together. The culture is deeply connected to the active-outdoors lifestyle, with runs often serving as starts for longer treks. Our [planning essentials](#planning-essentials) guide provides details on Knoxville’s "dog-friendly business" decals and low-traffic windows, helping residents and visitors alike navigate the Marble City’s pet-centric landscape.',
+        'Beyond public parks, Knoxville is seeing a rise in specialized canine-social venues reflecting its growing population of outdoor enthusiasts. We see an increase in boutique daycare and play-and-train facilities emphasizing behavioral health and positive reinforcement. These venues often host workshops on trail safety and canine first aid for the active hiking community. Hygiene and safety are top priorities, utilizing hospital-grade air filtration and specialized turf designed for the region’s climate. Vaccination standards are strictly maintained, providing peace of mind for owners valuing safe socialization. By combining natural assets with a community-focused approach, Knoxville has created a supportive ecosystem celebrating the bond between dogs and the Great Outdoors. Whether seekers a run in North Knoxville or an adventure in the Urban Wilderness, the city offers something for every dog.'
+      ],
+    },
+  },
+  {
+    slug: 'charlotte-nc',
+    city: 'Charlotte',
+    state: 'NC',
+    summary: 'The "Queen City" offers a royal selection of urban dog parks and expansive greenways.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Queen City Dog Spots',
+      heroHeading: 'Dog Parks in Charlotte, NC',
+      heroDescription: 'From the shaded runs of Frazier Park to the sprawling greens of Reedy Creek, Charlotte provides a diverse range of spaces for the city’s high-energy canine community.',
+      heroPill: 'Verified Charlotte Directory',
+      heroFootnotes: ['20+ locations verified', 'Uptown accessibility tips included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '22+' },
+        { label: 'Avg Rating', value: '4.4 / 5' },
+      ],
+      longDescription: [
+        'Charlotte’s dog park infrastructure reflects its growth into a premier hub for professionals. The "Queen City" scene is anchored by urban runs like Frazier Neighborhood Park and larger facilities in the [Mecklenburg Parks](https://parkandrec.mecknc.gov) system, such as Reedy Creek. These spaces serve Uptown and South End populations, providing safe environments where dogs socialize while owners enjoy the city’s aesthetics. The culture is vibrant, with many using the greenway system to trek between offleash zones. For navigating variety in terrains, our [owner resources](/owner-resources) provide a breakdown of maintenance schedules and the best spots for post-play social hours in dog-friendly breweries of NoDa and South End, where the community gathers to celebrate the bond between their pets and their city.',
+        'In response to new residents, Charlotte has seen a surge in premium, service-oriented canine facilities. We see an increase in membership-based "social lounges" and high-end daycare centers offering climate-controlled indoor environments, a welcome relief in humid summers. These venues often feature professional field observers managing playgroups with a focus on enrichment and positive reinforcement. Safety standards are among the highest in the South, requiring digital confirmation of vaccinations and behavior evaluations. Hygiene is maintained through antimicrobial turf and hospital-grade air purification. By blending Southern hospitality with modern pet care, Charlotte has created a supportive environment where every dog can thrive. Whether seeker a shaded trail on the greenway or a polished urban run, Charlotte offers a canine infrastructure matching its ambition and welcoming spirit for all.'
+      ],
+    },
+  },
+  {
+    slug: 'raleigh-nc',
+    city: 'Raleigh',
+    state: 'NC',
+    summary: 'The "City of Oaks" features a deep commitment to green space, offering a variety of shaded dog parks and nature trials.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Oak City Dog Spots',
+      heroHeading: 'Dog Parks in Raleigh, NC',
+      heroDescription: 'With its abundance of mature canopy and innovative public spaces like Dorothea Dix Park, Raleigh offers a uniquely scenic environment for off-leash canine recreation.',
+      heroPill: 'Verified Raleigh Directory',
+      heroFootnotes: ['15+ locations verified', 'Research Triangle access tips'],
+      heroChips: [
+        { label: 'Verified Spots', value: '18+' },
+        { label: 'Avg Rating', value: '4.5 / 5' },
+      ],
+      longDescription: [
+        'Raleigh, the "City of Oaks," leverages its urban canopy to create a dog park system that is as shaded as it is scenic. Residents benefit from diverse facilities, from historic Oakwood Dog Park to innovative spaces in the [Raleigh Parks](https://raleighnc.gov) system, including Dorothea Dix Park. This focus on nature-integrated play provides dogs with varied textures, promoting health and enrichment. The culture is neighborly, reflecting a hub for social owners. For those exploring the scene, our [planning essentials](#planning-essentials) guide offers info on seasonal hours and the best "oak-shaded" routes walking between the city’s dog-friendly coffee shops. This commitment to green space ensures the Research Triangle’s pets have ample opportunity for safe, stimulated play in an environment that celebrates the region’s natural beauty.',
+        'As Raleigh continues to grow as a tech powerhouse, the city sees a rise in specialized enrichment-first daycare and social centers. These facilities often cater to the remote-working demographic, offering high-speed Wi-Fi and quiet zones alongside structured play and agility courses. We notice a move toward private membership emphasizing small-group socialization and tiered access to canine-centric events. Safety and hygiene are paramount, with many adopting medical-grade air filtration and specialized rubber flooring. Vaccination verification is standard across all verified locations, providing security for the active pet parent community. By combining natural assets with a modern, service-oriented approach, Raleigh has created a unique ecosystem celebrating the bond between dogs and the Great Outdoors. These venues ensure that Raleigh remains a top destination for dog owners seeking excellence in care.'
+      ],
+    },
+  },
+  {
+    slug: 'asheville-nc',
+    city: 'Asheville',
+    state: 'NC',
+    summary: 'A mountain town like no other, Asheville offers a deeply inclusive dog culture with a focus on trail-adjacent social spaces.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Blue Ridge Dog Spots',
+      heroHeading: 'Dog Parks in Asheville, NC',
+      heroDescription: 'From the riverside vibes of French Broad River Park to the eclectic dog-friendly breweries of the River Arts District, Asheville is a mountain haven for dogs and their humans.',
+      heroPill: 'Verified Asheville Directory',
+      heroFootnotes: ['10+ locations verified', 'Mountain trail safety tips included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '12+' },
+        { label: 'Avg Rating', value: '4.7 / 5' },
+      ],
+      longDescription: [
+        'Asheville is one of the most dog-friendly destinations in the US, offering a mountain-town culture where pets are essential community members. The scene is anchored by the scenic [Asheville Parks](https://www.ashevillenc.gov) system, with French Broad River Park serving as a destination for riverside trails and shaded off-leash areas. The style of recreation is deeply integrated into the city’s adventurous spirit, with many using runs as a prelude to longer hikes on the Blue Ridge Parkway. The atmosphere is one of relaxed inclusion; dogs are common on brewery patios in the River Arts District. Our [owner resources](/owner-resources) provide tips on navigating seasonal trail closures and finding local, organic treats matching the city’s health-conscious ethos. This unique blend of outdoor access and mountain hospitality makes Asheville a haven for dogs and their human companions alike.',
+        'Asheville has developed a niche for high-end mountain-resort canine centers offering structured play and holistic enrichment. We see a rise in specialized boarding and daycare offering "adventure-days" including guided trail walks and swim sessions. These venues prioritize low-stimulus environments, using natural surroundings to provide a calming experience. Safety and hygiene are strictly maintained, with facilities using eco-friendly sanitization and requiring proof of vaccinations. The focus on behavior is paramount, with trainers offering positive-reinforcement workshops. This environment ensures Asheville dogs—from resident rescues to visiting trail-hounds—are healthy and happy. Whether seekers a riverside run or a weekend escape, Asheville provides a canine infrastructure as welcoming as the Appalachians themselves, fostering a community of well-balanced and active pets.'
+      ],
+    },
+  },
+  {
+    slug: 'virginia-beach-va',
+    city: 'Virginia Beach',
+    state: 'VA',
+    summary: 'Coastal dog parks in Virginia Beach offer unique beachfront access and shaded urban runs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Resort City Dog Spots',
+      heroHeading: 'Dog Parks in Virginia Beach, VA',
+      heroDescription: 'From the sandy stretches of the North End to the wooded runs of Bayville Farms, Virginia Beach provides a quintessential coastal lifestyle for dogs and their humans.',
+      heroPill: 'Verified VB Directory',
+      heroFootnotes: ['15+ locations verified', 'Seasonal beach access tips'],
+      heroChips: [
+        { label: 'Verified Spots', value: '18+' },
+        { label: 'Avg Rating', value: '4.4 / 5' },
+      ],
+      longDescription: [
+        'Virginia Beach offers a dog park experience influenced by coastal geography and a culture celebrating year-round outdoor recreation. Residents enjoy municipal spaces like Bayville Farms Park and Woodstock Park, serving as flagship locations for maintained runs and shade. According to [Virginia Beach Parks](https://parks.virginiabeach.gov), the city developed these areas to complement seasonal beach access, ensuring dogs have safe play year-round. The atmosphere is laid-back, reflecting a resort city vibe where neighbors gather at sunrise. For visitors, our [planning essentials](#planning-essentials) guide provides info on seasonal beach restrictions and "paw-safe" sand trails in First Landing State Park. This lifestyle is perfect for active breeds that thrive in both urban runs and natural shorelines, making VB a top destination for pet-owning families.',
+        'As the city grows as a residential hub, we see a rise in specialized indoor and hybrid canine facilities. Neighborhoods like Town Center are becoming centers for innovative daycare and adventure-play offering climate-controlled relief from humid summers. These private facilities often specialize in behavioral enrichment, utilizing antimicrobial turf and advanced air-exchange. Safety standards are a point of pride, requiring digital confirmation of vaccinations and temperament assessments. Hygiene is maintained through hospital-grade sanitization, providing a clean alternative to outdoor runs. By blending coastal charms with modern pet care, Virginia Beach has created a supportive ecosystem for every dog. Whether seeker a sunrise run on the sand or a polished urban run, Virginia Beach offers a canine infrastructure as inviting as the ocean, ensuring that the local pet community reflects the city’s high standards of quality.'
+      ],
+    },
+  },
+  {
+    slug: 'richmond-va',
+    city: 'Richmond',
+    state: 'VA',
+    summary: 'The "River City" features a historic dog culture with a focus on riverside runs and community green space.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'River City Dog Spots',
+      heroHeading: 'Dog Parks in Richmond, VA',
+      heroDescription: 'With its rich history and abundance of riverfront trails, Richmond offers a unique blend of urban energy and natural beauty for the cityes active canine community.',
+      heroPill: 'Verified RVA Directory',
+      heroFootnotes: ['12+ locations verified', 'James River trail tips included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '15+' },
+        { label: 'Avg Rating', value: '4.5 / 5' },
+      ],
+      longDescription: [
+        'Richmond, the "River City," has a dog park culture as historic and vibrant as the city itself, centered around the James River. The scene is anchored by popular runs like Northside Dog Park and Barker Field, offering a mix of meadows and shaded trails reflecting the city’s Southern aesthetic. According to [Richmond Parks](https://www.rva.gov), focus has been on providing essential social hubs integrated into diverse neighborhoods like the Fan. The culture is community-oriented, serving as a social bridge for residents valuing fitness and adventure. For those navigating variety in terrains, our [owner resources](/owner-resources) provide info on the James River Park System and the best times to enjoy the shade of the mature urban canopy. This historical and natural integration ensures that Richmond remains a uniquely soulful place for dogs and their human companions to explore together.',
+        'In response to growing professional populations, Richmond sees a rise in premium canine facilities. We notice membership-based "dog bars" in districts like Scott’s Addition, where climate-controlled spaces provide comfort regardless of humidity. These venues feature professional supervisors managing playgroups with a focus on low-stress socialization, allowing owners to relax while pets burn energy. Safety and hygiene are top priorities, adopting medical-grade air filtration and rubber flooring. Vaccination verification is standard, providing security for the active community. By combining historic riverfront assets with modern innovations, Richmond has created a supportive ecosystem celebrating the bond between dogs and the city’s creative spirit. Whether seeker a riverside run or a polished social session, Richmond provides a canine infrastructure as soulful as the city itself.'
+      ],
+    },
   },
 ];
 

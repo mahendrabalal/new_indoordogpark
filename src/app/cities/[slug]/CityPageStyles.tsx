@@ -4,14 +4,14 @@ export default function CityPageStyles() {
   return (
     <style jsx global>{`
         .city-page-layout {
-          padding: 32px 32px 72px 320px;
+          padding: 0 32px 72px 320px;
           background: #ffffff;
         }
 
         @media (min-width: 1440px) {
           .city-page-layout {
-            padding-left: 360px;
-            padding-right: 64px;
+            padding-left: 320px;
+            padding-right: 32px;
           }
         }
 
@@ -57,24 +57,53 @@ export default function CityPageStyles() {
         .section-shell {
           width: 100%;
           max-width: 1200px;
-          margin: 0 auto;
+          margin: 0;
           padding: 0 16px;
         }
 
         .city-hero-section {
           position: relative;
-          padding: 24px 0 72px;
+          padding: 0 0 64px;
+          background: #ffffff;
+          overflow: hidden;
+        }
+
+        .city-hero-section.no-image {
+          background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+          padding: 80px 0 100px;
+        }
+
+        .city-hero-section.no-image::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(#FF5722 0.5px, transparent 0.5px);
+          background-size: 24px 24px;
+          opacity: 0.03;
+          pointer-events: none;
         }
 
         .city-hero-shell {
           display: grid;
           grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-          gap: 48px;
+          gap: 64px;
+          align-items: start;
+        }
+
+        .city-hero-section.no-image .city-hero-shell {
+          grid-template-columns: 1fr;
+          max-width: 800px;
+          text-align: center;
         }
 
         @media (max-width: 900px) {
           .city-hero-shell {
             grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          .city-hero-visual {
+            position: relative;
+            top: 0;
           }
         }
 
@@ -83,8 +112,12 @@ export default function CityPageStyles() {
           flex-wrap: wrap;
           gap: 8px;
           font-size: 13px;
-          color: #6b7280;
-          margin-bottom: 12px;
+          color: #64748b;
+          margin-bottom: 8px;
+        }
+
+        .city-hero-section.no-image .hero-breadcrumbs {
+          justify-content: center;
         }
 
         .hero-breadcrumbs a {
@@ -95,39 +128,113 @@ export default function CityPageStyles() {
         .hero-eyebrow {
           font-size: 12px;
           text-transform: uppercase;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.25em;
           color: #FF5722;
-          margin-bottom: 12px;
-          font-weight: 700;
+          margin-bottom: 8px;
+          font-weight: 800;
         }
 
         .city-hero-copy h1 {
-          font-size: clamp(28px, 3.4vw, 48px);
-          line-height: 1.1;
-          color: #2c3e50;
-          margin-bottom: 16px;
+          font-size: clamp(32px, 4vw, 56px);
+          line-height: 1.05;
+          letter-spacing: -0.02em;
+          color: #0f172a;
+          margin-bottom: 8px;
+          font-weight: 800;
         }
 
         .hero-description {
-          font-size: 16px;
-          color: #666;
+          font-size: 18px;
+          color: #475569;
           line-height: 1.6;
-          margin-bottom: 28px;
+          margin-bottom: 20px;
+          max-width: 60ch;
         }
+
+        .city-hero-section.no-image .hero-description {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .city-rich-description {
+          margin-bottom: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .rich-description-paragraph {
+          font-size: 16px;
+          color: #4b5563;
+          line-height: 1.75;
+          margin: 0;
+          max-width: 70ch;
+        }
+
+        .rich-link {
+          color: #FF5722;
+          text-decoration: none;
+          font-weight: 500;
+          border-bottom: 1px solid rgba(255, 87, 34, 0.2);
+          transition: all 0.2s ease;
+        }
+
+        .rich-link:hover {
+          color: #E64A19;
+          border-bottom-color: #E64A19;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-breadcrumbs, .hero-eyebrow, .city-hero-copy h1, .hero-description, 
+        .hero-chip-row, .hero-metrics, .hero-cta-row, .hero-footnotes {
+          animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .hero-breadcrumbs { animation-delay: 0.1s; }
+        .hero-eyebrow { animation-delay: 0.15s; }
+        .city-hero-copy h1 { animation-delay: 0.2s; }
+        .hero-description { animation-delay: 0.25s; }
+        .hero-chip-row { animation-delay: 0.3s; }
+        .hero-metrics { animation-delay: 0.35s; }
+        .city-hero-visual { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 0.3s; }
+
 
         .hero-chip-row {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-          gap: 12px;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 16px;
           margin-bottom: 32px;
+        }
+
+        .city-hero-section.no-image .hero-chip-row {
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         .hero-chip {
           background: white;
-          border: 1px solid #e2e8f0;
-          border-radius: 16px;
-          padding: 12px 16px;
-          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
+          border: 1px solid #f1f5f9;
+          border-radius: 20px;
+          padding: 16px 20px;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-chip:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+          border-color: #e2e8f0;
+        }
+        
+        .city-hero-section.no-image .hero-chip {
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(8px);
         }
 
         .chip-value {
@@ -146,26 +253,41 @@ export default function CityPageStyles() {
 
         .hero-metrics {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          gap: 16px;
-          margin-bottom: 28px;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+          margin-bottom: 32px;
+        }
+
+        .city-hero-section.no-image .hero-metrics {
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         .hero-metric {
-          background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+          background: #0f172a;
           color: white;
-          border-radius: 16px;
-          padding: 18px;
+          border-radius: 20px;
+          padding: 24px;
           position: relative;
           overflow: hidden;
+          transition: transform 0.3s ease;
         }
 
-        .hero-metric::after {
+        .hero-metric:hover {
+          transform: scale(1.02);
+        }
+
+        .hero-metric::before {
           content: '';
           position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.3), transparent);
-          opacity: 0.4;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255, 87, 34, 0.1), transparent 70%);
+          opacity: 0.5;
+          pointer-events: none;
         }
 
         .hero-metric span {
@@ -195,8 +317,12 @@ export default function CityPageStyles() {
         .hero-cta-row {
           display: flex;
           flex-wrap: wrap;
-          gap: 12px;
-          margin-bottom: 16px;
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+
+        .city-hero-section.no-image .hero-cta-row {
+          justify-content: center;
         }
 
         .hero-cta {
@@ -214,7 +340,13 @@ export default function CityPageStyles() {
         .hero-cta.primary {
           background: #FF5722;
           color: white;
-          box-shadow: 0 15px 30px rgba(255, 87, 34, 0.2);
+          box-shadow: 0 10px 25px -5px rgba(255, 87, 34, 0.4);
+        }
+
+        .hero-cta.primary:hover {
+          background: #E64A19;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px -5px rgba(255, 87, 34, 0.5);
         }
 
         .hero-cta.ghost {
@@ -232,9 +364,13 @@ export default function CityPageStyles() {
         .hero-footnotes {
           display: flex;
           flex-wrap: wrap;
-          gap: 16px;
-          font-size: 13px;
-          color: #666;
+          gap: 20px;
+          font-size: 14px;
+          color: #64748b;
+        }
+
+        .city-hero-section.no-image .hero-footnotes {
+          justify-content: center;
         }
 
         .hero-footnotes i {
@@ -243,7 +379,9 @@ export default function CityPageStyles() {
         }
 
         .city-hero-visual {
-          position: relative;
+          position: sticky;
+          top: 100px;
+          align-self: start;
         }
 
         .hero-image-card {
@@ -374,9 +512,11 @@ export default function CityPageStyles() {
         }
 
         .section-heading h2 {
-          font-size: clamp(28px, 3vw, 40px);
-          color: #2c3e50;
-          margin-bottom: 12px;
+          font-size: clamp(32px, 3.5vw, 44px);
+          color: #0f172a;
+          margin-bottom: 16px;
+          font-weight: 800;
+          letter-spacing: -0.01em;
         }
 
         .section-heading p {

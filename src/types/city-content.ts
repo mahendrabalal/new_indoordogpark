@@ -6,6 +6,12 @@ export interface CTAButton {
   href: string;
 }
 
+export interface Neighborhood {
+  name: string;
+  slug: string;
+  description: string;
+}
+
 export interface SupportCTA {
   kicker?: string;
   title: string;
@@ -49,13 +55,16 @@ export interface CityCustomContent {
   faqs?: FAQItem[];
   faqSupportCard?: SupportCTA;
   ownerCta?: SupportCTA;
+  longDescription?: string[];
+  neighborhoods?: Neighborhood[];
+  expertTips?: string[];
 }
 
 export interface PriorityCityConfig {
   slug: string;
   city: string;
   state: string;
-  featuredImage: string;
+  featuredImage?: string;
   summary: string;
   parks: DogPark[];
   customContent: CityCustomContent;

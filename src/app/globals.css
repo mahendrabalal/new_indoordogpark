@@ -927,10 +927,10 @@ body {
 /* ========== HERO SECTION ========== */
 .hero-section-new {
   position: relative;
-  /* Pull hero up behind the fixed navbar (navbar height is 72px) */
-  margin-top: -72px;
-  /* Increase top padding to compensate: 72px (navbar) + original 100px content padding */
-  padding: 172px 20px 70px;
+  /* Pull hero up to cover the body padding-top and extend to viewport top */
+  margin-top: -70px;
+  /* Top padding: 70px (body offset) + desired spacing */
+  padding: 180px 20px 70px;
   text-align: left;
   background-image: url('/images/hero/hero.webp');
   background-size: cover;
@@ -1176,7 +1176,7 @@ body {
   .hero-section-new {
     text-align: center;
     background-position: center;
-    padding: 80px 16px 60px;
+    padding: 200px 16px 60px;
   }
 
   .hero-content {
@@ -1249,7 +1249,7 @@ body {
 /* Mobile-specific styles (768px and below) */
 @media (max-width: 768px) {
   .hero-section-new {
-    padding: 50px 16px 40px;
+    padding: 180px 16px 40px;
     min-height: 280px;
   }
 
@@ -1320,7 +1320,7 @@ body {
 /* Very small mobile (480px and below) */
 @media (max-width: 480px) {
   .hero-section-new {
-    padding: 40px 12px 32px;
+    padding: 150px 12px 32px;
     min-height: 240px;
   }
 

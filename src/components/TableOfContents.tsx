@@ -179,13 +179,13 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
     if (element) {
       // Prevent observer updates while scrolling
       isScrollingRef.current = true;
-      
+
       // Set active section immediately for instant feedback
       setActiveSection(sectionId);
 
       const offset = 80; // Account for fixed header
       const elementPosition = element.offsetTop - offset;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -220,9 +220,8 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
             {items.map((item, index) => (
               <li
                 key={item.id}
-                className={`toc-item ${item.level > 1 ? 'toc-item-sub' : ''} ${
-                  activeSection === item.id ? 'toc-item-active' : ''
-                }`}
+                className={`toc-item ${item.level > 1 ? 'toc-item-sub' : ''} ${activeSection === item.id ? 'toc-item-active' : ''
+                  }`}
               >
                 <button
                   onClick={() => scrollToSection(item.id)}
@@ -262,7 +261,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
         .table-of-contents {
           position: fixed;
           left: 20px;
-          top: 160px; /* Increased to avoid header overlap */
+          top: 120px; /* Reduced to match page spacing */
           width: 280px;
           max-height: calc(100vh - 180px); /* Adjusted accordingly */
           z-index: 40;

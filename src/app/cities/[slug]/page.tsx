@@ -20,6 +20,7 @@ import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content'
 import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
+import CityParkComparison from '@/components/CityParkComparison';
 const CityMap = dynamic(() => import('@/components/Map'), {
   ssr: false,
   loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
@@ -245,14 +246,9 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
 
-  const featuredImage =
-    city.featuredImage ||
-    'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  const featuredImage = city.featuredImage;
 
   const parkCategories = Object.entries(parksByType);
-  const topCategory = parkCategories.length
-    ? parkCategories.reduce((largest, current) => (current[1].length > largest[1].length ? current : largest))
-    : null;
 
   const featuredParks = [...cityParks]
     .filter((park) => typeof park.rating === 'number')
@@ -262,22 +258,12 @@ export default async function CityPage({ params }: CityPageProps) {
   const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
   const indoorShare = stats.totalParks > 0 ? Math.round((indoorCount / stats.totalParks) * 100) : 0;
   const showThinContentPrompt = stats.totalParks < 2;
-  const shouldIndex = shouldIndexCity(stats.totalParks, stats.totalReviews);
   const topAmenities = getTopAmenities(cityParks, 6);
   const topRatedPark =
     cityParks
       .filter((park) => typeof park.rating === 'number' && park.rating > 0)
       .sort((a, b) => (b.rating || 0) - (a.rating || 0))[0] || undefined;
-  const mostReviewedParks = [...cityParks]
-    .filter((park) => typeof park.reviewCount === 'number')
-    .sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0))
-    .slice(0, 3);
-  const heroChips = [
-    { label: 'Verified parks', value: formatNumber(stats.totalParks) },
-    { label: 'Avg rating', value: `${stats.avgRating.toFixed(1)} / 5` },
-    { label: 'Park types', value: parkCategories.length.toString() },
-    { label: 'Local reviews', value: formatNumber(stats.totalReviews) },
-  ];
+
 
   const heroEyebrow = customContent?.heroEyebrow || 'City spotlight';
   const heroHeading =
@@ -297,7 +283,7 @@ export default async function CityPage({ params }: CityPageProps) {
     'Data refreshed weekly',
     'Live availability coming soon',
   ];
-  const heroChipData = customContent?.heroChips || heroChips;
+
   const heroImageAlt = customContent?.heroImageAlt || `${city.name} dog park landscape`;
 
   // Use canonical slug for all URLs
@@ -503,25 +489,23 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const defaultInsightCards: CityInsightCard[] = [
     {
-      tag: 'Experience score',
+      tag: 'Community rating',
       title: city.avgRating.toFixed(1),
       copy: `Average rating across every verified listing in ${city.name}. Reflects cleanliness, amenities, and community feedback.`,
       accent: true,
     },
     {
-      tag: 'Review depth',
+      tag: 'Verified reviews',
       title: formatNumber(stats.totalReviews),
       copy: 'Community reviews informing our quality score. Tap any park card below to see highlights.',
     },
     {
-      tag: 'Top category',
-      title: topCategory?.[0] || 'Dog Park',
-      copy: topCategory
-        ? `${topCategory[1].length} listings currently live in this category.`
-        : 'Fresh listings added weekly.',
+      tag: 'Park availability',
+      title: formatNumber(stats.totalParks),
+      copy: `Total verified listings currently live for ${city.name}. Fresh listings added weekly.`,
     },
     {
-      tag: 'Indoor availability',
+      tag: 'Indoor options',
       title: indoorCount ? `${indoorShare}%` : '—',
       copy: indoorCount
         ? `${indoorCount} indoor parks with climate control for weather-proof play sessions.`
@@ -581,12 +565,14 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
-    { id: 'city-insights', title: 'Insights & Scores', level: 1 },
-    { id: 'city-highlights', title: 'Local Highlights', level: 1 },
+    { id: 'city-insights', title: 'Quick Facts', level: 1 },
+    { id: 'city-comparison', title: 'Top Comparisons', level: 1 },
     { id: 'park-collections', title: 'Park Collections', level: 1 },
+    { id: 'neighborhood-clusters', title: 'Neighborhoods', level: 1 },
     { id: 'park-types-guide', title: 'Park Type Guide', level: 1 },
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
     { id: 'planning-essentials', title: 'Planning Essentials', level: 1 },
+    { id: 'expert-tips', title: 'Expert Advice', level: 1 },
     { id: 'park-directory', title: 'Full Directory', level: 1 },
     { id: 'owner-cta', title: 'Owner & Franchise', level: 1 },
     { id: 'faq-section', title: 'FAQs', level: 1 },
@@ -630,7 +616,7 @@ export default async function CityPage({ params }: CityPageProps) {
           </ScrollToButton>
         </div>
 
-        <section id="city-hero" className="city-hero-section">
+        <section id="city-hero" className={`city-hero-section ${!featuredImage ? 'no-image' : ''}`}>
           <div className="section-shell city-hero-shell">
             <div className="city-hero-copy">
               <div className="hero-breadcrumbs">
@@ -642,38 +628,50 @@ export default async function CityPage({ params }: CityPageProps) {
               </div>
               <p className="hero-eyebrow">{heroEyebrow}</p>
               <h1>{heroHeading}</h1>
+
+              {customContent?.heroChips && customContent.heroChips.length > 0 && (
+                <div className="hero-chip-row">
+                  {customContent.heroChips.map((chip, idx) => (
+                    <div key={idx} className="hero-chip">
+                      <span className="chip-label">{chip.label}</span>
+                      <span className="chip-value">{chip.value}</span>
+                      {chip.caption && <span className="chip-caption">{chip.caption}</span>}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+
               <p className="hero-description">{heroDescriptionCopy}</p>
-              <div className="hero-chip-row">
-                {heroChipData.map((chip) => (
-                  <div key={chip.label} className="hero-chip">
-                    <span className="chip-value">{chip.value}</span>
-                    <span className="chip-label">{chip.label}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="hero-metrics">
-                <div className="hero-metric">
-                  <span className="metric-label">City score</span>
-                  <span className="metric-value">{stats.totalReviews > 0 ? city.avgRating.toFixed(1) : '—'}</span>
-                  <span className="metric-caption">
-                    {stats.totalReviews > 0 ? `From ${formatNumber(stats.totalReviews)} reviews` : 'No reviews yet'}
-                  </span>
+
+              {customContent?.longDescription && customContent.longDescription.length > 0 && (
+                <div className="city-rich-description">
+                  {customContent.longDescription.map((para, idx) => (
+                    <p key={idx} className="rich-description-paragraph">
+                      {para.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
+                        const match = part.match(/\[(.*?)\]\((.*?)\)/);
+                        if (match) {
+                          const [, text, href] = match;
+                          const isExternal = href.startsWith('http');
+                          return (
+                            <Link
+                              key={i}
+                              href={href}
+                              target={isExternal ? "_blank" : undefined}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
+                              className="rich-link"
+                            >
+                              {text}
+                            </Link>
+                          );
+                        }
+                        return part;
+                      })}
+                    </p>
+                  ))}
                 </div>
-                <div className="hero-metric">
-                  <span className="metric-label">Indoor coverage</span>
-                  <span className="metric-value">{stats.totalParks > 0 ? `${indoorShare}%` : '—'}</span>
-                  <span className="metric-caption">
-                    {stats.totalParks > 0 ? `${indoorCount} climate-controlled spots` : 'No listings yet'}
-                  </span>
-                </div>
-                <div className="hero-metric">
-                  <span className="metric-label">Top park type</span>
-                  <span className="metric-value">{topCategory?.[0] || 'Dog Park'}</span>
-                  <span className="metric-caption">
-                    {topCategory ? `${topCategory[1].length} listings` : 'Updated weekly'}
-                  </span>
-                </div>
-              </div>
+              )}
+
               <div className="hero-cta-row">
                 <ScrollToButton className="hero-cta primary" targetId="park-directory">
                   <i className="bi bi-list-check" />
@@ -688,6 +686,7 @@ export default async function CityPage({ params }: CityPageProps) {
                   Submit a park
                 </Link>
               </div>
+
               <div className="hero-footnotes">
                 {heroFootnotes.map((note) => (
                   <span key={note}>
@@ -697,19 +696,22 @@ export default async function CityPage({ params }: CityPageProps) {
               </div>
             </div>
 
-            <div className="city-hero-visual">
-              <div className="hero-image-card">
-                <Image
-                  src={featuredImage}
-                  alt={heroImageAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 540px"
-                  unoptimized={featuredImage.startsWith('/images/')}
-                />
-                <div className="hero-image-gradient" />
+            {featuredImage && (
+              <div className="city-hero-visual">
+                <div className="hero-image-card">
+                  <Image
+                    src={featuredImage}
+                    alt={heroImageAlt}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 540px"
+                    unoptimized={featuredImage.startsWith('/images/')}
+                  />
+                  <div className="hero-image-gradient" />
+                </div>
               </div>
-            </div>
+            )}
+
           </div>
         </section>
 
@@ -718,11 +720,11 @@ export default async function CityPage({ params }: CityPageProps) {
         <section id="city-insights" className="city-insights-section">
           <div className="section-shell">
             <div className="section-heading">
-              <span className="section-eyebrow">Data-backed overview</span>
+              <span className="section-eyebrow">Local Quick Facts</span>
               <h2>How {city.name} stacks up for dog families</h2>
               <p>
                 {customContent?.insightIntro ||
-                  'Ratings, review volume, and inventory health updated directly from our verified directory so you can plan with confidence.'}
+                  'Verified ratings, review volume, and park availability updated directly from our community directory.'}
               </p>
             </div>
 
@@ -736,61 +738,15 @@ export default async function CityPage({ params }: CityPageProps) {
               ))}
             </div>
 
-            {cityParks.length > 0 && (
-              <div className="city-stats-wrapper">
-                <CityStats parks={cityParks} cityName={city.name} />
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section id="city-highlights" className="city-insights-section">
-          <div className="section-shell">
-            <div className="section-heading">
-              <span className="section-eyebrow">Local highlights</span>
-              <h2>What stands out in {city.name}</h2>
-              <p>
-                {shouldIndex
-                  ? 'Based on the listings on this page—no filler, no guesswork.'
-                  : 'This is a preview page while we collect more verified listings.'}
-              </p>
-            </div>
-
-            <div className="insights-grid">
-              <article className="insight-card accent">
-                <span className="insight-tag">Inventory</span>
-                <h3>{formatNumber(stats.totalParks)}</h3>
-                <p>Total verified listings currently live for {city.name}.</p>
-              </article>
-              <article className="insight-card">
-                <span className="insight-tag">Indoor coverage</span>
-                <h3>{indoorCount > 0 ? `${indoorShare}%` : '—'}</h3>
-                <p>{indoorCount > 0 ? `${indoorCount} indoor option${indoorCount === 1 ? '' : 's'} available.` : 'No indoor listings yet in our directory.'}</p>
-              </article>
-              <article className="insight-card">
-                <span className="insight-tag">Most reviewed</span>
-                <h3>{mostReviewedParks[0]?.reviewCount ? formatNumber(mostReviewedParks[0].reviewCount) : '—'}</h3>
-                <p>
-                  {mostReviewedParks.length > 0
-                    ? `${mostReviewedParks[0].name} leads on review volume.`
-                    : 'We’ll highlight review leaders once listings are available.'}
-                </p>
-              </article>
-              <article className="insight-card">
-                <span className="insight-tag">Top amenities</span>
-                <h3>{topAmenities.length > 0 ? topAmenities[0].label : '—'}</h3>
-                <p>
-                  {topAmenities.length > 0
-                    ? `${topAmenities[0].share}% of listed parks mention it.`
-                    : 'Amenity details are still being filled in across listings.'}
-                </p>
-              </article>
-            </div>
-
             {topAmenities.length > 0 && (
-              <div style={{ marginTop: 20 }}>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Most common amenities</h3>
-                <div className="category-chip-row" style={{ marginTop: 12 }}>
+              <div style={{ marginTop: 40, paddingTop: 40, borderTop: '1px solid #f1f5f9' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16 }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a' }}>Most common amenities</h3>
+                    <p style={{ color: '#64748b', marginTop: 4 }}>What people are looking for and finding in {city.name}.</p>
+                  </div>
+                </div>
+                <div className="category-chip-row" style={{ marginTop: 20 }}>
                   {topAmenities.map((amenity) => (
                     <span key={amenity.key} className="hero-chip">
                       <span className="chip-value">{amenity.share}%</span>
@@ -800,6 +756,18 @@ export default async function CityPage({ params }: CityPageProps) {
                 </div>
               </div>
             )}
+
+            {cityParks.length > 0 && (
+              <div className="city-stats-wrapper">
+                <CityStats parks={cityParks} cityName={city.name} />
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section id="city-comparison" className="city-comparison-section">
+          <div className="section-shell">
+            <CityParkComparison parks={cityParks} cityName={city.name} />
           </div>
         </section>
 
@@ -849,6 +817,33 @@ export default async function CityPage({ params }: CityPageProps) {
             <div className="park-type-guide-wrapper">
               <ParkTypeGuide parksByType={parksByType} cityName={city.name} />
             </div>
+
+            {customContent?.neighborhoods && customContent.neighborhoods.length > 0 && (
+              <div id="neighborhood-clusters" style={{ marginTop: 80, paddingTop: 80, borderTop: '1px solid #f1f5f9' }}>
+                <div className="section-heading">
+                  <span className="section-eyebrow">Local Districts</span>
+                  <h2>Where to play in {city.name}</h2>
+                  <p>Semantic clusters of dog-friendly highlights broken down by neighborhood.</p>
+                </div>
+                <div className="collection-grid" style={{ marginTop: 40 }}>
+                  {customContent.neighborhoods.map((n) => (
+                    <article key={n.slug} className="collection-card" style={{ border: '1px solid #f1f5f9', background: '#f8fafc' }}>
+                      <div className="collection-card-head">
+                        <span className="collection-pill">{cityParks.filter(p => (p.address?.toLowerCase().includes(n.name.toLowerCase()) || p.street?.toLowerCase().includes(n.name.toLowerCase()))).length} spots found</span>
+                        <h3>{n.name}</h3>
+                      </div>
+                      <p>{n.description}</p>
+                      <div className="collection-card-footer">
+                        <ScrollToButton className="hero-cta text-link" targetId="park-directory">
+                          Browse directory
+                          <i className="bi bi-arrow-right" />
+                        </ScrollToButton>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -956,6 +951,34 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
+        {customContent?.expertTips && customContent.expertTips.length > 0 && (
+          <section id="expert-tips" className="expert-tips-section" style={{ padding: '80px 0' }}>
+            <div className="section-shell">
+              <div style={{ padding: 48, background: '#f8fafc', borderRadius: 24, border: '1px solid #e2e8f0' }}>
+                <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                  <div style={{ width: 64, height: 64, borderRadius: 16, background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem', flexShrink: 0 }}>
+                    <i className="bi bi-lightbulb" />
+                  </div>
+                  <div style={{ flex: 1, minWidth: '300px' }}>
+                    <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Expert Advice</span>
+                    <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', marginTop: 8 }}>Internal Tips for {city.name} Dog Owners</h2>
+                    <p style={{ color: '#64748b', marginTop: 12, lineHeight: 1.6 }}>Our team and local community members shared these specific insights to help you navigate {city.name} like a pro.</p>
+
+                    <ul style={{ marginTop: 32, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, listStyle: 'none', padding: 0 }}>
+                      {customContent.expertTips.map((tip, idx) => (
+                        <li key={idx} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                          <i className="bi bi-check2-circle" style={{ color: '#10b981', fontSize: '1.25rem', marginTop: 2 }} />
+                          <span style={{ color: '#334155', fontWeight: 500, lineHeight: 1.5 }}>{tip}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section id="owner-cta" className="owner-cta-section">
           <div className="section-shell">
             {ownerCta.kicker && <span className="section-eyebrow">{ownerCta.kicker}</span>}
@@ -1039,19 +1062,21 @@ export default async function CityPage({ params }: CityPageProps) {
         </section>
 
         {/* Nearby Cities Section */}
-        {nearbyCities && nearbyCities.length > 0 && (
-          <section id="nearby-cities" className="nearby-cities-section">
-            <div className="section-shell">
-              <div className="section-heading">
-                <span className="section-eyebrow">Explore the region</span>
-                <h2>Dog parks near {city.name}</h2>
-                <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
-              </div>
+        {
+          nearbyCities && nearbyCities.length > 0 && (
+            <section id="nearby-cities" className="nearby-cities-section">
+              <div className="section-shell">
+                <div className="section-heading">
+                  <span className="section-eyebrow">Explore the region</span>
+                  <h2>Dog parks near {city.name}</h2>
+                  <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
+                </div>
 
-              <NearbyCitiesGrid cities={nearbyCities} />
-            </div>
-          </section>
-        )}
+                <NearbyCitiesGrid cities={nearbyCities} />
+              </div>
+            </section>
+          )
+        }
 
         <section id="faq-section" className="city-faq-section">
           <div className="section-shell">
