@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import FavoriteButton from '@/components/FavoriteButton';
+
 import type { ParkSubmission } from '@/types/park-submission';
 
 const valueProps = [
@@ -59,20 +59,18 @@ export default function FeaturedParks() {
 
   if (isLoading) {
     return (
-      <section className="py-20 bg-slate-50" style={{ minHeight: '600px' }}>
+      <section className="py-16 bg-white" style={{ minHeight: '600px' }}>
         <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between animate-pulse">
-            <div className="max-w-3xl space-y-4">
-              <div className="h-4 w-32 rounded-full bg-slate-200" />
-              <div className="h-10 w-full rounded-lg bg-slate-200" />
-              <div className="h-6 w-2/3 rounded-lg bg-slate-200" />
-            </div>
+          <div className="flex flex-col gap-6 mb-8 animate-pulse">
+            <div className="h-4 w-32 rounded-full bg-slate-100" />
+            <div className="h-10 w-2/3 rounded-xl bg-slate-100" />
+            <div className="h-5 w-1/2 rounded-lg bg-slate-50" />
           </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="h-80 rounded-3xl bg-slate-200" />
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="h-[400px] rounded-[2rem] bg-slate-100" />
             <div className="grid gap-4 sm:grid-cols-2">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-32 rounded-2xl bg-slate-100" />
+                <div key={i} className="h-32 rounded-2xl bg-slate-50 border border-slate-100" />
               ))}
             </div>
           </div>
@@ -89,118 +87,125 @@ export default function FeaturedParks() {
   const otherFeatured = featuredParks.slice(1, 4);
 
   return (
-    <section className="py-20 bg-white" aria-labelledby="premium-featured-heading">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between mb-16">
+    <section className="featured-parks-premium-new py-16 bg-white overflow-hidden" aria-labelledby="premium-featured-heading">
+      <div className="container mx-auto px-4 relative">
+        {/* Abstract Background Elements */}
+        <div className="absolute -top-16 -right-16 w-64 h-64 bg-purple-50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-blue-50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between mb-12">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-purple-600">Premium partner network</p>
-            <h2 id="premium-featured-heading" className="mt-3 text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
-              The term &quot;Indoor Dog Park&quot; can refer to two different types of businesses:
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-[2px] bg-purple-600 rounded-full" />
+              <p className="text-[12px] font-black uppercase tracking-[0.3em] text-purple-600">Premium Partner Network</p>
+            </div>
+            <h2 id="premium-featured-heading" className="text-2xl md:text-3xl lg:text-4xl font-[900] text-slate-900 leading-[1.2] tracking-tight">
+              Elevating the <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 italic font-serif px-1">Indoor Dog Park</span> Industry.
             </h2>
-            <p className="mt-4 text-base md:text-lg lg:text-xl text-slate-600 leading-relaxed">
-              These partners invest $9.99/mo for concierge visibility across the directory. They appear on every
-              relevant page, get upgraded photo treatments, and receive quarterly performance updates.
+            <p className="mt-4 text-base md:text-lg text-slate-500 max-w-2xl leading-relaxed font-medium">
+              Join an elite network of climate-controlled facilities with concierge visibility and quarterly performance insights.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 self-start lg:self-end">
             <Link
               href="/list-your-park"
-              className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-6 py-3 text-sm font-bold text-white shadow-xl shadow-purple-200 transition hover:bg-purple-700 hover:-translate-y-1"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-purple-600 px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-purple-200 transition-all hover:bg-purple-700 hover:-translate-y-1 active:scale-95"
             >
-              <i className="bi bi-lightning-charge-fill" /> List your park for $9.99/mo
+              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <i className="bi bi-lightning-charge-fill" /> List park $9.99/mo
             </Link>
             <Link
               href="/list-your-park"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-bold text-slate-600 transition hover:border-slate-300 hover:bg-slate-50"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-100 bg-white px-6 py-3.5 text-sm font-bold text-slate-700 transition-all hover:border-purple-100 hover:bg-purple-50 hover:text-purple-700 active:scale-95"
             >
-              See how placements work <i className="bi bi-arrow-up-right" />
+              Visibility <i className="bi bi-arrow-up-right" />
             </Link>
           </div>
         </div>
 
         {spotlightPark && (
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-            <article className="relative overflow-hidden rounded-[2rem] bg-slate-900 text-white shadow-2xl border border-slate-800 group">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-stretch">
+            {/* Spotlight Hero Card */}
+            <article className="spotlight-card relative overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] border border-white/10 group h-full min-h-[420px] flex flex-col">
               {spotlightPark.photos && spotlightPark.photos.length > 0 ? (
-                <Image
-                  src={spotlightPark.photos[0].url}
-                  alt={`${spotlightPark.name} - ${spotlightPark.businessType} in ${spotlightPark.city}, ${spotlightPark.state} | Featured Premium Listing`}
-                  fill
-                  className="object-cover opacity-50 transition duration-700 group-hover:scale-105 group-hover:opacity-60"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  unoptimized={true}
-                  priority
-                />
+                <>
+                  <Image
+                    src={spotlightPark.photos[0].url}
+                    alt={`${spotlightPark.name} spotlight`}
+                    fill
+                    className="object-cover opacity-60 transition duration-1000 group-hover:scale-105 group-hover:opacity-40"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    unoptimized={true}
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
+                </>
               ) : (
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-900 to-slate-800 opacity-70" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-slate-950 to-indigo-950" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
-              <div className="relative z-10 flex h-full flex-col gap-6 p-8 md:p-12">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md">
-                    <i className="bi bi-lightning-charge-fill text-amber-400" /> Spotlight
-                  </span>
-                  <span className="text-slate-300 text-sm font-medium">Verified Partner</span>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">{spotlightPark.name}</h3>
-                  <div className="flex items-center gap-2 mt-4 text-slate-300 font-semibold text-lg">
-                    <i className="bi bi-geo-alt-fill text-purple-400" />
-                    <span>{spotlightPark.city}, {spotlightPark.state}</span>
+              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-end flex-1">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-950 shadow-lg">
+                    <i className="bi bi-stars" /> Spotlight
                   </div>
+                  <span className="text-white/60 text-[10px] font-bold uppercase tracking-widest border-l border-white/20 pl-3">Premium Partner</span>
                 </div>
 
-                <p className="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed">
-                  {truncateCopy(spotlightPark.description, 260)}
-                </p>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight mb-2">{spotlightPark.name}</h3>
+                    <div className="flex items-center gap-2 text-white/80 font-bold text-base">
+                      <i className="bi bi-geo-alt-fill text-purple-400" />
+                      <span>{spotlightPark.city}, {spotlightPark.state}</span>
+                    </div>
+                  </div>
 
-                <div className="flex flex-wrap gap-3 text-sm text-slate-100">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1">
-                    <i className="bi bi-door-open" /> {spotlightPark.businessType}
-                  </span>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1">
-                    <i className="bi bi-calendar-check" /> Priority bookings
-                  </span>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1">
-                    <i className="bi bi-graph-up-arrow" /> Featured analytics
-                  </span>
-                </div>
+                  <p className="text-base text-white/70 max-w-xl leading-relaxed font-medium">
+                    {truncateCopy(spotlightPark.description, 200)}
+                  </p>
 
-                <div className="flex flex-wrap gap-4 mt-6">
-                  {spotlightPark.slug && (
-                    <Link
-                      href={`/parks/${spotlightPark.slug}`}
-                      className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-100 shadow-lg"
-                    >
-                      View park profile
-                      <i className="bi bi-arrow-right" />
-                    </Link>
-                  )}
-                  {spotlightPark.website && (
-                    <a
-                      href={spotlightPark.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-sm font-bold text-white hover:border-white transition"
-                    >
-                      Visit website
-                      <i className="bi bi-box-arrow-up-right" />
-                    </a>
-                  )}
+                  <div className="flex flex-wrap gap-3 pt-3">
+                    {spotlightPark.slug && (
+                      <Link
+                        href={`/parks/${spotlightPark.slug}`}
+                        className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-black text-slate-950 transition-all hover:bg-slate-100 active:scale-95 shadow-lg"
+                      >
+                        Profile <i className="bi bi-arrow-right" />
+                      </Link>
+                    )}
+                    {spotlightPark.website && (
+                      <a
+                        href={spotlightPark.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/20 active:scale-95"
+                      >
+                        Website <i className="bi bi-box-arrow-up-right" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </article>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              {valueProps.map((prop) => (
-                <div key={prop.title} className="group rounded-3xl border border-slate-100 bg-white p-6 transition hover:border-purple-200 hover:shadow-xl shadow-sm">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-50 text-purple-600 transition group-hover:bg-purple-600 group-hover:text-white">
-                    <i className={`bi ${prop.icon} text-lg`} />
+            {/* Premium Feature Grid */}
+            <div className="grid gap-4 flex-1">
+              {valueProps.map((prop, idx) => (
+                <div
+                  key={prop.title}
+                  className={`glass-feature-card group relative p-5 rounded-[1.5rem] bg-white border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-purple-100 overflow-hidden ${idx % 2 === 0 ? 'bg-gradient-to-br from-white to-slate-50' : 'bg-white'}`}
+                >
+                  <div className="relative z-10 flex gap-4 items-start">
+                    <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white group-hover:rotate-3">
+                      <i className={`bi ${prop.icon} text-xl`} />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-black text-slate-900 leading-tight group-hover:text-purple-700 transition-colors">{prop.title}</h4>
+                      <p className="text-sm text-slate-500 font-medium leading-relaxed mt-1">{prop.copy}</p>
+                    </div>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900">{prop.title}</h4>
-                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">{prop.copy}</p>
                 </div>
               ))}
             </div>
@@ -208,68 +213,63 @@ export default function FeaturedParks() {
         )}
 
         {otherFeatured.length > 0 && (
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {otherFeatured.map((park) => (
-              <div
-                key={park.id}
-                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-sm transition-all hover:shadow-2xl hover:border-purple-200 hover:-translate-y-2"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  {park.photos && park.photos.length > 0 ? (
-                    <Image
-                      src={park.photos[0].url}
-                      alt={`${park.name} - ${park.businessType} in ${park.city}, ${park.state} | Featured Indoor Dog Park`}
-                      fill
-                      className="object-cover transition duration-500 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      unoptimized={true}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-blue-200" />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute left-6 top-6">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-white shadow-lg">
-                      <i className="bi bi-star-fill" /> Premium
-                    </span>
-                  </div>
-                </div>
+          <div className="mt-16">
+            <div className="flex items-center justify-between gap-4 mb-8">
+              <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Expansion Partners</h3>
+              <Link href="/list-your-park" className="text-sm text-purple-600 font-bold hover:text-purple-700 transition-colors flex items-center gap-1">
+                View all <i className="bi bi-chevron-right" />
+              </Link>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {otherFeatured.map((park) => (
+                <div
+                  key={park.id}
+                  className="group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white border border-slate-100 transition-all duration-300 hover:shadow-xl hover:border-purple-100 hover:-translate-y-1"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    {park.photos && park.photos.length > 0 ? (
+                      <Image
+                        src={park.photos[0].url}
+                        alt={park.name}
+                        fill
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        unoptimized={true}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-indigo-50" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                <div className="flex flex-col flex-1 p-8">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-lg md:text-xl lg:text-2xl font-black text-slate-900 mb-2 leading-tight group-hover:text-purple-600 transition-colors">
+                    <div className="absolute left-5 bottom-5 text-white">
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-purple-300 mb-1">{park.businessType}</p>
+                      <h4 className="text-lg font-black leading-tight tracking-tight">
                         {park.name}
-                      </h3>
-                      <p className="text-sm font-bold text-purple-500 uppercase tracking-widest">
-                        {park.businessType}
-                      </p>
+                      </h4>
                     </div>
-                    <FavoriteButton
-                      parkId={park.id}
-                      parkSlug={park.slug}
-                      className="favorite-btn-minimal"
-                    />
                   </div>
-                  <p className="text-slate-600 leading-relaxed mb-6 italic">
-                    &quot;{truncateCopy(park.description, 140)}&quot;
-                  </p>
-                </div>
 
-                <div className="space-y-4 pt-6 border-t border-slate-100">
-                  <div className="flex items-center justify-between text-sm font-bold">
-                    <span className="text-slate-400">LOCATION</span>
-                    <span className="text-slate-900">{park.city}, {park.state}</span>
+                  <div className="flex flex-col flex-1 p-6 space-y-4">
+                    <p className="text-slate-500 font-medium leading-relaxed italic text-sm">
+                      &quot;{truncateCopy(park.description, 100)}&quot;
+                    </p>
+
+                    <div className="pt-4 border-t border-slate-50 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <i className="bi bi-geo-alt-fill text-purple-500 text-xs" />
+                        <span className="text-xs font-bold text-slate-800">{park.city}, {park.state}</span>
+                      </div>
+                      <Link
+                        href={`/parks/${park.slug || park.id}`}
+                        className="flex items-center gap-1 text-xs font-black text-slate-900 transition-colors hover:text-purple-600"
+                      >
+                        Details <i className="bi bi-arrow-right" />
+                      </Link>
+                    </div>
                   </div>
-                  <Link
-                    href={`/parks/${park.slug || park.id}`}
-                    className="flex items-center justify-center w-full gap-2 rounded-xl bg-slate-900 px-6 py-4 text-sm font-bold text-white transition hover:bg-purple-600"
-                  >
-                    View Details
-                  </Link>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </div>

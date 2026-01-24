@@ -93,13 +93,7 @@ function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
         </div>
 
         <p className="park-premium-description">
-          {park.description ? (
-            park.description.length > 80
-              ? `${park.description.substring(0, 80)}...`
-              : park.description
-          ) : (
-            `${park.name} is a top-rated ${park.businessType || 'dog facility'} in ${park.city}.`
-          )}
+          {park.description || `${park.name} is a top-rated ${park.businessType || 'dog facility'} in ${park.city}.`}
         </p>
       </div>
     </Link>

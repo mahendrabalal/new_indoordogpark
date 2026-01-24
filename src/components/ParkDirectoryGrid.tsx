@@ -10,17 +10,14 @@ interface ParkDirectoryGridProps {
 
 export default function ParkDirectoryGrid({ parks }: ParkDirectoryGridProps) {
   const [showAll, setShowAll] = useState(false);
-  const [initialCount, setInitialCount] = useState(10); // Default to 10 (2 rows × 5 columns)
+  const [initialCount, setInitialCount] = useState(8); // Default to 8 (2 rows × 4 columns)
 
   useEffect(() => {
     // Calculate initial count based on viewport width
     const updateInitialCount = () => {
       const width = window.innerWidth;
-      if (width >= 1280) {
-        // Desktop Large: 5 columns per row, 2 rows = 10 parks
-        setInitialCount(10);
-      } else if (width >= 1024) {
-        // Desktop/Tablet Large: 4 columns per row, 2 rows = 8 parks
+      if (width >= 1024) {
+        // Desktop: 4 columns per row, 2 rows = 8 parks
         setInitialCount(8);
       } else if (width >= 640) {
         // Tablet: 2 columns per row, 2 rows = 4 parks

@@ -19,7 +19,7 @@ interface NearbyCitiesGridProps {
 
 export default function NearbyCitiesGrid({ cities }: NearbyCitiesGridProps) {
   const [showAll, setShowAll] = useState(false);
-  
+
   // Show only first 3 cities initially (1 row)
   const initialCount = 3;
   const displayCities = showAll ? cities : cities.slice(0, initialCount);
@@ -33,8 +33,8 @@ export default function NearbyCitiesGrid({ cities }: NearbyCitiesGridProps) {
           <Link key={nearby.slug} href={`/cities/${nearby.slug}`} className="nearby-city-card" style={{ display: 'block', textDecoration: 'none', borderRadius: '12px', overflow: 'hidden', background: 'white', border: '1px solid #e2e8f0', transition: 'transform 0.2s' }}>
             <div className="nearby-city-image" style={{ position: 'relative', height: '180px', backgroundColor: '#f1f5f9' }}>
               {nearby.featuredImage ? (
-                <Image 
-                  src={nearby.featuredImage} 
+                <Image
+                  src={nearby.featuredImage}
                   alt={`Dog parks in ${nearby.name}, ${nearby.state}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
@@ -42,8 +42,16 @@ export default function NearbyCitiesGrid({ cities }: NearbyCitiesGridProps) {
                   unoptimized={nearby.featuredImage.startsWith('/images/')}
                 />
               ) : (
-                <div className="city-card-placeholder" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
-                  <i className="bi bi-image" style={{ fontSize: '2rem' }} />
+                <div className="city-card-placeholder" style={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
+                  color: '#cbd5e1'
+                }}>
+                  <i className="bi bi-geo-alt-fill" style={{ fontSize: '3rem', opacity: 0.8 }} />
                 </div>
               )}
             </div>
@@ -54,7 +62,7 @@ export default function NearbyCitiesGrid({ cities }: NearbyCitiesGridProps) {
           </Link>
         ))}
       </div>
-      
+
       {hasMore && !showAll && (
         <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
           <button

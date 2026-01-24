@@ -2,15 +2,18 @@
 
 import { DogPark } from '@/types/dog-park';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface ParkTypeGuideProps {
   parksByType: Record<string, DogPark[]>;
-  cityName: string;
 }
 
-export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuideProps) {
+export default function ParkTypeGuide({ parksByType }: ParkTypeGuideProps) {
+  const [expandedType, setExpandedType] = useState<string | null>(null);
+
   const parkTypeDescriptions = {
     "Dog Park": {
+      shortDescription: "Traditional outdoor off‑leash areas and fenced runs, optimized for everyday exercise.",
       description: "Traditional outdoor off-leash areas where dogs can run freely and socialize with other dogs.",
       features: ["Fenced enclosures", "Open grass areas", "Agility equipment", "Water stations", "Waste disposal"],
       bestFor: ["High-energy dogs", "Social dogs", "Owners looking for free exercise options"],
@@ -24,6 +27,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
       ]
     },
     "Indoor Dog Park": {
+      shortDescription: "Climate-controlled facilities perfect for year-round play regardless of weather.",
       description: "Climate-controlled indoor facilities perfect for year-round exercise regardless of weather conditions.",
       features: ["Climate control", "Specialized flooring", "Agility courses", "Training areas", "Air filtration"],
       bestFor: ["Small dogs", "Dogs with weather sensitivities", "Training and socialization", "Extreme weather days"],
@@ -37,6 +41,7 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
       ]
     },
     "Dog-Friendly Establishment": {
+      shortDescription: "Restaurants, pet stores, and beaches that welcome your four-legged companion.",
       description: "Businesses that welcome dogs, such as restaurants with patios, pet stores, and dog-friendly beaches.",
       features: ["Outdoor seating", "Water bowls", "Dog treats", "Pet products", "Social atmosphere"],
       bestFor: ["Casual outings", "Dining with pets", "Shopping trips", "Social experiences"],
@@ -51,54 +56,68 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
     }
   };
 
+  const toggleExpand = (type: string) => {
+    setExpandedType(expandedType === type ? null : type);
+  };
+
   return (
     <section id="park-types-guide" className="park-types-guide-section">
-      <div className="section-header">
-        <span className="section-eyebrow">Educational Guide</span>
-        <h2>Understanding Dog Park Types in {cityName}</h2>
-        <p className="section-description">
-          Learn about the different types of dog-friendly spaces available in {cityName} and find the perfect match for your dog&rsquo;s needs and personality.
-        </p>
-      </div>
 
-      <div className="park-types-grid">
+
+      <div className="collection-cards-grid">
         {Object.entries(parksByType).map(([type, parks]) => {
           const typeInfo = parkTypeDescriptions[type as keyof typeof parkTypeDescriptions];
           if (!typeInfo || parks.length === 0) return null;
 
+          const avgRating = parks.length
+            ? (parks.reduce((sum, park) => sum + (park.rating || 0), 0) / parks.length).toFixed(1)
+            : '—';
+          const isExpanded = expandedType === type;
+
           return (
-            <article key={type} className="park-type-card">
-              <div className="park-type-header">
-                <div className="park-type-icon">
-                  {type === "Dog Park" && <i className="bi bi-tree-fill"></i>}
-                  {type === "Indoor Dog Park" && <i className="bi bi-house-fill"></i>}
-                  {type === "Dog-Friendly Establishment" && <i className="bi bi-shop-fill"></i>}
+            <article key={type} className={`collection-guide-card ${isExpanded ? 'expanded' : ''}`}>
+              {/* Collection Header */}
+              <div className="card-header">
+                <div className="card-header-top">
+                  <span className="spots-pill">{parks.length} spots</span>
+                  <div className="card-rating">
+                    <i className="bi bi-star-fill"></i>
+                    <span>{avgRating} avg</span>
+                  </div>
                 </div>
-                <div>
-                  <h3>{type}</h3>
-                  <span className="park-count">{parks.length} locations in {cityName}</span>
+                <div className="card-type-info">
+                  <div className="type-icon">
+                    {type === "Dog Park" && <i className="bi bi-tree-fill"></i>}
+                    {type === "Indoor Dog Park" && <i className="bi bi-house-fill"></i>}
+                    {type === "Dog-Friendly Establishment" && <i className="bi bi-shop-fill"></i>}
+                  </div>
+                  <div>
+                    <h3>{type}</h3>
+                    <p className="short-description">{typeInfo.shortDescription}</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="park-type-content">
-                <div className="park-type-description">
+              {/* Expandable Guide Content */}
+              <div className={`guide-content ${isExpanded ? 'show' : ''}`}>
+                <div className="guide-section">
                   <h4>What is it?</h4>
                   <p>{typeInfo.description}</p>
                 </div>
 
-                <div className="park-type-features">
+                <div className="guide-section">
                   <h4>Key Features</h4>
-                  <div className="features-list">
+                  <div className="features-chips">
                     {typeInfo.features.map((feature, index) => (
-                      <div key={index} className="feature-item">
+                      <span key={index} className="feature-chip">
                         <i className="bi bi-check-circle-fill"></i>
-                        <span>{feature}</span>
-                      </div>
+                        {feature}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="park-type-best-for">
+                <div className="guide-section">
                   <h4>Best For</h4>
                   <div className="best-for-list">
                     {typeInfo.bestFor.map((item, index) => (
@@ -107,82 +126,60 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
                   </div>
                 </div>
 
-                <div className="park-type-checklist">
+                <div className="guide-section">
                   <h4>What to Bring</h4>
-                  <div className="checklist">
+                  <div className="bring-list">
                     {typeInfo.whatToBring.map((item, index) => (
-                      <div key={index} className="checklist-item">
-                        <input type="checkbox" id={`bring-${type}-${index}`} readOnly />
-                        <label htmlFor={`bring-${type}-${index}`}>{item}</label>
+                      <div key={index} className="bring-item">
+                        <i className="bi bi-bag-check"></i>
+                        <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="park-type-tips">
+                <div className="guide-section">
                   <h4>Pro Tips</h4>
-                  <ul>
+                  <ul className="tips-list">
                     {typeInfo.tips.map((tip, index) => (
                       <li key={index}>{tip}</li>
                     ))}
                   </ul>
                 </div>
+              </div>
 
-                <div className="park-type-cta">
-                  <Link href={`#${type.toLowerCase().replace(/\s+/g, '-')}-parks`} className="cta-button">
-                    <i className="bi bi-geo-alt"></i>
-                    Explore {type}s in {cityName}
-                  </Link>
-                </div>
+              {/* Card Footer */}
+              <div className="card-footer">
+                <button
+                  className="expand-toggle"
+                  onClick={() => toggleExpand(type)}
+                  aria-expanded={isExpanded}
+                >
+                  {isExpanded ? (
+                    <>
+                      <span>Hide guide</span>
+                      <i className="bi bi-chevron-up"></i>
+                    </>
+                  ) : (
+                    <>
+                      <span>View guide</span>
+                      <i className="bi bi-chevron-down"></i>
+                    </>
+                  )}
+                </button>
+                <Link href={`#${type.toLowerCase().replace(/\s+/g, '-')}-parks`} className="jump-link">
+                  Jump to list
+                  <i className="bi bi-arrow-right"></i>
+                </Link>
               </div>
             </article>
           );
         })}
       </div>
 
-      <div className="park-type-comparison">
-        <h3>Quick Comparison</h3>
-        <div className="comparison-table">
-          <div className="comparison-header">
-            <div>Feature</div>
-            <div>Dog Park</div>
-            <div>Indoor Dog Park</div>
-            <div>Dog-Friendly Establishment</div>
-          </div>
-
-          <div className="comparison-row">
-            <div>Weather Protection</div>
-            <div><i className="bi bi-x-circle text-red-500"></i> Limited</div>
-            <div><i className="bi bi-check-circle-fill text-green-500"></i> Full</div>
-            <div><i className="bi bi-check-circle-fill text-green-500"></i> Varies</div>
-          </div>
-
-          <div className="comparison-row">
-            <div>Cost</div>
-            <div><i className="bi bi-currency-dollar text-green-500"></i> Free</div>
-            <div><i className="bi bi-currency-dollar text-yellow-500"></i> Paid</div>
-            <div><i className="bi bi-currency-dollar text-yellow-500"></i> Varies</div>
-          </div>
-
-          <div className="comparison-row">
-            <div>Socialization</div>
-            <div><i className="bi bi-star-fill text-yellow-500"></i> High</div>
-            <div><i className="bi bi-star-fill text-yellow-500"></i> High</div>
-            <div><i className="bi bi-star text-gray-400"></i> Limited</div>
-          </div>
-
-          <div className="comparison-row">
-            <div>Training Environment</div>
-            <div><i className="bi bi-star text-gray-400"></i> Basic</div>
-            <div><i className="bi bi-star-fill text-yellow-500"></i> Excellent</div>
-            <div><i className="bi bi-x-circle text-red-500"></i> Not suitable</div>
-          </div>
-        </div>
-      </div>
-
       <style jsx>{`
         .park-types-guide-section {
-          padding: 80px 20px;
+          padding: 0;
           background: transparent;
         }
 
@@ -220,94 +217,181 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
           margin: 0;
         }
 
-        .park-types-grid {
+        .collection-cards-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-          gap: 30px;
-          max-width: 1200px;
-          margin: 0 auto;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 24px;
+          margin-top: 0;
         }
 
-        .park-type-card {
-          background: white;
+        .collection-guide-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
           border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          display: flex;
+          flex-direction: column;
         }
 
-        .park-type-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        .collection-guide-card:hover {
+          border-color: #cbd5e1;
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+          transform: translateY(-2px);
         }
 
-        .park-type-header {
+        .collection-guide-card.expanded {
+          grid-row: span 2;
+          border-color: #6366f1;
+          box-shadow: 0 20px 40px -12px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Card Header */
+        .card-header {
+          padding: 24px;
+          background: #ffffff;
+          position: relative;
+          z-index: 2;
+        }
+
+        .card-header-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+
+        .spots-pill {
+          background: #f1f5f9;
+          color: #475569;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 6px 12px;
+          border-radius: 999px;
+          letter-spacing: 0.02em;
+        }
+
+        .card-rating {
           display: flex;
           align-items: center;
-          gap: 16px;
-          margin-bottom: 24px;
-          padding-bottom: 20px;
-          border-bottom: 2px solid #f3f4f6;
+          gap: 6px;
+          font-weight: 600;
+          color: #0f172a;
+          font-size: 14px;
         }
 
-        .park-type-icon {
-          width: 60px;
-          height: 60px;
+        .card-rating i {
+          color: #fbbf24;
+        }
+
+        .card-type-info {
+          display: flex;
+          gap: 16px;
+        }
+
+        .type-icon {
+          width: 56px;
+          height: 56px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #FF5722, #E64A19);
+          background: #eff6ff;
+          color: #3b82f6;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
           font-size: 24px;
+          flex-shrink: 0;
         }
 
-        .park-type-header h3 {
-          font-size: 24px;
+        .collection-guide-card:nth-child(2) .type-icon {
+          background: #fdf2f8;
+          color: #ec4899;
+        }
+
+        .collection-guide-card:nth-child(3) .type-icon {
+          background: #f0fdf4;
+          color: #22c55e;
+        }
+
+        .card-type-info h3 {
+          margin: 0 0 6px;
+          font-size: 20px;
           font-weight: 700;
-          color: #1f2937;
-          margin: 0 0 4px;
+          color: #0f172a;
+          line-height: 1.3;
         }
 
-        .park-count {
+        .short-description {
+          margin: 0;
           font-size: 14px;
-          color: #FF5722;
-          font-weight: 500;
+          color: #64748b;
+          line-height: 1.5;
         }
 
-        .park-type-content h4 {
-          font-size: 16px;
-          font-weight: 600;
-          color: #374151;
-          margin: 20px 0 12px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
+        /* Expanded Content */
+        .guide-content {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          background: #f8fafc;
+          border-top: 1px solid #e2e8f0;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .park-type-description p {
-          color: #6b7280;
+        .guide-content.show {
+          max-height: 800px; /* Large enough to fit content */
+          opacity: 1;
+          padding: 24px;
+        }
+
+        .guide-section {
+          margin-bottom: 24px;
+        }
+
+        .guide-section:last-child {
+          margin-bottom: 0;
+        }
+
+        .guide-section h4 {
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #94a3b8;
+          font-weight: 700;
+          margin: 0 0 12px;
+        }
+
+        .guide-section p {
+          font-size: 15px;
+          color: #334155;
           line-height: 1.6;
           margin: 0;
         }
 
-        .features-list {
-          display: grid;
-          gap: 8px;
-        }
-
-        .feature-item {
+        /* Feature Chips */
+        .features-chips {
           display: flex;
-          align-items: center;
+          flex-wrap: wrap;
           gap: 8px;
-          color: #4b5563;
         }
 
-        .feature-item i {
+        .feature-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          font-size: 13px;
+          color: #475569;
+          font-weight: 500;
+        }
+
+        .feature-chip i {
           color: #10b981;
-          font-size: 14px;
         }
 
+        /* Best For Tags */
         .best-for-list {
           display: flex;
           flex-wrap: wrap;
@@ -315,169 +399,117 @@ export default function ParkTypeGuide({ parksByType, cityName }: ParkTypeGuidePr
         }
 
         .best-for-tag {
-          padding: 6px 12px;
-          background: #ede9fe;
-          color: #FF5722;
-          border-radius: 16px;
-          font-size: 12px;
-          font-weight: 500;
+          padding: 4px 10px;
+          background: #e0e7ff;
+          color: #4338ca;
+          font-size: 13px;
+          font-weight: 600;
+          border-radius: 6px;
         }
 
-        .checklist {
+        /* What to Bring */
+        .bring-list {
           display: grid;
-          gap: 8px;
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 12px;
         }
 
-        .checklist-item {
+        .bring-item {
           display: flex;
           align-items: center;
           gap: 8px;
+          font-size: 14px;
+          color: #475569;
         }
 
-        .checklist-item input[type="checkbox"] {
-          width: 16px;
-          height: 16px;
-          accent-color: #FF5722;
+        .bring-item i {
+          color: #6366f1;
         }
 
-        .checklist-item label {
-          color: #4b5563;
-          cursor: pointer;
-          user-select: none;
-        }
-
-        .park-type-tips ul {
+        /* Tips List */
+        .tips-list {
           list-style: none;
           padding: 0;
           margin: 0;
           display: grid;
-          gap: 8px;
+          gap: 10px;
         }
 
-        .park-type-tips li {
-          display: flex;
-          align-items: flex-start;
-          gap: 8px;
-          color: #4b5563;
+        .tips-list li {
+          position: relative;
+          padding-left: 16px;
+          font-size: 14px;
+          color: #475569;
           line-height: 1.5;
         }
 
-        .park-type-tips li::before {
-          content: "💡";
-          flex-shrink: 0;
+        .tips-list li::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          color: #cbd5e1;
+          font-weight: bold;
         }
 
-        .park-type-cta {
-          margin-top: 24px;
-          padding-top: 20px;
-          border-top: 2px solid #f3f4f6;
-        }
-
-        .cta-button {
-          display: inline-flex;
+        /* Card Footer */
+        .card-footer {
+          padding: 16px 24px;
+          border-top: 1px solid #f1f5f9;
+          background: #ffffff;
+          display: flex;
+          justify-content: space-between;
           align-items: center;
-          gap: 8px;
-          padding: 12px 24px;
-          background: linear-gradient(135deg, #FF5722, #E64A19);
-          color: white;
-          text-decoration: none;
-          border-radius: 8px;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          margin-top: auto;
         }
 
-        .cta-button:hover {
-          background: linear-gradient(135deg, #E64A19, #D84315);
-          transform: translateY(-1px);
-        }
-
-        .park-type-comparison {
-          max-width: 900px;
-          margin: 60px auto 0;
-          background: white;
-          border-radius: 16px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .park-type-comparison h3 {
-          font-size: 24px;
-          font-weight: 700;
-          color: #1f2937;
-          margin: 0 0 24px;
-          text-align: center;
-        }
-
-        .comparison-table {
-          border: 1px solid #e5e7eb;
-          border-radius: 12px;
-          overflow: hidden;
-        }
-
-        .comparison-header {
-          display: grid;
-          grid-template-columns: 200px repeat(3, 1fr);
-          background: #f9fafb;
-          font-weight: 600;
-          color: #374151;
-        }
-
-        .comparison-header > div {
-          padding: 16px;
-          border-right: 1px solid #e5e7eb;
-          text-align: center;
-        }
-
-        .comparison-header > div:last-child {
-          border-right: none;
-        }
-
-        .comparison-row {
-          display: grid;
-          grid-template-columns: 200px repeat(3, 1fr);
-          border-top: 1px solid #e5e7eb;
-        }
-
-        .comparison-row > div {
-          padding: 16px;
-          border-right: 1px solid #e5e7eb;
+        .expand-toggle {
+          background: none;
+          border: none;
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 8px;
-          color: #4b5563;
+          gap: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #64748b;
+          cursor: pointer;
+          padding: 8px 12px;
+          border-radius: 8px;
+          transition: all 0.2s;
         }
 
-        .comparison-row > div:first-child {
-          justify-content: flex-start;
-          font-weight: 500;
+        .expand-toggle:hover {
+          background: #f1f5f9;
+          color: #0f172a;
         }
 
-        .comparison-row > div:last-child {
-          border-right: none;
+        .jump-link {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #3b82f6;
+          text-decoration: none;
+          padding: 8px 12px;
+          border-radius: 8px;
+          transition: all 0.2s;
+        }
+
+        .jump-link:hover {
+          background: #eff6ff;
         }
 
         @media (max-width: 768px) {
-          .park-types-grid {
+          .collection-cards-grid {
             grid-template-columns: 1fr;
-            gap: 20px;
           }
-
-          .park-type-card {
+          
+          .card-header {
             padding: 20px;
           }
 
-          .comparison-table {
-            font-size: 14px;
-          }
-
-          .comparison-header,
-          .comparison-row {
-            grid-template-columns: 150px repeat(3, 1fr);
-          }
-
-          .section-header h2 {
-            font-size: 32px;
+          .guide-content.show {
+            max-height: 1200px;
           }
         }
       `}</style>

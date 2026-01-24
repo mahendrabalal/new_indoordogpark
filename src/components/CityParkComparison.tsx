@@ -37,7 +37,7 @@ const CityParkComparison: React.FC<CityParkComparisonProps> = ({ parks, cityName
     };
 
     return (
-        <div className="city-comparison-container" style={{ marginTop: 60, marginBottom: 60 }}>
+        <div className="city-comparison-container" style={{ marginTop: 24, marginBottom: 24 }}>
             <div className="section-heading">
                 <span className="section-eyebrow">Direct Comparison</span>
                 <h2>Best for your next outing</h2>

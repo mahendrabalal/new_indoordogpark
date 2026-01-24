@@ -16,7 +16,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Amenities, DogPark } from '@/types/dog-park';
-import { CityInsightCard, PlanningCard, SupportCTA } from '@/types/city-content';
+import { PlanningCard, SupportCTA } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
@@ -36,26 +36,7 @@ function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);
 }
 
-function getCollectionDescription(type: string, cityName: string) {
-  switch (type) {
-    case 'Indoor Dog Park':
-      return `Weather-proof, climate-controlled play spaces in ${cityName}—ideal for hot days, storms, or winter sessions.`;
-    case 'Dog Park':
-      return `Traditional outdoor off‑leash areas and fenced runs across ${cityName}, optimized for everyday exercise.`;
-    case 'Dog-Friendly Establishment':
-      return `Pet-welcoming hangouts in ${cityName} (cafés, patios, bars) where dogs can tag along while you relax.`;
-    case 'General Play / Daycare Parks':
-      return `Everyday play zones and daycare-style spaces in ${cityName} for safe, supervised romps and social time.`;
-    case 'Agility & Training Parks':
-      return `Structured environments in ${cityName} built for skills, confidence-building, and focused training sessions.`;
-    case 'Themed & Enrichment Parks':
-      return `Immersive, enrichment-forward parks in ${cityName} with sensory zones, themed layouts, and novel play elements.`;
-    case 'Specialty / Social Parks':
-      return `Boutique, community-forward hangouts in ${cityName}—perfect for meetups, events, and special-occasion play dates.`;
-    default:
-      return `Community-loved spaces designed for safe play and connection throughout ${cityName}.`;
-  }
-}
+
 
 const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
 
@@ -256,7 +237,7 @@ export default async function CityPage({ params }: CityPageProps) {
     .slice(0, 3);
 
   const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
-  const indoorShare = stats.totalParks > 0 ? Math.round((indoorCount / stats.totalParks) * 100) : 0;
+
   const showThinContentPrompt = stats.totalParks < 2;
   const topAmenities = getTopAmenities(cityParks, 6);
   const topRatedPark =
@@ -487,33 +468,7 @@ export default async function CityPage({ params }: CityPageProps) {
     { name: city.name },
   ]);
 
-  const defaultInsightCards: CityInsightCard[] = [
-    {
-      tag: 'Community rating',
-      title: city.avgRating.toFixed(1),
-      copy: `Average rating across every verified listing in ${city.name}. Reflects cleanliness, amenities, and community feedback.`,
-      accent: true,
-    },
-    {
-      tag: 'Verified reviews',
-      title: formatNumber(stats.totalReviews),
-      copy: 'Community reviews informing our quality score. Tap any park card below to see highlights.',
-    },
-    {
-      tag: 'Park availability',
-      title: formatNumber(stats.totalParks),
-      copy: `Total verified listings currently live for ${city.name}. Fresh listings added weekly.`,
-    },
-    {
-      tag: 'Indoor options',
-      title: indoorCount ? `${indoorShare}%` : '—',
-      copy: indoorCount
-        ? `${indoorCount} indoor parks with climate control for weather-proof play sessions.`
-        : 'Indoor options are being scouted—submit a favorite and we will feature it.',
-    },
-  ];
 
-  const insightCards = customContent?.insightCards || defaultInsightCards;
 
   const defaultPlanningCards: PlanningCard[] = [
     {
@@ -719,48 +674,14 @@ export default async function CityPage({ params }: CityPageProps) {
 
         <section id="city-insights" className="city-insights-section">
           <div className="section-shell">
-            <div className="section-heading">
-              <span className="section-eyebrow">Local Quick Facts</span>
-              <h2>How {city.name} stacks up for dog families</h2>
-              <p>
-                {customContent?.insightIntro ||
-                  'Verified ratings, review volume, and park availability updated directly from our community directory.'}
-              </p>
-            </div>
-
-            <div className="insights-grid">
-              {insightCards.map((card) => (
-                <article key={card.title} className={`insight-card ${card.accent ? 'accent' : ''}`}>
-                  <span className="insight-tag">{card.tag}</span>
-                  <h3>{card.title}</h3>
-                  <p>{card.copy}</p>
-                </article>
-              ))}
-            </div>
-
-            {topAmenities.length > 0 && (
-              <div style={{ marginTop: 40, paddingTop: 40, borderTop: '1px solid #f1f5f9' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16 }}>
-                  <div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a' }}>Most common amenities</h3>
-                    <p style={{ color: '#64748b', marginTop: 4 }}>What people are looking for and finding in {city.name}.</p>
-                  </div>
-                </div>
-                <div className="category-chip-row" style={{ marginTop: 20 }}>
-                  {topAmenities.map((amenity) => (
-                    <span key={amenity.key} className="hero-chip">
-                      <span className="chip-value">{amenity.share}%</span>
-                      <span className="chip-label">{amenity.label}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {cityParks.length > 0 && (
-              <div className="city-stats-wrapper">
-                <CityStats parks={cityParks} cityName={city.name} />
-              </div>
+              <CityStats
+                parks={cityParks}
+                cityName={city.name}
+                insightCards={customContent?.insightCards || undefined}
+                topAmenities={topAmenities}
+                insightIntro={customContent?.insightIntro}
+              />
             )}
           </div>
         </section>
@@ -779,43 +700,15 @@ export default async function CityPage({ params }: CityPageProps) {
               <p>Segmented park groupings built from live data so you can jump straight to the experiences that matter most.</p>
             </div>
 
-            <div className="collection-grid">
-              {parkCategories.length === 0 && (
-                <div className="collection-empty">
-                  <i className="bi bi-inbox" />
-                  <p>We haven&rsquo;t catalogued parks in this city yet. Check back soon!</p>
-                </div>
-              )}
-
-              {parkCategories.map(([type, parks]) => {
-                const typeSlug = `${type.toLowerCase().replace(/\s+/g, '-')}-parks`;
-                const avgRating = parks.length
-                  ? (parks.reduce((sum, park) => sum + (park.rating || 0), 0) / parks.length).toFixed(1)
-                  : '—';
-                return (
-                  <article key={type} className="collection-card">
-                    <div className="collection-card-head">
-                      <span className="collection-pill">{parks.length} spots</span>
-                      <h3>{type}</h3>
-                    </div>
-                    <p>{getCollectionDescription(type, city.name)}</p>
-                    <div className="collection-card-footer">
-                      <span>
-                        <i className="bi bi-star-fill" />{' '}
-                        {avgRating} avg rating
-                      </span>
-                      <ScrollToButton targetId={typeSlug}>
-                        Jump to list
-                        <i className="bi bi-arrow-right" />
-                      </ScrollToButton>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
+            {parkCategories.length === 0 && (
+              <div className="collection-empty" style={{ padding: '40px', textAlign: 'center', background: '#f8fafc', borderRadius: '16px', marginBottom: '40px' }}>
+                <i className="bi bi-inbox" style={{ fontSize: '2rem', color: '#94a3b8', marginBottom: '1rem', display: 'block' }} />
+                <p style={{ color: '#64748b', margin: 0 }}>We haven&rsquo;t catalogued parks in this city yet. Check back soon!</p>
+              </div>
+            )}
 
             <div className="park-type-guide-wrapper">
-              <ParkTypeGuide parksByType={parksByType} cityName={city.name} />
+              <ParkTypeGuide parksByType={parksByType} />
             </div>
 
             {customContent?.neighborhoods && customContent.neighborhoods.length > 0 && (

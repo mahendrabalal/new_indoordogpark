@@ -19,6 +19,7 @@ import FeaturedParks from '@/components/FeaturedParks';
 import RecentlyAddedParks from '@/components/RecentlyAddedParks';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 import SeoContentSection from '@/components/SeoContentSection';
+import PopularCitiesSection from '@/components/PopularCitiesSection';
 
 // Dynamically import Map component
 const Map = dynamic(() => import('@/components/Map'), {
@@ -444,6 +445,9 @@ export default function HomePageClient({
             </div>
           </section>
         )}
+
+        {/* Popular Cities Section - After Hero */}
+        {!showSearchLayout && <PopularCitiesSection />}
 
         {/* Featured Parks Section - User Submitted (only show when not searching) */}
         {/* Always render container to reserve space and prevent layout shift */}

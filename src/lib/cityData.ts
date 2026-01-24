@@ -1,5 +1,6 @@
 import { DogPark } from '@/types/dog-park';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
+import { priorityCityContent } from '@/data/priorityCityContent';
 
 export interface CityData {
   slug: string;
@@ -62,13 +63,25 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
     const totalReviews = cityParks.reduce((sum, p) => sum + p.reviewCount, 0);
 
-    // Get featured image - prefer park with photos, otherwise use park.photo
+    // Get featured image - check priority content first, then park photos
     let featuredImage: string | undefined;
-    const parkWithPhoto = cityParks.find(p => p.photos && p.photos.length > 0);
-    if (parkWithPhoto?.photos?.[0]) {
-      featuredImage = parkWithPhoto.photos[0].url;
+
+    // Check priority content for curated image
+    const priorityConfig = priorityCityContent.find(c =>
+      c.city.toLowerCase() === cityName.toLowerCase() &&
+      (!c.state || normalizeStateKey(c.state) === normalizeStateKey(cityState))
+    );
+
+    if (priorityConfig?.featuredImage) {
+      featuredImage = priorityConfig.featuredImage;
     } else {
-      featuredImage = cityParks.find(p => p.photo)?.photo;
+      // Fallback to first park with photos
+      const parkWithPhoto = cityParks.find(p => p.photos && p.photos.length > 0);
+      if (parkWithPhoto?.photos?.[0]) {
+        featuredImage = parkWithPhoto.photos[0].url;
+      } else {
+        featuredImage = cityParks.find(p => p.photo)?.photo;
+      }
     }
 
     return {

@@ -65,7 +65,6 @@ export default function CityPageStyles() {
           position: relative;
           padding: 0 0 64px;
           background: #ffffff;
-          overflow: hidden;
         }
 
         .city-hero-section.no-image {
@@ -86,8 +85,8 @@ export default function CityPageStyles() {
         .city-hero-shell {
           display: grid;
           grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-          gap: 64px;
-          align-items: start;
+          gap: 48px;
+          align-items: stretch;
         }
 
         .city-hero-section.no-image .city-hero-shell {
@@ -380,13 +379,15 @@ export default function CityPageStyles() {
 
         .city-hero-visual {
           position: sticky;
-          top: 100px;
-          align-self: start;
+          top: 80px;
+          height: fit-content;
+          max-height: calc(100vh - 100px);
         }
 
         .hero-image-card {
           position: relative;
-          min-height: 480px;
+          min-height: 500px;
+          height: 100%;
           border-radius: 32px;
           overflow: hidden;
           box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
@@ -394,6 +395,7 @@ export default function CityPageStyles() {
 
         .hero-image-card img {
           object-fit: cover;
+          height: 100%;
         }
 
         .hero-image-gradient {
@@ -492,7 +494,7 @@ export default function CityPageStyles() {
 
         .section-heading {
           max-width: 960px;
-          margin: 0 auto 32px;
+          margin: 0 auto 16px;
           text-align: left;
         }
 
@@ -745,7 +747,7 @@ export default function CityPageStyles() {
         .park-directory-section,
         .city-faq-section,
         .related-resources-section {
-          padding: 56px 0;
+          padding: 12px 0;
         }
 
         .insights-grid {
