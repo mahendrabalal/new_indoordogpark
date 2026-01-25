@@ -185,7 +185,6 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
       <div className="reviews-header">
         <div className="flex justify-between items-baseline flex-wrap gap-4">
           <h2>Reviews & Ratings</h2>
-          <span className="google-attribution-label">Powered by Google</span>
         </div>
         <div className="reviews-summary">
           <div className="average-rating">
