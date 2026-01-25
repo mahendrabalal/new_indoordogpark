@@ -17,8 +17,6 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/',
           '/payment/',
           '/checkout/',
-          '/login',
-          '/signup',
           '/studio/', // Sanity Studio
           '/webhook/', // Webhook endpoints
           '/private/',
@@ -57,8 +55,6 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/',
           '/payment/',
           '/checkout/',
-          '/login',
-          '/signup',
           '/studio/',
           '/webhook/',
           '/private/',
@@ -95,8 +91,6 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/',
           '/payment/',
           '/checkout/',
-          '/login',
-          '/signup',
           '/studio/',
           '/webhook/',
           '/private/',
