@@ -544,8 +544,8 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
       parkCount: allCityParks.length,
-      // Merge featured image from priority config if available
-      featuredImage: priorityConfig?.featuredImage || city.featuredImage,
+      // Merge featured image from priority config if available, or fall back to standard path
+      featuredImage: priorityConfig?.featuredImage || city.featuredImage || `/images/cities/${city.slug}/hero.webp`,
     };
 
     const nearbyCities = getNearbyCities(allParks, city.name, city.state);
@@ -576,7 +576,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       parkCount: allCityParks.length,
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
-      featuredImage: priorityConfig.featuredImage,
+      featuredImage: priorityConfig.featuredImage || `/images/cities/${priorityConfig.slug}/hero.webp`,
       latitude: allCityParks.find((p) => typeof p.latitude === 'number')?.latitude,
       longitude: allCityParks.find((p) => typeof p.longitude === 'number')?.longitude,
     };
@@ -609,7 +609,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     parkCount: 0,
     avgRating: 0,
     totalReviews: 0,
-    featuredImage: undefined,
+    featuredImage: `/images/cities/${normalizedSlug}/hero.webp`,
     latitude: undefined,
     longitude: undefined,
   };

@@ -343,7 +343,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
 
                 {/* Follow Us Social Links */}
-                {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM) && (
+                {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_PINTEREST) && (
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
                     <p className="text-sm text-gray-600 mb-4">Stay updated with the latest indoor dog park news and tips!</p>
@@ -382,6 +382,18 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                         >
                           <i className="bi bi-instagram"></i>
                           <span>Instagram</span>
+                        </a>
+                      )}
+                      {process.env.NEXT_PUBLIC_SOCIAL_PINTEREST && (
+                        <a
+                          href={process.env.NEXT_PUBLIC_SOCIAL_PINTEREST}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors text-sm font-medium text-gray-700"
+                          aria-label="Follow us on Pinterest"
+                        >
+                          <i className="bi bi-pinterest"></i>
+                          <span>Pinterest</span>
                         </a>
                       )}
                     </div>

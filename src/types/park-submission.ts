@@ -29,6 +29,7 @@ export interface ParkSubmissionForm {
     twitter?: string;
     tiktok?: string;
     youtube?: string;
+    pinterest?: string;
   };
   openingHours?: Record<string, string>;
   hours24x7?: boolean;

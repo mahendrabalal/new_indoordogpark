@@ -42,9 +42,8 @@ export default function ContactHoursStep({ formData, updateFormData, errors }: C
               id="phone"
               value={formData.phone || ''}
               onChange={(e) => updateFormData({ phone: e.target.value })}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
-                errors.phone ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="(555) 123-4567"
             />
             {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
@@ -59,9 +58,8 @@ export default function ContactHoursStep({ formData, updateFormData, errors }: C
               id="email"
               value={formData.email || ''}
               onChange={(e) => updateFormData({ email: e.target.value })}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${errors.email ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="info@yourpark.com"
             />
             {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
@@ -76,9 +74,8 @@ export default function ContactHoursStep({ formData, updateFormData, errors }: C
               id="website"
               value={formData.website || ''}
               onChange={(e) => updateFormData({ website: e.target.value })}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${
-                errors.website ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent ${errors.website ? 'border-red-500' : 'border-gray-300'
+                }`}
               placeholder="https://www.yourpark.com"
             />
             {errors.website && <p className="mt-1 text-sm text-red-500">{errors.website}</p>}
@@ -114,6 +111,19 @@ export default function ContactHoursStep({ formData, updateFormData, errors }: C
                 onChange={(e) => updateSocialMedia('instagram', e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="https://instagram.com/yourpark"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Pinterest
+              </label>
+              <input
+                type="url"
+                value={formData.socialMedia?.pinterest || ''}
+                onChange={(e) => updateSocialMedia('pinterest', e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                placeholder="https://pinterest.com/yourpark"
               />
             </div>
           </div>

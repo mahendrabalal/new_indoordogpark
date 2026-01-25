@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Social Media Links */}
-        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_DIGG) && (
+        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_PINTEREST || process.env.NEXT_PUBLIC_SOCIAL_DIGG) && (
           <div className="footer-social">
             {process.env.NEXT_PUBLIC_SOCIAL_TWITTER && (
               <a
@@ -88,6 +88,17 @@ export default function Footer() {
                 title="Follow us on Instagram"
               >
                 <i className="bi bi-instagram"></i>
+              </a>
+            )}
+            {process.env.NEXT_PUBLIC_SOCIAL_PINTEREST && (
+              <a
+                href={process.env.NEXT_PUBLIC_SOCIAL_PINTEREST}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Pinterest"
+                title="Follow us on Pinterest"
+              >
+                <i className="bi bi-pinterest"></i>
               </a>
             )}
             {process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN && (

@@ -320,6 +320,31 @@ const santaAnaFaqs: FAQItem[] = [
   },
 ];
 
+const lodiFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog in Lodi, CA?',
+    answer: 'Lodi offers excellent off-leash play at Vinewood Dog Park and Beckman Dog Park (the city\'s largest). Lodi Lake Park also features a dedicated off-leash area near the Mokelumne River on its southeast side.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are Lodi wineries dog-friendly?',
+    answer: 'Yes, Lodi is famous for its dog-friendly vineyards. Oak Farm Vineyards, Intercoastal Vineyards, m2 Wines, and Harney Lane all welcome leashed pups on their beautiful patios and grounds.',
+    category: 'visits',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog at Lodi Lake?',
+    answer: 'Absolutely. While dogs must be on a leash in most areas and are restricted from the nature area, they can enjoy the dedicated off-leash zone near Turner Road and leashed walks along the Mokelumne River.',
+    category: 'facilities',
+  },
+  {
+    question: 'Which restaurants in Lodi have dog-friendly patios?',
+    answer: 'Many downtown spots welcome pups, including Lodi Beer Co., West Oak Nosh, and Pietros Trattoria. The Dancing Fox and Five Window Beer Co. also offer pet-friendly outdoor seating.',
+    category: 'dining',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -2306,6 +2331,28 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
+    slug: 'virginia-beach-va',
+    city: 'Virginia Beach',
+    state: 'VA',
+    summary: 'The "Resort City" invites dogs to miles of sandy coastline and a community valuing year-round outdoor lifestyle.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Coastal Canine Paradise',
+      heroHeading: 'Dog Parks in Virginia Beach',
+      heroDescription: 'From the boardwalk to First Landing, Virginia Beach offers endless coastlines and parks for active dogs and their owners.',
+      heroPill: 'Verified VB Directory',
+      heroFootnotes: ['15+ locations verified', 'Seasonal beach rules included'],
+      heroChips: [
+        { label: 'Verified Spots', value: '18+' },
+        { label: 'Avg Rating', value: '4.4 / 5' },
+      ],
+      longDescription: [
+        'Virginia Beach offers a dog park experience influenced by coastal geography and a culture celebrating year-round outdoor recreation. Residents enjoy municipal spaces like Bayville Farms Park and Woodstock Park, serving as flagship locations for maintained runs and shade. According to [Virginia Beach Parks](https://parks.virginiabeach.gov), the city developed these areas to complement seasonal beach access, ensuring dogs have safe play year-round. The atmosphere is laid-back, reflecting a resort city vibe where neighbors gather at sunrise. For visitors, our [planning essentials](#planning-essentials) guide provides info on seasonal beach restrictions and "paw-safe" sand trails in First Landing State Park. This lifestyle is perfect for active breeds that thrive in both urban runs and natural shorelines, making VB a top destination for pet-owning families.',
+        'As the city grows as a residential hub, we see a rise in specialized indoor and hybrid canine facilities. Neighborhoods like Town Center are becoming centers for innovative daycare and adventure-play offering climate-controlled relief from humid summers. These private facilities often specialize in behavioral enrichment, utilizing antimicrobial turf and advanced air-exchange. Safety standards are a point of pride, requiring digital confirmation of vaccinations and temperament assessments. Hygiene is maintained through hospital-grade sanitization, providing a clean alternative to outdoor runs. By blending coastal charms with modern pet care, Virginia Beach has created a supportive ecosystem for every dog. Whether seeker a sunrise run on the sand or a polished urban run, Virginia Beach offers a canine infrastructure as inviting as the ocean, ensuring that the local pet community reflects the city’s high standards of quality.'
+      ],
+    },
+  },
+  {
     slug: 'richmond-va',
     city: 'Richmond',
     state: 'VA',
@@ -2324,6 +2371,381 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         'Richmond, the "River City," has a dog park culture as historic and vibrant as the city itself, centered around the James River. The scene is anchored by popular runs like Northside Dog Park and Barker Field, offering a mix of meadows and shaded trails reflecting the city’s Southern aesthetic. According to [Richmond Parks](https://www.rva.gov), focus has been on providing essential social hubs integrated into diverse neighborhoods like the Fan. The culture is community-oriented, serving as a social bridge for residents valuing fitness and adventure. For those navigating variety in terrains, our [owner resources](/owner-resources) provide info on the James River Park System and the best times to enjoy the shade of the mature urban canopy. This historical and natural integration ensures that Richmond remains a uniquely soulful place for dogs and their human companions to explore together.',
         'In response to growing professional populations, Richmond sees a rise in premium canine facilities. We notice membership-based "dog bars" in districts like Scott’s Addition, where climate-controlled spaces provide comfort regardless of humidity. These venues feature professional supervisors managing playgroups with a focus on low-stress socialization, allowing owners to relax while pets burn energy. Safety and hygiene are top priorities, adopting medical-grade air filtration and rubber flooring. Vaccination verification is standard, providing security for the active community. By combining historic riverfront assets with modern innovations, Richmond has created a supportive ecosystem celebrating the bond between dogs and the city’s creative spirit. Whether seeker a riverside run or a polished social session, Richmond provides a canine infrastructure as soulful as the city itself.'
+      ],
+    },
+  },
+  {
+    slug: 'long-beach-ca',
+    city: 'Long Beach',
+    state: 'CA',
+    summary: 'A vibrant coastal metropolis with a rich maritime history, diverse culture, and endless recreational opportunities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Long Beach',
+      heroDescription: 'From the historic Queen Mary to the bustling waterfront, Long Beach offers a dynamic playground for you and your pup.',
+      longDescription: [
+        "Long Beach, a vibrant coastal metropolis in Southern California, stands as a testament to the region's rich maritime history and diverse cultural tapestry. Home to one of the world's busiest ports, this city of nearly half a million residents blends the grit of a working harbor with the sophistication of a modern urban center. Its history is deeply rooted in the Roaring Twenties, visible in the Art Deco architecture that adorns the downtown skyline, while the iconic Queen Mary ocean liner, permanently docked in the harbor, serves as a floating museum and hotel that whispers tales of transatlantic glamour. The city's demographic landscape is remarkably diverse, boasting a vibrant blend of communities that contributes to a dynamic culinary and arts scene. Long Beach is also known for its strong sense of community, with distinct neighborhoods like Belmont Shore and Bixby Knolls offering a small-town feel within a major city. The city's commitment to sustainability and green living is evident in its bicycle-friendly streets and numerous eco-initiatives, making it a forward-thinking destination that honors its past.",
+        "For those seeking recreation and unique experiences, Long Beach offers an array of activities that cater to every taste. The city's expansive waterfront is a playground for outdoor enthusiasts, featuring miles of sandy beaches and a paved bike path that stretches along the coast, perfect for cycling, rollerblading, or a leisurely sunset stroll. The Aquarium of the Pacific, a world-class facility, invites visitors to explore the wonders of the deep, while the Museum of Latin American Art showcases groundbreaking contemporary works. Exploring the canals of Naples Island by gondola provides a romantic and unexpected slice of European charm right in Southern California. Foodies will delight in the local culinary scene, which ranges from fresh seafood markets to trendy gastropubs and authentic international eateries. The city also hosts the Grand Prix of Long Beach, transforming its streets into a high-speed racetrack and attracting motorsport fans from around the globe. Whether you're exploring the retro row on 4th Street or enjoying a harbor cruise, Long Beach delivers a diverse and engaging experience."
+      ],
+    },
+  },
+  {
+    slug: 'anaheim-ca',
+    city: 'Anaheim',
+    state: 'CA',
+    summary: 'Home to Disneyland and a thriving entertainment district, Anaheim offers a magical blend of history, culture, and fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Anaheim',
+      heroDescription: 'Beyond the theme parks, discover a city rich in history, culinary delights, and vibrant local culture.',
+      longDescription: [
+        "Anaheim, globally recognized as the home of the original Disneyland Resort, is a city that has evolved far beyond its citrus-farming roots into a premier entertainment destination. Located in Orange County, it is the most populous city in the region and boasts a rich history that dates back to its founding by fifty German families in 1857. The city's name itself is a blend of \"Ana\" from the Santa Ana River and \"heim,\" the German word for home, reflecting its early heritage. Today, Anaheim is a bustling hub of tourism and business, anchored by the massive Anaheim Convention Center, the largest on the West Coast. The demographic makeup of the city is a vibrant mosaic of cultures, creating a lively atmosphere that permeates its neighborhoods and local businesses. While tourism drives much of the economy, Anaheim maintains a strong residential character, with historic districts like the Colony offering a glimpse into its architectural past amidst the modern developments. It is a city where imagination meets industry, creating a unique urban environment that is both welcoming and economically vital.",
+        "Beyond the magic of the theme parks, Anaheim offers a wealth of recreational opportunities and local attractions that appeal to residents and visitors alike. The Anaheim Packing District is a culinary hotspot, housed in a renovated 1919 citrus packing warehouse, where food lovers can sample gourmet treats ranging from artisanal popsicles to southern soul food in a communal, open-air setting. Sports fans flock to Angel Stadium to catch a baseball game or to the Honda Center for high-energy hockey matches and concerts. For those seeking outdoor tranquility, Oak Canyon Nature Center provides a serene escape with hiking trails that wind through oak woodlands and coastal sage scrub, a stark contrast to the bustle of the resort area. The city's craft beer scene is also thriving, with numerous breweries offering tastings and tours that showcase local innovation. From the polished entertainment of Downtown Disney to the authentic cultural festivals held throughout the year, Anaheim offers a multifaceted experience that extends well beyond the castle walls."
+      ],
+    },
+  },
+  {
+    slug: 'riverside-ca',
+    city: 'Riverside',
+    state: 'CA',
+    featuredImage: '/images/cities/riverside/hero.webp',
+    summary: 'The birthplace of California citrus, Riverside blends historic grandeur with modern culture and natural beauty.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Riverside',
+      heroDescription: 'Explore the historic Mission Inn, hike Mount Rubidoux, and enjoy a city with deep agricultural roots.',
+      longDescription: [
+        "Riverside, the birthplace of California's citrus industry, is a city steeped in history and natural beauty, located in the Inland Empire. Founded in the early 1870s, it quickly became one of the wealthiest cities per capita in the United States due to the booming navel orange trade, a legacy that is still celebrated today at the California Citrus State Historic Park. The city serves as the county seat and is an educational and cultural hub, home to the University of California, Riverside, which infuses the area with youthful energy and academic prestige. Riverside's architecture is a defining characteristic, most notably the Mission Inn Hotel & Spa, a breathtaking National Historic Landmark that blends Mission Revival, Spanish Colonial, and Renaissance styles. The population is diverse and growing, reflecting a shift from agricultural roots to a modern suburban economy. The city's commitment to arts and culture is visible in its museums and galleries, making it a refined yet accessible destination that honors its golden agricultural past while looking toward a dynamic future.",
+        "Visitors and locals in Riverside can immerse themselves in a variety of recreational and cultural experiences that highlight the city's unique charm. The Mount Rubidoux Trail is a favorite local hike, offering panoramic views of the city and surrounding mountains, especially stunning at sunrise or sunset. Down in the city center, the Fox Performing Arts Center hosts Broadway shows, concerts, and community events in a beautifully restored 1929 Spanish Colonial Revival theater. For a taste of history, a tour of the Mission Inn offers a glimpse into the glamorous past of Southern California, with its intricate archways, flying buttresses, and extensive art collections. The downtown area comes alive during the Festival of Lights, one of the nation's largest holiday light collections, transforming the city into a sparkling wonderland. Furthermore, the March Field Air Museum provides an impressive display of aviation history for enthusiasts. Whether exploring the serene botanical gardens at UCR or enjoying the vibrant downtown nightlife, Riverside offers a blend of historic grandeur and modern leisure."
+      ],
+    },
+  },
+  {
+    slug: 'irvine-ca',
+    city: 'Irvine',
+    state: 'CA',
+    summary: 'A master-planned model of safety and innovation, Irvine offers pristine parks, global cuisine, and a vibrant business hub.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Irvine',
+      heroDescription: 'Enjoy immaculate trails, the Great Park balloon, and a global culinary scene in this master-planned gem.',
+      longDescription: [
+        "Irvine, a master-planned city in Orange County, is renowned for its immaculate layout, award-winning schools, and thriving business eco-system. Developed by the Irvine Company in the 1960s, the city is a model of urban planning, featuring distinct \"villages\" that are interconnected by greenbelts and bicycle paths. It is often cited as one of the safest and best-run cities in America, attracting a highly educated and diverse population, including a significant number of tech professionals and academics associated with the University of California, Irvine (UCI). The city's aesthetic is defined by its clean lines, manicured landscapes, and harmonious architecture, which reflect a commitment to order and quality of life. Irvine is not just a suburban enclave; it is a major economic powerhouse, hosting the headquarters of numerous international corporations. The demographic landscape is multicultural, with a rich blend of Asian and other communities that influences the city's exceptional culinary scene. Irvine represents a modern, forward-thinking vision of community living, prioritizing safety, education, and environmental sustainability.",
+        "Recreation in Irvine is seamlessly integrated into daily life, with an abundance of parks and open spaces that encourage an active lifestyle. The Orange County Great Park, built on the site of a former Marine Corps air station, is a centerpiece of local activity, featuring a giant tethered helium balloon that offers soaring views of the surrounding region, as well as sports complexes and arts spaces. For shopping and entertainment, the Irvine Spectrum Center offers a vibrant outdoor experience with a giant Ferris wheel, movie theaters, and a diverse array of retail and dining options. Nature lovers can explore the Bommer Canyon Nature Trail, which preserves the area's original ranching history and offers rugged hiking paths through ancient oak groves and rock formations. The city's global food scene is another major attraction, with plazas dedicated to authentic cuisines ranging from Taiwanese street food to Persian bakeries. Whether picnics in one of the many community parks or attending a concert at the FivePoint Amphitheatre, Irvine provides a polished and enjoyable environment for families and individuals alike."
+      ],
+    },
+  },
+  {
+    slug: 'pasadena-ca',
+    city: 'Pasadena',
+    state: 'CA',
+    summary: 'The City of Roses combines old-world elegance, scientific innovation, and stunning Craftsman architecture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Pasadena',
+      heroDescription: 'From the Rose Bowl to world-class gardens, experience the sophistication and charm of historic Pasadena.',
+      longDescription: [
+        "Pasadena, famously known as the City of Roses, sits at the base of the San Gabriel Mountains and exudes a blend of old-world elegance and scientific innovation. Founded in 1874, it is one of the oldest cities in Los Angeles County and is globally recognized for hosting the annual Rose Parade and Rose Bowl Game. The city is a treasure trove of architectural gems, particularly the Craftsman-style homes, with the Gamble House standing as a prime example of American Arts and Crafts grandeur. Pasadena is also a brain trust, home to the California Institute of Technology (Caltech) and NASA's Jet Propulsion Laboratory, bridging the gap between historic tradition and cutting-edge space exploration. The demographic mix is culturally rich, with a strong appreciation for the arts, evident in the city's numerous museums and theaters. Old Pasadena, the historic downtown district, has been revitalized into a bustling shopping and dining area that retains its brick-and-mortar charm. It is a city that takes pride in its intellectual and floral heritage, offering a sophisticated yet welcoming atmosphere.",
+        "The recreational and cultural landscape of Pasadena offers a refined array of experiences for residents and tourists. A visit to the Huntington Library, Art Museum, and Botanical Gardens is arguably the crown jewel of the area, featuring stunning themed gardens, rare manuscripts, and European art collections that can easily fill an entire day of exploration. For architecture enthusiasts, a tour of the historic Bungalow Heaven district provides a delightful walk through streets lined with beautifully preserved early 20th-century homes. Hiking trails in the nearby Eaton Canyon offer a natural escape with waterfalls and rugged terrain just minutes from the urban core. The Norton Simon Museum houses one of the most remarkable private art collections in the world, including masterpieces by Raphael, Rembrandt, and Van Gogh. Dining in Old Pasadena offers everything from upscale bistros to cozy cafes, perfect for people-watching along Colorado Boulevard. Whether attending a football game at the iconic Rose Bowl or enjoying a quiet afternoon in a world-class garden, Pasadena delivers a deeply enriching experience."
+      ],
+    },
+  },
+  {
+    slug: 'coastal-cities-ca',
+    city: 'Coastal Cities',
+    state: 'CA',
+    summary: 'The quintessence of California dreaming, featuring sun-drenched beaches, surf culture, and laid-back oceanfront living.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Coastal Cities',
+      heroDescription: 'Embrace the beach lifestyle with surf breaks, scenic drives, and a wellness-focused culture along the Pacific.',
+      longDescription: [
+        "The Coastal Cities of Southern California represent a quintessential lifestyle that has captivated the world's imagination, characterized by sun-drenched beaches, laid-back vibes, and effortless surfer chic. This collection of communities stretches along the Pacific Ocean, each with its own unique personality but united by a deep connection to the sea. From the surf breaks of North County San Diego to the dramatic cliffs of the Palos Verdes Peninsula, these cities are historically linked to the development of California beach culture, surf music, and the wellness movement. Demographically, these areas tend to be affluent, attracting residents who value outdoor living, health, and environmental stewardship. The architecture often features bright, airy designs that maximize ocean views, ranging from modern glass mansions to quaint beach cottages. Culturally, there is a strong emphasis on sustainability and ocean conservation, with local communities deeply invested in protecting their marine environments. Life here moves at the pace of the tides, offering a refreshing counterpoint to the frenetic energy of the inland metropolises.",
+        "Experiences in the Coastal Cities are naturally centered around the water and the great outdoors. Surfing, paddleboarding, and kayaking are not just hobbies but ways of life, with numerous schools and rental shops available for beginners and pros alike. The Pacific Coast Highway (PCH) serves as the main artery for exploration, offering one of the most scenic drives in the world where every turn reveals a new breathtaking vista. Visitors can explore tide pools teeming with marine life, play volleyball on expansive white sands, or simply relax and watch for migrating gray whales. The culinary scene heavily features fresh, locally sourced seafood and farm-to-table produce, with many restaurants offering dining decks that overlook the waves. Coastal trails and bluffs provide spectacular hiking and biking opportunities, such as the Torrey Pines State Natural Reserve, where rare pine trees meet the sandstone cliffs. Whether it's catching a sunset bonfire, browsing high-end boutiques in a seaside village, or enjoying a fish taco at a roadside stand, the Coastal Cities offer an idyllic escape into the California dream."
+      ],
+    },
+  },
+  {
+    slug: 'newport-beach-ca',
+    city: 'Newport Beach',
+    state: 'CA',
+    summary: 'A luxurious seaside haven known for its massive recreational harbor, upscale shopping, and pristine beaches.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Newport Beach',
+      heroDescription: 'Cruise the harbor, shop at Fashion Island, and enjoy the sophisticated coastal lifestyle of Newport Beach.',
+      longDescription: [
+        "Newport Beach, the jewel of Orange County's coast, is synonymous with luxury, nautical heritage, and a pristine seaside lifestyle. Incorporated in 1906, the city has grown from a small shipping wharf into one of the wealthiest and most sophisticated communities in the United States. Its harbor, one of the largest recreational boat harbors on the West Coast, is home to thousands of yachts and serves as the social and recreational heart of the city. The Balboa Peninsula, with its historic pavilion and fun zone, offers a nostalgic nod to the city's past as a summer resort town. Demographically, Newport Beach is home to successful professionals and families who enjoy a high quality of life centered around the ocean. The architecture is diverse, ranging from the charming cottages of Balboa Island to the ultra-modern estates of Crystal Cove. Cultural events like the Newport Beach Film Festival and the annual Christmas Boat Parade highlight a community that loves to celebrate art and tradition in style. It is a city where elegance meets the ocean, creating an atmosphere of relaxed opulence.",
+        "Life in Newport Beach revolves around the harbor and the coastline, offering endless opportunities for recreation and leisure. Renting a Duffy electric boat to cruise the harbor channels is a quintessential local activity, allowing friends and families to dine and socialize while floating past stunning waterfront homes. Surfers flock to the Wedge, a world-famous surf spot known for its massive, shore-breaking waves that provide a thrilling spectacle even for spectators. Fashion Island offers a premier open-air shopping experience with luxury boutiques and ocean views, perfect for a leisurely afternoon of retail therapy. For a touch of history and fun, a ferry ride to Balboa Island leads to charming streets lined with shops and the famous frozen bananas. Crystal Cove State Park provides a more natural setting with pristine beaches and historic cottages that have been preserved from the 1930s. Whether dining at a five-star waterfront restaurant or exploring the Back Bay Science Center to learn about the estuary ecosystem, Newport Beach delivers a sophisticated and sun-soaked experience."
+      ],
+    },
+  },
+  {
+    slug: 'huntington-beach-ca',
+    city: 'Huntington Beach',
+    state: 'CA',
+    summary: 'Surf City USA represents the authentic, laid-back California beach culture with endless waves and bonfires.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Huntington Beach',
+      heroDescription: 'From the iconic pier to the dog beach, experience the ultimate surf culture and endless summer vibes.',
+      longDescription: [
+        "Huntington Beach, officially branded as \"Surf City USA,\" is the undisputed capital of American surfing culture and a city that embodies the eternal summer spirit. With 10 miles of uninterrupted coastline, its history is deeply intertwined with the sport of surfing, having hosted the US Open of Surfing since 1959. The city's pier, one of the longest on the West Coast, is an iconic landmark that stretches into the Pacific, serving as a gathering place for anglers, tourists, and sunset watchers. Demographically, Huntington Beach is a mix of old-school surf legends, young families, and professionals who appreciate the relaxed, beach-centric lifestyle. The International Surfing Museum stands as a tribute to the local heritage, showcasing the evolution of boards and the legends who rode them. The vibe here is noticeably more casual and gritty than its southern neighbors, with fire pits lining the sand and a strong sense of local pride. It attracts millions of visitors annually who come to experience the authentic California beach culture that has been immortalized in music and film.",
+        "Recreation in Huntington Beach is robust and varied, extending far beyond the waves. The Huntington Beach Bike Trail is a bustling thoroughfare for cyclists, joggers, and rollerbladers, running parallel to the sand for miles. The city is one of the few in the region that allows beach bonfires, creating a magical atmosphere at dusk as families and friends gather around fire rings to roast s'mores and share stories. Main Street is the vibrant heart of the downtown area, packed with surf shops, bars, and restaurants that spill out onto the sidewalks, offering a lively nightlife scene. For nature enthusiasts, the Bolsa Chica Ecological Reserve offers a peaceful retreat for birdwatching, with trails winding through restored wetlands that are a vital stopover for migrating birds. Dog lovers will appreciate the dedicated Huntington Dog Beach, where pups can run off-leash in the surf. Whether taking a surf lesson, shopping at Pacific City, or simply soaking up the sun near the pier, Huntington Beach offers an energetic and authentic coastal experience."
+      ],
+    },
+  },
+  {
+    slug: 'ventura-ca',
+    city: 'Ventura',
+    state: 'CA',
+    summary: 'A classic beach town with historic roots, serving as the gateway to the Channel Islands and sustainable living.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Ventura',
+      heroDescription: 'Discover a grounded beach town with a historic mission, thriving arts scene, and island adventures.',
+      longDescription: [
+        "Ventura, officially known as San Buenaventura, is a classic California beach town that has managed to retain its historic charm and unpretentious vibe amidst regional growth. Located between the Malibu coast and Santa Barbara, it serves as the gateway to the Channel Islands National Park, often referred to as the \"Galapagos of North America.\" Founded in 1782 with the establishment of Mission San Buenaventura, the city has a deep historical lineage that is evident in its preserved downtown architecture and archaeological sites. The city's demographic is a blend of surfers, artists, agricultural workers, and outdoor enthusiasts, creating a grounded and friendly community atmosphere. unlike some of its more manicured neighbors, Ventura embraces a rugged, natural aesthetic, backed by rolling hills and fronted by quality surf breaks. The city is also a hub for sustainable agriculture, with a thriving local produce scene thanks to the surrounding fertile farmland. It offers a slower pace of life where the focus is on nature, history, and community connection.",
+        "For visitors and residents, Ventura offers a wealth of activities that celebrate its natural surroundings and cultural heritage. A trip to the Ventura Harbor Village provides opportunities for fresh seafood dining, boutique shopping, and renting kayaks or paddleboards to explore the calm waters. The historic downtown area is highly walkable, featuring the majestic Mission San Buenaventura and a variety of thrift stores, bookstores, and breweries that reflect the local creative spirit. Access to the Channel Islands is a major draw; boat excursions depart regularly for hiking, snorkeling, and wildlife viewing on the remote and pristine islands. Surfer's Point is a popular spot not just for catching waves but for walking and biking along the promenade that offers sweeping ocean views. The Ventura Botanical Gardens, rising up the hills behind City Hall, offers trails with panoramic vistas of the coastline and islands. whether it's hunting for sea glass on the beach or enjoying a live band at a local dive bar, Ventura offers a genuine and refreshing coastal escape."
+      ],
+    },
+  },
+  {
+    slug: 'carlsbad-ca',
+    city: 'Carlsbad',
+    state: 'CA',
+    summary: 'The Village by the Sea offers a perfect blend of family fun, wellness, and floral beauty in North County San Diego.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Carlsbad',
+      heroDescription: 'From LEGOLAND to the Flower Fields, explore a coastal resort city that prioritizes fun and wellness.',
+      longDescription: [
+        "Carlsbad, affectionately known as \"The Village by the Sea,\" is a coastal resort city in North San Diego County that perfectly balances small-town charm with world-class attractions. Historically, the city gained fame in the late 19th century for its improved mineral water wells, named after the famous spa in Karlsbad, Bohemia. This wellness legacy continues today with its focus on healthy living and outdoor activity. Carlsbad is perhaps best known globally as the home of LEGOLAND California, making it a premier family destination. The city's demographics include affluent families, retirees, and a growing tech sector, all drawn by the high quality of life, excellent schools, and seven miles of pristine beaches. The architecture in the village area features Victorian and coastal cottage influences, while newer developments maintain a cohesive, upscale aesthetic. Carlsbad is also the flower capital of the region, famous for the Flower Fields at Carlsbad Ranch, which burst into a spectacular display of giant tecolote ranunculus every spring. It is a city that feels both manicured and welcoming, offering luxury and leisure in equal measure.",
+        "Recreational experiences in Carlsbad are diverse, catering to families, nature lovers, and luxury seekers alike. The Flower Fields are a must-see seasonal attraction, offering tractor rides and photography opportunities amidst fifty acres of vibrant blooms. LEGOLAND California Resort provides endless entertainment for children with its theme park, water park, and aquarium, all dedicated to the creativity of the brick. For those seeking relaxation, the Omni La Costa Resort and Spa offers world-renowned golf courses and wellness treatments that harken back to the city's spa origins. The Batiquitos Lagoon is a protected coastal wetland perfect for birdwatching and gentle hiking along its nature trails. The Village area offers a walkable downtown experience with sidewalk cafes, antique shops, and easy access to Tamarack Surf Beach for sunbathing and swimming. Foodies can explore the State Street Farmers Market for local produce or dine at Michelin-recognized restaurants. Whether playing a round of golf, building castles at the beach, or marveling at the spring flowers, Carlsbad offers a delightful and picturesque coastal retreat."
+      ],
+    },
+  },
+  {
+    slug: 'oakland-ca',
+    city: 'Oakland',
+    state: 'CA',
+    summary: 'East Bay hub blending redwood trails with urban dog culture; huge focus on hiking and brewery patios.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Oakland',
+      heroDescription: 'From redwood forests to Jack London Square, explore the East Bay’s most active dog community.',
+      longDescription: [
+        "Oakland, situated in the heart of the East Bay, is a vibrant playground for dogs and their owners, offering a unique blend of urban excitement and rugged natural beauty. The city's dog culture is deeply ingrained, with a community that famously champions rescue pets and outdoor advocacy. From the towering redwoods of the hills to the bustling waterfront of Jack London Square, Oakland facilitates a lifestyle where four-legged companions are welcome almost everywhere. Weekend mornings often see locals flocking to the miles of dog-friendly trails that crisscross the East Bay Regional Park District, while afternoons are spent relaxing at dog-friendly venues like Temescal Brewing or The Good Hop. While dedicated public indoor dog parks are rare, the city's temperate climate allows for year-round outdoor play, and private rental networks like Sniffspot provide ample climate-controlled options for those seeking an exclusive experience away from the elements.",
+        "When it comes to specific locations, Joaquin Miller Park stands out as a crown jewel, offering designated off-leash areas and miles of shaded trails that wind through redwood groves—a perfect escape for high-energy breeds. For a more traditional park experience, the South Prescott Dog Park provides a secure, social environment in the Lower Bottoms neighborhood. Data from local pet organizations highlights that Oakland residents are particularly active, often combining dog walks with hikes in the nearby Dr. Aurelia Reinhardt Redwood Regional Park. Although Furball Fitness has closed its indoor facility, the demand for safe play spaces has led to a surge in community-organized meetups. Whether you are exploring the urban art scene or hiking the ridgeline, Oakland’s diverse infrastructure ensures that every dog, from city-slicker to trail-blazer, finds their perfect niche in this dynamic bay-side city."
+      ],
+    },
+  },
+  {
+    slug: 'san-jose-ca',
+    city: 'San Jose',
+    state: 'CA',
+    summary: 'Capital of Silicon Valley offering a mix of manicured urban parks and proximity to vast hiking trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly San Jose',
+      heroDescription: 'Experience the best of the South Bay, from Santana Row strolls to expansive county parks.',
+      longDescription: [
+        "San Jose, the sun-drenched capital of Silicon Valley, offers a polished and diverse landscape for dog owners, blending the amenities of a major metropolis with easy access to nature. The city’s canine culture is reflective of its tech-forward population—active, social, and appreciative of well-maintained public spaces. Residents frequently take advantage of the 300+ days of sunshine to explore outdoor destinations like the upscale Santana Row, where dog-friendly patios and water bowls are a common sight. While dedicated indoor facilities are less common due to the favorable weather, the city compensates with a robust network of community parks and trails managed by [San Jose Parks](https://www.sanjoseca.gov). The culture here emphasizes responsible ownership, with a strong presence of training clubs and agility groups that utilize the city's expansive green spaces. Whether grabbing coffee in Japantown or hiking the foothills, dogs are an integral part of the San Jose lifestyle.",
+        "For off-leash play, Butcher Dog Park stands out with its modern amenities, including artificial turf, separate small-dog areas, and ample shade structures—a necessity during warm South Bay afternoons. Hellyer County Park offers a more rugged experience, featuring a sprawling 2-acre off-leash zone set against a backdrop of mature trees and trails. Conservation-minded owners flock to Almaden Quicksilver County Park, where miles of dog-friendly trails (on-leash) wind through historic mining landscapes, offering challenging workouts and panoramic views. Although \"indoor\" options often refer to sheltered restrooms or private daycare facilities, the consistent weather makes outdoor parks like Discovery Dog Park downtown a year-round hub. With a focus on safety and community, San Jose provides a balanced environment where dogs can thrive, whether they are navigating urban sidewalks or exploring the wilder edges of the Santa Clara Valley."
+      ],
+    },
+  },
+  {
+    slug: 'sacramento-ca',
+    city: 'Sacramento',
+    state: 'CA',
+    featuredImage: '/images/cities/sacramento/hero.webp',
+    summary: 'The River City combines flat, walkable terrain with extensive parkways and growing indoor options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Sacramento',
+      heroDescription: 'From the American River Parkway to indoor play centers, discover the capital’s best dog spots.',
+      longDescription: [
+        "Sacramento, California's capital, is a riverfront haven for dog lovers, offering a distinctive mix of historic charm, flat walkable terrain, and a rapidly growing pet-friendly infrastructure. The city's identity is defined by the American River Parkway, a 32-mile jewel known as the 'Jedediah Smith Memorial Trail,' which attracts thousands of dog walkers and joggers daily. Sacramento's dog culture is unpretentious and active, with a strong community that frequents the many local breweries like Bike Dog Brewing Company that openly embrace four-legged patrons. Unlike many California cities, Sacramento experiences distinct seasonal shifts, prompting the development of indoor options like Paws N' Play Canine Community Center, which provides a climate-controlled sanctuary during the scorching summer months. The city's abundant tree canopy provided by its 'City of Trees' moniker also makes outdoor walks pleasant even when the valley heat sets in.",
+        "Specific hotspots include the expansive Granite Regional Dog Park, which offers separate grassy areas for varied dog sizes and is beloved for its community vibe. For adventurous pups, the river access points along the parkway allow for cooling swims and paddleboarding excursions at Lake Natoma. [Sacramento County Parks](https://regionalparks.saccounty.net) maintains these spaces with a focus on accessibility and safety. The Tanzanite Community Dog Park in the Natomas area is another modern favorite, featuring agility equipment and well-maintained turf. Indoor demand is met not only by dedicated centers but also by a network of dog-friendly businesses and daycares that offer 'stay and play' sessions. Whether cruising the shady streets of Midtown or socializing at a massive off-leash park, Sacramento offers a welcoming and diverse environment that caters to practical needs and recreational fun for dogs of all breeds."
+      ],
+    },
+  },
+  {
+    slug: 'santa-rosa-ca',
+    city: 'Santa Rosa',
+    state: 'CA',
+    summary: 'Wine Country gateway with a relaxed vibe, offering vineyard-adjacent parks and swimming lagoons.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Santa Rosa',
+      heroDescription: 'Explore Sonoma County’s hub, where wineries, redwoods, and dog parks roam free.',
+      longDescription: [
+        "Santa Rosa serves as the vibrant hub of Sonoma County Wine Country, offering a relaxed and scenic environment where dogs are treated as VIPs. The city's connection to Charles Schulz (creator of Peanuts) sets a playful tone, with Snoopy statues dotting a downtown that is remarkably pet-friendly. The culture here is deeply connected to the land; it’s common to see dogs joining their owners for tastings at vineyard patios like Kendall-Jackson or St. Francis Winery. While public indoor dog parks are practically non-existent due to the mild Mediterranean climate, the region excels in high-quality outdoor experiences. Facilities like Four Paws Pet Ranch offer private, membership-based play areas that feel like country clubs for canines. The city’s vibe is laid-back and agricultural, prioritizing open spaces and natural terrain over concrete runs.",
+        "The crown jewel of local recreation is 'A Place to Play' Park, a massive 77-acre complex featuring a dedicated, well-maintained dog park with separate zones and ample water stations. For water-loving breeds, Spring Lake Regional Park is a must-visit; while dogs must remain on-leash on trails, the swimming lagoon area (seasonally) and surrounding paths offer a fantastic sensory experience. Rincon Valley Community Park is another local favorite, known for its friendly regulars and clean facilities. The [Sonoma County Regional Parks](https://parks.sonomacounty.ca.gov) system provides extensive hiking options nearby, such as Taylor Mountain. Although you won't find indoor industrial parks here, the sheer variety of dog-friendly wineries, breweries like Russian River Brewing, and expansive nature parks makes Santa Rosa a premier destination for owners who want to integrate their pets into a lifestyle of leisure and exploration."
+      ],
+    },
+  },
+  {
+    slug: 'fresno-ca',
+    city: 'Fresno',
+    state: 'CA',
+    summary: 'Central Valley hub serving as a gateway to Yosemite, with expansive parks and heat-smart options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Fresno',
+      heroDescription: 'Discover the Central Valley’s best dog parks and trails, right at the doorstep of the Sierras.',
+      longDescription: [
+        "Fresno, the agricultural powerhouse of the Central Valley, offers a surprisingly robust landscape for dog owners, serving as a gateway to the Sierra Nevada mountains. The city's dog culture is practical and community-focused, adapted to the region's hot summers and mild winters. Residents often flock to the San Joaquin River Parkway for cooler, shaded walks, utilizing trails like the Lewis S. Eaton Trail. While Fresno lacks a multitude of public indoor dog parks, the Dr. James W. Thornton Dog Park at the Valley Animal Center fills this gap with a top-tier membership facility that includes a wading pool and agility courses—critical amenities during triple-digit heatwaves. The community here is active, with frequent meetups at dog-friendly breweries like House of Pendragon, where pets are welcomed into the family atmosphere.",
+        "Woodward Park, the city's largest regional park, hosts the popular Woodward Dog Park, offering spacious, fenced runs for large and small dogs amidst mature trees. Another key location is Basin AH1 Dog Park, a seasonal retention basin that transforms into a lush, grassy play area perfect for retrieval games. [Fresno Parks](https://www.fresno.gov/parks) has made strides in ensuring these spaces are accessible, though owners must be vigilant about heat safety. Roeding Park’s Puppy Love Dog Park provides another central option near the zoo with separate enclosures. For those seeking training or climate-controlled activity, local academies like Ohana K9 offer indoor solutions. Fresno’s blend of urban parks and proximity to wilder adventures like Shaver Lake ensures that whether you need a quick evening run or a weekend mountain escape, the resources are there for a fulfilling canine life."
+      ],
+    },
+  },
+  {
+    slug: 'bakersfield-ca',
+    city: 'Bakersfield',
+    state: 'CA',
+    summary: 'Kern County energy meets outdoor enthusiasm; river trails and indoor training centers define the scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Bakersfield',
+      heroDescription: 'From the Kern River Parkway to indoor agility, explore a city that loves its spirited pups.',
+      longDescription: [
+        "Bakersfield, historically known for country music and energy production, has cultivated a fiercely loyal and active dog-owning community. The city's geography is defined by the Kern River, which provides a natural corridor for recreation in an otherwise arid region. The Kern River Parkway Trail is the artery of local dog life, offering miles of paved, scenic paths where leashed dogs can exercise alongside cyclists and runners. Summers here are intense, which has driven the popularity of places like Zoom Room Bakersfield, an indoor training facility that doubles as a climate-controlled social hub for playgroups. The vibe is down-to-earth and neighborly; you're likely to strike up a conversation with fellow owners at any of the city's well-used parks. Establishments with patios, such as local steakhouses and breweries, increasingly welcome pets, reflecting a shift toward a more inclusive family culture.",
+        "University Dog Park is a standout municipal facility, featuring lush grass, separate size areas, and picnic tables that make it a family favorite. For those in the southwest, Kroll Dog Park offers a clean, reliable space for off-leash socialization. The Mesa Marin Sports Complex Dog Park is noted for its spray fountain area—a celebrated feature that allows cooling play during warm afternoons. [Bakersfield Recreation and Parks](https://www.bakersfieldcity.us) manages these facilities with a focus on durability and access. Beyond the fences, Hart Memorial Park offers a more rugged day-trip experience with extensive trails and river access for on-leash exploration. Whether escaping the heat indoors at a training center or running the river trails at sunset, Bakersfield provides a supportive and varied environment for its spirited canine residents."
+      ],
+    },
+  },
+  {
+    slug: 'modesto-ca',
+    city: 'Modesto',
+    state: 'CA',
+    featuredImage: '/images/cities/modesto/hero.webp',
+    summary: 'Central Valley charm with a pioneering indoor dog park and taproom scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Modesto',
+      heroDescription: 'Home to California’s first indoor dog park taproom and shady neighborhood runs.',
+      longDescription: [
+        "Modesto, immortalized in 'American Graffiti', is carving out a new reputation as a forward-thinking city for pet owners in the Central Valley. The city's agricultural roots provide a backdrop of tree-lined streets and community-focused living. A major highlight of the local scene is Bark Dog Park & Tap Room, marketed as California's first 100% indoor dog park and taproom. This facility addresses the region's climate needs perfectly, offering a supervised, climate-controlled environment where humans can enjoy craft beer while dogs socialize on sanitary turf. Beyond this innovation, Modesto's culture is deeply social, with the Virginia Corridor Trailway serving as a daily promenade for walkers and their leashed companions. The city’s flat landscape makes it ideal for long, leisurely strolls, and the community is known for its friendliness and responsible ownership.",
+        "Outdoor options are anchored by the Elk Park (Modesto Dog Park), a dedicated off-leash space with separate sections and agility equipment that serves as a central meeting point for locals. Standiford Park offers another accessible neighborhood option with ample green space. For nature lovers, the Dry Creek Regional Park provides a more scenic, trail-oriented experience where leashed dogs can explore riparian habitats. [Modesto Parks](https://www.modestogov.com) ensures these areas remain clean and safe. The dining scene also embraces pets, with patios at restaurants like Fuzio Universal Bistro and Camp 4 Wine Cafe welcoming four-legged guests. Modesto’s blend of pioneering indoor concepts and reliable outdoor infrastructure makes it a surprisingly robust destination for dogs, ensuring comfort and fun regardless of the season."
+      ],
+    },
+  },
+  {
+    slug: 'stockton-ca',
+    city: 'Stockton',
+    state: 'CA',
+    summary: 'Delta waterfront city with expansive agility parks and river-adjacent walking paths.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Stockton',
+      heroDescription: 'Navigate the Delta city’s best agility courses and waterfront parks for active dogs.',
+      longDescription: [
+        "Stockton, a major inland port situated in the San Joaquin Delta, offers a unique waterfront-oriented lifestyle for dog owners. The city's extensive waterways provide a cooling influence and scenic backdrops for walks along the downtown waterfront or in parks like Louis Park. Stockton's dog community is active and values structured play, evidenced by the popularity of parks with built-in agility equipment. While dedicated indoor dog parks are scarce, the mild Delta breezes often make outdoor activity comfortable year-round. The city serves as a gateway to the nearby Lodi wine region, where dog-friendly wineries like Klinker Brick offer weekend excursions. Within Stockton, the vibe is diverse and resilient, with a strong network of rescue advocates and community groups working to maintain safe, engaging spaces for pets.",
+        "The premier destination for off-leash fun is Barkleyville Dog Park, a sprawling 4-acre facility featuring three separate areas: one for large dogs, one for small dogs, and a dedicated agility course for training and exercise. It is widely considered one of the best-equipped parks in the region. Michael Faklis Park is another gem, offering wide-open fields and its own agility elements, perfect for high-energy breeds that need to run. For a quieter neighborhood experience, the Paul E. Weston Park Dog Area provides a convenient grassy spot with essential amenities. [Stockton Community Services](https://www.stocktonca.gov) oversees these parks, ensuring water accessibility and waste stations are maintained. Whether training on an agility course or strolling the levees at majestic Victory Park, Stockton offers functional and engaging environments that cater to the active, water-loving spirit of its canine residents."
+      ],
+    },
+  },
+  {
+    slug: 'salinas-ca',
+    city: 'Salinas',
+    state: 'CA',
+    summary: 'The Salad Bowl of the World offers cool coastal fog and hiking trails just minutes from Monterey.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Salinas',
+      heroDescription: 'Enjoy the cool coastal climate with hiking at Toro Park and convenient city runs.',
+      longDescription: [
+        "Salinas, known as the 'Salad Bowl of the World' and the hometown of John Steinbeck, offers a dog-friendly environment defined by its cool coastal climate and agricultural heritage. Located just inland from Monterey Bay, the city benefits from ocean breezes and morning fog, creating ideal conditions for outdoor activity almost year-round. This makes the lack of public indoor dog parks negligible, as heat is rarely an issue. The dog culture here is grounded and family-oriented, with huge popularity for weekend hiking in the surrounding hills. Toro County Park is a regional favorite, offering miles of rugged trails where leashed dogs can accompany their owners on climbs that reveal sweeping views of the Salinas Valley. The proximity to Monterey means that beach days are just a short drive away, adding variety to the local routine.",
+        "In town, Schoonover Dog Park is a well-regarded designated space featuring separate areas for size safety and amenities like water stations. Sherwood Park provides a central green space with a walking loop that is popular for daily exercise. For those needing indoor boarding or play, nearby facilities like Dogwood Ranch in Prunedale offer climate-controlled options. The [City of Salinas](https://www.cityofsalinas.org) maintains these community hubs, which serve as social gathering spots. Residents also frequent the expansive Natividad Creek Park for nature walks within city limits. Whether traversing the oak-studded trails of Toro Park or enjoying a quiet afternoon at a neighborhood run, Salinas provides a comfortable, temperate, and unpretentious backdrop for a dog’s life, perfectly positioned between the fields and the sea."
+      ],
+    },
+  },
+  {
+    slug: 'visalia-ca',
+    city: 'Visalia',
+    state: 'CA',
+    summary: 'Gateway to the Sequoias with charming downtown vibes and spacious, oak-shaded parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Visalia',
+      heroDescription: 'From Sequoia gateways to downtown trails, explore this charming Central Valley city.',
+      longDescription: [
+        "Visalia, situated in the heart of the San Joaquin Valley and known as the gateway to Sequoia National Park, blends small-town hospitality with robust amenities for dog owners. The city is celebrated for its preservation of valley oak trees, which provide essential shade in its many beautiful parks, making outdoor recreation pleasant even in summer. Visalia's downtown is remarkably charming and pedestrian-friendly, with a Main Street lined with restaurants like BarrelHouse Brewing that happily host pets on their patios. The community is tight-knit, favoring outdoor adventures; it’s common to see locals prepping for weekend trips to the nearby mountains or enjoying evening strolls along the St. Johns River Trail. While large indoor dog parks are not a staple, the abundance of shaded natural spaces and private rental options via Sniffspot fills the need for safe play areas.",
+        "Cody Kelly Bark Park at the Visalia Airport is the city’s flagship off-leash facility, offering a massive, fully fenced space where dogs can sprint freely. It is praised for its size and separate sections for different breeds. Seven Oaks Park provides a more neighborhood-centric off-leash experience with plenty of shade trees. Nature lovers gravitate toward the Kaweah Oaks Preserve, a stunning 324-acre nature sanctuary where leashed dogs can walk among ancient oaks and riparian forests. [Visalia Parks & Recreation](https://www.visalia.city) maintains these spaces with a focus on family and community integration. The St. Johns River Trail offers a linear greenbelt perfect for long, uninterrupted walks. Visalia’s combination of historic charm, agricultural beauty, and proximity to national treasures makes it a wonderful, grounded home base for dogs and the people who love them."
+      ],
+    },
+  },
+  {
+    slug: 'lodi-ca',
+    city: 'Lodi',
+    state: 'CA',
+    featuredImage: '/images/cities/lodi/hero.webp',
+    summary: 'Historic wine region with expansive off-leash parks and scenic river-adjacent trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'City spotlight',
+      heroHeading: 'Dog Parks in Lodi, CA',
+      heroDescription: 'Explore 5 verified dog-friendly spots in Lodi, CA. Powered by 585 local reviews. Top-rated pick: Dream Big Training Center (5.0★).',
+      heroFootnotes: ['Data refreshed weekly', 'Live availability coming soon'],
+      heroChips: [
+        { label: 'Verified parks', value: '5' },
+        { label: 'Wine region', value: 'Dog-friendly' },
+      ],
+      insightIntro: 'Lodi blends agricultural charm with premium pet amenities. From world-class wineries to shaded river runs, it’s a premier destination for active dog families.',
+      insightCards: [
+        {
+          tag: 'Park Space',
+          title: 'Expansive Off-Leash Zones',
+          copy: 'Beckman and Vinewood parks provide massive, fully-fenced areas where dogs can sprint and socialize safely under mature valley oaks.',
+          accent: true,
+        },
+        {
+          tag: 'Wine Country',
+          title: 'Pup-Friendly Vintners',
+          copy: 'Lodi’s famous wineries like Oak Farm and Intercoastal welcome leashed companions on their stunning, expansive patios.',
+        },
+        {
+          tag: 'Nature Trails',
+          title: 'River-Adjacent Walks',
+          copy: 'Lodi Lake and the Mokelumne River corridor offer scenic, temperature-regulated paths perfect for morning exercise.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-sun',
+          title: 'Central Valley weather',
+          items: ['Stick to early mornings during summer heat', 'Utilize the shaded sections of Vinewood Park', 'Always carry extra water for river-adjacent walks'],
+        },
+        {
+          icon: 'bi-cup-straw',
+          title: 'Winery etiquette',
+          items: ['Keep dogs on-leash at all times', 'Call ahead to confirm patio availability', 'Bring a portable bowl for tasting room resets'],
+        },
+        {
+          icon: 'bi-droplet',
+          title: 'Water safety',
+          items: ['Use the southeast off-leash area at Lodi Lake', 'Avoid the restricted nature preservation zones', 'Keep dogs away from agricultural irrigation canals'],
+        },
+      ],
+      mapSidebarNote: 'Focus on the Beckman and Vinewood markers for large off-leash areas, or explore the vineyard-rich periphery for social outings.',
+      faqs: lodiFaqs,
+      longDescription: [
+        'Lodi, California, famously immortalized in song and celebrated as a world-class wine region, offers a surprisingly robust landscape for dog families. Situated in the fertile San Joaquin Valley, the city is defined by its deep agricultural roots and a community that treats its four-legged residents as integral members. While Lodi is renowned for its old-vine Zinfandels, its pet infrastructure is anchored by expansive off-leash zones and river-adjacent trails. The local dog culture is social and active, with residents often mixing morning play sessions with weekend excursions to pet-friendly tasting rooms. The [City of Lodi](https://www.lodi.gov) maintains several key facilities, ensuring that whether you are a local handler or a visitor exploring the Central Valley, you have access to clean, safe, and engaging environments for your pup to thrive.',
+        'Off-leash activity is centered at Beckman Dog Park, the city’s largest facility, which features dedicated sections for different size breeds and plenty of room for high-energy sprints. For a more scenic experience, Lodi Lake Park offers a designated off-leash area near the Mokelumne River, allowing dogs to enjoy the cool breezes coming off the water. Beyond the parks, Lodi’s world-famous wineries like Oak Farm Vineyards and Intercoastal Vineyards provide stunning, dog-friendly patios where pets are welcomed with open arms. After a day of exploration, local favorites like Lodi Beer Co. offer pup-friendly outdoor dining, making the city a complete destination for pet-centric living. From the shaded runs of Vinewood Dog Park to the sunset views at a vineyard, Lodi seamlessly blends agricultural charm with premium pet-friendly amenities.'
+      ],
+      neighborhoods: [
+        { name: 'Beckman/West Lodi', slug: 'beckman', description: 'Central hub for large off-leash runs and athletic training.' },
+        { name: 'Lodi Lake', slug: 'lodi-lake', description: 'Scenic riverfront paths and shaded recreational zones.' },
+        { name: 'Downtown', slug: 'downtown-lodi', description: 'Charming pedestrian area with pet-friendly shops and cafes.' },
+        { name: 'Vineyard East', slug: 'vineyard-east', description: 'Bordered by dog-friendly wineries and estate grounds.' },
+      ],
+      expertTips: [
+        'Vinewood Park is preferred for mid-day sessions due to its superior tree canopy and shade.',
+        'Most Lodi wineries require dogs to remain outdoors; bring a cooling mat for summer visits.',
+        'Lodi Lake’s off-leash area is smaller but offers the best views in the city.',
+        'Downtown parking is generally dog-friendly with wide sidewalks and accessible water bowls.',
       ],
     },
   },

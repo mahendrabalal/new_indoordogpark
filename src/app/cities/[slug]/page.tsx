@@ -338,6 +338,16 @@ export default async function CityPage({ params }: CityPageProps) {
     description: pageDescription,
     url: absoluteCanonicalUrl,
     image: featuredImage,
+    datePublished: '2024-01-01T00:00:00.000Z', // Baseline content date
+    dateModified: new Date().toISOString(), // Always fresh due to ISG/ISR
+    publisher: {
+      '@type': 'Organization',
+      name: 'Indoor Dog Park',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/images/logo/logo-512.png`,
+      },
+    },
     about: {
       '@type': 'City',
       name: `${city.name}, ${city.state}`,
@@ -345,7 +355,7 @@ export default async function CityPage({ params }: CityPageProps) {
     ...(topParks.length > 0
       ? {
         mainEntity: {
-          '@id': `${absoluteCanonicalUrl}#itemlist`,
+          '@id': `${absoluteCanonicalUrl}#itemlist`, // Matches the ItemList ID below
         },
       }
       : {}),
