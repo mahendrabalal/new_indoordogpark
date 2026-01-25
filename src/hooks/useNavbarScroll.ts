@@ -8,14 +8,19 @@ export const useNavbarScroll = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Industry standard thresholds
   const HIDE_THRESHOLD = 100; // Start hiding after 100px scroll
   const SHOW_THRESHOLD = 50;   // Show navbar when scrolling up 50px
+  const SCROLL_APPEARANCE_THRESHOLD = 10; // Apply scrolled styling after 10px
   const DEBOUNCE_MS = 16;      // ~60fps for smooth animations
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
+
+    // Update scrolled state for styling
+    setIsScrolled(currentScrollY > SCROLL_APPEARANCE_THRESHOLD);
 
     // Don't hide on mobile when menu might be open
     if (window.innerWidth <= 768) {
@@ -79,6 +84,7 @@ export const useNavbarScroll = () => {
 
   return {
     isVisible,
+    isScrolled,
     scrollDirection,
     shouldHide: !isVisible && window.scrollY > HIDE_THRESHOLD
   };

@@ -14,7 +14,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { user, signOut } = useAuth();
-  const { isVisible } = useNavbarScroll();
+  const { isVisible, isScrolled } = useNavbarScroll();
   const navRef = useRef<HTMLElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -74,7 +74,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
   };
 
   return (
-    <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'}${variant === 'light' ? ' header-light' : ''}`}>
+    <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'} ${isScrolled ? 'header-scrolled' : ''}${variant === 'light' ? ' header-light' : ''}`}>
       <div className="header-container">
         <div className="header-left">
           <Link href="/" className="logo">
