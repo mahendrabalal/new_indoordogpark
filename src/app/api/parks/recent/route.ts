@@ -4,6 +4,7 @@ import { MediaAsset } from '@/types/dog-park';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
+export const revalidate = 0;
 
 export async function GET() {
     try {
@@ -49,7 +50,6 @@ export async function GET() {
                 })
                 .filter((photo): photo is MediaAsset => !!photo);
         };
-
         // Fetch recently approved parks (both free and featured)
         // Order by approved_at descending to get the newest first
         const { data: parks, error } = await supabaseAdminClient
@@ -68,8 +68,44 @@ export async function GET() {
             );
         }
 
+        interface ParkSubmissionRow {
+            id: string;
+            user_id: string;
+            name: string;
+            slug: string;
+            business_type: string;
+            description: string;
+            address: string | null;
+            street: string;
+            city: string;
+            state: string;
+            zip_code: string;
+            full_address: string;
+            latitude: number | null;
+            longitude: number | null;
+            phone: string;
+            email: string | null;
+            website: string | null;
+            social_media: unknown;
+            photos: unknown;
+            opening_hours: unknown;
+            hours_24x7: boolean;
+            hours_note: string | null;
+            pricing_info: unknown;
+            amenities: unknown;
+            indoor_outdoor: string;
+            size_category: string;
+            surface_type: string;
+            pet_friendly_features: unknown;
+            listing_type: string;
+            status: string;
+            created_at: string;
+            updated_at: string;
+            approved_at: string;
+        }
+
         // Transform snake_case to camelCase for frontend
-        const transformedParks = parks?.map(park => {
+        const transformedParks = (parks as unknown as ParkSubmissionRow[] || []).map((park) => {
             const normalizedPhotos = normalizePhotos(park.photos);
 
             return {
