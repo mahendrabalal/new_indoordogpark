@@ -268,9 +268,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
             <div className="premium-main-column">
               <section className="premium-content-section">
                 <h2 className="premium-section-title">About {park.name}</h2>
-                <div className="park-description">
+                <div className="park-description text-gray-700 leading-relaxed space-y-4">
                   {descriptionParagraphs.map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
+                    <p key={idx}>{renderMarkdownText(paragraph)}</p>
                   ))}
                 </div>
               </section>
@@ -603,6 +603,48 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
       <Footer />
     </>
   );
+}
+
+// Helper function to render simple markdown links [text](url)
+function renderMarkdownText(text: string): React.ReactNode {
+  // Regex to match markdown links: [text](url)
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+
+    // Add the link
+    const [, linkText, linkUrl] = match;
+    const isExternal = linkUrl.startsWith('http');
+
+    parts.push(
+      <a
+        key={match.index}
+        href={linkUrl}
+        className="text-orange-600 hover:text-orange-700 hover:underline font-medium"
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+      >
+        {linkText}
+      </a>
+    );
+
+    lastIndex = regex.lastIndex;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? <>{parts}</> : text;
 }
 
 function formatAmenityName(key: string): string {

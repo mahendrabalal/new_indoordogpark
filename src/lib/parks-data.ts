@@ -46,6 +46,8 @@ const pennsylvaniaDataPath = path.join(process.cwd(), 'public/data/pennsylvania.
 const ohioDataPath = path.join(process.cwd(), 'public/data/ohio.json');
 const northCarolinaDataPath = path.join(process.cwd(), 'public/data/northcarolina.json');
 const nyDataPath = path.join(process.cwd(), 'public/data/newyork.json');
+const missouriDataPath = path.join(process.cwd(), 'public/data/missouri.json');
+const newJerseyDataPath = path.join(process.cwd(), 'public/data/newjersey.json');
 const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
@@ -296,6 +298,24 @@ async function loadStaticParks(): Promise<DogPark[]> {
       allParks.push(...nyParks);
     } catch (error) {
       console.error('Failed to read New York parks data:', error);
+    }
+
+    // Load Missouri parks
+    try {
+      const missouriContent = await readFile(missouriDataPath, 'utf-8');
+      const missouriParks: DogPark[] = JSON.parse(missouriContent);
+      allParks.push(...missouriParks);
+    } catch (error) {
+      console.error('Failed to read Missouri parks data:', error);
+    }
+
+    // Load New Jersey parks
+    try {
+      const njContent = await readFile(newJerseyDataPath, 'utf-8');
+      const njParks: DogPark[] = JSON.parse(njContent);
+      allParks.push(...njParks);
+    } catch (error) {
+      console.error('Failed to read New Jersey parks data:', error);
     }
 
     // Load Mixmatch parks (multi-state parks)

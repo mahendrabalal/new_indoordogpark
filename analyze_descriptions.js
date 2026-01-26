@@ -1,33 +1,53 @@
-
 const fs = require('fs');
 
-const content = fs.readFileSync('/Users/mahendrabalal/Desktop/new_indoordogpark/src/data/priorityCityContent.ts', 'utf8');
+const filePath = 'public/data/missouri.json';
+const rawData = fs.readFileSync(filePath);
+const parks = JSON.parse(rawData);
 
-// I'll use a regex to extract the priorityCityContent array.
-// It's exported as a constant.
-// Actually, it might be easier to just regex for longDescription patterns.
+let totalParks = parks.length;
+let emptyDescriptions = 0;
+let shortDescriptions = 0;
+let templateDescriptions = 0;
+let goodDescriptions = 0;
 
-const cityMatches = content.matchAll(/slug:\s*'([^']+)',[\s\S]*?longDescription:\s*\[([\s\S]*?)\]/g);
+const issues = [];
 
-for (const match of cityMatches) {
-    const citySlug = match[1];
-    const longDescContent = match[2];
+parks.forEach(park => {
+    const desc = park.description || "";
+    const name = park.name || "Unknown";
 
-    // Extract paragraphs (strings in the array)
-    const paragraphMatches = longDescContent.match(/'([^']*)'|"([^"]*)"/g);
-
-    if (!paragraphMatches) {
-        console.log(`City: ${citySlug} - No paragraphs found or empty.`);
-        continue;
+    if (!desc.trim()) {
+        emptyDescriptions++;
+        issues.push({ name, issue: "Empty description" });
+        return;
     }
 
-    const paragraphs = paragraphMatches.map(p => p.slice(1, -1));
-    const totalChars = paragraphs.join('\n\n').length;
+    if (desc.length < 100) {
+        shortDescriptions++;
+        issues.push({ name, length: desc.length, issue: "Very short description" });
+    }
 
-    console.log(`City: ${citySlug}`);
-    console.log(`  Paragraphs: ${paragraphs.length}`);
-    console.log(`  Total Chars: ${totalChars}`);
-    paragraphs.forEach((p, i) => {
-        console.log(`    P${i + 1}: ${p.length} chars`);
-    });
+    // Check for repetitive/template patterns
+    if (desc.includes("Amenities at") && desc.includes("include onsite services, indoor facilities, professional staff")) {
+        templateDescriptions++;
+        // heavily penalized if it looks exactly like the generic filler
+        if (desc.includes("catering to the diverse needs of visitors. It is a vibrant hub of activity, drawing in hundreds of positive reviews")) {
+            issues.push({ name, issue: "Generic template description" });
+        }
+    } else {
+        goodDescriptions++;
+    }
+});
+
+console.log("Total Parks:", totalParks);
+console.log("Empty Descriptions:", emptyDescriptions);
+console.log("Short Descriptions (<100 chars):", shortDescriptions);
+console.log("Potential Template Descriptions:", templateDescriptions);
+console.log("Likely Custom/Good Descriptions:", goodDescriptions);
+
+console.log("\n--- Issues List (First 20) ---");
+console.log(issues.slice(0, 20));
+
+if (issues.length > 20) {
+    console.log(`... and ${issues.length - 20} more issues.`);
 }
