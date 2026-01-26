@@ -277,7 +277,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'virginia',
         name: 'Virginia',
         abbr: 'VA',
-        featuredImage: '/images/cities/columbus-oh/hero.png',
+        featuredImage: '/images/cities/virginia-beach/hero.webp',
         customContent: {
             heroEyebrow: 'Old Dominion Dog Destinations',
             heroHeading: 'Dog Parks in Virginia',

@@ -133,9 +133,8 @@ export function getStateBySlug(parks: DogPark[], slugOrAbbr: string): StateData 
 
 export function getCitiesForState(allParks: DogPark[], state: string): CityData[] {
   const stateKey = normalizeStateKey(state);
-  const stateParks = allParks.filter((p) => normalizeStateKey(p.state) === stateKey);
-  const cities = getAllCities(stateParks);
-  return cities;
+  const allCities = getAllCities(allParks);
+  return allCities.filter((city) => normalizeStateKey(city.state) === stateKey);
 }
 
 export function isIndexableState(state: StateData, thresholds: { minCities: number; minListings: number }) {

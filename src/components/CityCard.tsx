@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { CityData } from '@/lib/cityData';
 
@@ -6,8 +7,24 @@ interface CityCardProps {
 }
 
 export default function CityCard({ city }: CityCardProps) {
+  const hasImage = !!city.featuredImage;
+
   return (
-    <Link href={`/cities/${city.slug}`} className="city-card no-image">
+    <Link href={`/cities/${city.slug}`} className={`city-card ${!hasImage ? 'no-image' : ''}`}>
+      {/* City Image */}
+      {hasImage && (
+        <div className="city-card-image-wrapper">
+          <Image
+            src={city.featuredImage!}
+            alt={`Indoor dog parks in ${city.name}`}
+            fill
+            className="city-card-image"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={false}
+          />
+        </div>
+      )}
+
       <div className="city-card-body">
         {/* City Name */}
         <h3 className="city-card-title">{city.name}</h3>

@@ -132,7 +132,7 @@ const REGIONAL_HEROES: Record<string, string> = {
   'TN': '/images/cities/austin-tx/hero.png',
   'KY': '/images/cities/columbus-oh/hero.png',
   'WV': '/images/cities/columbus-oh/hero.png',
-  'VA': '/images/cities/columbus-oh/hero.png',
+  'VA': '/images/cities/virginia-beach/hero.webp',
   'OK': '/images/cities/austin-tx/hero.png',
 
   // California
