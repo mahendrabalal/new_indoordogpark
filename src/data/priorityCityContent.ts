@@ -3017,6 +3017,214 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'glendale',
+    city: 'Glendale',
+    state: 'CA',
+    featuredImage: '/images/cities/glendale/hero.webp',
+    summary: 'Urban sophistication meets massive park systems; top-rated runs nestled near the San Gabriel foothills.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Glendale',
+      heroDescription: 'From the foothills to the urban core, discover Glendale’s most popular dog parks and trails.',
+      longDescription: [
+        "Glendale, nestled at the base of the Verdugo Mountains and the San Gabriels, offers a sophisticated urban environment paired with some of the region's most expansive natural spaces. As the fourth largest city in Los Angeles County, it maintains a unique balance between high-end shopping at the Americana at Brand and rugged outdoor recreation in Brand Park and Deukmejian Wilderness Park. The city's dog culture is active and social, with a community that values both polished urban strolls and challenging mountain hikes. While most recreation is outdoor-focused, the city's diverse architecture and safe, tree-lined neighborhoods make it a premier destination for pet parents in the foothills.",
+        "Specific highlights for dog owners include the Glendale Central Park, which provides a modern urban green space, and the nearby trails of Griffith Park, which are easily accessible from Glendale's western edge. The city's commitment to community safety and well-maintained public spaces ensures that whether you're exploring the historic Rossmoyne district or taking a sunset walk near the Verdugo peaks, your canine companion will find plenty of space to thrive. With a growing number of pet-friendly cafes and a robust public park system, Glendale continues to evolve as a top-tier destination for Southern California's active dog owners."
+      ],
+    },
+  },
+  {
+    slug: 'eastvale',
+    city: 'Eastvale',
+    state: 'CA',
+    featuredImage: '/images/cities/eastvale/hero.webp',
+    summary: 'A family-oriented Riverside County gem featuring modern dog parks and expansive community trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Eastvale',
+      heroDescription: 'Discover the Inland Empire’s most family-friendly dog parks and community-focused trails.',
+      longDescription: [
+        "Eastvale, one of the newest and fastest-growing cities in Western Riverside County, has been meticulously planned with families—including those with four legs—in mind. Formerly part of a dairying region, the city has transformed into a premier suburban destination known for its safety, award-winning schools, and an abundance of park space. The dog-owning community in Eastvale is vibrant and community-driven, often gathering at the city's multiple modern parks that feature dedicated areas for canine socialization. The city's flat terrain and extensive network of paved trails make it ideal for long, accessible walks and jogs under the Southern California sun.",
+        "The focal point for many local pet owners is the Eastvale Community Park, which offers expansive green fields and modern amenities designed for multi-generational use. Harada Heritage Park is another local favorite, providing a beautifully landscaped environment for social play. Eastvale's strategic location near the Santa Ana River also provides access to regional trails that allow for longer adventures. With its clean neighborhoods, proactive community management, and a culture that prioritizes outdoor living, Eastvale represents the best of modern Inland Empire living for active families and their pets."
+      ],
+    },
+  },
+  {
+    slug: 'albany',
+    city: 'Albany',
+    state: 'NY',
+    featuredImage: '/images/cities/albany/hero.webp',
+    summary: 'The capital’s blend of historic parks and modern runs along the Hudson River valley.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Albany',
+      heroDescription: 'From the Empire State Plaza to the historic Washington Park, discover Albany’s best spots for pups.',
+      longDescription: [
+        "Albany, New York's historic capital, offers a unique blend of urban culture and accessible green spaces. The city is anchored by the stunning Washington Park, a 136-acre oasis that serves as the heart of the community's outdoor life. Pet owners in Albany appreciate the city's walkable downtown and the growing number of dog-friendly patios in the Lark Street area. The nearby Corning Preserve along the Hudson River provides miles of paved trails perfect for long walks with scenic water views.",
+        "The dog community in Albany is active and welcoming, with the city offering several well-maintained off-leash areas. Beyond the city limits, the Capital Region provides easy access to the Adirondacks and Catskills, making it an ideal home base for hikers and their canine companions. Whether you're a local resident or visiting the capital, Albany's mix of historic charm and modern pet amenities ensures a high quality of life for dogs and their owners alike."
+      ],
+    },
+  },
+  {
+    slug: 'brooklyn',
+    city: 'Brooklyn',
+    state: 'NY',
+    featuredImage: '/images/cities/brooklyn/hero.webp',
+    summary: 'A world-class destination for dog lovers, featuring iconic parks, warehouse runs, and a vibrant pet culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Brooklyn',
+      heroDescription: 'From Prospect Park to industrial chic warehouse runs, explore Brooklyn’s legendary dog scene.',
+      longDescription: [
+        "Brooklyn is widely regarded as one of the most dog-friendly boroughs in the world, characterized by its massive parks and a culture that treats pets as family. Prospect Park, designed by the same architects as Central Park, offers legendary off-leash hours that transform the Long Meadow into a canine social hub every morning. The borough's diverse neighborhoods, from the historic brownstones of Park Slope to the industrial-chic warehouses of Williamsburg and Bushwick, have fostered a thriving industry of boutique pet shops, dog-friendly breweries, and specialized indoor play spaces.",
+        "The Brooklyn dog experience is defined by community integration. Whether it's a stroll along the Brooklyn Heights Promenade with skyline views or a weekend outing to the McCarren Park dog run, there's always a place for pups to socialize. The borough's commitment to pet-friendly infrastructure is evident in its numerous well-maintained dog runs and the widespread acceptance of leashed pets in outdoor seating areas. For pet parents seeking a vibrant, urban lifestyle with plenty of green space, Brooklyn remains the gold standard."
+      ],
+    },
+  },
+  {
+    slug: 'buffalo',
+    city: 'Buffalo',
+    state: 'NY',
+    featuredImage: '/images/cities/buffalo/hero.webp',
+    summary: 'The City of Good Neighbors offers expansive lakefront trails and historic Olmsted-designed parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Buffalo',
+      heroDescription: 'Explore the Queen City’s historic park system and vibrant waterfront with your canine companion.',
+      longDescription: [
+        "Buffalo, known as the 'City of Good Neighbors,' extends its hospitality to four-legged friends with an impressive array of parks and trails. The city's jewel is its Olmsted-designed park system, which includes the sprawling Delaware Park, providing ample space for scenic walks and social play. The revitalization of Buffalo's waterfront (Canalside) has created new opportunities for pet-friendly recreation, with leashed dogs welcome to join their owners for sunset strolls along Lake Erie.",
+        "Buffalo's dog-owning community is resilient and active year-round, making the most of the city's seasonal shifts. During the warmer months, dog-friendly patios abound in the Elmwood Village and Allentown neighborhoods. As the city continues to grow and revitalize, new dog runs and indoor facilities are emerging to ensure that Buffalo remains a premier destination for pet parents in Western New York."
+      ],
+    },
+  },
+  {
+    slug: 'freeport',
+    city: 'Freeport',
+    state: 'NY',
+    featuredImage: '/images/cities/freeport/hero.webp',
+    summary: 'A coastal Long Island gem with refreshing sea breezes and accessible community green spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Freeport',
+      heroDescription: 'Enjoy the nautical charm and pet-friendly community spaces of Freeport, Long Island.',
+      longDescription: [
+        "Freeport, located on Long Island's South Shore, offers a unique nautical atmosphere for pet owners. Known for its famous Nautical Mile, the village provides a vibrant setting for leashed walks along the water. Freeport's local park system includes several community spaces where residents gather with their pets, fostering a close-knit and friendly atmosphere. The refreshing sea breezes make even the warmest summer days pleasant for outdoor exploration.",
+        "The village's strategic location provides easy access to larger regional parks and beaches, making it a convenient hub for active dog owners. Freeport's commitment to community maintenance ensures that public spaces remain clean and welcoming for all visitors. Whether you're enjoying a walk near the canal or visiting a local pet-friendly spot, Freeport offers a charming suburban experience with a distinct coastal flair."
+      ],
+    },
+  },
+  {
+    slug: 'hempstead',
+    city: 'Hempstead',
+    state: 'NY',
+    featuredImage: '/images/cities/hempstead/hero.webp',
+    summary: 'Large-scale suburban convenience with access to expansive regional parks and coastal runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Hempstead',
+      heroDescription: 'Discover the vast park systems and suburban pet amenities of Hempstead.',
+      longDescription: [
+        "Hempstead, one of Long Island's most populous townships, offers an extensive network of parks and recreational facilities. From the massive Eisenhower Park, which serves as a central hub for outdoor activity, to the smaller local runs, there's a space for every type of dog. The area's suburban layout provides plenty of room for long walks and easy access to a wide range of pet services, from high-end grooming to specialized training facilities.",
+        "The community in Hempstead is diverse and active, with pet owners making the most of the township's varied landscapes. The proximity to both the North and South Shores means pet parents can easily transition from wooded trails to coastal paths. Hempstead's robust infrastructure and focus on family-friendly spaces make it a top choice for dog owners seeking balance and convenience in a suburban setting."
+      ],
+    },
+  },
+  {
+    slug: 'mount-vernon',
+    city: 'Mount Vernon',
+    state: 'NY',
+    featuredImage: '/images/cities/mount-vernon/hero.webp',
+    summary: 'An urban-suburban bridge in Westchester offering charming neighborhood walks and historic parkland.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Mount Vernon',
+      heroDescription: 'Explore the tree-lined streets and community parks of Westchester’s urban-suburban gem.',
+      longDescription: [
+        "Mount Vernon serves as a gateway between New York City and Westchester County, offering a unique urban-suburban character. The city is known for its tree-lined streets and historic architecture, providing a beautiful backdrop for daily dog walks. Local favorites like Willson's Woods Park offer a mix of historic charm and modern amenities, including shaded trails and open fields that attract a regular community of pet owners.",
+        "The pet culture in Mount Vernon is grounded in neighborhood pride, with many residents frequenting local parks and supporting neighborhood pet shops. The city's walkability and easy access to the Bronx River Parkway trails make it a convenient location for active owners. As Mount Vernon continues to revitalize its public spaces, it remains a welcoming environment for families and their four-legged members."
+      ],
+    },
+  },
+  {
+    slug: 'newburgh',
+    city: 'Newburgh',
+    state: 'NY',
+    featuredImage: '/images/cities/newburgh/hero.webp',
+    summary: 'Historic waterfront charm and expansive Hudson Valley views for active outdoor adventurers.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Newburgh',
+      heroDescription: 'Discover the rugged beauty and historic parks of Newburgh on the Hudson.',
+      longDescription: [
+        "Newburgh, perched on the banks of the Hudson River, offers some of the most dramatic views in the Hudson Valley. The city's historic district, with its grand architecture and wide streets, provides an elegant setting for walks. Downing Park, designed by the same legendary team as Central Park, serves as the city's green heart, offering ample space for exploration and play. The waterfront area has become a popular destination for leashed walks paired with stunning river vistas.",
+        "The dog community in Newburgh is as rugged and spirited as the city itself. Nearby attractions like Storm King Art Center (with leashed access in certain areas) and various state parks make Newburgh a perfect home base for outdoor enthusiasts. The city's ongoing revitalization is bringing new pet-friendly businesses and a renewed focus on public park maintenance, ensuring a bright future for local dogs."
+      ],
+    },
+  },
+  {
+    slug: 'niagara-falls',
+    city: 'Niagara Falls',
+    state: 'NY',
+    featuredImage: '/images/cities/niagara-falls/hero.webp',
+    summary: 'Breathtaking natural beauty and expansive state park trails at one of the world’s most iconic sites.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Niagara Falls',
+      heroDescription: 'Expertly navigate the stunning trails and parks surrounding the world-famous falls.',
+      longDescription: [
+        "Niagara Falls, NY, is more than just a tourist destination; it's a gateway to incredible natural spaces for dog owners. Niagara Falls State Park offers miles of paved and natural trails where leashed dogs can join their owners in experiencing the majesty of the falls. The nearby Gorge trails provide a more rugged experience for active pups, with dramatic cliffs and views of the rushing Niagara River below.",
+        "The city's local parks, such as Hyde Park, complement the state park's grandeur with community-focused amenities and off-leash areas. Niagara Falls residents and visitors alike benefit from a culture that values the outdoors and respects the natural environment. While the falls are the main draw, the city's commitment to accessible green space ensures that canine companions have plenty of variety in their daily routines."
+      ],
+    },
+  },
+  {
+    slug: 'rochester',
+    city: 'Rochester',
+    state: 'NY',
+    featuredImage: '/images/cities/rochester/hero.webp',
+    summary: 'A park lover’s paradise featuring the historic Genesee Valley and beautiful Lake Ontario shoreline.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Rochester',
+      heroDescription: 'Explore the Flower City’s expansive park system and scenic river trails.',
+      longDescription: [
+        "Rochester, the 'Flower City,' takes its botanical heritage seriously, offering one of the most diverse and beautiful park systems in the state. Highland Park, famous for its lilacs, provides a stunning backdrop for spring walks, while the Genesee Valley Park offers expansive fields and river access. The Genesee Riverway Trail provides miles of scenic paths that connect the city's neighborhoods to the shores of Lake Ontario, making it a favorite for long-distance walkers and runners.",
+        "Rochester's dog-owning community is highly active and supported by a variety of amenities, from dedicated dog runs in Cobbs Hill Park to numerous pet-friendly patios in the Park Avenue area. The city's culture of innovation and community involvement means that new dog parks and indoor facilities are frequently being developed. Whether you're exploring the historic waterfalls downtown or taking a sunset walk on the beach, Rochester offers a high-quality lifestyle for dogs and their families."
+      ],
+    },
+  },
+  {
+    slug: 'syracuse',
+    city: 'Syracuse',
+    state: 'NY',
+    featuredImage: '/images/cities/syracuse/hero.webp',
+    summary: 'The heart of Central New York, offering beautiful lakefront trails and vibrant community parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Syracuse',
+      heroDescription: 'From Onondaga Lake Park to Burnet Park, discover the best of Syracuse with your pup.',
+      longDescription: [
+        "Syracuse serves as the central hub of New York State, offering a variety of landscapes for dog owners to explore. Onondaga Lake Park, often called the 'Central Park of Central New York,' is the standout facility, with its miles of paved trails and dedicated off-leash area (Wegmans Good Dog Park). Within the city limits, historic parks like Burnet Park and Thornden Park provide beautiful green spaces for neighborhood walks and community gatherings.",
+        "The dog community in Syracuse is robust and active year-round, making the most of the city's distinct seasons. The Clinton Square area and the nearby Erie Canal Museum offer walkable urban environments for leashed exploration. As Syracuse continues to invest in its 'Loop the Lake' trail and other public space improvements, pet parents are finding more opportunities than ever to stay active and engaged with their canine companions."
+      ],
+    },
+  },
+  {
+    slug: 'yonkers',
+    city: 'Yonkers',
+    state: 'NY',
+    featuredImage: '/images/cities/yonkers/hero.webp',
+    summary: 'Westchester’s largest city offers a mix of urban waterfront revitalization and expansive county parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Yonkers',
+      heroDescription: 'Explore the Hudson River waterfront and historic parklands of Yonkers.',
+      longDescription: [
+        "Yonkers, the largest city in Westchester County, provides a diverse range of environments for pet owners. The city's revitalized Hudson River waterfront features paved esplanades perfect for scenic walks with a view of the Palisades. For those seeking a more wooded experience, Tibbetts Brook Park and Untermyer Gardens (with its historic walled gardens and river views) offer expansive landscapes that attract dog owners from across the region.",
+        "The dog-owning community in Yonkers benefits from both urban convenience and easy access to major regional trails like the Old Croton Aqueduct. The city's diverse neighborhoods, from the historic homes of North Yonkers to the modern developments near Ridge Hill, cater to a wide range of lifestyles. With a growing number of pet-friendly businesses and a commitment to maintaining its public green spaces, Yonkers remains a premier destination for active pet parents."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {

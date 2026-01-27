@@ -54,8 +54,15 @@ export async function getAllParksForStateAggregation(): Promise<DogPark[]> {
 
     if (!error && submissions) {
       submissionParks = submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow));
+    } else if (error) {
+      console.warn('[Supabase] Failed to fetch submissions for state aggregation');
     }
-  } catch {
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      console.warn('[Supabase] Timeout during state aggregation');
+    } else {
+      console.warn('[Supabase] Error during state aggregation');
+    }
     // Ignore DB errors for sitemap/state pages; fall back to static data.
   }
 

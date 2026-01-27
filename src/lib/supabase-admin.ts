@@ -11,9 +11,22 @@ if (!supabaseUrl || !supabaseServiceRoleKey) {
   throw new Error('Supabase environment variables are required');
 }
 
+const FETCH_TIMEOUT_MS = 5000;
+
 export const supabaseAdminClient = createClient(supabaseUrl, supabaseServiceRoleKey, {
   auth: {
     persistSession: false,
     autoRefreshToken: false,
+  },
+  global: {
+    fetch: (url, options) => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+      return fetch(url, {
+        ...options,
+        signal: controller.signal,
+      }).finally(() => clearTimeout(timeoutId));
+    },
   },
 });

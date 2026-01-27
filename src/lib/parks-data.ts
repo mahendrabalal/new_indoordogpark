@@ -488,7 +488,11 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       }
     }
   } catch (submissionError) {
-    console.error('Failed to fetch park submission by slug:', submissionError);
+    if (submissionError instanceof Error && submissionError.name === 'AbortError') {
+      console.warn(`[Supabase] Timeout fetching park by slug: ${slug}`);
+    } else {
+      console.warn(`[Supabase] Failed to fetch park by slug: ${slug}`);
+    }
   }
 
   return null;
@@ -503,13 +507,17 @@ async function loadUserSubmissions(): Promise<DogPark[]> {
       .order('created_at', { ascending: false });
 
     if (error || !submissions) {
-      console.error('Error fetching user submissions:', error);
+      console.warn('[Supabase] Failed to fetch user submissions (offline or network error)');
       return [];
     }
 
     return submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow));
   } catch (error) {
-    console.error('Failed to load user submissions:', error);
+    if (error instanceof Error && error.name === 'AbortError') {
+      console.warn('[Supabase] Timeout loading user submissions');
+    } else {
+      console.warn('[Supabase] Failed to load user submissions');
+    }
     return [];
   }
 }

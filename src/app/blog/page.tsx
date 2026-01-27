@@ -478,7 +478,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               <div className="relative hidden md:block">
                 <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-white border-2 border-[#FF5722]/20 shadow-lg">
                   <Image
-                    src="/images/suscribe/playing_dog_family.jpeg"
+                    src="/images/subscribe/playing_dog_family.jpeg"
                     alt="Join our community for dog park updates"
                     fill
                     className="object-cover"

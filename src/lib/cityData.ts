@@ -84,10 +84,19 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       }
     }
 
-    // Final fallback to standard hero image path
+    // Final fallback to standard hero image path - only if not known missing
     if (!featuredImage) {
       const citySlug = needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug;
-      featuredImage = `/images/cities/${citySlug}/hero.webp`;
+      // List of cities that we know don't have images yet to avoid 404 errors
+      const knownMissingCities = [
+        'akron', 'st-louis', 'kansas-city', 'columbia-mo', 'st-joseph',
+        'liberty', 'mo-64052', 'cottleville', 'blue-springs', 'ellisville',
+        'wentzville', 'creve-coeur', 'springfield-mo'
+      ];
+
+      if (!knownMissingCities.includes(citySlug)) {
+        featuredImage = `/images/cities/${citySlug}/hero.webp`;
+      }
     }
 
     return {
