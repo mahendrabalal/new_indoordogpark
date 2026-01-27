@@ -89,7 +89,7 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       const citySlug = needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug;
       // List of cities that we know don't have images yet to avoid 404 errors
       const knownMissingCities = [
-        'akron', 'st-louis', 'kansas-city', 'columbia-mo', 'st-joseph',
+        'st-louis', 'kansas-city', 'columbia-mo', 'st-joseph',
         'liberty', 'mo-64052', 'cottleville', 'blue-springs', 'ellisville',
         'wentzville', 'creve-coeur', 'springfield-mo'
       ];
