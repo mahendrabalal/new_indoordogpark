@@ -84,6 +84,12 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       }
     }
 
+    // Final fallback to standard hero image path
+    if (!featuredImage) {
+      const citySlug = needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug;
+      featuredImage = `/images/cities/${citySlug}/hero.webp`;
+    }
+
     return {
       slug: needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug,
       name: cityName,

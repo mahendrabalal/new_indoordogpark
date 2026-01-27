@@ -549,7 +549,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'tennessee',
         name: 'Tennessee',
         abbr: 'TN',
-        featuredImage: '/images/cities/austin-tx/hero.png',
+        featuredImage: '/images/cities/nashville/hero.webp',
         customContent: {
             heroEyebrow: 'Volunteer State Dog Parks',
             heroHeading: 'Dog Parks in Tennessee',
