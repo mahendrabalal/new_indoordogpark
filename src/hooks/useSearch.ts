@@ -153,14 +153,14 @@ export function useSearch(
     if (!enableUrlState) return;
 
     const updates: Record<string, string> = {
-      q: activeSearchTerm,
-      type: filters.type || '',
+      q: activeSearchTerm || '',
+      type: filters.type && filters.type !== 'all' ? filters.type : '',
       minRating: filters.minRating?.toString() || '',
       priceRange: filters.priceRange || '',
       city: filters.city || '',
-      sortBy: filters.sortBy || '',
       listingType: filters.listingType || '',
-      amenities: filters.amenities ? filters.amenities.join(',') : '',
+      amenities: filters.amenities && filters.amenities.length > 0 ? filters.amenities.join(',') : '',
+      sortBy: filters.sortBy && filters.sortBy !== 'relevance' ? filters.sortBy : '',
     };
 
     setSearchParams(updates);

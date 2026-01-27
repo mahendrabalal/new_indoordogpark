@@ -96,6 +96,8 @@ function hasActiveSearchParams(
   if (getParamValue(searchParams.minRating).trim()) return true;
   if (getParamValue(searchParams.priceRange).trim()) return true;
   if (getParamValue(searchParams.city).trim()) return true;
+  if (getParamValue(searchParams.sortBy).trim()) return true;
+  if (getParamValue(searchParams.listingType).trim()) return true;
 
   return false;
 }
@@ -103,68 +105,87 @@ function hasActiveSearchParams(
 export const revalidate = 60 * 60; // Refresh server-rendered home data hourly
 
 export default async function HomePage({ searchParams = {} }: HomePageProps) {
-  // Validate and normalize type parameter
+  // Redirect if default or unnecessary parameters are present
+  const sortByParam = getParamValue(searchParams.sortBy);
+  if (sortByParam === 'relevance') {
+    const newSearchParams = new URLSearchParams();
+
+    // Copy all other parameters
+    Object.entries(searchParams).forEach(([key, value]) => {
+      if (key !== 'sortBy' && value) {
+        newSearchParams.set(key, getParamValue(value));
+      }
+    });
+
+    const redirectUrl = newSearchParams.toString()
+      ? `/?${newSearchParams.toString()}`
+      : '/';
+
+    redirect(redirectUrl);
+  }
+
+  // Existing validation for type parameter
   const typeParam = getParamValue(searchParams.type);
   if (typeParam && typeParam !== 'all') {
     const normalizedType = normalizeTypeParameter(typeParam);
-    
+
     // If type is invalid, redirect to homepage without the invalid type parameter
     // This prevents soft 404s from invalid type values
     if (!normalizedType) {
       const newSearchParams = new URLSearchParams();
-      
+
       // Preserve other valid search parameters
       const query = getParamValue(searchParams.q);
       if (query) newSearchParams.set('q', query);
-      
+
       const minRating = getParamValue(searchParams.minRating);
       if (minRating) newSearchParams.set('minRating', minRating);
-      
+
       const priceRange = getParamValue(searchParams.priceRange);
       if (priceRange) newSearchParams.set('priceRange', priceRange);
-      
+
       const city = getParamValue(searchParams.city);
       if (city) newSearchParams.set('city', city);
-      
+
       const listingType = getParamValue(searchParams.listingType);
       if (listingType && (listingType === 'featured' || listingType === 'free')) {
         newSearchParams.set('listingType', listingType);
       }
-      
-      const redirectUrl = newSearchParams.toString() 
+
+      const redirectUrl = newSearchParams.toString()
         ? `/?${newSearchParams.toString()}`
         : '/';
-      
+
       redirect(redirectUrl);
     }
-    
+
     // If type was normalized, redirect to the normalized version
     if (normalizedType !== typeParam) {
       const newSearchParams = new URLSearchParams();
       newSearchParams.set('type', normalizedType);
-      
+
       // Preserve other search parameters
       const query = getParamValue(searchParams.q);
       if (query) newSearchParams.set('q', query);
-      
+
       const minRating = getParamValue(searchParams.minRating);
       if (minRating) newSearchParams.set('minRating', minRating);
-      
+
       const priceRange = getParamValue(searchParams.priceRange);
       if (priceRange) newSearchParams.set('priceRange', priceRange);
-      
+
       const city = getParamValue(searchParams.city);
       if (city) newSearchParams.set('city', city);
-      
+
       const listingType = getParamValue(searchParams.listingType);
       if (listingType && (listingType === 'featured' || listingType === 'free')) {
         newSearchParams.set('listingType', listingType);
       }
-      
+
       redirect(`/?${newSearchParams.toString()}`);
     }
   }
-  
+
   const initialShowSearchLayout = hasActiveSearchParams(searchParams);
   const initialData = await getPaginatedStaticParks(1, 20);
   const collectionPageSchema = generateCollectionPageSchema(initialData.data);
