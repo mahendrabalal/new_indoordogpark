@@ -116,7 +116,7 @@ const REGIONAL_HEROES: Record<string, string> = {
   // Northeast / New England
   'NY': '/images/cities/new-york/hero.webp',
   'MA': '/images/cities/new-york/hero.webp',
-  'PA': '/images/cities/columbus-oh/hero.png',
+  'PA': '/images/cities/philadelphia-pa/hero.webp',
   'NJ': '/images/cities/new-york/hero.webp',
   'CT': '/images/cities/new-york/hero.webp',
   'RI': '/images/cities/new-york/hero.webp',
