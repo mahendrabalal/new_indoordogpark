@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import type { DogPark } from '@/types/dog-park';
 import type { CityData } from '@/lib/cityData';
@@ -107,7 +109,7 @@ const REGIONAL_HEROES: Record<string, string> = {
   'WI': '/images/cities/minneapolis-mn/hero.png',
   'IN': '/images/cities/columbus-oh/hero.png',
   'IA': '/images/cities/chicago-il/hero.png',
-  'MO': '/images/cities/chicago-il/hero.png',
+  'MO': '/images/cities/kansas-city-mo/hero.webp',
   'NE': '/images/cities/chicago-il/hero.png',
   'KS': '/images/cities/austin-tx/hero.png',
   'ND': '/images/cities/minneapolis-mn/hero.png',
@@ -128,13 +130,13 @@ const REGIONAL_HEROES: Record<string, string> = {
 
   // South / Sunbelt
   'TX': '/images/cities/austin-tx/hero.png',
-  'GA': '/images/cities/houston-tx/hero.png',
-  'FL': '/images/cities/houston-tx/hero.png', // Or Miami if we had it
+  'GA': '/images/cities/georgia/hero.webp',
+  'FL': '/images/cities/houston-tx/hero.webp', // Or Miami if we had it
   'NC': '/images/cities/columbus-oh/hero.png',
-  'SC': '/images/cities/houston-tx/hero.png',
-  'AL': '/images/cities/houston-tx/hero.png',
-  'MS': '/images/cities/houston-tx/hero.png',
-  'LA': '/images/cities/houston-tx/hero.png',
+  'SC': '/images/cities/houston-tx/hero.webp',
+  'AL': '/images/cities/houston-tx/hero.webp',
+  'MS': '/images/cities/houston-tx/hero.webp',
+  'LA': '/images/cities/houston-tx/hero.webp',
   'AR': '/images/cities/austin-tx/hero.png',
   'TN': '/images/cities/austin-tx/hero.png',
   'KY': '/images/cities/columbus-oh/hero.png',
@@ -148,7 +150,19 @@ const REGIONAL_HEROES: Record<string, string> = {
   'HI': '/images/cities/san-diego/hero.webp', // Coastal vibe fallback
 };
 
+
 function pickFeaturedImage(state: StateData, priorityConfig?: PriorityStateConfig): string {
+  // 1. Check for dedicated state hero image on filesystem
+  // "Convention over Configuration"
+  const autoHeroPath = path.join(process.cwd(), 'public', 'images', 'states', state.slug, 'hero.webp');
+  try {
+    if (fs.existsSync(autoHeroPath)) {
+      return `/images/states/${state.slug}/hero.webp`;
+    }
+  } catch {
+    // Ignore fs errors silently and fall back
+  }
+
   if (priorityConfig?.featuredImage) return priorityConfig.featuredImage;
 
   // Regional Archetype Mapping

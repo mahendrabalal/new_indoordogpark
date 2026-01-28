@@ -5,7 +5,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'california',
         name: 'California',
         abbr: 'CA',
-        featuredImage: '/images/cities/los-angeles/hero.webp',
+        featuredImage: '/images/states/california/hero.webp',
         customContent: {
             heroEyebrow: 'Golden State Playgrounds',
             heroHeading: 'Dog Parks in California',
@@ -73,7 +73,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'washington',
         name: 'Washington',
         abbr: 'WA',
-        featuredImage: '/images/cities/seattle/hero.webp',
+        featuredImage: '/images/states/washington/hero.webp',
         customContent: {
             heroEyebrow: 'Evergreen State Enrichment',
             heroHeading: 'Dog Parks in Washington',
@@ -141,7 +141,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'texas',
         name: 'Texas',
         abbr: 'TX',
-        featuredImage: '/images/cities/austin-tx/hero.png',
+        featuredImage: '/images/states/texas/hero.webp',
         customContent: {
             heroEyebrow: 'Lone Star Dog Country',
             heroHeading: 'Dog Parks in Texas',
@@ -209,7 +209,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'new-york',
         name: 'New York',
         abbr: 'NY',
-        featuredImage: '/images/cities/new-york/hero.webp',
+        featuredImage: '/images/states/new-york/hero.webp',
         customContent: {
             heroEyebrow: 'Empire State Dog Scene',
             heroHeading: 'Dog Parks in New York',
@@ -277,7 +277,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'virginia',
         name: 'Virginia',
         abbr: 'VA',
-        featuredImage: '/images/cities/virginia-beach/hero.webp',
+        featuredImage: '/images/states/virginia/hero.webp',
         customContent: {
             heroEyebrow: 'Old Dominion Dog Destinations',
             heroHeading: 'Dog Parks in Virginia',
@@ -345,7 +345,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'ohio',
         name: 'Ohio',
         abbr: 'OH',
-        featuredImage: '/images/cities/columbus-oh/hero.png',
+        featuredImage: '/images/states/ohio/hero.webp',
         customContent: {
             heroEyebrow: 'Buckeye State Dog Parks',
             heroHeading: 'Dog Parks in Ohio',
@@ -413,7 +413,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'pennsylvania',
         name: 'Pennsylvania',
         abbr: 'PA',
-        featuredImage: '/images/cities/columbus-oh/hero.png',
+        featuredImage: '/images/states/pennsylvania/hero.webp',
         customContent: {
             heroEyebrow: 'Keystone State Canine Country',
             heroHeading: 'Dog Parks in Pennsylvania',
@@ -481,7 +481,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'north-carolina',
         name: 'North Carolina',
         abbr: 'NC',
-        featuredImage: '/images/cities/columbus-oh/hero.png',
+        featuredImage: '/images/states/north-carolina/hero.webp',
         customContent: {
             heroEyebrow: 'Tar Heel Dog Destinations',
             heroHeading: 'Dog Parks in North Carolina',
@@ -549,7 +549,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'tennessee',
         name: 'Tennessee',
         abbr: 'TN',
-        featuredImage: '/images/cities/nashville/hero.webp',
+        featuredImage: '/images/states/tennessee/hero.webp',
         customContent: {
             heroEyebrow: 'Volunteer State Dog Parks',
             heroHeading: 'Dog Parks in Tennessee',
@@ -617,7 +617,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'florida',
         name: 'Florida',
         abbr: 'FL',
-        featuredImage: '/images/cities/houston-tx/hero.png',
+        featuredImage: '/images/cities/jacksonville/hero.webp',
         customContent: {
             heroEyebrow: 'Sunshine State Dog Parks',
             heroHeading: 'Dog Parks in Florida',
@@ -685,7 +685,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'georgia',
         name: 'Georgia',
         abbr: 'GA',
-        featuredImage: '/images/cities/houston-tx/hero.png',
+        featuredImage: '/images/states/georgia/hero.webp',
         customContent: {
             heroEyebrow: 'Peach State Dog Parks',
             heroHeading: 'Dog Parks in Georgia',

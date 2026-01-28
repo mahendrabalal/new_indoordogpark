@@ -88,10 +88,8 @@ export function getAllCities(parks: DogPark[]): CityData[] {
     if (!featuredImage) {
       const citySlug = needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug;
       // List of cities that we know don't have images yet to avoid 404 errors
-      const knownMissingCities = [
-        'st-louis', 'kansas-city', 'columbia-mo', 'st-joseph',
-        'liberty', 'mo-64052', 'cottleville', 'blue-springs', 'ellisville',
-        'wentzville', 'creve-coeur', 'springfield-mo'
+      const knownMissingCities: string[] = [
+        // All Missouri cities now have images added
       ];
 
       if (!knownMissingCities.includes(citySlug)) {

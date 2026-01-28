@@ -3225,6 +3225,22 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'smyrna-ga',
+    city: 'Smyrna',
+    state: 'GA',
+    featuredImage: '/images/cities/atlanta/hero.webp',
+    summary: 'A key suburb in the Atlanta metro area with growing pet-friendly amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog-Friendly Smyrna',
+      heroDescription: 'Explore the parks and trails of this vibrant Atlanta suburb.',
+      longDescription: [
+        "Smyrna, known as the 'Jonquil City,' is an integral part of the Atlanta metropolitan area's thriving pet culture. Located just northwest of the city, it offers a blend of suburban charm and urban convenience. The city's parks, such as the expansive Tolleson Park, provide ample green space for leashed walks and recreation.",
+        "As part of the greater Atlanta dog community, Smyrna residents benefit from proximity to the region's top facilities while enjoying their own local amenities. The recent growth in the Battery Atlanta area has brought new energy and walkability to the region. Whether you're a local resident or visiting the metro area, Smyrna offers a welcoming environment for you and your dog."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
