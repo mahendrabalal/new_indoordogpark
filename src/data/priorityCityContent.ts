@@ -2213,6 +2213,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Discover Arlington\'s growing selection of modern dog parks designed for all breeds and sizes.',
       heroPill: 'Verified Arlington Directory',
       heroFootnotes: ['Family-friendly venues', 'Convenient DFW location'],
+      longDescription: [
+        'Arlington, TX, balances urban innovation with massive natural preserves for its canine residents. The 5.7-acre [Tails \'N Trails Dog Park](https://www.arlingtontx.gov/departments/parks_recreation) is a wooded favorite near the Animal Services Center, while the 5.3-acre [Rush Creek Dog Park](https://www.arlingtontx.gov/departments/parks_recreation) offers expansive off-leash paddocks on the west side. For downtown residents, the [Doggie Depot](https://downtownarlington.org/live/doggie-depot) provides a modern urban retreat. Beyond off-leash spots, the 1,300-acre [River Legacy Park](https://www.riverlegacy.org/) offers miles of scenic leashed trails along the Trinity River. Our [Arlington directory](https://www.indoordogpark.org/cities/arlington#park-directory) verifies these local spaces to ensure your pup finds the perfect terrain.',
+        'Professional, climate-controlled facilities like [Dogtopia of Arlington by The Parks](https://www.dogtopia.com/arlington-parks/) complement public fields, offering vital socialization during North Texas’ humid summer peaks. These hubs reflect Arlington\'s evolving pet infrastructure, providing year-round reliability. Whether you\'re exploring the [Texas dog park scene](https://www.indoordogpark.org/) or using our [owner resources](https://www.indoordogpark.org/owner-resources), the city maintains a high standard for pet wellness. From the rugged trails of Village Creek to premium indoor suites, Arlington ensures every dog thrives in the DFW landscape.'
+      ],
     },
   },
   {
@@ -2228,6 +2232,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Experience Corpus Christi\'s coastal dog parks with ocean views and beach-adjacent recreation.',
       heroPill: 'Verified Corpus Christi Directory',
       heroFootnotes: ['Waterfront access', 'Tropical climate tips'],
+      longDescription: [
+        'Corpus Christi, TX, blends urban bayfront runs with sprawling neighborhood fields for its canine residents. The [Bill Witt Dog Park](https://www.corpuschristitx.gov/parks) is a standout, boasting a 5.0-bone rating for its massive off-leash areas and reliable water stations on Yorktown Boulevard. For downtown locals, the [Vishal Bhagat Dog Park](https://www.bringfido.com/attraction/14980) at Water\'s Edge Park provides a scenic retreat with dual-surface paddocks overlooking the bay. Our [Corpus Christi directory](https://www.indoordogpark.org/cities/corpus-christi#park-directory) verifies these spots, reflecting a commitment to accessible coastal recreation for all breeds, including newer $400,000 facilities like [Sherwood Dog Park](https://www.corpuschristitx.gov/parks).',
+        'To handle South Texas humidity, [Dogtopia of Corpus Christi](https://www.dogtopia.com/corpus-christi/) provides climate-controlled playrooms, ensuring safety during summer peaks. These hubs complement public spaces like [Padre Island National Seashore](https://www.nps.gov/pais/), where leashed dogs can roam miles of coastline. Whether you are exploring the [Texas dog park scene](https://www.indoordogpark.org/) or utilizing our [owner resources](https://www.indoordogpark.org/owner-resources), Corpus Christi’s infrastructure—from West Guth’s agility courses to premium indoor suites—ensures every dog thrives in the Gulf Coast landscape year-round.'
+      ],
     },
   },
   {
@@ -2296,6 +2304,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Explore 44 verified dog-friendly spots in Plano, TX. Powered by 12,193 local reviews. Common highlights: Onsite services (100%), Indoor facilities (100%), Professional staff (100%).',
       heroPill: 'Verified Plano Directory',
       heroFootnotes: ['44+ verified locations', 'Indoor facilities available'],
+      longDescription: [
+        'Plano, TX, excels in canine recreation with 81% of residents living within a 10-minute walk of a park. The 7-acre [Bob Woodruff Dog Park](https://www.plano.gov/1376/Dog-Parks) features evening lighting and separate zones, while the 5-acre [Windhaven Meadows Dog Park](https://www.visitplano.com/listing/windhaven-meadows-park/) provides a modern retreat with dedicated wash stations. For agility fans, the [Jack Carter Dog Park](https://www.plano.gov/1376/Dog-Parks) offers specialized equipment along Bluebonnet Trail. Our [Plano directory](https://www.indoordogpark.org/cities/plano#park-directory) verifies these local gems, ensuring your pet enjoys the city\'s high standard of outdoor infrastructure.',
+        'To handle North Texas weather, [Dogtopia of Plano](https://www.dogtopia.com/plano/) provides 9,000 square feet of climate-controlled play space with rubberized flooring and fresh-air filtration. This indoor option complements Plano’s public fields, offering year-round reliability for socialization. Whether you’re browsing the [Texas dog park scene](https://www.indoordogpark.org/) or checking our [owner resources](https://www.indoordogpark.org/owner-resources), the city’s strict safety standards and varied terrain—from massive fields to premium indoor suites—make it a premier DFW hub for pet wellness. Plano ensures every dog thrives, regardless of the season.'
+      ],
       heroChips: [
         { label: 'Verified Spots', value: '44+' },
         { label: 'Avg Rating', value: '4.6 / 5' },
