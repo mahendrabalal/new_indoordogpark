@@ -2194,6 +2194,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Explore dog parks across Amarillo, from spacious open areas to shaded neighborhood runs.',
       heroPill: 'Verified Amarillo Directory',
       heroFootnotes: ['Locations verified', 'Community-driven recommendations'],
+      longDescription: [
+        'Amarillo, situated in the heart of the Texas Panhandle, provides unique outdoor experiences for dog owners, most notably the [Thompson Park Dog Park](https://ci.amarillo.tx.us/departments/parks-recreation/parks/thompson-park). This facility is highly regarded for its swimming pond, where pets can cool off during hot summer days, and its abundance of shade trees. For those seeking wide-open spaces, the 2.3-acre [John Stiff Memorial Dog Park](https://www.amarilloparks.org/facilities/park/john-stiff-memorial-park) offers an expansive, unfenced area where well-trained dogs can run freely. Our [Amarillo directory](https://www.indoordogpark.org/cities/amarillo#park-directory) captures these diverse regional spots, reflecting the city\'s appreciation for active, outdoor canine lifestyles.',
+        'To handle the region\'s extreme weather and dust storms, [Amarillo Fetch](https://amarillofetch.com) offers 12,000 square feet of premier indoor play space. This climate-controlled resort ensures that socialization continues regardless of the Panhandle\'s shifting conditions. Other local spots like Doggo Sit Stay Play further bolster the city\'s growing inventory of professional pet infrastructure. If you\'re interested in the local market trends or planning a pet-focused trip, our [owner resources](/owner-resources) provide essential data and guides. Together, these parks and facilities make Amarillo a robust hub for dog lovers across West Texas.'
+      ],
     },
   },
   {
@@ -2254,6 +2258,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Explore Lubbock\'s dog parks with expansive grounds and community-driven play areas.',
       heroPill: 'Verified Lubbock Directory',
       heroFootnotes: ['Tech hub hospitality', 'Wide open spaces'],
+      longDescription: [
+        'Lubbock, known as the "Hub City," offers sprawling outdoor spaces for dogs, most notably the massive Canyon Run Dog Park at [Mackenzie Park](https://ci.lubbock.tx.us/departments/parks-recreation/parks/mackenzie-park). This 3.5-acre facility features separate enclosures for large and small breeds, providing ample room for high-energy play against a backdrop of West Texas plains. Another local favorite, Hub City Unleashed at Clapp Park, provides over an acre of fenced territory with shaded benches and family-friendly playgrounds nearby. Our [Lubbock directory](https://www.indoordogpark.org/cities/lubbock#park-directory) reflects the community\'s commitment to accessible, wide-open recreation.',
+        'To escape the intense West Texas sun or occasional dust storms, [Gus\' Indoor Dog Park & Daycare](https://gusindoordogpark.com) provides a premier climate-controlled environment. This facility is a staple for local pet parents seeking professional supervision and sanitary play surfaces year-round. For those looking to understand the growth of pet-friendly infrastructure in the region, our [owner resources](/owner-resources) offer detailed insights into the local market. Whether exploring the historic trails of Mackenzie Park or socializing in high-tech indoor suites, Lubbock ensures that every canine resident enjoys a balanced and active lifestyle.'
+      ],
     },
   },
   {
@@ -2269,6 +2277,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Discover McKinney\'s modern dog parks featuring contemporary design and family-friendly facilities.',
       heroPill: 'Verified McKinney Directory',
       heroFootnotes: ['Modern amenities', 'Growing community'],
+      longDescription: [
+        'McKinney, TX is a premier destination for dog owners, highlighted by the massive [Bonnie Wenk Dog Park](https://www.mckinneytexas.org/885/Bonnie-Wenk-Park). This two-acre off-leash haven is famous for its year-round splash pad, providing a cool retreat during North Texas summers. With separate areas for large and small breeds and connections to miles of hike-and-bike trails, it anchors the city\'s outdoor lifestyle. Our [McKinney directory](https://www.indoordogpark.org/cities/mckinney#park-directory) showcases how these well-maintained municipal spaces set a high bar for community-focused pet infrastructure.',
+        'For climate-controlled play, [Fetch Me Later](https://www.indoordogpark.org/parks/fetch-me-later) offers a professional indoor environment where pups stay social regardless of the heat or rain. This facility reflects the city\'s growing demand for safe "third places" for pets. Those interested in the local market can find data in our [owner resources](/owner-resources), while [Visit McKinney](https://www.visitmckinney.com) highlights the city\'s many pet-friendly events. Together, these options ensure McKinney dogs thrive in a safe, socialized, and healthy year-round ecosystem.'
+      ],
     },
   },
   {

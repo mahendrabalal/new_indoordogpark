@@ -108,6 +108,28 @@ export default async function StatePage({ params }: StatePageProps) {
 
   const heroImage = state.featuredImage;
 
+  const renderMarkdownContent = (content: string) => {
+    return content.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
+      const match = part.match(/\[(.*?)\]\((.*?)\)/);
+      if (match) {
+        const [, text, href] = match;
+        const isExternal = href.startsWith('http');
+        return (
+          <Link
+            key={i}
+            href={href}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className="text-primary hover:underline font-medium"
+          >
+            {text}
+          </Link>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <>
       <script
@@ -141,7 +163,7 @@ export default async function StatePage({ params }: StatePageProps) {
                       : `We're building out our verified directory for ${state.name}. Browse nearby cities now, or submit a park to help us review and publish more dog-friendly spots.\n\nHelp us grow by contributing your favorite local spots and sharing your experiences with the community.`);
                   const paragraphs = description.split('\n\n').filter(Boolean);
                   return paragraphs.map((para, idx) => (
-                    <p key={idx}>{para}</p>
+                    <p key={idx}>{renderMarkdownContent(para)}</p>
                   ));
                 })()}
               </div>
@@ -197,7 +219,7 @@ export default async function StatePage({ params }: StatePageProps) {
                     </div>
                     <div className="insight-tag">{card.tag}</div>
                     <h3>{card.title}</h3>
-                    <p dangerouslySetInnerHTML={{ __html: card.copy }} />
+                    <p>{renderMarkdownContent(card.copy)}</p>
                   </div>
                 ))}
                 {customContent?.planningCards?.map((card) => (
@@ -208,7 +230,7 @@ export default async function StatePage({ params }: StatePageProps) {
                     <h3>{card.title}</h3>
                     <ul className="planning-card-list">
                       {card.items.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item}>{renderMarkdownContent(item)}</li>
                       ))}
                     </ul>
                   </div>

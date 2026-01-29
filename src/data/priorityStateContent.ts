@@ -750,6 +750,142 @@ export const priorityStateContent: PriorityStateConfig[] = [
         },
     },
     {
+        slug: 'missouri',
+        name: 'Missouri',
+        abbr: 'MO',
+        featuredImage: '/images/states/missouri/hero.webp',
+        customContent: {
+            heroEyebrow: 'Show-Me State Playgrounds',
+            heroHeading: 'Dog Parks in Missouri',
+            heroDescription:
+                'Missouri offers one of the most dynamic and rapidly evolving dog park landscapes in the Midwest, characterized by a unique blend of massive outdoor recreational areas and pioneering indoor social concepts. The state is home to over [74 verified spots](https://www.indoordogpark.org/) that cater to a growing population of active pet owners who value year-round engagement. Leading the way in innovation is the nationally recognized [Bar K Dog Bar](https://www.barkdogbar.com/), with flagship locations in Kansas City and St. Louis that have redefined the "dog park" as a premium social destination combining professional supervised play with high-end dining and community events. For those seeking traditional outdoor expanses, the [Platte Landing Park](https://kcparks.org/) in Parkville provides five miles of scenic trails alongside dedicated off-leash zones, while the massive [Twin Lakes Recreation Area](https://www.como.gov/parks/twin-lakes-recreation-area/) in Columbia offers a rare combination of open fields and a dedicated canine swimming pond. However, Missouri\'s continental climate presents distinct challenges; the intense summer humidity and unpredictable winters have made climate-controlled facilities not just a luxury, but a necessity for maintaining a consistent exercise routine. This need for reliable, all-weather access is supported by the [Canine Cruelty Prevention Act](https://agriculture.mo.gov/animals/caninecruelty.php), which emphasizes the importance of adequate shelter and care, principles that are championed by the premium indoor facilities highlighted in our directory.\n\nBeyond the physical infrastructure, Missouri\'s dog-friendly culture is underpinned by a commitment to safety and responsible ownership as outlined in the state\'s [Chapter 578 animal welfare laws](https://revisor.mo.gov/main/OneSection.aspx?section=578.012). Most major municipalities, including St. Louis and Springfield, require strict adherence to rabies vaccination schedules and local licensing, ensuring that public spaces remain healthy and welcoming for all visitors. This community-first approach is perfectly encapsulated by the [Southwest City Dog Park](https://swcitydogpark.org/) in Willmore Park, where a member-driven model ensures meticulously maintained agility equipment, pool pads, and social calendars that keep the local canine community thriving. Whether you are exploring the urban corridors of the [Show-Me State](https://www.indoordogpark.org/states/missouri) or seeking a rugged retreat in the Ozarks, our platform provides real-time verification of amenities, ratings, and accessibility. We continue to expand our coverage across the state, verifying everything from the sprawling 8-acre Broemmelsiek Park to the hidden neighborhood gems in Lucas Gardens, ensuring that every Missouri dog has a safe, high-quality place to play and socialize regardless of the season.',
+            heroPill: 'Verified MO Directory',
+            heroFootnotes: ['Bar K flagship locations', 'Humidity-safe alerts'],
+            heroChips: [
+                { label: 'Verified Spots', value: '74' },
+                { label: 'Avg Rating', value: '4.7 / 5' },
+            ],
+            insightIntro:
+                'Missouri is a pioneer in the "dog bar" concept and offers exceptional variety from urban clubs to lakeside retreats. Navigating the Show-Me State requires awareness of summer humidity and local leash laws.',
+            insightCards: [
+                {
+                    tag: 'Market Leader',
+                    title: 'The Bar K Phenomenon',
+                    copy: 'Missouri is the birthplace of [Bar K](https://www.barkdogbar.com/), setting a gold standard for indoor/outdoor supervised play centers that combine community and recreation.',
+                    accent: true,
+                },
+                {
+                    tag: 'Natural Beauty',
+                    title: 'Lakeside Play',
+                    copy: 'Facilities like [Twin Lakes](https://www.como.gov/parks/twin-lakes-recreation-area/) provide rare water-access play areas, a massive highlight for Labs and water-loving breeds in the MO heat.',
+                },
+            ],
+            planningCards: [
+                {
+                    icon: 'bi-droplets',
+                    title: 'Humidity Awareness',
+                    items: [
+                        'Missouri summers can be dangerously humid',
+                        'Always check water availability before midday visits',
+                        'Early morning is the gold standard for MO outdoor play',
+                    ],
+                },
+                {
+                    icon: 'bi-bank',
+                    title: 'Missouri Regulations',
+                    items: [
+                        'Rabies vaccination is legally required at 12 weeks',
+                        'Strict liability laws for dog bites (provocation-based)',
+                        'Many cities require poo-removal (carry extra bags)',
+                    ],
+                },
+            ],
+            faqs: [
+                {
+                    question: 'Where is the original Bar K located?',
+                    answer:
+                        'The original Bar K is located in Kansas City, MO, right on the shore of the Missouri River. It features a massive indoor and outdoor off-leash park.',
+                    category: 'facilities',
+                    popular: true,
+                },
+                {
+                    question: 'Does Missouri have water park options for dogs?',
+                    answer:
+                        'Yes! Twin Lakes in Columbia and several parks in the St. Louis area (like Southwest City) offer water features or dedicated pond access for dogs.',
+                    category: 'planning',
+                },
+            ],
+        },
+    },
+    {
+        slug: 'new-jersey',
+        name: 'New Jersey',
+        abbr: 'NJ',
+        featuredImage: '/images/states/new-jersey/hero.webp',
+        customContent: {
+            heroEyebrow: 'Garden State Playgrounds',
+            heroHeading: 'Dog Parks in New Jersey',
+            heroDescription:
+                'New Jersey stands as a premier destination for dog owners in the Mid-Atlantic, blending high-density urban innovation with sprawling suburban and rural retreats. The state\'s dog-friendly infrastructure has evolved significantly, now boasting over [886 verified spots](https://www.indoordogpark.org/) across its twenty-one counties. In the north, cities like Jersey City and Hoboken have mastered the "urban dog run" concept, utilizing elevated spaces and waterfront piers to provide relief for high-energy pups in the shadow of the Manhattan skyline. Facilities like the [Brookdale Dog Park](https://www.essexcountyparks.org/parks/brookdale-park) in Bloomfield or the expansive waterfront areas in [Liberty State Park](https://nj.gov/dep/parksandforests/parks/libertystatepark.html) demonstrate New Jersey\'s commitment to integrating canine recreation into its historic community spaces. However, the state\'s diverse landscape also brings regional challenges; while coastal communities in Ocean and Monmouth counties offer seasonal beach access, the inland heat of a Jersey summer and the biting winds of a January nor\'easter demand a sophisticated approach to pet care. This seasonal variance has driven a surge in the popularity of climate-controlled facilities, as New Jersey state law (under [N.J.S.2A:67-1](https://www.njleg.state.nj.us/)) strictly regulates the duration dogs can spend outdoors during extreme temperatures, reinforcing the need for the year-round reliability found in our verified indoor directory.\n\nBeyond just quantity, the quality of New Jersey\'s dog parks sets a national benchmark for safety and community engagement. The [Wantage Dog Park](https://www.wantedogpark.com/) in Sussex County holds the distinction of being the largest in the tri-state area, offering eight acres of meticulously maintained fields with dedicated sections for seniors and smaller breeds, alongside agility equipment that would rival professional training circuits. In South Jersey, the [Timber Creek Dog Park](https://www.camdencounty.com/service/parks/timber-creek-park/) provides a unique lakeside experience where dogs can enjoy supervised water play—a rare and highly sought-after amenity. Navigating this extensive network requires adherence to local ordinances, as most New Jersey municipalities mandate current rabies vaccinations and municipal licensing for all park visitors to ensure a healthy environment for the entire community. Whether you are looking for a rugged woodland trail in the Ramapo Mountains or a premium, air-conditioned play hub in the heart of Morristown, the Garden State offers unmatched variety for the modern dog owner. Our platform continues to verify and update listings daily, ensuring that whether you are a local resident or just passing through the [NJ Turnpike corridor](https://www.indoordogpark.org/states/new-jersey), you have access to the most accurate information on amenities, real-time reviews, and local safety protocols to maximize your pup\'s playtime.',
+            heroPill: 'Verified NJ Directory',
+            heroFootnotes: ['Largest tri-state parks included', 'Strict weather-safety tracking'],
+            heroChips: [
+                { label: 'Verified Spots', value: '886' },
+                { label: 'Avg Rating', value: '4.5 / 5' },
+            ],
+            insightIntro:
+                'New Jersey offers everything from the largest fields in the tri-state to waterfront urban runs. Understanding local weather laws and seasonal beach access is key to a great NJ experience.',
+            insightCards: [
+                {
+                    tag: 'Regional Gems',
+                    title: 'Wantage & Timber Creek',
+                    copy: 'NJ hosts the tri-state\'s largest facility at [Wantage](https://www.wantedogpark.com/) and exceptional water access at Timber Creek. These are destinations in their own right.',
+                    accent: true,
+                },
+                {
+                    tag: 'Urban Access',
+                    title: 'Gold Coast Runs',
+                    copy: 'Jersey City and Hoboken lead the way in high-density urban dog parks, offering stunning skyline views and premium artificial turf surfaces.',
+                },
+            ],
+            planningCards: [
+                {
+                    icon: 'bi-thermometer-half',
+                    title: 'NJ Weather Laws',
+                    items: [
+                        'State law limits outdoor time in extreme heat (>90°F)',
+                        'Winter limits apply when temps drop below 32°F',
+                        'Indoor facilities are recommended during peak summer/winter',
+                    ],
+                },
+                {
+                    icon: 'bi-shield-check',
+                    title: 'State Requirements',
+                    items: [
+                        'Proof of rabies vaccination is mandatory for all parks',
+                        'Municipal licenses are required in most NJ townships',
+                        'Always carry a 6-foot leash (maximum length for most areas)',
+                    ],
+                },
+            ],
+            faqs: [
+                {
+                    question: 'What is the largest dog park in New Jersey?',
+                    answer:
+                        'The Wantage Dog Park in Sussex County is the largest in New Jersey and the tri-state area, featuring 8 acres of fenced space with separate areas for different sizes and ages.',
+                    category: 'facilities',
+                    popular: true,
+                },
+                {
+                    question: 'Are dogs allowed on New Jersey beaches?',
+                    answer:
+                        'Access varies by town. Many beaches like Asbury Park and Belmar allow dogs during the off-season (typically October to May), but have strict prohibitions or limited hours during the summer.',
+                    category: 'planning',
+                },
+            ],
+        },
+    },
+    {
         slug: 'arizona',
         name: 'Arizona',
         abbr: 'AZ',
