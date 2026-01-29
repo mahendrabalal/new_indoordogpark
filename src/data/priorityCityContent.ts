@@ -345,6 +345,81 @@ const lodiFaqs: FAQItem[] = [
   },
 ];
 
+const roanokeFaqs: FAQItem[] = [
+  {
+    question: 'Are there indoor dog parks in Roanoke, VA?',
+    answer: 'Currently, Roanoke features several high-quality outdoor off-leash parks and professional indoor boarding/daycare facilities like B & B K-9 Kennels. Check our directory for the latest indoor play updates.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What are the rules for dog licensing in Roanoke?',
+    answer: 'All dogs 4 months or older must be licensed with the City of Roanoke. You need a current rabies certificate and licenses must be renewed by January 1st each year.',
+    category: 'legal',
+    popular: true,
+  },
+];
+
+const danvilleFaqs: FAQItem[] = [
+  {
+    question: 'Is there a free dog park in Danville, VA?',
+    answer: 'The city-operated Coates Bark Park requires a $20 annual membership. However, the nearby Pittsylvania County Dog Park in Chatham is available for free public use.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog on the Danville Riverwalk?',
+    answer: 'Yes, the Riverwalk Trail is strictly dog-friendly for leashed pets, offering miles of paved paths along the Dan River that connect major parks and the River District.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const leesburgFaqs: FAQItem[] = [
+  {
+    question: 'Where is the main dog park in Leesburg, VA?',
+    answer: 'The primary facility is the Leesburg Dog Park at Olde Izaak Walton Park, featuring fenced enclosures for both large and small breeds, located off North Fork Road.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dog licenses required in Leesburg?',
+    answer: 'Yes, Loudoun County requires all dogs four months and older to be licensed annually. Licenses are issued concurrently with rabies vaccinations and cost $10.',
+    category: 'legal',
+    popular: true,
+  },
+];
+
+const alexandriaFaqs: FAQItem[] = [
+  {
+    question: 'How many dog parks are in Alexandria, VA?',
+    answer: 'Alexandria features 18 dedicated dog exercise areas, including both fenced and unfenced options, making it one of the most pet-friendly cities per capita in the United States.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed on the Potomac waterfront in Alexandria?',
+    answer: 'Yes, dogs are welcome along the Potomac waterfront, including the popular Founders Park off-leash area. However, strict leash laws apply outside of designated exercise zones.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const corpusChristiFaqs: FAQItem[] = [
+  {
+    question: 'Are there indoor dog parks in Corpus Christi, TX?',
+    answer: 'Corpus Christi currently lacks dedicated indoor-only public dog parks, but highly-rated facilities like Pooch Pad and Barkaritaville Pet Resort offer climate-controlled indoor/outdoor daycare and boarding options.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can dogs go on the beach in Corpus Christi?',
+    answer: 'Yes, leashed dogs are welcome on many area beaches, including North Beach and the Padre Island National Seashore. Always bring waste bags and fresh water for coastal outings.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -2229,13 +2304,72 @@ export const priorityCityContent: PriorityCityConfig[] = [
     customContent: {
       heroEyebrow: 'Coastal Canine Spots',
       heroHeading: 'Dog Parks in Corpus Christi, TX',
-      heroDescription: 'Experience Corpus Christi\'s coastal dog parks with ocean views and beach-adjacent recreation.',
+      heroDescription: 'Experience Corpus Christi\'s coastal dog parks with ocean views and beach-adjacent recreation. Powered by local reviews and expert insights.',
       heroPill: 'Verified Corpus Christi Directory',
       heroFootnotes: ['Waterfront access', 'Tropical climate tips'],
       longDescription: [
-        'Corpus Christi, TX, blends urban bayfront runs with sprawling neighborhood fields for its canine residents. The [Bill Witt Dog Park](https://www.corpuschristitx.gov/parks) is a standout, boasting a 5.0-bone rating for its massive off-leash areas and reliable water stations on Yorktown Boulevard. For downtown locals, the [Vishal Bhagat Dog Park](https://www.bringfido.com/attraction/14980) at Water\'s Edge Park provides a scenic retreat with dual-surface paddocks overlooking the bay. Our [Corpus Christi directory](https://www.indoordogpark.org/cities/corpus-christi#park-directory) verifies these spots, reflecting a commitment to accessible coastal recreation for all breeds, including newer $400,000 facilities like [Sherwood Dog Park](https://www.corpuschristitx.gov/parks).',
-        'To handle South Texas humidity, [Dogtopia of Corpus Christi](https://www.dogtopia.com/corpus-christi/) provides climate-controlled playrooms, ensuring safety during summer peaks. These hubs complement public spaces like [Padre Island National Seashore](https://www.nps.gov/pais/), where leashed dogs can roam miles of coastline. Whether you are exploring the [Texas dog park scene](https://www.indoordogpark.org/) or utilizing our [owner resources](https://www.indoordogpark.org/owner-resources), Corpus Christi’s infrastructure—from West Guth’s agility courses to premium indoor suites—ensures every dog thrives in the Gulf Coast landscape year-round.'
+        "Corpus Christi, TX, blends urban bayfront runs with sprawling neighborhood fields for its canine residents. The [Bill Witt Dog Park](https://www.corpuschristitx.gov/parks) is a standout, boasting massive off-leash areas and reliable water stations on Yorktown Boulevard. For downtown locals, the [Vishal Bhagat Dog Park](https://www.bringfido.com/attraction/14980) at Water's Edge Park provides a scenic retreat with dual-surface paddocks overlooking the bay. Our [Corpus Christi directory](https://www.indoordogpark.org/cities/corpus-christi-tx) verifies these spots, reflecting a commitment to accessible coastal recreation for all breeds, including well-maintained municipal spaces like Sherwood and Parker Dog Parks.",
+        "To handle the South Texas humidity and intense sun, local pet parents rely on premier climate-controlled facilities. [Pooch Pad](https://www.poochpadnc.com/) provides air-conditioned playrooms and professional supervision, ensuring safety during peak summer months when outdoor play is limited. These hubs complement sprawling public spaces like [Padre Island National Seashore](https://www.nps.gov/pais/), where leashed dogs can roam miles of pristine coastline. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) or exploring the bayfront trails, Corpus Christi’s infrastructure ensures every dog thrives in the Gulf Coast landscape year-round."
       ],
+      insightCards: [
+        {
+          tag: 'Waterfront Access',
+          title: 'Bayfront Canine Views',
+          copy: 'Corpus Christi offers unique waterfront dog runs like Water\'s Edge, where pups can play against the backdrop of the Texas coast.',
+          accent: true,
+        },
+        {
+          tag: 'Large Enclosures',
+          title: 'Sprawling Fields',
+          copy: 'Parks like Bill Witt provide several acres of fenced territory, allowing large breeds to reach full speed in a safe, monitored environment.',
+        },
+        {
+          tag: 'Beach Day Ready',
+          title: 'National Seashore Access',
+          copy: 'Pups are welcome on the miles of sandy beaches at Padre Island, provided they remain on a leash to protect local wildlife.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-sun',
+          title: 'Heat Safety Blueprint',
+          items: [
+            'Visit parks before 10 AM for cooler temps',
+            'Check pavement heat with the 7-second rule',
+            'Utilize shaded benches at Bill Witt Park',
+          ],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Destinations',
+          items: [
+            'Bill Witt (Best for large breeds)',
+            'Water\'s Edge (Best for downtown views)',
+            'Pooch Pad (Best for indoor cooling)',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Responsible Play',
+          items: [
+            'Carry waste bags for beach walks',
+            'Verify rabies records for indoor daycare',
+            'Avoid parks on Mondays (Cleaning schedules)',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Downtown', slug: 'downtown', description: 'Home to the gated Water\'s Edge dog run and bayfront trails.' },
+        { name: 'South Side', slug: 'south-side', description: 'Family-friendly area near the sprawling Bill Witt City Park.' },
+        { name: 'Padre Island', slug: 'padre-island', description: 'Beachy neighborhood with access to the National Seashore.' },
+      ],
+      expertTips: [
+        'Bill Witt Dog Park is closed on Mondays for maintenance—plan accordingly!',
+        'Mosquitoes can be active near the bayfront in the evening; bring pet-safe repellent.',
+        'The downtown Vishal Bhagat park features both gravel and grass surfaces for varied play.',
+        'Check the local surf report before beach visits to avoid high tides and rough water.',
+      ],
+      faqs: corpusChristiFaqs,
     },
   },
   {
@@ -2583,7 +2717,76 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/alexandria/hero.webp',
     summary: 'Historic charm meets modern pet amenities in Alexandria, consistently ranked as one of America\'s most dog-friendly cities.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'Premier Dog City',
+      heroHeading: 'Dog Parks in Alexandria, VA',
+      heroDescription: 'Explore America\'s #2 ranked dog-friendly city, featuring 18 verified exercise areas and a historic waterfront built for four-legged adventure.',
+      heroPill: 'Verified Alexandria Directory',
+      heroFootnotes: ['18+ local exercise areas', 'Top-ranked pet safety'],
+      longDescription: [
+        "Alexandria, VA, is a masterclass in urban pet friendliness, recently ranked as the #2 best city for dogs in the United States. With an estimated 80,000 pets sharing the city with 160,000 residents, the infrastructure is built around canine inclusion. The region is anchored by the scenic [Founders Park](https://www.alexandriava.gov/DogParks) along the Potomac, offering a community-driven off-leash retreat near Old Town. For those seeking structured play, [Simpson Stadium Dog Park](https://www.alexandriava.gov/DogParks) provides a well-lit, fenced environment with dedicated space for families. Our [Alexandria directory](https://www.indoordogpark.org/cities/alexandria) verifies these social hubs, showcasing a commitment to pet wellness that earned the city a 'Better City for Pets' certification.",
+        "Beyond the sprawling acreage of [Duke Street Dog Park](https://www.alexandriava.gov/DogParks) and the waterfront views of Windmill Hill, Alexandria enforces strict safety standards to ensure a harmonious environment. Owners must navigate a 24/7 leash law on all public grounds outside of designated exercise areas, with local enforcement prioritizing responsible handling and valid licensing. This balance of freedom and regulation allows the city's vibrant dog-friendly culture to thrive, from the wood-chipped runs of [Dog Run Park at Carlyle](https://www.alexandriava.gov/DogParks) to the shaded creek-side trails of Ben Brenman. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) or participating in annual pet parades, Alexandria provides a world-class 'third place' for pets and their people."
+      ],
+      insightCards: [
+        {
+          tag: 'National Ranking',
+          title: '#2 Best Dog City',
+          copy: 'Ranked second nationally for its ratio of pet services, boarding facilities, and accessible park acreage.',
+          accent: true,
+        },
+        {
+          tag: 'Social Pillars',
+          title: 'Nighttime Play',
+          copy: 'Facilities like Simpson Stadium remain lit until 10 PM, supporting the schedules of active urban commuters.',
+        },
+        {
+          tag: 'Coastal Recreation',
+          title: 'Waterfront Access',
+          copy: 'Founders Park and Windmill Hill offer unique off-leash zones with panoramic views of the Potomac River.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Destinations',
+          items: [
+            'Founders Park (Waterfront views)',
+            'Simpson Stadium (Best evening lighting)',
+            'Ben Brenman (Large fenced area)',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Responsible Play',
+          items: [
+            'Dogs must be 4+ months for park entry',
+            'Max 3 dogs per handler in exercise areas',
+            'Licensing and rabies tags mandatory',
+          ],
+        },
+        {
+          icon: 'bi-shield-exclamation',
+          title: 'Safety Navigation',
+          items: [
+            'Strict leash laws outside dog zones',
+            'Dogs prohibited on athletic fields',
+            'Report bites to Animal Control immediately',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Old Town', slug: 'old-town', description: 'Historic heart with waterfront runs like Founders Park.' },
+        { name: 'Del Ray', slug: 'del-ray', description: 'Artsy, eclectic hub known for its intense pet-friendly culture.' },
+        { name: 'Carlyle', slug: 'carlyle', description: 'Modern district featuring centrally located 24/7 dog runs.' },
+      ],
+      expertTips: [
+        'Simpson Stadium is one of the few parks lit until 10 PM—perfect for winter evening runs.',
+        'Founders Park is unfenced; ensure your recall is solid before letting your pup off-leash.',
+        'The City of Alexandria provides a detailed map of all 18 off-leash zones to help you find your nearest run.',
+        "Remember that electronic collars do not count as a 'restraint' under local leash laws.",
+      ],
+      faqs: alexandriaFaqs,
+    },
   },
   {
     slug: 'arlington-va',
@@ -2610,7 +2813,76 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/danville-va/hero.webp',
     summary: 'Danville provides spacious municipal runs and community-focused play areas for dogs in the Southside region.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'River City Revival',
+      heroHeading: 'Dog Parks in Danville, VA',
+      heroDescription: 'Experience the revitalized Southside, featuring membership-based off-leash zones and scenic riverfront trails that define this historic mill town.',
+      heroPill: 'Verified Danville Directory',
+      heroFootnotes: ['Private access parks', '9+ miles of river trails'],
+      longDescription: [
+        "Danville, VA, anchors the Southside region with a pet-friendly infrastructure built around the historic Dan River. The crown jewel for active owners is the vibrant [Riverwalk Trail](https://www.danville-va.gov/Facilities/Facility/Details/Riverwalk-Trail-36), a paved network connecting parks and neighborhoods that welcomes leashed dogs for scenic exercise. For dedicated off-leash play, the city offers [Coates Bark Park](https://www.danville-va.gov/2225/Coates-Bark-Park) off Westover Drive. This membership-based facility ensures a safe, accountable community environment with separate paddocks for large and small breeds, water stations, and agility obstacles. Our [Danville directory](https://www.indoordogpark.org/cities/danville-va) helps visitors navigate these distinct options.",
+        "Responsible ownership is central to Danville's park culture. Using Coates Bark Park requires an annual membership ($20), which mandates proof of vaccination and a current city license, strictly maintaining the health of the pack. For those seeking a free alternative, the nearby [Pittsylvania County Dog Park](https://www.pittsylvaniacountyva.gov/residents/parks-and-recreation/parks/dog-park) offers an accessible off-leash space just a short drive north. Whether exploring the revitalized [River District](https://www.riverdistrictassociation.com/) or hiking the wooded trails at Anglers Park, owners must adhere to leash laws in all unfenced public areas. This blend of structured play and nature access makes Danville a hidden gem for dogs in southern Virginia."
+      ],
+      insightCards: [
+        {
+          tag: 'Safety First',
+          title: 'Vetted Community',
+          copy: 'Coates Bark Park operates on a membership model, ensuring all dogs are vaccinated and registered for a safer play environment.',
+          accent: true,
+        },
+        {
+          tag: 'Scenic Exercise',
+          title: 'Riverwalk Access',
+          copy: 'The Dan River Riverwalk offers over 9 miles of paved, flat trails perfect for long, scenic leash walks with your dog.',
+        },
+        {
+          tag: 'Regional Options',
+          title: 'Dual County Play',
+          copy: 'Residents enjoy access to both the city-run Coates Park and the free Pittsylvania County Dog Park just minutes away.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Destinations',
+          items: [
+            'Coates Bark Park (Members only)',
+            'Riverwalk Trail (Best scenic walk)',
+            'Anglers Park (Best nature trails)',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Registration Rules',
+          items: [
+            'Coates Park membership is $20/year',
+            'Proof of rabies/distemper required',
+            'City dog tag must be current',
+          ],
+        },
+        {
+          icon: 'bi-shield-exclamation',
+          title: 'Safety Navigation',
+          items: [
+            'Leashes mandatory on Riverwalk',
+            'Bring water for long trail walks',
+            'No children under 9 in dog parks',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'River District', slug: 'river-district', description: 'Revitalized downtown hub with walkable streets and industrial charm.' },
+        { name: 'Westover', slug: 'westover', description: 'Quiet residential area home to the Coates Bark Park facility.' },
+        { name: 'Mount Cross', slug: 'mount-cross', description: 'Nature-adjacent neighborhood providing direct access to Anglers Park.' },
+      ],
+      expertTips: [
+        'Membership for Coates Bark Park must be purchased in person at the City Auditorium (M-F, 8am-5pm).',
+        'Visitor passes for Coates Park are available for $5 if you are just passing through town.',
+        'The Riverwalk is shared with cyclists, so keep your dog on a short leash for everyone\'s safety.',
+        'Anglers Park can get busy during mountain bike events—check the schedule if your dog is skittish.',
+      ],
+      faqs: danvilleFaqs,
+    },
   },
   {
     slug: 'hampton-va',
@@ -2635,9 +2907,78 @@ export const priorityCityContent: PriorityCityConfig[] = [
     city: 'Leesburg',
     state: 'VA',
     featuredImage: '/images/cities/leesburg/hero.webp',
-    summary: 'Loudoun County\'s historic seat offers premium suburban dog parks and a lifestyle celebrating the bond between pets and people.',
+    summary: "Loudoun County's historic seat offers premium suburban dog parks and a lifestyle celebrating the bond between pets and people.",
     parks: [],
-    customContent: {},
+    customContent: {
+      heroEyebrow: 'Loudoun County Living',
+      heroHeading: 'Dog Parks in Leesburg, VA',
+      heroDescription: 'Discover historic charm and premium off-leash spaces in the heart of Virginia\'s most pet-friendly county. From dedicated runs to expansive nature trails.',
+      heroPill: 'Verified Leesburg Directory',
+      heroFootnotes: ['Loudoun County standards', 'Dog-friendly wineries nearby'],
+      longDescription: [
+        "Leesburg, VA, serves as a premier hub for dog owners in Northern Virginia, balancing its deep historical roots with modern pet infrastructure. The city is anchored by the [Leesburg Dog Park](https://www.leesburgva.gov/government/departments/parks-recreation/parks/olde-izaak-walton-park) at Olde Izaak Walton Park, which provides a well-maintained off-leash environment with separate sections for small and large breeds. For those who prefer scenic exercise, the 1,000-acre [Morven Park](https://www.morvenpark.org) offers an expansive network of trails where dogs can explore the rolling Loudoun County landscape. Our [Leesburg directory](https://www.indoordogpark.org/cities/leesburg) verifies these locations, reflecting a community culture that treats pets as essential residents.",
+        "Navigating local rules is straightforward in Leesburg, provided owners adhere to the strict licensing mandates of Loudoun County. All dogs four months or older must be licensed, a process that ensures up-to-date rabies protection for the entire canine community. Beyond the dedicated runs at [Creighton West Dog Park](https://www.loudoun.gov/parks), the region is famous for its pet-friendly social scene, including wineries and breweries that welcome leashed companions to join their owners. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training tips or walking the historic brick sidewalks of downtown, Leesburg provides a safe, high-quality environment where every dog can thrive in the heart of Virginia's hunt country."
+      ],
+      insightCards: [
+        {
+          tag: 'Suburban Freedom',
+          title: 'Wealth of Space',
+          copy: 'Leesburg provides larger-than-average enclosures compared to urban neighbors, with parks like Olde Izaak Walton setting the standard.',
+          accent: true,
+        },
+        {
+          tag: 'Nature Focused',
+          title: 'Expansive Trails',
+          copy: 'With access to over 1,000 acres at Morven Park, local owners have unparalleled options for long-distance trail walking.',
+        },
+        {
+          tag: 'Pet Policy',
+          title: 'No Breed Bans',
+          copy: 'Loudoun County maintains an inclusive environment with no breed-specific restrictions, fostering a diverse dog community.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Destinations',
+          items: [
+            'Olde Izaak Walton (Best for off-leash)',
+            'Morven Park (Best for hiking)',
+            'Ida Lee Park (Best for green space)',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Loudoun Essentials',
+          items: [
+            'Annual dog licenses are mandatory ($10)',
+            'Permanent tags must be worn at all times',
+            'Max 2 dogs per handler at Leesburg Park',
+          ],
+        },
+        {
+          icon: 'bi-shield-exclamation',
+          title: 'Trail Essentials',
+          items: [
+            'Dogs prohibited during sporting events',
+            'Solid recall required for unfenced trails',
+            'Cleanup is mandatory in all public parks',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Historic Downtown', slug: 'historic-downtown', description: 'Brick-lined streets with pet-friendly cafes and shops.' },
+        { name: 'Potomac Station', slug: 'potomac-station', description: 'Suburban community with easy access to regional parks.' },
+        { name: 'Carlyle-esque Greens', slug: 'carlyle-greens', description: 'Modern developments with integrated walking paths.' },
+      ],
+      expertTips: [
+        'Leesburg Dog Park is closed during specified cleaning hours—check the local schedule before visiting.',
+        'Spiked collars are prohibited within the fenced off-leash areas for the safety of all dogs.',
+        'Children under 8 are not permitted inside the dog park enclosure to ensure handler focus.',
+        'Low-cost rabies clinics are regularly provided by Loudoun County Animal Services.',
+      ],
+      faqs: leesburgFaqs,
+    },
   },
   {
     slug: 'norfolk',
@@ -2655,7 +2996,73 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/roanoke-va/hero.webp',
     summary: 'The "Star City" offers rugged mountain park access and well-maintained urban runs for dogs of all sizes.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog-Friendly Roanoke',
+      heroDescription: 'Explore 45 verified dog-friendly spots in Roanoke, VA. Powered by 9,442 local reviews and expert insights.',
+      longDescription: [
+        "Roanoke, the \"Star City\" of the Blue Ridge, offers a stunning backdrop for pet owners who value both mountain adventure and urban play. With 45 verified spots and 9,422 local reviews, the region is anchored by [Thrasher Park](https://www.playroanoke.com/parks-facilities/thrasher-park/), featuring separate grassy enclosures. In the historic center, [Highland Park](https://www.petdata.com/for-pet-owners/rnk/license-online) provides a spacious one-acre run with a dedicated puppy section, ensuring safe socialization. Nearby, the wood-chipped [Salem Rotary Dog Park](https://www.salemva.gov/Facilities/Facility/Details/Rotary-Dog-Park-14) offers a shaded alternative for summer heat. This park network, integrated with the [Roanoke Valley Greenways](https://www.playroanoke.com/greenways/), creates an ideal environment for active pups to explore.",
+        "Navigating local regulations is key for Roanoke pet owners. All dogs aged four months or older must be licensed annually with a current rabies certificate. The city also enforces strict tethering laws—limiting it to three hours during the day and prohibiting it at night—to ensure humane care. For premium services, B & B K-9 Kennels (5.0★) leads the valley in quality. By balancing these standards with dog-friendly breweries and shaded trails, Roanoke provides a safe \"third place\" for the canine community. Whether visiting for a weekend hike or living downtown, owners can rely on our [owner resources](https://www.indoordogpark.org/owner-resources) for expert local guidance."
+      ],
+      insightCards: [
+        {
+          tag: 'Local Favorite',
+          title: 'Highland Park Run',
+          copy: 'A premier one-acre fenced facility featuring a separate enclosure for small dogs and puppies, perfect for safe socialization near downtown.',
+          accent: true,
+        },
+        {
+          tag: 'Mountain Access',
+          title: 'Blue Ridge Scenery',
+          copy: 'Roanoke combines urban dog parks with immediate access to the Blue Ridge Mountains and extensive dog-friendly greenway trails.',
+        },
+        {
+          tag: 'Safety First',
+          title: 'Strict Welfare Laws',
+          copy: 'Roanoke enforces comprehensive tethering and licensing regulations to ensure all pets are treated humanely and stay healthy year-round.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-patch-check',
+          title: 'Legal Essentials',
+          items: [
+            'License pets 4+ months old annually',
+            'Keep rabies vaccinations up to date',
+            'Follow 3-hour daytime tethering limits',
+          ],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Spots',
+          items: [
+            'Thrasher Park (Separate breed areas)',
+            'Salem Rotary (Wood chip surface)',
+            'Roanoke Valley Greenways (Leashed walks)',
+          ],
+        },
+        {
+          icon: 'bi-shield-check',
+          title: 'Health & Safety',
+          items: [
+            'Avoid hot pavement during summer peaks',
+            'Report nuisance barking to city animal control',
+            'Bring fresh water for mountain trail hikes',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Old Southwest', slug: 'old-southwest', description: 'Historic area with easy access to Highland Park dog runs.' },
+        { name: 'Crystal Spring', slug: 'crystal-spring', description: 'Walkable neighborhood near South Roanoke trails and parks.' },
+        { name: 'Grandin Village', slug: 'grandin-village', description: 'Hip, dog-friendly district with community-focused cafes.' },
+      ],
+      expertTips: [
+        'Highland Park is great for socialization but check the ground for gravel during dry spells.',
+        'Salem Rotary is a fantastic shaded alternative if Roanoke city parks are too sunny.',
+        'Always carry proof of rabies vaccination when visiting professional boarding or grooming facilities in the valley.',
+        'Most breweries in the Wasena area are dog-friendly and offer shaded outdoor seating.',
+      ],
+      faqs: roanokeFaqs,
+    },
   },
   {
     slug: 'winchester-va',
