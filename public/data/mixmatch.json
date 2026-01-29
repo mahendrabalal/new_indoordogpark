@@ -3859,6 +3859,7 @@
     "address": "2220 Thrift Rd",
     "street": "2220 Thrift Rd",
     "city": "Charlotte",
+    "state": "NC",
     "zipCode": "28208",
     "full_address": "2220 Thrift Rd, Charlotte, NC 28208",
     "googlePlaceId": "ChIJwVf5DsOhVogRhhlR3XAkjYY",

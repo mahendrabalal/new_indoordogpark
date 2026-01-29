@@ -15,7 +15,7 @@ export interface StateData {
 
 // Canonical USPS abbreviations to full names.
 // Keep this explicit so state pages have stable slugs and titles.
-const ABBR_TO_NAME: Record<USStateAbbr, string> = {
+export const ABBR_TO_NAME: Record<USStateAbbr, string> = {
   AL: 'Alabama',
   AK: 'Alaska',
   AZ: 'Arizona',

@@ -2515,6 +2515,177 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
+    slug: 'clarksville-tn',
+    city: 'Clarksville',
+    state: 'TN',
+    featuredImage: '/images/cities/clarksville/hero.webp',
+    summary: 'Military-friendly Clarksville offers dedicated dog parks and proximity to scenic natural areas along the Cumberland River.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Gateway City Dogs',
+      heroHeading: 'Dog Parks in Clarksville, TN',
+      heroDescription: 'Clarksville combines military-town efficiency with Southern hospitality, offering well-maintained facilities like King\'s Run Bark Park and the expansive Clarksville Greenway.',
+      heroPill: 'Verified Clarksville Directory',
+      heroFootnotes: ['15+ verified spots', '9-mile greenway access'],
+      longDescription: [
+        'Clarksville, TN, is a welcoming military community that prioritizes accessibility and quality in its dog-friendly amenities. The city\'s signature facility is [King\'s Run Bark Park](https://www.clarksvilletn.gov/281/Parks) at Liberty Park, a well-maintained off-leash area featuring separate sections for different dog sizes and access to fishing ponds and walking trails. For extended adventures, the [Clarksville Greenway](https://www.clarksvilletn.gov/281/Parks), a 9-mile paved trail system, offers a perfect setting for long walks or bike rides with leashed companions. Nearby, [Dunbar Cave State Park](https://tnstateparks.com/parks/dunbar-cave) provides 144 acres of wooded trails where leashed dogs can explore alongside their owners, combining exercise with natural beauty.',
+        'The city\'s pet-friendly culture is deeply rooted in its military community, where responsible ownership and discipline are valued. Local establishments like [Miss Lucille\'s Café](https://www.misslucillescafe.com/) and breweries such as [Star Spangled Brewing Co.](https://starspangledbrewing.com/) welcome dogs on their patios, fostering a relaxed, inclusive atmosphere. While Tennessee summers can be intense, [Indoor Dog Park](https://www.indoordogpark.org/) offers a climate-controlled alternative, ensuring dogs can maintain their exercise routines year-round in a safe, comfortable environment.'
+      ]
+    },
+  },
+  {
+    slug: 'johnson-city-tn',
+    city: 'Johnson City',
+    state: 'TN',
+    featuredImage: '/images/cities/johnson-city/hero.webp',
+    summary: 'Nestled in the Appalachian highlands, Johnson City offers innovative dog parks and a unique off-leash social venue.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Appalachian Dog Haven',
+      heroHeading: 'Dog Parks in Johnson City, TN',
+      heroDescription: 'Johnson City blends mountain charm with modern pet amenities, featuring the unique Off Leash Social venue and scenic trails at Persimmon Ridge Park.',
+      heroPill: 'Verified Johnson City Directory',
+      heroFootnotes: ['12+ verified spots', 'Mountain trail access'],
+      longDescription: [
+        'Johnson City, TN, is a pet-friendly gem in the Appalachian highlands, offering a unique blend of traditional parks and innovative social venues. The city\'s standout facility is [Off Leash Social](https://offleashsocial.com/), a one-of-a-kind establishment combining an off-leash dog park with a full bar and restaurant, allowing owners to socialize while their dogs play. For more traditional experiences, [West King Street Bark Park](https://www.johnsoncitytn.org/1187/West-King-Street-Bark-Park) provides separate areas for different-sized dogs, complete with agility equipment and shaded seating. Those seeking natural beauty can explore [Persimmon Ridge Park](https://www.johnsoncitytn.org/1187/Parks), where over 130 acres of trails welcome leashed dogs through diverse terrain.',
+        'The community embraces a progressive approach to pet wellness, with mandatory registration and up-to-date vaccinations ensuring safe socialization. Local businesses like [Yee-Haw Brewing Company](https://www.yeehawbrewco.com/) welcome leashed dogs on patios, reflecting the city\'s welcoming culture. However, the variable mountain weather can interrupt outdoor plans. [Indoor Dog Park](https://www.indoordogpark.org/) serves as an essential year-round resource, providing a controlled environment where Johnson City\'s active dogs can exercise and socialize comfortably, regardless of seasonal challenges.'
+      ]
+    },
+  },
+  {
+    slug: 'cookeville-tn',
+    city: 'Cookeville',
+    state: 'TN',
+    featuredImage: '/images/cities/cookeville/hero.webp',
+    summary: 'The "Hub of the Highlands" offers spacious parks like Cane Creek and access to stunning natural waterfalls.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Highland Hub Hounds',
+      heroHeading: 'Dog Parks in Cookeville, TN',
+      heroDescription: 'Cookeville features the popular Cane Creek Dog Park with agility equipment and proximity to natural wonders like Cummins Falls State Park.',
+      heroPill: 'Verified Cookeville Directory',
+      heroFootnotes: ['10+ verified spots', 'Waterfall trail access'],
+      longDescription: [
+        'Cookeville, TN, known as the "Hub of the Highlands," offers an excellent environment for dog owners who value both urban convenience and natural beauty. The city\'s centerpiece is the [Cane Creek Dog Park](https://www.cookeville-tn.gov/Facilities/Facility/Details/Cane-Creek-Park-10), a fully-fenced, off-leash facility within the 226-acre Cane Creek Park, featuring agility equipment and drinking water stations. For scenic leashed walks, the park also provides paved and waterside trails. Adventure-seeking owners can venture to nearby [Cummins Falls State Park](https://tnstateparks.com/parks/cummins-falls), a 282-acre day-use park where leashed dogs can accompany their owners on trails leading to one of Tennessee\'s most impressive waterfalls.',
+        'The local culture emphasizes responsible pet ownership, with strict leash laws and waste removal requirements in public spaces. Dog-friendly businesses like [Father Tom\'s Pub](https://www.fathertomspub.com/), which offers a special menu for canine companions, and [Drake\'s Cookeville](https://www.drakescookeville.com/) with its heated patio, reflect the community\'s welcoming attitude. While Cookeville\'s outdoor options are abundant, unpredictable weather can pose challenges. [Indoor Dog Park](https://www.indoordogpark.org/) provides a reliable year-round solution, ensuring dogs can maintain their physical and mental health in a safe, climate-controlled setting regardless of outdoor conditions.'
+      ]
+    },
+  },
+  {
+    slug: 'chattanooga-tn',
+    city: 'Chattanooga',
+    state: 'TN',
+    featuredImage: '/images/cities/chattanooga/hero.webp',
+    summary: 'The "Scenic City" is renowned for its dog-friendly culture, featuring innovative parks and the Tennessee Riverwalk.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Scenic City Tails',
+      heroHeading: 'Dog Parks in Chattanooga, TN',
+      heroDescription: 'Chattanooga is a premier dog-friendly destination, offering unique venues like Play Wash Pint brewery and the expansive Tennessee Riverwalk along the waterfront.',
+      heroPill: 'Verified Chattanooga Directory',
+      heroFootnotes: ['20+ verified spots', 'Riverwalk accessible'],
+      longDescription: [
+        'Chattanooga, TN, lives up to its "Scenic City" moniker with a dog-friendly infrastructure that rivals major metropolitan areas. The city boasts an impressive array of parks, including [Heritage Park Dog Park](https://www.chattanooga.gov/parks-recreation) in East Brainerd with separate areas, agility equipment, and shaded seating, and the downtown [Chew Chew Canine Park](https://www.chattanooga.gov/parks-recreation) providing urban off-leash access. For scenic leashed walks, the [Tennessee Riverwalk](https://www.chattanoogariverwalk.com/) offers 13 miles of paved pathways along the Tennessee River. Unique to Chattanooga is [Play Wash Pint](https://playwashpint.com/), a brewery featuring pet-grade turf, wash stations, and craft beers, creating a social hub for both dogs and owners.',
+        'The city\'s commitment to pets is evident in its "Better Cities for Pets" initiatives and the abundance of dog-friendly businesses, from restaurants with patios to attractions like [Rock City Gardens](https://seerockcity.com/) that welcome leashed pets on trails. The community actively celebrates dogs through events like the "Running of the Chihuahuas." While Chattanooga\'s outdoor amenities are extensive, the humid Southern climate can limit activity during peak summer months. [Indoor Dog Park](https://www.indoordogpark.org/) serves as a critical resource, providing a comfortable, climate-controlled environment where Chattanooga\'s active dog community can thrive year-round, ensuring consistent exercise and socialization opportunities.'
+      ]
+    },
+  },
+  {
+    slug: 'murfreesboro-tn',
+    city: 'Murfreesboro',
+    state: 'TN',
+    featuredImage: '/images/cities/murfreesboro/hero.webp',
+    summary: 'A rapidly growing city with excellent dog park facilities and over 17 miles of interconnected greenway trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Diamond City Dogs',
+      heroHeading: 'Dog Parks in Murfreesboro, TN',
+      heroDescription: 'Murfreesboro offers well-equipped facilities like the Murfreesboro Bark Park and an extensive greenway system perfect for active dogs and owners.',
+      heroPill: 'Verified Murfreesboro Directory',
+      heroFootnotes: ['15+ verified spots', '17+ miles of greenways'],
+      longDescription: [
+        'Murfreesboro, TN, has developed into a highly dog-friendly city, with an estimated 60% of households owning at least one dog. The [Murfreesboro Bark Park](https://www.murfreesborotn.gov/Facilities/Facility/Details/Murfreesboro-Bark-Park-28) serves as the central off-leash facility, featuring separate fenced areas for small and large dogs, water stations, and even river access. For extended adventures, the [Stones River Greenway System](https://www.murfreesborotn.gov/Facilities) provides over 17 miles of paved multi-use trails, perfect for long walks, jogs, or bike rides with leashed companions. Nearby, [Stones River National Battlefield](https://www.nps.gov/stri) offers historic trails where leashed dogs can explore alongside their owners.',
+        'The community\'s pet-friendly culture is reinforced by events like "Bark In The Boro" and venues such as [Mayday Brewery](https://maydaybrewery.com/), which welcomes all dogs regardless of size or breed to its tasting room and patio. The city has also hosted prestigious canine events like the Cynosport Dog Agility World Games. While Murfreesboro\'s outdoor amenities are impressive, Tennessee\'s summer heat and humidity can pose challenges. [Indoor Dog Park](https://www.indoordogpark.org/) provides a vital climate-controlled alternative, ensuring Murfreesboro\'s large dog population can maintain their exercise routines safely and comfortably throughout the year.'
+      ]
+    },
+  },
+  {
+    slug: 'jackson-tn',
+    city: 'Jackson',
+    state: 'TN',
+    featuredImage: '/images/cities/jackson-tn/hero.webp',
+    summary: 'West Tennessee\'s hub offers multiple dog parks and access to scenic state parks like Pinson Mounds.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Hub City Hounds',
+      heroHeading: 'Dog Parks in Jackson, TN',
+      heroDescription: 'Jackson features well-maintained facilities like Dr. Vicki Schneider Lake Dog Park and proximity to Pinson Mounds State Archaeological Park.',
+      heroPill: 'Verified Jackson Directory',
+      heroFootnotes: ['12+ verified spots', 'State park access'],
+      longDescription: [
+        'Jackson, TN, serves as West Tennessee\'s hub for dog-friendly recreation, offering a blend of urban parks and natural areas. The city\'s standout facility is [Dr. Vicki Schneider Lake Dog Park](https://www.jacksontn.gov/parks), featuring separate fenced areas for large and small dogs, mature shade trees, agility equipment, and water fountains. The [Jackson Downtown Dog Park](https://www.jacksontn.gov/parks) provides another fenced option with seating and waste stations convenient to the city center. For those seeking historical and natural experiences, nearby [Pinson Mounds State Archaeological Park](https://tnstateparks.com/parks/pinson-mounds) offers trails where leashed dogs can explore ancient earthworks alongside their owners.',
+        'Jackson\'s pet community emphasizes responsible ownership, with requirements for current rabies tags and leash laws in public spaces. Dog-friendly businesses like [Picasso Bistro & Pizzeria](https://www.picassobistropizzeria.com/) and [Rock\'N Dough Pizza & Brewery](https://www.rockndoughpizza.com/) welcome dogs on their patios, creating a relaxed dining atmosphere. While Jackson offers excellent outdoor amenities, the humid West Tennessee climate can limit comfortable playtime during peak summer months. [Indoor Dog Park](https://www.indoordogpark.org/) serves as an essential resource for these times, providing a safe, climate-controlled environment where Jackson\'s dogs can exercise and socialize year-round without weather-related interruptions.'
+      ]
+    },
+  },
+  {
+    slug: 'cleveland-tn',
+    city: 'Cleveland',
+    state: 'TN',
+    featuredImage: '/images/cities/cleveland-tn/hero.webp',
+    summary: 'A "Better Cities for Pets" participant, Cleveland offers wonderful parks and access to Cherokee National Forest.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Better City Barks',
+      heroHeading: 'Dog Parks in Cleveland, TN',
+      heroDescription: 'Cleveland is committed to pet-friendly living, featuring facilities like the Dog Park at Jack Benson Heritage Park and proximity to Benton Falls Trail.',
+      heroPill: 'Verified Cleveland Directory',
+      heroFootnotes: ['15+ verified spots', 'Cherokee Forest access'],
+      longDescription: [
+        'Cleveland, TN, is a shining example of pet-friendly community planning, actively participating in the "Better Cities for Pets" program. The city features the [Dog Park at Jack Benson Heritage Park](https://www.clevelandtn.gov/Facilities), offering two separate fenced areas for large and small dogs, complete with water stations, agility equipment, and double-gated entry. Nature enthusiasts can explore [Red Clay State Historic Park](https://tnstateparks.com/parks/red-clay), where 263 acres of trails, ridges, and the Blue Hole Spring provide scenic leashed adventures. Nearby, the [Benton Falls Trail](https://www.fs.usda.gov/cherokee) within Cherokee National Forest offers a 3-mile dog-friendly path to impressive waterfalls.',
+        'Cleveland\'s downtown district has embraced pet-friendly policies, with over 40 businesses displaying signage to welcome pets, including banks, boutiques, and restaurants with patios like [Champy\'s Famous Fried Chicken](https://champyschicken.com/) and [Mash & Hops Craft Beers](https://www.mashandhops.com/). Pet owners must adhere to strict leash laws and licensing requirements, ensuring a safe community for all. While Cleveland\'s outdoor options are abundant, seasonal weather variations can impact plans. [Indoor Dog Park](https://www.indoordogpark.org/) provides year-round reliability, offering a climate-controlled sanctuary where Cleveland\'s dogs can maintain their exercise and socialization routines regardless of outdoor conditions.'
+      ]
+    },
+  },
+  {
+    slug: 'franklin-tn',
+    city: 'Franklin',
+    state: 'TN',
+    featuredImage: '/images/cities/franklin-tn/hero.webp',
+    summary: 'An affluent historic city with beautifully maintained parks and a vibrant downtown that welcomes dogs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Southern Charm',
+      heroHeading: 'Dog Parks in Franklin, TN',
+      heroDescription: 'Franklin blends historic preservation with modern amenities, offering Jim Warren Park\'s off-leash areas and a dog-friendly downtown district.',
+      heroPill: 'Verified Franklin Directory',
+      heroFootnotes: ['18+ verified spots', 'Historic downtown access'],
+      longDescription: [
+        'Franklin, TN, nestled 21 miles south of downtown Nashville, offers a refined, dog-friendly environment that reflects its status as one of Tennessee\'s most affluent communities. The city\'s premier facility is the [Jim Warren Park Dog Park](https://www.franklintn.gov/departments/parks_and_recreation), featuring separate fenced areas for large and small dogs, water stations, and agility equipment. For scenic leashed walks, the [Harlinsdale Farm](https://www.franklintn.gov/departments/parks_and_recreation/parks_facilities_trails/harlinsdale_farm) offers 200+ acres of historic grounds, including open fields, shaded pathways, and the Franklin Farmers Market. The [Eastern Flank Battlefield Park](https://boma.org/eastern-flank-battlefield-park) provides both historic trails and dedicated off-leash sections.',
+        'Franklin\'s walkable downtown district has earned recognition as one of America\'s most charming, with over 20 establishments actively welcoming dogs on patios, including [Kimbro\'s Pickin\' Parlor](https://www.kimbrospickinparlor.com/) and [Stay Golden Social House](https://www.staygoldensocialhouse.com/). The community hosts seasonal events like "Woofstock," a dog-centric festival along Main Street. The city\'s upscale pet culture is evident in specialized boutiques and grooming facilities that cater to discerning owners. While Franklin\'s outdoor amenities are impeccable, seasonal weather can interrupt routines. [Indoor Dog Park](https://www.indoordogpark.org/) provides a premium climate-controlled alternative, ensuring Franklin\'s pampered pups can maintain their exercise and socialization year-round in comfort and safety.'
+      ]
+    },
+  },
+  {
+    slug: 'hendersonville-tn',
+    city: 'Hendersonville',
+    state: 'TN',
+    featuredImage: '/images/cities/hendersonville/hero.webp',
+    summary: 'A lakeside community on Old Hickory Lake offering waterfront parks and scenic trails perfect for dogs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lakeside Living',
+      heroHeading: 'Dog Parks in Hendersonville, TN',
+      heroDescription: 'Hendersonville offers Lake Marie Dog Park and access to Old Hickory Lake\'s shoreline for water-loving dogs and their families.',
+      heroPill: 'Verified Hendersonville Directory',
+      heroFootnotes: ['14+ verified spots', 'Lake access trails'],
+      longDescription: [
+        'Hendersonville, TN, located along the northern shores of Old Hickory Lake, offers a unique lakeside environment for dog-friendly recreation. The city\'s centerpiece is the [Lake Marie Dog Park](https://www.hendersonvilletn.gov/Facilities), a fully-fenced off-leash area within the 45-acre Drakes Creek Park, featuring separate sections for small and large dogs, water fountains, and shaded seating areas. For scenic adventures, the [Sanders Ferry Park](https://www.hendersonvilletn.gov/Facilities) provides waterfront access along Old Hickory Lake, where dogs can wade in designated areas while their owners enjoy fishing or picnicking. The [Gallatin Steam Plant Greenway](https://www.hendersonvilletn.gov/trails) also offers paved trails perfect for leashed walks with lake views.',
+        'Hendersonville\'s community celebrates its lakeside lifestyle with pet-friendly establishments like [Rock Harbor Marina & Grill](https://rockharbormarina.com/), where dogs are welcome on the waterfront patio, and seasonal events that bring together dog owners. The city maintains strict leash laws outside designated areas and requires current rabies vaccinations, ensuring a safe environment for all pets. While the lakefront offers year-round appeal, Tennessee\'s weather extremes can limit comfortable outdoor time. [Indoor Dog Park](https://www.indoordogpark.org/) provides an essential climate-controlled alternative, allowing Hendersonville\'s dogs to maintain their fitness and social bonds regardless of weather conditions, ensuring year-round wellness for this active lakeside community.'
+      ]
+    },
+  },
+  {
     slug: 'charlotte-nc',
     city: 'Charlotte',
     state: 'NC',
@@ -3669,6 +3840,198 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         "Smyrna, known as the 'Jonquil City,' is an integral part of the Atlanta metropolitan area's thriving pet culture. Located just northwest of the city, it offers a blend of suburban charm and urban convenience. The city's parks, such as the expansive Tolleson Park, provide ample green space for leashed walks and recreation.",
         "As part of the greater Atlanta dog community, Smyrna residents benefit from proximity to the region's top facilities while enjoying their own local amenities. The recent growth in the Battery Atlanta area has brought new energy and walkability to the region. Whether you're a local resident or visiting the metro area, Smyrna offers a welcoming environment for you and your dog."
+      ],
+    },
+  },
+  {
+    slug: 'jersey-city-nj',
+    city: 'Jersey City',
+    state: 'NJ',
+    featuredImage: '/images/cities/jersey-city/hero.webp',
+    summary: 'A premier urban hub for dog owners, featuring waterfront runs and stunning skyline views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Jersey City, NJ',
+      heroDescription: 'Experience vibrant urban play and waterfront trails in the heart of Jersey City.',
+      longDescription: [
+        "Jersey City has rapidly evolved into a premier urban destination for dog owners, seamlessly blending high-density living with accessible green spaces along the Hudson River waterfront. The city’s commitment to canine enrichment is evident in meticulously maintained facilities like the Hamilton Park Dog Run and the expansive [Lincoln Park](https://nj.gov/dep/parksandforests/parks/libertystatepark.html) in nearby [New Jersey](https://www.indoordogpark.org/states/new-jersey), which offers separate zones for large and small breeds to ensure safe socialization. For residents of high-rise developments in Newport or Exchange Place, the availability of artificial turf runs and well-lit evening spaces provides a critical outlet for energy and socialization in a climate-controlled urban environment. The local community is highly active, often organizing meetups and advocating for pet-friendly policies that keep Jersey City at the forefront of metropolitan pet culture.",
+        "Beyond the designated runs, Jersey City’s walkability makes it ideal for leashed exploration through historic neighborhoods and popular waterfront esplanades. Popular spots like Sgt. Anthony Park and the newer Berry Lane Park demonstrate the city’s proactive approach to urban planning, integrating pet amenities into revitalized industrial zones. Responsible ownership is central to the local experience, with the [Jersey City Health Department](https://jerseycitynj.gov/) mandating annual licensing and rabies vaccinations to maintain a healthy public environment. Whether you are seeking a quick morning sprint at Van Vorst Park or a scenic weekend stroll overlooking the Manhattan skyline, our [city directory](https://www.indoordogpark.org/cities) provides real-time updates on amenity availability and local seasonal protocols. By prioritizing both safety and variety, Jersey City ensures that every urban pup remains engaged and healthy regardless of the neighborhood."
+      ],
+    },
+  },
+  {
+    slug: 'brick-township-nj',
+    city: 'Brick Township',
+    state: 'NJ',
+    featuredImage: '/images/cities/brick-township/hero.webp',
+    summary: 'A coastal retreat for active pets, offering seasonal beach access and expansive parklands.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brick Township, NJ',
+      heroDescription: 'Discover coastal charm and spacious off-leash areas in Brick Township.',
+      longDescription: [
+        "Brick Township serves as a coastal haven for dog owners, offering a balanced mix of traditional suburban parklands and seasonal shore access that caters to active lifestyles. The centerpiece of the local canine community is the [Angela Hibbard Park](https://www.bricktownship.net/), a well-equipped facility featuring fenced off-leash areas, dedicated water stations, and waste management infrastructure designed to promote responsible play. For those who enjoy the natural beauty of the Jersey Shore, Brick provides unique off-season opportunities at Pitney Avenue beach, where leashed pets can enjoy the surf and sand from late September through mid-May. This diversity of terrain ensures that whether your dog prefers a sprint on soft grass or a sensory-rich coastal walk, there is a verified high-quality space nearby to meet their enrichment needs.",
+        "Navigating the seasonal regulations in Brick Township is essential for a safe and enjoyable experience for both pets and their owners. The township strictly enforces leash laws in public streets and parks, requiring a maximum six-foot lead to ensure safety in common areas. To maintain the health of the local canine population, all visitors at the [Brick Township Dog Park](https://www.indoordogpark.org/) must adhere to municipal licensing requirements and current vaccination schedules. The community’s commitment to pet welfare is further reflected in local ordinances that regulate pet density and noise, ensuring a harmonious environment for all residents. By utilizing our [comprehensive NJ directory](https://www.indoordogpark.org/states/new-jersey), pet parents can stay informed about changing beach access hours and upcoming community events in this premier Ocean County destination."
+      ],
+    },
+  },
+  {
+    slug: 'toms-river-nj',
+    city: 'Toms River',
+    state: 'NJ',
+    featuredImage: '/images/cities/toms-river/hero.webp',
+    summary: 'A pet-friendly paradise with modern dog parks and scenic coastal trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Toms River, NJ',
+      heroDescription: 'Explore the best of the Jersey Shore with your companion in Toms River.',
+      longDescription: [
+        "Toms River has firmly established itself as a pet-friendly hub in Ocean County, offering an impressive array of dedicated facilities and natural trails that appeal to active dog owners. The township notably expanded its infrastructure with the opening of the [Silverton Park Dog Park](https://www.tomsrivertownship.com/), a modern facility that requires specific off-leash permits to ensure a high standard of safety and behavior management. Beyond the fenced runs, the 530-acre expanse of Cattus Island County Park provides miles of scenic, leashed trails perfect for sensory-rich excursions through diverse coastal ecosystems. This combination of structured play zones and expansive natural retreats makes Toms River a top choice for those seeking to balance socialization with rigorous physical exercise in a safe, community-oriented environment.",
+        "Responsible pet ownership in Toms River is guided by clear municipal standards designed to protect both the animal community and the local environment. All dogs over six months must be licensed and registered with the township to access premium facilities like the [Silverton Park](https://www.indoordogpark.org/cities) area, ensuring all visitors are current on their rabies vaccinations. During the cooler months from October to mid-April, leashed dogs are also welcomed on designated township beaches, providing a rare opportunity for coastal exploration. To maintain the quality of these public spaces, the [Ocean County Park System](https://www.oceancountyparks.org/) encourages owners to practice 'leave no trace' ethics and be mindful of seasonal tick activity in wooded areas. Whether you are a local resident or visiting the shore with your pup, our platform serves as your essential guide to the most reliable pet amenities in the region."
+      ],
+    },
+  },
+  {
+    slug: 'elizabeth-nj',
+    city: 'Elizabeth',
+    state: 'NJ',
+    featuredImage: '/images/cities/elizabeth/hero.webp',
+    summary: 'Urban convenience meets historic parklands in this thriving Union County hub.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elizabeth, NJ',
+      heroDescription: 'Discover the hidden gems of Elizabeth, from urban runs to regional parklands.',
+      longDescription: [
+        "Elizabeth combines urban convenience with proximity to some of Union County’s most prestigious green spaces, creating a vibrant environment for city-dwelling dog owners. While the city itself maintains accessible neighborhood spots like the Civic Center Dog Park, residents benefit immensely from the nearby [Warinanco Park](https://ucnj.org/parks-recreation/), which features dedicated off-leash runs and expansive paved paths for leashed exercise. These facilities are essential for maintaining the physical health of high-energy breeds in a high-density urban setting, providing year-round opportunities for socialization and enrichment. The local pet culture is supported by a variety of dog-friendly businesses, from outdoor dining on Morris Avenue to professional grooming services that cater to the diverse needs of the Elizabeth canine community.",
+        "Adhering to local health and safety regulations is a cornerstone of the pet-owning experience in Elizabeth, ensuring that public spaces remain welcoming and safe for everyone. The [City of Elizabeth Health Department](https://www.elizabethnj.org/) mandates annual licensing and current rabies inoculations, with specific ordinances in place to regulate barking and waste removal. For those seeking more specialized environments, nearby Union County facilities like Echo Lake Park offer regional-level amenities, including separate agility zones and water access. Our [New Jersey state guide](https://www.indoordogpark.org/states/new-jersey) provides essential details on leash length requirements and pet limit laws to help you navigate the local landscape effectively. By integrating these regulatory insights with our verified directory of [local dog parks](https://www.indoordogpark.org/), Elizabeth pet parents can confidently plan their daily routines and ensure their companions thrive in this historic Garden State hub."
+      ],
+    },
+  },
+  {
+    slug: 'newark-nj',
+    city: 'Newark',
+    state: 'NJ',
+    featuredImage: '/images/cities/newark-nj/hero.webp',
+    summary: 'Garden State urban play at its best, featuring historic parks and modern off-leash runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Newark, NJ',
+      heroDescription: 'Experience the historic charm and modern amenities of Newark with your pup.',
+      longDescription: [
+        "Newark offers a surprisingly robust selection of dog-friendly amenities that cater to the needs of urban pet owners in New Jersey’s largest city. The historic [Branch Brook Park](https://www.essexcountyparks.org/parks/branch-brook-park) serves as the primary hub for the local canine community, featuring Newark’s first dedicated dog park with separate play areas for large and small breeds. This expansive 360-acre park also provides miles of dog-friendly walking trails, famous for their cherry blossom displays, where leashed pets can enjoy a scenic and sensory-rich environment. For residents in the Ironbound or Downtown districts, the availability of monitored off-leash zones and pet-friendly businesses like those near Military Park demonstrates the city’s evolving commitment to creating a balanced urban lifestyle for both humans and their four-legged companions.",
+        "Maintaining a safe and healthy environment for all visitors in Newark requires strict adherence to local animal welfare ordinances and public safety protocols. The [City of Newark Licensing Office](https://www.newarknj.gov/) mandates that all dogs over three months old be licensed and current on their rabies vaccinations to ensure community health. Newark’s leash laws are strictly enforced, requiring a maximum six-foot lead for all walks in public streets and parks, except within designated off-leash enclosures. Responsible ownership also extends to noise regulation and waste management, with significant fines in place for those who do not clean up after their pets. By consulting our [verified NJ directory](https://www.indoordogpark.org/states/new-jersey), Newark pet parents can stay updated on the latest facility improvements and seasonal events, ensuring their companions enjoy the best possible life in this historic Garden State metropolis."
+      ],
+    },
+  },
+  {
+    slug: 'cherry-hill-township-nj',
+    city: 'Cherry Hill Township',
+    state: 'NJ',
+    featuredImage: '/images/cities/cherry-hill-township/hero.webp',
+    summary: 'A premier pet-friendly community in Southern Jersey with premium park systems.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cherry Hill Township, NJ',
+      heroDescription: 'Explore the scenic trails and vibrant dog parks of Cherry Hill Township.',
+      longDescription: [
+        "Cherry Hill Township is widely recognized as one of Southern New Jersey’s most pet-friendly communities, offering a lifestyle that blends suburban convenience with an abundance of high-quality canine amenities. The township is anchored by the sprawling [Cooper River Park](https://www.camdencounty.com/service/parks/cooper-river-park/), which provides a picturesque setting for leashed strolls along the waterfront and features designated off-leash areas for socialization. For those who enjoy more immersive natural experiences, the nearby Palmyra Cove Nature Park offers diverse walking paths where dogs can explore unique ecosystems under supervisor. This variety of terrain, combined with a high density of pet-focused retail and service providers, ensures that Cherry Hill remains a premier destination for active dog owners seeking to balance recreational variety with community-centered living.",
+        "The pet-owning experience in Cherry Hill is supported by a strong regulatory framework designed to ensure the safety and well-being of the entire community. All dogs in the township must be licensed annually and possess current rabies tags to access public recreational areas like the [Cherry Hill dog parks](https://www.indoordogpark.org/). Local leash laws are strictly enforced in neighborhood parks and shopping districts, maintaining a six-foot maximum length to ensure safety in common spaces. Beyond municipal resources, the [Camden County Park System](https://www.camdencounty.com/) offers regional-level facilities that include premium agility equipment and shaded rest zones, making it easy for residents to find a verified space that matches their pup’s energy levels. By utilizing our [New Jersey state portal](https://www.indoordogpark.org/states/new-jersey), you can stay informed about seasonal park hours and local health protocols to maximize your companion’s outdoor adventures."
+      ],
+    },
+  },
+  {
+    slug: 'clifton-nj',
+    city: 'Clifton',
+    state: 'NJ',
+    featuredImage: '/images/cities/clifton/hero.webp',
+    summary: 'Suburban serenity meets neighborhood play in this welcoming Northern Jersey community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Clifton, NJ',
+      heroDescription: 'Discover the best neighborhood parks and regional runs around Clifton.',
+      longDescription: [
+        "Clifton provides a welcoming and diverse landscape for dog owners, conveniently located near some of Northern New Jersey’s most essential recreational hubs. The city maintains its own neighborhood gems like Nash Park and the serene Robin Hood Park, offering open green spaces that are ideal for daily exercise and community interaction. However, many local pet parents also take advantage of the nearby [Brookdale Dog Park](https://www.essexcountyparks.org/parks/brookdale-park), which is renowned for its professional agility equipment and dedicated large and small breed sections. This proximity to high-quality regional facilities ensures that Clifton residents can provide their companions with a mix of familiar neighborhood walks and more structured socialization opportunities in a safe, controlled environment.",
+        "Responsible ownership in Clifton is governed by specific municipal ordinances that prioritize the health and safety of the local canine population. The [City of Clifton Health Department](https://www.cliftonnj.org/) requires all dogs to be licensed annually, with proof of rabies vaccination being a mandatory prerequisite for all park visitors. It is important for residents to note that the city strictly enforces leash laws, prohibiting the use of extender leashes in public parks and mandating a maximum six-foot lead to prevent conflicts in shared spaces. To ensure the continued quality of local amenities, the city also regulates pet waste removal and noise levels to maintain a harmonious urban environment. For real-time updates on verified facilities and local seasonal protocols, visit our [comprehensive NJ directory](https://www.indoordogpark.org/states/new-jersey) or browse our [owner resources](https://www.indoordogpark.org/owner-resources) to learn more about launching pet-friendly initiatives in your area."
+      ],
+    },
+  },
+  {
+    slug: 'philadelphia-nj',
+    city: 'Philadelphia',
+    state: 'NJ',
+    featuredImage: '/images/cities/philadelphia-nj/hero.webp',
+    summary: 'A national leader in urban dog culture, from historic runs to expansive valley trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Philadelphia, NJ',
+      heroDescription: 'Experience the historic charm and modern amenities of Philadelphia with your pup.',
+      longDescription: [
+        "Philadelphia stands as a national leader in urban dog culture, offering a sophisticated network of parks, runs, and trails that reflect the city’s historic commitment to public green space. The [Schuylkill River Dog Park](https://www.phila.gov/departments/parks-recreation/) remains the crown jewel of the local scene, providing stunning skyline views and premium, size-separated runs that cater to a revolving community of city-dwelling pets. For those seeking a more rugged escape, the 50 miles of trails within [Wissahickon Valley Park](https://fow.org/) offer an unparalleled natural retreat where leashed dogs can explore woods, meadows, and creeks. This balance of modern urban design and preserved natural landscapes makes Philadelphia one of the most versatile destinations for dog owners in the Mid-Atlantic, ensuring every breed can find a safe space for enrichment.",
+        "Navigating the pet infrastructure of the Garden State’s proximity to this urban hub requires an understanding of both municipal laws and local community initiatives. Most [Philadelphia dog parks](https://www.indoordogpark.org/cities) are supported by dedicated volunteer groups and require adherence to strict behavioral standards to ensure a safe environment for all visitors. The [City of Philadelphia Bureau of Health](https://www.phila.gov/) mandates that all canine residents be licensed and maintain current rabies vaccinations, with leash laws requiring a maximum six-foot lead in all non-designated off-leash zones. During the peak summer months, many savvy pet owners transition to climate-controlled indoor social clubs or utilize shaded waterfront trails to avoid high pavement temperatures. By consulting our [New Jersey state guide](https://www.indoordogpark.org/states/new-jersey), you can access verified data on facility amenities, hours, and community ratings to make the most of your time in the City of Brotherly Love."
+      ],
+    },
+  },
+  {
+    slug: 'hamilton-township-nj',
+    city: 'Hamilton Township',
+    state: 'NJ',
+    featuredImage: '/images/cities/hamilton-township/hero.webp',
+    summary: 'A Mercer County haven for dogs, featuring premier off-leash areas and natural preserves.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hamilton Township, NJ',
+      heroDescription: 'Enjoy the best of Mercer County’s outdoor play in Hamilton Township.',
+      longDescription: [
+        "Hamilton Township is a premier destination for dog owners in Mercer County, offering an exceptional blend of expansive public parks and community-focused pet amenities. The [Hamilton Dog Park at Veterans Park](https://www.hamiltonnj.com/) serves as the central hub for local canine socialization, featuring well-maintained fenced areas for both large and small breeds, complete with agility equipment and shaded seating. Beyond the dedicated runs, Northern Community Park provides nearly 90 acres of diverse terrain, including paved multi-use trails that are perfect for scenic, leashed exploration. This commitment to variety ensures that whether your companion is a high-energy athlete needing structured play or a senior pup who prefers a peaceful nature walk, Hamilton offers a verified and high-quality environment to support their well-being throughout the year.",
+        "Maintaining a harmonious environment in Hamilton Township requires adherence to municipal standards that prioritize community safety and responsible ownership. All visitors to the [local dog parks](https://www.indoordogpark.org/cities) must ensure their pets are healthy, licensed, and current on all mandatory rabies vaccinations. Hamilton enforces a strict leash law in public spaces, requiring a maximum six-foot lead to ensure control in busy areas, and limits the number of pets per household based on lot size to promote optimal animal welfare. During the humid Jersey summers, local residents benefit from the abundance of natural tree cover in Veterans Park, though many also utilize our [comprehensive NJ directory](https://www.indoordogpark.org/states/new-jersey) to find nearby indoor alternatives when temperatures soar. By integrating these local insights with our verified listings, you can ensure your companion thrives in this vibrant Southern New Jersey community."
+      ],
+    },
+  },
+  {
+    slug: 'trenton-nj',
+    city: 'Trenton',
+    state: 'NJ',
+    featuredImage: '/images/cities/trenton-nj/hero.webp',
+    summary: 'Historic charm and urban runs define the pet-friendly culture of New Jersey’s capital.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Trenton, NJ',
+      heroDescription: 'Discover the urban parks and historic trails of the capital district.',
+      longDescription: [
+        "As New Jersey’s capital city, Trenton offers a unique urban experience for dog owners, characterized by historic parklands and a growing network of pet-friendly resources. The city’s canine community often frequents local sanctuaries like Hounds Around the Town and the sprawling trails of nearby [Princeton Battlefield State Park](https://nj.gov/dep/parksandforests/parks/princeton.html), where leashed pets can explore historic meadows and wooded paths. While Trenton’s urban density requires a more structured approach to play, the proximity to Mercer County regional parks provides residents with access to professional-grade off-leash facilities that are essential for physical and behavioral health. This mix of neighborhood-level walks and regional destinations ensures that dogs living in the capital district have ample opportunities for daily exercise and socialization in a safe environment.",
+        "Navigating the regulatory landscape of Trenton is essential for the health and safety of the city’s growing pet population. The [City of Trenton Health Department](https://www.trentonnj.org/) mandates annual licensing for all dogs, with current rabies inoculations being a prerequisite for all municipal services and park access. Trenton strictly enforces leash laws in public streets and parks, and owners are legally responsible for the immediate removal of pet waste to maintain a healthy public environment. To help pet parents manage their companions during extreme conditions, our [New Jersey state guide](https://www.indoordogpark.org/states/new-jersey) highlights seasonal safety protocols and identifies verified [indoor dog facilities](https://www.indoordogpark.org/) that offer climate-controlled relief. By staying informed through our platform, you can ensure your dog enjoys a safe, active, and social life in the heart of the Garden State."
+      ],
+    },
+  },
+  {
+    slug: 'union-city-nj',
+    city: 'Union City',
+    state: 'NJ',
+    featuredImage: '/images/cities/union-city/hero.webp',
+    summary: 'High-density urban play with stunning skyline views and modern turf runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Union City, NJ',
+      heroDescription: 'Experience the best of Gold Coast urban play in Union City.',
+      longDescription: [
+        "Union City provides an essential service to high-density urban pet parents through its network of well-maintained neighborhood dog runs and scenic waterfront access. Residents often utilize the [Washington Park Dog Run](https://www.hudsoncountynj.org/parks/washington-park-dog-run/) and the Shipyard Dog Park, which leverage synthetic turf surfaces and strategic shade to counteract the lack of traditional yard space in this bustling Gold Coast community. These facilities are critical for the socialization of urban pups, offering dedicated areas for varied breed sizes in the shadow of the Manhattan skyline. For those seeking more expansive terrain, Union City’s proximity to larger Hudson County parks ensured that active dogs can easily transition from a quick morning sprint to a multi-mile leashed hike overlooking the Hudson River.",
+        "Successful pet ownership in Union City depends on a community-first approach and strict adherence to local health and safety ordinances. The [Union City Health Department](https://www.ucnj.com/) requires all canine residents to display current metal registration tags and maintain up-to-date rabies vaccinations to access public dog runs. Due to the high density of the area, leash laws are strictly enforced with a maximum length of six feet, and residents are encouraged to utilize our [state directory](https://www.indoordogpark.org/states/new-jersey) to identify verified pet-friendly businesses that support the local lifestyle. During the humid summer months, the use of modern turf surfaces in [Union City dog parks](https://www.indoordogpark.org/cities) helps manage heat exposure, though our platform also tracks nearby indoor alternatives for peak temperatures. By staying informed, Union City dog owners can maximize their companions’ urban experience while respecting the needs of the surrounding community."
+      ],
+    },
+  },
+  {
+    slug: 'woodbridge-nj',
+    city: 'Woodbridge',
+    state: 'NJ',
+    featuredImage: '/images/cities/woodbridge-nj/hero.webp',
+    summary: 'A Northern Jersey leader in pet infrastructure, featuring premier community-managed parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Woodbridge, NJ',
+      heroDescription: 'Discover the award-winning parks and progressive pet culture of Woodbridge.',
+      longDescription: [
+        "Woodbridge Township stands out as a leader in Northern Jersey pet infrastructure, offering a blend of volunteer-driven community projects and professionally managed parklands. The crown jewel of the local scene is the [Woodbridge Dog Park](http://www.woodbridgedogpark.org/), a meticulously maintained facility featuring dual fenced areas, specialized agility equipment, and thoughtful amenities like shaded gazebos and water fountains. For those who enjoy a more tranquil environment, the expansive Alvin P. Williams Memorial Park provides a scenic backdrop for leashed walks along the water. This commitment to providing a variety of verified play and exercise environments ensures that every breed—from high-energy athletes to small seniors—can find a safe and enriching space to call their own in this active township.",
+        "Responsible ownership in Woodbridge is reinforced by progressive ordinances that prioritize animal welfare and community harmony. The township famously implements strict tethering laws to ensure pets are never left unattended in extreme conditions, while the [Woodbridge Health Department](https://www.woodbridgenj.gov/) oversees an annual licensing program that mandates rabies protection for all park visitors. To maintain the quality of local facilities, the township encourages owners to adhere to the maximum six-foot leash law in shared spaces and practice consistent waste removal. For real-time updates on verified amenities and local event calendars, visit our [New Jersey state portal](https://www.indoordogpark.org/states/new-jersey) or browse our [owner resources](https://www.indoordogpark.org/owner-resources) for insights on maintaining a pet-friendly lifestyle. By combining these regulatory insights with our local directory, Woodbridge residents can ensure a high-quality, safe experience for their companions regardless of the season."
       ],
     },
   },
