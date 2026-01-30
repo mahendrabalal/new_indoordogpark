@@ -32,12 +32,6 @@ interface CityPageProps {
   };
 }
 
-function formatNumber(value: number) {
-  return new Intl.NumberFormat('en-US').format(value);
-}
-
-
-
 const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
 
 function shouldIndexCity(totalParks: number, totalReviews: number) {
@@ -102,29 +96,14 @@ function buildUniqueHeroDescription(params: {
   topRatedPark?: { name: string; rating: number };
   topAmenities: Array<{ label: string; share: number }>;
 }) {
-  const { cityName, state, totalParks, totalReviews, indoorCount, topRatedPark, topAmenities } = params;
+  const { cityName, state, totalParks, indoorCount } = params;
 
   const inventoryLine =
     indoorCount > 0
-      ? `Explore ${totalParks} verified dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
-      : `Explore ${totalParks} verified dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
+      ? `Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
+      : `Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
 
-  const reviewLine = totalReviews > 0 ? `Powered by ${formatNumber(totalReviews)} local reviews.` : '';
-
-  const amenityLine =
-    topAmenities.length > 0
-      ? `Common highlights: ${topAmenities
-        .slice(0, 3)
-        .map((a) => `${a.label} (${a.share}%)`)
-        .join(', ')}.`
-      : '';
-
-  const topLine =
-    topRatedPark && topRatedPark.rating > 0
-      ? `Top-rated pick: ${topRatedPark.name} (${topRatedPark.rating.toFixed(1)}★).`
-      : '';
-
-  return [inventoryLine, reviewLine, amenityLine, topLine].filter(Boolean).join(' ');
+  return inventoryLine;
 }
 
 export async function generateStaticParams() {

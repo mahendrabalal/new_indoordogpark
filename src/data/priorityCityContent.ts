@@ -420,6 +420,93 @@ const corpusChristiFaqs: FAQItem[] = [
   },
 ];
 
+const norfolkFaqs: FAQItem[] = [
+  {
+    question: 'Are dogs allowed on beaches in Norfolk, VA?',
+    answer:
+      'Yes—leashed dogs are welcome on all 7.3 miles of Norfolk’s public beaches, including Ocean View and Willoughby Spit, during the off-season (Labor Day through Memorial Day). During the summer season, pets are restricted to before 10 AM and after 6 PM to ensure safety during peak swimming hours.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Can I take my dog on the Elizabeth River Ferry?',
+    answer:
+      'Absolutely. Hampton Roads Transit (HRT) allows leashed dogs on the Elizabeth River Ferry, which connects downtown Norfolk to Olde Towne Portsmouth. It’s a unique, pet-friendly way to commute across the water while enjoying skyline views.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What are the main dog licensing rules in Norfolk?',
+    answer:
+      'All dogs over 4 months old must be licensed with the City of Norfolk and have proof of rabies vaccination. Licenses are $10 for spayed/neutered pets and $15 otherwise. Note that the city also has a specific ordinance limiting households to no more than four dogs.',
+    category: 'legal',
+  },
+  {
+    question: 'Which parks in Norfolk offer the most shade?',
+    answer:
+      'Bea McLoughlin Dog Park in Ghent is a local favorite specifically for its heavy tree canopy, providing essential relief during Virginia’s humid summers. Most other regional parks like Maplewood or Winona are also well-maintained by Norfolk Parks & Recreation.',
+    category: 'facilities',
+  },
+];
+
+const charlottesvilleFaqs: FAQItem[] = [
+  {
+    question: 'Are there off-leash swimming spots in Charlottesville?',
+    answer:
+      'Yes—Chris Greene Lake Park features a dedicated one-acre fenced off-leash area that includes a "dog beach," allowing pups to swim safely in the lake. It is one of the premier aquatic socialization spots in the region.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'When can dogs be off-leash on the Rivanna Trail?',
+    answer:
+      'Charlottesville has a unique schedule for the Rivanna Trail at Riverview Park, allowing dogs to be off-leash specifically on Tuesdays, Wednesdays, and Thursdays. On all other days, strict leash laws apply to ensure trail safety.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Does Charlottesville offer a lifetime dog license?',
+    answer:
+      'Yes—the City of Charlottesville offers a unique lifetime dog license for a one-time fee of $10, provided you maintain current rabies vaccinations. This is a highly cost-effective alternative to annual renewals found in other Virginia counties.',
+    category: 'legal',
+  },
+  {
+    question: 'Is the Saunders-Monticello Trail dog-friendly?',
+    answer:
+      'The Saunders-Monticello Trail is extremely dog-friendly for leashed pets, offering an ADA-compliant 2-mile path with stunning views. However, dogs must remain on a leash at all times to protect the historical landscape and wildlife.',
+    category: 'planning',
+  },
+];
+
+const arlingtonFaqs: FAQItem[] = [
+  {
+    question: 'How much does a dog license cost in Arlington, VA?',
+    answer:
+      'Arlington County offers a unique lifetime dog license for a one-time fee of $30. This license remains valid for the life of the dog as long as the rabies vaccination is kept current, making it very pet-owner friendly compared to annual renewals.',
+    category: 'legal',
+    popular: true,
+  },
+  {
+    question: 'Are there indoor dog parks in Arlington?',
+    answer:
+      'Yes—Arlington is home to Snouts & Stouts, a massive 12,000+ sq ft indoor dog park and bar. It provides K9 grass, climate control, and supervised play so your dog can socialize while you enjoy a local brew.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Which Arlington dog parks have water access?',
+    answer:
+      'Shirlington Dog Park and Glencarlyn Park both offer unique stream access. Shirlington features a fenced-in entry to Four Mile Run, allowing dogs to swim and splash safely in a natural environment.',
+    category: 'facilities',
+  },
+  {
+    question: 'Can I take my dog to watch planes at Gravelly Point?',
+    answer:
+      'Absolutely. Leashed dogs are welcome at Gravelly Point Park along the Mount Vernon Trail. It’s a famous spot for watching planes land at Reagan National Airport, though it can be very loud for noise-sensitive pets.',
+    category: 'planning',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -2435,7 +2522,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     customContent: {
       heroEyebrow: 'Plano Dog Destinations',
       heroHeading: 'Dog Parks in Plano, TX',
-      heroDescription: 'Explore 44 verified dog-friendly spots in Plano, TX. Powered by 12,193 local reviews. Common highlights: Onsite services (100%), Indoor facilities (100%), Professional staff (100%).',
+      heroDescription: 'Discover Plano\'s extensive network of dog parks, from spacious public facilities to climate-controlled indoor play spaces.',
       heroPill: 'Verified Plano Directory',
       heroFootnotes: ['44+ verified locations', 'Indoor facilities available'],
       longDescription: [
@@ -2891,7 +2978,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     customContent: {
       heroEyebrow: 'Premier Dog City',
       heroHeading: 'Dog Parks in Alexandria, VA',
-      heroDescription: 'Explore America\'s #2 ranked dog-friendly city, featuring 18 verified exercise areas and a historic waterfront built for four-legged adventure.',
+      heroDescription: 'Experience the historic charm and modern pet amenities of Alexandria, where dog-friendly waterfront walks and scenic off-leash retreats define the city\'s vibrant canine culture.',
       heroPill: 'Verified Alexandria Directory',
       heroFootnotes: ['18+ local exercise areas', 'Top-ranked pet safety'],
       longDescription: [
@@ -2964,18 +3051,153 @@ export const priorityCityContent: PriorityCityConfig[] = [
     city: 'Arlington',
     state: 'VA',
     featuredImage: '/images/cities/arlington-va/hero.webp',
-    summary: 'A hub of urban energy and green transitions, Arlington offers premium off-leash spaces and a community that treats pets like family.',
+    summary:
+      'From the iconic Shirlington runs to the modern Snouts & Stouts lounge, Arlington sets the standard for urban pet-friendly living.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Arlington, VA',
+      heroDescription:
+        'Experience the premier pet culture of Arlington, from the historic stream-access runs of Shirlington to the year-round indoor play at Snouts & Stouts.',
+      longDescription: [
+        'Arlington, Virginia, stands as a premier destination for urban dog owners, offering a sophisticated infrastructure that balances high-density living with expansive, world-class pet amenities. The county is anchored by the historic [Shirlington Dog Park](https://parks.arlingtonva.us/locations/shirlington-dog-park/), which was the first off-leash facility in the D.C. area and remains a crown jewel for its unique fenced-in access to Four Mile Run, allowing pups a safe natural swim. For those seeking climate-controlled socialization, [Snouts & Stouts](https://www.snoutsandstouts.com/) provides a massive 12,000-square-foot indoor park and bar, featuring professional K9 grass and a "beer and treats" concept that caters to the local community year-round. This commitment to canine inclusion is further reflected in the county’s pet-friendly administrative policies, such as the unique $30 lifetime dog license, which eliminates the hassle of annual renewals for residents who keep their rabies vaccinations current.',
+        'Beyond the urban runs, Arlington offers iconic outdoor experiences along the [Mount Vernon Trail](https://www.nps.gov/gwmp/planyourvisit/mtvernon-trail.htm), where leashed dogs can accompany their owners to highlights like Gravelly Point Park to experience the roar of planes descending into Reagan National Airport. Local favorite [Lost Dog Cafe](https://lostdogcafe.com/) in Westover further enriches the culture, as its success supports a rescue foundation that has saved tens of thousands of animals, making dining out a philanthropic tradition for local dog lovers. For those exploring the market for new pet facilities, our [owner resources](https://www.indoordogpark.org/owner-resources) detail the high demand and zoning nuances found in vibrant districts like Clarendon and Rosslyn. Whether splashing in the stream at [Glencarlyn Park](https://parks.arlingtonva.us/locations/glencarlyn-park-dog-park/) or relaxing on a brewery patio, Arlington provides a world-class environment where pets are truly integrated into every facet of civic life.'
+      ],
+      insightCards: [
+        {
+          tag: 'Smart Policy',
+          title: 'Lifetime $30 License',
+          copy: 'Arlington simplifies ownership with a one-time lifetime license fee, ensuring long-term health compliance without the stress of annual renewals.',
+          accent: true,
+        },
+        {
+          tag: 'Unique Access',
+          title: 'Stream-Side Splashing',
+          copy: 'Multiple local parks like Shirlington and Glencarlyn feature rare, fenced-in natural stream access, perfect for aquatic socialization in a safe setting.',
+        },
+        {
+          tag: 'Year-Round Play',
+          title: 'Snouts & Stouts Indoor',
+          copy: 'A massive 12,000+ sq ft indoor facility offers a climate-controlled sanctuary with a bar, making it the ultimate social hub for Arlington pups.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-patch-check',
+          title: 'Legal Essentials',
+          items: [
+            'Secure a lifetime license for a one-time $30 fee',
+            'Must keep rabies vaccinations current for validity',
+            'Dog tags must be worn at all times in public',
+          ],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Top Social Spots',
+          items: [
+            'Shirlington Dog Park (Quarter-mile long run)',
+            'Gravelly Point (Plane watching with leashed pups)',
+            'New District Brewing (Dog-friendly local taps)',
+          ],
+        },
+        {
+          icon: 'bi-shield-check',
+          title: 'Safety & Etiquette',
+          items: [
+            'Avoid Gravelly Point for noise-sensitive dogs',
+            'Vaccination records required for indoor parks',
+            'Strict leash laws in all non-fenced public areas',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Shirlington', slug: 'shirlington', description: 'Home to the county’s most famous dog park and many pet-friendly patios.' },
+        { name: 'Clarendon/Rosslyn', slug: 'clarendon-rosslyn', description: 'High-energy urban hubs with modern indoor facilities and rooftop dog runs.' },
+        { name: 'Westover', slug: 'westover', description: 'Charming neighborhood anchored by the iconic and philanthropic Lost Dog Cafe.' },
+      ],
+      expertTips: [
+        'Arrive at Shirlington Dog Park before 9 AM on weekends to avoid the peak crowds.',
+        'Use the separate small-dog area at Shirlington if your pup is under 20 pounds.',
+        'Check Snouts & Stouts schedule for breed-specific social hours and events.',
+        'Always bring a towel for your car if you plan on using the Four Mile Run stream access.',
+      ],
+      faqs: arlingtonFaqs,
+    },
   },
   {
     slug: 'charlottesville',
     city: 'Charlottesville',
     state: 'VA',
     featuredImage: '/images/cities/charlottesville/hero.webp',
-    summary: 'Nestled in the Blue Ridge foothills, Charlottesville offers scenic mountain runs and a community dedicated to active pet lifestyles.',
+    summary:
+      'Nestled in the Blue Ridge foothills, Charlottesville offers scenic mountain runs and a community dedicated to active pet lifestyles.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Charlottesville, VA',
+      heroDescription: 'Discover the best mountain runs and dog-friendly swimming spots in the Blue Ridge foothills, from Chris Greene Lake to the historic Saunders-Monticello Trail.',
+      longDescription: [
+        'Charlottesville, Virginia, offers a unique blend of historical charm and adventurous outdoor opportunities for dog owners nestled in the foothills of the Blue Ridge Mountains. The city is renowned for its progressive approach to pet amenities, highlighted by the [Chris Greene Lake Park](https://www.albemarle.org/government/parks-recreation/parks/chris-greene-lake-park), which features a dedicated one-acre fenced "dog beach" where pups can swim freely in the lake. For trail enthusiasts, the [Rivanna Trail](https://www.rivannatrail.org/) provides a scenic escape, famously offering a flexible off-leash policy at Riverview Park on Tuesdays, Wednesdays, and Thursdays—a rare schedule that caters to local socialization needs. Urban explorers often flock to [Azalea Park](https://www.charlottesville.gov/Facilities/Facility/Details/Azalea-Park-1), home to one of the city\'s most established fenced enclosures with separate areas for different breed sizes, ensuring a safe and engaging environment for the entire community.',
+        'Beyond the parks, Charlottesville’s dog culture extends into its world-class beverage scene and historical landmarks. The [Saunders-Monticello Trail](https://www.monticello.org/visit/the-saunders-monticello-trail/) offers a stunning, ADA-compliant two-mile path up to Thomas Jefferson’s estate; while a strict leash law is enforced here to protect the sensitive landscape, it remains a premier destination for leashed forest hikes. Local favorites like King Family Vineyards even welcome four-legged fans to their weekly polo matches, creating a sophisticated social atmosphere for pets. Navigating the city’s requirements is made easy with a unique lifetime dog license available for a one-time $10 fee, provided rabies vaccinations remain current. For those looking to invest in this thriving pet market, our [owner resources](https://www.indoordogpark.org/owner-resources) offer critical data on development and zoning. From the "Paws and Pints" culture at local breweries to the quiet beauty of the Blue Ridge, Charlottesville remains an elite destination for Virginia’s active canine companions.'
+      ],
+      insightCards: [
+        {
+          tag: 'Aquatic Play',
+          title: 'Chris Greene Dog Beach',
+          copy: 'A rare one-acre fenced lakeside area allowing dogs to swim off-leash, making it a premier destination for water-loving pups in Albemarle County.',
+          accent: true,
+        },
+        {
+          tag: 'Flexible Trails',
+          title: 'Off-Leash Weekdays',
+          copy: 'Riverview Park on the Rivanna Trail offers a unique mid-week off-leash schedule (Tue-Thu), balancing nature access with responsible community standards.',
+        },
+        {
+          tag: 'Smart Ownership',
+          title: 'One-Time Lifetime License',
+          copy: 'Charlottesville residents can secure a lifetime dog license for just $10, a pet-friendly policy that encourages long-term responsible ownership.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-bicycle',
+          title: 'Trail Etiquette',
+          items: [
+            'Strict on-leash rules at Saunders-Monticello Trail',
+            'Follow off-leash calendar for Rivanna Trail',
+            'Pick up waste to protect mountain ecosystems',
+          ],
+        },
+        {
+          icon: 'bi-trophy',
+          title: 'Events & Socials',
+          items: [
+            'Dog-friendly polo at King Family Vineyards',
+            'Pups and Pints events at local farm breweries',
+            'Agility courses and training at Azalea Park',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Legal Essentials',
+          items: [
+            'Rabies vaccination required for all city licenses',
+            'Lifetime license valid as long as pet is in city',
+            'Report lost pets to CASPCA for rapid recovery',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Belmont', slug: 'belmont', description: 'Hip, walkable neighborhood with immediate access to Rivanna Trailheads.' },
+        { name: 'North Downtown', slug: 'north-downtown', description: 'Historic district near the Pedestrian Mall and shaded neighborhood walks.' },
+        { name: 'Fry\'s Spring', slug: 'frys-spring', description: 'Family-friendly area close to Azalea Park’s established dog runs.' },
+      ],
+      expertTips: [
+        'Visit Chris Greene Lake early on weekends to beat the afternoon family crowds.',
+        'Check the Rivanna Trail website for seasonal flooding alerts before off-leash days.',
+        'Most Charlottesville wineries are dog-friendly; look for the "hounds welcome" signs.',
+        'Bring extra water for the incline on the Saunders-Monticello Trail during summer.',
+      ],
+      faqs: charlottesvilleFaqs,
+    },
   },
   {
     slug: 'danville-va',
@@ -3062,7 +3284,26 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/hampton-va/hero.webp',
     summary: 'Coastal Hampton offers a variety of offleash areas and waterfront walks for the city\'s active canine residents.',
     parks: [],
-    customContent: {},
+    customContent: {
+      longDescription: [
+        "Hampton, VA, is a historic coastal city offering dog owners a unique blend of Chesapeake Bay waterfront access and well-maintained urban dog parks that reflect the area's strong military and maritime character. The city operates several quality off-leash facilities, including the popular [Bluebird Gap Farm Dog Park](https://www.hampton.gov/Facilities/Facility/Details/Bluebird-Gap-Farm-7), which features separate fenced sections for different-sized breeds alongside the city's working farm and nature trails—creating a distinctive environment where dogs can socialize while families explore educational exhibits. For waterfront exercise, the [Hampton River Walk](https://www.visithampton.com/things-to-do/hampton-riverwalk/) provides a scenic paved pathway along the harbor where leashed dogs can join their owners for views of historic Fortress Monroe and passing sailboats. The nearby [Grandview Nature Preserve](https://www.hampton.gov/Facilities/Facility/Details/Grandview-Nature-Preserve-14) offers beach access where leashed dogs can experience the Chesapeake shoreline during off-season months, providing a rare coastal wilderness experience within city limits. Our [Hampton directory](https://www.indoordogpark.org/cities/hampton-va) connects residents to these diverse amenities across the Peninsula.",
+        "Dog ownership in Hampton requires annual licensing through the city Treasurer's Office, with fees ranging from $10-$20 depending on spay/neuter status, ensuring comprehensive rabies protection across the community. The city's substantial military presence—anchored by Joint Base Langley-Eustis—has created a transient but highly engaged pet-owner population that actively supports local dog-friendly businesses and services. The area's moderate coastal climate allows year-round outdoor activity, though Hampton Roads' humid summers mean early morning and evening park visits are most comfortable for active breeds. Local favorites like [Sandy Bottom Nature Park](https://www.hampton.gov/Facilities/Facility/Details/Sandy-Bottom-Nature-Park-25) offer over 450 acres of trails, lakes, and wildlife viewing where leashed dogs can explore Virginia's coastal plain ecosystems alongside their families. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for waterfront safety guidance or exploring the historic streets of downtown Phoebus, Hampton delivers a distinctive coastal lifestyle where naval heritage and natural beauty create an environment unlike any other Virginia city. This combination of military professionalism and bayside recreation makes it an exceptional choice for dog owners seeking both community structure and maritime adventure."
+      ],
+    },
+  },
+  {
+    slug: 'blacksburg-va',
+    city: 'Blacksburg',
+    state: 'VA',
+    featuredImage: '/images/cities/blacksburg-va/hero.webp',
+    summary: 'Home to Virginia Tech, Blacksburg combines collegiate energy with exceptional mountain trails and community dog parks.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Blacksburg, VA, is a vibrant college town nestled in the Blue Ridge Mountains, offering dog owners an exceptional combination of youthful energy, progressive pet policies, and immediate access to world-class mountain recreation. The town operates the well-designed [Blacksburg Municipal Park Dog Area](https://www.blacksburg.gov/departments/departments-h-z/parks-recreation/parks-recreation-facilities/dog-park), featuring spacious fenced sections for large and small breeds with professional-grade turf maintenance that reflects the town's commitment to quality amenities. Beyond dedicated runs, the area's crown jewel is the [Huckleberry Trail](https://www.huckleberrytrail.org/), a 16-mile paved greenway connecting Blacksburg to neighboring Christiansburg, providing safe, scenic pathways perfect for long-distance walking, running, and cycling with active dogs year-round. For wilderness enthusiasts, the proximity to [Jefferson National Forest](https://www.fs.usda.gov/gwj) means access to legendary trails like the Cascades and Dragon's Tooth, where leashed dogs can experience Virginia's most dramatic mountain scenery alongside their adventurous owners. Our [Blacksburg directory](https://www.indoordogpark.org/cities/blacksburg-va) verifies these exceptional local and regional resources.",
+        "Dog ownership in Blacksburg follows [Montgomery County's](https://www.montgomerycountyva.gov/) licensing requirements, mandating annual registration and current rabies vaccinations for all pets. The town's character is defined by Virginia Tech's presence, creating a young, active population that embraces outdoor recreation and progressive environmental values—reflected in the community's extensive trail networks and well-funded park systems. The area's elevated position in the Appalachian highlands means cooler summers than lowland Virginia cities, allowing comfortable outdoor activity even during peak heat when Richmond and Tidewater become oppressive for thick-coated breeds. Local businesses throughout downtown Blacksburg welcome leashed dogs to outdoor patios, with establishments like [Cabo Fish Taco](https://www.caboblacksburg.com/) and various Main Street breweries providing water bowls and treats for visiting pets. The town also hosts regular pet-friendly events coordinated through Virginia Tech's veterinary school, creating unique opportunities for education and community engagement. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for mountain trail safety or enjoying the collegiate atmosphere of downtown, Blacksburg delivers an intellectually vibrant, outdoor-oriented lifestyle where dogs are integrated into the fabric of New River Valley culture. This combination of academic sophistication and mountain wilderness makes it a premier destination for dog owners seeking both community engagement and natural adventure."
+      ],
+    },
   },
   {
     slug: 'harrisonburg',
@@ -3071,7 +3312,12 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/harrisonburg/hero.webp',
     summary: 'The "Friendly City" in the Shenandoah Valley features well-maintained dog parks and proximity to legendary mountain trails.',
     parks: [],
-    customContent: {},
+    customContent: {
+      longDescription: [
+        "Harrisonburg, VA, known as the \"Friendly City,\" sits in the heart of the Shenandoah Valley and offers dog owners an ideal blend of small-city amenities and unparalleled access to Virginia's most spectacular mountain wilderness. The city operates several quality dog parks, including the well-maintained [Westover Park Dog Park](https://www.harrisonburgva.gov/dog-park) and facilities at Purcell Park, which feature separate fenced areas for different-sized breeds with comprehensive water stations and shaded seating that reflect the city's commitment to pet infrastructure. For scenic exercise, the [Bluestone Trail](https://www.bluestonetrail.org/) provides miles of paved pathways connecting neighborhoods to parks and commercial districts, perfect for daily walks and runs with active dogs. The area's true distinction lies in its strategic position between [Shenandoah National Park](https://www.nps.gov/shen/index.htm) to the east and [George Washington National Forest](https://www.fs.usda.gov/gwj) to the west, where countless mountain trails welcome leashed dogs to explore some of America's most iconic landscapes, from Old Rag's rock scrambles to the peaceful shores of Sherando Lake. Our [Harrisonburg directory](https://www.indoordogpark.org/cities/harrisonburg) connects residents to these exceptional valley and mountain amenities.",
+        "Dog ownership in Harrisonburg follows [Rockingham County's](https://www.rockinghamcountyva.gov/) standard regulations when outside city limits, requiring current rabies vaccinations and responsible leash practices. The city's diverse character—anchored by James Madison University and a thriving local foods movement—has created a progressive, environmentally conscious community where dogs are warmly welcomed at farmers' markets, brewery patios, and outdoor events throughout the year. Local establishments along the vibrant downtown Court Square district provide water bowls and shaded seating for visiting pets, while the area's numerous farm breweries and cideries have embraced the pet-friendly culture that defines valley life. The moderate valley climate, protected by surrounding mountains, provides four distinct seasons without the humidity extremes of Tidewater Virginia, making year-round outdoor activity comfortable for both owners and their dogs. Popular destinations like [Edith J. Carrier Arboretum](https://www.jmu.edu/arboretum/) on the JMU campus offer educational nature walks where leashed dogs can explore alongside families discovering native Shenandoah ecosystems. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for mountain trail safety or enjoying the authentic community spirit of valley living, Harrisonburg delivers a welcoming, outdoor-oriented lifestyle where pets are cherished members of a genuinely friendly community. This combination of valley charm and mountain proximity makes it an exceptional choice for Virginia dog owners seeking both small-town warmth and wilderness adventure."
+      ],
+    },
   },
   {
     slug: 'leesburg',
@@ -3156,9 +3402,76 @@ export const priorityCityContent: PriorityCityConfig[] = [
     city: 'Norfolk',
     state: 'VA',
     featuredImage: '/images/cities/norfolk/hero.webp',
-    summary: 'From military families to urban professionals, Norfolk\'s dog community enjoys diverse runs and coastal play opportunities.',
+    summary:
+      'From military families to urban professionals, Norfolk\'s dog community enjoys diverse runs and coastal play opportunities.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Norfolk, VA',
+      heroDescription: 'Explore the vibrant coastal pet culture of Norfolk, featuring seasonal beach access at Ocean View and pet-friendly commutes on the Elizabeth River Ferry.',
+      longDescription: [
+        'Norfolk, Virginia, offers a vibrant coastal lifestyle for pet owners, blending historic charm with modern, dog-friendly amenities. The city is anchored by the [Elizabeth River Trail (ERT)](https://elizabethrivertrail.org/), a 10.5-mile multi-use path that serves as a social hub for local pups and their humans. Along this trail, the Chelsea district stands out with its pet-welcoming atmosphere, where spots like Smartmouth Brewing often host "Pints and Pups" events. For those seeking off-leash play, the [Bea McLoughlin Dog Park](https://www.norfolk.gov/parks) in the Ghent neighborhood is a local treasure, prized for its mature leafy canopy that provides critical shade during Virginia’s humid summers. This urban sanctuary is just one of many facilities maintained by Norfolk Parks & Recreation, ensuring that whether you are a military family near Naval Station Norfolk or a professional in a downtown loft, there is a dedicated space for your dog to socialize safely.',
+        'Navigating local regulations and unique transit options is key to a seamless Norfolk experience. One of the city’s most distinctive features is the pet-friendly Elizabeth River Ferry, allowing leashed dogs to enjoy a scenic water commute between downtown and Olde Towne Portsmouth. Beach lovers should head to Ocean View, where dogs are granted freedom on 7.3 miles of shoreline during the off-season (Labor Day through Memorial Day). To maintain this high standard of pet culture, the city requires all dogs over 4 months old to be licensed and vaccinated against rabies. For those looking to open new pet facilities, our [owner resources](https://www.indoordogpark.org/owner-resources) provide data-backed insights on Norfolk’s growing demand for premium services. From "Bark in the Park" nights at Harbor Park with the [Norfolk Tides](https://www.milb.com/norfolk) to quiet sunset walks along the Hague, Norfolk remains a premier destination for Virginia’s active canine community.'
+      ],
+      insightCards: [
+        {
+          tag: 'Coastal Freedom',
+          title: 'Ocean View Access',
+          copy: 'Norfolk allows leashed dogs on its 7.3 miles of public beaches during the off-season, providing a massive natural playground for winter and spring walks.',
+          accent: true,
+        },
+        {
+          tag: 'Social Trails',
+          title: 'Elizabeth River Social Loop',
+          copy: 'The 10.5-mile ERT connects 28 points of interest, including pet-welcoming stops in the Chelsea district and dog-friendly brewery patios.',
+        },
+        {
+          tag: 'Shady Sanctuary',
+          title: 'Ghent’s Mature Canopy',
+          copy: 'Bea McLoughlin Dog Park is a neighborhood favorite for its heavy shade, making it the go-to spot during the peak of the Virginia summer heat.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-ship',
+          title: 'Unique Transit',
+          items: [
+            'Leashed dogs allowed on Elizabeth River Ferry',
+            'Connect downtown Norfolk to Olde Towne Portsmouth',
+            'Enjoy scenic water views with your pup',
+          ],
+        },
+        {
+          icon: 'bi-patch-check',
+          title: 'Legal & Safety',
+          items: [
+            'License pets 4+ months old (Treasury Dept)',
+            'Maximum 4 dogs allowed per household',
+            'Leash laws strictly enforced on public streets',
+          ],
+        },
+        {
+          icon: 'bi-calendar-heart',
+          title: 'Seasonal Highlights',
+          items: [
+            'Bark in the Park at Norfolk Tides games',
+            'Winter beach access (Labor Day-Memorial Day)',
+            'Chelsea district dog-friendly brewery events',
+          ],
+        },
+      ],
+      neighborhoods: [
+        { name: 'Ghent', slug: 'ghent', description: 'Historic, walkable area with mature trees and the popular Bea McLoughlin park.' },
+        { name: 'Ocean View', slug: 'ocean-view', description: 'Chesapeake Bay shoreline with seasonal beach access for leashed pets.' },
+        { name: 'Chelsea', slug: 'chelsea', description: 'Industrial-chic district along the ERT with many dog-friendly breweries.' },
+      ],
+      expertTips: [
+        'Check the tide schedule before heading to Ocean View for maximum shoreline play space.',
+        'The Elizabeth River Ferry is a great way to avoid bridge traffic when visiting Portsmouth with your dog.',
+        'Visit Bea McLoughlin park early in the morning for the most social local group.',
+        'Always carry a collapsable water bowl when walking the 10.5-mile Elizabeth River Trail.',
+      ],
+      faqs: norfolkFaqs,
+    },
   },
   {
     slug: 'roanoke-va',
@@ -3169,9 +3482,9 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroHeading: 'Dog-Friendly Roanoke',
-      heroDescription: 'Explore 45 verified dog-friendly spots in Roanoke, VA. Powered by 9,442 local reviews and expert insights.',
+      heroDescription: 'Experience the Star City\'s blend of mountain adventure and urban dog parks along the Blue Ridge.',
       longDescription: [
-        "Roanoke, the \"Star City\" of the Blue Ridge, offers a stunning backdrop for pet owners who value both mountain adventure and urban play. With 45 verified spots and 9,422 local reviews, the region is anchored by [Thrasher Park](https://www.playroanoke.com/parks-facilities/thrasher-park/), featuring separate grassy enclosures. In the historic center, [Highland Park](https://www.petdata.com/for-pet-owners/rnk/license-online) provides a spacious one-acre run with a dedicated puppy section, ensuring safe socialization. Nearby, the wood-chipped [Salem Rotary Dog Park](https://www.salemva.gov/Facilities/Facility/Details/Rotary-Dog-Park-14) offers a shaded alternative for summer heat. This park network, integrated with the [Roanoke Valley Greenways](https://www.playroanoke.com/greenways/), creates an ideal environment for active pups to explore.",
+        "Roanoke, the \"Star City\" of the Blue Ridge, offers a stunning backdrop for pet owners who value both mountain adventure and urban play. The region is anchored by [Thrasher Park](https://www.playroanoke.com/parks-facilities/thrasher-park/), featuring separate grassy enclosures for different-sized breeds. In the historic center, [Highland Park](https://www.petdata.com/for-pet-owners/rnk/license-online) provides a spacious one-acre run with a dedicated puppy section, ensuring safe socialization. Nearby, the wood-chipped [Salem Rotary Dog Park](https://www.salemva.gov/Facilities/Facility/Details/Rotary-Dog-Park-14) offers a shaded alternative for summer heat. This park network, integrated with the [Roanoke Valley Greenways](https://www.playroanoke.com/greenways/), creates an ideal environment for active pups to explore.",
         "Navigating local regulations is key for Roanoke pet owners. All dogs aged four months or older must be licensed annually with a current rabies certificate. The city also enforces strict tethering laws—limiting it to three hours during the day and prohibiting it at night—to ensure humane care. For premium services, B & B K-9 Kennels (5.0★) leads the valley in quality. By balancing these standards with dog-friendly breweries and shaded trails, Roanoke provides a safe \"third place\" for the canine community. Whether visiting for a weekend hike or living downtown, owners can rely on our [owner resources](https://www.indoordogpark.org/owner-resources) for expert local guidance."
       ],
       insightCards: [
@@ -3243,6 +3556,300 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Historic Winchester provides charming community dog parks and a gateway to the northern Shenandoah Valley\'s natural beauty.',
     parks: [],
     customContent: {},
+  },
+  {
+    slug: 'amherst-va',
+    city: 'Amherst',
+    state: 'VA',
+    featuredImage: '/images/cities/amherst-va/hero.webp',
+    summary: 'A charming community in the foothills of the Blue Ridge Mountains with access to scenic trails and local dog-friendly spots.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Amherst, VA, is a hidden gem for dog owners seeking a peaceful mountain lifestyle with exceptional access to Blue Ridge wilderness. Located in [Amherst County](https://www.countyofamherst.com/), this historic community offers a relaxed pace while providing proximity to premium outdoor destinations. The town serves as a gateway to the scenic [James River Heritage Trail](https://www.jamesriverassociation.org/), where leashed dogs can accompany their owners on flat, riverside paths perfect for long morning walks. For off-leash socialization, nearby Lynchburg's established park network is just a short drive away, making Amherst ideal for those who value natural beauty over crowded urban runs. Our [Amherst directory](https://www.indoordogpark.org/cities/amherst-va) verifies local spots and provides essential information for navigating this serene foothill region.",
+        "Dog ownership in Amherst County requires adherence to Virginia's standard rabies vaccination mandate and responsible leash practices on public trails to protect the sensitive mountain ecosystem. The area is particularly popular with outdoor enthusiasts who appreciate the blend of farmland vistas and forest access, with Sweet Briar College's expansive grounds offering scenic leashed walks through historic landscapes. Local favorites like the [Blue Ridge Parkway](https://www.nps.gov/blri/index.htm), accessible within 30 minutes, provide world-class hiking opportunities where well-behaved dogs on leash can experience Virginia's most iconic mountain scenery. Whether exploring the quiet streets of downtown Amherst or venturing into the surrounding national forest, owners can rely on our [owner resources](https://www.indoordogpark.org/owner-resources) for guidance on trail etiquette and seasonal considerations. This combination of small-town charm and mountain majesty makes Amherst a compelling choice for dogs and families seeking an active, nature-focused lifestyle in central Virginia."
+      ],
+    },
+  },
+  {
+    slug: 'ashburn-va',
+    city: 'Ashburn',
+    state: 'VA',
+    featuredImage: '/images/cities/ashburn-va/hero.webp',
+    summary: 'Located in Loudoun County, Ashburn offers modern suburban dog parks and a highly connected tech-corridor community.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Ashburn, VA, represents the pinnacle of modern suburban dog-friendly living, anchored by [Loudoun County's](https://www.loudoun.gov/) progressive pet infrastructure and a thriving professional community. The area is home to several premium off-leash facilities, including the popular [Ashburn Park Dog Park](https://www.loudoun.gov/facilities/Facility/Details/Ashburn-Park-108) on Trailhead Drive, which features separate fenced areas for large and small breeds with water stations and agility equipment. For those seeking expansive green space, the nearby [Broad Run Stream Valley Trail](https://www.loudoun.gov/2634/Stream-Valley-Parks) offers miles of paved paths where leashed dogs can enjoy scenic creek-side exercise. The region's tech-corridor culture has also sparked innovative pet amenities, with modern developments integrating dog wash stations and private runs directly into apartment communities. Our [Ashburn directory](https://www.indoordogpark.org/cities/ashburn-va) verifies these evolving options, reflecting a community that treats pets as essential family members.",
+        "Navigating Ashburn's dog regulations is straightforward, as Loudoun County mandates annual licensing for all dogs over four months old, with fees starting at $10 for spayed/neutered pets. This simple system ensures county-wide rabies compliance while funding the expansion of park networks. Beyond the dedicated runs, Ashburn's location in the data center capital of the world has cultivated a sophisticated social scene, with breweries like [Vanish Farmwoods Brewery](https://www.vanishbeer.com/) welcoming leashed companions to their expansive outdoor spaces. Active families also benefit from proximity to the [W\u0026OD Trail](https://www.wodfriends.org/), a 45-mile regional rail trail perfect for long-distance biking and running with well-conditioned pups. For those exploring investment opportunities in this booming market, our [owner resources](https://www.indoordogpark.org/owner-resources) provide data on zoning and demand trends. Whether enjoying the manicured fields at [Brambleton Regional Park](https://www.loudoun.gov/facilities/Facility/Details/Brambleton-Regional-Park-103) or socializing at a farm winery, Ashburn delivers a premium, tech-forward lifestyle where pets thrive alongside Virginia's most dynamic professional community."
+      ],
+    },
+  },
+  {
+    slug: 'ashland-va',
+    city: 'Ashland',
+    state: 'VA',
+    featuredImage: '/images/cities/ashland-va/hero.webp',
+    summary: 'Known as "Center of the Universe," Ashland provides a welcoming small-town atmosphere with community-focused dog parks.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Ashland, VA, affectionately known as the \"Center of the Universe,\" offers a uniquely charming environment for dog owners who value historic character and tight-knit community culture. This [Hanover County](https://www.hanovercounty.gov/) town is famous for its train tracks running directly through Main Street, creating a nostalgic backdrop for leashed downtown strolls past antique shops and local cafes. While Ashland itself maintains a quiet, residential park system, dog owners benefit from excellent access to county facilities like the [Pole Green Park Dog Area](https://www.hanovertownship.org/departments/parks-recreation/parks-facilities/pole-green-park), located just minutes away, which provides a spacious fenced environment with dedicated small-dog sections and ample shade. The town's proximity to Richmond also means easy access to the capital region's extensive dog park network. Our [Ashland directory](https://www.indoordogpark.org/cities/ashland-va) helps residents navigate these local and regional options.",
+        "Owning a dog in Ashland requires compliance with Hanover County's licensing system, which mandates registration and current rabies vaccinations for all pets over four months old. The town's strong sense of community is reflected in events like the annual Ashland Strawberry Faire, where leashed, well-behaved dogs are welcome to join the festivities. For trail enthusiasts, the nearby [Washington-Rochambeau Revolutionary Route](https://www.nps.gov/nero/w3r-va.htm) offers historical walking paths through Virginia's colonial landscape, perfect for leashed educational hikes. Local establishments like [Center of the Universe Brewing Company](https://www.cotubrewing.com/) embrace the pet-friendly ethos, welcoming dogs on their outdoor patio for a relaxed social experience. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training recommendations or simply enjoying the slower pace of life along the CSX rail line, Ashland provides a warm, accessible environment where dogs are woven into the fabric of daily small-town living. This blend of historic charm and modern convenience makes it an ideal base for exploring central Virginia's diverse pet amenities."
+      ],
+    },
+  },
+  {
+    slug: 'boones-mill-va',
+    city: 'Boones Mill',
+    state: 'VA',
+    featuredImage: '/images/cities/boones-mill-va/hero.webp',
+    summary: 'A quiet gateway to the Roanoke Valley offering peaceful runs and access to regional recreational trails.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Boones Mill, VA, is a tranquil rural community in [Franklin County](https://www.franklincountyva.gov/) that serves as an ideal gateway for dog owners seeking mountain solitude and expansive natural recreation. While this small town doesn't maintain dedicated dog parks within its borders, its charm lies in proximity to the Roanoke Valley's robust trail network and wide-open countryside perfect for off-grid adventures. Just a short drive away, the [Salem Rotary Dog Park](https://www.salemva.gov/Facilities/Facility/Details/Rotary-Dog-Park-14) provides a wood-chip surfaced, fenced facility for structured socialization, while the nearby [Roanoke Valley Greenways](https://www.playroanoke.com/greenways/) offer over 40 miles of paved and natural trails for long-distance leashed hiking. Boones Mill's rural setting also means direct access to the [Blue Ridge Parkway](https://www.nps.gov/blri/index.htm), less than 15 minutes away, where leashed dogs can experience Virginia's most iconic mountain vistas. Our [Boones Mill directory](https://www.indoordogpark.org/cities/boones-mill-va) connects residents to these regional resources.",
+        "For dog owners in Boones Mill, Franklin County requires standard rabies vaccinations and encourages responsible rural ownership practices, including leash use on public roads and respectful interaction with agricultural land. The area's appeal lies in its peaceful, uncrowded environment—perfect for owners with high-energy breeds who need room to roam without the constraints of dense suburban living. Local favorites like [Hickory Hill Vineyards](https://www.hickoryhillvineyards.com/), just down the road, welcome well-behaved leashed dogs to their tasting grounds, blending Virginia's wine culture with pet-friendly hospitality. For those exploring more urban amenities, Roanoke's established dog park system is a quick 20-minute drive, offering the best of both worlds. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for trail safety tips or simply enjoying the quiet mountain mornings, Boones Mill provides a serene, nature-focused lifestyle where dogs can thrive in the open spaces of Franklin County. This rural charm, combined with strategic access to regional infrastructure, makes it a hidden gem for Virginia's outdoor-oriented canine community."
+      ],
+    },
+  },
+  {
+    slug: 'centreville-va',
+    city: 'Centreville',
+    state: 'VA',
+    featuredImage: '/images/cities/centreville-va/hero.webp',
+    summary: 'A bustling Northern Virginia community with well-integrated parks and convenient access to local off-leash areas.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Centreville, VA, is a vibrant [Fairfax County](https://www.fairfaxcounty.gov/) community that perfectly balances suburban convenience with robust pet infrastructure, making it a premier destination for Northern Virginia dog owners. The area is anchored by the expansive [Bull Run Regional Park](https://www.novaparks.com/parks/bull-run-regional-park), which features a dedicated dog swimming area at the park's pond, allowing water-loving pups to cool off during Virginia's humid summers. For structured off-leash play, the nearby [Blake Lane Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks) in neighboring Oak Hill offers separate fenced sections for large and small breeds, complete with shade structures and community seating. Centreville's excellent location also provides quick access to the [W\u0026OD Trail](https://www.wodfriends.org/), a regional rail-trail perfect for long-distance running and biking with active dogs. Our [Centreville directory](https://www.indoordogpark.org/cities/centreville-va) verifies these local gems and helps residents navigate Fairfax County's extensive 20+ dog park network.",
+        "Dog ownership in Centreville requires adherence to Fairfax County's strict licensing requirements, with annual fees of $10-$20 depending on spay/neuter status, ensuring comprehensive rabies protection across the community. The area's professional demographics have cultivated a sophisticated pet culture, with local establishments like [Fair Winds Brewing Company](https://www.fairwindsbrewing.com/) welcoming leashed companions to their spacious outdoor patios for a post-walk social hour. For families with young children, the multi-use trails at [Ellanor C. Lawrence Park](https://www.fairfaxcounty.gov/parks/ellanor-lawrence) provide educational nature walks where leashed dogs can explore alongside kids discovering local wildlife. The region's strong homeowners' association culture also means many neighborhoods feature private dog runs and pet amenities built directly into community spaces. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training recommendations or exploring the historic [Manassas National Battlefield Park](https://www.nps.gov/mana/index.htm) on leash, Centreville delivers a well-rounded, accessible lifestyle where pets are seamlessly integrated into the fabric of NoVA living. This combination of natural recreation and modern convenience makes it an ideal hub for exploring all of Northern Virginia's diverse dog-friendly offerings."
+      ],
+    },
+  },
+  {
+    slug: 'chantilly-va',
+    city: 'Chantilly',
+    state: 'VA',
+    featuredImage: '/images/cities/chantilly-va/hero.webp',
+    summary: 'Home to expansive green spaces and modern facilities, Chantilly is a premier spot for active dogs in Fairfax County.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Chantilly, VA, stands as one of [Fairfax County's](https://www.fairfaxcounty.gov/) premier suburban communities for dog owners, blending modern amenities with exceptional access to expansive natural recreation. The area is home to several outstanding off-leash facilities, including the popular [Blake Lane Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks), which features spacious fenced sections for both large and small breeds, shade structures, and a dedicated water station. For those seeking more rugged adventure, the adjacent [Ellanor C. Lawrence Park](https://www.fairfaxcounty.gov/parks/ellanor-lawrence) offers over 650 acres of fields and forests with miles of natural-surface trails perfect for leashed hiking. The nearby [Bull Run Regional Park](https://www.novaparks.com/parks/bull-run-regional-park) further enhances the region's appeal with a designated dog swimming area and extensive camping facilities where leashed pets are welcome. Our [Chantilly directory](https://www.indoordogpark.org/cities/chantilly-va) helps residents navigate these outstanding local resources.",
+        "Dog ownership in Chantilly requires adherence to Fairfax County's licensing system, which mandates annual registration ($10-$20 depending on spay/neuter status) and current rabies vaccinations for all pets over four months old. The community's strong professional culture has created a sophisticated pet scene, with breweries like [Fair Winds Brewing Company](https://www.fairwindsbrewing.com/) welcoming leashed companions to their generous outdoor seating areas. Chantilly's strategic location also provides convenient access to historic sites like the [National Air and Space Museum Steven F. Udvar-Hazy Center](https://airandspace.si.edu/udvar-hazy-center), where well-behaved leashed dogs can join their owners for walks around the exterior grounds and aircraft viewing areas. For those planning longer outings, the [W\u0026OD Trail](https://www.wodfriends.org/) is accessible within minutes, offering a 45-mile paved pathway perfect for distance running and cycling with athletic dogs. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training guidance or exploring the modern Fairfax County park system, Chantilly delivers an unmatched blend of suburban comfort and outdoor adventure that makes it a standout destination for Northern Virginia's active canine community."
+      ],
+    },
+  },
+  {
+    slug: 'chatham-va',
+    city: 'Chatham',
+    state: 'VA',
+    featuredImage: '/images/cities/chatham-va/hero.webp',
+    summary: 'The seat of Pittsylvania County offers a relaxed pace and community dog parks for Southside residents.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Chatham, VA, serves as the charming county seat of [Pittsylvania County](https://www.pittsylvaniacountyva.gov/), offering dog owners a peaceful Southside Virginia lifestyle with genuine community character. While the town itself maintains a quieter, residential atmosphere, local dog owners benefit from excellent access to the county-run [Pittsylvania County Dog Park](https://www.pittsylvaniacountyva.gov/residents/parks-and-recreation/parks/dog-park), which provides a spacious fenced facility with separate areas for large and small breeds, ensuring safe socialization for pets of all sizes. The surrounding countryside offers abundant opportunities for scenic leashed walks, with the [Dan River](https://www.danville-va.gov/Facilities/Facility/Details/Riverwalk-Trail-36) accessible just a short drive south in Danville, where the extensive Riverwalk Trail system welcomes leashed dogs for riverside exercise. Our [Chatham directory](https://www.indoordogpark.org/cities/chatham-va) connects residents to these regional amenities while highlighting the town's unique rural appeal.",
+        "Dog ownership in Chatham follows Pittsylvania County's standard regulations, requiring rabies vaccination and responsible leash practices on public property to maintain the community's peaceful atmosphere. The area's agricultural heritage creates a distinctive environment where dogs can experience wide-open farmland vistas and quiet country roads—a stark contrast to the crowded urban parks of Northern Virginia. Local favorites like the historic Chatham Hall campus offer beautiful grounds for leashed strolls through Virginia's educational landscape. For those seeking more structured amenities, nearby Danville's [Coates Bark Park](https://www.danville-va.gov/2225/Coates-Bark-Park) provides a membership-based off-leash facility with professional oversight and health requirements. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for rural trail safety or simply enjoying the slower pace of Southside living, Chatham offers a welcoming environment where dogs are integrated into the fabric of small-town Virginia culture. This combination of community charm and strategic access to regional parks makes it an ideal home for owners seeking an authentic, unpretentious lifestyle for their canine companions."
+      ],
+    },
+  },
+  {
+    slug: 'chesapeake-va',
+    city: 'Chesapeake',
+    state: 'VA',
+    featuredImage: '/images/cities/chesapeake-va/hero.webp',
+    summary: 'Sprawling Chesapeake provides a diverse mix of urban dog runs and expansive natural preserves for outdoor exploration.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Chesapeake, VA, is Virginia's second-largest city by land area, offering dog owners an exceptional blend of urban convenience and expansive natural wilderness spread across over 340 square miles. The city is anchored by premier off-leash facilities like the [City Park Dog Park](https://www.chesapeake.va.us/government/city-departments/departments/parks-recreation-tourism/parks-facilities/parks/city-park), which features separate fenced sections for large and small breeds, comprehensive water stations, and shaded seating areas for handlers. For those seeking adventure beyond fenced runs, the [Dismal Swamp Canal Trail](https://www.fws.gov/refuge/great-dismal-swamp/) provides access to one of the most unique ecosystems on the East Coast, where leashed dogs can accompany their owners through ancient cypress forests and along historic waterways. The city's diverse geography also includes coastal access near the North Carolina border, creating opportunities for beach-style recreation unavailable to most Hampton Roads communities. Our [Chesapeake directory](https://www.indoordogpark.org/cities/chesapeake-va) verifies these varied options and helps residents navigate this sprawling metropolitan landscape.",
+        "Dog ownership in Chesapeake requires annual licensing through the city's Treasurer's Office, with fees ranging from $10-$20 depending on spay/neuter status, ensuring comprehensive rabies protection across the community. The city's suburban culture has fostered a strong network of neighborhood parks and trails, with facilities like [Oak Grove Lake Park](https://www.chesapeake.va.us/government/city-departments/departments/parks-recreation-tourism) offering paved walking paths and open green spaces for leashed exercise. For water-loving dogs, the [Northwest River Park](https://www.chesapeake.va.us/government/city-departments/departments/parks-recreation-tourism/parks-facilities/parks/northwest-river-park) provides camping facilities and natural shoreline access where leashed pets can explore alongside their families. Local favorites like [Chesapeake City Park](https://www.chesapeake.va.us/government/city-departments/departments/parks-recreation-tourism/parks-facilities/parks/chesapeake-city-park) host regular community events where well-behaved dogs are welcome to join the festivities. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training recommendations or exploring the wild beauty of the Great Dismal Swamp, Chesapeake delivers an unmatched variety of environments where active dogs and their families can thrive in one of Virginia's most geographically diverse communities."
+      ],
+    },
+  },
+  {
+    slug: 'chester-va',
+    city: 'Chester',
+    state: 'VA',
+    featuredImage: '/images/cities/chester-va/hero.webp',
+    summary: 'A historic Chesterfield community with family-friendly parks and easy access to the Richmond-area dog park network.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Chester, VA, is a thriving [Chesterfield County](https://www.chesterfield.gov/) community that offers dog owners excellent suburban amenities combined with strategic access to the greater Richmond metropolitan area's robust park infrastructure. The region is served by several quality off-leash facilities, including the nearby [Rockwood Park Dog Run](https://www.chesterfield.gov/Facilities/Facility/Details/Rockwood-Park-58), which features well-maintained fenced areas with separate sections for different-sized breeds and convenient parking for easy access. For those seeking scenic leashed exercise, the [Falling Creek Greenway](https://www.chesterfield.gov/1541/Trails-Greenways) provides miles of paved trails through wooded corridors and along waterways, perfect for morning jogs or evening strolls with active dogs. Chester's location along the historic Route 1 corridor also means convenient access to Richmond's extensive dog park network, including popular spots like Barker Field and Northside Dog Park. Our [Chester directory](https://www.indoordogpark.org/cities/chester-va) helps residents navigate these local and regional options.",
+        "Dog ownership in Chester requires compliance with Chesterfield County's licensing system, which mandates annual registration and current rabies vaccinations for all pets over four months old, with fees starting at $10 for altered animals. The community's strong family-oriented culture has created numerous pet-friendly amenities, with developments often featuring private dog runs and walking trails integrated directly into neighborhood designs. Local establishments embrace the pet-friendly ethos, with several restaurants offering patio seating where well-behaved leashed dogs are welcome. For history enthusiasts, the nearby [Henricus Historical Park](https://henricus.org/) allows leashed dogs on its grounds, providing educational walks through Virginia's colonial heritage. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training guidance or exploring the Appomattox River corridor, Chester delivers a comfortable, accessible lifestyle where pets are seamlessly integrated into community life. This blend of suburban convenience and regional connectivity makes it an ideal base for exploring all that the Richmond area has to offer for Virginia's canine residents."
+      ],
+    },
+  },
+  {
+    slug: 'christiansburg-va',
+    city: 'Christiansburg',
+    state: 'VA',
+    featuredImage: '/images/cities/christiansburg-va/hero.webp',
+    summary: 'The hub of Montgomery County features active community parks and proximity to the New River Valley’s scenic trails.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Christiansburg, VA, serves as the county seat of [Montgomery County](https://www.montgomerycountyva.gov/) and stands as a vibrant hub for dog owners in the New River Valley region. The town is home to the well-maintained [Christiansburg Recreation Center Dog Park](https://www.christiansburg.org/departments/parks___recreation/parks/dog_park.php), which features dedicated fenced areas for small and large breeds with ample shade, water stations, and community seating—making it a popular gathering spot for local pet owners. Beyond the dedicated runs, the area offers exceptional access to scenic outdoor recreation, with the nearby [Huckleberry Trail](https://www.huckleberrytrail.org/) providing over 16 miles of paved pathways connecting Christiansburg to neighboring Blacksburg, perfect for long-distance walking and running with active dogs. The region's proximity to the [Jefferson National Forest](https://www.fs.usda.gov/gwj) also means unparalleled opportunities for wilderness hiking on trails like the Cascades, where leashed dogs can experience Virginia's mountain beauty alongside their owners. Our [Christiansburg directory](https://www.indoordogpark.org/cities/christiansburg-va) verifies these local amenities and regional connections.",
+        "Dog ownership in Christiansburg requires adherence to Montgomery County's licensing regulations, which mandate annual registration and current rabies vaccinations for all pets over four months old. The town's strong college-town culture—anchored by nearby Virginia Tech—has fostered a youthful, active pet community with numerous dog-friendly establishments along Main Street and in the downtown district. Local favorites like [Sinkland Farms](https://www.sinklandfarms.com/) host seasonal events where well-behaved leashed dogs are welcome to join families for pumpkin picking and agritourism activities. The area's outdoor recreation focus extends to winter months as well, with many trails remaining accessible year-round for cold-weather exercise. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for trail safety recommendations or exploring the vibrant New River Valley brewery scene, Christiansburg delivers an active, community-oriented lifestyle where pets are integrated into the fabric of daily living. This combination of modern amenities and mountain access makes it an exceptional choice for Virginia's adventure-seeking canine families."
+      ],
+    },
+  },
+  {
+    slug: 'colonial-heights-va',
+    city: 'Colonial Heights',
+    state: 'VA',
+    featuredImage: '/images/cities/colonial-heights-va/hero.webp',
+    summary: 'Centrally located on the Appomattox River, Colonial Heights offers accessible municipal runs and riverfront walks.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Colonial Heights, VA, is a compact independent city strategically positioned on the Appomattox River, offering dog owners excellent access to the Tri-Cities region's robust recreational infrastructure. While the city itself maintains a smaller footprint,local residents benefit from proximity to several quality off-leash facilities in neighboring [Chesterfield County](https://www.chesterfield.gov/), including the well-maintained Rockwood Park Dog Run and the extensive [Pocahontas State Park](https://www.dcr.virginia.gov/state-parks/pocahontas) trail system, where leashed dogs can explore over 64 miles of wooded paths. The city's location along the historic [Appomattox River Trail](https://www.Petersburg-va.org/facilities/facility/details/Appomattox-River-Trailhead-41) provides scenic waterfront walking opportunities, perfect for morning exercise with active dogs seeking variety beyond traditional fenced parks. Our [Colonial Heights directory](https://www.indoordogpark.org/cities/colonial-heights-va) connects residents to these regional amenities while highlighting the city's unique position as a hub for Tri-Cities pet owners.",
+        "Dog ownership in Colonial Heights follows Virginia's standard regulations, requiring current rabies vaccinations and responsible leash practices on public property to maintain the community's clean, family-friendly atmosphere. The city's compact size creates a tight-knit community culture where local businesses along the Boulevard shopping corridor welcome well-behaved leashed dogs to outdoor seating areas. For history enthusiasts, the proximity to [Petersburg National Battlefield](https://www.nps.gov/pete/index.htm) offers extensive leashed hiking through Civil War history, providing educational walks that combine exercise with cultural enrichment. The area's central location also means quick access to Richmond's extensive dog park network to the north and the rural recreation of Dinwiddie County to the south. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training recommendations or exploring the Appomattox riverfront, Colonial Heights delivers a comfortable, accessible lifestyle where pets benefit from the best of small-city convenience and regional connectivity. This strategic positioning makes it an ideal base for exploring the diverse pet amenities of central Virginia's historic Tri-Cities region."
+      ],
+    },
+  },
+  {
+    slug: 'fairfax-va',
+    city: 'Fairfax',
+    state: 'VA',
+    featuredImage: '/images/cities/fairfax-va/hero.webp',
+    summary: 'The historic independent city of Fairfax boasts a high standard of pet amenities and community-focused socialization spots.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Fairfax, VA, is a prestigious independent city in the heart of Northern Virginia, offering dog owners an exceptional blend of historic charm and modern pet infrastructure. The city is anchored by premium off-leash facilities within the broader [Fairfax County](https://www.fairfaxcounty.gov/) system, including the nearby [Blake Lane Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks) and [South Run Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks), which feature spacious fenced sections, agility equipment, and dedicated small-dog areas ensuring safe play for all breeds. For those seeking scenic leashed exercise, the [W\u0026OD Trail](https://www.wodfriends.org/) is accessible within minutes, providing a 45-mile paved pathway perfect for long-distance running and cycling with athletic dogs. The city's rich history is reflected in sites like [Historic Blenheim](https://www.fairfaxva.gov/government/historic-resources/historic-blenheim), where leashed dogs can accompany owners on educational walks through Civil War-era grounds. Our [Fairfax directory](https://www.indoordogpark.org/cities/fairfax-va) verifies these local amenities and helps residents navigate the extensive Northern Virginia park network.",
+        "Dog ownership in Fairfax requires adherence to Fairfax County's comprehensive licensing system, which mandates annual registration ($10-$20 depending on spay/neuter status) and current rabies vaccinations for all pets over four months old. The city's vibrant downtown district, centered around Old Town Fairfax, has cultivated a sophisticated pet culture with numerous dog-friendly patios at local restaurants and breweries like [Old Ox Brewery](https://oldoxbrewery.com/), where leashed companions are warmly welcomed. The presence of [George Mason University](https://www.gmu.edu/) creates a dynamic, educated community that values quality pet services and progressive animal welfare policies. For families with multiple interests, the [Fairfax Museum](https://www.fairfaxva.gov/government/parks-recreation/cultural-arts/fairfax-museum-visitor-center) grounds and greenspaces around City Hall offer pleasant leashed strolls through the city's historic core. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for training recommendations or enjoying the Friday farmers market with your pup, Fairfax delivers a polished, community-oriented lifestyle where pets are seamlessly integrated into the fabric of this distinguished Northern Virginia city. This combination of historical significance and modern amenities makes it a premier destination for discerning dog owners."
+      ],
+    },
+  },
+  {
+    slug: 'falls-church-va',
+    city: 'Falls Church',
+    state: 'VA',
+    featuredImage: '/images/cities/falls-church-va/hero.webp',
+    summary: 'The "Little City" offers punchy, well-designed urban dog parks and a deeply engaged pet-owning community.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Falls Church, VA, affectionately known as the \"Little City,\" is an independent municipality of just 2.2 square miles that delivers outsized pet amenities for its highly educated, urban-minded population. While the city itself is compact, residents benefit from exceptional access to the broader [Fairfax County](https://www.fairfaxcounty.gov/) dog park network, with facilities like [Timberlane Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks) and [Baron Cameron Dog Park](https://www.fairfaxcounty.gov/parks/dog-parks) located within a short drive, each offering spacious fenced environments with separate small-dog sections. The city's crown jewel for leashed exercise is the [W\u0026OD Trail](https://www.wodfriends.org/), which runs directly through Falls Church, providing a 45-mile paved pathway perfect for commuters and weekend warriors alike to run or bike with well-conditioned dogs. The community's progressive values are reflected in walkable neighborhoods where local businesses embrace pet-friendly policies, creating an urban environment where dogs are integral to daily life. Our [Falls Church directory](https://www.indoordogpark.org/cities/falls-church-va) helps residents maximize these concentrated amenities.",
+        "Dog ownership in Falls Church follows Fairfax County's licensing requirements, mandating annual registration ($10-$20 based on spay/neuter status) and current rabies vaccinations for all pets over four months old. The city's extraordinarily high concentration of professionals and its ranking among America's wealthiest communities has created a sophisticated pet culture, with establishments along Broad Street and the [State Theatre](https://www.thestatetheatre.com/) district welcoming leashed companions to outdoor dining areas. The community's commitment to walkability means most amenities are accessible on foot, reducing car dependency and creating natural socialization opportunities for neighborhood dogs. Local favorites like [Stahl's Deli](https://www.stahlsdeli.com/) and various coffee shops maintain water bowls and treat jars, fostering a genuinely dog-inclusive environment. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for urban training tips or exploring the tree-lined residential streets, Falls Church delivers a premium, pedestrian-focused lifestyle where pets thrive in one of Northern Virginia's most tightly-knit communities. This blend of compact urban design and progressive pet policies makes the \"Little City\" a standout destination for discerning dog owners seeking quality over sprawl."
+      ],
+    },
+  },
+  {
+    slug: 'forest-va',
+    city: 'Forest',
+    state: 'VA',
+    featuredImage: '/images/cities/forest-va/hero.webp',
+    summary: 'A growing community near Lynchburg providing spacious residential parks and a gateway to Blue Ridge recreation.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Forest, VA, is a thriving [Bedford County](https://www.bedfordcountyva.gov/) community that serves as an ideal suburban gateway for dog owners seeking a balance between modern amenities and Blue Ridge Mountain access. While Forest itself maintains a primarily residential character, the area benefits from proximity to Lynchburg's established dog park network, including facilities like [Ivy Creek Park](https://www.lynchburg.gov/parks-recreation/) and the multiple runs throughout the \"Hill City.\" The community's appeal lies in its abundant green space and proximity to natural recreation, with the [Peaks of Otter](https://www.nps.gov/blri/planyourvisit/peaks-of-otter.htm) section of the Blue Ridge Parkway accessible within 30 minutes, where leashed dogs can experience Virginia's most iconic mountain vistas on trails like Sharp Top and Flat Top. For local exercise, the neighborhood parks and the growing [Poplar Forest Trail system](https://www.lynchburg.gov/poplar-forest/) offer pleasant leashed walks through historical landscapes. Our [Forest directory](https://www.indoordogpark.org/cities/forest-va) connects residents to these local and regional resources.",
+        "Dog ownership in Forest follows Bedford County's standard regulations, requiring current rabies vaccinations and responsible leash practices to maintain the community's family-friendly character. The area's rapid growth has attracted young families and professionals who value outdoor recreation, creating a demographic that supports quality pet amenities and dog-friendly businesses. Local establishments along Forest Road welcome leashed companions, while the proximity to Lynchburg's downtown scene provides access to more urban pet-friendly venues when desired. For trail enthusiasts, the nearby [Jefferson's Poplar Forest](https://www.poplarforest.org/) historic site allows leashed dogs on designated walking paths, combining exercise with educational exploration of Virginia's heritage. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for hiking safety tips or enjoying the spacious yards typical of Forest's newer developments, this community delivers a comfortable suburban lifestyle with exceptional access to both urban infrastructure and mountain wilderness. This strategic positioning makes Forest an ideal choice for dog owners seeking the best of central Virginia's diverse recreational offerings without sacrificing modern convenience."
+      ],
+    },
+  },
+  {
+    slug: 'fort-gregg-adams-va',
+    city: 'Fort Gregg-Adams',
+    state: 'VA',
+    featuredImage: '/images/cities/fort-gregg-adams-va/hero.webp',
+    summary: 'Serving the military community with dedicated on-post facilities and safe play spaces for active duty families.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Fort Gregg-Adams (formerly Fort Lee), VA, is a major U.S. Army installation serving as home to thousands of active-duty military families and their beloved pets. The installation provides dedicated on-post pet amenities designed specifically for the military community, including an on-base dog park that offers a secure, fenced environment where service members can socialize their dogs without leaving the installation. For those with off-post privileges, the surrounding [Prince George County](https://www.princegeorgeva.gov/) and nearby [Chesterfield County](https://www.chesterfield.gov/) offer additional off-leash facilities like Rockwood Park Dog Run, providing variety for families stationed long-term. The fort's proximity to the [Appomattox River Trail](https://www.petersburg-va.org/facilities/facility/details/Appomattox-River-Trailhead-41) also provides scenic leashed hiking opportunities for fitness-focused military members seeking outdoor exercise with their canine companions. Our [Fort Gregg-Adams directory](https://www.indoordogpark.org/cities/fort-gregg-adams-va) helps military families navigate both on-post and off-post pet resources.",
+        "Pet ownership at Fort Gregg-Adams requires adherence to strict military housing regulations, including mandatory registration with the installation's Veterinary Treatment Facility, current rabies vaccinations, and compliance with breed and size restrictions depending on housing assignment. The transient nature of military life means the community values resources that simplify PCS moves and help newcomers quickly integrate their pets into the local environment. Off-post, the neighboring towns of Colonial Heights and Petersburg offer military-friendly amenities, with many businesses providing discounts to service members and welcoming leashed dogs to outdoor areas. For families exploring the region, historic sites like [Petersburg National Battlefield](https://www.nps.gov/pete/index.htm) allow leashed dogs on designated trails, combining fitness with Civil War history education. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for PCS planning or connecting with the installation's active pet community, Fort Gregg-Adams provides a supportive environment where military families can maintain their bond with their dogs despite the challenges of frequent relocations. This combination of on-post convenience and regional access makes it a strong assignment for service members with four-legged family members."
+      ],
+    },
+  },
+  {
+    slug: 'glen-allen-va',
+    city: 'Glen Allen',
+    state: 'VA',
+    featuredImage: '/images/cities/glen-allen-va/hero.webp',
+    summary: 'A premier Henrico County suburb with polished parks and a thriving community of active dog owners.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Glen Allen, VA, is one of [Henrico County's](https://henrico.us/) most prestigious suburban communities, offering dog owners a sophisticated blend of modern amenities and exceptionally maintained green spaces. The area is served by several premium off-leash facilities, including the popular [Rockwood Park Dog Run](https://henrico.us/rec/places/dog-parks/) and [Dorey Park Dog Runs](https://henrico.us/rec/places/dog-parks/), which feature spacious fenced sections for large and small breeds, comprehensive water stations, and well-groomed turf surfaces that reflect Henrico's high park maintenance standards. For scenic leashed exercise, the [Virginia Capital Trail](https://www.virginiacapitaltrail.org/) is accessible nearby, providing a world-class 52-mile paved path connecting Richmond to Williamsburg—perfect for long-distance cycling and running with athletic dogs. The community's affluent character is reflected in meticulously planned neighborhoods where resident HOAs often maintain private dog runs and walking trails integrated into community designs. Our [Glen Allen directory](https://www.indoordogpark.org/cities/glen-allen-va) helps residents navigate these premium local amenities.",
+        "Dog ownership in Glen Allen requires compliance with Henrico County's licensing system, which mandates annual registration and current rabies vaccinations for all pets over four months old, with fees starting at $10 for altered animals. The area's strong professional demographics have cultivated a thriving pet services industry, with multiple premium boarding facilities, grooming salons, and veterinary specialty practices serving the discerning community. Local shopping districts like Short Pump Town Center welcome leashed dogs to outdoor common areas, while establishments along W. Broad Street provide water bowls and treat stations for visiting pets. For nature enthusiasts, nearby [Three Lakes Nature Center and Aquarium](https://henrico.us/rec/places/three-lakes/) offers educational trails where leashed dogs can explore alongside families learning about Virginia ecosystems. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for premium service recommendations or enjoying the polished trails at [Deep Run Park](https://henrico.us/rec/places/deep-run-park/), Glen Allen delivers a refined, family-oriented lifestyle where pets receive the highest standard of care. This combination of suburban elegance and exceptional infrastructure makes it a premier destination for Richmond-area dog owners seeking quality over quantity."
+      ],
+    },
+  },
+  {
+    slug: 'henrico-va',
+    city: 'Henrico',
+    state: 'VA',
+    featuredImage: '/images/cities/henrico-va/hero.webp',
+    summary: 'Spanning from suburban corridors to rural escapes, Henrico offers a vast network of verified off-leash areas.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Henrico County, VA, is one of Virginia's most geographically diverse jurisdictions, offering dog owners an exceptional range of environments spanning from dense suburban corridors adjacent to Richmond to peaceful rural preserves in the outer reaches. The county operates an outstanding network of dog parks, including flagship facilities like [Dorey Park Dog Runs](https://henrico.us/rec/places/dog-parks/) in eastern Henrico and [Rockwood Park Dog Run](https://henrico.us/rec/places/dog-parks/) serving the western communities, each featuring separate fenced sections for different-sized breeds, shade structures, and professional maintenance that sets the standard for Virginia county parks. For trail enthusiasts, the county maintains over 100 miles of greenways and natural-surface paths, with highlights like the [North Run Greenway](https://henrico.us/rec/places/trails/) and connections to the regional [Virginia Capital Trail](https://www.virginiacapitaltrail.org/), providing endless options for leashed hiking and running. Our [Henrico directory](https://www.indoordogpark.org/cities/henrico-va) verifies these extensive resources across all regions of the county.",
+        "Dog ownership in Henrico requires annual licensing through the county Treasurer's Office, with fees ranging from $10-$20 depending on spay/neuter status, ensuring comprehensive rabies compliance across the community of over 330,000 residents. The county's diversity means pet owners can choose environments ranging from the walkable urban neighborhoods of the West End to the sprawling acreage of eastern farmland, each with distinct advantages for different lifestyles. The county's progressive recreation department regularly adds new facilities and amenities based on community feedback, demonstrating a commitment to evolving pet infrastructure. Notable natural attractions like [Three Lakes Nature Center](https://henrico.us/rec/places/three-lakes/) and [Deep Run Park](https://henrico.us/rec/places/deep-run-park/) welcome leashed dogs to explore Virginia's diverse ecosystems alongside families. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for park recommendations or attending county-sponsored pet events, Henrico delivers a comprehensive, professionally managed system where dogs of all breeds and energy levels can thrive. This combination of suburban sophistication and rural tranquility makes it one of Virginia's most versatile counties for canine residents seeking both convenience and natural beauty."
+      ],
+    },
+  },
+  {
+    slug: 'keezletown-va',
+    city: 'Keezletown',
+    state: 'VA',
+    featuredImage: '/images/cities/keezletown-va/hero.webp',
+    summary: 'A peaceful community in the Shenandoah Valley with access to wide-open spaces and regional mountain trails.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Keezletown, VA, is a tranquil unincorporated community in [Rockingham County](https://www.rockinghamcountyva.gov/), nestled in the heart of the Shenandoah Valley and offering dog owners a serene rural lifestyle with exceptional access to mountain recreation. While Keezletown itself maintains a primarily agricultural character, residents benefit from proximity to nearby Harrisonburg's established dog park infrastructure, including well-maintained facilities that serve the broader valley community. The area's true appeal lies in its immediate access to natural wilderness, with the [George Washington National Forest](https://www.fs.usda.gov/gwj) and [Shenandoah National Park](https://www.nps.gov/shen/index.htm) both accessible within a short drive, where leashed dogs can experience hundreds of miles of mountain trails through Virginia's most iconic landscapes. Local favorites like the [Massanutten Trail](https://www.fs.usda.gov/recarea/gwj/recarea/?recid=73948) provide year-round hiking opportunities for adventurous owners and their well-conditioned dogs. Our [Keezletown directory](https://www.indoordogpark.org/cities/keezletown-va) connects residents to these regional resources.",
+        "Dog ownership in Keezletown follows Rockingham County's standard regulations, requiring current rabies vaccinations and responsible leash practices, particularly important in rural areas where agricultural operations and wildlife interactions are common. The community's appeal lies in its peaceful, uncrowded environment—ideal for owners seeking space to roam without the constraints of suburban density. The nearby [Shenandoah Valley](https://www.visitshenandoah.org/) is renowned for its dog-friendly farm breweries and wineries, many of which welcome leashed companions to their expansive outdoor grounds for tastings and tours. Local establishments like [Crosskeys Vineyards](https://www.crosskeysvineyard.com/) embrace the pet-friendly ethos, creating a sophisticated rural culture where dogs are integrated into social life. For those seeking structured amenities, Harrisonburg's dog parks are just minutes away, offering the best of both worlds. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for trail safety guidance or simply enjoying the quiet valley mornings, Keezletown provides an authentic mountain lifestyle where dogs can thrive in the wide-open spaces of the Shenandoah. This combination of rural charm and strategic access to regional infrastructure makes it a hidden gem for Virginia's outdoor-oriented canine community."
+      ],
+    },
+  },
+  {
+    slug: 'lynchburg-va',
+    city: 'Lynchburg',
+    state: 'VA',
+    featuredImage: '/images/cities/lynchburg-va/hero.webp',
+    summary: 'The "Hill City" is home to diverse urban runs and a community dedicated to pet wellness and recreational access.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Lynchburg, VA, known as the \"Hill City,\" offers dog owners a unique blend of urban convenience and Blue Ridge Mountain access that creates an exceptional environment for active pets. The city operates several well-maintained off-leash facilities, including [Ivy Creek Park Dog Park](https://www.lynchburg.gov/parks-recreation/) and the popular Sheffield Drive location, which feature fenced sections for different-sized breeds with water stations and ample shade from mature tree canopies. For scenic leashed exercise, the [Blackwater Creek Natural Area](https://www.lynchburg.gov/blackwater-creek-trail/) provides over 7 miles of paved and natural-surface trails following a historic creek valley through the heart of the city—perfect for long morning walks or evening jogs with active dogs. The area's moderate elevation changes also mean excellent fitness opportunities for conditioning athletic breeds. Our [Lynchburg directory](https://www.indoordogpark.org/cities/lynchburg-va) verifies these local amenities and highlights the city's commitment to quality pet infrastructure.",
+        "Dog ownership in Lynchburg requires annual licensing through the City Treasurer's Office, with fees starting at $10 for altered animals, ensuring comprehensive rabies compliance across the community. The city's diverse demographics—anchored by Liberty University and a strong healthcare sector—have created a youthful, active pet culture with numerous dog-friendly establishments throughout the Rivermont and downtown districts. Local favorites like [Waterstone Pizza](https://www.waterstonepizza.com/) and various breweries along Main Street welcome leashed companions to their outdoor patios. For history enthusiasts, sites like [Poplar Forest](https://www.poplarforest.org/) allow leashed dogs on designated trails, combining exercise with educational exploration of Thomas Jefferson's retreat. The city's proximity to the [Blue Ridge Parkway](https://www.nps.gov/blri/index.htm), just 20 minutes away, means unparalleled access to mountain wilderness for weekend adventures. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for trail recommendations or exploring the revitalized downtown scene, Lynchburg delivers a well-rounded lifestyle where pets are integrated into both urban culture and natural recreation. This combination of city amenities and mountain access makes it an exceptional choice for Virginia's diverse canine community."
+      ],
+    },
+  },
+  {
+    slug: 'suffolk-va',
+    city: 'Suffolk',
+    state: 'VA',
+    featuredImage: '/images/cities/suffolk-va/hero.webp',
+    summary: 'The geographically largest city in Virginia offers massive rural preserves and modern suburban dog parks.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Suffolk, VA, holds the distinction of being Virginia's largest city by land area at over 400 square miles, offering dog owners an extraordinary diversity of environments ranging from dense suburban neighborhoods to vast agricultural preserves and coastal wetlands. The city operates several quality off-leash facilities, including the [City of Suffolk Dog Park](https://www.suffolkva.us/facilities/Facility/Details/Constant-Friendship-Park-Suffolk-Dog-Park-71) at Constant Friendship Park, which features separate fenced sections for large and small breeds with comprehensive water stations and shade structures. For those seeking wilderness adventure, the city's massive footprint includes access to the [Great Dismal Swamp National Wildlife Refuge](https://www.fws.gov/refuge/great-dismal-swamp/), where leashed dogs can explore one of the most unique ecosystems on the East Coast along the historic Canal Trail. The area's blend of rural character and modern development creates an environment where dogs can experience both structured suburban play and true wilderness exploration. Our [Suffolk directory](https://www.indoordogpark.org/cities/suffolk-va) helps residents navigate this geographically diverse landscape.",
+        "Dog ownership in Suffolk requires annual licensing through the city Treasurer's Office, with fees ranging from $10-$20 depending on spay/neuter status, ensuring comprehensive rabies protection across the sprawling community. The city's rapid growth in northern areas like Harbor View has brought modern amenities and planned neighborhoods with integrated pet infrastructure, while southern regions maintain the agricultural character that gives Suffolk its unique identity. Local establishments embrace the pet-friendly culture, with many businesses along Harbour View Boulevard and in the historic downtown district welcoming leashed dogs to outdoor areas. For water-loving dogs, the city's extensive shoreline along the [Nansemond River](https://www.suffolkva.us/) provides access to natural beaches and boat launches where pets can cool off during Virginia's humid summers. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for wetland trail safety or exploring the city's network of neighborhood parks, Suffolk delivers an unmatched variety of environments where active dogs can thrive in one of Virginia's most geographically diverse communities. This combination of suburban growth and preserved wilderness makes it an exceptional choice for owners seeking both convenience and natural adventure."
+      ],
+    },
+  },
+  {
+    slug: 'vinton-va',
+    city: 'Vinton',
+    state: 'VA',
+    featuredImage: '/images/cities/vinton-va/hero.webp',
+    summary: 'Nestled between Roanoke and the Blue Ridge Parkway, Vinton provides a friendly, small-town atmosphere for pets.',
+    parks: [],
+    customContent: {
+      longDescription: [
+        "Vinton, VA, is a charming [Roanoke County](https://www.roanokecountyva.gov/) town nestled in the shadow of the Blue Ridge Mountains, offering dog owners an ideal blend of small-town community and exceptional access to both urban amenities and wilderness recreation. While Vinton maintains its own residential park system, local dog owners benefit from proximity to Roanoke's extensive network of facilities, including the popular [Washington Park Dog Park](https://www.playroanoke.com/locations/dog-parks-2/) and [Salem Rotary Dog Park](https://www.salemva.gov/Facilities/Facility/Details/Rotary-Dog-Park-14), both within a short drive and offering spacious fenced environments for off-leash socialization. The town's crown jewel for leashed exercise is immediate access to the [Blue Ridge Parkway](https://www.nps.gov/blri/index.htm), America's favorite drive, where countless mountain trails welcome leashed dogs to experience Virginia's most stunning natural scenery. The [Roanoke Valley Greenways](https://www.playroanoke.com/greenways/) also connect through Vinton, providing over 40 miles of paved pathways perfect for long-distance walking and cycling with active dogs. Our [Vinton directory](https://www.indoordogpark.org/cities/vinton-va) connects residents to these exceptional local and regional amenities.",
+        "Dog ownership in Vinton follows Roanoke County's licensing requirements, mandating annual registration and current rabies vaccinations for all pets over four months old. The town's genuine small-community character is reflected in events like the Vinton Dogwood Festival, where well-behaved leashed dogs are welcome to join families for spring celebrations. Local businesses along Washington Avenue embrace the pet-friendly culture, with establishments offering water bowls and welcoming leashed companions to outdoor seating areas. For adventure seekers, the proximity to trails like [Explore Park](https://www.explorepark.org/) and [Carvins Cove Natural Reserve](https://www.playroanoke.com/locations/carvins-cove-natural-reserve/)—one of the largest municipal parks in the eastern U.S.—provides unparalleled hiking, mountain biking, and wilderness experiences where leashed dogs can explore alongside their owners. Whether utilizing our [owner resources](https://www.indoordogpark.org/owner-resources) for trail recommendations or simply enjoying the quiet streets and friendly neighbors, Vinton delivers an authentic small-town lifestyle where pets are cherished members of a close-knit community. This combination of hometown charm and strategic positioning between Roanoke's urban infrastructure and the Blue Ridge wilderness makes it an exceptional choice for Virginia dog owners seeking balance and belonging."
+      ],
+    },
   },
   {
     slug: 'long-beach-ca',
@@ -3557,7 +4164,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     customContent: {
       heroEyebrow: 'City spotlight',
       heroHeading: 'Dog Parks in Lodi, CA',
-      heroDescription: 'Explore 5 verified dog-friendly spots in Lodi, CA. Powered by 585 local reviews. Top-rated pick: Dream Big Training Center (5.0★).',
+      heroDescription: 'Discover Lodi\'s wine country charm with river-adjacent trails and premium dog training facilities.',
       heroFootnotes: ['Data refreshed weekly', 'Live availability coming soon'],
       heroChips: [
         { label: 'Verified parks', value: '5' },
