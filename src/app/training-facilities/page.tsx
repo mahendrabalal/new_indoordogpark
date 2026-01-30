@@ -140,13 +140,6 @@ export default async function TrainingFacilitiesPage() {
       }>
         <HomePageClient
           initialParks={initialParks}
-          initialPagination={{
-            page: 1,
-            limit: 20,
-            totalParks: filteredParks.length,
-            totalPages: Math.ceil(filteredParks.length / 20),
-            hasMore: filteredParks.length > 20,
-          }}
           initialShowSearchLayout={true}
         />
       </Suspense>

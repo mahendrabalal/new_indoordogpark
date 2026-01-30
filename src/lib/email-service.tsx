@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 interface EmailParams {
   to: string;
   subject: string;
-  react: JSX.Element;
+  react: React.ReactElement;
   from?: string;
   replyTo?: string;
 }

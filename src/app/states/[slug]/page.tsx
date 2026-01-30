@@ -109,23 +109,33 @@ export default async function StatePage({ params }: StatePageProps) {
   const heroImage = state.featuredImage;
 
   const renderMarkdownContent = (content: string) => {
-    return content.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
-      const match = part.match(/\[(.*?)\]\((.*?)\)/);
-      if (match) {
-        const [, text, href] = match;
+    return content.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
+      if (!part) return null;
+
+      // Handle Links
+      const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
+      if (linkMatch) {
+        const [, text, href] = linkMatch;
         const isExternal = href.startsWith('http');
         return (
           <Link
             key={i}
             href={href}
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noopener noreferrer" : undefined}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
             className="text-primary hover:underline font-medium"
           >
             {text}
           </Link>
         );
       }
+
+      // Handle Bold
+      const boldMatch = part.match(/\*\*(.*?)\*\*/);
+      if (boldMatch) {
+        return <strong key={i}>{boldMatch[1]}</strong>;
+      }
+
       return part;
     });
   };

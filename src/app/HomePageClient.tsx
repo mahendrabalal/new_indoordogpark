@@ -5,8 +5,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
-import { fetchParks, PaginationResponse } from '@/lib/api';
-import { getFeaturedParks } from '@/lib/cityData';
+import { fetchParks } from '@/lib/api';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
 import { useCloseOnScroll } from '@/hooks/useCloseOnScroll';
@@ -15,11 +14,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CitiesSection from '@/components/CitiesSection';
 import ParkCard from '@/components/ParkCard';
-import FeaturedParks from '@/components/FeaturedParks';
 import RecentlyAddedParks from '@/components/RecentlyAddedParks';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 import SeoContentSection from '@/components/SeoContentSection';
 import PopularCitiesSection from '@/components/PopularCitiesSection';
+import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
 
 // Dynamically import Map component
 const Map = dynamic(() => import('@/components/Map'), {
@@ -29,26 +28,15 @@ const Map = dynamic(() => import('@/components/Map'), {
 
 interface HomePageClientProps {
   initialParks: DogPark[];
-  initialPagination: PaginationResponse['pagination'];
   initialShowSearchLayout?: boolean;
 }
 
 export default function HomePageClient({
   initialParks,
-  initialPagination,
   initialShowSearchLayout = false,
 }: HomePageClientProps) {
-  const normalizedPagination = initialPagination ?? {
-    page: 1,
-    limit: 20,
-    totalParks: initialParks.length,
-    totalPages: 1,
-    hasMore: false,
-  };
-
   const [allParks, setAllParks] = useState<DogPark[]>(initialParks);
   const [loading, setLoading] = useState(initialParks.length === 0);
-  const [hasMore, setHasMore] = useState(normalizedPagination.hasMore);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
   const autocompleteDropdownRef = useRef<HTMLDivElement>(null);
@@ -132,7 +120,6 @@ export default function HomePageClient({
         const response = await fetchParks(1, 20);
         if (!isMounted) return;
         setAllParks(response.data);
-        setHasMore(response.pagination.hasMore);
       } catch (error) {
         console.error('Error loading parks:', error);
       } finally {
@@ -446,46 +433,19 @@ export default function HomePageClient({
           </section>
         )}
 
+
+
         {/* Popular Cities Section - After Hero */}
         {!showSearchLayout && <PopularCitiesSection />}
 
-        {/* Featured Parks Section - User Submitted (only show when not searching) */}
-        {/* Always render container to reserve space and prevent layout shift */}
-        {!showSearchLayout && (
-          <div style={{ minHeight: '800px' }}>
-            <FeaturedParks />
-          </div>
-        )}
+
 
         {/* Recently Added Parks Section - Show newest listings */}
         {!showSearchLayout && (
           <RecentlyAddedParks />
         )}
 
-        {/* Featured Parks Section (only show when not searching) */}
-        {!showSearchLayout && allParks.length > 0 && (
-          <section className="featured-parks-section">
-            <div className="featured-parks-container">
-              <h2 className="featured-parks-heading">Featured Dog Parks</h2>
-              <p className="featured-parks-subtitle">
-                Discover our top-rated dog parks across California
-              </p>
-              <div className="parks-grid-new">
-                {getFeaturedParks(allParks, 16).map((park) => (
-                  <ParkCard
-                    key={park.id}
-                    park={park}
-                  />
-                ))}
-              </div>
-              {!hasMore && allParks.length > 0 && (
-                <div className="view-all-parks-cta">
-                  <p>You&rsquo;ve reached the end! Explore dog parks by city or use search above.</p>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
+
 
         {/* Search Results Section - Split View with Map */}
         {showSearchLayout && (
@@ -684,7 +644,10 @@ export default function HomePageClient({
           </section>
         )}
 
-        {/* Informational Content Section (AdSense Compliance) */}
+
+
+
+        {/* Informational Content Section (AdSense Compliance) - Moved to bottom */}
         {!showSearchLayout && (
           <SeoContentSection
             eyebrow="Canine Wellness & Socialization"
@@ -735,30 +698,16 @@ export default function HomePageClient({
                 answer: 'While policies vary, most premium indoor dog parks have "Dog Proctors" or staff members who monitor the play areas to ensure all dogs are playing safely and politely.'
               }
             ]}
-            links={[
-              {
-                href: '/how-it-works',
-                title: 'Learn Our Standards',
-                description: 'Find out how we verify and rank the dog parks in our directory.'
-              },
-              {
-                href: '/blog',
-                title: 'Canine Care Blog',
-                description: 'Read more expert tips on dog training and indoor play etiquette.'
-              },
-              {
-                href: '/contact',
-                title: 'Suggest a Park',
-                description: 'Help us grow our community by sharing your favorite indoor dog spot.'
-              }
-            ]}
             className="border-t border-gray-100 mt-12"
           />
         )}
 
-        {/* Cities Section (only show when not searching) */}
+        {/* Cities Section (only show when not searching) - Moved to bottom */}
         {!showSearchLayout && <CitiesSection />}
       </main>
+
+      {/* Safety Checker - Above Footer */}
+      <SafetyCheckerFooter />
 
       {/* Footer */}
       <Footer />

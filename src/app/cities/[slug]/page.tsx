@@ -613,10 +613,13 @@ export default async function CityPage({ params }: CityPageProps) {
                 <div className="city-rich-description">
                   {customContent.longDescription.map((para, idx) => (
                     <p key={idx} className="rich-description-paragraph">
-                      {para.split(/(\[.*?\]\(.*?\))/g).map((part, i) => {
-                        const match = part.match(/\[(.*?)\]\((.*?)\)/);
-                        if (match) {
-                          const [, text, href] = match;
+                      {para.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
+                        if (!part) return null;
+
+                        // Handle Links
+                        const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
+                        if (linkMatch) {
+                          const [, text, href] = linkMatch;
                           const isExternal = href.startsWith('http');
                           return (
                             <Link
@@ -630,6 +633,13 @@ export default async function CityPage({ params }: CityPageProps) {
                             </Link>
                           );
                         }
+
+                        // Handle Bold
+                        const boldMatch = part.match(/\*\*(.*?)\*\*/);
+                        if (boldMatch) {
+                          return <strong key={i}>{boldMatch[1]}</strong>;
+                        }
+
                         return part;
                       })}
                     </p>

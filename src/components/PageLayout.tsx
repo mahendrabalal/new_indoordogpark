@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -13,6 +14,7 @@ export default function PageLayout({ children, mainClassName = '' }: PageLayoutP
       <Header variant="light" />
       {/* Add top padding to account for fixed header */}
       <main className={`flex-1 pt-[70px] ${mainClassName}`}>{children}</main>
+      <SafetyCheckerFooter />
       <Footer />
     </div>
   );

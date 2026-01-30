@@ -204,7 +204,6 @@ export default async function HomePage({ searchParams = {} }: HomePageProps) {
       }>
         <HomePageClient
           initialParks={initialData.data}
-          initialPagination={initialData.pagination}
           initialShowSearchLayout={initialShowSearchLayout}
         />
       </Suspense>

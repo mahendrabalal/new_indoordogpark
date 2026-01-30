@@ -1754,7 +1754,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'Urban-proof indoor runs',
-      heroHeading: 'Indoor dog park in New York City',
+      heroHeading: 'Indoor Dog Park in New York City',
       heroDescription:
         'New York City’s urban density and limited apartment space make indoor dog parks an essential lifestyle requirement for pet parents across the five boroughs.',
       heroPill: 'Manhattan · Brooklyn · Queens',
@@ -3659,7 +3659,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The capital’s blend of historic parks and modern runs along the Hudson River valley.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Albany',
+      heroHeading: 'Indoor Dog Park in Albany',
       heroDescription: 'From the Empire State Plaza to the historic Washington Park, discover Albany’s best spots for pups.',
       longDescription: [
         "Albany, New York's historic capital, offers a unique blend of urban culture and accessible green spaces. The city is anchored by the stunning Washington Park, a 136-acre oasis that serves as the heart of the community's outdoor life. Pet owners in Albany appreciate the city's walkable downtown and the growing number of dog-friendly patios in the Lark Street area. The nearby Corning Preserve along the Hudson River provides miles of paved trails perfect for long walks with scenic water views.",
@@ -3675,7 +3675,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A world-class destination for dog lovers, featuring iconic parks, warehouse runs, and a vibrant pet culture.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Brooklyn',
+      heroHeading: 'Indoor Dog Park in Brooklyn',
       heroDescription: 'From Prospect Park to industrial chic warehouse runs, explore Brooklyn’s legendary dog scene.',
       longDescription: [
         "Brooklyn is widely regarded as one of the most dog-friendly boroughs in the world, characterized by its massive parks and a culture that treats pets as family. Prospect Park, designed by the same architects as Central Park, offers legendary off-leash hours that transform the Long Meadow into a canine social hub every morning. The borough's diverse neighborhoods, from the historic brownstones of Park Slope to the industrial-chic warehouses of Williamsburg and Bushwick, have fostered a thriving industry of boutique pet shops, dog-friendly breweries, and specialized indoor play spaces.",
@@ -3691,7 +3691,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The City of Good Neighbors offers expansive lakefront trails and historic Olmsted-designed parks.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Buffalo',
+      heroHeading: 'Indoor Dog Park in Buffalo',
       heroDescription: 'Explore the Queen City’s historic park system and vibrant waterfront with your canine companion.',
       longDescription: [
         "Buffalo, known as the 'City of Good Neighbors,' extends its hospitality to four-legged friends with an impressive array of parks and trails. The city's jewel is its Olmsted-designed park system, which includes the sprawling Delaware Park, providing ample space for scenic walks and social play. The revitalization of Buffalo's waterfront (Canalside) has created new opportunities for pet-friendly recreation, with leashed dogs welcome to join their owners for sunset strolls along Lake Erie.",
@@ -3707,7 +3707,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A coastal Long Island gem with refreshing sea breezes and accessible community green spaces.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Freeport',
+      heroHeading: 'Indoor Dog Park in Freeport',
       heroDescription: 'Enjoy the nautical charm and pet-friendly community spaces of Freeport, Long Island.',
       longDescription: [
         "Freeport, located on Long Island's South Shore, offers a unique nautical atmosphere for pet owners. Known for its famous Nautical Mile, the village provides a vibrant setting for leashed walks along the water. Freeport's local park system includes several community spaces where residents gather with their pets, fostering a close-knit and friendly atmosphere. The refreshing sea breezes make even the warmest summer days pleasant for outdoor exploration.",
@@ -3723,7 +3723,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Large-scale suburban convenience with access to expansive regional parks and coastal runs.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Hempstead',
+      heroHeading: 'Indoor Dog Park in Hempstead',
       heroDescription: 'Discover the vast park systems and suburban pet amenities of Hempstead.',
       longDescription: [
         "Hempstead, one of Long Island's most populous townships, offers an extensive network of parks and recreational facilities. From the massive Eisenhower Park, which serves as a central hub for outdoor activity, to the smaller local runs, there's a space for every type of dog. The area's suburban layout provides plenty of room for long walks and easy access to a wide range of pet services, from high-end grooming to specialized training facilities.",
@@ -3739,7 +3739,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'An urban-suburban bridge in Westchester offering charming neighborhood walks and historic parkland.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Mount Vernon',
+      heroHeading: 'Indoor Dog Park in Mount Vernon',
       heroDescription: 'Explore the tree-lined streets and community parks of Westchester’s urban-suburban gem.',
       longDescription: [
         "Mount Vernon serves as a gateway between New York City and Westchester County, offering a unique urban-suburban character. The city is known for its tree-lined streets and historic architecture, providing a beautiful backdrop for daily dog walks. Local favorites like Willson's Woods Park offer a mix of historic charm and modern amenities, including shaded trails and open fields that attract a regular community of pet owners.",
@@ -3755,7 +3755,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Historic waterfront charm and expansive Hudson Valley views for active outdoor adventurers.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Newburgh',
+      heroHeading: 'Indoor Dog Park in Newburgh',
       heroDescription: 'Discover the rugged beauty and historic parks of Newburgh on the Hudson.',
       longDescription: [
         "Newburgh, perched on the banks of the Hudson River, offers some of the most dramatic views in the Hudson Valley. The city's historic district, with its grand architecture and wide streets, provides an elegant setting for walks. Downing Park, designed by the same legendary team as Central Park, serves as the city's green heart, offering ample space for exploration and play. The waterfront area has become a popular destination for leashed walks paired with stunning river vistas.",
@@ -3771,7 +3771,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Breathtaking natural beauty and expansive state park trails at one of the world’s most iconic sites.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Niagara Falls',
+      heroHeading: 'Indoor Dog Park in Niagara Falls',
       heroDescription: 'Expertly navigate the stunning trails and parks surrounding the world-famous falls.',
       longDescription: [
         "Niagara Falls, NY, is more than just a tourist destination; it's a gateway to incredible natural spaces for dog owners. Niagara Falls State Park offers miles of paved and natural trails where leashed dogs can join their owners in experiencing the majesty of the falls. The nearby Gorge trails provide a more rugged experience for active pups, with dramatic cliffs and views of the rushing Niagara River below.",
@@ -3787,7 +3787,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A park lover’s paradise featuring the historic Genesee Valley and beautiful Lake Ontario shoreline.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Rochester',
+      heroHeading: 'Indoor Dog Park in Rochester',
       heroDescription: 'Explore the Flower City’s expansive park system and scenic river trails.',
       longDescription: [
         "Rochester, the 'Flower City,' takes its botanical heritage seriously, offering one of the most diverse and beautiful park systems in the state. Highland Park, famous for its lilacs, provides a stunning backdrop for spring walks, while the Genesee Valley Park offers expansive fields and river access. The Genesee Riverway Trail provides miles of scenic paths that connect the city's neighborhoods to the shores of Lake Ontario, making it a favorite for long-distance walkers and runners.",
@@ -3803,7 +3803,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The heart of Central New York, offering beautiful lakefront trails and vibrant community parks.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Syracuse',
+      heroHeading: 'Indoor Dog Park in Syracuse',
       heroDescription: 'From Onondaga Lake Park to Burnet Park, discover the best of Syracuse with your pup.',
       longDescription: [
         "Syracuse serves as the central hub of New York State, offering a variety of landscapes for dog owners to explore. Onondaga Lake Park, often called the 'Central Park of Central New York,' is the standout facility, with its miles of paved trails and dedicated off-leash area (Wegmans Good Dog Park). Within the city limits, historic parks like Burnet Park and Thornden Park provide beautiful green spaces for neighborhood walks and community gatherings.",
@@ -3819,7 +3819,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Westchester’s largest city offers a mix of urban waterfront revitalization and expansive county parks.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Yonkers',
+      heroHeading: 'Indoor Dog Park in Yonkers',
       heroDescription: 'Explore the Hudson River waterfront and historic parklands of Yonkers.',
       longDescription: [
         "Yonkers, the largest city in Westchester County, provides a diverse range of environments for pet owners. The city's revitalized Hudson River waterfront features paved esplanades perfect for scenic walks with a view of the Palisades. For those seeking a more wooded experience, Tibbetts Brook Park and Untermyer Gardens (with its historic walled gardens and river views) offer expansive landscapes that attract dog owners from across the region.",
@@ -3859,27 +3859,11 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
-  {
-    slug: 'brick-township-nj',
-    city: 'Brick Township',
-    state: 'NJ',
-    featuredImage: '/images/cities/brick-township/hero.webp',
-    summary: 'A coastal retreat for active pets, offering seasonal beach access and expansive parklands.',
-    parks: [],
-    customContent: {
-      heroHeading: 'Dog Parks in Brick Township, NJ',
-      heroDescription: 'Discover coastal charm and spacious off-leash areas in Brick Township.',
-      longDescription: [
-        "Brick Township serves as a coastal haven for dog owners, offering a balanced mix of traditional suburban parklands and seasonal shore access that caters to active lifestyles. The centerpiece of the local canine community is the [Angela Hibbard Park](https://www.bricktownship.net/), a well-equipped facility featuring fenced off-leash areas, dedicated water stations, and waste management infrastructure designed to promote responsible play. For those who enjoy the natural beauty of the Jersey Shore, Brick provides unique off-season opportunities at Pitney Avenue beach, where leashed pets can enjoy the surf and sand from late September through mid-May. This diversity of terrain ensures that whether your dog prefers a sprint on soft grass or a sensory-rich coastal walk, there is a verified high-quality space nearby to meet their enrichment needs.",
-        "Navigating the seasonal regulations in Brick Township is essential for a safe and enjoyable experience for both pets and their owners. The township strictly enforces leash laws in public streets and parks, requiring a maximum six-foot lead to ensure safety in common areas. To maintain the health of the local canine population, all visitors at the [Brick Township Dog Park](https://www.indoordogpark.org/) must adhere to municipal licensing requirements and current vaccination schedules. The community’s commitment to pet welfare is further reflected in local ordinances that regulate pet density and noise, ensuring a harmonious environment for all residents. By utilizing our [comprehensive NJ directory](https://www.indoordogpark.org/states/new-jersey), pet parents can stay informed about changing beach access hours and upcoming community events in this premier Ocean County destination."
-      ],
-    },
-  },
+
   {
     slug: 'toms-river-nj',
     city: 'Toms River',
     state: 'NJ',
-    featuredImage: '/images/cities/toms-river/hero.webp',
     summary: 'A pet-friendly paradise with modern dog parks and scenic coastal trails.',
     parks: [],
     customContent: {
@@ -3967,7 +3951,6 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Experience the historic charm and modern amenities of Philadelphia with your pup.',
       longDescription: [
         "Philadelphia stands as a national leader in urban dog culture, offering a sophisticated network of parks, runs, and trails that reflect the city’s historic commitment to public green space. The [Schuylkill River Dog Park](https://www.phila.gov/departments/parks-recreation/) remains the crown jewel of the local scene, providing stunning skyline views and premium, size-separated runs that cater to a revolving community of city-dwelling pets. For those seeking a more rugged escape, the 50 miles of trails within [Wissahickon Valley Park](https://fow.org/) offer an unparalleled natural retreat where leashed dogs can explore woods, meadows, and creeks. This balance of modern urban design and preserved natural landscapes makes Philadelphia one of the most versatile destinations for dog owners in the Mid-Atlantic, ensuring every breed can find a safe space for enrichment.",
-        "Navigating the pet infrastructure of the Garden State’s proximity to this urban hub requires an understanding of both municipal laws and local community initiatives. Most [Philadelphia dog parks](https://www.indoordogpark.org/cities) are supported by dedicated volunteer groups and require adherence to strict behavioral standards to ensure a safe environment for all visitors. The [City of Philadelphia Bureau of Health](https://www.phila.gov/) mandates that all canine residents be licensed and maintain current rabies vaccinations, with leash laws requiring a maximum six-foot lead in all non-designated off-leash zones. During the peak summer months, many savvy pet owners transition to climate-controlled indoor social clubs or utilize shaded waterfront trails to avoid high pavement temperatures. By consulting our [New Jersey state guide](https://www.indoordogpark.org/states/new-jersey), you can access verified data on facility amenities, hours, and community ratings to make the most of your time in the City of Brotherly Love."
       ],
     },
   },
@@ -4032,6 +4015,374 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         "Woodbridge Township stands out as a leader in Northern Jersey pet infrastructure, offering a blend of volunteer-driven community projects and professionally managed parklands. The crown jewel of the local scene is the [Woodbridge Dog Park](http://www.woodbridgedogpark.org/), a meticulously maintained facility featuring dual fenced areas, specialized agility equipment, and thoughtful amenities like shaded gazebos and water fountains. For those who enjoy a more tranquil environment, the expansive Alvin P. Williams Memorial Park provides a scenic backdrop for leashed walks along the water. This commitment to providing a variety of verified play and exercise environments ensures that every breed—from high-energy athletes to small seniors—can find a safe and enriching space to call their own in this active township.",
         "Responsible ownership in Woodbridge is reinforced by progressive ordinances that prioritize animal welfare and community harmony. The township famously implements strict tethering laws to ensure pets are never left unattended in extreme conditions, while the [Woodbridge Health Department](https://www.woodbridgenj.gov/) oversees an annual licensing program that mandates rabies protection for all park visitors. To maintain the quality of local facilities, the township encourages owners to adhere to the maximum six-foot leash law in shared spaces and practice consistent waste removal. For real-time updates on verified amenities and local event calendars, visit our [New Jersey state portal](https://www.indoordogpark.org/states/new-jersey) or browse our [owner resources](https://www.indoordogpark.org/owner-resources) for insights on maintaining a pet-friendly lifestyle. By combining these regulatory insights with our local directory, Woodbridge residents can ensure a high-quality, safe experience for their companions regardless of the season."
+      ],
+    },
+  },
+  {
+    slug: 'cleveland-oh',
+    city: 'Cleveland',
+    state: 'OH',
+    featuredImage: '/images/cities/cleveland-oh/hero.webp',
+    summary: 'A hub for active pups with the expansive Metroparks "Emerald Necklace" and a vibrant dog-friendly brewery scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Cleveland, Ohio',
+      heroDescription: 'From the "Emerald Necklace" trail system to downtown play zones, Cleveland offers a rich environment for year-round canine socialization and enrichment.',
+      longDescription: [
+        'Cleveland’s dog-friendly landscape is deeply rooted in its extensive [Cleveland Metroparks](https://www.clevelandmetroparks.com) system, often referred to as the "Emerald Necklace." With over 24,000 acres of nature preserves, the city offers a unique blend of urban and natural environments for pet owners. From the off-leash zones at Downtown Cleveland Dog Park to the agility courses at Aukerman Park in the Brecksville Reservation, there are diverse options for every breed. Local dog culture thrives in neighborhoods like Ohio City and Tremont, where establishments like Terrestrial Brewing Company host "doggie brunches" and Taps & Tails provides a dedicated indoor/outdoor social club for pups and their humans. This community-driven approach ensures that even during harsh Lake Erie winters, dogs have outlets for socialization and exercise.',
+        'For those navigating the city’s pet resources, our [internal guide](https://www.indoordogpark.org/cities/cleveland-oh) provides a curated look at climate-controlled facilities. The City of Cleveland\'s Division of Animal Care & Control works alongside local nonprofits to maintain high standards for pet welfare across the metro area. Unique spots like Perkins Beach offer seasonal lakefront access for water-loving dogs, while shopping districts like Crocker Park and the Van Aken District remain highly accommodating to leashed visitors. By integrating these local insights, Cleveland pet parents can leverage the city\'s robust infrastructure to maintain a healthy, active lifestyle for their pets year-round. This commitment to canine enrichment makes "The Land" one of the most proactive pet-friendly cities in the Midwest.'
+      ],
+    },
+  },
+  {
+    slug: 'akron-oh',
+    city: 'Akron',
+    state: 'OH',
+    featuredImage: '/images/cities/akron/hero.webp',
+    summary: 'Home to some of the region\'s best trails and the unique Bow Wow Beach puppy paradise.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Akron, Ohio',
+      heroDescription: 'Akron blends industrial charm with stunning natural beauty, offering dog owners unmatched access to the Cuyahoga Valley National Park and dedicated swimming lakes.',
+      longDescription: [
+        'Akron, often celebrated for its proximity to the stunning [Cuyahoga Valley National Park](https://www.nps.gov/cuva), offers a rich tapestry of outdoor opportunities for dog owners. The city’s dog culture is anchored by the [Summit Metro Parks](https://www.summitmetroparks.org), which provides miles of pet-friendly trails that wind through lush woodlands and scenic ravines. A standout destination is Bow Wow Beach in nearby Stow, a 7.5-acre fenced haven featuring a sandy beach and a dedicated swimming lake that draws visitors from across the region. Within the city limits, the BARC Akron Dog Park serves as a vital community hub, offering separate play areas for small and large breeds, as well as water stations and shaded benches to ensure a comfortable experience for all.',
+        'Beyond the parks, Akron\'s local business scene warmly embraces its canine residents. Pet-friendly breweries such as Missing Mountain Brewing Co. and Lock 15 Brewing Co. are popular weekend spots where leashed pups are a common sight on the patios. For those seeking structured indoor activities or professional care, our [indoor dog park resources](https://www.indoordogpark.org/cities/akron-oh) highlight specialized facilities that cater to Akron\'s active dog community. The Summit County Animal Control Department plays a crucial role in maintaining public safety and pet welfare, while local events like "Yappy Hours" at local wineries foster a sense of community among pet owners. This blend of natural beauty and urban pet amenities makes Akron a premier destination for dog lovers in Northeast Ohio.'
+      ],
+    },
+  },
+  {
+    slug: 'hamilton-oh',
+    city: 'Hamilton',
+    state: 'OH',
+    featuredImage: '/images/cities/hamilton-oh/hero.webp',
+    summary: 'A community with a deep history of dog training and diverse off-leash play spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Hamilton, Ohio',
+      heroDescription: 'Hamilton\'s revitalized districts and expansive park conservancy make it a top-tier destination for active pups and their dedicated owners.',
+      longDescription: [
+        'Hamilton, Ohio, has established itself as a remarkably pet-friendly community, anchored by the [Hamilton Parks Conservancy](https://www.hamiltonparks.net). The city offers dedicated off-leash spaces like the Hamilton Bark Park at Veterans Park, which provides separate fenced areas for large and small dogs, complete with water stations and shaded seating for owners. For those seeking even more variety, the nearby FurField Dog Park offers a sprawling 6.5-acre environment with a swimming pond and multiple play zones. Hamilton’s commitment to canine enrichment is further exemplified by the **Hamilton Dog Training Club**, an institution with over 70 years of history providing obedience and agility classes that strengthen the bond between local pets and their owners.',
+        'The dog-friendly vibe extends into Hamilton\'s revitalized downtown and Riverfront areas. Landmarks like Pyramid Hill Sculpture Park & Museum welcome leashed dogs to explore its massive outdoor art gallery, even offering specialized dog memberships. Local favorites like Municipal Brew Works allow pups both on their patio and inside, reflecting the city’s inclusive spirit. Visitors can consult our [Hamilton city guide](https://www.indoordogpark.org/cities/hamilton-oh) for the latest updates on climate-controlled play options and puppy-friendly patios. With a robust pet infrastructure supported by Butler County resources and a welcoming local culture, Hamilton ensures that pet parents have every tool needed to keep their dogs happy, socialized, and active throughout the seasons.'
+      ],
+    },
+  },
+  {
+    slug: 'lorain-oh',
+    city: 'Lorain',
+    state: 'OH',
+    featuredImage: '/images/cities/lorain/hero.webp',
+    summary: 'Waterfront charm meets structured play at the scenic Lorain County Metro Parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Lorain, Ohio',
+      heroDescription: 'Nestled along Lake Erie, Lorain provides unique coastal trails and membership-based social clubs for pups who love the outdoors.',
+      longDescription: [
+        'Lorain, situated along the beautiful shores of Lake Erie, offers a unique coastal environment for dog owners to explore. The [Lorain County Metro Parks](https://www.loraincountymetroparks.com) system is the backbone of local pet-friendly recreation, providing expansive trails and managed green spaces. A highlight for the community is the Splash Zone Dog Park in Oberlin, which features dedicated memberships and secure fencing for both large and small breeds. This focus on structured play ensures a safe and social environment for local pups. While dogs are excluded from certain public beaches to preserve water quality, the nearby Avon Lake Dog Park at Weiss Field provides a great alternative with its double-gated entries, fresh water access, and shaded groves.',
+        'The city’s pet-centric culture is bolstered by the work of the **Friendship Animal Protective League**, which serves as a central hub for pet welfare and community education in Lorain County. Local pet parents often frequent the expansive trail networks that loop through the Black River Reservation, offering scenic views and healthy exercise. For those looking for indoor alternatives during the chilly Ohio winters, our [directory for Lorain](https://www.indoordogpark.org/cities/lorain-oh) lists verified facilities that offer climate-controlled play and socialization. By blending waterfront charm with a proactive approach to pet amenities, Lorain provides a high quality of life for its four-legged residents and their families, making it a standout pet-friendly destination in North Central Ohio.'
+      ],
+    },
+  },
+  {
+    slug: 'mentor-oh',
+    city: 'Mentor',
+    state: 'OH',
+    featuredImage: '/images/cities/mentor/hero.webp',
+    summary: 'A family-friendly city with flagship dog parks and historic leashed walking trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Mentor, Ohio',
+      heroDescription: 'From historic national sites to premium off-leash runs, Mentor balances community safety with high-quality pet enrichment.',
+      longDescription: [
+        'Mentor, Ohio, is a premier destination for dog lovers in Lake County, known for its well-maintained public spaces and proactive [City of Mentor Parks & Recreation](https://cityofmentor.com) department. The flagship Mentor Dog Park serves as the community\'s centerpiece, offering fully fenced off-leash areas for different size groups, complete with waste stations and fresh water fountains. For those who prefer leashed adventures, the [James A. Garfield National Historic Site](https://www.nps.gov/jaga) allows pets to explore its historic grounds, providing a unique blend of culture and canine exercise. Additionally, the nearby Headlands Beach State Park offers pet-friendly trails with stunning views of Lake Erie, though owners should note that dogs are restricted from the swimming beach areas.',
+        'Local dog culture in Mentor is vibrant, supported by numerous businesses that cater to the pet-owning demographic. From dog-friendly wineries like those found throughout the Grand River Valley to local eateries with seasonal pet-friendly patios, the city is designed for inclusion. Training and socialization facilities like **Digging Dogs** offer structured classes in agility and obedience, ensuring local pups are well-behaved members of the community. For those seeking year-round play options regardless of the weather, our [Mentor city resources](https://www.indoordogpark.org/cities/mentor-oh) provide a comprehensive look at indoor facilities. With a three-dog limit per household and clear local ordinances, Mentor balances the needs of pet owners with community safety, fostering a responsible and thriving environment for all.'
+      ],
+    },
+  },
+  {
+    slug: 'newark-oh',
+    city: 'Newark',
+    state: 'OH',
+    featuredImage: '/images/cities/newark-oh/hero.webp',
+    summary: 'Expansive historic parks and dedicated multi-acre off-leash social zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Newark, Ohio',
+      heroDescription: 'Explore the rolling hills and historical landmarks of Newark with your companion by your side in dedicated pet-friendly environments.',
+      longDescription: [
+        'Newark, Ohio, offers a charming and expansive environment for dog owners, characterized by its historic parks and scenic trail systems. **Geller Park** is a local favorite, providing vast green spaces and miles of paved and gravel paths perfect for long walks with a leashed companion. Nearby, the **Infirmary Mound Park** in Granville serves Newark residents with a four-acre fenced off-leash area that includes separate zones for large and small breeds, as well as a mixed-play section. For those who enjoy shoreline strolls, Buckeye Lake State Park offers a dog-friendly four-mile path that provides refreshing views and plenty of sniffing opportunities for active pups.',
+        'The community’s dedication to pet welfare is managed through the **Licking County Animal Shelter** and the **Licking County Humane Society**, which provide essential services and promote responsible pet ownership throughout the Newark area. Local trailheads like the T.J. Evans Panhandle Recreational Trail offer ten miles of asphalt paths for runners and walkers with dogs in tow. During those rainy or snow-heavy Ohio days, residents can turn to our [Newark indoor guide](https://www.indoordogpark.org/cities/newark-oh) to find verified climate-controlled play options. This mixture of rural beauty, historical significance, and a strong network of pet-focused organizations makes Newark an ideal home for active dogs and their dedicated owners.'
+      ],
+    },
+  },
+  {
+    slug: 'canton-oh',
+    city: 'Canton',
+    state: 'OH',
+    featuredImage: '/images/cities/canton/hero.webp',
+    summary: 'A supportive and resource-rich community featuring specialized dog showers and agility trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Canton, Ohio',
+      heroDescription: 'Canton stands out with its modern park amenities and a city-wide welcoming attitude toward the local pet community.',
+      longDescription: [
+        'Canton is a hub of canine activity in Northeast Ohio, boasting several high-quality facilities managed by the [Canton Parks and Recreation](https://www.cantonparksandrec.com) and surrounding townships. A standout for the community is **Dogwood Park** in North Canton, which features expansive lawns and well-defined walking trails. For a more structured off-leash experience, the **Plain Township Veteran\'s Park** offers a comprehensive dog park with over four acres of fenced space, including water stations, agility equipment, and even specialized dog showers for post-play cleanup. These amenities reflect the city\'s commitment to providing sophisticated resources for its growing pet-owning population.',
+        'Canton\'s pet-friendly lifestyle extends to its vibrant local food and drink scene. Many local favorites, such as Pav\'s Creamery, welcome pups on their patios, making "Yappy Hours" a common sight during the warmer months. The city\'s proximity to the **Stark County Animal Services** ensuring a safe environment, while seasonal events like pet parades highlight the strong bond between residents and their dogs. For those looking for indoor play options to beat the winter chill, our [Canton city portal](https://www.indoordogpark.org/cities/canton-oh) provides a curated list of climate-proof facilities. Whether exploring the scenic Hoover Trail or engaging in community events, Canton provides a supportive and resource-rich environment for dogs and their families.'
+      ],
+    },
+  },
+  {
+    slug: 'mansfield-oh',
+    city: 'Mansfield',
+    state: 'OH',
+    featuredImage: '/images/cities/mansfield-oh/hero.webp',
+    summary: 'Rustic charm and vast nature preserves offering year-round adventures for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Mansfield, Ohio',
+      heroDescription: 'Mansfield combines its racing heritage with a deep appreciation for the outdoors and its canine residents.',
+      longDescription: [
+        'Mansfield, known as the "Racing Capital of Ohio," is equally impressive when it comes to its pet-friendly amenities and vast natural escapes. The city is surrounded by diverse parklands, including the [Gorman Nature Center](https://www.richlandcountyoh.gov), which offers miles of wooded trails for leashed exploration. For off-leash excitement, the **Maize Memorial Dog Park** provides a spacious and social atmosphere, frequently hosting community events like the annual "Dog Wash and Hot Dogs" fundraiser. Nearby Bellville also offers "Finnigans Run," a significant five-acre facility with dedicated sections for small and large breeds, ensuring that every pup has a safe space to burn off energy.',
+        'The local dog culture in Mansfield is deeply integrated into the community\'s outdoor lifestyle, with spots like Charles Mill Lake Park offering dog-friendly hiking and camping opportunities. Pet welfare is a top priority for the **Humane Society of Richland County**, which advocates for responsible ownership and provides essential support services. During inclement weather, residents can utilize our [Mansfield indoor directory](https://www.indoordogpark.org/cities/mansfield-oh) to find professional climate-controlled environments for play and training. Mansfield’s blend of rustic charm and a proactive approach to pet infrastructure makes it a fantastic home for active dogs, providing year-round opportunities for enrichment and adventure.'
+      ],
+    },
+  },
+  {
+    slug: 'toledo-oh',
+    city: 'Toledo',
+    state: 'OH',
+    featuredImage: '/images/cities/toledo/hero.webp',
+    summary: 'Award-winning Metroparks systems and highly organized membership-based off-leash runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Toledo, Ohio',
+      heroDescription: 'Toledo offers an unmatched network of trails and downtown dog parks designed for the modern urban pet owner.',
+      longDescription: [
+        'Toledo, Ohio, surprised many with its robust and highly organized pet infrastructure, anchored by the award-winning **Metroparks Toledo** system. This network provides over 120 miles of trails, including destinations like Oak Openings Preserve and Wildwood Preserve, where leashed dogs can explore diverse ecosystems. For concentrated off-leash play, the **Glass City Dog Park** offers over four acres of membership-based fenced runs, providing a premium experience with shaded benches and agility features. Another local favorite is the **Middlegrounds Metropark**, which offers a scenic downtown off-leash area with stunning views of the Maumee River, demonstrating the city\'s commitment to integrating pet spaces into its urban core.',
+        'The dog-friendly vibe is palpable throughout Toledo\'s neighborhoods, with the Toledo Farmers\' Market and various downtown patios welcoming leashed companions. **Lucas County Canine Care & Control** plays a vital role in community safety and pet advocacy, ensuring that the city\'s dog laws are enforced while promoting adoption. For those seeking indoor alternatives during the Great Lakes\' unpredictable winters, our [Toledo city guide](https://www.indoordogpark.org/cities/toledo-oh) highlights verified climate-controlled play zones. With its combination of sprawling nature preserves, specialized urban dog parks, and a welcoming local culture, Toledo stands as one of the most proactive and pet-friendly cities in the Midwest.'
+      ],
+    },
+  },
+  {
+    slug: 'dayton-oh',
+    city: 'Dayton',
+    state: 'OH',
+    featuredImage: '/images/cities/dayton/hero.webp',
+    summary: 'Innovation-driven pet friendliness with misting stations and high-tech park amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Dayton, Ohio',
+      heroDescription: 'Dayton\'s innovative spirit shines through in its high-tech park features and expansive riverfront trail systems.',
+      longDescription: [
+        'Dayton, widely recognized for its innovation and history, extends that same forward-thinking spirit to its pet-friendly amenities. The [Five Rivers MetroParks](https://www.metroparks.org) system is a crown jewel for local dog owners, offering leashed access to thousands of acres of trails, forests, and riverfront paths. For those seeking off-leash socialization, **Deeds Point Dog Park** provides a popular downtown fenced area where pups can interact against the city skyline. Additionally, the **Oak Grove Park** in Centerville is known for its high activity levels and community-focused atmosphere, while the Kitty Hawk Dog Park in Huber Heights features unique amenities like misting fire hydrants and shaded cooling structures.',
+        'The Montgomery County community is well-supported by the **Wagtown** initiative and the **Humane Society of Greater Dayton**, both of which work to enhance the quality of life for pets and their owners. Local dog culture is visible at pet-friendly breweries and cafes throughout the Oregon District and beyond, where leashed dogs are often found enjoying the outdoor atmosphere. When Ohio\'s weather turns extreme, residents can consult our [Dayton indoor resource](https://www.indoordogpark.org/cities/dayton-oh) for a list of verified climate-controlled play and training facilities. Dayton’s commitment to providing diverse, high-quality outdoor spaces coupled with a strong network of pet advocacy groups makes it a top-tier home for pampered and active dogs alike.'
+      ],
+    },
+  },
+  {
+    slug: 'cincinnati-oh',
+    city: 'Cincinnati',
+    state: 'OH',
+    featuredImage: '/images/cities/cincinnati/hero.webp',
+    summary: 'A riverfront haven for dogs featuring multi-acre parks and unique urban play zones with water features.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Cincinnati, Ohio',
+      heroDescription: 'From the massive acreage of Otto Armleder to the high-tech turf of Washington Park, Cincinnati provides diverse, high-quality spaces for "The Queen City\'s" most pampered pets.',
+      longDescription: [
+        'Cincinnati, known as "The Queen City," offers an impressive array of dog-friendly amenities that cater to both urban dwellers and those who prefer wide-open spaces. The flagship of the local system is the [Otto Armleder Memorial Dog Park](https://www.greatparks.org), a massive 10-acre facility managed by Great Parks of Hamilton County that features separate fenced areas for different size breeds, canine showers, and shaded hills for relaxation. For those living in the heart of the city, the **Washington Park Dog Park** is a standout urban oasis in Over-the-Rhine, offering synthetic turf, granite boulders for climbing, and even a recirculating water creek where dogs can cool off during humid Ohio summers. These popular spots are central to the city\'s vibrant dog culture, which even extends to local sports, with the Cincinnati Reds hosting annual "Bark in the Park" events at Great American Ball Park.',
+        'Beyond the public parks, Cincinnati\'s local business scene is exceptionally welcoming to canine companions. Numerous breweries and cafes throughout neighborhoods like Northside and Mt. Lookout feature pet-friendly patios, while Findlay Market allows leashed dogs to explore its outdoor artisan stalls. The community is supported by **Cincinnati Animal CARE**, which oversees pet welfare and promotes responsible ownership through progressive local ordinances, including strict tethering laws to protect animals during extreme weather. For pet parents seeking the latest on climate-controlled facilities and indoor play options, our [Cincinnati city guide](https://www.indoordogpark.org/cities/cincinnati-oh) provides verified listings and local expert tips. By combining these innovative urban park designs with a deep-seated community appreciation for pets, Cincinnati has firmly established itself as a premier destination for dog owners in the Tri-State area.'
+      ],
+    },
+  },
+  {
+    slug: 'pittsburgh-pa',
+    city: 'Pittsburgh',
+    state: 'PA',
+    featuredImage: '/images/cities/pittsburgh/hero.webp',
+    summary: 'A hillside city rich with off-leash zones, historic inclines, and deep-rooted community support for four-legged residents.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Pittsburgh, Pennsylvania',
+      heroDescription: 'From the splash-friendly "Hot Dog Dam" at Frick Park to the scenic vistas of the North Shore, Pittsburgh offers a diverse landscape for active dogs and their owners.',
+      longDescription: [
+        'Pittsburgh is a remarkably dog-friendly city, consistently ranking high for its welcoming environment for pets. The Steel City offers unique experiences like riding the historic **Duquesne Incline** with your leashed companion to see the skyline. For off-leash exercise, the city provides several designated areas, including the expansive **Frick Park**, which features the famous "Hot Dog Dam" where dogs can splash and play. Other popular spots include **Allegheny Commons Park** and **Highland Park**, each offering dedicated fenced areas for socializing. When walking through neighborhoods like Lawrenceville or the North Shore, remember that dogs must be on a leash no longer than six feet. The city’s vibrant culture also extends to "dog bars" like The Dog Penn, where pups can play while owners relax.',
+        'Local animal welfare is championed by the [Humane Animal Rescue of Pittsburgh (HARP)](https://humaneanimalrescue.org/), providing essential services and adoptions. To ensure your pet\'s safety during outdoor adventures, it is important to follow city ordinances, which require all dogs over three months to be licensed and vaccinated against rabies. Whether you are exploring the trails at **North Shore Riverfront Park** or attending seasonal outdoor movies where pets are welcome, Pittsburgh makes it easy to include your four-legged friend in daily life. For those seeking more specialized services or community support, [Indoordogpark.org](https://www.indoordogpark.org/) offers valuable resources for dog owners across Pennsylvania. By staying informed about local rules and supporting rescues like **Paws Across Pittsburgh**, you contribute to a thriving, pet-friendly community.'
+      ],
+    },
+  },
+  {
+    slug: 'philadelphia-pa',
+    city: 'Philadelphia',
+    state: 'PA',
+    featuredImage: '/images/cities/philadelphia-pa/hero.webp',
+    summary: 'The City of Brotherly Love welcomes dogs with 50+ miles of wooded trails and modern urban dog runs in historic squares.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Philadelphia, Pennsylvania',
+      heroDescription: 'Whether you are hiking the vast trails of Wissahickon Valley or relaxing in Rittenhouse Square, Philadelphia blends history with high-quality pet amenities.',
+      longDescription: [
+        'Philadelphia, the City of Brotherly Love, extends that affection to its canine residents through a wealth of urban green spaces and historic charm. Adventurous pups will love **Wissahickon Valley Park**, which boasts over 50 miles of trails, including the scenic Forbidden Drive. In the heart of the city, **Schuylkill River Park** offers a popular enclosed dog run with separate sections for small and large breeds, ensuring a safe environment for all. For a more relaxed afternoon, leashed dogs are welcome in the historic **Rittenhouse Square** or can join you for a stroll through the **9th Street Italian Market**. Philadelphia’s leash laws require a six-foot lead in all public areas unless specified as an off-leash zone, and the city strictly enforces waste removal to keep its parks beautiful.',
+        'The [Philadelphia Animal Welfare Society (PAWS)](https://phillypaws.org/) works tirelessly as the city’s largest rescue partner, focusing on finding forever homes for pets in need. Owners can also look to [ACCT Philly](https://www.acctphilly.org/) for lost and found resources. Beyond the parks, many local breweries and eateries, such as those in the Fishtown or Old City neighborhoods, offer dog-friendly patios and even special treats for furry visitors. For comprehensive tips on living with pets in an urban environment, visit [Indoordogpark.org](https://www.indoordogpark.org/). Whether you’re heading to the rooftop at **Cira Green** for a dog-friendly movie night or exploring the meadows of **Pennypack Park**, Philadelphia provides an enriching urban experience for dogs and their owners alike.'
+      ],
+    },
+  },
+  {
+    slug: 'scranton-pa',
+    city: 'Scranton',
+    state: 'PA',
+    featuredImage: '/images/cities/scranton/hero.webp',
+    summary: 'The Electric City provides a welcoming mix of scenic heritage trails and dedicated off-leash parks for active companions.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Scranton, Pennsylvania',
+      heroDescription: 'From the historic loops of Nay Aug Park to the expansive Lackawanna River Heritage Trail, Scranton provides plenty of space for your pet to explore.',
+      longDescription: [
+        'Scranton, famously known as the Electric City, offers a wonderful mix of historic urban settings and natural beauty perfect for dog owners. **Nay Aug Park**, the city\'s crown jewel, features dedicated dog walking areas and vast open lawns for leashed exploration. For high-energy pups, the **Lackawanna River Heritage Trail** provides miles of scenic paved paths along the water. Off-leash play is easily accessible at **Weston Field Dog Park** or **Connell Dog Park**, the latter of which provides separate fenced areas to accommodate different sizes and temperaments. While enjoying these public spaces, Scranton ordinances require dogs to be licensed and kept on a leash no longer than six feet unless they are within a designated off-leash exercise area.',
+        'Animal advocacy in the region is led by the [Griffin Pond Animal Shelter](https://www.griffinpondanimalshelter.com/), a no-kill organization dedicated to pet adoption and welfare. Local residents can also find support through foster-based rescues like **NEPA Pet Fund and Rescue**. To maintain a safe environment, it is crucial for owners to "curb" their pets and immediately dispose of waste, as enforced by city and county regulations. For more information on finding dog-friendly spots and community resources throughout Pennsylvania, check out [Indoordogpark.org](https://www.indoordogpark.org/). From the quiet trails of **McDade Park** to the friendly atmosphere of local veterinary clinics, Scranton provides a supportive and active environment for pets and the people who love them.'
+      ],
+    },
+  },
+  {
+    slug: 'reading-pa',
+    city: 'Reading',
+    state: 'PA',
+    featuredImage: '/images/cities/reading/hero.webp',
+    summary: 'A community committed to pet safety with premier mountain preserves and thoughtfully designed off-leash areas.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Reading, Pennsylvania',
+      heroDescription: 'Explore the wooded beauty of Neversink Mountain or enjoy the modern amenities at Jim Dietrich Dog Park in one of PA\'s most pet-aware cities.',
+      longDescription: [
+        'Reading and the surrounding Berks County area provide a scenic backdrop for active dogs and their owners. **Jim Dietrich Park Dog Park** is a standout destination, offering a fully fenced enclosure with separate areas for different sized dogs, complete with shade trees and benches for owners. For those who prefer a longer trek, the **Neversink Mountain Preserve** and **Nolde Forest State Park** offer miles of wooded trails where leashed dogs can enjoy the sights and smells of nature. Within Reading city limits, parks like **Lincoln Park Recreation Area** provide convenient off-leash zones equipped with water stations and waste bags. Pennsylvania state law requires all dogs to be licensed and vaccinated, ensuring a healthy and safe community for everyone.',
+        'The [Humane Pennsylvania](https://humanepa.org/) organization, through its Freedom Center for Animal Life Saving, serves as a vital resource for pet adoptions and veterinary care in Reading. Smaller local rescues like **Zoe’s House Rescue** also provide essential foster-based support for dogs in transition. When exploring the **Reading Public Museum Arboretum** or local cideries, remember that well-behaved pets are welcome in many outdoor seating areas as long as they remain under control. For additional guidance on local pet ordinances and finding the best dog-friendly amenities, visit [Indoordogpark.org](https://www.indoordogpark.org/). Reading’s commitment to responsible pet ownership, including "Code Blue/Red" protections for animals during extreme weather, makes it a compassionate place for your four-legged family members.'
+      ],
+    },
+  },
+  {
+    slug: 'chester-pa',
+    city: 'Chester',
+    state: 'PA',
+    featuredImage: '/images/cities/chester-pa/hero.webp',
+    summary: 'Enjoy riverfront strolls and expansive nearby nature preserves in this historic Pennsylvania city.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Chester, Pennsylvania',
+      heroDescription: 'From high-quality riverfront walks to the deep wilderness of nearby preserves, Chester offers the best of both urban and natural play.',
+      longDescription: [
+        'Chester offers a blend of riverfront views and historic charm that makes exploring with your dog a delightful experience. **Chester Waterfront Park** provides a picturesque setting for a morning walk along the Delaware River, with clear views of the skyline and plenty of fresh air. Just a short drive away, the **Stroud Preserve** boasts over nine miles of hiking trails through rolling hills and meadows, where leashed dogs are always welcome. For those who enjoy a forest setting, **French Creek State Park** offers extensive trails that are perfect for a weekend adventure. In any public park, it is essential to follow Pennsylvania’s leash and licensing laws, ensuring that your pet is safely restrained and up to date on their vaccinations.',
+        'Local animal welfare is supported by the [Brandywine Valley SPCA (BVSPCA)](https://bvspca.org/), which operates as Pennsylvania’s first no-kill open-admission shelter and provides comprehensive adoption and medical services. Community-focused groups like **1 Love 4 Animals** also work to improve the lives of local pets through rescue and rehabilitation. When visiting dog-friendly eateries or strolling through historic neighborhoods, responsible owners are reminded to always clean up after their pets to maintain the city\'s beauty. For more tips on pet care and discovering new dog-friendly locations in the area, visit [Indoordogpark.org](https://www.indoordogpark.org/). Whether you’re a lifelong resident or just visiting, Chester’s growing pet-friendly culture provides a welcoming atmosphere for you and your companion.'
+      ],
+    },
+  },
+  {
+    slug: 'allentown-pa',
+    city: 'Allentown',
+    state: 'PA',
+    featuredImage: '/images/cities/allentown-pa/hero.webp',
+    summary: 'A robust park network featuring premier off-leash zones and high standards for pet health and safety.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Allentown, Pennsylvania',
+      heroDescription: 'Play safely at the Judge Memorial Dog Park or explore the vast recreational trails throughout the Lehigh Valley.',
+      longDescription: [
+        'Allentown provides a robust network of parks and facilities designed with dog owners in mind. The **Judge Memorial Dog Park** (formerly Dixon Street Dog Park) is a premier off-leash destination, featuring separate fenced areas for large and small dogs, ensuring safe play for all sizes. For a more tranquil experience, the city’s many public parks welcome leashed dogs, provided they remain on a lead shorter than six feet. Residents can take advantage of the beautiful paths at **Trexlertown Park** or explore the scenic trails that wind through the Lehigh Valley. It is important to note that Allentown requires all dogs to be licensed and vaccinated, and owners must always have a physical leash in hand, even when within off-leash zones.',
+        'The [Lehigh County Humane Society](https://www.lehighcountyhumanesociety.org/) is a cornerstone of the community, offering adoption services, medical resources, and advocacy for animal protection. Other local organizations like **The Sanctuary at Haafsville** provide additional support for rescue and rehabilitation. Allentown is home to several pet-friendly establishments, and many local events cater specifically to the community’s love for animals. To stay updated on the best dog-friendly spots and important local regulations, visit [Indoordogpark.org](https://www.indoordogpark.org/). By following simple etiquette—such as maintaining voice control and respecting children’s areas—you help Allentown remain a safe and vibrant place for pets to thrive alongside their neighbors.'
+      ],
+    },
+  },
+  {
+    slug: 'harrisburg-pa',
+    city: 'Harrisburg',
+    state: 'PA',
+    featuredImage: '/images/cities/harrisburg/hero.webp',
+    summary: 'Pennsylvanias capital offers scenic riverfront exercise paths and community-loved off-leash parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Harrisburg, Pennsylvania',
+      heroDescription: 'From the Susquehanna waterfront to the Happy Tails Dog Park, Harrisburg provides diverse options for urban and nature-loving pups.',
+      longDescription: [
+        'Harrisburg, the capital of Pennsylvania, is a fantastic place for dogs and their owners, offering everything from scenic riverfront paths to dedicated off-leash parks. **Happy Tails Dog Park** at Kohl Memorial Park is a community favorite, providing a large, fenced area for pups to run and socialize. For those who love nature, **Wildwood Park** offers beautiful trails around a lake and through wetlands, perfect for a leashed walk in a serene environment. **Riverfront Park**, stretching along the Susquehanna River, provides a scenic urban backdrop for daily exercise. Harrisburg city ordinances require dogs to be on a leash no longer than eight feet and remind owners that pet waste must be immediately removed to keep public spaces clean.',
+        'The [Humane Society of Harrisburg Area (HSHA)](https://humanesocietyhbg.org/), now operated by Brandywine Valley SPCA, is the leading resource for pet adoptions and animal welfare in the region. Groups like **Castaway Critters** also provide essential foster-based rescue services for local cats and dogs. Beyond the parks, Harrisburg’s Midtown and Downtown districts offer various dog-friendly cafes and breweries with outdoor seating, allowing your pet to join you for a meal. For more information on navigating pet ownership in the city and discovering new dog-friendly activities, visit [Indoordogpark.org](https://www.indoordogpark.org/). Whether you’re attending a "Wetnose Wednesday" baseball game or exploring the trails at **Boyd Big Tree Preserve**, Harrisburg makes pet-friendly living easy and enjoyable.'
+      ],
+    },
+  },
+  {
+    slug: 'lancaster-pa',
+    city: 'Lancaster',
+    state: 'PA',
+    featuredImage: '/images/cities/lancaster-pa/hero.webp',
+    summary: 'Home to award-winning dog parks and a welcoming community that celebrates pet-friendly living.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Lancaster, Pennsylvania',
+      heroDescription: 'Experience the top-rated Beau\'s Dream Dog Park or explore the historic gardens and wooded trails of Lancaster County.',
+      longDescription: [
+        'Lancaster is home to some of the finest dog-friendly amenities in the state, including the award-winning **Beau\'s Dream Dog Park** at Buchanan Park. This top-rated facility features separate areas for small and large dogs, complete with splash pads, tunnels, and water fountains. For those who prefer a more natural setting, **Landis Woods Park** and **Flory Park** offer wonderful wooded trails for leashed exploration. Lancaster’s community is famously welcoming, with seasonal events like the Lititz Farmers Market or "Wet Nosed Wednesdays" at the ballpark catering to pet owners. Local park rules emphasize that all dogs must be under control—whether by leash or voice—and owners must carry proof of current licensing and rabies vaccinations.',
+        'The [Pennsylvania SPCA Lancaster Center](https://www.pspca.org/lancaster) provides vital animal care services, including adoptions and reuniting lost pets with their families. The **Brandywine Valley SPCA** also operates a dedicated dog adoption center in the area, offering many opportunities to find a new furry friend. When visiting the shops at **Kitchen Kettle Village** or strolling through the historic downtown, it’s common to see leashed dogs accompanying their owners. For comprehensive resources on dog-friendly destinations and local ordinances across Pennsylvania, visit [Indoordogpark.org](https://www.indoordogpark.org/). Lancaster\'s unique blend of modern facilities and a welcoming community spirit makes it an ideal place for dogs to lead a happy, active life.'
+      ],
+    },
+  },
+  {
+    slug: 'york-pa',
+    city: 'York',
+    state: 'PA',
+    featuredImage: '/images/cities/york/hero.webp',
+    summary: 'Vast county parks and premier off-leash meadows make this a standout destination for active pets.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in York, Pennsylvania',
+      heroDescription: 'Run free at Canine Meadows or enjoy a scenic hike along the Heritage Rail Trail in the heart of York County.',
+      longDescription: [
+        'York offers a wealth of space and community spirit for dogs and their families to enjoy together. **Canine Meadows** at John C. Rudy County Park is one of the premier off-leash destinations in the region, featuring vast, fenced-in fields for dogs over and under 30 pounds. For a scenic walk, the **Heritage Rail Trail** provides a paved path that winds through the beautiful York County countryside, where leashed dogs are always welcome. Nature lovers can also visit **Codorus State Park** or **Gifford Pinchot State Park** for hiking and exploring. York County regulations require all dogs to be state licensed, vaccinated, and kept on a leash unless they are within a designated off-leash area.',
+        'The [York County SPCA](https://www.ycspca.org/) is a dedicated no-kill shelter that works tirelessly to find homes for displaced animals and provide community educación on animal wellness. Other local rescues like **Speranza Animal Rescue** specialize in rehabilitating abused and neglected animals, providing them with a second chance at life. York also boasts several pet-friendly breweries and outdoor markets where well-behaved dogs are a common sight. For more tips on pet health and discovering new dog-friendly activities in your area, visit [Indoordogpark.org](https://www.indoordogpark.org/). Whether you’re enjoying a quiet walk in **Hudson Park** or socializing at a local "Bark Park," York provides a supportive and active environment for pets of all kinds.'
+      ],
+    },
+  },
+  {
+    slug: 'new-castle-pa',
+    city: 'New Castle',
+    state: 'PA',
+    featuredImage: '/images/cities/new-castle-pa/hero.webp',
+    summary: 'A city for all seasons, offering historic city parks and innovative indoor play spaces for year-round fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in New Castle, Pennsylvania',
+      heroDescription: 'Explore the sections of Cascade Dog Park or stay warm at the local indoor dog park during the Pennsylvania winter.',
+      longDescription: [
+        'New Castle provides several excellent options for year-round dog activity, from historic city parks to modern indoor facilities. **Cascade Park** features a popular community dog park with three separate sections to accommodate different sizes and activity levels, ensuring a safe play experience for everyone. For those chilly Pennsylvania winters, the **Stay and Play Indoor Dog Park** offers a climate-controlled environment where dogs can socialize and play regardless of the weather. Local regulations within New Castle city limits mandate that all dogs must be securely tied or restrained by a leash when exercised in public spaces, and owners are responsible for immediate waste removal to keep the parks pristine.',
+        'The [Lawrence County Humane Society](https://lawrencecountyhumane.com/) has been a cornerstone of animal welfare in the area since 1953, providing shelter, medical care, and adoption services for homeless pets. The **Shenango Valley Animal Shelter** also serves the region as a no-kill facility focused on finding the perfect match for every animal. When exploring the grounds of local estates or visiting neighborhood parks, remember that Pennsylvania law requires all dogs to be vaccinated and licensed by three months of age. For additional information on local pet care and finding new dog-friendly spots in Lawrence County, visit [Indoordogpark.org](https://www.indoordogpark.org/). New Castle’s combination of traditional outdoor parks and innovative indoor spaces ensures your pet can stay active every day of the year.'
+      ],
+    },
+  },
+  {
+    slug: 'johnstown-pa',
+    city: 'Johnstown',
+    state: 'PA',
+    featuredImage: '/images/cities/johnstown/hero.webp',
+    summary: 'Community-driven pet spaces and historic memorial trails provide a welcoming atmosphere for local dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Johnstown, Pennsylvania',
+      heroDescription: 'From downtown dog parks to the historic Johnstown Flood National Memorial, explore the heart of Cambria County with your pet.',
+      longDescription: [
+        'Johnstown is a city that values its canine companions, offering several designated parks where dogs can enjoy the outdoors safely. **Morley\'s Dog Park** and **Memorial Park**, both located in the heart of Downtown Johnstown, provide convenient spaces for city-dwellers to exercise their pets. For a larger off-leash adventure, **Sandyvale Dog Park** offers a spacious, fenced-in grassy area where dogs can transition from leashed walks to free play. For those who enjoy history and nature, leashed dogs are welcome on the grounds of the **Johnstown Flood National Memorial**. City ordinances require all dogs to be on a leash no longer than six feet when not in a fenced area, and owners are encouraged to be diligent about waste removal to avoid significant fines.',
+        'Animal welfare in Johnstown is championed by the [Humane Society of Cambria County](https://humanecambria.org/), which operates with a no-kill philosophy to give stray and surrendered animals a second chance. The city has also recently introduced new ordinances to manage the local pet population and improve animal safety during inclement weather. When exploring local trails or visiting pet-friendly establishments in the Kernville or Moxham neighborhoods, always ensure your pet is up to date on their rabies vaccinations as required by state law. For more resources on finding the best dog-friendly amenities and understanding local pet rules, visit [Indoordogpark.org](https://www.indoordogpark.org/). Johnstown’s proactive approach to animal welfare makes it an increasingly welcoming place for dogs of all breeds.'
+      ],
+    },
+  },
+  {
+    slug: 'altoona-pa',
+    city: 'Altoona',
+    state: 'PA',
+    featuredImage: '/images/cities/altoona/hero.webp',
+    summary: 'A supportive community for pet owners, offering clear city park rules and dedicated rescue resources.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Altoona, Pennsylvania',
+      heroDescription: 'Enjoy local city parks and nearby state trails while benefiting from the area\'s strong animal welfare network.',
+      longDescription: [
+        'Altoona offers a friendly community for dog owners, with several local parks providing space for daily walks and fresh air. City parks generally welcome pets that are kept on a leash no longer than six feet and attended by their owners at all times. For a more expansive adventure, the nearby trails of **Canoe Creek State Park** provide a beautiful backdrop for a day of hiking with your leashed companion. Altoona’s local ordinances strictly enforce leash laws and waste removal to ensure that public spaces remain clean and safe for everyone. All dogs in Blair County must be licensed and have current rabies vaccinations, reflecting the community’s commitment to responsible pet ownership.',
+        'The [Central PA Humane Society (CPHS)](https://centralpahumane.org/) is the primary resource for animal welfare in the Altoona area, functioning as a life-saving shelter that focuses on enrichment and adoption for at-risk animals. Other local groups like **Mending Hearts Animal Rescue** also play a vital role in finding forever homes for cats and dogs in the region. Whether you are strolling through resident neighborhoods or visiting a local pet supply store, you will find a supportive atmosphere for pet lovers. For additional guidance on local dog rules and discovering new dog-friendly spots throughout Pennsylvania, visit [Indoordogpark.org](https://www.indoordogpark.org/). Altoona’s combination of practical leash laws and dedicated animal welfare organizations ensures a high quality of life for its four-legged residents.'
       ],
     },
   },
