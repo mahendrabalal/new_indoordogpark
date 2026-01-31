@@ -2472,6 +2472,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Houston offers the largest selection of dog parks in Texas, from sprawling grounds to climate-controlled indoor facilities.',
       heroPill: 'Verified Houston Directory',
       heroFootnotes: ['80+ miles of bayou trails', 'Year-round indoor options'],
+      longDescription: [
+        'Houston, Texas, offers a diverse and expansive environment for dog owners, influenced by its humid subtropical climate and vast urban sprawl. The city is home to some of the state\'s most celebrated green spaces, including the [Buffalo Bayou Park](https://buffalobayou.org/), offering miles of skyline-view trails for leashed walks, and the heavily trafficked Johnny Steele Dog Park, featuring ponds and large dog runs. However, the intense summer heat makes climate-controlled play essential. Houston\'s sheer size means neighborhood-specific amenities vary, but the Heights and Montrose districts stand out for their density of patio-friendly restaurants and boutique pet services. Our [Houston directory](https://www.indoordogpark.org/cities/houston-tx#park-directory) reflects this blend of outdoor adventure and necessary indoor relief.',
+        'To combat the heat, Houston has seen a rise in "drink-and-play" concepts like [Barkley\'s](https://www.indoordogpark.org/parks-with-bars), where owners can socialize in air-conditioned comfort while their pets play. These venues require strict vaccination records, ensuring a safe environment for all. For those interested in the business side of this booming market, our [owner resources](/owner-resources) provide data on operating in such a large metro area. Whether navigating the [bayou trails](https://www.houstontx.gov/parks/) or retreating to an indoor oasis, Houston ensures dogs remain active and social year-round.'
+      ],
     },
   },
   {
@@ -2848,7 +2852,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/burlington-nc/hero.webp',
     summary: 'Burlington offers well-maintained municipal parks and local runs for dogs in the Piedmont region.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Burlington, NC',
+      heroDescription: 'From the shaded trails of Cedarock Park to local community runs, Burlington provides a welcoming environment for dogs in the heart of Alamance County.',
+      longDescription: [
+        'Burlington, NC, serves as a central hub in the Piedmont region, offering dog owners access to expansive parks and well-maintained trails. Key destinations include the [Burlington City Park](https://www.burlingtonnc.gov/237/City-Park), known for its family-friendly atmosphere and walking paths perfect for leashed exploration. For off-leash play, the Burlington Animal Services Center operates a popular dog park featuring separate areas for different breed sizes. The city also offers access to the [Haw River Trail](https://thehaw.org/), providing miles of scenic riverside hiking for active dogs and their owners. Our [Burlington directory](https://www.indoordogpark.org/cities/burlington-nc#park-directory) highlights these accessible recreational gems.',
+        'Responsible pet ownership is central to the Burlington community, with local ordinances requiring rabies vaccinations and adherence to leash laws in public areas. The city actively supports pet adoption and welfare through its Animal Services division. Dog-friendly events often take place at the Burlington Arboretum, where leashed pets can enjoy the gardens. For those looking to understand regional pet policies or find training tips, our [blog](/blog) offers valuable insights. Burlington\'s blend of municipal support and natural beauty makes it a reliable and enjoyable home for canine companions.'
+      ],
+    },
   },
   {
     slug: 'durham',
@@ -2857,7 +2868,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/durham/hero.webp',
     summary: 'The "Bull City" features a tech-savvy dog community with a focus on creative urban play spaces.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Durham, NC',
+      heroDescription: 'Discover Durham’s vibrant dog culture, featuring the expansive Duke Forest trails, urban dog runs, and a community of active, tech-forward pet owners.',
+      longDescription: [
+        'Durham, the "Bull City," offers a dynamic environment for dog owners, blending historic tobacco roots with a modern, tech-driven culture. The city is famous for [Duke Forest](https://dukeforest.duke.edu/), whose thousands of acres of trails provide a premier destination for leashed hiking and nature immersion. In the urban core, facilities like the Downtown Durham Dog Park offer convenient off-leash socialization for apartment dwellers. Durham\'s progressive vibe extends to its social scene, with dog-friendly venues like [Boxcar Bar + Arcade](https://www.indoordogpark.org/parks-with-bars) welcoming pups on patios. Maps of these spots are available in our [Durham directory](https://www.indoordogpark.org/cities/durham#park-directory).',
+        'As a hub for innovation, Durham also features advanced pet care services, from modern [training facilities](/training-facilities) to enrichment-focused daycare. The city enforces standard leash laws and rabies vaccination requirements to ensure community safety. Owners can also access our [owner resources](/owner-resources) to learn about starting pet-friendly businesses in this growing market. Whether hiking along the Eno River or socializing downtown, Durham provides a rich, engaging lifestyle for dogs and their humans.'
+      ],
+    },
   },
   {
     slug: 'fayetteville',
@@ -2866,7 +2884,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/fayetteville/hero.webp',
     summary: 'Home to multiple canine runs, Fayetteville provides active play areas for military families and residents alike.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Fayetteville, NC',
+      heroDescription: 'Fayetteville combines military heritage with outdoor recreation, offering the Cape Fear River Trail and dedicated parks for its active dog-owning community.',
+      longDescription: [
+        'Fayetteville, NC, anchored by Fort Liberty (formerly Fort Bragg), offers a disciplined yet welcoming environment for dog owners. The city features several key off-leash areas, including the Riverside Dog Park, which provides separate fenced sections and agility equipment. Leashed exploration is popular along the [Cape Fear River Trail](https://fcpr.us/parks-trails/trails/cape-fear-river-trail), a paved path offering scenic views of the river and wetlands. The military influence fosters a community that values responsible ownership and well-trained pets. Our [Fayetteville directory](https://www.indoordogpark.org/cities/fayetteville#park-directory) lists verified spots for both play and exercise.',
+        'Pet ownership in Fayetteville is supported by accessible veterinary care and numerous pet-friendly businesses. The city enforces strict leash laws in non-designated areas to protect public safety. Owners looking for specific amenities can check our [FAQ section](/faq) for details on local regulations. With its mix of structured parks and natural trails, Fayetteville ensures that military families and locals have ample opportunities to keep their dogs active and healthy.'
+      ],
+    },
   },
   {
     slug: 'goldsboro',
@@ -2875,7 +2900,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/goldsboro/hero.webp',
     summary: 'Goldsboro features friendly neighborhood parks and community-focused spaces for dog owners.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Goldsboro, NC',
+      heroDescription: 'Experience the friendly community spirit of Goldsboro, with parks like Stoney Creek offering green space and social opportunities for local dogs.',
+      longDescription: [
+        'Goldsboro, NC, home to Seymour Johnson Air Force Base, offers a tight-knit community atmosphere for dog owners. The city\'s primary destination for off-leash play is the Stoney Creek Dog Park, located within Stoney Creek Park. This facility features secure fencing and shaded areas, making it a reliable spot for daily exercise. Leashed walks are also encouraged throughout the [Goldsboro Parks](https://www.goldsboronc.gov/parks-and-recreation/) system, providing a quiet retreat for nature lovers. Our [Goldsboro directory](https://www.indoordogpark.org/cities/goldsboro#park-directory) connects residents with these essential local amenities.',
+        'The city promotes responsible pet stewardship, requiring current vaccinations and adherence to leash ordinances. Goldsboro\'s relatively mild climate allows for year-round outdoor activity, though summer afternoons can be warm. Owners interested in community events can check our [blog](/blog) for regional updates. With its supportive environment and accessible green spaces, Goldsboro remains a comfortable and welcoming home for dogs and their families.'
+      ],
+    },
   },
   {
     slug: 'greensboro-nc',
@@ -2884,7 +2916,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/greensboro-nc/hero.webp',
     summary: 'The "Gate City" offers expansive parks and a welcoming environment for all canine companions.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Greensboro, NC',
+      heroDescription: 'Greensboro offers a wealth of green space, from the Arboretum to expansive dog parks like Bark Park, making it a top destination for active pets.',
+      longDescription: [
+        'Greensboro, known as the "Gate City," is celebrated for its extensive park system and dog-friendly culture. The city features standout facilities like the [Bark Park at Country Park](https://www.greensboro-nc.gov/departments/parks-recreation/parks-gardens/dog-parks), which offers separate small and large dog areas in a wooded setting. Leashed dogs are also welcome to explore the enchanting [Greensboro Arboretum](https://greensborobeautiful.org/gardens/greensboro-arboretum/) and the Tanger Family Bicentennial Garden, providing sensory-rich walks among beautiful flora. Our [Greensboro directory](https://www.indoordogpark.org/cities/greensboro-nc#park-directory) highlights these premier locations for socialization and nature enjoyment.',
+        'The community is supported by a strong network of pet businesses and advocacy groups. Greensboro demands responsible ownership, including leash compliance on greenways and up-to-date vaccinations. For those new to the area or dog ownership, our [how-it-works](/how-it-works) page offers guidance on park etiquette. Whether playing off-leash or strolling through botanical gardens, Greensboro provides a diverse and enriching environment for every type of dog.'
+      ],
+    },
   },
   {
     slug: 'jacksonville',
@@ -2893,7 +2932,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/jacksonville/hero.webp',
     summary: 'Jacksonville provides accessible park runs and social spaces for the coastal dog community.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Jacksonville, NC',
+      heroDescription: 'Jacksonville offers a coastal community vibe with dedicated spaces like the Jacksonville Commons Dog Park, serving military families and locals.',
+      longDescription: [
+        'Jacksonville, NC, with its close ties to Camp Lejeune and New River Air Station, offers a robust network of amenities for its dog-loving residents. The [Jacksonville Commons Dog Park](https://jacksonvillenc.gov/566/Recreation-Parks) is a central hub, featuring well-maintained fences and agility elements for active play. The city’s location near the coast also provides access to scenic walking trails along Wilson Bay, perfect for leashed evening strolls. The community is accustomed to frequent moves, making these social spots vital for newcomers to connect. Our [Jacksonville directory](https://www.indoordogpark.org/cities/jacksonville#park-directory) helps families quickly find their new favorite park.',
+        'Pet safety is a priority, with strict enforcement of vaccination and registration rules. The humid coastal climate means hydration is key during summer visits. Owners can find tips on heat safety in our [blog](/blog). Jacksonville also hosts various pet-friendly events throughout the year, fostering a strong sense of community. By providing consistent, high-quality recreational spaces, Jacksonville ensures that its military and civilian dogs alike have a happy, healthy home.'
+      ],
+    },
   },
   {
     slug: 'rocky-mount',
@@ -2902,7 +2948,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/rocky-mount/hero.webp',
     summary: 'Rocky Mount offers spacious runs and well-maintained grounds for active local dogs.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Rocky Mount, NC',
+      heroDescription: 'Rocky Mount features scenic spots like Best Friend\'s Dog Park and trails along the Tar River, perfect for outdoor enthusiasts and their pets.',
+      longDescription: [
+        'Rocky Mount, NC, lying in the Atlantic coastal plain, offers expansive opportunities for dog recreation. The city is home to [Best Friend\'s Dog Park](https://rockymountnc.gov/parks-recreation/), a favorite local spot with separate enclosures and ample running room. Beyond the fence, the [Tar River Trail](https://www.rockymountnc.gov/parks-recreation/parks-trails/) provides miles of paved and natural surface paths where leashed dogs can enjoy river views and wooded surroundings. This integration of urban amenities and natural beauty characterizes the local pet lifestyle. Our [Rocky Mount directory](https://www.indoordogpark.org/cities/rocky-mount#park-directory) details these key locations.',
+        'The city encourages responsible pet ownership through clear public ordinances and community education. Leash laws are in effect in all non-designated areas to ensure safety for all park users. For owners interested in advocacy or local meetups, our [community partners](/partners) page can offer connections. Rocky Mount\'s commitment to maintaining clean, accessible green spaces ensures that dogs have the room they need to thrive in this growing city.'
+      ],
+    },
   },
   {
     slug: 'wilmington',
@@ -2911,7 +2964,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/wilmington/hero.webp',
     summary: 'Coastal Wilmington features beautiful dog-friendly spaces and proximity to pristine riverfront walks.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Wilmington, NC',
+      heroDescription: 'Wilmington combines historic riverfront charm with coastal access, offering parks like Empie Park and proximity to dog-friendly beaches.',
+      longDescription: [
+        'Wilmington, NC, is a premier destination for water-loving dogs and their owners. The city features top-tier facilities like the dog park at [Empie Park](https://www.wilmingtonnc.gov/departments/parks-recreation/dog-parks), which offers shade and agility equipment. Just a short drive away, the beaches of Wrightsville Beach and Carolina Beach offer seasonal hours for leashed dog walking on the sand. The historic [Riverwalk](https://www.wilmingtonandbeaches.com/things-to-do/attractions/riverwalk/) provides a scenic urban route for socialization along the Cape Fear River. Our [Wilmington directory](https://www.indoordogpark.org/cities/wilmington#park-directory) serves as a guide to this coastal canine paradise.',
+        'The local culture is heavily influenced by the ocean, but owners must be mindful of seasonal beach rules and heat safety. Wilmington\'s humid summers make early morning or evening walks best. For visitors needing info on local policies, our [FAQ section](/faq) is a helpful resource. The city also hosts a variety of [pet-friendly businesses](/parks-with-bars) where owners can relax after a day of play. Wilmington’s blend of Southern history and beach life offers an unmatched lifestyle for active dogs.'
+      ],
+    },
   },
   {
     slug: 'winston-salem',
@@ -2920,7 +2980,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/winston-salem/hero.webp',
     summary: 'The "Twin City" combines historic charm with modern off-leash areas for dog owners.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Winston-Salem, NC',
+      heroDescription: 'Winston-Salem blends history and recreation, featuring parks like Washington Park and the artistic flair of a city known for innovation.',
+      longDescription: [
+        'Winston-Salem, the "Twin City," offers a culturally rich environment for dog owners. The city boasts excellent off-leash facilities such as the dog park at [Washington Park](https://www.cityofws.org/Facilities/Facility/Details/Washington-Park-Dog-Park-66), located in the historic district and featuring separate runs for small and large dogs. Leashed exploration is popular in [Hanes Park](https://www.cityofws.org/Facilities), where majestic trees and walking paths provide a classic park experience. The city\'s Moravian heritage and arts scene add a unique backdrop to daily walks. Our [Winston-Salem directory](https://www.indoordogpark.org/cities/winston-salem#park-directory) connects you to these historic and recreational sites.',
+        'Community standards emphasize respect for public spaces, with strict waste removal and leash laws. Winston-Salem is also a hub for medical and research innovation, which translates into high-quality veterinary care availability. Owners looking for training or behavioral tips can visit our [training facilities](/training-facilities) page. Whether enjoying a quiet morning in Old Salem or a romp in Washington Park, Winston-Salem offers a distinguished and welcoming home for dogs.'
+      ],
+    },
   },
   {
     slug: 'virginia-beach-va',
@@ -3555,7 +3622,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     featuredImage: '/images/cities/winchester-va/hero.webp',
     summary: 'Historic Winchester provides charming community dog parks and a gateway to the northern Shenandoah Valley\'s natural beauty.',
     parks: [],
-    customContent: {},
+    customContent: {
+      heroHeading: 'Dog Parks in Winchester, VA',
+      heroDescription: 'Winchester offers a blend of Civil War history and scenic beauty, with the Jim Barnett Park dog park serving as a central hub for the community.',
+      longDescription: [
+        'Winchester, VA, situated in the beautiful Shenandoah Valley, offers a scenic and historic backdrop for dog ownership. The city\'s premier off-leash facility is located within [Jim Barnett Park](https://www.winchesterva.gov/parks), a massive recreational complex that also invites leashed walking throughout its extensive grounds. The historic [Old Town Winchester](https://oldtownwinchesterva.com/) pedestrian mall welcomes leashed dogs, allowing owners to enjoy outdoor dining and window shopping in a charming setting. This mix of rigorous play and social strolling defines the Winchester dog lifestyle. Our [Winchester directory](https://www.indoordogpark.org/cities/winchester-va#park-directory) helps you navigate these local treasures.',
+        'The community values responsible stewardship, with ordinances requiring dogs to be licensed and vaccinated against rabies. Winchester\'s location makes it a gateway to regional adventures, including nearby hiking trails in the Blue Ridge Mountains. For tips on tick prevention and trail safety in the valley, our [blog](/blog) is a great resource. Whether visiting for the Apple Blossom Festival or settling down, dog owners find Winchester to be a welcoming and picturesque community for their four-legged friends.'
+      ],
+    },
   },
   {
     slug: 'amherst-va',
