@@ -2344,6 +2344,22 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
+    slug: 'anthony-tx',
+    city: 'Anthony',
+    state: 'TX',
+    summary: 'A welcoming border town community offering accessible dog-friendly spaces and pet care services.',
+    parks: [],
+    featuredImage: '/images/cities/anthony-tx/hero.webp',
+    customContent: {
+      heroHeading: 'Dog Parks in Anthony, TX',
+      heroDescription: 'Discover dog-friendly spots and professional pet care in the unique border community of Anthony.',
+      longDescription: [
+        "Anthony, uniquely positioned on the Texas-New Mexico border, offers a tight-knit community atmosphere for dog owners. While small in size, the town provides access to local parks and open spaces where leashed walks are a daily ritual for residents. Local pet owners often take advantage of the quiet streets and community areas to exercise their dogs, enjoying the distinct desert landscape of the Upper Rio Grande Valley. The town's location also serves as a convenient gateway to the broader dog-friendly amenities found in the nearby El Paso metropolitan area, allowing residents to easily access larger parks and specialized training facilities just a short drive away.",
+        "Responsible pet ownership in Anthony is guided by local ordinances that prioritize community safety and animal well-being. Residents are required to keep their dogs on a leash in public areas and are encouraged to maintain up-to-date vaccinations, particularly given the town's semi-rural setting where wildlife encounters can occur. Local businesses and veterinary services support the pet community, ensuring that essentials are always within reach. For more comprehensive regional tips, our [Texas state guide](https://www.indoordogpark.org/states/texas) offers valuable information on navigating the unique climate and legal requirements of the area. By fostering a respectful and attentive culture, Anthony remains a safe and pleasant home for its canine companions."
+      ],
+    },
+  },
+  {
     slug: 'amarillo-tx',
     city: 'Amarillo',
     state: 'TX',
