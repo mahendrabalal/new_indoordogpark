@@ -6028,14 +6028,14 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
-    slug: 'colony-tx',
-    city: 'Colony',
+    slug: 'the-colony-tx',
+    city: 'The Colony',
     state: 'TX',
-    featuredImage: '/images/cities/colony-tx/hero.webp',
+    featuredImage: '/images/cities/the-colony-tx/hero.webp',
     summary: 'Lively lakeside community with premier off-leash playgrounds and a vibrant pet-friendly social scene.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog Parks in Colony, TX',
+      heroHeading: 'Dog Parks in The Colony, TX',
       heroDescription: 'Experience top-tier off-leash play, scenic lakefront walks, and a welcoming canine community in The Colony.',
       longDescription: [
         "The Colony, vibrant and situated along the shores of Lewisville Lake, provides an exceptional environment for dog owners who enjoy a mix of active play and lakeside relaxation. The city’s canine residents enjoy the [Pawsome Playground Dog Park](https://www.thecolonytx.gov/Facilities/Facility/Details/Pawsome-Playground-Dog-Park-33), a premier off-leash destination featuring dedicated areas for small and large breeds, shaded seating, and water stations. For those who prefer a tranquil leashed stroll, the trails at Stewart Creek Park and the Shoreline Trail offer stunning lake views and miles of natural beauty for daily exercise. The Colony’s commitment to building a pet-friendly community is also evident in its many local businesses and outdoor events, ensuring that local pups are a central part of the city’s active and social lifestyle.",
