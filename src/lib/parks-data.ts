@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { readFile, access } from 'fs/promises';
 import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
@@ -567,13 +567,35 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     const parksByType = getParksByType(allCityParks);
     const stats = getCityStatistics(allCityParks);
 
+    // Resolve featured image with fallback to state image
+    let featuredImage = priorityConfig?.featuredImage || city.featuredImage;
+    if (!featuredImage) {
+      const cityImagePath = `/images/cities/${city.slug}/hero.webp`;
+      const absoluteCityPath = path.join(process.cwd(), 'public', cityImagePath);
+      try {
+        await access(absoluteCityPath);
+        featuredImage = cityImagePath;
+      } catch {
+        // City image doesn't exist, try state fallback
+        const stateSlug = normalizeState(city.state).toLowerCase().replace(/\s+/g, '-');
+        const stateImagePath = `/images/states/${stateSlug}/hero.webp`;
+        const absoluteStatePath = path.join(process.cwd(), 'public', stateImagePath);
+        try {
+          await access(absoluteStatePath);
+          featuredImage = stateImagePath;
+        } catch {
+          // Fallback handled in UI or use default
+          featuredImage = cityImagePath; // Keep original behavior as final fallback, or null
+        }
+      }
+    }
+
     const hydratedCity: CityData = {
       ...city,
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
       parkCount: allCityParks.length,
-      // Merge featured image from priority config if available, or fall back to standard path
-      featuredImage: priorityConfig?.featuredImage || city.featuredImage || `/images/cities/${city.slug}/hero.webp`,
+      featuredImage: featuredImage,
     };
 
     const nearbyCities = getNearbyCities(allParks, city.name, city.state);
