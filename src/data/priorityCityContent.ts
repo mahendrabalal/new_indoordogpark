@@ -5745,6 +5745,22 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'southlake-tx',
+    city: 'Southlake',
+    state: 'TX',
+    featuredImage: '/images/cities/southlake-tx/hero.webp',
+    summary: 'Upscale suburban charm and premier off-leash play at the heart of the Metroplex.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Southlake, TX',
+      heroDescription: 'Experience the premium parks and dog-friendly lifestyle of Southlake with your canine companion.',
+      longDescription: [
+        "Southlake offers a sophisticated and welcoming environment for dog owners, blending upscale suburban living with an exceptional commitment to public green spaces. The crown jewel of the city’s pet-friendly amenities is [Boo Boo's Buddies Dog Park](https://www.visitsouthlaketexas.com/221/Bob-Jones-Park), a premier 2.5-acre off-leash facility located within the expansive Bob Jones Park. This well-maintained park features separate areas for large and small breeds, providing a safe and social environment amidst mature shade trees and modern facilities. Beyond the dog park, leashed explorers can enjoy miles of scenic walking trails that wind through the natural beauty of the area, making Southlake a top choice for pet parents who value high-quality recreation and a strong sense of community.",
+        "Responsible ownership in Southlake is guided by municipal ordinances that prioritize animal welfare and community safety. All dogs must be restrained by a leash of adequate strength when in public parks and squares, with the exception of the designated off-leash zones at Bob Jones Park. Licensing is a key requirement for all resident dogs, ensuring that the local pet population remains current on essential rabies vaccinations and can be easily identified if they stray. For pet parents looking to stay up-to-date on the best local amenities, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer tailored insights into Southlake’s pet-friendly shops and seasonal events. By participating in local park stewardship and adhering to waste removal laws, Southlake residents maintain the pristine beauty and inclusive spirit that define this vibrant community."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
