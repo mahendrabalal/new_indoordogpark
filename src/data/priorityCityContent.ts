@@ -5761,6 +5761,1046 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'allen-tx',
+    city: 'Allen',
+    state: 'TX',
+    featuredImage: '/images/cities/allen-tx/hero.webp',
+    summary: 'Premier North Texas destination with legendary off-leash parks and dog-friendly brewery culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Allen, TX',
+      heroDescription: 'Discover upscale off-leash play, extensive trail networks, and iconic dog-friendly dining in Allen.',
+      longDescription: [
+        "Allen, Texas, has established itself as a premier destination for dog owners in the North Texas region, offering an exceptional blend of upscale amenities and expansive outdoor spaces. The city’s canine culture is anchored by the [Bark Yard Dog Park](https://www.cityofallen.org/facilities/facility/details/the-bark-yard-167), a massive 4.75-acre facility featuring dedicated zones for large and small breeds, complete with lighting and a rotating paddock system to ensure pristine turf year-round. For those who enjoy social play with a side of dining, [MUTTS Canine Cantina](https://muttscantina.com/allen/) provides a unique off-leash bar and restaurant experience. Beyond the dedicated parks, leashed explorers can navigate over 80 miles of hike and bike trails that connect major green spaces like Celebration Park, making Allen a top-tier choice for families who prioritize an active and inclusive pet-friendly lifestyle.",
+        "Responsible pet parents in Allen benefit from a well-structured municipal framework that ensures community safety and animal welfare. The city requires all dogs to be licensed and wear current rabies vaccination tags, which supports local [Animal Services](https://www.allenpolice.org/168/Animal-Services) and helps reunite lost pets with their owners. Allen enforces a mandatory leash law in all public spaces outside of designated off-leash zones, and owners are legally responsible for the immediate removal of pet waste to preserve the beauty of the South Collin County landscape. For those looking to deepen their connection with the local pet scene, our [Texas state updates](https://www.indoordogpark.org/states/texas) offer insights into the best local boarding options and seasonal events. By participating in local stewardship and adhering to these standards, Allen residents foster a vibrant and respectful pet culture."
+      ],
+    },
+  },
+  {
+    slug: 'balch-springs-tx',
+    city: 'Balch Springs',
+    state: 'TX',
+    featuredImage: '/images/cities/balch-springs-tx/hero.webp',
+    summary: 'Suburban ease with convenient access to regional dog parks and neighborhood green spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Balch Springs, TX',
+      heroDescription: 'Explore the neighborhood charm and community-focused pet amenities of Balch Springs.',
+      longDescription: [
+        "Balch Springs offers a peaceful suburban environment for dog owners, characterized by its neighborhood-focused parks and easy access to the broader Dallas-Fort Worth pet infrastructure. While the city maintains several local green spaces suitable for leashed strolls, residents often take advantage of nearby regional facilities such as the [Leash Free Zone at Town East Park](https://www.cityofmesquite.com/Facilities/Facility/Details/Town-East-Park-78) in neighboring Mesquite for high-energy socialization. The community values its active residential character, and many local pet parents utilize private, fully fenced options like those found via [Sniffspot](https://www.sniffspot.com/) for personalized training and play sessions. This blend of local tranquility and regional convenience ensures that Balch Springs pups can enjoy a variety of physical and mental enrichment opportunities within a short drive of their front door.",
+        "Navigating the responsibilities of pet ownership in Balch Springs is supported by municipal codes that prioritize public health and the safety of all animals. The city requires that all dogs be confined to their owner's property or restrained by a leash when in public spaces, and households are limited to a maximum of five pets to ensure adequate care and space. Licensing is mandatory for all dogs over four months old with the [Balch Springs Animal Shelter](https://www.balchspringstx.gov/155/Animal-Shelter), and current rabies vaccinations are a prerequisite for maintaining a valid tag. By following local waste removal ordinances and participating in community pet advocacy, Balch Springs residents help maintain a safe and welcoming atmosphere. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice."
+      ],
+    },
+  },
+  {
+    slug: 'bedford-tx',
+    city: 'Bedford',
+    state: 'TX',
+    featuredImage: '/images/cities/bedford-tx/hero.webp',
+    summary: 'Community-centric play with dedicated agility zones and well-maintained off-leash facilities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bedford, TX',
+      heroDescription: 'Discover the dedicated off-leash parks and active canine community in the heart of the Mid-Cities.',
+      longDescription: [
+        "Bedford provides a welcoming and active environment for dog owners, situated perfectly in the heart of the HEB area. The city’s pet culture is centered around the well-regarded [Bedford Bark Park](https://bedfordtx.gov/facilities/facility/details/barkpark-20), a fully fenced facility that offers a range of amenities including agility equipment, a dedicated dog wash station, and separate areas for different breed sizes. For those who enjoy a more tranquil experience, leashed explorers can frequent local favorites like Meadow Park, where quiet paths and open green spaces provide a perfect backdrop for daily exercise. The city’s central location in the Mid-Cities ensures that pet parents have convenient access to a variety of specialty pet boutiques and veterinary services, making it a highly practical and enjoyable home for those with four-legged family members.",
+        "The health and safety of Bedford’s canine population are maintained through responsible municipal oversight and community adherence to animal welfare standards. All dogs over four months of age are required to be licensed with the city, ensuring that vaccinations are kept current and pets can be easily identified if they stray. Bedford enforces a mandatory leash law in all public squares and parks outside of the designated Bark Park, and owners are encouraged to follow the \"scoop\" rule to keep public spaces clean for all visitors. For residents looking to explore more of what the region has to offer, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice on local pet-friendly businesses and seasonal safety tips. By participating in local stewardship and respecting shared spaces, Bedford dog owners help preserve the inclusive community spirit and high quality of life that define this vibrant city."
+      ],
+    },
+  },
+  {
+    slug: 'boerne-tx',
+    city: 'Boerne',
+    state: 'TX',
+    featuredImage: '/images/cities/boerne-tx/hero.webp',
+    summary: 'Hill Country paradise for dogs with waterfront play, historic charm, and extensive nature preserves.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Boerne, TX',
+      heroDescription: 'Experience the rugged beauty and vibrant dog-friendly atmosphere of the Texas Hill Country in Boerne.',
+      longDescription: [
+        "Boerne earned its reputation as a Hill Country paradise for dogs, offering an unparalleled blend of natural beauty and historic charm. The city’s canine residents enjoy diverse recreation options, from the dedicated leash-free zones and swimming access at [Boerne City Lake Park](https://www.ci.boerne.tx.us/169/Boerne-City-Lake-Park) to the expansive trails of the [Joshua Springs Park and Preserve](https://www.kendallcountyparks.org/joshua-springs). Boerne’s remarkably dog-friendly downtown, along the \"Hill Country Mile,\" features numerous shop owners who welcome four-legged visitors and several breweries like The Dodging Duck Brewhaus that offer pet-friendly patio seating. This deep integration of pets into everyday life, combined with the pristine landscapes of the Cibolo Nature Center, makes Boerne a top-tier destination for those who want their dogs to participate in every aspect of their active lifestyle.",
+        "Responsible ownership in Boerne is prioritized through local ordinances that ensure a safe environment for both pets and the community. Dogs must be kept on a leash in public spaces outside of designated off-leash areas, a measure that protects local wildlife and ensures a comfortable experience for all visitors. The city requires all dogs to be licensed, which supports [Animal Services](https://www.ci.boerne.tx.us/155/Animal-Shelter) and ensures that the local pet population remains current on essential rabies vaccinations. During the warm Texas summers, pet parents can find valuable insights into heat safety and local hydration spots through our [Texas state guides](https://www.indoordogpark.org/states/texas). By following municipal waste removal laws and participating in the preservation of local parks, Boerne residents help maintain the rugged beauty and welcoming spirit that characterizes this unique and growing Hill Country community."
+      ],
+    },
+  },
+  {
+    slug: 'bulverde-tx',
+    city: 'Bulverde',
+    state: 'TX',
+    featuredImage: '/images/cities/bulverde-tx/hero.webp',
+    summary: 'Gateway to the Hill Country with sprawling trails and a deep respect for outdoor pet activities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bulverde, TX',
+      heroDescription: 'Discover the expansive trails and community-focused dog life in the tranquil setting of Bulverde.',
+      longDescription: [
+        "Bulverde, often called the \"Front Porch of the Hill Country,\" provides a serene and spacious environment for dog owners who value proximity to nature. The city’s pet-friendly spirit is most visible at the [Bulverde Community Park](https://bulverdetx.gov/Facilities/Facility/Details/Bulverde-Community-Park-1), where leashed pups can explore 13 acres of walking trails and open fields perfect for morning exercise. While the city itself enjoys a quiet, residential character, pet parents often utilize the vast regional preserves and nearby off-leash facilities in the Comal County area for variety. The community’s commitment to preserving its rural charm ensures that local dogs have ample opportunities for enrichment in a peaceful, low-traffic setting, making Bulverde an ideal retreat for those seeking a slower pace of life with their canine companions.",
+        "Navigating pet ownership in Bulverde is guided by codes that emphasize animal welfare and responsible control in public spaces. The city enforces strict ordinances against unattended tethering to ensure the safety of pets, and owners are required to provide adequate food, water, and shelter at all times. While dogs are welcome in local parks, they must remain under the physical control of their owners, and current rabies vaccinations are a critical requirement for all local animals to protect community health. Residents can stay informed about the best regional pet services and seasonal guidelines through our [Texas state updates](https://www.indoordogpark.org/states/texas), which offer tailored advice for navigating the central Texas climate. By adhering to these local standards and participating in environmental stewardship, Bulverde pet parents help foster a supportive and vibrant culture that honors the area's natural heritage."
+      ],
+    },
+  },
+  {
+    slug: 'burleson-tx',
+    city: 'Burleson',
+    state: 'TX',
+    featuredImage: '/images/cities/burleson-tx/hero.webp',
+    summary: 'Family-friendly suburban living with well-equipped off-leash areas and dog wash stations.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Burleson, TX',
+      heroDescription: 'Discover the social off-leash play, agility zones, and community-focused pet amenities in Burleson.',
+      longDescription: [
+        "Burleson offers a vibrant and family-friendly environment for dog owners, characterized by its commitment to high-quality public recreation. The city’s canine residents enjoy the [Burleson Bark Park](https://www.burlesontx.com/2091/Bark-Park), a 0.91-acre facility that features separate paddocks for large and small breeds, agility equipment, and a dedicated dog wash station. The large dog area operates on a rotating weekly schedule to maintain lush turf, ensuring a premium experience for high-energy play. For those who enjoy leashed exploration, Bailey Lake Park provides scenic walking and jogging trails surrounding a tranquil pond and creek. Burleson’s community-driven spirit is also reflected in its numerous pet-friendly restaurants, where local favorites like Old Texas Brewing Co. welcome four-legged visitors on their outdoor patios.",
+        "The health and safety of Burleson’s pet population are managed through ordinances that emphasize animal welfare and public safety. Dogs are generally required to be restrained when on public trails or in parks like Chisenhall Fields, and the city enforces strict rules at the Bark Park to ensure a respectful environment for all visitors. While Texas does not have a statewide leash law, Burleson’s municipal codes require pets to be under the hand-held control of a person at all times when off their owner's property. Pet parents can stay informed about the best local pet services and seasonal care tips through our [Texas state guides](https://www.indoordogpark.org/states/texas). By adhering to these local standards and participating in park stewardship, Burleson residents maintain the clean and welcoming atmosphere that defines this South Metroplex community."
+      ],
+    },
+  },
+  {
+    slug: 'canutillo-tx',
+    city: 'Canutillo',
+    state: 'TX',
+    featuredImage: '/images/cities/canutillo-tx/hero.webp',
+    summary: 'Rugged desert beauty with expansive private trails and aquatic play near the Rio Grande.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Canutillo, TX',
+      heroDescription: 'Experience the unique desert landscapes and scenic riverfront trails of Canutillo with your pup.',
+      longDescription: [
+        "Canutillo, situated in the rugged and scenic Upper Valley of the El Paso region, offers a unique high-desert environment for dog owners who enjoy outdoor adventure. While the community itself is known for its peaceful, rural character, pet parents benefit from proximity to some of the region's best canine amenities, including the [Dog Park at Westside Community Park](https://www.elpasotexas.gov/parks/) in nearby El Paso. For a truly unique experience, many local residents utilize private [Sniffspot](https://www.sniffspot.com/) locations that offer expansive fenced trails and even swimming options, perfect for cooling off during the intense West Texas summers. The area’s location along the Rio Grande provides a stunning backdrop for morning leashed walks, where dogs can explore the diverse sights and smells of the riverfront ecology.",
+        "Navigating pet ownership in the Canutillo area is guided by regional ordinances that prioritize animal health and community safety. While the community is unincorporated, it generally follows El Paso County guidelines which emphasize responsible restraint and mandatory rabies vaccinations for all dogs over four months of age. Owners are encouraged to keep their pets on a leash in all public spaces to protect local wildlife and ensure a safe experience for other families. During the extreme heat of the desert summer, pet parents can find valuable insights into hydration and paw protection through our [Texas state updates](https://www.indoordogpark.org/states/texas). By following \"scoop\" laws and respecting the delicate desert environment, Canutillo residents maintain the pristine beauty and welcoming spirit that characterizes this historic border community."
+      ],
+    },
+  },
+  {
+    slug: 'canyon-tx',
+    city: 'Canyon',
+    state: 'TX',
+    featuredImage: '/images/cities/canyon-tx/hero.webp',
+    summary: 'Gateway to Palo Duro Canyon with historic Panhandle charm and expansive high-plains exploration.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Canyon, TX',
+      heroDescription: 'Discover the rugged beauty of the Texas Panhandle and proximity to world-class canyon trails in Canyon.',
+      longDescription: [
+        "Canyon, Texas, serves as a stunning gateway to the \"Grand Canyon of Texas,\" offering dog owners a unique high-plains environment defined by its rugged beauty and historic Panhandle charm. While the city itself values its quiet, walkable neighborhoods, the true highlight for local canine adventurers is the proximity to [Palo Duro Canyon State Park](https://tpwd.texas.gov/state-parks/palo-duro-canyon), where miles of leashed trails wind through the iconic red rock formations. Within city limits, residents enjoy the peaceful atmosphere of community parks where leashed strolls are a staple of daily life. Canyon’s integration of small-town hospitality with world-class natural preserves ensures that local pups have unparalleled opportunities for exploration and nature immersion in one of the state's most visually striking regions.",
+        "The safety and health of Canyon’s dog population are supported by municipal ordinances that emphasize responsible control and animal welfare. The city requires all dogs over three months of age to be vaccinated against rabies and enforces a strict \"running-at-large\" ordinance, requiring pets to be securely confined to their owner's property or restrained by a handheld leash in public spaces. These measures protect both park visitors and the diverse local wildlife that calls the Panhandle home. Pet parents can stay connected to the wider regional pet scene through resources like our [Texas state updates](https://www.indoordogpark.org/states/texas), which highlight the best local spots for veterinary care and boarding. By participating in local stewardship and following waste removal laws, Canyon residents help maintain the pristine natural environment and welcoming atmosphere that define this high-plains community."
+      ],
+    },
+  },
+  {
+    slug: 'carrollton-tx',
+    city: 'Carrollton',
+    state: 'TX',
+    featuredImage: '/images/cities/carrollton-tx/hero.webp',
+    summary: 'Award-winning suburban living with premier off-leash parks and a highly active pet community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Carrollton, TX',
+      heroDescription: 'Experience top-tier off-leash facilities and extensive community trails in the pet-friendly hub of Carrollton.',
+      longDescription: [
+        "Carrollton is widely recognized as one of the most pet-friendly cities in the North Texas region, offering an exceptional infrastructure for dog owners across its diverse neighborhoods. The city’s dedication to canine recreation is anchored by two premier off-leash facilities: [McInnish Dog Park](https://www.cityofcarrollton.com/departments/parks-recreation/parks-and-facilities/dog-parks) and [Rosemeade Dog Park](https://www.cityofcarrollton.com/departments/parks-recreation/parks-and-facilities/dog-parks). These well-maintained parks feature separate areas for small and large breeds, providing a safe and social environment for high-energy play. For those who enjoy a more tranquil experience, leashed explorers can frequent local favorites like Meadow Park, where quiet paths and open green spaces provide a perfect backdrop for daily exercise. The city’s extensive trail system connects numerous community parks, offering miles of paved and shaded paths. The city’s proactive approach to pet amenities ensures that local pups have diverse opportunities for daily enrichment and socialization in a supportive and active community setting.",
+        "Navigating the responsibilities of pet ownership in Carrollton is guided by a robust framework of municipal ordinances that prioritize animal health and public safety. The city enforces specific limits on the number of pets per household to ensure adequate care and mandates that all dogs be licensed annually with proof of current rabies vaccination. Carrollton’s \"animal-at-large\" ordinances require pets to be securely confined or restrained by a leash in all public spaces outside of designated off-leash zones, with significant focus on the immediate removal of pet waste. Pet parents can stay informed about the best local pet-friendly businesses and seasonal events through our [Texas state updates](https://www.indoordogpark.org/states/texas). By following these local standards and participating in park stewardship, Carrollton residents maintain the exceptional quality of life and vibrant pet culture that makes this city a top choice for dog lovers."
+      ],
+    },
+  },
+  {
+    slug: 'cedar-hill-tx',
+    city: 'Cedar Hill',
+    state: 'TX',
+    featuredImage: '/images/cities/cedar-hill-tx/hero.webp',
+    summary: 'Nature-focused recreation with premier off-leash facilities and stunning Hill Country-style preserves.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cedar Hill, TX',
+      heroDescription: 'Discover massive off-leash parks, dedicated dog ponds, and scenic state park trails in Cedar Hill.',
+      longDescription: [
+        "Cedar Hill offers a unique nature-focused environment for dog owners, characterized by its dramatic elevation changes and lush preserves that mirror the Texas Hill Country. The city’s premier destination for canine socialization is the [Cedar Bark Park](https://www.cedarparktexas.gov/Facilities/Facility/Details/Cedar-Bark-Park-20) located within Veterans Memorial Park, a massive 5-acre facility that features a dedicated dog pond, agility equipment, and multiple fenced paddocks. For those who enjoy rugged leashed adventures, [Cedar Hill State Park](https://tpwd.texas.gov/state-parks/cedar-hill) provides miles of trails through the rolling hills and limestone bluffs overlooking Joe Pool Lake. This combination of top-tier off-leash amenities and expansive state park preserves makes Cedar Hill a premier choice for pet parents who value high-quality outdoor enrichment and a deep connection to the local ecosystem.",
+        "Responsible pet ownership in Cedar Hill is supported by municipal ordinances that ensure a safe environment for both pets and the community. All dogs over four months of age are required to be licensed and vaccinated against rabies, which supports local animal control efforts and ensures overall population health. The city enforces a mandatory leash law in all public spaces, requiring that pets remain under the control of a person at all times, with strict requirements for waste removal to protect the pristine beauty of local parks. Pet parents can stay informed about the best regional pet services and seasonal guidelines through our [Texas state updates](https://www.indoordogpark.org/states/texas), which offer tailored advice for navigating the dynamic North Texas climate. By adhering to these local standards and participating in environmental stewardship, Cedar Hill residents help foster a supportive and vibrant pet culture."
+      ],
+    },
+  },
+  {
+    slug: 'cedar-park-tx',
+    city: 'Cedar Park',
+    state: 'TX',
+    featuredImage: '/images/cities/cedar-park-tx/hero.webp',
+    summary: 'Active suburban paradise with premier off-leash facilities, dog ponds, and brewery-friendly culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cedar Park, TX',
+      heroDescription: 'Experience exceptional off-leash play, scenic nature trails, and a vibrant dog-friendly social scene in Cedar Park.',
+      longDescription: [
+        "Cedar Park has established itself as one of the most dog-friendly cities in the Austin metro area, offering an incredible variety of recreation options for active pups and their owners. The city’s pet culture is anchored by the [Cedar Bark Park](https://www.cedarparktexas.gov/Facilities/Facility/Details/Cedar-Bark-Park-20), a sprawling 5-acre destination featuring a dedicated dog swim pond, separate zones for large and small breeds, and well-maintained agility equipment. For those who enjoy a mix of social time and play, the [Dog House Drinkery](https://www.doghousedrinkery.com/) provides a unique venue where pet parents can relax with a drink while their dogs enjoy fenced play areas. Beyond the dedicated parks, leashed explorers can navigate the trails at Brushy Creek Regional Trail or enjoy the pet-friendly patios of the city’s many local breweries, making Cedar Park a top-tier choice for families who prioritize an inclusive and active pet lifestyle.",
+        "The health and safety of Cedar Park’s canine population are maintained through responsible municipal oversight and community adherence to animal welfare standards. The city requires all dogs to be licensed and wear current rabies vaccination tags, which helps support [Pet Services](https://www.cedarparktexas.gov/government/animal-control) and ensure community-wide health. Cedar Park enforces a mandatory leash law in all public spaces outside of designated off-leash zones, and owners are legally responsible for the immediate removal of pet waste to preserve the beauty of the Williamson County landscape. For residents looking to stay informed about the best local pet-friendly businesses and seasonal care tips, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and respecting shared spaces, Cedar Park dog owners help maintain the vibrant beauty and inclusive community spirit that defines life in the northern suburbs."
+      ],
+    },
+  },
+  {
+    slug: 'colleyville-tx',
+    city: 'Colleyville',
+    state: 'TX',
+    featuredImage: '/images/cities/colleyville-tx/hero.webp',
+    summary: 'Upscale suburban charm with meticulously maintained parks and a commitment to responsible pet ownership.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Colleyville, TX',
+      heroDescription: 'Discover the tranquil parklands and dedicated community spaces of Colleyville with your canine companion.',
+      longDescription: [
+        "Colleyville offers a sophisticated and tranquil environment for dog owners, characterized by its meticulously maintained public parks and a deep commitment to green space preservation. While the city maintains numerous local parks where leashed dogs are a common sight, many pet parents also utilize the extensive regional trail network, including the Cotton Belt Trail, which provides miles of scenic paths for daily exercise. For high-energy socialization, residents enjoy proximity to some of the best off-leash facilities in the Metroplex, such as the [Bark Park at Bear Creek](https://www.grapevinetexas.gov/Facilities/Facility/Details/Bark-Park-at-Bear-Creek-Park-110) in neighboring Grapevine. Colleyville’s blend of upscale residential charm and strategic access to regional pet amenities ensure that local pups have ample opportunities for enrichment in a peaceful and supportive community setting.",
+        "Maintaining a safe and respectful pet culture in Colleyville is guided by municipal codes that prioritize responsible control and animal welfare. The city requires all dogs to be licensed annually with proof of current rabies vaccination, and pets must be kept on a leash no longer than six feet when in public parks, sidewalks, and streets. Colleyville also enforces a \"pooper scooper\" ordinance, requiring owners to properly dispose of pet waste on both public and private property to ensure a clean environment for all residents. Pet parents can stay connected to the wider regional pet scene through resources like our [Texas state guides](https://www.indoordogpark.org/states/texas), which highlight local grooming and veterinary services. By participating in local stewardship and adhering to these standards, Colleyville residents maintain the pristine beauty and welcoming atmosphere that define this prestigious North Texas community."
+      ],
+    },
+  },
+  {
+    slug: 'colony-tx',
+    city: 'Colony',
+    state: 'TX',
+    featuredImage: '/images/cities/colony-tx/hero.webp',
+    summary: 'Lively lakeside community with premier off-leash playgrounds and a vibrant pet-friendly social scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Colony, TX',
+      heroDescription: 'Experience top-tier off-leash play, scenic lakefront walks, and a welcoming canine community in The Colony.',
+      longDescription: [
+        "The Colony, vibrant and situated along the shores of Lewisville Lake, provides an exceptional environment for dog owners who enjoy a mix of active play and lakeside relaxation. The city’s canine residents enjoy the [Pawsome Playground Dog Park](https://www.thecolonytx.gov/Facilities/Facility/Details/Pawsome-Playground-Dog-Park-33), a premier off-leash destination featuring dedicated areas for small and large breeds, shaded seating, and water stations. For those who prefer a tranquil leashed stroll, the trails at Stewart Creek Park and the Shoreline Trail offer stunning lake views and miles of natural beauty for daily exercise. The Colony’s commitment to building a pet-friendly community is also evident in its many local businesses and outdoor events, ensuring that local pups are a central part of the city’s active and social lifestyle.",
+        "The safety and health of The Colony’s pet population are managed through ordinances that emphasize animal welfare and responsible public control. The city requires that all dogs in public areas be restrained by a leash no longer than six feet or be in a primary carrier to ensure a respectful experience for all visitors. Pet owners are mandated to provide adequate food, water, and shelter for their animals, with strict regulations against confinement in conditions that could endanger their health. Households are also limited to a total of six adult pets to ensure proper care and space. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By following local waste removal laws and participating in community pet advocacy, residents of The Colony help maintain the vibrant beauty and inclusive spirit that makes this city a favored home for dog lovers."
+      ],
+    },
+  },
+  {
+    slug: 'coppell-tx',
+    city: 'Coppell',
+    state: 'TX',
+    featuredImage: '/images/cities/coppell-tx/hero.webp',
+    summary: 'Community-driven suburban charm with dedicated off-leash parks and a highly regulated pet environment.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Coppell, TX',
+      heroDescription: 'Discover well-maintained off-leash facilities, scenic neighborhood trails, and a commitment to animal welfare in Coppell.',
+      longDescription: [
+        "Coppell offers a highly organized and community-focused environment for dog owners, characterized by its dedication to maintaining clean and safe public spaces. The city’s pet culture is centered around the [Waggin' Tails Dog Park](https://www.coppelltx.gov/Facilities/Facility/Details/Waggin-Tails-Dog-Park-15), an enclosed off-leash facility where well-behaved dogs can socialize and play freely. Beyond the dog park, Coppell’s network of neighborhood trails and community parks, such as Andrew Brown Park, provides miles of paved and shaded paths perfect for morning leashed exercise. The city’s residential character and focus on family-friendly amenities ensure that local pet parents have convenient access to high-quality outdoor enrichment for their dogs, making Coppell a top choice for those seeking a predictable and supportive environment for their four-legged family members.",
+        "Maintaining a safe and inclusive pet atmosphere in Coppell is supported by municipal ordinances that emphasize responsible control and health. All dogs over four months old are required to be registered annually with the city and must wear both a city tag and current rabies vaccination tag. Coppell enforces a strict leash law in all public spaces, and owners are legally obligated to follow the \"pooper scooper\" ordinance to keep public spaces clean. To ensure adequate care and space, the city limits households to a maximum of four adult animals. For pet parents wanting to stay up-to-date on the best local amenities, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights into nearby training and boarding services. By participating in local stewardship and adhering to waste removal laws, Coppell residents help maintain the vibrant beauty and high quality of life that define this North Texas community."
+      ],
+    },
+  },
+  {
+    slug: 'copperas-cove-tx',
+    city: 'Copperas Cove',
+    state: 'TX',
+    featuredImage: '/images/cities/copperas-cove-tx/hero.webp',
+    summary: 'Rugged Central Texas terrain with dedicated nature preserves and established off-leash zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Copperas Cove, TX',
+      heroDescription: 'Explore the scenic hills, dedicated dog park zones, and historic trails of Copperas Cove.',
+      longDescription: [
+        "Copperas Cove, nestled in the scenic Five Hills region of Central Texas, offers a rugged and welcoming landscape for dog owners. The community's pet culture is anchored by dedicated off-leash facilities like the Copperas Cove Dog Park, which provides fenced-in safety for socialization and play. For those who prefer leashed exploration in more natural settings, the [Ogletree Gap Preserve](https://www.copperascovetx.gov/parks/ogletree_gap_park/) offers expansive walking trails and open fields where pups can enjoy the sights and smells of a 218-acre nature sanctuary. The area's focus on high-quality public recreation ensures that local dogs have ample space for both structured training and spontaneous outdoor adventure.",
+        "Responsible pet ownership in Copperas Cove is supported by municipal ordinances that prioritize animal safety and community health. All dogs over four months of age must be vaccinated against rabies and licensed with the city, a process that ensures pets can be quickly reunited with their families if lost. The city enforces a mandatory leash law when pets are outside their homes or designated off-leash areas, and owners are legally responsible for the immediate removal of pet waste. For residents look to stay informed about local pet services, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal updates. By participating in local stewardship and respecting shared spaces, Copperas Cove dog owners maintain the inclusive spirit that characterises this historic Central Texas community."
+      ],
+    },
+  },
+  {
+    slug: 'del-valle-tx',
+    city: 'Del Valle',
+    state: 'TX',
+    featuredImage: '/images/cities/del-valle-tx/hero.webp',
+    summary: 'Expansive prairie landscape near the Colorado River with a deep respect for outdoor pet activity.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Del Valle, TX',
+      heroDescription: 'Experience the open spaces, scenic riverfront proximity, and growing pet community of Del Valle.',
+      longDescription: [
+        "Del Valle offers a spacious and tranquil environment for dog owners, situated at the southeastern edge of the vibrant Austin metro area. The community benefits from its proximity to massive regional preserves and the Colorado River, where leashed explorers can enjoy a variety of high-plains and riverside environments. While the local landscape is characterized by its peaceful residential character, many pet parents also utilize the diverse off-leash facilities in the nearby [Austin park system](https://www.austintexas.gov/department/parks-and-recreation), allowing for high-energy socialization within a short drive. The area's ongoing development includes an increasing focus on pet-friendly infrastructure, making it a supportive choice for families looking for space to grow with their dogs.",
+        "Maintaining a safe and healthy pet culture in Del Valle is guided by regional laws that emphasize animal welfare and responsible control. Following state and local standards, all dogs must have current rabies vaccinations and be kept under physical restraint when in public spaces, a measure that protects local wildlife and ensures a positive experience for all trail users. Residents can stay informed about the best local pet-friendly businesses and seasonal safety tips through our [Texas state guides](https://www.indoordogpark.org/states/texas), which offer tailored insights into the central Texas climate. By adhering to waste removal laws and participating in community park stewardship, Del Valle residents help preserve the natural beauty and welcoming atmosphere of their unique prairie community."
+      ],
+    },
+  },
+  {
+    slug: 'duncanville-tx',
+    city: 'Duncanville',
+    state: 'TX',
+    featuredImage: '/images/cities/duncanville-tx/hero.webp',
+    summary: 'Cozy suburban community with dedicated off-leash facilities and a high standard for pet care.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Duncanville, TX',
+      heroDescription: 'Discover the well-maintained off-leash parks and tight-knit canine community of Duncanville.',
+      longDescription: [
+        "Duncanville, known as the \"City of Champions,\" provides a championship-level environment for dog owners who value a close-knit and active community. The city's pet-friendly focus is most visible at its designated off-leash facilities, where well-fenced paddocks allow dogs of all sizes to socialize safely and run freely. Beyond the dedicated dog parks, Duncanville's numerous neighborhood parks and shaded walking trails offer a perfect setting for daily leashed exercise and mental enrichment. The city's commitment to maintaining clean and updated park features ensures that local pups have a reliable and enjoyable space to burn energy and bond with their owners on a daily basis.",
+        "Responsible ownership in Duncanville is supported by clear municipal ordinances designed to protect both the pet population and the city's residents. Dogs are required to be licensed annually with the city, a prerequisite that ensures all local pets are up-to-date on essential rabies vaccinations. Duncanville enforces a strict leash law in all public squares and trails, and owners are legally obligated to properly remove and dispose of pet waste to maintain the pristine beauty of the local landscape. For pet parents wanting to stay up-to-date on the best nearby specialty pet services and training, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By respecting these shared guidelines, Duncanville residents maintain the vibrant beauty and inclusive community spirit that characterize this proud North Texas city."
+      ],
+    },
+  },
+  {
+    slug: 'edinburg-tx',
+    city: 'Edinburg',
+    state: 'TX',
+    featuredImage: '/images/cities/edinburg-tx/hero.webp',
+    summary: 'Dynamic Rio Grande Valley hub with premier park facilities and a strong pet advocacy culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Edinburg, TX',
+      heroDescription: 'Experience the tropical beauty and dedicated off-leash playgrounds of Edinburg with your pup.',
+      longDescription: [
+        "Edinburg serves as a vibrant and dog-friendly anchor in the heart of the Rio Grande Valley, providing an exceptional infrastructure for pets and their owners. The city's dedication to canine recreation is highlighted by its multiple dedicated off-leash facilities, including the well-appointed parks at North Park and Municipal Park. Additionally, the [Palm Valley Animal Society’s Andrews Center](https://www.pvastexas.org/) provides a model for community pet engagement, offering public dog parks with separate zones for large and small breeds. This subtropical environment, with its lush vegetation and well-shaded paths, ensures that Edinburg's dogs can enjoy a high quality of life with plenty of opportunities for socialization and physical activity.",
+        "The health and safety of Edinburg's dog population are managed through local ordinances that prioritize animal welfare and community standards. The city requires all dogs to be licensed and wear current rabies vaccination tags, which supports municipal identification efforts and ensures public health. Edinburg enforces mandatory leash laws in all public spaces outside of designated off-leash zones, and owners are expected to follow waste removal laws to keep the valley's parks clean and accessible for all. Pet parents can stay informed about the best regional pet care and seasonal strategies through our [Texas state guides](https://www.indoordogpark.org/states/texas). By participating in local stewardship and respecting these guidelines, Edinburg residents help foster a supportive and respectful pet culture in one of the valley's most active communities."
+      ],
+    },
+  },
+  {
+    slug: 'el-lago-tx',
+    city: 'El Lago',
+    state: 'TX',
+    featuredImage: '/images/cities/el-lago-tx/hero.webp',
+    summary: 'Peaceful waterfront community with scenic coastal trails and a welcoming small-town pet spirit.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in El Lago, TX',
+      heroDescription: 'Discover the tranquil shorelines and community-focused pet amenities of El Lago.',
+      longDescription: [
+        "El Lago, nestled along the shores of Clear Lake in the greater Houston area, offers a tranquil and scenic environment for dog owners. The city's coastal geography provides a stunning backdrop for daily walks, where leashed pups can enjoy the cool breezes and bay views of local neighborhood parks. While the city itself maintains a peaceful and small-town residential feel, pet parents benefit from proximity to some of the finest regional off-leash facilities and trails in the Bay Area. El Lago's commitment to preserving its waterfront charm ensured that local canine residents have access to a variety of low-traffic environments perfect for both relaxation and moderate exercise near the water.",
+        "Responsible pet ownership in El Lago is guided by municipal codes that emphasize community respect and animal welfare. The city requires all dogs to be securely restrained by a leash no longer than six feet when in public parks and sidewalks, ensuring a safe experience for all residents. Annual licensing and current rabies vaccinations are mandatory for all local pets, a measure that supports the city's dedication to animal health and safety. For pet parents wanting to navigate the coastal climate with their dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide tailored seasonal advice and insights into nearby pet-friendly establishments. By adhering to local waste removal ordinances and participating in community stewardship, El Lago residents maintain the pristine beauty and welcoming atmosphere of their unique waterfront community."
+      ],
+    },
+  },
+  {
+    slug: 'euless-tx',
+    city: 'Euless',
+    state: 'TX',
+    featuredImage: '/images/cities/euless-tx/hero.webp',
+    summary: 'Centrally located oasis with premier off-leash parks and a highly active canine community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Euless, TX',
+      heroDescription: 'Experience the dedicated off-leash play, scenic wooded trials, and top-tier amenities of Euless.',
+      longDescription: [
+        "Euless offers an exceptional environment for dog owners, situated in the heart of the Mid-Cities with a strong commitment to public green spaces. The city's pet culture is anchored by the [Dog Park at Villages of Bear Creek Park](https://www.eulesstx.gov/departments/parks-and-community-services/parks-and-facilities/dog-park), an expansive 3-acre off-leash facility featuring separate zones for different breed sizes, multiple dog wash stations, and modern drinking fountains. For those who prefer leashed exploration, the park's network of wooded trails provides a serene escape for daily walks amidst mature shade trees. Euless's strategic location ensures that pet parents have convenient access to a wide variety of specialty pet services, making it a highly practical and enjoyable community for those who consider their dogs part of the family.",
+        "Maintaining a high standard of pet safety and community health in Euless is supported by clear municipal ordinances. The city enforces a mandatory leash law when pets are outside their homes or the designated off-leash zones at Bear Creek, and owners are legally responsible for the immediate removal of pet waste in all public spaces. Current rabies vaccinations are a requirement for all local dogs, ensuring the overall health of the community's canine population. Pet parents can stay informed about the best local pet-friendly businesses and seasonal care tips through our [Texas state guides](https://www.indoordogpark.org/states/texas). By participating in local stewardship and following these standards, Euless residents help preserve the vibrant beauty and inclusive community spirit that define their active North Texas city."
+      ],
+    },
+  },
+  {
+    slug: 'farmers-branch-tx',
+    city: 'Farmers Branch',
+    state: 'TX',
+    featuredImage: '/images/cities/farmers-branch-tx/hero.webp',
+    summary: 'Modern suburban landscape with well-appointed off-leash parks and a focus on neighborly pet activity.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Farmers Branch, TX',
+      heroDescription: 'Discover the well-maintained off-leash parks and extensive trail networks of Farmers Branch.',
+      longDescription: [
+        "Farmers Branch, often called a \"City in a Park,\" provides an outstanding environment for dog owners who enjoy modern amenities and well-maintained green spaces. The city's premier destination for canine socialization is the [Barney Wood Bark Park](https://www.farmersbranchtx.gov/departments/parks-and-recreation/parks-and-trails/barney-wood-bark-park), a 1.44-acre facility that features natural grass play areas and separate enclosures for large and small breeds. Beyond the dedicated dog park, leashed explorers can navigate miles of scenic trails that connect various community parks and residential neighborhoods. Farmers Branch's commitment to high-quality public recreation ensures that local pups have ample opportunities for daily exercise and enrichment in a clean and beautiful suburban setting.",
+        "The safety and welfare of Farmers Branch's pet population are protected through responsible municipal oversight and community adherence to animal welfare standards. All dogs residing in the city are required to have current rabies vaccinations, a prerequisite for use of the public bark park. Farmers Branch enforces a mandatory leash law in all city parks outside of designated off-leash areas, and owners are encouraged to follow the \"scoop\" rule to preserve the integrity of the local landscape for all residents. For those looking to explore more of the region's pet-friendly amenities, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice and seasonal safety tips. By participating in local stewardship and respecting shared spaces, Farmers Branch dog owners help foster a vibrant and inclusive pet culture."
+      ],
+    },
+  },
+  {
+    slug: 'forney-tx',
+    city: 'Forney',
+    state: 'TX',
+    featuredImage: '/images/cities/forney-tx/hero.webp',
+    summary: 'Rapidly growing community with localized off-leash amenities and a strong neighborhood pet bond.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Forney, TX',
+      heroDescription: 'Explore the neighborhood parks and burgeoning pet-friendly amenities of Forney.',
+      longDescription: [
+        "Forney, one of the fastest-growing cities in North Texas, offers a family-focused environment with a rapidly expanding infrastructure for dog owners. The community's pet culture is centered around local meeting spots like [Mulberry Park Dog Park](https://www.forneytx.gov/Facilities/Facility/Details/Mulberry-Park-11), where off-leash areas provide a safe venue for dogs to run and play with their neighbors. Beyond the dedicated facilities, Forney's numerous neighborhood green spaces and community trails offer a perfect setting for daily leashed strolls and socialization. The city's ongoing development includes a growing roster of pet-friendly businesses and services, reflecting the importance of four-legged family members to the residents of this vibrant East Metroplex community.",
+        "Navigating pet ownership in Forney is supported by municipal codes that prioritize responsible control and community safety. An animal is considered \"at large\" if it is not securely confined or held on a handheld leash of sufficient strength to maintain control when in public. The city also regulates unattended tethering to ensure animal welfare and prevent dangerous situations. Current rabies vaccinations are mandatory for all local dogs, and pet parents are encouraged to stay informed about the best local veterinary care through our [Texas state guides](https://www.indoordogpark.org/states/texas). By following waste removal ordinances and participating in community stewardship, Forney residents help maintain the clean and welcoming atmosphere of their growing city, ensuring it remains an ideal place for families and their dogs."
+      ],
+    },
+  },
+  {
+    slug: 'fort-bliss-tx',
+    city: 'Fort Bliss',
+    state: 'TX',
+    featuredImage: '/images/cities/fort-bliss-tx/hero.webp',
+    summary: 'Unique military landscape with community-focused pet amenities and vast high-desert trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Bliss, TX',
+      heroDescription: 'Discover the specialized canine resources and expansive desert exploration opportunities in Fort Bliss.',
+      longDescription: [
+        "Fort Bliss offers a unique environment for service members and their families who share their lives with dogs, combining on-post community resources with access to the vast desert landscapes of the El Paso region. The installation's pet-friendly amenities are designed to support the mobile lifestyle of military families, with various pocket parks and neighborhoods featuring space for daily leashed exercise. Beyond the gate, the high-desert environment provides unparalleled opportunities for rugged exploration on the numerous trails that wind through the Franklin Mountains and surrounding preserves. This unique blend of community support and vast natural beauty ensures that Fort Bliss pups have plenty of opportunities for both physical activity and nature immersion in one of the Army's most expansive installations.",
+        "Pet ownership in the Fort Bliss community and the surrounding El Paso area is guided by an emphasis on both military regulations and local municipal standards. All pets residing on post must be registered with the Veterinary Treatment Facility and maintain current vaccinations to ensure the health of the community. In public areas, dogs must remain under the direct physical control of a capable handler, and responsible waste removal is mandatory in all shared spaces. During the extreme heat of the West Texas summers, pet parents can find essential tips on hydration and protective care through our [Texas state updates](https://www.indoordogpark.org/states/texas). By adhering to these local standards and participating in installation pet community programs, Fort Bliss families maintain a safe and supportive environment for all their four-legged members."
+      ],
+    },
+  },
+  {
+    slug: 'friendswood-tx',
+    city: 'Friendswood',
+    state: 'TX',
+    featuredImage: '/images/cities/friendswood-tx/hero.webp',
+    summary: 'Highly regulated and well-maintained suburban community with a focus on safe pet socializing.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Friendswood, TX',
+      heroDescription: 'Experience the dedicated off-leash facilities and scenic community trails of Friendswood.',
+      longDescription: [
+        "Friendswood provides a meticulously maintained and welcoming environment for dog owners, known for its deep sense of community and high standards for public spaces. The city's canine residents enjoy the [Friendswood PetSafe Dog Park](https://www.ci.friendswood.tx.us/facilities/facility/details/friendswoodpetsafedogpark-14), a dedicated facility that prioritizes safety with requirements for city registration and current vaccinations for all users. While the city maintains several leashed parks where dogs are common, certain facilities like Renwick Park are reserved for sports to ensure a balanced use of community resources. This mix of dedicated off-leash zones and tranquil neighborhood trails ensures that local pups have diverse opportunities for enrichment in a supportive and active suburban setting.",
+        "Responsible pet ownership in Friendswood is guided by ordinances that emphasize animal welfare and public safety in shared spaces. All dogs residing in the city must be licensed annually and wear tags that show current rabies vaccination status. Friendswood enforces a mandatory leash law when pets are outside of their home or the designated off-leash park, ensuring a safe experience for all visitors to the city's green spaces. For pet parents wanting to stay up-to-date on the best regional pet-friendly amenities and seasonal strategies, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By following local waste removal laws and participating in community stewardship, Friendswood dog owners help maintain the pristine beauty and small-town spirit that define this vibrant city."
+      ],
+    },
+  },
+  {
+    slug: 'frisco-tx',
+    city: 'Frisco',
+    state: 'TX',
+    featuredImage: '/images/cities/frisco-tx/hero.webp',
+    summary: 'Elite suburban amenities with massive off-leash parks and a highly active pet-involved culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Frisco, TX',
+      heroDescription: 'Discover the premier off-leash facilities, water-play stations, and extensive trails of Frisco.',
+      longDescription: [
+        "Frisco has earned its reputation as a premier destination for dog owners in North Texas, offering world-class amenities across its expansive park system. The city's pet culture is centered around the [Ruff Range Dog Park](https://www.friscotexas.gov/Facilities/Facility/Details/Ruff-Range-Dog-Park-91) at B.F. Phillips Community Park, a massive facility that features separate areas for large and small breeds, pavilions for shade, and dedicated dog wash stations for easy post-play cleanup. For those who enjoy long-distance exploration, Frisco's network of shaded trails provides miles of paved paths that wind through beautiful city neighborhoods and greenbelts. The city's family-focused character translates into a deeply inclusive pet scene, with many local shops and restaurants welcoming four-legged visitors with open arms.",
+        "Maintaining a safe and premium pet experience in Frisco is supported by municipal ordinances that prioritize animal health and community standards. All dogs and cats residing in the city must be registered annually and maintain current rabies vaccinations. Frisco enforces a mandatory leash law in all public spaces outside of designated off-leash zones, and pets are generally restricted from sensitive areas like athletic fields and playgrounds to ensure a respectful experience for all visitors. Pet parents can stay informed about the best local pet programs and seasonal safety through our [Texas state updates](https://www.indoordogpark.org/states/texas). By participating in local stewardship and adhering to these standards, Frisco residents foster a vibrant and respectful pet culture that matches the city's high quality of life."
+      ],
+    },
+  },
+  {
+    slug: 'garland-tx',
+    city: 'Garland',
+    state: 'TX',
+    featuredImage: '/images/cities/garland-tx/hero.webp',
+    summary: 'Community-centric living with innovative rotating off-leash parks and a large network of local trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Garland, TX',
+      heroDescription: 'Discover the dedicated off-leash spaces, wooded trails, and active canine community of Garland.',
+      longDescription: [
+        "Garland provides a welcoming and active environment for dog owners, characterized by its investment in high-quality outdoor recreation for pets. The city's first dedicated off-leash facility, [Garland Dog Park](https://www.garlandtx.gov/648/Dog-Park), is a massive 3-acre destination that utilize three rotating paddocks to ensure healthy turf for both large and small breeds. This innovative approach to maintenance, combined with the city's extensive trail system through parks like Rowlett Creek Preserve, ensures that local pups have diverse environments for exercise and socialization. Garland's established neighborhoods and numerous community-focused green spaces provide a perfect backdrop for pet parents who value a robust outdoor lifestyle with their dogs.",
+        "Responsible ownership in Garland is supported by municipal guidelines that prioritize animal welfare and community standards. The city requires that all resident dogs be licensed and sterilized as part of its commitment to responsible pet stewardship. In all public areas outside of designated dog parks, pets must be securely restrained by a handheld leash, and owners are legally responsible for the immediate removal of animal waste to preserve the beauty of local parks. Pet parents can stay informed about the best regional pet care and seasonal strategies through our [Texas state guides](https://www.indoordogpark.org/states/texas). By following these local standards and participating in park stewardship, Garland residents help maintain the inclusive spirit and high quality of life that define their community."
+      ],
+    },
+  },
+  {
+    slug: 'grand-prairie-tx',
+    city: 'Grand Prairie',
+    state: 'TX',
+    featuredImage: '/images/cities/grand-prairie-tx/hero.webp',
+    summary: 'Vibrant urban-suburban mix with premier rotating off-leash grounds and scenic lakeside trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Grand Prairie, TX',
+      heroDescription: 'Experience the dedicated off-leash playgrounds, scenic lake views, and active pet culture of Grand Prairie.',
+      longDescription: [
+        "Grand Prairie offers a dynamic and engaging environment for dog owners, blending urban convenience with extensive outdoor recreational opportunities. The city's pet culture is anchored by the [Central Bark Dog Park](https://www.gptx.org/Parks-Recreations/Public-Parks/Central-Bark-Dog-Park), a state-of-the-art facility featuring three exercise areas that rotate to preserve the turf, providing a high-quality experience for both large and small dogs. For those who enjoy waterfront adventures, the trails surrounding Joe Pool Lake and the sprawling green spaces of Lynn Creek Park offer miles of leashed exploration. Grand Prairie's commitment to creating a pet-friendly community is visible in its numerous local businesses and outdoor events, where four-legged residents are always part of the conversation.",
+        "Maintaining a safe and respectful pet atmosphere in Grand Prairie is supported by municipal ordinances that emphasize responsible control and animal welfare. The city enforces a strict \"running-at-large\" ordinance, requiring that all pets be securely confined to their owner's property or restrained by a handheld leash in all other areas of the city. Owners are also legally responsible for following waste removal laws to keep the city's parksystem clean and accessible for everyone. For pet parents wanting to stay up-to-date on the best regional pet-friendly establishments and training, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and adhering to these standards, Grand Prairie dog owners maintain the vibrant beauty and inclusive community spirit that characterize this active city."
+      ],
+    },
+  },
+  {
+    slug: 'grapevine-tx',
+    city: 'Grapevine',
+    state: 'TX',
+    featuredImage: '/images/cities/grapevine-tx/hero.webp',
+    summary: 'Elite lakeside community with water-play dog parks and highly social breed-specific paddocks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Grapevine, TX',
+      heroDescription: 'Discover the premier splash-pad dog parks, scenic wooded trails, and lakefront charm of Grapevine.',
+      longDescription: [
+        "Grapevine is widely recognized as one of the most pet-friendly destinations in the Dallas-Fort Worth Metroplex, offering unique and high-quality amenities for active dogs. The city's canine residents enjoy the [Bark Park at Bear Creek](https://www.grapevinetexas.gov/Facilities/Facility/Details/Bark-Park-at-Bear-Creek-Park-110), a premier facility that features a motion-activated splash pad for aquatic play, an agility course, and dedicated paddocks for various breed sizes. For those who enjoy natural exploration, the city's network of shaded trails and proximity to Grapevine Lake provides miles of scenic leashed walking paths through wooded preserves. Grapevine's historic downtown also welcomes four-legged visitors, with many seasonal festivals and outdoor patios catering specifically to those with pups in tow.",
+        "Responsible pet ownership in Grapevine is supported by a robust framework of municipal codes that ensure animal welfare and public safety. All dogs over six months old must be fully vaccinated and licensed, and the city enforces a mandatory leash law in all generic parks outside of designated off-leash zones. Inside the Bark Park, owners must follow specific rules regarding age and breed temperament to ensure a safe experience for all socializers. For more insights on the best local boarding options and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting these standards, Grapevine dog owners help maintain the vibrant beauty and inclusive community spirit that make this city a favorite for pet parents."
+      ],
+    },
+  },
+  {
+    slug: 'harker-heights-tx',
+    city: 'Harker Heights',
+    state: 'TX',
+    featuredImage: '/images/cities/harker-heights-tx/hero.webp',
+    summary: 'Community-driven military hub with established off-leash areas and scenic family-friendly parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Harker Heights, TX',
+      heroDescription: 'Experience the scenic off-leash playgrounds, quiet neighborhood trials, and welcoming pet culture of Harker Heights.',
+      longDescription: [
+        "Harker Heights offers a vibrant and family-friendly environment for dog owners, situated in the heart of the Central Texas Killeen-Temple metro area. The city's canine residents enjoy dedicated facilities like the [Purser Family Park Dog Park](https://www.harkerheights.gov/index.php/parks-and-recreation/parks), an off-leash area featuring separate sections for large and small breeds. For leashed explorers, the city's neighborhood parks and community trails offer peaceful environments for daily exercise and socialization. The area's proximity to larger military installations ensures a dynamic and diverse pet community where active outdoor life is a standard part of the suburban lifestyle.",
+        "The safety and health of the pet population in Harker Heights are protected through ordinances that emphasize animal welfare and responsible public control. All dogs must have current rabies vaccinations and be securely restrained by a handheld leash whenever they are outside of their home or off-leash areas. Owners are legally responsible for the immediate removal of pet waste in public parks and trails, a measure that helps maintain the city's high standards for clean and safe environments. Residents can find the best local pet services and seasonal guidelines through our [Texas state guides](https://www.indoordogpark.org/states/texas). By following these municipal standards and participating in community stewardship, Harker Heights residents help maintain the welcoming atmosphere and high quality of life that define their unique Central Texas community."
+      ],
+    },
+  },
+  {
+    slug: 'harlingen-tx',
+    city: 'Harlingen',
+    state: 'TX',
+    featuredImage: '/images/cities/harlingen-tx/hero.webp',
+    summary: 'Tropical South Texas charm with premier rotary dog parks and a strong community pet focus.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Harlingen, TX',
+      heroDescription: 'Experience the palm-fringed trails, dedicated off-leash zones, and welcoming pet culture of Harlingen.',
+      longDescription: [
+        "Harlingen, nestled in the tropical heart of the Rio Grande Valley, offers an exceptional environment for dog owners. The city's dedication to canine recreation is anchored by the [Harlingen Rotary Bark Park](https://www.harlingentx.gov/departments/parks_and_recreation/index.php), a well-maintained off-leash facility featuring separate enclosures for various breed sizes and fresh water stations. For those who enjoy nature-focused walks, the trails at Victor Park provide a scenic backdrop for leashed exploration. Harlingen's temperate climate and lush parks make it a year-round haven for pups who thrive in active, outdoor settings.",
+        "Responsible pet ownership in Harlingen is guided by municipal ordinances that emphasize community safety and animal health. All dogs must have current rabies vaccinations and wear city license tags, which supports local animal services in maintaining a safe environment. Harlingen enforces a strict policy against pets \"running-at-large,\" requiring dogs to be securely restrained by a handheld leash when outside of their owner's property or the designated bark park. For the latest tips on navigating the South Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer essential seasonal advice. By adhering to these local standards, Harlingen residents help preserve the vibrant beauty and inclusive spirit of their unique border community."
+      ],
+    },
+  },
+  {
+    slug: 'helotes-tx',
+    city: 'Helotes',
+    state: 'TX',
+    featuredImage: '/images/cities/helotes-tx/hero.webp',
+    summary: 'Historic Hill Country gateway with scenic nature preserves and a tranquil suburban pet lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Helotes, TX',
+      heroDescription: 'Discover the rugged nature trails, dedicated off-leash spaces, and hill country charm of Helotes.',
+      longDescription: [
+        "Helotes, situated at the edge of the breathtaking Texas Hill Country, provides a peaceful and scenic environment for dog owners. The community values its natural beauty, offering leashed explorers access to winding paths such as the Painted Bunting and Barred Owl trails. For those seeking high-energy socialization, the city maintains dedicated off-leash areas where dogs can safely play under owner supervision. Helotes' blend of small-town hospitality and proximity to expansive nature preserves ensures that local canine residents have plenty of space for both mental enrichment and daily physical activity.",
+        "Maintaining a safe and respectful pet atmosphere in Helotes is supported by municipal codes that prioritize animal welfare and responsible control. Dogs must be kept on a leash in all public spaces outside of designated fenced dog parks, and owners are mandated to ensure their pets wear current license and rabies vaccination tags. Helotes also enforces strict waste removal ordinances to protect the pristine environment of its local preserves. For pet parents wanting to stay connected to the best nearby specialty services, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By respecting these shared guidelines, Helotes residents maintain the tranquil beauty and inclusive community spirit that characterize this historic Texas gateway."
+      ],
+    },
+  },
+  {
+    slug: 'hurst-tx',
+    city: 'Hurst',
+    state: 'TX',
+    featuredImage: '/images/cities/hurst-tx/hero.webp',
+    summary: 'Community-focused Mid-Cities living with well-shaded parks and a high standard for responsible pet care.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hurst, TX',
+      heroDescription: 'Explore the shaded walking trails, community parks, and welcoming neighborhood pet scene of Hurst.',
+      longDescription: [
+        "Hurst offers a quiet and family-friendly environment for dog owners, characterized by its beautifully maintained public parks and a strong sense of community. While the city focuses on quality-of-life amenities for all residents, local canine companions benefit from numerous shaded walking paths and open green spaces perfect for daily leashed exercise. Hurst's centralized location in the Tarrant County area also provides pet parents with convenient access to premier regional off-leash facilities and high-end pet services. The city's dedication to maintaining clean and accessible parkland ensures that local pups are a central part of the community's active outdoor lifestyle.",
+        "The safety and health of Hurst's canine population are managed through ordinances that emphasize animal welfare and public safety. It is unlawful to allow dogs to run at large, and the city enforces strict rules regarding unattended tethering to protect animals from the Texas heat. Owners must ensure their pets are vaccinated and properly registered to support local animal control efforts. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By following local waste removal laws and participating in community stewardship, Hurst residents help maintain the vibrant beauty and inclusive spirit that makes this city a favored home for dog lovers."
+      ],
+    },
+  },
+  {
+    slug: 'irving-tx',
+    city: 'Irving',
+    state: 'TX',
+    featuredImage: '/images/cities/irving-tx/hero.webp',
+    summary: 'Modern urban corridor with premier dedicated dog parks and advanced pet registration standards.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Irving, TX',
+      heroDescription: 'Experience the dedicated off-leash playgrounds, extensive urban trails, and active pet culture of Irving.',
+      longDescription: [
+        "Irving has established itself as a highly supportive environment for dog owners, offering a diverse range of recreational opportunities across its urban-suburban landscape. The city's commitment to canine welfare is most visible at its [designated dog parks](https://www.cityofirving.org/3673/Dog-Park), where off-leash zones allow pets to socialize and play in a secure, monitored environment. Beyond the fenced parks, leashed explorers can enjoy the scenic Campion Trail, which offers miles of paved paths along the Trinity River. Irving's intersection of metropolitan convenience and high-quality green space makes it an ideal home for active pups and their owners.",
+        "Responsible ownership in Irving is guided by robust municipal ordinances that prioritize animal safety and community health. All dogs over four months of age are required to be microchipped and registered with the city, a measure that ensures pets can be quickly reunited with their families if they stray. Irving enforces a strict policy against animals being \"at large,\" requiring pets to be under the physical control of a leash at all times in public. For pet parents wanting to stay up-to-date on the best local pet-friendly businesses, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By adhering to these local standards and participating in park stewardship, Irving residents maintain the vibrancy and high quality of life that define their community."
+      ],
+    },
+  },
+  {
+    slug: 'keller-tx',
+    city: 'Keller',
+    state: 'TX',
+    featuredImage: '/images/cities/keller-tx/hero.webp',
+    summary: 'Premium suburban living with elite off-leash facilities and a deep-rooted commitment to pet recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Keller, TX',
+      heroDescription: 'Discover the top-tier agility zones, shaded community parks, and welcoming pet social scene in Keller.',
+      longDescription: [
+        "Keller provides an exceptional environment for dog owners, widely recognized for its high-quality public parks and pet-centric culture. The city's premier destination for canine socialization is [K-9 Pointe](https://www.cityofkeller.com/services/parks-recreation/parks-trails/k-9-pointe-dog-park), a top-tier facility featuring separate areas for large and small breeds, shade pavilions, and dedicated agility equipment. For those who enjoy peaceful leashed strolls, Keller's extensive trail system connects numerous community parks, offering miles of well-maintained and shaded paths. The city's focus on family-friendly amenities ensures that local pet parents have convenient access to high-quality outdoor enrichment for their dogs.",
+        "Maintaining a safe and inclusive pet atmosphere in Keller is supported by ordinances that emphasize responsible control and animal health. Dogs must be leashed when entering and exiting designated off-leash areas, and owners are mandated to ensure their pets wear current vaccination tags at all times. Keller also enforces a \"pooper scooper\" ordinance, requiring the immediate disposal of pet waste on both public and private property to preserve the city's pristine parklands. For residents looking for expert advice on local pet services, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer essential seasonal updates. By participating in local stewardship and respecting shared spaces, Keller residents help foster a supportive and vibrant pet culture."
+      ],
+    },
+  },
+  {
+    slug: 'killeen-tx',
+    city: 'Killeen',
+    state: 'TX',
+    featuredImage: '/images/cities/killeen-tx/hero.webp',
+    summary: 'Active military-hub community with dedicated off-leash playgrounds and a strong standard for pet discipline.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Killeen, TX',
+      heroDescription: 'Experience the expansive off-leash zones, scenic neighborhood parks, and disciplined pet culture of Killeen.',
+      longDescription: [
+        "Killeen offers a dynamic and disciplined environment for dog owners, heavily influenced by its active military community. The city's dedication to canine recreation is anchored by [Mickey's Dog Park](https://www.killeentexas.gov/435/Parks-Recreation), a premier off-leash facility featuring separate play areas for various dog sizes and requirements for current vaccinations. For those who enjoy natural exploration, the city's numerous neighborhood parks provide quiet leashed environments perfect for daily training and exercise. Killeen's diverse population and focus on outdoor activity ensure that local pups have ample opportunities for socialization in a supportive and active setting.",
+        "The safety and welfare of Killeen's pet population are protected through ordinances that prioritize animal health and community standards. Dogs must be on a leash at all times when outside of a fenced yard, and the city enforces mandatory rabies vaccinations and city licensing to support local animal tracking. Killeen also prohibits leashed pets from certain sensitive public areas to ensure a respectful experience for all residents. Pet parents can stay informed about the best local veterinary care and seasonal guidelines through our [Texas state updates](https://www.indoordogpark.org/states/texas). By following these municipal standards and participating in park stewardship, Killeen residents help maintain the welcoming atmosphere and high quality of life that define their Central Texas community."
+      ],
+    },
+  },
+  {
+    slug: 'leander-tx',
+    city: 'Leander',
+    state: 'TX',
+    featuredImage: '/images/cities/leander-tx/hero.webp',
+    summary: 'Rapidly growing family community with unique lakeside dog parks and a strong nature-first pet focus.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Leander, TX',
+      heroDescription: 'Discover the unique lakeside off-leash zones, scenic nature trails, and growing pet community of Leander.',
+      longDescription: [
+        "Leander has become one of the premier destinations for dog owners in the Austin metro area, known for its innovative and nature-focused pet amenities. The city's canine residents enjoy the off-leash facility at [Veterans Memorial Park](https://www.leandertx.gov/parksrec/page/veterans-memorial-park), which uniquely includes a dog spring for swimming and separate play paddocks. For those who prefer leashed exploration, the trails at Lakewood Park offer stunning lake views and miles of natural beauty for daily exercise. Leander's commitment to building a pet-friendly community is evident in its growing roster of outdoor events and local businesses that welcome four-legged family members.",
+        "Maintaining a safe and respectful pet atmosphere in Leander is supported by ordinances that emphasize responsible control and animal health. All dogs must be physically restrained on a leash when outside of a fenced yard, and pets are required to wear current rabies tags to facilitate identification. Leander also mandates the proper disposal of pet waste to protect the environment of its scenic local parks. For pet parents wanting to stay up-to-date on the best regional pet-friendly establishments and boarding, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and respecting shared spaces, Leander residents help foster a vibrant and inclusive pet culture in one of the state's fastest-growing cities."
+      ],
+    },
+  },
+  {
+    slug: 'lewisville-tx',
+    city: 'Lewisville',
+    state: 'TX',
+    featuredImage: '/images/cities/lewisville-tx/hero.webp',
+    summary: 'Premier lakeside destination with massive regional dog parks and a highly active pet-involved culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lewisville, TX',
+      heroDescription: 'Experience the massive off-leash playgrounds, scenic lakeside trails, and vibrant pet culture of Lewisville.',
+      longDescription: [
+        "Lewisville offers an exceptional environment for dog owners, characterized by its investment in high-quality outdoor recreation and proximity to Lewisville Lake. The city's pet culture is anchored by the [Lewisville Dog Park at Railroad Park](https://www.cityoflewisville.com/about-us/city-departments/parks-recreation/railroad-park), a massive 6-acre facility featuring dedicated enclosures for small and large breeds, a wash station, and covered seating. For leashed explorers, the city's extensive trail system provides miles of scenic paths that connect various community parks and greenbelts. Lewisville's blend of modern suburban amenities and vast natural preserves ensures that local canine residents have unparalleled opportunities for enrichment and daily activity.",
+        "Responsible ownership in Lewisville is guided by municipal ordinances that prioritize animal welfare and public safety in shared spaces. Pets must be restrained on a leash no longer than six feet in length at all times when in public areas, including general park trails. The city also mandates city registration and current rabies vaccinations to support local animal services and community health. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By following local waste removal laws and participating in community stewardship, Lewisville residents help maintain the vibrant beauty and inclusive spirit that makes this city a favored home for dog lovers."
+      ],
+    },
+  },
+  {
+    slug: 'los-fresnos-tx',
+    city: 'Los Fresnos',
+    state: 'TX',
+    featuredImage: '/images/cities/los-fresnos-tx/hero.webp',
+    summary: 'Vibrant coastal prairie community with dedicated nature parks and a growing off-leash pet scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Los Fresnos, TX',
+      heroDescription: 'Discover the coastal nature trails, dedicated off-leash zones, and welcoming small-town pet spirit of Los Fresnos.',
+      longDescription: [
+        "Los Fresnos offers a peaceful and nature-focused environment for dog owners, situated in the scenic coastal prairie of South Texas. The city's dedication to canine recreation is highlighted by the [Los Fresnos City Park Dog Park](https://www.cityoflosfresnos.com/), an off-leash area where dogs can socialize and play in a secure environment. For those who enjoy leashed exploration, the Caracara Hike & Bike Trail at the Los Fresnos Nature Park provides miles of natural beauty and opportunities for birdwatching with your pup. The area's small-town charm and focus on outdoor life make it an ideal home for pet parents who value a slower pace and frequent nature immersion.",
+        "Maintaining a safe and healthy pet culture in Los Fresnos is supported by regional standards that prioritize animal welfare and responsible control. Dogs must be kept on a leash in all public spaces outside of designated fenced dog parks, and owners are mandated to ensure their pets have current rabies vaccinations and wear identifying tags. Los Fresnos also emphasizes the importance of proper waste removal to preserve the unique ecology of its local nature trails. For pet parents wanting to stay up-to-date on the best nearby veterinary care and seasonal safety, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide tailored insights. By respecting these shared guidelines, Los Fresnos residents help foster a supportive and respectful pet culture."
+      ],
+    },
+  },
+  {
+    slug: 'mansfield-tx',
+    city: 'Mansfield',
+    state: 'TX',
+    featuredImage: '/images/cities/mansfield-tx/hero.webp',
+    summary: 'Community-driven suburban haven with premier off-leash parks and a high standard for public pet safety.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mansfield, TX',
+      heroDescription: 'Experience the dedicated off-leash play, scenic community trials, and active pet involved culture of Mansfield.',
+      longDescription: [
+        "Mansfield has earned its reputation as a premier destination for dog owners in the South Metroplex, offering exceptional amenities and a deep commitment to pet recreation. The city's pet culture is centered around its dedicated off-leash facilities, such as [Man's Best Field Dog Park](https://www.mansfieldtexas.gov/Facilities/Facility/Details/Mans-Best-Field-Dog-Park-33), which prioritizes safety with requirements for leashing upon entry and exit. For leashed explorers, the city's numerous neighborhood parks and shaded trails offer miles of well-maintained paths perfect for daily exercise. Mansfield's focus on high-quality public recreation ensures that local pups have diverse opportunities for enrichment and daily activity in a clean and beautiful suburban setting.",
+        "Responsible ownership in Mansfield is guided by municipal ordinances that prioritize animal welfare and public safety in shared spaces. All dogs are required to be licensed annually and maintain current rabies vaccinations, which supports local animal services and community-wide health. Mansfield enforces a mandatory leash law in all generic parks outside of designated off-leash zones, and owners are legally obligated to follow waste removal laws to keep local parklands pristine. For residents looking for expert advice on local pet services and training, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer essential seasonal updates. By participating in local stewardship and respecting shared spaces, Mansfield residents help maintain the vibrant beauty and inclusive community spirit that define their active city."
+      ],
+    },
+  },
+  {
+    slug: 'mcallen-tx',
+    city: 'Mcallen',
+    state: 'TX',
+    featuredImage: '/images/cities/mcallen-tx/hero.webp',
+    summary: 'Dynamic South Texas hub with community-focused dog parks and a strong tradition of outdoor recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mcallen, TX',
+      heroDescription: 'Discover the dedicated off-leash playgrounds, scenic nature trials, and vibrant dog-friendly social scene of McAllen.',
+      longDescription: [
+        "McAllen provides a vibrant and dog-friendly environment in the heart of the Rio Grande Valley, offering an exceptional infrastructure for pets and their owners. The city's commitment to canine recreation is most visible at its designated animal parks, such as the [Westside Park and Field](https://www.mcallen.net/departments/parks), where off-leash play is permitted in a secure environment. For those who enjoy a mix of social time and relaxation, McAllen's many pet-friendly restaurants with outdoor seating provide a welcoming space for four-legged visitors. The city's lush vegetation and well-shaded paths ensure that local pups can enjoy an active outdoor lifestyle with plenty of opportunities for socialization.",
+        "Maintaining a safe and respectful pet atmosphere in McAllen is supported by municipal ordinances that prioritize animal welfare and responsible control. Dogs must be restrained by a fixed-length or lockable retractable leash whenever they are in public spaces outside of designated dog parks. The city also enforces mandatory rabies vaccinations and prohibits leashed pets from specific athletic areas to ensure a positive experience for all visitors. For more insights on the best local specialty pet services and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By adhering to these local standards and participating in park stewardship, McAllen residents help maintain the vibrant beauty and inclusive community spirit that characterize this proud valley city."
+      ],
+    },
+  },
+  {
+    slug: 'melissa-tx',
+    city: 'Melissa',
+    state: 'TX',
+    featuredImage: '/images/cities/melissa-tx/hero.webp',
+    summary: 'Peaceful lakeside community with dedicated off-leash sections and a strong nature-first pet lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Melissa, TX',
+      heroDescription: 'Explore the dedicated off-leash playgrounds, scenic lakeside trails, and welcoming pet culture of Melissa.',
+      longDescription: [
+        "Melissa offers a tranquil and nature-focused environment for dog owners, characterized by its beautifully maintained public parks and a deep commitment to green space preservation. The city's canine residents enjoy facilities like [Melissa Lake Park](https://www.cityofmelissa.com/264/Parks-Trails), which features a dedicated off-leash section and dog-friendly trails perfect for nature immersion. For leashed explorers, the decomposed granite paths at Country Ridge Park provide a scenic and low-traffic setting for daily exercise. Melissa's focus on maintaining a peaceful residential character ensures that local pups have ample space for both quiet relaxation and structured physical activity in a clean and supportive community setting.",
+        "The safety and health of Melissa's canine population are managed through ordinances that emphasize animal welfare and public safety. Dogs are required to be on a maximum 6-foot leash at all times when in city parks, and the city enforces strict rules against animals \"running at large\" to ensure a respectful environment for all residents. Melissa also contracts with regional animal services to ensure that proper vaccinations and health standards are maintained across the local pet population. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By following local waste removal laws and participating in community stewardship, Melissa dog owners help preserve the natural beauty and welcoming atmosphere of their unique suburban community."
+      ],
+    },
+  },
+  {
+    slug: 'mesquite-tx',
+    city: 'Mesquite',
+    state: 'TX',
+    featuredImage: '/images/cities/mesquite-tx/hero.webp',
+    summary: 'Established suburban community with multiple dedicated off-leash zones and high safety standards.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mesquite, TX',
+      heroDescription: 'Experience the dedicated off-leash play, extensive community parks, and active pet culture of Mesquite.',
+      longDescription: [
+        "Mesquite provides a robust and supportive environment for dog owners, offering numerous recreational opportunities across its diverse park system. The city's dedication to canine recreation is anchored by its [designated leash-free zones](https://www.cityofmesquite.com/934/Leash-Free-Zones) at Town East, Alcott, and Copeland Parks. These well-maintained facilities feature separate enclosures for socialization and play, providing a safe venue for high-energy interaction. For those who enjoy a more tranquil experience, leashed explorers can navigate the city's extensive trail system that avoids athletic complexes to ensure a respectful experience for all park visitors. Mesquite's long-standing commitment to public green space makes it an ideal home for families who consider their dogs a central part of their active lifestyle.",
+        "Navigating the responsibilities of pet ownership in Mesquite is guided by municipal ordinances that prioritize animal safety and community health. All pets in unconfined areas must be on a leash and under the direct control of their owner, and the city enforces specific regulations against unattended tethering to ensure proper welfare. Keeping a pet current on rabies vaccinations and displaying identifying tags are mandatory requirements for using the city's public parks. For pet parents wanting to stay up-to-date on the best local boarding options and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting shared spaces, Mesquite residents maintain the vibrant beauty and inclusive community spirit that define this proud North Texas city."
+      ],
+    },
+  },
+  {
+    slug: 'midlothian-tx',
+    city: 'Midlothian',
+    state: 'TX',
+    featuredImage: '/images/cities/midlothian-tx/hero.webp',
+    summary: 'Family-focused suburban haven with dedicated off-leash facilities and a high standard for pet health.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Midlothian, TX',
+      heroDescription: 'Discover the well-maintained off-leash parks, scenic community trails, and welcoming pet culture of Midlothian.',
+      longDescription: [
+        "Midlothian offers a highly organized and community-focused environment for dog owners, characterized by its dedication to maintaining clean and safe public spaces. The city's pet culture is centered around the [Midlothian Dog Park](https://www.midlothian.tx.us/721/Dog-Park), an enclosed facility where well-behaved dogs can socialize and play freely under rigorous safety standards. For leashed explorers, the city's numerous community parks provide paved and shaded paths perfect for morning exercise, though pets are typically restricted from sports fields to maintain park integrity. Midlothian's residential character and focus on high-quality amenities ensure that local pet parents have convenient access to high-quality outdoor enrichment for their dogs.",
+        "Maintaining a safe and inclusive pet atmosphere in Midlothian is supported by ordinances that emphasize responsible control and animal welfare. Dogs must be leashed when entering or exiting designated off-leash zones, and handlers are required to carry a visible leash at all times. The city also enforces mandatory vaccinations and registration for all local pets to support community health and animal tracking efforts. For residents looking for expert advice on local pet services and seasonal guidelines, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By following local waste removal laws and participating in community stewardship, Midlothian residents help foster a supportive and vibrant pet culture that matches the city's high quality of life."
+      ],
+    },
+  },
+  {
+    slug: 'mission-tx',
+    city: 'Mission',
+    state: 'TX',
+    featuredImage: '/images/cities/mission-tx/hero.webp',
+    summary: 'Lush tropical environment with dedicated nature trails and growing off-leash pet amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mission, TX',
+      heroDescription: 'Experience the tropical nature preserves, dedicated off-leash zones, and vibrant pet social scene of Mission.',
+      longDescription: [
+        "Mission provides a unique nature-focused environment for dog owners, situated in the subtropical beauty of the Rio Grande Valley. The city benefits from its proximity to world-class nature preserves and the Rio Grande, where leashed explorers can enjoy a variety of lush environments and riverfront trails. While the community is known for its peaceful residential character, its growing infrastructure for pets includes dedicated off-leash zones and numerous pet-friendly public spaces designed for socialization. Mission's combination of tropical charm and active outdoor life ensured that local canine residents have ample opportunities for daily enrichment and physical activity in a beautiful setting.",
+        "Responsible pet ownership in Mission is guided by ordinances that emphasize community safety and animal health in the unique valley climate. Dogs are generally required to be restrained when on public trails or in neighborhood parks, and the city enforces strict rules regarding animal welfare to protect pets from the South Texas heat. Owners must ensure their pets have current rabies vaccinations and follow local waste removal laws to preserve the pristine environment of the valley's parks. For pet parents wanting to stay informed about the best regional pet care and seasonal strategies, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and respecting shared spaces, Mission residents help maintain the vibrant beauty and inclusive spirit of their proud community."
+      ],
+    },
+  },
+  {
+    slug: 'pasadena-tx',
+    city: 'Pasadena',
+    state: 'TX',
+    featuredImage: '/images/cities/pasadena-tx/hero.webp',
+    summary: 'Industrious coastal charm with dedicated off-leash havens and a highly regulated pet environment.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pasadena, TX',
+      heroDescription: 'Discover the well-maintained off-leash zones, scenic neighborhood trails, and disciplined pet culture of Pasadena.',
+      longDescription: [
+        "Pasadena offers a highly organized and community-focused environment for dog owners, characterized by its dedication to maintaining clean and safe public spaces. The city's pet culture is anchored by premier facilities like [Alice's Dog Park](https://www.pasadenatx.gov/435/Parks-Recreation) in Viña Vieja Park and the Playhouse Village Dog Park, where well-fenced enclosures allow for safe socialization. For those who enjoy leashed exploration, Pasadena's numerous neighborhood parks provide Miles of paved paths, provided pups remain on-leash to protect the local wildlife and ensure a positive experience for all residents. The city's balance of industrial strength and high-quality recreational space makes it a practical and enjoyable home for active dogs.",
+        "Responsible pet ownership in Pasadena is supported by municipal ordinances that prioritize animal safety and community health. Dogs must be kept on a leash in all public areas outside of designated dog parks, and the city enforces strict rules regarding annual rabies vaccinations and city licensing. Pasadena also regulates the number of pets per household to ensure adequate care and space for every animal. For residents looking for expert advice on local pet services and seasonal guidelines, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer essential updates. By participating in local stewardship and respecting shared spaces, Pasadena dog owners help maintain the vibrant beauty and inclusive community spirit that define their city."
+      ],
+    },
+  },
+  {
+    slug: 'pearland-tx',
+    city: 'Pearland',
+    state: 'TX',
+    featuredImage: '/images/cities/pearland-tx/hero.webp',
+    summary: 'Premier South Metroplex destination with massive off-leash playgrounds and elite agility facilities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pearland, TX',
+      heroDescription: 'Experience the top-tier off-leash play, scenic nature preserves, and active pet-involved culture of Pearland.',
+      longDescription: [
+        "Pearland has earned its reputation as a premier destination for dog owners, offering some of the finest recreational facilities in the Houston metropolitan area. The city's pet culture is most visible at its two massive off-leash destinations: Southdown Dog Park and [Independence Dog Park](https://www.parks.pearlandtx.gov/parks-trails/dog-parks). These facilities feature separate sections for small and large breeds, well-maintained agility equipment, and plenty of shade for hot Texas afternoons. For leashed explorers, the city's extensive network of nature trails, including the Shadow Creek Ranch Water Park, provides miles of scenic paths through beautiful coastal prairie landscapes.",
+        "Maintaining a safe and premium pet experience in Pearland is supported by ordinances that emphasize animal welfare and public safety in shared spaces. Dogs are required to be licensed and maintain current rabies vaccinations, a prerequisite for use of the city's public dog parks. Pearland enforces a mandatory leash law when pets are outside of their home or off-leash areas, and owners are legally responsible for the immediate removal of pet waste. For more insights on the best local specialty pet services and training, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting these standards, Pearland residents foster a vibrant and respectful pet culture that matches the city's high quality of life."
+      ],
+    },
+  },
+  {
+    slug: 'pharr-tx',
+    city: 'Pharr',
+    state: 'TX',
+    featuredImage: '/images/cities/pharr-tx/hero.webp',
+    summary: 'Lively Rio Grande Valley hub with dedicated off-leash play and a strong focus on neighborhood pet control.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pharr, TX',
+      heroDescription: 'Experience the tropical beauty, dedicated off-leash zones, and welcoming canine social scene of Pharr.',
+      longDescription: [
+        "Pharr offers a vibrant and dog-friendly environment in the heart of the Rio Grande Valley, providing an exceptional infrastructure for pets and their owners. The city's commitment to canine recreation is highlighted by its [designated off-leash dog parks](https://pharr-tx.gov/departments/parks-and-recreation/), where pets can play in a secure and monitored setting. Beyond the fenced areas, leashed explorers can enjoy the city's subtropical neighborhood parks, which offer lush backdrops for daily walks and training. Pharr's combination of community-driven amenities and a welcoming outdoor culture ensures that local pups have ample opportunities for daily enrichment and physical activity.",
+        "The safety and health of the pet population in Pharr are protected through ordinances that emphasize animal welfare and responsible control in public spaces. While the city emphasizes immediate and continuous owner control rather than a singular leash law, responsible pet parents typically utilize leashes to ensure safety in all public areas. Mandatory licensing and up-to-date rabies vaccinations are essential for maintaining community health standards. For pet parents wanting to stay informed about the best regional pet care and seasonal strategies, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and respecting these guidelines, Pharr residents help maintain the inclusive spirit and high quality of life that define their community."
+      ],
+    },
+  },
+  {
+    slug: 'port-aransas-tx',
+    city: 'Port Aransas',
+    state: 'TX',
+    featuredImage: '/images/cities/port-aransas-tx/hero.webp',
+    summary: 'Iconic coastal playground with dog-friendly beaches and premier waterfront off-leash zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Port Aransas, TX',
+      heroDescription: 'Discover the vast sandy beaches, dedicated off-leash playgrounds, and breezy Gulf-front trials of Port Aransas.',
+      longDescription: [
+        "Port Aransas is widely recognized as one of the most pet-friendly coastal towns in Texas, offering unique and expansive environments for active dogs. Pups are welcome to enjoy the vast sandy expanses of Port Aransas Beach provided they remain leashed, making for incredible morning exercise with a Gulf view. For high-energy off-leash play, the [Port Aransas Dog Park](https://cityofportaransas.org/departments/parks-and-recreation/) at Community Park features separate sections for large and small breeds, shaded seating, and dedicated water stations. This unique coastal environment ensures that local and visiting canine residents have unparalleled opportunities for nature immersion and aquatic adventure.",
+        "Responsible pet ownership in the Port Aransas community is guided by ordinances that emphasize animal welfare and public safety in a delicate coastal environment. Dogs must be kept on a leash no longer than six feet at all times when in public areas, including all beaches. Owners are also legally obligated to follow waste removal laws to preserve the natural beauty and health of the shoreline. For more tips on navigating the coastal climate and protecting your dog from the elements, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By adhering to these local standards and participating in beach stewardship, residents and visitors of Port Aransas maintain the welcoming and pristine atmosphere of this unique island community."
+      ],
+    },
+  },
+  {
+    slug: 'port-isabel-tx',
+    city: 'Port Isabel',
+    state: 'TX',
+    featuredImage: '/images/cities/port-isabel-tx/hero.webp',
+    summary: 'Tranquil bayfront community with dedicated off-leash facilities and a welcoming small-town pet spirit.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Port Isabel, TX',
+      heroDescription: 'Discover the breezy bayfront trails, dedicated off-leash parks, and historic lighthouse atmosphere of Port Isabel.',
+      longDescription: [
+        "Port Isabel offers a peaceful and scenic environment for dog owners, characterized by its historic bayfront charm and a deep connection to the coastal landscape. The city's canine residents enjoy the [Laguna Madre Dog Park](https://portisabel-texas.com/), a well-maintained facility featuring separate areas for various breed sizes, shaded seating, and waste disposal stations. For leashed explorers, the historic streets and neighborhood paths near the lighthouse provide a tranquil backdrop for daily walks. Port Isabel's blend of coastal recreation and small-town hospitality ensured that local pups have ample space for both relaxation and structured physical activity near the water.",
+        "Maintaining a safe and respectful pet atmosphere in Port Isabel is supported by municipal codes that prioritize animal health and community respect. Dogs must be restrained by a short leash whenever they are in public spaces outside of designated off-leash zones, and owners are mandated to ensure their pets wear current license and rabies vaccination tags. The city also enforces rules against barking nuisances to preserve the tranquil atmosphere of its residential neighborhoods. For pet parents wanting to stay up-to-date on the best nearby veterinary care and seasonal safety, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide tailored insights. By adhering to local waste removal ordinances and participating in community stewardship, Port Isabel residents help maintain the pristine beauty and welcoming spirit of their unique bayfront community."
+      ],
+    },
+  },
+  {
+    slug: 'portland-tx',
+    city: 'Portland',
+    state: 'TX',
+    featuredImage: '/images/cities/portland-tx/hero.webp',
+    summary: 'Scenic bay-view living with dedicated off-leash facilities and a strong standard for pet supervision.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Portland, TX',
+      heroDescription: 'Experience the scenic off-leash play, bay-front walking trials, and active pet culture of Portland.',
+      longDescription: [
+        "Portland provides a beautiful and family-friendly environment for dog owners, characterized by its stunning views of Corpus Christi Bay and a strong commitment to public parkland. The city's pet culture is anchored by [Kaiah Dog Park](http://www.portlandtx.gov/306/Parks-Facilities), an off-leash facility where well-supervised pups can socialize and run freely. For those who prefer leashed exploration, Portland's numerous neighborhood parks and community trails offer miles of paved paths with refreshing bay breezes. The city's focus on high-quality public recreation ensures that local dogs have a reliable and enjoyable space to burn energy and bond with their owners on a daily basis.",
+        "The safety and welfare of Portland's pet population are protected through ordinances that emphasize animal health and responsible control. Dogs must be on a leash no longer than eight feet when on all streets and publicly owned property, ensuring a safe experience for all residents. Owners must ensure their pets have current rabies vaccinations and wearIdentifying tags to facilitate quick reunions if they stray. For more insights on the best local boarding options and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting shared spaces, Portland dog owners help maintain the vibrant beauty and inclusive community spirit that make this city a favored home for pet parents."
+      ],
+    },
+  },
+  {
+    slug: 'princeton-tx',
+    city: 'Princeton',
+    state: 'TX',
+    featuredImage: '/images/cities/princeton-tx/hero.webp',
+    summary: 'Emerging North Metroplex community with dedicated off-leash paddocks and vast nature-focused trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Princeton, TX',
+      heroDescription: 'Discover the dedicated off-leash zones, scenic lakeside trials, and growing pet community of Princeton.',
+      longDescription: [
+        "Princeton offers a rapidly growing and pet-friendly environment for families, characterized by its expanding infrastructure and proximity to Lavon Lake. The city's dedication to canine recreation is visible at the designated [Princeton Dog Parks](https://www.princetontx.gov/245/Parks-Recreation) at Community Park South and Quarry Park, where fenced areas provide safe socialization for local pups. For leashed explorers, the miles of trails surrounding the lake offer a peaceful backdrop for morning exercise and nature immersion. Princeton's blend of modern development and natural beauty ensures that local canine residents have ample space for both structured play and spontaneous outdoor adventure.",
+        "Responsible pet ownership in Princeton is guided by ordinances that prioritize animal safety and community health as the city grows. Dogs must be kept behind a fence or on a leash at all times in public, and the city enforces mandatory rabies vaccinations for all registered pets. Princeton also adheres to the \"Safe Outdoor Dogs Act,\" ensuring that pets have adequate shelter, shade, and water when outside. For pet parents wanting to stay up-to-date on the best regional pet care and seasonal strategies, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By participating in local stewardship and respecting shared spaces, Princeton residents help maintain the welcoming atmosphere and high quality of life that define their growing community."
+      ],
+    },
+  },
+  {
+    slug: 'prosper-tx',
+    city: 'Prosper',
+    state: 'TX',
+    featuredImage: '/images/cities/prosper-tx/hero.webp',
+    summary: 'Elite suburban community with vast trail networks and a highly active pet-involved culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Prosper, TX',
+      heroDescription: 'Experience the premier walking trails, expansive neighborhood parks, and elite pet lifestyle of Prosper.',
+      longDescription: [
+        "Prosper provides a sophisticated and tranquil environment for dog owners, known for its meticulously maintained public parks and a deep commitment to family-friendly amenities. While the city focuses on leashed exploration through its vast network of trails at [Frontier Park](https://www.prospertx.gov/frontier-park), the expansive grassy areas and shaded paths provide an ideal setting for daily exercise and socialization. Prosper's elite residential character ensures that local pet parents have convenient access to high-quality regional pet services and boutique specialty shops. The city's focus on high-quality recreational space makes it a premier choice for those who consider their dogs a central part of their active lifestyle.",
+        "Maintaining a safe and respectful pet atmosphere in Prosper is supported by municipal guidelines that prioritize animal welfare and public safety in shared spaces. Although the city focuses on leashed activity through its extensive trail network, residents are encouraged to utilize nearby regional dog parks for high-energy off-leash socialization. All dogs must be vaccinated and restrained by a handheld leash in public parks to ensure a safe experience for all visitors. For residents looking for expert advice on local pet programs and seasonal safety, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By participating in local stewardship and respecting these standards, Prosper residents foster a vibrant and respectful pet culture that matches the city's high quality of life."
+      ],
+    },
+  },
+  {
+    slug: 'richardson-tx',
+    city: 'Richardson',
+    state: 'TX',
+    featuredImage: '/images/cities/richardson-tx/hero.webp',
+    summary: 'Innovative suburban landscape with massive premier dog parks and highly social pet culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Richardson, TX',
+      heroDescription: 'Discover the elite off-leash playgrounds, dedicated agility zones, and active canine community of Richardson.',
+      longDescription: [
+        "Richardson has established itself as one of the most dog-friendly cities in North Texas, offering exceptional amenities and a deep commitment to pet recreation. The city's pet culture is anchored by [Bush Central Barkway](http://www.cor.net/dogpark), a massive 6-acre destination featuring separate areas for large and small breeds, dedicated agility zones, and even a rental paddock. For those who enjoy long-distance leashed exploration, Richardson's network of shaded trails provides miles of paved paths that wind through beautiful city neighborhoods and greenbelts. The city's proactive approach to pet amenities ensures that local pups have diverse opportunities for daily enrichment and socialization in a supportive and active environment.",
+        "Navigating the responsibilities of pet ownership in Richardson is guided by a robust framework of municipal ordinances that prioritize animal health and public safety. Dogs must be on a leash, cord, or chain no longer than six feet in all public spaces outside of designated off-leash zones. All resident pets must be properly licensed and maintain current rabies vaccinations, with tags displayed at all times. The city also prohibits specific collars in dog parks to ensure a safe experience for all canine socializers. For more insights on the best local specialty pet services and training, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting shared spaces, Richardson residents help maintain the vibrant beauty and inclusive community spirit that define their city."
+      ],
+    },
+  },
+  {
+    slug: 'robstown-tx',
+    city: 'Robstown',
+    state: 'TX',
+    featuredImage: '/images/cities/robstown-tx/hero.webp',
+    summary: 'Tradition-rich coastal community with dedicated local parks and a strong neighborly pet bond.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Robstown, TX',
+      heroDescription: 'Discover the quiet neighborhood trails, dedicated community parks, and welcoming small-town pet spirit of Robstown.',
+      longDescription: [
+        "Robstown offers a peaceful and community-focused environment for dog owners, characterized by its small-town charm and a deep sense of neighborly respect. The city's canine residents enjoy daily leashed exercise in various neighborhood green spaces and community parks, where paths provide a tranquil setting for bonding and exercise. Robstown's residential character and focus on outdoor life make it an ideal home for pet parents who value regular strolls through quiet streets and local parks. The area's proximity to larger regional hubs also ensures that residents have convenient access to specialty veterinary care and training services within a short drive.",
+        "The safety and welfare of Robstown's pet population are protected through ordinances that emphasize animal welfare and responsible control. Dogs must be confined at all times, either by a sufficient fence or held on a physical restraint like a leash when in public. The city's Animal Care and Control division enforces standards for rabies vaccinations and licensing to ensure the overall health of the local canine population. For pet parents wanting to stay up-to-date on the best regional pet care and seasonal strategies, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable insights. By following local waste removal laws and participating in community stewardship, Robstown dog owners help maintain the clean and welcoming atmosphere that defines their unique coastal community."
+      ],
+    },
+  },
+  {
+    slug: 'rockport-tx',
+    city: 'Rockport',
+    state: 'TX',
+    featuredImage: '/images/cities/rockport-tx/hero.webp',
+    summary: 'Picturesque coastal haven with dedicated wooded dog parks and scenic bayfront trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Rockport, TX',
+      heroDescription: 'Discover the shaded off-leash playgrounds, breezy bayfront walks, and active pet culture of Rockport.',
+      longDescription: [
+        "Rockport serves as a stunning and pet-friendly gateway to the Texas coast, offering a unique environment for dog owners who enjoy a mix of wooded trails and bayfront views. The city's premier destination for canine socialization is the dog park at [Memorial Park](http://www.rockporttx.gov/), a massive 2-acre, fenced facility situated within a peaceful wooded area, featuring separate sections for small and large breeds. For those who enjoy leashed exploration, the trails at various city parks provide miles of natural beauty. Rockport's blend of historic charm and world-class natural preserves ensures that local pups have unparalleled opportunities for enrichment and nature immersion along the Gulf.",
+        "Responsible pet ownership in Rockport is guided by municipal ordinances that prioritize animal welfare and environmental stewardship in a bird sanctuary region. While leashed dogs are welcome in all city parks, they are generally restricted from sensitive beach areas to protect local bird populations. Owners must ensure their pets have current rabies vaccinations and wearIdentifying tags at all times. For more tips on navigating the coastal climate and protecting your dog from the elements, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By adhering to these local standards and participating in park stewardship, Rockport residents maintain the pristine beauty and welcoming atmosphere of their unique coastal community."
+      ],
+    },
+  },
+  {
+    slug: 'rockwall-tx',
+    city: 'Rockwall',
+    state: 'TX',
+    featuredImage: '/images/cities/rockwall-tx/hero.webp',
+    summary: 'High-quality lakeside living with dedicated off-leash parks and a strong community pet focus.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Rockwall, TX',
+      heroDescription: 'Experience the dedicated off-leash playgrounds, scenic nature trials, and active pet culture of Rockwall.',
+      longDescription: [
+        "Rockwall provides an exceptional environment for dog owners, characterized by its investment in high-quality outdoor recreation and proximity to Lake Ray Hubbard. The city's pet culture is anchored by the [Dog Park at Harry Myers Park](https://www.rockwall.com/parks.asp), which features fenced-in off-leash areas, separate sections for various breed sizes, and shared drinking water stations. For leashed explorers, the miles of trails connecting local neighborhood parks offer a peaceful backdrop for morning exercise and socialization. Rockwall's blend of modern suburban amenities and scenic lakeside charm ensures that local canine residents have ample opportunities for enrichment in a supportive and active setting.",
+        "Maintaining a safe and inclusive pet atmosphere in Rockwall is supported by municipal guidelines that prioritize animal welfare and public safety in shared spaces. All resident dogs must be licensed and fully vaccinated, and the city enforces a mandatory leash law in all generic parks outside of designated off-leash zones. Owners are also legally responsible for following waste removal laws to keep local parklands clean and accessible for all. For more insights on the best local boarding options and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By participating in local stewardship and respecting these standards, Rockwall dog owners help maintain the vibrant beauty and inclusive community spirit that define their proud North Texas city."
+      ],
+    },
+  },
+  {
+    slug: 'round-rock-tx',
+    city: 'Round Rock',
+    state: 'TX',
+    featuredImage: '/images/cities/round-rock-tx/hero.webp',
+    summary: 'Dynamic suburban hub with state-of-the-art agility dog parks and extensive city-wide trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Round Rock, TX',
+      heroDescription: 'Experience the premier agility zones, scenic nature trails, and vibrant dog-friendly social scene of Round Rock.',
+      longDescription: [
+        "Round Rock has established itself as one of the most dog-friendly cities in Texas, offering world-class amenities and a deep commitment to pet recreation. The city's pet culture is centered around the [Round Rock Dog Depot](https://www.roundrocktexas.gov/departments/parks-and-recreation/parks-trails/dog-depot-dog-park/), a 1.85-acre state-of-the-art facility featuring agility elements, separate breed-sized paddocks, and a rotation area to preserve the turf. For leashed explorers, the extensive Brushy Creek Regional Trail provides miles of paved paths that wind through beautiful landscapes and connect various community parks. Round Rock's intersection of metropolitan convenience and high-quality green space makes it an ideal home for active pups and their families.",
+        "Responsible ownership in Round Rock is guided by robust municipal ordinances that prioritize animal health and public safety. All dogs are required to be vaccinated and microchipped, and the city enforces a mandatory leash law in all public spaces outside of designated off-leash zones. Pet parents are expected to follow waste removal laws to preserve the beauty of local parks for all visitors. For residents looking for expert advice on local pet services and seasonal guidelines, our [Texas state guides](https://www.indoordogpark.org/states/texas) offer essential seasonal updates. By participating in local stewardship and respecting shared spaces, Round Rock residents maintain the vibrant beauty and high quality of life that define their community."
+      ],
+    },
+  },
+  {
+    slug: 'rowlett-tx',
+    city: 'Rowlett',
+    state: 'TX',
+    featuredImage: '/images/cities/rowlett-tx/hero.webp',
+    summary: 'Community-driven lakeside community with advanced leash laws and high standards for pet welfare.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Rowlett, TX',
+      heroDescription: 'Discover the dedicated off-leash spaces, scenic lakeside strolls, and active canine community of Rowlett.',
+      longDescription: [
+        "Rowlett offers an exceptional environment for dog owners, characterized by its investment in high-quality outdoor recreation and proximity to Lake Ray Hubbard. The community values its public green spaces, providing leashed explorers with access to miles of paved paths that wind through neighborly parks and greenbelts, typically away from playgrounds to ensure safety. For high-energy socialization, the city maintains dedicated dog parks where pups can safely play and bond with their neighbors. Rowlett's blend of lakeside charm and a strong commitment to pet welfare ensures that local canine residents have ample space for both relaxation and structured daily exercise.",
+        "Maintaining a safe and respectful pet atmosphere in Rowlett is supported by municipal ordinances that emphasize responsible control and animal welfare. The city enforces a strict \"Leash Law,\" requiring all pets to be contained by a fence or restrained by a handheld leash whenever they are outside their home. Rowlett also prohibits unattended tethering to ensure animal safety, with significant fines for violations. All local pets must be licensed annually and maintain current rabies vaccinations. For more tips on navigating the North Texas climate with your dog, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide valuable seasonal advice. By participating in local stewardship and respecting these standards, Rowlett residents help maintain the vibrant beauty and inclusive community spirit that define their city."
+      ],
+    },
+  },
+  {
+    slug: 'saginaw-tx',
+    city: 'Saginaw',
+    state: 'TX',
+    featuredImage: '/images/cities/saginaw-tx/hero.webp',
+    summary: 'Reliable suburban haven with multiple weights-specific off-leash parks and high safety standards.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Saginaw, TX',
+      heroDescription: 'Experience the dedicated weight-specific off-leash parks, scenic walking trials, and welcoming pet culture of Saginaw.',
+      longDescription: [
+        "Saginaw provides a highly organized and community-focused environment for dog owners, characterized by its dedication to maintaining safe and accessible public spaces. The city's pet culture is anchored by two premier facilities: [Willow Creek Paw Park](https://www.saginawtx.org/1105/Dog-Parks) and Highland Station Dog Bark. These parks feature separate enclosures for dogs based on weight, ensuring a safe socialization experience for both large and small pups. For leashed explorers, the city's numerous neighborhood parks and community trails offer peaceful settings for daily exercise and training. Saginaw's focus on high-quality recreational space ensures that local canine residents have diverse opportunities for enrichment in a clean and beautiful suburban setting.",
+        "Responsible ownership in Saginaw is guided by municipal ordinances that prioritize animal welfare and public safety in shared spaces. All dogs are required to be on a leash and under the control of a competent person whenever they are outside of a secured enclosure. The city also mandates city registration and current rabies vaccinations to support local animal services and community health. Saginaw regulates pet tethering to ensure proper welfare and prevent nuisances. For residents looking for the best local pet programs and seasonal guidelines, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide essential updates. By following local waste removal laws and participating in community stewardship, Saginaw residents help maintain the welcoming atmosphere and high quality of life that define their city."
+      ],
+    },
+  },
+  {
+    slug: 'santa-teresa-tx',
+    city: 'Santa Teresa',
+    state: 'TX',
+    featuredImage: '/images/cities/santa-teresa-tx/hero.webp',
+    summary: 'Tranquil border community with high-quality pet-friendly living and proximity to premier El Paso dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Santa Teresa, TX',
+      heroDescription: 'Discover the scenic walking trails, pet-friendly residences, and proximity to desert off-leash zones in Santa Teresa.',
+      longDescription: [
+        "Santa Teresa offers a peaceful and expansive environment for dog owners, characterized by its stunning desert landscapes and high-quality residential communities. While the area provides a quiet backdrop for leashed exploration along various neighborhood paths, local pet parents benefit from its close proximity to the robust amenities of West El Paso. Residents frequently enjoy access to the Dog Park at Westside Community Park, which features separate enclosures for breed sizes and dedicated water stations. Santa Teresa's blend of tranquil suburban living and easy access to premier regional pet facilities makes it a favored choice for those who value both quiet nature walks and social off-leash play.",
+        "Maintaining a safe and healthy pet environment in Santa Teresa is supported by regional standards that prioritize animal welfare and responsible control. Dogs must be kept on a leash or securely confined when in public spaces, and the area emphasizes the importance of microchipping and current rabies vaccinations for community-wide safety. Owners are encouraged to follow local waste removal laws to preserve the unique beauty of the surrounding desert ecology. For pet parents wanting to stay up-to-date on the best nearby veterinary care and seasonal safety strategies, our [Texas state guides](https://www.indoordogpark.org/states/texas) provide tailored insights. By participating in local stewardship and respecting these standards, Santa Teresa residents help maintain the welcoming atmosphere and high quality of life that define their community."
+      ],
+    },
+  },
+  {
+    slug: 'sunnyvale-tx',
+    city: 'Sunnyvale',
+    state: 'TX',
+    featuredImage: '/images/cities/sunnyvale-tx/hero.webp',
+    summary: 'Spacious rural-suburban haven with strict pet control standards and vast neighborhood parkland.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sunnyvale, TX',
+      heroDescription: 'Experience the expansive community parks, scenic neighborhood trails, and disciplined pet culture of Sunnyvale.',
+      longDescription: [
+        "Sunnyvale offers a unique rural-suburban environment for dog owners, known for its spacious residential lots and beautifully maintained public park system. The community values its peaceful character, encouraging leashed explorers to enjoy the numerous neighborhood paths and open green spaces that define the town's landscape. While the area manages pet socialization through high standards for owner control, Sunnyvale's proximity to larger East Metroplex hubs provides residents with convenient access to premier regional off-leash facilities and elite pet services. The city's focus on maintaining clean and accessible parkland ensures that local pups are a central part of the community's active outdoor lifestyle.",
+        "Responsible pet ownership in Sunnyvale is guided by municipal ordinances that emphasize community safety and animal welfare. Dogs must be securely restrained by a chain, rope, or strap whenever they are in public parks, and the city enforces strict rules against animals \"at large\" to ensure a positive experience for all residents. Sunnyvale also regulates the number of dogs per household based on property size to ensure every pet has adequate space and care. For pet parents wanting to stay informed about the best regional pet care and seasonal strategies, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide valuable insights. By following local waste removal laws and participating in community stewardship, Sunnyvale dog owners help preserve the natural beauty and welcoming atmosphere of their unique community."
+      ],
+    },
+  },
+  {
+    slug: 'temple-tx',
+    city: 'Temple',
+    state: 'TX',
+    featuredImage: '/images/cities/temple-tx/hero.webp',
+    summary: 'Central Texas park hub with multiple dedicated off-leash complexes and vibrant trail networks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Temple, TX',
+      heroDescription: 'Experience the dedicated agility zones, scenic lakeside trails, and vibrant pet culture of Temple.',
+      longDescription: [
+        "Temple has established itself as a premier destination for dog owners in Central Texas, offering some of the most diverse recreational facilities in the region. The city's commitment to canine recreation is most visible at the [Central Texas Bark Park](https://www.templeparks.com/parks___trails/bark_park/index.php) within Lions Park, which features separate fenced areas for large and small breeds, as well as dedicated agility equipment. For those who enjoy nature immersion, the Oak Tree Dog Park provides an additional acre of off-leash fun with various obstacles and shaded seating. Temple's extensive trail system, including the scenic paths along Salado Creek, offers miles of well-maintained and shaded routes for daily leashed exercise and training.",
+        "Maintaining a safe and inclusive pet atmosphere in Temple is supported by municipal guidelines that prioritize animal welfare and public safety in shared spaces. Dogs must be leashed when entering or exiting designated off-leash zones, and handlers are expected to maintain visual and voice control at all times. The city also mandates up-to-date vaccinations and registration, supporting local animal services and community-wide health standards. For pet parents wanting to stay up-to-date on the best local specialty services and seasonal care tips, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By following local waste removal laws and participating in community stewardship, Temple residents help foster a vibrant and respectful pet culture that matches the city's high quality of life."
+      ],
+    },
+  },
+  {
+    slug: 'webster-tx',
+    city: 'Webster',
+    state: 'TX',
+    featuredImage: '/images/cities/webster-tx/hero.webp',
+    summary: 'Coastal gateway with disciplined community parks and high standards for public pet safety.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Webster, TX',
+      heroDescription: 'Discover the quiet neighborhood trails, dedicated community parks, and welcoming pet culture of Webster.',
+      longDescription: [
+        "Webster offers a highly organized and community-focused environment for dog owners, characterized by its proximity to the Bay Area's extensive recreational amenities. The city values its public green spaces, providing leashed explorers with access to various neighborhood paths and well-maintained parks that serve as ideal backdrops for daily training and exercise. While the area manages its pet culture through disciplined standards for owner control, Webster's central location provides residents with convenient access to some of the Houston region's premier off-leash facilities and elite specialty pet services. The city's balance of metropolitan convenience and quality-of-life amenities makes it a practical and enjoyable home for active dogs.",
+        "Responsible ownership in Webster is guided by municipal ordinances that prioritize animal welfare and public safety in shared spaces. All resident dogs are required to be licensed and maintain current rabies vaccinations, which supports local animal services and community-wide health. Webster enforces a mandatory leash law in all public areas outside of designated regional off-leash zones, and owners are legally obligated to follow waste removal laws to keep local parklands pristine. For residents looking for expert advice on local pet programs and seasonal safety, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By participating in local stewardship and respecting these standards, Webster residents help maintain the vibrant beauty and inclusive community spirit that define their active city."
+      ],
+    },
+  },
+  {
+    slug: 'weslaco-tx',
+    city: 'Weslaco',
+    state: 'TX',
+    featuredImage: '/images/cities/weslaco-tx/hero.webp',
+    summary: 'Lush tropical environment with dedicated nature preserves and established off-leash social zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Weslaco, TX',
+      heroDescription: 'Discover the tropical nature trails, dedicated off-leash playgrounds, and welcoming Valley pet spirit of Weslaco.',
+      longDescription: [
+        "Weslaco provides a vibrant and nature-focused environment for dog owners, nestled in the unique subtropical landscape of the Rio Grande Valley. The city's commitment to canine recreation is visible at its [dedicated off-leash facilities](https://www.weslacotx.gov/departments/parks-recreation), which offer secured enclosures for socialization, shaded seating, and water stations for hot Valley afternoons. For leashed explorers, the area's rich nature preserves and community trails provide miles of lush paths through beautiful environments for daily exercise and training. Weslaco's combination of tropical charm and a growing infrastructure for pets ensures that local canine residents have ample opportunities for daily enrichment and physical activity.",
+        "Maintaining a safe and healthy pet culture in Weslaco is supported by municipal standards that prioritize animal welfare and responsible control in public spaces. Dogs must be restrained by a fixed-length or lockable retractable leash whenever they are in public areas outside of designated dog parks, and they are required to wear current license and rabies vaccination tags. Weslaco also emphasizes the importance of proper waste removal to preserve the unique beauty and health of its local nature trails and parks. For pet parents wanting to stay up-to-date on the best nearby veterinary care and seasonal safety, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored advice. By respecting these shared guidelines, Weslaco residents help foster a supportive and respectful pet culture that defines their proud Valley community."
+      ],
+    },
+  },
+  {
+    slug: 'wylie-tx',
+    city: 'Wylie',
+    state: 'TX',
+    featuredImage: '/images/cities/wylie-tx/hero.webp',
+    summary: 'Highly certified pet-friendly city with elite off-leash parks and massive scenic trail networks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wylie, TX',
+      heroDescription: 'Experience the elite off-leash playgrounds, expansive community trails, and certified pet-friendly culture of Wylie.',
+      longDescription: [
+        "Wylie stands out as a premier destination for dog owners in North Texas, distinguished by its certification in the BETTER CITIES FOR PETS™ program. The city's dedication to canine recreation is anchored by [Prairie Tails Dog Park](https://www.wylietexas.gov/news_and_events/featured_parks/prairie_tails_dog_park.php), a well-maintained off-leash facility featuring breed-specific paddocks, agility equipment, and shaded seating. For leashed explorers, Wylie offers an impressive 19 miles of scenic walking trails that wind through beautiful landscapes and connect various neighborhood parks. The city's robust infrastructure and proactive pet-friendly policies ensure that local pups have unparalleled opportunities for enrichment, socialization, and daily activity.",
+        "Responsible ownership in Wylie is supported by comprehensive municipal ordinances that prioritize animal safety and community health. Dogs must be on a leash whenever they are in public areas outside of designated off-leash zones, including when moving between different park paddocks. All resident pets must maintain current rabies vaccinations and follow local waste removal laws to preserve the pristine beauty of the city's extensive trail system. Wylie also plans for future expansions of its pet amenities, ensuring a continuously improving experience for local canine families. For residents looking for expert advice on local pet services and seasonal guidelines, our [Texas state updates](https://www.indoordogpark.org/states/texas) provide tailored insights. By participating in local stewardship and respecting these standards, Wylie dog owners help maintain the vibrant beauty and inclusive community spirit that define their certified pet-friendly city."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
