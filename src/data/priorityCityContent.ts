@@ -7416,6 +7416,441 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'gretna-va',
+    city: 'Gretna',
+    state: 'VA',
+    summary: 'A small, friendly town in Pittsylvania County with a strong sense of community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Gretna, VA',
+      heroDescription: 'Experience small-town charm and open spaces in the heart of Gretna.',
+      longDescription: [
+        "Gretna is a classic small Virginia town where neighbors know each other and life moves at a comfortable pace. For dog owners, the town offers a quiet environment with plenty of open space for walking. While dedicated dog parks are found in nearby larger cities, Gretna's residential streets and local green patches provide ample room for daily exercise. It serves as a peaceful retreat for those who appreciate a tight-knit community atmosphere where dogs are treated like family.",
+        "As a part of Pittsylvania County, Gretna adheres to animal control ordinances that emphasize safety and responsibility. Leash usage is respected in public areas, and owners are expected to keep their pets vaccinated and licensed. The rural surroundings also mean plenty of opportunities for nature walks, though owners should stay alert for local wildlife. For more inspiration on dog-friendly travel and activities, explore our [latest blog posts](https://www.indoordogpark.org/blog). By maintaining these simple standards, Gretna remains a safe and welcoming home for pets."
+      ],
+    },
+  },
+  {
+    slug: 'grottoes-va',
+    city: 'Grottoes',
+    state: 'VA',
+    summary: 'Home to the Grand Caverns and scenic parks in the Shenandoah Valley.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Grottoes, VA',
+      heroDescription: 'Explore historic caverns and riverside parks in the scenic town of Grottoes.',
+      longDescription: [
+        "Grottoes is a scenic gem in the Shenandoah Valley, best known as the home of [Grand Caverns](https://www.grandcaverns.com/), America's oldest commercially operated show cave. While dogs aren't allowed inside the caverns, the surrounding park offers beautiful trails and picnic areas where leashed pets can enjoy the valley views. The town also features Grand Caverns Park, which provides ample green space for walking and playing fetch. With the South River nearby, Grottoes is a refreshing destination for nature-loving dogs and their owners.",
+        "Both Rockingham and Augusta County regulations influence pet ownership here, requiring dogs to be leashed in public parks and fully vaccinated. The town encourages responsible handling to preserve the cleanliness of its historic sites and public recreation areas. Owners should carry waste bags and water, especially when exploring the extensive park grounds. For tips on pet safety, travel gear, and health, consult our comprehensive [owner resources](https://www.indoordogpark.org/owner-resources). By following these guidelines, residents help keep Grottoes a pristine and inviting destination."
+      ],
+    },
+  },
+  {
+    slug: 'herndon-va',
+    city: 'Herndon',
+    state: 'VA',
+    summary: 'Historic town near Dulles Airport with the popular W&OD Trail running through it.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Herndon, VA',
+      heroDescription: 'Walk the W&OD Trail and enjoy dog-friendly downtown events in Herndon.',
+      longDescription: [
+        "Herndon combines historic charm with modern suburban convenience, making it a favorite for Northern Virginia dog owners. The centerpiece of activity is the [W&OD Trail](https://www.novaparks.com/parks/washington-and-old-dominion-railroad-regional-park), which runs directly through downtown, offering miles of paved path for vigorous walks or jogs. Runnymede Park is another local highlight, featuring nature trails where leashed dogs can explore native woodlands. The town is known for its community events, many of which are welcoming to well-behaved pets.",
+        "Herndon enforces strict leash laws to ensure safety on its popular trails and in its busy downtown area. Dog licenses are mandatory and must be affixed to the collar. The town provides waste stations along major paths, and use of them is strictly expected. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By practicing courteous trail etiquette, Herndon dog owners contribute to the town's reputation as a vibrant, active, and pet-friendly community."
+      ],
+    },
+  },
+  {
+    slug: 'high-view-va',
+    city: 'High View',
+    state: 'VA',
+    summary: 'A quiet, rural community offering seclusion and natural beauty.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in High View, VA',
+      heroDescription: 'Enjoy the peace and privacy of rural living in the High View area.',
+      longDescription: [
+        "High View is a small, unincorporated community that defines rural seclusion, offering vast stretches of wooded land and open fields. For dog owners here, the 'dog park' is often their own backyard or the miles of quiet country roads suitable for long, undisturbed walks. It is an ideal setting for high-energy breeds that thrive on space and exploration away from the distractions of the city. The connection to nature is immediate and constant.",
+        "In this rural setting, responsible ownership focuses on safety in an unfenced environment. Frederick County laws regarding vaccinations and licensing apply. Owners must be vigilant about hunting seasons and local wildlife, often opting for bright expansive collars or vests for their pets. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By respecting property boundaries and local wildlife, High View residents enjoy a harmonious life with their canine companions."
+      ],
+    },
+  },
+  {
+    slug: 'inwood-va',
+    city: 'Inwood',
+    state: 'VA',
+    summary: 'A localized community area offering a quiet residential environment.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Inwood, VA',
+      heroDescription: 'Discover a quiet residential lifestyle in the Inwood community.',
+      longDescription: [
+        "Inwood represents the quieter side of residential living, where the focus is on home and neighborhood. For dog owners, this means peaceful morning walks along tree-lined streets and a community where faces—and breeds—become familiar over time. While lacking large commercial dog facilities, the area's proximity to regional parks allows for easy weekend excursions. It is a place where dogs are simply part of the family routine.",
+        "Local county ordinances ensure that this peaceful atmosphere is maintained through leash laws and noise control. keeping pets vaccinated and registered is a standard requirement. Residents take pride in their properties, so picking up after pets is a non-negotiable social contract. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By adhering to these simple community standards, Inwood remains a comfortable and safe place for pets and people alike."
+      ],
+    },
+  },
+  {
+    slug: 'ipswich-va',
+    city: 'Ipswich',
+    state: 'VA',
+    summary: 'A small residential enclave perfect for quiet walks and relaxation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ipswich, VA',
+      heroDescription: 'Enjoy the calm atmosphere of Ipswich for leisurely dog walks.',
+      longDescription: [
+        "Ipswich is a small, quiet community area that offers a respite from the hustle of larger cities. The neighborhood vibe is relaxed, with low traffic making it conducive to stress-free dog walking. It serves as a bedroom community where the primary amenity is peace and quiet. Residents often utilize nearby county parks for more vigorous exercise, returning to Ipswich for the calm of home.",
+        "Pet owners in Ipswich are subject to standard county regulations, including leash requirements and mandatory rabies vaccinations. The community values mutual respect, so keeping dogs from barking excessively or wandering onto neighbors' lawns is important. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By being considerate neighbors, Ipswich dog owners help preserve the tranquility that defines their community."
+      ],
+    },
+  },
+  {
+    slug: 'james-store-va',
+    city: 'James Store',
+    state: 'VA',
+    summary: 'Rural crossroads community in Gloucester County near coastal plains.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in James Store, VA',
+      heroDescription: 'Experience the rural coastal charm of Gloucester County in James Store.',
+      longDescription: [
+        "James Store is a rural crossroads in Gloucester County, characterized by flat coastal plains and historic farmland. It offers a quiet, country lifestyle where dogs have plenty of room to sniff and explore. The lack of heavy traffic makes for pleasant walks along the back roads. Residents are just a short drive from Beaverdam Park, which offers extensive trails and water access, though James Store itself remains a quiet residential pocket.",
+        "Gloucester County ordinances strictly enforce leash laws when off private property to protect both pets and local wildlife. Licensing and vaccinations are mandatory. Owners should be aware of the rural hazards, including ticks and heat during the humid summer months. New dog owners can find essential checklists and safety advice on our [resources page](https://www.indoordogpark.org/owner-resources). By practicing safety and courtesy, James Store residents enjoy a peaceful coexistence with nature and their neighbors."
+      ],
+    },
+  },
+  {
+    slug: 'logan-va',
+    city: 'Logan',
+    state: 'VA',
+    summary: 'A quiet, localized area ideal for private dog ownership and rural living.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Logan, VA',
+      heroDescription: 'Find peace and open space in the rural setting of Logan.',
+      longDescription: [
+        "Logan offers a rural residential setting where privacy and space are the main attractions. For dog owners, this means the freedom to enjoy larger lots or quiet walks without the density of urban centers. It is the kind of place where dogs can often run in their own large backyards. While amenities are sparse, the connection to the Virginia countryside provides a scenic backdrop for daily life.",
+        "Compliance with county animal control laws is essential, particularly regarding leashing and rabies prevention. In these more open areas, ensuring dogs are microchipped is a wise precaution against them chasing wildlife and getting lost. Owners looking to sharpen obedience skills can find top-rated local experts in our [training guide](https://www.indoordogpark.org/training-facilities). By taking these responsible steps, Logan residents ensure their rural haven remains safe for all four-legged inhabitants."
+      ],
+    },
+  },
+  {
+    slug: 'louisa-va',
+    city: 'Louisa',
+    state: 'VA',
+    summary: 'The heart of Louisa County, offering historic charm and easy access to Lake Anna.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Louisa, VA',
+      heroDescription: 'Enjoy historic streets and nearby lake adventures in the town of Louisa.',
+      longDescription: [
+        "Louisa serves as the charming county seat, featuring a quaint downtown that invites leisurely strolls with leashed pets. The town is a gateway to [Lake Anna State Park](https://www.dcr.virginia.gov/state-parks/lake-anna), where dogs can enjoy miles of hiking trails and scenic water views. Within town limits, the atmosphere is friendly and relaxed, with community events often seeing families out with their dogs. It balances small-town history with outdoor recreation.",
+        "Louisa County enforces strict leash laws to ensure public safety in town and at the lake. All dogs must have a current county license and rabies vaccination. Owners visiting Lake Anna should be mindful of water safety and park specific rules regarding pets on beaches. Unsure about local leash laws or park features? Check our [frequently asked questions](https://www.indoordogpark.org/faq). By adhering to these regulations, Louisa dog owners help maintain the inviting and safe character of their historic community."
+      ],
+    },
+  },
+  {
+    slug: 'lovettsville-va',
+    city: 'Lovettsville',
+    state: 'VA',
+    summary: 'A vibrant community in Loudoun County known for its German heritage and open spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lovettsville, VA',
+      heroDescription: 'Experience community spirit and pastoral views in Lovettsville.',
+      longDescription: [
+        "Lovettsville is a thriving town in northern Loudoun County, known for its strong community spirit and German heritage. The town features the Lovettsville Community Park, which includes an equestrian arena and ample trails perfect for dog walking. The surrounding farmland offers scenic vistas, making every walk a visual treat. It is a town that celebrates outdoor living, with many residents actively utilizing the local parks and paths.",
+        "Loudoun County's comprehensive animal services regulations apply here, requiring dogs to be licensed and leashed in public. The community is active in keeping its public spaces clean, so waste disposal is a must. During the famous Oktoberfest, crowds can be large, so owners should plan accordingly. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By being responsible neighbors, Lovettsville dog owners contribute to the town's festive and friendly reputation."
+      ],
+    },
+  },
+  {
+    slug: 'luray-va',
+    city: 'Luray',
+    state: 'VA',
+    summary: 'Gateway to Shenandoah National Park and home to the world-famous Luray Caverns.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Luray, VA',
+      heroDescription: 'Base your Blue Ridge adventures in the scenic and historic town of Luray.',
+      longDescription: [
+        "Luray is a premier destination for outdoor enthusiasts, sitting at the doorstep of Shenandoah National Park. While pets aren't allowed in [Luray Caverns](https://luraycaverns.com/) tours (small dogs can be carried), the grounds include the Rope Adventure Park and garden areas where leashed dogs are welcome. The majestic [Luray-Hawksbill Greenway](https://townofluray.com/parks-recreation) is a star attraction, offering a paved, Creekside path that is perfect for walking dogs through the heart of town. It is a community deeply connected to nature.",
+        "Page County and town ordinances require dogs to be on a leash, particularly on the Greenway where cyclists and runners share the path. Vaccinations and licenses are mandatory. Owners should be aware of the specific pet policies when entering Shenandoah National Park. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By respectful sharing of these beautiful public resources, Luray dog owners ensure the town remains a welcoming gateway for all visitors."
+      ],
+    },
+  },
+  {
+    slug: 'manteo-va',
+    city: 'Manteo',
+    state: 'VA',
+    summary: 'A coastal-style community referenced in regional data, echoing the charm of the Outer Banks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Manteo, VA',
+      heroDescription: 'Enjoy a waterfront atmosphere and community walks in the Manteo area.',
+      longDescription: [
+        "Manteo brings to mind the coastal charm and history of the Roanoke Sound. Ideally situated for water lovers, the area offers varied walking routes where leashed dogs can take in the fresh air. Whether it's a stroll along a waterfront boardwalk or a quiet walk through residential streets lined with coastal flora, the vibe is distinctly maritime and relaxed. It is a destination where the pace slows down, allowing owners and pets to savor the surroundings.",
+        "Local regulations prioritize the preservation of this unique environment. Leash laws are strictly enforced to protect local wildlife and ensure the comfort of all pedestrians. distinctive to coastal areas, owners should also be mindful of hot surfaces on boardwalks and sandspurs in grassy areas. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By practicing conscientious ownership, residents help keep Manteo a beautiful and safe haven for relaxation."
+      ],
+    },
+  },
+  {
+    slug: 'massanutten-va',
+    city: 'Massanutten',
+    state: 'VA',
+    summary: 'A premier four-season resort community in the mountains offering varied terrain.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Massanutten, VA',
+      heroDescription: 'Hike mountain trails and enjoy resort living with your dog in Massanutten.',
+      longDescription: [
+        "Massanutten is a mountain playground known for its ski slopes and extensive resort amenities. For dog owners, the real draw is the rugged terrain and network of hiking trails that crisscross the mountain. While the resort core is busy, the residential streets offer steep, challenging walks that provide a great workout for active breeds. The high elevation offers cool breezes in summer and stunning foliage in autumn, making it a year-round destination for nature walks.",
+        "As a private resort community, Massanutten has specific covenants regarding pets, in addition to Rockingham County laws. Leashes are mandatory, and allowing dogs to roam is strictly prohibited to protect skiers, golfers, and wildlife. Owners must also be diligent about cleaning up to maintain the resort's pristine appearance. To learn more about responsible pet ownership and local etiquette, verify our [owner guides](https://www.indoordogpark.org/owner-resources). By adhering to these rules, Massanutten residents maintain a high-quality, harmonious mountain lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'middletown-va',
+    city: 'Middletown',
+    state: 'VA',
+    summary: 'A historic town in the lower Shenandoah Valley, home to the Cedar Creek Battlefield.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Middletown, VA',
+      heroDescription: 'Walk through history in the peaceful, preservation-focused town of Middletown.',
+      longDescription: [
+        "Middletown offers a walk through history, situated in the middle of the Cedar Creek and Belle Grove National Historical Park. The town itself is quiet and walkable, with Main Street offering a glimpse into the past. For dog owners, the surrounding battlefield trails provide miles of open, scenic walking paths where leashed dogs can absorb the somber beauty of the valley. It is a respectful, quiet community that values preservation and open space.",
+        "Frederick County leash laws apply, and on National Park service land, these rules are strictly enforced to protect historical earthworks and artifacts. Owners must remove all pet waste—\"leave no trace\" is the guiding principle here. Vaccinations must be current. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By treating this historic landscape with reverence, Middletown dog owners ensure it remains a preserved treasure for future generations."
+      ],
+    },
+  },
+  {
+    slug: 'moneta-va',
+    city: 'Moneta',
+    state: 'VA',
+    summary: 'A charming community near Smith Mountain Lake known for its recreational opportunities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Moneta, VA',
+      heroDescription: 'Enjoy lakeside living and open spaces in the Moneta community.',
+      longDescription: [
+        "Moneta is the heart of Smith Mountain Lake life, offering a blend of rural charm and vacation-style amenities. For dog owners, the proximity to the water means access to marinas and parks where pets are often welcome. [Smith Mountain Lake State Park](https://www.dcr.virginia.gov/state-parks/smith-mountain-lake) nearby is a major draw, offering miles of hiking trails and swimming spots. The area is laid-back and friendly, with plenty of room for dogs to stretch their legs away from city traffic.",
+        "As an unincorporated community spanning Bedford and Franklin counties, local animal control ordinances apply dependent on your specific location. Generally, leashes are required in public areas, and licensing is mandatory. The community is protective of its natural resources, so diligent waste cleanup is expected. For more inspiration on dog-friendly travel and activities, explore our [latest blog posts](https://www.indoordogpark.org/blog). By practicing responsible ownership, Moneta residents help keep the lake area beautiful for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'montpelier-va',
+    city: 'Montpelier',
+    state: 'VA',
+    summary: 'A rural Hanover County community steeped in history and equestrian culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Montpelier, VA',
+      heroDescription: 'Discover the scenic, rolling landscapes of western Hanover County in Montpelier.',
+      longDescription: [
+        "Montpelier offers a classic Virginia countryside experience, characterized by rolling hills, horse farms, and historic estates. It is a community where \"dog walking\" often means a long hike through woods or fields rather than a sidewalk stroll. The open space is ideal for active dogs, and the quiet roads offer a peaceful retreat. While amenities are small-scale, the connection to the land is the primary luxury here.",
+        "Hanover County leash laws require dogs to be under control, particularly important in an area with livestock and horses. Rabies vaccinations and county dog licenses are mandatory. Owners should be aware of hunting seasons in this rural area and take appropriate safety measures. To learn more about responsible pet ownership and local etiquette, verify our [owner guides](https://www.indoordogpark.org/owner-resources). By respecting the agricultural nature of the community, Montpelier dog owners enjoy a harmonious rural lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'moseley-va',
+    city: 'Moseley',
+    state: 'VA',
+    summary: 'A rapidly growing suburban community in Chesterfield County with top-rated schools.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Moseley, VA',
+      heroDescription: 'Experience modern suburban living with ample green space in Moseley.',
+      longDescription: [
+        "Moseley has transformed from rural crossroads to a premier suburban destination, featuring master-planned communities with extensive walking trails. For dog owners, this means safe, sidewalk-lined neighborhoods perfect for daily exercise. The area is family-centric, and it's common to see neighbors out walking their dogs in the evenings. Nearby scenic spots like the Swift Creek Reservoir offer additional opportunities for nature-focused outings.",
+        "Chesterfield County's animal control laws are strictly observed in these dense residential areas. Leashes are required when off private property, and \"scooping the poop\" is a non-negotiable community standard. Vaccinations and licensing are enforced. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By adhering to these suburban norms, Moseley residents ensure their neighborhoods remain clean and welcoming."
+      ],
+    },
+  },
+  {
+    slug: 'nellysford-va',
+    city: 'Nellysford',
+    state: 'VA',
+    summary: 'A picturesque village in Nelson County, the gateway to the Wintergreen Resort.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Nellysford, VA',
+      heroDescription: 'Enjoy the Blue Ridge landscape and craft beverage trail in Nellysford.',
+      longDescription: [
+        "Nellysford is a delightful stop in the heart of the Rockfish Valley, offering stunning mountain views and a relaxed atmosphere. The village serves as a hub for the local craft beverage industry, where many breweries and cideries offer pet-friendly outdoor seating. The Rockfish Valley Foundation Natural History Center features trails that are perfect for scenic dog walks. It is a community that seamlessly blends outdoor recreation with leisure.",
+        "Nelson County norms emphasize respect for the environment and neighbors. Leashes are expected on trails and at public venues. Licensing and vaccinations are required. With the area's popularity for hiking, owners should be mindful of trail etiquette and wildlife. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By being responsible stewards, Nellysford dog owners help preserve the natural beauty and friendly vibe of the valley."
+      ],
+    },
+  },
+  {
+    slug: 'new-braunfels-tx',
+    city: 'New Braunfels',
+    state: 'TX',
+    summary: 'Historic German town famous for its rivers and dog-friendly culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Braunfels, TX',
+      heroDescription: 'Cool off in the Comal or Guadalupe rivers in the dog-friendly city of New Braunfels.',
+      longDescription: [
+        "New Braunfels is a Hill Country treasure known for its German heritage and river recreation. The city is incredibly dog-friendly, with [Puppy Playland](https://www.nbtexas.org/1572/Puppy-Playland-Dog-Park) offering a top-tier off-leash experience with separate sections and agility equipment. Beyond the park, the Comal and Guadalupe Rivers attract visitors year-round, and leashed dogs are often welcome in designated areas. The historic downtown and Gruene District feature numerous patios where pups are greeted with water bowls.",
+        "City ordinances require dogs to be leashed in public unless in a designated dog park. Rabies vaccinations and city registration are mandatory. When enjoying the rivers, owners should be extremely cautious of water currents and temperature to ensure pet safety. Owners looking to sharpen obedience skills can find top-rated local experts in our [training guide](https://www.indoordogpark.org/training-facilities). By following these safety guidelines, New Braunfels remains a premier destination for fun-loving dogs and their families."
+      ],
+    },
+  },
+  {
+    slug: 'newport-va',
+    city: 'Newport',
+    state: 'VA',
+    summary: 'A scenic rural community in Giles County near the New River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Newport, VA',
+      heroDescription: 'Explore the rugged beauty of the New River Valley from the quiet village of Newport.',
+      longDescription: [
+        "Newport offers a quiet, rural existence nestled in the mountains of Giles County. It serves as a gateway to outdoor adventure, with the Appalachian Trail nearby offering challenging hikes for active dogs and owners. The majestic Sinking Creek Covered Bridge provides a historic backdrop for leisurely walks. Life here is slow-paced and deeply connected to the natural landscape, making it ideal for those who love the woods and water.",
+        "Giles County laws require dogs to be under control and vaccinated. In this rural environment, keeping pets from chasing livestock or wandering into traffic is a primary responsibility. Owners hiking the nearby trails should practice \"Leave No Trace\" principles. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By respecting the land and local community, Newport residents enjoy a peaceful life in the mountains."
+      ],
+    },
+  },
+  {
+    slug: 'newsoms-va',
+    city: 'Newsoms',
+    state: 'VA',
+    summary: 'A small agricultural town in Southampton County offering a quiet pace of life.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Newsoms, VA',
+      heroDescription: 'Enjoy the open skies and agricultural heritage of the Newsoms community.',
+      longDescription: [
+        "Newsoms is a quintessential small Southern town surrounded by the rich farmland of Southampton County. It offers a lifestyle where traffic is minimal and the horizon is wide. For dog owners, the lack of urban density means peaceful walks along quiet streets. While there are no dedicated dog parks, the open space and large residential lots provide plenty of room for pets to exercise and play.",
+        "Southampton County animal control regulations apply, requiring leashes when off, private property and up-to-date vaccinations. The community values its peaceful nature, so responsible ownership—including noise control—is appreciated. Owners should check for ticks after walks in this rural area. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By living responsibly, Newsoms dog owners help maintain the serene and friendly atmosphere of their town."
+      ],
+    },
+  },
+  {
+    slug: 'north-bethesda-va',
+    city: 'North Bethesda',
+    state: 'VA',
+    summary: 'A bustling urban-suburban community (mapped here for regional coverage) with ample amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Bethesda, VA',
+      heroDescription: 'Access urban conveniences and trails in the North Bethesda area.',
+      longDescription: [
+        "North Bethesda sits at the intersection of urban energy and suburban comfort. Known for the Pike & Rose development, the area features walkable streets, outdoor dining, and high-end amenities that often welcome leashed pets. The nearby Trolley Trail offers a linear park experience perfect for daily exercise. It is a location designed for convenience, where everything—including pet services—is just a short walk away.",
+        "Local regulations strictly enforce leash laws in all public areas and trails. Licensing and vaccinations are mandatory requirements. The density of the area means waste cleanup is critical and expected. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By adhering to these urban etiquette standards, North Bethesda residents ensure a clean and vibrant community for all."
+      ],
+    },
+  },
+  {
+    slug: 'north-dinwiddie-va',
+    city: 'North Dinwiddie',
+    state: 'VA',
+    summary: 'A residential and commercial hub just south of Petersburg.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Dinwiddie, VA',
+      heroDescription: 'Enjoy convenient suburban living near historic sites in North Dinwiddie.',
+      longDescription: [
+        "North Dinwiddie offers a practical mix of residential neighborhoods and commercial convenience. Residents have easy access to [Pamplin Historical Park](https://pamplinpark.org/), a significant civil war educational site. While the park itself has restrictions, the surrounding areas and local neighborhoods provide plenty of ground for dog walking. The community is family-oriented and provides a quieter alternative to the city life of nearby Petersburg.",
+        "Dinwiddie County animal laws require dogs to be leashed when not confined to their owner's property. Rabies vaccinations and valid licenses are mandatory. Owners are encouraged to respect private property boundaries in this spread-out suburban environment. New dog owners can find essential checklists and safety advice on our [resources page](https://www.indoordogpark.org/owner-resources). By following these community standards, North Dinwiddie remains a safe and pleasant place to live."
+      ],
+    },
+  },
+  {
+    slug: 'north-hampton-va',
+    city: 'North Hampton',
+    state: 'VA',
+    summary: 'A coastal community referencing the unique geography of the Eastern Shore or Hampton region.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Hampton, VA',
+      heroDescription: 'Explore the coastal plains and quiet community of North Hampton.',
+      longDescription: [
+        "North Hampton evokes the quiet, maritime lifestyle of Virginia's coastal regions. The flat terrain and proximity to water make for breezy, pleasant walks. Whether referencing the Eastern Shore's Northampton County or a specific local community, the vibe is consistently relaxed and nature-focused. Dog owners here enjoy open spaces and a connection to the rhythms of the tide and season.",
+        "Local ordinances prioritize the protection of the coastal environment and public safety. Leash laws are standard, particularly important near water access points to protect nesting birds and other wildlife. Vaccinations are mandatory. Owners should also watch for sandspurs and marsh mud during outings. To learn more about responsible pet ownership and local etiquette, verify our [owner guides](https://www.indoordogpark.org/owner-resources). By acting as responsible stewards, residents help preserve the natural beauty of the North Hampton area."
+      ],
+    },
+  },
+  {
+    slug: 'pembroke-va',
+    city: 'Pembroke',
+    state: 'VA',
+    summary: 'Gateway to the Cascades and outdoor adventure in Giles County.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pembroke, VA',
+      heroDescription: 'Hike to waterfalls and enjoy river views in the adventure town of Pembroke.',
+      longDescription: [
+        "Pembroke is world-famous among hikers as the home of the [Cascades National Recreation Trail](https://www.fs.usda.gov/recarea/gwj/recarea/?recid=73639), one of Virginia's most beautiful waterfalls. Leashed dogs are welcome on this scenic trail, making Pembroke a top destination for active pet owners. The New River also flows nearby, offering opportunities for riverside walks and water activities. It is a town defined by its stunning natural assets.",
+        "Giles County and National Forest regulations apply, with strict leash enforcement on the Cascades trail to ensure visitor safety. Dog licenses and rabies vaccinations are required. Owners must be diligent about \"leave no trace\" ethics, packing out all waste to keep the trails pristine. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By respecting these natural wonders, Pembroke dog owners ensure they remain accessible and beautiful for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'poquoson-va',
+    city: 'Poquoson',
+    state: 'VA',
+    summary: 'A unique waterfront city on the Peninsula known for its "Bull Island" heritage.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Poquoson, VA',
+      heroDescription: 'Enjoy waterfront parks and a close-knit community atmosphere in Poquoson.',
+      longDescription: [
+        "Poquoson is a distinct community surrounded by water and marshes, offering a lifestyle deeply tied to the Chesapeake Bay. [Poquoson Park](https://www.poquoson-va.gov/156/Parks-Recreation) provides recreational space, and the flat, quiet streets are ideal for walking dogs. The city has a strong sense of identity and community, where neighbors look out for one another. It is a peaceful, scenic place to raise a family and a pet.",
+        "The City of Poquoson requires all dogs to be licensed and vaccinated against rabies. Leash laws are strictly monitored to ensure safety in public spaces. Owners should be aware of tide levels in some low-lying areas and protect pets from marsh insects in the summer. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By upholding these community standards, Poquoson remains a safe and cherished home on the water."
+      ],
+    },
+  },
+  {
+    slug: 'quinton-va',
+    city: 'Quinton',
+    state: 'VA',
+    summary: 'A rural community in New Kent County offering easy access to Richmond and Williamsburg.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Quinton, VA',
+      heroDescription: 'Experience the quiet woods and growing community of Quinton.',
+      longDescription: [
+        "Quinton offers the best of both worlds: rural tranquility with easy highway access to major cities. The area is heavily wooded, providing a shaded, natural setting for residents. While commercial amenities are limited, the abundance of space allows dogs to enjoy a quiet life away from urban stress. It is a popular spot for commuters seeking a peaceful retreat at the end of the day.",
+        "New Kent County animal control laws mandate that dogs be under control and properly licensed. In this wooded environment, tick prevention is essential for pet health. Residents value their privacy and peace, so controlling barking and roaming is important behavior. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By respecting these rural courtesies, Quinton dog owners help maintain the relaxed quality of life in New Kent."
+      ],
+    },
+  },
+  {
+    slug: 'ravensworth-va',
+    city: 'Ravensworth',
+    state: 'VA',
+    summary: 'A well-established residential community in Fairfax County near Lake Accotink.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ravensworth, VA',
+      heroDescription: 'Walk the trails of Lake Accotink and enjoy suburban comfort in Ravensworth.',
+      longDescription: [
+        "Ravensworth is a classic Fairfax County suburb, prized for its proximity to [Lake Accotink Park](https://www.fairfaxcounty.gov/parks/lake-accotink). This massive park offers miles of trails where leashed dogs can enjoy lake views and forest walks. The neighborhood itself features mature trees and sidewalks, creating a pleasant environment for daily exercise. It is a community that values outdoor recreation and family-friendly amenities.",
+        "Fairfax County regulations are strictly enforced, including the mandate to leash dogs in all public parks and residential areas. Licenses are required, and waste removal is expected without exception. The community is active, so shared trails require courteous behavior. Read up on seasonal tips and training advice in our [community blog](https://www.indoordogpark.org/blog). By following these rules, Ravensworth residents ensure their neighborhood and parks remain pristine and enjoyable."
+      ],
+    },
+  },
+  {
+    slug: 'ridge-va',
+    city: 'Ridge',
+    state: 'VA',
+    summary: 'A quiet residential area in Henrico County offering convenience and community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ridge, VA',
+      heroDescription: 'Enjoy a convenient suburban lifestyle in the Ridge community of Henrico.',
+      longDescription: [
+        "Ridge is a well-located community in western Henrico County, offering easy access to shopping and schools while maintaining a residential feel. The neighborhoods are mature and walkable, providing a safe environment for dog owners. Nearby parks like Deep Run Park offer expanded recreational opportunities just a short drive away. It is a practical, comfortable place to live for families and their pets.",
+        "Henrico County animal control ordinances apply, requiring dogs to be leashed when off their owner's property. Annual licensing and rabies vaccinations are mandatory. The density of the suburbs means neighbors live close by, so respecting property lines and managing noise is key. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By adhering to these community standards, Ridge dog owners contribute to a friendly and harmonious neighborhood environment."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
