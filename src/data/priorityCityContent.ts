@@ -7851,6 +7851,276 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'round-hill-va',
+    city: 'Round Hill',
+    state: 'VA',
+    summary: 'A scenic town in western Loudoun County known for its Appalachian Trail access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Round Hill, VA',
+      heroDescription: 'Hike the "Roller Coaster" section of the AT near the scenic town of Round Hill.',
+      longDescription: [
+        "Round Hill offers a perfect blend of small-town charm and rugged outdoor adventure in western Loudoun County. Known as a gateway to the Appalachian Trail, the town attracts hikers and their dogs who come to challenge the famous 'Roller Coaster' section nearby. The town itself is quiet and picturesque, with Sleeter Lake Park providing a serene spot for leashed walks and picnics. It is a haven for those who want to live near the mountains without sacrificing community connection.",
+        "Loudoun County laws require dogs to be licensed and leashed in public spaces. Given the proximity to bear country and extensive wooded trails, owners should be vigilant about wildlife encounters and keep pets close. 'Leave No Trace' is not just a saying here; it's a rule for preserving the trails. For more inspiration on dog-friendly travel and activities, explore our [latest blog posts](https://www.indoordogpark.org/blog). By respecting the natural environment, Round Hill residents ensure their town remains a pristine gateway to the outdoors."
+      ],
+    },
+  },
+  {
+    slug: 'sandston-va',
+    city: 'Sandston',
+    state: 'VA',
+    summary: 'A historic community in Henrico County with close ties to the airport and aviation history.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sandston, VA',
+      heroDescription: 'Discover the aviation history and close-knit streets of Sandston.',
+      longDescription: [
+        "Sandston is a unique community in eastern Henrico, originally built as a village for WWI munitions workers and now closely linked to Richmond International Airport. The neighborhood layout features sidewalks and modest homes, creating a walkable loop for daily dog exercise. While planes fly overhead, the streets themselves are often quiet and neighborly. Residents have quick access to Dorey Park, a massive county facility with a dedicated dog park and miles of trails.",
+        "Henrico County animal laws mandate leashing and licensing for all dogs. The community is compact, so picking up after pets is essential for maintaining good neighborly relations. Owners should also ensure their dogs are comfortable with the noise of aircraft if new to the area. Owners looking to sharpen obedience skills can find top-rated local experts in our [training guide](https://www.indoordogpark.org/training-facilities). By practicing these simple courtesies, Sandston dog owners help keep their historic village a pleasant place to call home."
+      ],
+    },
+  },
+  {
+    slug: 'shenandoah-va',
+    city: 'Shenandoah',
+    state: 'VA',
+    summary: 'A riverfront town nestled between the Massanutten and Blue Ridge mountains.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Shenandoah, VA',
+      heroDescription: 'Experience river life and mountain views in the town of Shenandoah.',
+      longDescription: [
+        "The town of Shenandoah is a scenic basecamp for river and mountain lovers alike. Sitting on the banks of the South Fork of the Shenandoah River, it offers easy access to boat landings where water-loving dogs can cool off. The town park provides green space for walks, and the nearby Shenandoah National Park trails offer endless hiking opportunities. It is a community where the outdoors is the primary playground.",
+        "Page County ordinances apply, requiring dogs to be under control and vaccinated. When enjoying the river, owners should be mindful of currents and use life jackets for their pets if boating. On trails, leashing is mandatory to protect the abundant local wildlife. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By following these safety tips, Shenandoah residents ensure their town remains a safe and welcoming hub for adventure."
+      ],
+    },
+  },
+  {
+    slug: 'silver-spring-va',
+    city: 'Silver Spring',
+    state: 'VA',
+    summary: 'A major metropolitan hub (mapped regionally) offering extensive urban amenities and parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Silver Spring, VA',
+      heroDescription: 'Enjoy the vibrant urban energy and extensive park system of the Silver Spring area.',
+      longDescription: [
+        "Silver Spring serves as a dynamic urban center just north of D.C., blending city convenience with impressive green spaces. The area is famous for Sligo Creek Trail, a miles-long paved path that attracts runners and dog walkers from all over the region. Downtown features a bustling atmosphere where many cafes welcome leashed pets on their patios. It is a diverse, energetic community where dogs are a visible part of the daily rhythm.",
+        "Strict leash laws are enforced throughout the metropolitan area to ensure safety on busy streets and trails. Dog licenses are mandatory, as are rabies vaccinations. The community places a high value on shared public spaces, so waste removal is vigorously monitored. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By adhering to these urban standards, Silver Spring residents help maintain a clean and pet-friendly city environment."
+      ],
+    },
+  },
+  {
+    slug: 'south-prince-george-va',
+    city: 'South Prince George',
+    state: 'VA',
+    summary: 'A rural community in Prince George County known for its agricultural heritage.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Prince George, VA',
+      heroDescription: 'Find peace and open fields in the rural community of South Prince George.',
+      longDescription: [
+        "South Prince George offers a quiet, rural lifestyle south of the Appomattox River. The area is defined by farmland and spread-out residential lots, giving dogs plenty of room to roam in their own backyards. It is a slower-paced environment ideal for those who want to escape the congestion of the city. While there are no commercial dog parks, the country roads offer peaceful routes for long evening walks.",
+        "Prince George County requires dogs to be licensed and vaccinated. In this rural setting, owners must be responsible for preventing their dogs from wandering onto neighboring farms or chasing livestock. Tick prevention is also critical due to the wooded surroundings. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on rural pet safety. By respecting the agricultural nature of the area, South Prince George residents enjoy a harmonious country life."
+      ],
+    },
+  },
+  {
+    slug: 'south-riding-va',
+    city: 'South Riding',
+    state: 'VA',
+    summary: 'A large, master-planned community in Loudoun County designed for active families.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Riding, VA',
+      heroDescription: 'Enjoy miles of walking trails and community parks in South Riding.',
+      longDescription: [
+        "South Riding is a premier planned community in Loudoun County designed with walkability in mind. Residents have access to miles of paved trails that weave through neighborhoods and green spaces, making it a paradise for social dogs. The community includes its own dedicated dog park where neighbors gather to let their pets play off-leash. It is a family-oriented environment where pet ownership is celebrated and supported.",
+        "Community covenants and county laws require dogs to be leashed when not in the designated dog park. Licensing and vaccinations are standard requirements. The community takes pride in its manicured appearance, so carrying waste bags is second nature to residents here. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By participating in this culture of care, South Riding dog owners ensure their community remains a top-tier place to live."
+      ],
+    },
+  },
+  {
+    slug: 'stephenson-va',
+    city: 'Stephenson',
+    state: 'VA',
+    summary: 'A growing residential area in Frederick County just north of Winchester.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Stephenson, VA',
+      heroDescription: 'Benefit from new suburban amenities and rural proximity in Stephenson.',
+      longDescription: [
+        "Stephenson has evolved from a rural outpost to a desirable suburban community for commuters. Located just north of Winchester, it offers newer housing developments with sidewalks and community green spaces perfect for walking dogs. Residents enjoy the convenience of generic suburban amenities while being minutes away from the orchards and farms of Frederick County. It offers a balance of comfort and space.",
+        "Frederick County animal control laws apply, mandating leashes in public areas and current vaccinations. As the area grows, respecting neighbors by controlling barking and cleaning up waste becomes increasingly important. Owners should also be aware of traffic on the busier commuter routes. To learn more about responsible pet ownership and local etiquette, verify our [owner guides](https://www.indoordogpark.org/owner-resources). By being considerate neighbors, Stephenson residents help shape a friendly and safe growing community."
+      ],
+    },
+  },
+  {
+    slug: 'stony-creek-va',
+    city: 'Stony Creek',
+    state: 'VA',
+    summary: 'A quiet town in Sussex County offering a slow-paced, rural lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Stony Creek, VA',
+      heroDescription: 'Relax in the quiet, small-town atmosphere of Stony Creek.',
+      longDescription: [
+        "Stony Creek is a small town that feels miles away from the rush of the modern world. For dog owners, it offers a peaceful environment with minimal traffic and plenty of open space. The town is surrounded by the forests and fields of Sussex County, providing a natural setting for outdoor dogs. It is a community where privacy is respected and life revolves around simple, local pleasures.",
+        "Sussex County ordinances require dogs to be under control and vaccinated against rabies. In this rural environment, hunting is a common pastime, so owners should be sure to use blaze orange on their pets if walking near woods in the fall. Licensing is mandatory. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By practicing rural safety and courtesy, Stony Creek residents preserve the tranquil character of their home."
+      ],
+    },
+  },
+  {
+    slug: 'timberville-va',
+    city: 'Timberville',
+    state: 'VA',
+    summary: 'A historic town in Rockingham County situated along the North Fork of the Shenandoah River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Timberville, VA',
+      heroDescription: 'Enjoy river views and small-town community in Timberville.',
+      longDescription: [
+        "Timberville is a tight-knit community in the Shenandoah Valley with deep agricultural roots. The town features Plains District Memorial Park, a lovely spot for leashed walks and family picnics. With the river winding through the area, there are scenic spots to sit and enjoy the water with your dog. The community is friendly and welcoming, often gathering for local festivals and events.",
+        "Rockingham County and town laws strictly enforce leash requirements in public spaces to ensure safety. All dogs must have a current license and rabies shot. The town encourages residents to keep their properties and public spaces clean. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By upholding these simple standards, Timberville dog owners contribute to a clean, safe, and friendly small-town environment."
+      ],
+    },
+  },
+  {
+    slug: 'vienna-va',
+    city: 'Vienna',
+    state: 'VA',
+    summary: 'A vibrant town in Fairfax County known for its small-town feel and W&OD Trail access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Vienna, VA',
+      heroDescription: 'Walk the famous W&OD Trail and enjoy community events in Vienna.',
+      longDescription: [
+        "Vienna consistently ranks as one of the best places to live, and its dog-friendly amenities are a big reason why. The W&OD Trail bisects the town, serving as a massive linear park for walkers, runners, and their dogs. The town also features a dedicated dog park at Moorefield Park, offering off-leash play in a shaded setting. Vienna blends a strong sense of community with top-tier recreational facilities.",
+        "The Town of Vienna enforces leash laws on all trails and in parks, with the exception of the fenced dog run. Licenses and rabies vaccinations are mandatory. The town is very active, so ensuring your dog is well-socialized for crowded sidewalks and events like Viva Vienna is important. newer owners can find helpful tips in our [community blog](https://www.indoordogpark.org/blog). By practicing responsible ownership, Vienna residents ensure their town remains a model for pet-friendly living."
+      ],
+    },
+  },
+  {
+    slug: 'warrenton-va',
+    city: 'Warrenton',
+    state: 'VA',
+    summary: 'The historic seat of Fauquier County, offering a mix of hunt country charm and modern amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Warrenton, VA',
+      heroDescription: 'Explore historic streets and the Warrenton Branch Greenway with your dog.',
+      longDescription: [
+        "Warrenton sits in the heart of Virginia horse country, offering a sophisticated yet rural vibe. The Warrenton Branch Greenway provides a paved, scenic route for dog walkers, connecting different parts of town including the visible prowess of the Warrenton Dog Park. The historic Old Town creates a charming backdrop for leisurely strolls, with several businesses putting out water bowls for visiting pups. It is a town that cherishes its animals.",
+        "Fauquier County laws require dogs to be leashed in public and properly licensed. At the dog park, specific rules about aggression and cleanup are strictly self-policed by the community. Owners are expected to be respectful of the town's historic character and keep sidewalks clean. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By adhering to these local norms, Warrenton dog owners help preserve the town's unique blend of history and hospitality."
+      ],
+    },
+  },
+  {
+    slug: 'warsaw-va',
+    city: 'Warsaw',
+    state: 'VA',
+    summary: 'The county seat of Richmond County located in the Northern Neck region.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Warsaw, VA',
+      heroDescription: 'Discover the heart of the Northern Neck in the town of Warsaw.',
+      longDescription: [
+        "Warsaw serves as the hub for the Northern Neck, offering a mix of services and small-town charm. The town park includes a walking trail that is popular with local dog owners for daily exercise. Being in a region surrounded by the Rappahannock River, the pace of life here is gentle and dictated by the seasons. It is a friendly, supportive community where people take the time to chat during their walks.",
+        "Richmond County ordinances mandate that dogs be under control and vaccinated against rabies. Leashes are required in the town park to ensure the safety of families and other pets. The community values cleanliness, so carrying waste bags is expected. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By being responsible citizens, Warsaw dog owners help keep their town a pleasant gathering place for the region."
+      ],
+    },
+  },
+  {
+    slug: 'washington-va',
+    city: 'Washington',
+    state: 'VA',
+    summary: 'Historic "Little Washington," nestled in the foothills of the Blue Ridge Mountains.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Washington, VA',
+      heroDescription: 'Walk the historic streets of "Little Washington" surrounded by mountain views.',
+      longDescription: [
+        "Washington, affectionately known as 'Little Washington,' is a historic gem famous for its world-class inn and stunning setting. The town laid out by George Washington himself offers a grid of walkable streets with breathtaking views of the Blue Ridge Mountains. It is a quiet, upscale destination where leashed dogs are often seen accompanying their owners on peaceful strolls. The atmosphere is one of refined tranquility.",
+        "Rappahannock County laws apply, requiring dogs to be licensed and vaccinated. In town, leashing is not just a rule but a courtesy to the many visitors and historic properties. The surrounding area is rural, so owners should be mindful of livestock and wildlife. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By respecting the quiet elegance of the town, Washington dog owners ensure it remains a pristine historic sanctuary."
+      ],
+    },
+  },
+  {
+    slug: 'waynesboro-va',
+    city: 'Waynesboro',
+    state: 'VA',
+    summary: 'An independent city in the Shenandoah Valley known for the South River and Ridgeview Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Waynesboro, VA',
+      heroDescription: 'Enjoy the South River Greenway and Ridgeview Park in Waynesboro.',
+      longDescription: [
+        "Waynesboro is a hub for outdoor recreation in the Valley, sitting at the junction of the Blue Ridge Parkway and Skyline Drive. The city's crown jewel for dog owners is the [South River Greenway](https://www.waynesboro.va.us/220/South-River-Greenway), a paved trail running along the river that is perfect for scenic walks. Ridgeview Park also offers extensive green space and wooded trails. The city is actively becoming more pet-friendly, with new amenities and a welcoming attitude.",
+        "City ordinances strictly enforce leash laws on the Greenway and in all parks to ensure safety for all users. Dog licenses and rabies vaccinations are mandatory. The city provides waste stations along the trail, and their use is expected. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By practicing courteous trail etiquette, Waynesboro dog owners contribute to the city's reputation as a premier outdoor destination."
+      ],
+    },
+  },
+  {
+    slug: 'webster-va',
+    city: 'Webster',
+    state: 'VA',
+    summary: 'A residential locale (mapped regionally) offering quiet community living.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Webster, VA',
+      heroDescription: 'Find quiet streets and community comfort in the Webster area.',
+      longDescription: [
+        "Webster offers a quiet residential experience, characterized by local neighborhoods and a slower pace of life. Whether referring to a specific local enclave or a broader area, the focus for dog owners here is on home and community. The lack of heavy traffic allows for relaxed walks, and the familiarity of neighbors creates a safe environment. It is a place where dogs are simply part of the family fabric.",
+        "Local animal control regulations mandate that all pets be properly vaccinated and licensed. Leashes are the standard for public safety, ensuring that interactions between neighbors and pets remain positive. Respecting property boundaries is key in these residential settings. To learn more about responsible pet ownership and local etiquette, verify our [owner guides](https://www.indoordogpark.org/owner-resources). By being responsible neighbors, Webster residents help maintain the peaceful and friendly nature of their community."
+      ],
+    },
+  },
+  {
+    slug: 'west-point-va',
+    city: 'West Point',
+    state: 'VA',
+    summary: 'A historic town located at the confluence of the Mattaponi and Pamunkey rivers.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in West Point, VA',
+      heroDescription: 'Enjoy river views and a walkable town layout in West Point.',
+      longDescription: [
+        "West Point is defined by its water, sitting on a peninsula between two rivers that form the York River. The town is historic and walkable, with a layout that encourages evening strolls with the dog. The Town Park offering river views is a favorite spot for quiet reflection. It is a tight-knit community with a strong school system and a family-first attitude that extends to pets.",
+        "Town ordinances require dogs to be leashed when off private property and fully vaccinated. Licensing is mandatory. Because of the surrounding water, owners should be mindful of safety near riverbanks and docks. The community values its clean image, so waste pickup is strictly expected. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By adhering to these standards, West Point residents ensure their unique river town remains a beautiful place to live."
+      ],
+    },
+  },
+  {
+    slug: 'windsor-va',
+    city: 'Windsor',
+    state: 'VA',
+    summary: 'A friendly town in Isle of Wight County known as the "Hidden Jewel of Western Tidewater".',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Windsor, VA',
+      heroDescription: 'Discover the friendly charm of Windsor in the heart of Isle of Wight County.',
+      longDescription: [
+        "Windsor calls itself the \"Hidden Jewel of Western Tidewater,\" and for dog owners, it offers a peaceful, rural-suburban gem. The town is small and friendly, with quiet streets that are safe for walking. While it lacks large commercial parks, the open spaces of the surrounding county are easily accessible. It is a community where neighbors wave to each other and dogs are known by name.",
+        "Isle of Wight County laws apply, requiring dogs to be licensed and vaccinated against rabies. Leash laws are in effect to ensure the safety of the community. In this relaxed setting, responsible ownership means keeping dogs from roaming and bothering neighbors. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By respecting these simple town rules, Windsor dog owners help maintain the inviting and safe atmosphere of their community."
+      ],
+    },
+  },
+  {
+    slug: 'wirtz-va',
+    city: 'Wirtz',
+    state: 'VA',
+    summary: 'A rural community in Franklin County offering access to Smith Mountain Lake.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wirtz, VA',
+      heroDescription: 'Enjoy the rural landscapes and lake access of the Wirtz community.',
+      longDescription: [
+        "Wirtz is a rural community that serves as a gateway to the western side of Smith Mountain Lake. The landscape is a mix of farms, woods, and lakefront properties, offering a diverse environment for dogs. While mostly car-dependent, the large lots allow for plenty of at-home exercise. Visitors and residents alike enjoy the laid-back country vibe that defines Franklin County living.",
+        "Franklin County animal control ordinances require dogs to be under control and vaccinated. The rural nature of Wirtz means owners should be vigilant about ticks and contact with wildlife. Leashes are recommended in public areas and campgrounds. For tips on pet safety, travel gear, and health, consult our comprehensive [owner resources](https://www.indoordogpark.org/owner-resources). By practicing responsible rural ownership, Wirtz residents ensure their community remains a safe haven for people and pets."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
