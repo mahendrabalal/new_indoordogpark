@@ -76,6 +76,20 @@ export function normalizeStateKey(state?: string | null): string {
   return normalizeState(state).toLowerCase();
 }
 
+export const ABBR_TO_NAME: Record<string, string> = Object.entries(NAME_TO_ABBR).reduce(
+  (acc, [name, abbr]) => {
+    acc[abbr] = name;
+    return acc;
+  },
+  {} as Record<string, string>,
+);
+
+export function getStateName(state?: string | null): string | null {
+  if (!state) return null;
+  const normalized = normalizeState(state);
+  return ABBR_TO_NAME[normalized] || null;
+}
+
 
 
 

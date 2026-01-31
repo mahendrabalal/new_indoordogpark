@@ -2,7 +2,7 @@ import { readFile, access } from 'fs/promises';
 import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
-import { normalizeState, normalizeStateKey } from '@/lib/state';
+import { normalizeState, normalizeStateKey, getStateName } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
 import {
   CityData,
@@ -577,15 +577,20 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
         featuredImage = cityImagePath;
       } catch {
         // City image doesn't exist, try state fallback
-        const stateSlug = normalizeState(city.state).toLowerCase().replace(/\s+/g, '-');
-        const stateImagePath = `/images/states/${stateSlug}/hero.webp`;
-        const absoluteStatePath = path.join(process.cwd(), 'public', stateImagePath);
-        try {
-          await access(absoluteStatePath);
-          featuredImage = stateImagePath;
-        } catch {
-          // Fallback handled in UI or use default
-          featuredImage = cityImagePath; // Keep original behavior as final fallback, or null
+        const stateName = getStateName(city.state);
+        if (stateName) {
+          const stateSlug = stateName.toLowerCase().replace(/\s+/g, '-');
+          const stateImagePath = `/images/states/${stateSlug}/hero.webp`;
+          const absoluteStatePath = path.join(process.cwd(), 'public', stateImagePath);
+          try {
+            await access(absoluteStatePath);
+            featuredImage = stateImagePath;
+          } catch {
+            // Fallback handled in UI or use default
+            featuredImage = cityImagePath;
+          }
+        } else {
+          featuredImage = cityImagePath;
         }
       }
     }
