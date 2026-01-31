@@ -569,6 +569,17 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
 
     // Resolve featured image with fallback to state image
     let featuredImage = priorityConfig?.featuredImage || city.featuredImage;
+
+    // Verify if the assigned image actually exists (handle cityData.ts blind assignment)
+    if (featuredImage && featuredImage.startsWith('/')) {
+      try {
+        const absolutePath = path.join(process.cwd(), 'public', featuredImage);
+        await access(absolutePath);
+      } catch {
+        featuredImage = undefined;
+      }
+    }
+
     if (!featuredImage) {
       const cityImagePath = `/images/cities/${city.slug}/hero.webp`;
       const absoluteCityPath = path.join(process.cwd(), 'public', cityImagePath);
