@@ -6891,10 +6891,537 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'abingdon-va',
+    city: 'Abingdon',
+    state: 'VA',
+    summary: 'Historic charm in the Great Appalachian Valley with access to the Virginia Creeper Trail.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Abingdon, VA',
+      heroDescription: 'Explore the historic streets and scenic trails of Abingdon with your canine companion.',
+      longDescription: [
+        "Abingdon offers a picturesque setting for dog owners, nestled in the Great Appalachian Valley with a rich history that invites leisurely, leashed strolls. The town is a major trailhead for the world-famous [Virginia Creeper Trail](https://www.vacreepertrail.org/), a 34-mile multi-use rail trail that welcomes leashed dogs and provides a stunning journey through the lush landscapes of Southwest Virginia. Within the town itself, the brick sidewalks of the historic district are perfect for morning walks, passing by pet-friendly patios and local landmarks like the Barter Theatre. The community's appreciation for the outdoors ensures that four-legged visitors are often greeted with a smile and a fresh bowl of water at many local establishments.",
+        "Responsible pet ownership in Abingdon is centered on maintaining the town's historic beauty and natural resources. Local ordinances require dogs to be leashed in all public areas, including the Creeper Trail, to ensure safety for all trail users and abundant local wildlife. The town encourages regular vaccinations and licensing, supported by local veterinary clinics that serve the broader Washington County area. For those planning a longer stay or seeking regional tips, our [Virginia state guide](https://www.indoordogpark.org/states/virginia) offers additional resources on pet-friendly travel. By respecting these simple community standards, Abingdon residents and visitors preserve the welcoming and tranquil atmosphere that defines this Appalachian gem."
+      ],
+    },
+  },
+  {
+    slug: 'annandale-va',
+    city: 'Annandale',
+    state: 'VA',
+    summary: 'Diverse Fairfax County community featuring the popular Mason District Off-Leash Dog Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Annandale, VA',
+      heroDescription: 'Discover community-focused off-leash areas and wooded trails in the heart of Annandale.',
+      longDescription: [
+        "Annandale is a vibrant community in Fairfax County that offers excellent recreational opportunities for dogs, highlighted by the popular [Mason District Off-Leash Dog Park](https://www.fairfaxcounty.gov/parks/offleash). This facility serves as a central social hub, featuring a gravel surface that stays muddy-free and separate areas for different play styles. Beyond the dog park, Annandale's network of parks, including the wooded trails of Mason District Park and the scenic paths around Lake Accotink nearby, provides ample options for leashed exploration. The diversity of the area is reflected in its pet-friendly culture, where neighbors frequently gather for social outings and community events that welcome well-behaved pups.",
+        "As part of Fairfax County, Annandale adheres to strict animal control regulations designed to keep the community safe and clean. All dogs four months and older must be licensed and vaccinated against rabies, a requirement strictly enforced to protect public health. The county's leash law applies in all unfenced public areas, and owners are expected to be diligent about picking up after their pets to preserve the cleanliness of shared spaces. Pet parents can access a wealth of information on local services and health requirements through our [owner resources](/owner-resources) page. By following these guidelines, Annandale dog owners contribute to a harmonious and active environment for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'baileys-crossroads-va',
+    city: "Bailey's Crossroads",
+    state: 'VA',
+    summary: 'Urban convenience meets park access in this bustling Northern Virginia corridor.',
+    parks: [],
+    customContent: {
+      heroHeading: "Dog Parks in Bailey's Crossroads, VA",
+      heroDescription: 'Navigate the urban landscape and nearby green spaces of Bailey\'s Crossroads with your dog.',
+      longDescription: [
+        "Bailey's Crossroads offers a unique mix of urban density and accessible green space, making it a convenient home base for dog owners working in the D.C. metro area. While the immediate area is bustling with commercial activity, residents are just minutes away from the expansive Glen Forest and Munson Hill/Spring Lane Park areas, which offer quiet retreats for leashed walks. The community's location provides easy access to the larger dog parks in neighboring Arlington and Alexandria, allowing for varied weekend adventures. Urban pups here become accustomed to the sights and sounds of city life, often accompanying their owners on errands to pet-friendly stores and outdoor plazas.",
+        "Living with a dog in Bailey's Crossroads requires adherence to Fairfax County's comprehensive animal ordinances. Licensing and rabies vaccinations are mandatory, ensuring a healthy pet population in this densely populated area. The leash law is strictly enforced to prevent conflicts in busy pedestrian zones, and waste removal is critical for maintaining the cleanliness of the urban streetscape. Residents can find connections to local trainers and walkers who specialize in city-dwelling dogs through our [state directory](https://www.indoordogpark.org/states/virginia). By prioritizing safety and courtesy, dog owners in Bailey's Crossroads ensure a positive coexistence in this dynamic community."
+      ],
+    },
+  },
+  {
+    slug: 'barboursville-va',
+    city: 'Barboursville',
+    state: 'VA',
+    summary: 'Scenic rural community known for historic ruins and expansive winery landscapes.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Barboursville, VA',
+      heroDescription: 'Experience the rolling hills and vineyard trails of Barboursville with your leashed companion.',
+      longDescription: [
+        "Barboursville is a haven for dog owners who appreciate open space, history, and rural beauty. Dominated by the stunning landscapes of the [Barboursville Ruins](https://www.barboursvillewine.com/) and surrounding vineyards, the area offers a sophisticated yet relaxed setting for leashed exploration. Many local wineries and agricultural estates are dog-friendly, allowing visitors to enjoy the grounds with their well-behaved pets. The rolling terrain provides a natural workout for active dogs, while the quiet country roads offer a peaceful escape from suburban noise. It's a community where dogs are often part of the family lifestyle, accompanying owners on farm visits and weekend outings.",
+        "In this rural setting, responsible pet ownership focuses on safety amidst nature and livestock. While there is more open space, adhering to leash laws in public areas and on private property is essential to prevent accidents and respect local agriculture. Vaccinations, particularly for tick-borne illnesses common in the Virginia countryside, are strongly recommended by local veterinarians. For tips on hiking and rural pet safety, our [blog](https://www.indoordogpark.org/blog) offers valuable insights. By respecting property boundaries and the natural environment, Barboursville residents maintain the serene and welcoming character of their community."
+      ],
+    },
+  },
+  {
+    slug: 'bealeton-va',
+    city: 'Bealeton',
+    state: 'VA',
+    summary: 'Growing Fauquier County community offering open spaces and a relaxed rural atmosphere.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bealeton, VA',
+      heroDescription: 'Enjoy the open skies and community parks of Bealeton, a gateway to Virginia horse country.',
+      longDescription: [
+        "Bealeton serves as a gateway to Virginia's Piedmont region, offering dog owners a blend of suburban convenience and rural charm. The community's growth has brought new families and their pets, who enjoy the open green spaces at local spots like the C.M. Crockett Park nearby, which features miles of trails and lake views perfect for leashed hikes. The area's relaxed atmosphere is ideal for dogs who may find the city overwhelming, providing plenty of room to sniff and explore without the density of urban traffic. Local farm stands and community hubs often welcome leashed pets, reinforcing the town's friendly, small-town vibe.",
+        "Fauquier County ordinances guide pet ownership in Bealeton, emphasizing the importance of licensing and rabies control. Dogs are required to be under immediate control when off their owner's property, which typically means a leash in public parks and residential neighborhoods. Given the proximity to farmland, owners are encouraged to be mindful of livestock and local wildlife during their walks. Residents can stay updated on county-specific animal services through our [Virginia resources](https://www.indoordogpark.org/states/virginia). By observing these local customs, Bealeton dog owners help preserve the peaceful and neighborly spirit of the area."
+      ],
+    },
+  },
+  {
+    slug: 'bedford-va',
+    city: 'Bedford',
+    state: 'VA',
+    summary: 'Historic gateway to the Blue Ridge Parkway and home to the National D-Day Memorial.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bedford, VA',
+      heroDescription: 'Explore the scenic foothills of the Blue Ridge Mountains in the historic town of Bedford.',
+      longDescription: [
+        "Bedford offers a patriotic and scenic backdrop for dog owners, situated at the foot of the Peaks of Otter. Known globally for the National D-Day Memorial, the town provides a quiet, respectful atmosphere for leashed walks around its historic center. While pets are restricted in certain memorial areas, the surrounding region is a hiker's paradise, with the [Blue Ridge Parkway](https://www.nps.gov/blri/index.htm) offering miles of dog-friendly trails just minutes away. Local parks like Liberty Lake Park provide accessible green space for daily exercise, allowing pups to stretch their legs while owners enjoy views of the rolling mountains.",
+        "Responsible dog ownership in Bedford is supported by municipal codes that prioritize safety and cleanliness. The town enforces a leash law in all public spaces to protect the peaceful environment and local wildlife that frequently wanders from the nearby mountains. Vaccination and licensing are mandatory, ensuring a healthy pet community. Residents can find connections to local boarding and veterinary services through our [directory](https://www.indoordogpark.org/cities). By adhering to these guidelines, Bedford's dog owners contribute to the town's reputation as a welcoming and beautifully maintained historic destination."
+      ],
+    },
+  },
+  {
+    slug: 'big-island-va',
+    city: 'Big Island',
+    state: 'VA',
+    summary: 'Quiet rural community nestled along the James River and Blue Ridge Mountains.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Big Island, VA',
+      heroDescription: 'Discover the secluded natural beauty and riverfront trails of Big Island.',
+      longDescription: [
+        "Big Island provides a serene, rural escape for dog owners looking to disconnect and enjoy nature. Located along the James River, this small community is defined by its outdoor recreational opportunities, including access to the Blue Ridge Parkway and national forest lands where leashed dogs can accompany their owners on rugged adventures. The [Sedalia Center](https://www.sedaliacenter.org/), a nearby cultural hub, often hosts outdoor events that are pet-friendly, fostering a strong sense of community. For daily outings, the quiet country roads and river banks offer plenty of space for peaceful exploration away from city distractions.",
+        "In this rural setting, pet safety involves awareness of the natural environment, including ticks and local wildlife. Bedford County ordinances apply, requiring dogs to be under control and vaccinated against rabies. Owners are encouraged to keep pets leashed even in open areas to prevent them from wandering into protected forests or active farmland. For those seeking tips on rural pet care, our [blog](https://www.indoordogpark.org/blog) provides essential advice. By respecting the natural landscape, Big Island residents ensure that their community remains a pristine haven for outdoor enthusiasts and their dogs."
+      ],
+    },
+  },
+  {
+    slug: 'bluemont-va',
+    city: 'Bluemont',
+    state: 'VA',
+    summary: 'Breathtaking mountain village known for hiking trails and dog-friendly vineyards.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bluemont, VA',
+      heroDescription: 'Hike the Appalachian Trail and relax at scenic vineyards in the mountain village of Bluemont.',
+      longDescription: [
+        "Bluemont is a premier destination for adventurous dogs and their owners, perched high on the Blue Ridge Snickers Gap. It is home to the famous [Bears Den Overlook](https://bearsdencenter.org/), a popular hike on the Appalachian Trail that offers stunning valley views and welcomes leashed pups. The village is also renowned for its \"agritourism,\" with numerous local breweries and vineyards like Dirt Farm Brewing that famously welcome dogs to their outdoor spaces. This combination of rigorous outdoor activity and relaxed, pet-friendly social venues makes Bluemont a favorite weekend spot for Northern Virginians.",
+        "Loudoun County's animal services regulations ensure that this high-traffic visitor destination remains safe for everyone. Dogs must be leashed in public areas and on trails to protect hikers and the sensitive mountain ecosystem. Waste removal is critical, especially on popular trails like Bears Den, to preserve the natural beauty. Residents and visitors can find more information on local pet-friendly businesses through our [Virginia guide](https://www.indoordogpark.org/states/virginia). By practicing \"Leave No Trace\" principles, dog owners help maintain Bluemont's status as a top-tier recreational gem."
+      ],
+    },
+  },
+  {
+    slug: 'bon-air-va',
+    city: 'Bon Air',
+    state: 'VA',
+    summary: 'Historic Victorian village in Chesterfield County with lush neighborhood parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bon Air, VA',
+      heroDescription: 'Stroll through historic Victorian neighborhoods and shaded parks in Bon Air.',
+      longDescription: [
+        "Bon Air retains its charm as a historic resort village, offering a leafy, suburban retreat just outside of Richmond. The neighborhood is characterized by its Victorian architecture and mature trees, providing a scenic backdrop for daily dog walks. Residents frequent [Huguenot Park](https://www.chesterfield.gov/Facilities/Facility/Details/Huguenot-Park-28), which features shaded trails and open spaces perfect for leashed exercise. The community's relaxed pace and pedestrian-friendly streets make it a popular choice for families with pets who value a quiet, close-knit atmosphere within easy reach of urban amenities.",
+        "Chesterfield County ordinances mandate that all dogs be leashed when off their owner's property, a rule that is well-observed in Bon Air's family-oriented neighborhoods. Annual licensing and rabies vaccinations are required to ensure public health. The community takes pride in its cleanliness, so carrying waste bags is second nature to local dog owners. For access to emergency vet care or grooming in the Greater Richmond area, our [owner resources](/owner-resources) page is a valuable tool. By upholding these community standards, Bon Air residents preserve the historic elegance and friendly vibe of their village."
+      ],
+    },
+  },
+  {
+    slug: 'brambleton-va',
+    city: 'Brambleton',
+    state: 'VA',
+    summary: 'Modern master-planned community in Loudoun County with extensive trail networks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brambleton, VA',
+      heroDescription: 'Experience modern living with miles of paved trails and pet-friendly town center events in Brambleton.',
+      longDescription: [
+        "Brambleton is a model of modern, pet-friendly living in Loudoun County, designed with connectivity in mind. The community features an extensive network of paved trails that link residential neighborhoods to parks like [Legacy Park](https://www.brambletonhoa.com/amenities), offering safe and accessible routes for long dog walks. The Brambleton Town Center serves as a social hub, frequently hosting dog-friendly events and featuring patios where pups are welcome. The integration of green space into the reliable suburban infrastructure makes it an ideal location for active dog owners who appreciate convenience and community engagement.",
+        "As a master-planned community, Brambleton adheres to both Loudoun County laws and HOA guidelines regarding pets. Leashing is mandatory on all trails and in common areas to ensure safety for cyclists and pedestrians sharing the paths. Waste stations are strategically placed throughout the community, and residents are expected to use them diligently. To verify local vaccination requirements or find a nearby trainer, check our [state directory](https://www.indoordogpark.org/states/virginia). By following these structured guidelines, Brambleton dog owners realize the full potential of this thoughtfully designed community."
+      ],
+    },
+  },
+  {
+    slug: 'bunker-hill-va',
+    city: 'Bunker Hill',
+    state: 'VA',
+    summary: 'Quiet, rural community in Bedford County offering peaceful open spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bunker Hill, VA',
+      heroDescription: 'Enjoy the quiet countryside and open roads of Bunker Hill with your dog.',
+      longDescription: [
+        "Bunker Hill is a small, unincorporated community in Bedford County that offers a quintessential rural Virginia experience for dog owners. Far removed from the bustle of city life, the area is characterized by open fields and quiet country lanes ideal for long, undisturbed walks. While it lacks minimal formal parks, its proximity to Smith Mountain Lake puts miles of hiking trails and water activities within a short drive. The relaxed pace of life here allows dogs to enjoy a calm environment, often surrounded by nature and the sounds of local agriculture.",
+        "In this rural setting, responsible pet ownership is centered on safety and respect for neighbors. Bedford County's leash and control laws apply, ensuring that dogs do not roam onto private farmland or disturb livestock. Residents are encouraged to keep vaccinations up to date, especially given the presence of wildlife in the area. For those looking for more structured play or social opportunities, larger parks in nearby Bedford and Lynchburg are easily accessible. By maintaining these simple courtesies, dog owners in Bunker Hill preserve the peaceful and neighborly atmosphere that defines their community."
+      ],
+    },
+  },
+  {
+    slug: 'carrsville-va',
+    city: 'Carrsville',
+    state: 'VA',
+    summary: 'Agricultural community in Isle of Wight County with a relaxed, rural pace.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Carrsville, VA',
+      heroDescription: 'Explore the rural charm and open landscapes of Carrsville with your canine companion.',
+      longDescription: [
+        "Carrsville offers a slice of traditional Virginia country living in Isle of Wight County. This agricultural community provides immense open skies and a quiet environment that anxious or high-energy dogs often thrive in. While formal dog parks are not part of the immediate landscape, the surrounding rural roads and nearby forestry trails offer plenty of space for leashed exploration. It is a community where dogs are frequently seen as working partners or laid-back family companions, enjoying the freedom of large properties and the slow pace of rural life.",
+        "Isle of Wight County ordinances require dogs to be under the immediate control of their owners when off property, a critical rule in an area with working farms. Ensuring your dog is microchipped and licensed is essential for safety, as roaming pets can easily get lost in the expansive terrain. Owners are also advised to be mindful of seasonal hunting activities in the surrounding woods. For additional resources on rural pet safety, our [blog](https://www.indoordogpark.org/blog) offers helpful tips. By respecting the local agricultural lifestyle, Carrsville residents create a safe and welcoming environment for their four-legged friends."
+      ],
+    },
+  },
+  {
+    slug: 'cartersville-va',
+    city: 'Cartersville',
+    state: 'VA',
+    summary: 'Historic riverfront community in Cumberland County along the James River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cartersville, VA',
+      heroDescription: 'Discover historic landscapes and river views in the quiet village of Cartersville.',
+      longDescription: [
+        "Cartersville is a historic gem located on the bluffs overlooking the James River, offering a scenic and tranquil setting for dog owners. The village's rich history and proximity to the river provide a unique backdrop for leashed walks, with opportunities to spot local wildlife and enjoy the serene water views. While the community is small, it serves as a peaceful retreat where dogs can enjoy the smells and sights of the countryside without the stress of heavy traffic. The nearby Cumberland State Forest offers more extensive hiking trails for those seeking a rugged adventure.",
+        "Cumberland County's animal control regulations emphasize the importance of keeping dogs secured and vaccinated. In a community bordered by river and forest, keeping pets on a leash or within fenced areas is vital for their safety against natural hazards. Residents take pride in the area's history and quiet nature, so controlling barking and disposing of waste properly are key neighborly courtesies. To find nearby veterinary care or grooming, check our [Virginia directory](https://www.indoordogpark.org/states/virginia). By observing these guidelines, Cartersville dog owners help maintain the historic charm and peaceful riverfront atmosphere."
+      ],
+    },
+  },
+  {
+    slug: 'catawba-va',
+    city: 'Catawba',
+    state: 'VA',
+    summary: 'Outdoor adventurer\'s paradise home to the iconic McAfee Knob and Appalachian Trail.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Catawba, VA',
+      heroDescription: 'Hike the world-famous Appalachian Trail and Dragon\'s Tooth with your active dog in Catawba.',
+      longDescription: [
+        "Catawba is a bucket-list destination for active dog owners, famously home to [McAfee Knob](https://www.nps.gov/appa/planyourvisit/mcafee-knob.htm), one of the most photographed spots on the Appalachian Trail. This rural valley offers unparalleled access to vigorous hikes, including Dragon's Tooth, where leashed dogs are welcome to tackle the rugged terrain alongside their owners. The vibe here is definitively outdoorsy, with a community that values conservation and physical activity. After a long hike, the quiet valley roads offer a peaceful cool-down, surrounded by rolling farmland and mountain vistas.",
+        "Given its location along the Appalachian Trail, responsible pet stewardship in Catawba is critical. Leash laws are strictly monitored on trails to protect the safety of hikers and the integrity of the ecosystem. Owners must be vigilant about \"Leave No Trace\" principles, carrying out all waste to keep these iconic trails pristine. Tick prevention is also a must for dogs exploring the dense vegetation. For more on hiking safety, visit our [owner resources](/owner-resources) page. By following these trail etiquettes, Catawba dog owners ensure that these spectacular natural wonders remain accessible and enjoyable for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'catlett-va',
+    city: 'Catlett',
+    state: 'VA',
+    summary: 'Historic railroad village in Fauquier County surrounded by pastoral farmland.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Catlett, VA',
+      heroDescription: 'Enjoy the pastoral beauty and quiet lanes of the historic community of Catlett.',
+      longDescription: [
+        "Catlett offers a glimpse into Virginia's rural past, with its historic district and surrounding farmland providing a calm environment for dogs and their owners. The open landscape allows for long, scenic walks where the main distractions are grazing cattle rather than city sirens. While it is a quiet residential area, its central location in Fauquier County provides easy access to larger parks and recreational areas in nearby Warrenton and Manassas. It is an ideal setting for dogs who prefer a low-stress lifestyle with plenty of personal space.",
+        "Fauquier County ordinances regarding licensing and rabies vaccinations apply in Catlett and are strictly enforced to protect the health of the community. The leash law is particularly important here to prevent interactions with local livestock and farm equipment. Residents are encouraged to respect private property boundaries while enjoying the public roadways. For local service recommendations, our [state guide](https://www.indoordogpark.org/states/virginia) is a helpful resource. By prioritizing safety and respect for the agricultural setting, Catlett dog owners contribute to the enduring rural character of their village."
+      ],
+    },
+  },
+  {
+    slug: 'cave-spring-va',
+    city: 'Cave Spring',
+    state: 'VA',
+    summary: 'Bustling Roanoke suburb with excellent schools and access to the Blue Ridge Parkway.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cave Spring, VA',
+      heroDescription: 'Access top-tier suburban parks and Blue Ridge trails from the convenient hub of Cave Spring.',
+      longDescription: [
+        "Cave Spring combines the convenience of suburban living with immediate access to outdoor adventure. Located just south of Roanoke, this community is a gateway to the Blue Ridge Parkway and features its own well-maintained public spaces like Starkey Park, which offers sports fields and walking paths perfect for leashed dogs. The neighborhood is family-centric, with sidewalks and quiet streets where evening dog walks are a social staple. Its proximity to Roanoke means that residents are never far from specialized pet services and larger dog parks, offering the best of both worlds.",
+        "Roanoke County's animal control laws require dogs to be leashed when off the owner's property, ensuring safety in this densely populated suburban area. Licensing and vaccinations are mandatory and help support local animal services. Owners are expected to be diligent about waste removal, particularly in parks and school zones. Residents can find information on local emergency vets and groomers through our [directory](https://www.indoordogpark.org/cities). By adhering to these community standards, Cave Spring dog owners maintain a safe, clean, and friendly environment for all families."
+      ],
+    },
+  },
+  {
+    slug: 'charles-city-va',
+    city: 'Charles City',
+    state: 'VA',
+    summary: 'Historic riverfront county home to famous plantations and the scenic Virginia Capital Trail.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Charles City, VA',
+      heroDescription: 'Cycle the Virginia Capital Trail and explore historic landscapes in Charles City.',
+      longDescription: [
+        "Charles City offers a journey through history for dog owners, situated between the James and Chickahominy Rivers. The area is intersected by the [Virginia Capital Trail](https://www.virginiacapitaltrail.org/), a paved multi-use path where leashed dogs can accompany their cycling or walking owners on miles of scenic adventures. While many of the historic historic plantations have restrictions, the surrounding countryside and trail network provide ample green space. It is a quiet, rural destination perfect for those seeking long, uninterrupted outings amidst some of America's oldest landscapes.",
+        "In Charles City County, public safety and respect for historic preservation guide pet ownership. Dogs must be under control at all times, preventing them from disturbing historic sites or local wildlife. Rabies vaccinations and county licenses are mandatory requirements. For visitors using the Capital Trail, carrying water and waste bags is essential, as services can be sparse between trailheads. To discover more pet-friendly trails in the region, consult our [Virginia guide](https://www.indoordogpark.org/states/virginia). By following these simple rules, Charles City visitors ensure that this historic corridor remains a welcoming place for future generations of trekkers and their pups."
+      ],
+    },
+  },
+  {
+    slug: 'chesterfield-va',
+    city: 'Chesterfield',
+    state: 'VA',
+    summary: 'Sprawling suburban community home to the massive Pocahontas State Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Chesterfield, VA',
+      heroDescription: 'Explore miles of trails at Pocahontas State Park and community green spaces in Chesterfield.',
+      longDescription: [
+        "Chesterfield is a premier destination for active dogs, anchored by the expansive [Pocahontas State Park](https://www.dcr.virginia.gov/state-parks/pocahontas). This outdoor jewel offers miles of hiking trails where leashed dogs are welcome to explore the woodlands and lakeshores. Beyond the state park, the community is dotted with numerous county parks and athletic complexes that provide safe, accessible walking routes for suburban residents. The area's blend of developed amenities and preserved natural spaces makes it a comfortable and exciting place to raise a dog.",
+        "Chesterfield County enforces strict animal control ordinances to manage its large pet population. The \"running at large\" prohibition means dogs must be kept on a leash or under immediate control when off private property. Annual licensing and rabies vaccinations are strictly monitored to prevent disease outbreaks. The county also emphasizes the importance of cleaning up after pets to keep its extensive park system pristine. Residents can find local training and boarding facilities through our [owner resources](/owner-resources) page. By respecting these regulations, Chesterfield dog owners contribute to a safe and active community lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'colonial-beach-va',
+    city: 'Colonial Beach',
+    state: 'VA',
+    summary: ' charming riverside resort town with a dog-friendly boardwalk and beach vibe.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Colonial Beach, VA',
+      heroDescription: 'Enjoy riverside strolls and a relaxed beach atmosphere in Colonial Beach with your pup.',
+      longDescription: [
+        "Colonial Beach offers a rare waterfront experience for Virginia dog owners, located on the Potomac River. Known as a playground for D.C. residents, the town features a scenic boardwalk where leashed dogs can enjoy the fresh river breeze. During the off-season (October 1 to March 31), leashed dogs are often permitted on the sandy public beaches, providing a delightful sensory experience. The town's golf cart-friendly culture adds to the laid-back vibe, often seeing pups riding along with their owners to local outdoor eateries.",
+        "Town ordinances in Colonial Beach are designed to keep the waterfront clean and safe for all visitors. The leash law is strictly enforced on the boardwalk and in all public areas. Owners must be vigilant about picking up waste, as keeping the beach and water clean is a top community priority. Seasonal restrictions on beach access for dogs during the summer months are strictly observed. For travel tips to the coast, check our [blog](https://www.indoordogpark.org/blog). By adhering to these seasonal rules, Colonial Beach dog owners ensure that the town remains a pet-friendly favorite year-round."
+      ],
+    },
+  },
+  {
+    slug: 'courtland-va',
+    city: 'Courtland',
+    state: 'VA',
+    summary: 'Historic seat of Southampton County located along the scenic Nottoway River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Courtland, VA',
+      heroDescription: 'Discover the quiet history and riverfront beauty of Courtland with your dog.',
+      longDescription: [
+        "Courtland serves as the historic heart of Southampton County, offering a peaceful, slow-paced environment for dog owners. The Nottoway River runs through the area, providing scenic spots for quiet, leashed walks along the water's edge. This rural community is defined by its agricultural heritage and small-town friendliness, where traffic is light and open space is abundant. While dedicated dog parks are not a feature, the surrounding countryside offers plenty of room for dogs to enjoy nature without the overstimulation of an urban environment.",
+        "In Courtland, responsible pet ownership focuses on safety in a rural setting. Southampton County ordinances require dogs to be under control and vaccinated against rabies. Owners should be mindful of hunting seasons if exploring wooded areas and keep pets leashed to avoid interactions with local wildlife or livestock. Licensing is mandatory and supports local animal control efforts. For residents seeking nearby services, our [Virginia directory](https://www.indoordogpark.org/states/virginia) helps connect you with regional vets. By exercising caution and courtesy, Courtland dog owners help preserve the serene character of their historic town."
+      ],
+    },
+  },
+  {
+    slug: 'culpeper-va',
+    city: 'Culpeper',
+    state: 'VA',
+    summary: 'Vibrant historic town with a bustling Main Street and scenic mountain views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Culpeper, VA',
+      heroDescription: 'Stroll the historic district and enjoy mountain views in the vibrant town of Culpeper.',
+      longDescription: [
+        "Culpeper strikes a perfect balance between historic charm and modern amenity, making it a delightful home for dogs. The downtown area, with its wide sidewalks and \"Great American Main Street\" status, is a popular spot for walking leashed pups, with many shops and patios offering a warm welcome. Just outside the town center, parks like Rockwater Park offer dedicated trails and obstacle courses where dogs can burn off energy. The backdrop of the Blue Ridge Mountains invites longer weekend excursions into the scenic countryside.",
+        "Culpeper County enforces clear animal control laws to ensure public safety in both its urban and rural areas. The leash law applies in all public spaces, ensuring that downtown strolls remain safe and pleasant for everyone. Dog licenses and rabies vaccinations are mandatory requirements for all residents. The community is active in maintaining clean streets, so carrying waste bags is a standard practice for local owners. To find a local groomer or sitter, visit our [owner resources](/owner-resources) page. By following these guidelines, Culpeper dog owners reinforce the town's reputation as one of Virginia's most liveable communities."
+      ],
+    },
+  },
+  {
+    slug: 'cumberland-va',
+    city: 'Cumberland',
+    state: 'VA',
+    summary: 'Quiet rural community with access to Bear Creek Lake State Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cumberland, VA',
+      heroDescription: 'Find peace and natural beauty in the rural heart of Cumberland, Virginia.',
+      longDescription: [
+        "Cumberland offers a true escape into the Virginia countryside, where the pace of life slows down for dogs and their owners. Central to the local outdoor experience is the nearby [Bear Creek Lake State Park](https://www.dcr.virginia.gov/state-parks/bear-creek-lake), an oasis for hiking, swimming, and camping with leashed pets. The surrounding community comprises open farmland and quiet forests, providing a low-stress environment ideal for reactive dogs or those who simply enjoy solitude. It is a place where nature is the primary amenity.",
+        "Cumberland County ordinances reflect its rural character, prioritizing the safety of pets and livestock. Dogs are required to be under control at all times, preventing unwanted interactions with local farms. Keeping rabies vaccinations current is a strict requirement, especially given the active wildlife population in the large state forests. For those planning a visit to the state park, remember that pets must be kept on a leash no longer than six feet. To connect with local services, check our [Virginia directory](https://www.indoordogpark.org/states/virginia). By observing these rural courtesies, Cumberland residents maintain a harmonious balance with nature."
+      ],
+    },
+  },
+  {
+    slug: 'dinwiddie-va',
+    city: 'Dinwiddie',
+    state: 'VA',
+    summary: 'Historic county seat offering open landscapes and Civil War heritage sites.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Dinwiddie, VA',
+      heroDescription: 'Explore historic battlefields and rural trails in Dinwiddie with your dog.',
+      longDescription: [
+        "Dinwiddie provides a backdrop of history and open space for dog owners in Southside Virginia. The area is dotted with Civil War history, including parts of the [Petersburg National Battlefield](https://www.nps.gov/pete/index.htm) nearby, where leashed dogs can accompany owners on educational walks through hallowed ground. The community itself is largely agricultural and residential, offering vast open skies and quiet roads that are perfect for long, contemplative walks. It is a community that values tradition and privacy, offering a calm environment for family pets.",
+        "Responsible pet ownership in Dinwiddie is guided by county laws that ensure safety and public health. All dogs must have a current county license and rabies vaccination. The leash law is enforced in public areas to prevent accidents and protect the historic integrity of local sites. Owners are encouraged to be mindful of hot summer temperatures when walking in open fields and to carry water for their pets. For tips on seasonal pet safety, visit our [blog](https://www.indoordogpark.org/blog). By respecting these guidelines, Dinwiddie dog owners help preserve the county's historic and peaceful atmosphere."
+      ],
+    },
+  },
+  {
+    slug: 'earlysville-va',
+    city: 'Earlysville',
+    state: 'VA',
+    summary: 'Scenic rural residential community near Charlottesville and the Rivanna River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Earlysville, VA',
+      heroDescription: 'Enjoy wooded trails and river access in the scenic community of Earlysville.',
+      longDescription: [
+        "Earlysville offers a sought-after blend of rural tranquility and proximity to Charlottesville's amenities. Located near the Rivanna River and the Charlottesville-Albemarle Airport, the area features large-lot homes and wooded landscapes that provide a natural playground for dogs. Residents frequent the beautiful trails at [Preddy Creek Trail Park](https://www.albemarle.org/government/parks-recreation/parks/preddy-creek-trail-park), located just north, which is a favorite for dog walkers, hikers, and mountain bikers. The community's vibe is active and nature-oriented, catering to dogs who love to explore the woods.",
+        "Albemarle County's leash laws apply in Earlysville, requiring dogs to be under control in public areas. At parks like Preddy Creek, following trail etiquette is essential to ensure safety for multi-use traffic. Vaccinations and licensing are mandatory and strictly monitored by the county. Given the wooded environment, tick prevention is a year-round priority for local pet owners. Residents can find information on local emergency vets in nearby Charlottesville through our [directory](https://www.indoordogpark.org/cities). By being responsible stewards of the land, Earlysville dog owners keep their community a premier destination for outdoor lovers."
+      ],
+    },
+  },
+  {
+    slug: 'elkton-va',
+    city: 'Elkton',
+    state: 'VA',
+    summary: 'Shenandoah valley town located at a major gateway to Shenandoah National Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elkton, VA',
+      heroDescription: 'Access the Shenandoah River and National Park trails from the valley town of Elkton.',
+      longDescription: [
+        "Elkton serves as a strategic basecamp for dog owners exploring the Shenandoah Valley. Located near the Swift Run Gap entrance to [Shenandoah National Park](https://www.nps.gov/shen/index.htm), it offers immediate access to hundreds of miles of dog-friendly mountain trails. The town itself borders the South Fork of the Shenandoah River, providing spots for water-loving pups to cool off. The community embraces its river-and-mountain identity, with a relaxed, small-town atmosphere where muddy paws are often a badge of honor after a weekend adventure.",
+        "In Elkton, following park regulations is key to a good experience. Shenandoah National Park is one of the few national parks that allows dogs on most trails, but they must be on a leash no longer than 6 feet at all times. Within town limits, local ordinances similarly require dogs to be leashed and cleaned up after. Bear awareness is also critical in this region, so keeping food secured and dogs close is a safety must. For more national park tips, check our [owner resources](/owner-resources). By respecting these wild spaces, Elkton residents ensure continued access to these spectacular natural resources."
+      ],
+    },
+  },
+  {
+    slug: 'elliston-va',
+    city: 'Elliston',
+    state: 'VA',
+    summary: 'Rural community in Montgomery County nestled in the scenic Roanoke Valley.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elliston, VA',
+      heroDescription: 'Discover the rolling hills and quiet valley roads of Elliston with your dog.',
+      longDescription: [
+        "Elliston offers a quiet, pastoral setting for dog owners located between Roanoke and Christiansburg. This small community in the Roanoke Valley is defined by its beautiful mountain views and open farmland. While it lacks urban parks, the quiet backroads and large residential lots provide ample space for exercise. Its central location allows easy access to the Huckleberry Trail in Christiansburg or the Greenway in Roanoke for more social outings, making it a convenient countryside home base.",
+        "Montgomery County animal laws guide pet ownership in Elliston, emphasizing the need for rabies vaccinations and county licenses. The 'running at large' ordinance requires dogs to be under immediate control when off private property, a necessity near busy regional roads. Owners are encouraged to respect local agriculture by keeping dogs away from livestock fencing. To find a nearby vet or trainer, consult our [Virginia guide](https://www.indoordogpark.org/states/virginia). By maintaining a neighborly and safe environment, Elliston residents preserve the peaceful valley character they love."
+      ],
+    },
+  },
+  {
+    slug: 'evington-va',
+    city: 'Evington',
+    state: 'VA',
+    summary: 'Quiet rural community in Campbell County offering open spaces near Lynchburg.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Evington, VA',
+      heroDescription: 'Enjoy the quiet country roads and open landscapes of Evington with your dog.',
+      longDescription: [
+        "Evington offers a relaxed, rural lifestyle just south of Lynchburg, providing plenty of breathing room for dog owners. The landscape is defined by rolling hills and wooded lots, where leashed walks are peaceful and undisturbed by heavy traffic. While there are no dedicated dog parks within the immediate community, the short drive to Lynchburg opens up access to public parks and trails. For day-to-day life, Evington is perfect for dogs who thrive in a calm environment with plenty of space to sniff and explore nature.",
+        "In Campbell County, responsible pet ownership is a key part of community life. Dogs must be licensed and vaccinated against rabies, with tags displayed on their collars. The county's leash laws apply to public areas to ensure the safety of all residents and animals. Given the rural setting, owners are advised to use flea and tick prevention year-round. Residents can access veterinary care and other pet services in nearby Lynchburg through our [directory](https://www.indoordogpark.org/cities). By following these simple guidelines, Evington dog owners help keep their community safe and welcoming."
+      ],
+    },
+  },
+  {
+    slug: 'fishersville-va',
+    city: 'Fishersville',
+    state: 'VA',
+    summary: 'Growing community in the Shenandoah Valley known for its medical center and mountain views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fishersville, VA',
+      heroDescription: 'Discover the scenic beauty and convenient amenities of Fishersville in the Shenandoah Valley.',
+      longDescription: [
+        "Fishersville serves as a central hub in Augusta County, connecting Staunton and Waynesboro with a growing array of amenities for families and their pets. The area offers beautiful views of the Blue Ridge Mountains and wide, sidewalk-lined streets in newer developments that are perfect for dog walking. While centered around the Augusta Health medical complex, the community retains a friendly, small-town feel. Residents have easy access to the majestic trails of the Blue Ridge Parkway and Shenandoah National Park, located just a short drive away.",
+        "Augusta County ordinances require dog owners to keep their pets under control and vaccinated against rabies. Licensing is mandatory and supports the local animal shelter. In Fishersville's mixed suburban and rural environment, leashing is the safest choice to prevent accidents on busier roadways. Owners are also encouraged to clean up after their pets to maintain the cleanliness of community spaces. For local tips and services, check our [Virginia state guide](https://www.indoordogpark.org/states/virginia). By practicing responsible ownership, Fishersville residents uphold the high quality of life in this scenic valley community."
+      ],
+    },
+  },
+  {
+    slug: 'floyd-va',
+    city: 'Floyd',
+    state: 'VA',
+    summary: 'Vibrant arts and music community located on the scenic Blue Ridge Plateau.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Floyd, VA',
+      heroDescription: 'Experience the unique culture and natural beauty of the Blue Ridge Plateau in Floyd.',
+      longDescription: [
+        "Floyd is a destination like no other in Virginia, famous for its music scene and stunning mountain setting. The town center is walkable and welcoming, where leashed dogs are often seen tapping their paws to the music outside the Floyd Country Store. Beyond the vibrant town, the Blue Ridge Parkway runs along the county's border, offering endless hiking opportunities at spots like Rocky Knob where dogs can enjoy the fresh mountain air. The community is creative and nature-focused, making it a welcoming place for pets and their owners.",
+        "Responsible pet ownership in Floyd aligns with the community's respect for nature and neighbors. Leash laws are in effect in town and on the Parkway to ensure safety during busy events and on trails. Vaccinations and county licenses are required. Due to the rural nature of the county, owners should be mindful of livestock fencing and wildlife when exploring off the beaten path. For more on hiking safety, visit our [owner resources](/owner-resources). By adhering to these local norms, Floyd dog owners help maintain the friendly and artistic spirit of this mountain gem."
+      ],
+    },
+  },
+  {
+    slug: 'fort-belvoir-va',
+    city: 'Fort Belvoir',
+    state: 'VA',
+    summary: 'Historic military installation in Fairfax County surrounded by extensive Potomac shoreline.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Belvoir, VA',
+      heroDescription: 'Explore the shoreline trails and community paths of the Fort Belvoir area.',
+      longDescription: [
+        "Fort Belvoir offers a unique living environment rich with history and natural beauty along the Potomac River. For residents living on or near the installation, the area features miles of walking paths and access to scenic spots like Tompkins Basin where leashed dogs can enjoy the outdoors. The surrounding Fairfax County parks, including sprawling nature preserves, provide ample opportunity for off-post adventures. The community is tight-knit and active, with many families enjoying the abundant green space that defines this historic peninsula.",
+        "Pet ownership at Fort Belvoir is governed by specific installation policies in addition to Fairfax County laws. All pets living in housing areas must be registered with the base veterinarian and microchipped. Breed restrictions may apply for on-post housing, so residents should always verify current regulations. Leash laws are strictly enforced to ensure the safety of the community. For off-post services, check our [state directory](https://www.indoordogpark.org/states/virginia). By following these specific guidelines, Fort Belvoir dog owners ensure a safe and disciplined environment for their service-oriented community."
+      ],
+    },
+  },
+  {
+    slug: 'fort-eustis-va',
+    city: 'Fort Eustis',
+    state: 'VA',
+    summary: 'Active military community in Newport News located on the Mulberry Island peninsula.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Eustis, VA',
+      heroDescription: 'Enjoy the coastal environment and community trails of the Fort Eustis area.',
+      longDescription: [
+        "Fort Eustis provides residents with a distinct coastal setting on the James River, bordered by wetlands and forests. The installation's residential areas offer sidewalks and green spaces suitable for daily leashed walks. Its location in Newport News allows for quick access to the city's larger amenities, including Newport News Park, one of the largest municipal parks in the country with miles of dog-friendly trails. The community is active and family-focused, making it a supportive environment for pet owners stationed in the area.",
+        "Residents of Fort Eustis must adhere to installation regulations regarding pet ownership, which often include registration and microchipping requirements. Newport News city ordinances also apply when off-post, requiring dogs to be leashed and vaccinated. Breed restrictions are common in military housing, so checking with housing offices is essential. Owners are reminded to be vigilant about ticks and local wildlife given the area's wetland geography. For varied walking routes, visit our [blog](https://www.indoordogpark.org/blog). By respecting these rules, Fort Eustis dog owners contribute to the safety and readiness of their community."
+      ],
+    },
+  },
+  {
+    slug: 'fredericksburg-va',
+    city: 'Fredericksburg',
+    state: 'VA',
+    summary: 'Historic city on the Rappahannock River with extensive trails and downtown charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fredericksburg, VA',
+      heroDescription: 'Walk the historic Heritage Trail and explore riverside nature in Fredericksburg.',
+      longDescription: [
+        "Fredericksburg is a standout destination for history-loving dog owners, conveniently located halfway between Washington D.C. and Richmond. The city is famous for its walkability, particularly the [Canal Path and Heritage Trail](https://fredericksburgva.gov/499/Paths-Trails), which offers miles of paved, shaded routes along the river and historic canals perfect for leashed exploration. The historic downtown welcomes dogs with open arms, featuring numerous pet-friendly patios andshops. Access to the Rappahannock River provides opportunities for dogs to cool off on hot summer days, making it a dynamic hub for outdoor activity.",
+        "The City of Fredericksburg upholds strict animal control ordinances to ensure its busy public spaces remain safe. Leash laws are in effect throughout the city, including on all trails and in parks. \"Scoop the poop\" laws are vigorously enforced to protect the river's water quality and the cleanliness of the historic district. Licensing and vaccinations are mandatory. For a list of local dog-friendly businesses and services, consult our [Virginia guide](https://www.indoordogpark.org/states/virginia). By observing these civic duties, Fredericksburg dog owners ensure the city remains a shining example of pet-friendly urban living."
+      ],
+    },
+  },
+  {
+    slug: 'front-royal-va',
+    city: 'Front Royal',
+    state: 'VA',
+    summary: 'Adventure hub known as the Canoe Capital of Virginia and northern gateway to Skyline Drive.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Front Royal, VA',
+      heroDescription: 'Launch your mountain or river adventure from the scenic town of Front Royal.',
+      longDescription: [
+        "Front Royal is the ultimate basecamp for outdoor dogs, serving as the northern entrance to [Shenandoah National Park](https://www.nps.gov/shen/index.htm) and Skyline Drive. The area is intersected by the Shenandoah River, offering countless opportunities for canoeing and riverside walks with adventurous pups. Nearby Eastham Park provides ample green space and river access for daily exercise. The town vibe is rustic and welcoming, catering to hikers and nature lovers who frequent the local outfitters and patio restaurants with their dogs in tow.",
+        "Warren County ordinances apply in Front Royal, emphasizing control and safety in this wilder landscape. Leash laws are mandatory in town limits and on all National Park trails to protect wildlife and other visitors. Owners are advised to be \"Bear Aware\" and keep food secured during outdoor excursions. Current vaccinations and county tags are required. For tips on river safety with dogs, check our [owner resources](/owner-resources) page. By following these outdoor ethics, Front Royal dog owners help preserve the natural beauty that makes their town a world-class destination."
+      ],
+    },
+  },
+  {
+    slug: 'gainesville-va',
+    city: 'Gainesville',
+    state: 'VA',
+    summary: 'Rapidly growing Prince William County community with access to Conway Robinson State Forest.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Gainesville, VA',
+      heroDescription: 'Enjoy modern amenities and nearby state forests in the thriving community of Gainesville.',
+      longDescription: [
+        "Gainesville offers a modern suburban lifestyle with surprising access to nature in Prince William County. While known for its shopping and residential developments, it sits on the doorstep of [Conway Robinson State Forest](https://dof.virginia.gov/education-and-recreation/state-forests/virginia-state-forests/conway-robinson-state-forest/), a hidden gem where leashed dogs can roam miles of shaded trails beneath towering pines. The community is designed for convenience, with wide sidewalks connecting neighborhoods to local amenities. It is an ideal spot for families who want the comforts of suburbia without sacrificing weekend trail adventures.",
+        "Prince William County animal control laws mandate that dogs be leashed when off private property, a rule that keeps Gainesville's busy neighborhoods safe. Licensing and rabies vaccinations are required by law. The community is active in maintaining its clean appearance, so waste removal is expected of all owners. For residents needing boarding or daycare during the workday, the area offers numerous high-quality facilities listed in our [directory](https://www.indoordogpark.org/cities). By adhering to these standards, Gainesville dog owners contribute to a safe, family-friendly environment."
+      ],
+    },
+  },
+  {
+    slug: 'goodview-va',
+    city: 'Goodview',
+    state: 'VA',
+    summary: 'Quiet rural living near the shores of Smith Mountain Lake.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Goodview, VA',
+      heroDescription: 'Relax in the rural tranquility of Goodview, located near Smith Mountain Lake.',
+      longDescription: [
+        "Goodview offers a peaceful, rural existence straddling Bedford and Franklin Counties, just minutes from the recreational paradise of Smith Mountain Lake. The area is characterized by open land and quiet roads, offering a stress-free environment for dogs. While not a commercial hub, its location provides easy access to lakefront parks where leashed dogs can accompany their owners for picnics and water gazing. It is a community for those who prefer the sounds of nature over city noise.",
+        "Depending on which side of the county line you reside, Bedford or Franklin County ordinances apply, but both prioritize safety through leash laws and mandatory vaccinations. In this rural setting, keeping dogs from roaming onto neighboring farms or into traffic is a key responsibility. Owners should also be mindful of ticks in the tall grasses and wooded areas. For nearby emergency care, consult our [Virginia resource guide](https://www.indoordogpark.org/states/virginia). By respecting the quiet nature of the community, Goodview dog owners ensure it remains a serene place to call home."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
-  return priorityCityContent.find((city) => city.slug === slug);
+  return priorityCityContent.find(
+    (city) => city.slug === slug || city.slug === `${slug}-va`,
+  );
 }
 
 export function getPriorityCitySlugs() {
