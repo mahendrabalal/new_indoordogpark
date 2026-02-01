@@ -11432,6 +11432,998 @@ export const priorityCityContent: PriorityCityConfig[] = [
       ],
     },
   },
+  {
+    slug: 'abingdon-tn',
+    city: 'Abingdon',
+    state: 'TN',
+    featuredImage: '/images/cities/abingdon-tn/hero.webp',
+    summary: 'A gateway to the Blue Ridge, where regional charm meets rugged trails for you and your dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Abingdon, TN',
+      heroDescription: 'Explore the scenic beauty and regional dog-friendly gems of the Abingdon and Bristol border area.',
+      longDescription: [
+        "Abingdon, serving as a cultural and recreational anchor for the Tennessee-Virginia border region, offers an exceptional environment for dog owners who appreciate the Great Appalachian Valley. The town’s pet-friendly culture is closely linked to its proximity to the [Virginia Creeper Trail](https://www.vacreepertrail.org/), a world-renowned multi-purpose rail trail where leashed dogs can enjoy miles of relatively flat, scenic walking through lush forests and over historic trestles. Within the immediate regional area, local parks like Steele Creek provide expansive green spaces and water features that are perfect for afternoon strolls. The community’s commitment to canine companions is evident in the many outdoor patios and public squares where well-behaved pets are a common sight, blending historic high-country charm with a modern, active lifestyle.",
+        "Responsible pet ownership in the Abingdon area is guided by local ordinances that prioritize safety and cleanliness in shared spaces. While specific leash laws are managed by the municipality, the general standard requires dogs to be under physical control at all times when off the owner's property. This ensures that the region's diverse wildlife and scenic trails remain accessible and safe for everyone. Owners are encouraged to support local conservation efforts by practicing 'leave no trace' principles on all regional trails. For more information on navigating the unique dog-friendly landscape of the border region, pet parents can consult our [Tennessee state guide](https://www.indoordogpark.org/states/tennessee) for seasonal tips and verified service listings."
+      ],
+    },
+  },
+  {
+    slug: 'antioch-tn',
+    city: 'Antioch',
+    state: 'TN',
+    featuredImage: '/images/cities/antioch-tn/hero.webp',
+    summary: 'A vibrant Nashville hub offering quick access to expansive metro parks and lakefront trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Antioch, TN',
+      heroDescription: 'Experience the growing dog-friendly community of Antioch, featuring easy access to Metro Nashville’s premier parks.',
+      longDescription: [
+        "Antioch, a rapidly growing community within the Metro Nashville area, provides dog owners with a perfect balance of suburban convenience and massive natural escapes. The area is a prime location for those who enjoy the outdoors, with the expansive [Percy Priest Lake](https://www.recreation.gov/camping/gateways/581) just a short drive away, offering numerous leashed trail options and scenic overlooks. For structured play, residents frequently utilize the nearby Cane Creek Park and the various fenced dog parks maintained by Metro Parks and Recreation. These facilities provide safe environments for socialization and high-energy exercise, which is essential for the many active pups living in Antioch’s residential neighborhoods. The community’s diversity is reflected in its pet culture, with local events often welcoming four-legged family members.",
+        "As part of Davidson County, Antioch adheres to Metro Nashville’s animal control ordinances, which mandate that all pets be kept under physical control via a leash in public spaces. This regulation is strictly enforced in city parks and neighborhood walkways to ensure the comfort of all residents. Owners are also required to ensure their dogs are properly vaccinated and registered with the city, supporting a healthy and safe animal population. The local emphasis on 'scoop' laws helps maintain the beauty of the area’s shared trails and greenways. For residents looking for the best indoor options during Tennessee’s humid summers, our [Metro Nashville guide](https://www.indoordogpark.org/cities/nashville-tn) offers comprehensive listings for climate-controlled play and local pet services."
+      ],
+    },
+  },
+  {
+    slug: 'arrington-tn',
+    city: 'Arrington',
+    state: 'TN',
+    featuredImage: '/images/cities/arrington-tn/hero.webp',
+    summary: 'Rolling hills and vineyard views create a sophisticated, dog-friendly escape in Middle Tennessee.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Arrington, TN',
+      heroDescription: 'Discover the rustic elegance of Arrington, where open spaces and high-country charm welcome every pup.',
+      longDescription: [
+        "Arrington, nestled in the scenic rolling hills of Williamson County, offers a refined and spacious environment for dog owners seeking a quieter pace of life. Known for its picturesque landscapes and the famous [Arrington Vineyards](https://www.arringtonvineyards.com/), the community provides a unique backdrop for leashed exploration. While the vineyards themselves often serve as a social hub for pet owners on their sprawling grounds, the surrounding area is characterized by large residential lots and quiet country roads perfect for long morning walks. The rural-suburban blend of Arrington encourages an active lifestyle where dogs are integral members of the family, often seen accompanying their owners on local outings to nearby farms and markets.",
+        "In Arrington, pet safety is a priority, and the community follows the broader Williamson County animal control guidelines. These regulations emphasize the importance of keeping dogs under reasonable control and prevent them from running at large to protect both the pets and local livestock. While the area offers vast open spaces, the use of a sturdy leash in public areas and near roadways is highly recommended to ensure the safety of all. Many local pet parents also take advantage of the proximity to Franklin’s well-maintained dog parks for off-leash socialization. By adhering to local leash and waste disposal ordinances, Arrington residents help preserve the pristine beauty and welcoming atmosphere of this premier Middle Tennessee destination."
+      ],
+    },
+  },
+  {
+    slug: 'ashland-city-tn',
+    city: 'Ashland City',
+    state: 'TN',
+    featuredImage: '/images/cities/ashland-city-tn/hero.webp',
+    summary: 'Riverfront beauty and a dedicated local dog park make this a premier spot for active Cheatham County pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ashland City, TN',
+      heroDescription: 'Join the active dog community in Ashland City, featuring the popular Ashland City Dog Park and Cumberland River views.',
+      longDescription: [
+        "Ashland City, the seat of Cheatham County, is a hidden gem for dog owners who value proximity to both water and well-maintained recreational facilities. The community is home to the [Ashland City Dog Park](https://www.ashlandcitytn.gov/government/parks_and_recreation/), a fantastic fenced facility that offers separate areas for large and small breeds, providing a safe and social environment for off-leash play. Beyond the dog park, the Bicentennial Trail offers a beautiful, flat path along the Cumberland River, ideal for leashed walks where dogs can enjoy the sights and sounds of the riverfront. The town's small-town atmosphere fosters a tight-knit pet community where residents often gather for informal playdates and local park events.",
+        "The city’s commitment to responsible pet ownership is reflected in its clear municipal ordinances. Ashland City requires all dogs to be on a leash when in public parks or on city streets, ensuring a safe experience for all trail users and pedestrians. Furthermore, owners are expected to maintain current vaccinations and rabies tags, which are essential for accessing public dog parks and boarding facilities. The local 'scoop' law is strictly encouraged to keep the riverfront trails and public squares clean for everyone. For those seeking additional resources or looking to connect with local pet services, our [Cheatham County directory](https://www.indoordogpark.org/states/tennessee) provides verified links to the best local clinics and trainers in the Ashland City area."
+      ],
+    },
+  },
+  {
+    slug: 'athens-tn',
+    city: 'Athens',
+    state: 'TN',
+    featuredImage: '/images/cities/athens-tn/hero.webp',
+    summary: 'Home of the \'Friendly City\' spirit and the premier Prof Pup Park for off-leash socialization.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Athens, TN',
+      heroDescription: 'Explore Athens with your dog, featuring dedicated off-leash play at Prof Pup Park and charming local trails.',
+      longDescription: [
+        "Athens, Tennessee, aptly known as 'The Friendly City,' extends its welcoming spirit to four-legged residents through its excellent park system and community-focused pet culture. The crown jewel for local dog owners is [Prof Pup Park](https://www.bringfido.com/attraction/11545), a well-designed, fenced off-leash area that provides a safe space for dogs to burn off energy and socialize. The park features amenities like shaded seating and water stations, making it a comfortable destination for both pets and their owners. For those who prefer a traditional walk, the Eureka Trail offers a scenic gravel path through the rolling hills of McMinn County, providing a peaceful escape for leashed exploration and nature study.",
+        "To maintain the safety and harmony of public spaces, Athens enforces local ordinances that require dogs to be under the direct control of their owners at all times. This includes a mandatory leash requirement in all city parks outside of the designated dog park area. Responsible ownership is also supported by city codes that limit the number of pets per household and require proper vaccination records to be kept up to date. These measures help ensure that Athens remains a clean and safe environment for all community members. For visitors or new residents looking to navigate the best dog-friendly spots in the region, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and essential pet services."
+      ],
+    },
+  },
+  {
+    slug: 'bartlett-tn',
+    city: 'Bartlett',
+    state: 'TN',
+    featuredImage: '/images/cities/bartlett-tn/hero.webp',
+    summary: 'A premier Shelby County suburb with top-rated dog parks and expansive greenway networks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bartlett, TN',
+      heroDescription: 'Discover the pet-friendly excellence of Bartlett, home to dedicated dog parks and miles of paved walking trails.',
+      longDescription: [
+        "Bartlett, a major suburb of Memphis in Shelby County, stands out as one of the most dog-friendly communities in the region. The city’s dedication to pet owners is best exemplified by the [Bartlett Dog Park](https://www.cityofbartlett.org/218/Dog-Park) on Shelter Run Lane, a massive, fenced facility that serves as a cornerstone for local socialization and exercise. In addition to this dedicated space, Bartlett boasts an impressive network of parks and greenways, such as the trails at W.J. Freeman Park, which offer miles of paved paths perfect for leashed walks. The community’s high standard of living is reflected in its well-maintained public spaces, making it a preferred location for active families with dogs.",
+        "Operating under strict animal control guidelines, Bartlett requires all dogs to be on a leash when not within a fenced residential property or the designated off-leash park. This policy ensures the safety of the city’s many walkers, runners, and cyclists who share the extensive trail system. Owners are also required to register their pets with the city, a process that verify rabies vaccinations and help fund local animal services. The 'scoop' law is a point of pride in Bartlett, as residents work together to keep their parks pristine. For those looking for professional grooming, training, or indoor play options in the Memphis metro area, our [Shelby County pet guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'berry-hill-tn',
+    city: 'Berry Hill',
+    state: 'TN',
+    featuredImage: '/images/cities/berry-hill-tn/hero.webp',
+    summary: 'An eclectic and ultra-walkable enclave within Nashville that treats every dog like a local celebrity.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Berry Hill, TN',
+      heroDescription: 'Navigate the unique and pet-friendly streets of Berry Hill, Nashville’s most walkable and dog-centric community.',
+      longDescription: [
+        "Berry Hill, a unique and independent city within the Metro Nashville area, is famous for its vibrant business district and incredibly walkable layout, making if a favorite for dog owners. The community’s eclectic spirit is evident in the many businesses that place water bowls outside their doors and welcome leashed pups on their patios. While Berry Hill itself is compact, its location provides immediate access to major Nashville green spaces, including the nearby Fair Park and the various trails connecting to the downtown core. The residential streets of Berry Hill are perfect for quiet morning strolls, with a high concentration of fellow pet owners creating a friendly and social neighborhood atmosphere.",
+        "As an independent municipality that coordinates closely with Davidson County, Berry Hill follows Metro Nashville’s animal control ordinances. This includes the requirement for all dogs to be on a leash no longer than six feet in public spaces, ensuring that the city’s busy retail and residential areas remain safe for everyone. Responsible owners are also expected to manage their pet's waste diligently, supporting the city's reputation for being clean and welcoming. For those seeking specialized pet care or indoor play during the Nashville area's frequent rain or heat, our [Nashville indoor dog park guide](https://www.indoordogpark.org/cities/nashville-tn) lists the premier facilities located just minutes away from the Berry Hill district."
+      ],
+    },
+  },
+  {
+    slug: 'brownsville-tn',
+    city: 'Brownsville',
+    state: 'TN',
+    featuredImage: '/images/cities/brownsville-tn/hero.webp',
+    summary: 'A historic West Tennessee hub where community parks and quiet streets offer a classic southern walk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brownsville, TN',
+      heroDescription: 'Experience the historic charm and dog-friendly parks of Brownsville, Tennessee, with your favorite pup.',
+      longDescription: [
+        "Brownsville, Tennessee, located in Haywood County, offers a classic southern environment for dog owners who enjoy a mix of history and nature. As the home of the [Hatchie National Wildlife Refuge](https://www.fws.gov/refuge/hatchie), the area provides world-class opportunities for leashed exploration along scenic river trails and through diverse hardwood forests. Within the city limits, community parks like Westside Park offer green spaces for local walks and social gatherings. Brownsville’s slow-paced atmosphere and historic architecture provide a beautiful backdrop for daily strolls, where the community’s friendliness is often extended to well-behaved pets and their owners.",
+        "In Brownsville, pet owners are encouraged to follow local ordinances that prioritize community safety and responsible ownership. This includes keeping dogs under control at all times, with leashes required in all public parks and on city streets. The city emphasizes the importance of up-to-date vaccinations and rabies tags, which are vital for the health of the local animal population. Residents are also responsible for cleaning up after their pets to ensure the town's parks and historic districts remain inviting for all. For those traveling through West Tennessee or looking for the best regional pet services, our [Tennessee state guide](https://www.indoordogpark.org/states/tennessee) offers comprehensive insights into the best stops and services in the Haywood County area."
+      ],
+    },
+  },
+  {
+    slug: 'brush-creek-tn',
+    city: 'Brush Creek',
+    state: 'TN',
+    featuredImage: '/images/cities/brush-creek-tn/hero.webp',
+    summary: 'Rural tranquility and riverside trails make this a peaceful retreat for dogs who love the great outdoors.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brush Creek, TN',
+      heroDescription: 'Escape to the quiet beauty of Brush Creek, where regional trails and riverside paths await you and your dog.',
+      longDescription: [
+        "Brush Creek, a scenic community nestled in the rolling farmland of Smith and DeKalb counties, is a dream destination for dogs who thrive in rural settings. The area’s natural beauty is best experienced along the nearby [Caney Fork River](https://www.tn.gov/environment/program-areas/na-natural-areas/natural-areas-middle-tennessee/caney-fork-river.html), where leashed dogs can enjoy the sights and sounds of one of Tennessee’s most beautiful waterways. The local lifestyle is centered around large acreages and quiet backroads, providing ample space for long, undisturbed walks. Brush Creek’s proximity to Center Hill Lake also means that water-loving pups have plenty of opportunities for lakeside hikes and seasonal exploration in a tranquil, low-traffic environment.",
+        "While the lifestyle in Brush Creek is undeniably relaxed, pet owners are still expected to adhere to Tennessee state laws regarding animal control. This means keeping dogs under 'reasonable control' at all times and preventing them from running at large, which is especially important in an area with active farms and local wildlife. Using a leash when visiting public boat ramps, trailheads, or neighboring towns is standard practice to ensure the safety of both the pet and the community. Responsible ownership also includes respecting local landowners and ensuring pets are properly vaccinated for outdoor adventures. For more tips on exploring Middle Tennessee’s rural gems safely, pet parents can visit our [regional guide](https://www.indoordogpark.org/states/tennessee) for expert advice on outdoor pet safety."
+      ],
+    },
+  },
+  {
+    slug: 'buffalo-valley-tn',
+    city: 'Buffalo Valley',
+    state: 'TN',
+    featuredImage: '/images/cities/buffalo-valley-tn/hero.webp',
+    summary: 'A gateway to the Cumberland Plateau offering rugged trails and stunning river canyon views for adventurous pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Buffalo Valley, TN',
+      heroDescription: 'Conquer the trails of Buffalo Valley, where the Caney Fork River and the Cumberland Plateau meet for epic dog walks.',
+      longDescription: [
+        "Buffalo Valley, situated at the edge of the Cumberland Plateau, is a premier destination for adventurous dog owners who enjoy rugged terrain and stunning natural vistas. The area serves as a gateway to the spectacular [Edgar Evins State Park](https://tnstateparks.com/parks/edgar-evins), where leashed dogs are welcome on miles of trails that offer breathtaking views of Center Hill Lake and the surrounding hills. Additionally, the Caney Fork River provides a scenic backdrop for low-intensity walks near local access points. The community's culture is deeply rooted in the outdoors, making it a perfect spot for hikers who want to bring their dogs along for challenging treks through Tennessee’s high country.",
+        "Pet safety in Buffalo Valley is paramount, given the proximity to deep woods and water. State park regulations require all pets to be on a leash no longer than six feet, a rule that protects both the dogs and the park’s diverse wildlife. Owners should also be mindful of seasonal conditions, such as water levels on the Caney Fork and terrain difficulty on plateau trails. Proper hydration and paw protection are highly recommended for the rocky paths common in the area. By following park guidelines and practicing responsible waste management, Buffalo Valley residents and visitors help maintain the integrity of these world-class natural spaces. For a full list of dog-friendly state parks and regional amenities, check out our [Cumberland Plateau guide](https://www.indoordogpark.org/states/tennessee)."
+      ],
+    },
+  },
+  {
+    slug: 'byhalia-ms',
+    city: 'Byhalia',
+    state: 'MS',
+    featuredImage: '/images/cities/byhalia-ms/hero.webp',
+    summary: 'Historic Mississippi charm with quick access to the Delta’s most dog-friendly parks and trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Byhalia, MS',
+      heroDescription: 'Experience the small-town warmth and regional dog-friendly beauty of Byhalia, located just south of the Tennessee border.',
+      longDescription: [
+        "Byhalia, Mississippi, located just across the border from Tennessee in Marshall County, offers a charming and growing environment for dog owners in the Memphis metropolitan area. The town’s pet culture is centered around its quiet, tree-lined streets and the nearby [Olive Branch City Park](https://www.obms.us/parks-recreation/), which features a dedicated off-leash dog park just a short drive away. Byhalia’s historic downtown district provides a picturesque setting for leashed strolls, while the surrounding rural landscape offers vast horizons and open air. The community’s blend of traditional Mississippi hospitality and modern suburban growth makes it an increasingly popular spot for pet-loving families seeking space and value.",
+        "The Town of Byhalia maintains clear animal control ordinances to ensure a safe and pleasant environment for all residents. This includes a requirement that any animal off the owner’s premises must be restrained by a leash no longer than six feet and controlled by a capable handler. Responsible owners are also required to ensure their dogs are inoculated and wear proper identification tags at all times. By adhering to these local rules and 'scoop' ordinances, Byhalia residents help preserve the beauty of their community’s historic spaces and local parks. For those looking for specialized pet services or indoor play options in the greater Memphis region, our [Mississippi and Tennessee regional guide](https://www.indoordogpark.org/states/tennessee) provides verified links to the best local facilities."
+      ],
+    },
+  },
+  {
+    slug: 'celina-tn',
+    city: 'Celina',
+    state: 'TN',
+    featuredImage: '/images/cities/celina-tn/hero.webp',
+    summary: 'A gateway to Dale Hollow Lake where pristine shoreline trails and lakefront views welcome every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Celina, TN',
+      heroDescription: 'Discover the peaceful beauty of Celina, featuring easy access to Dale Hollow Lake and scenic regional trails.',
+      longDescription: [
+        "Celina, Tennessee, the seat of Clay County, is a paradise for dog owners who love the great outdoors and the serene beauty of the Upper Cumberland. The town serves as a primary gateway to [Dale Hollow Lake](https://www.dalehollow.com/), a world-class reservoir known for its crystal-clear waters and over 600 miles of shoreline. For dog families, the area offers numerous leashed hiking opportunities along the various state and federal resource lands that surround the lake. The nearby Dale Hollow Lake State Resort Park (located just across the border) provides expansive trail systems where dogs can explore the mixed hardwood forests and enjoy the fresh lake breeze. Celina’s small-town charm and low-traffic streets also make for pleasant morning strolls, with a high concentration of fellow pet owners creating a welcoming social atmosphere.",
+        "Responsible pet ownership in Celina is guided by local ordinances that prioritize community safety and environmental protection. This includes a requirement that dogs must be under reasonable control at all times, with leashes strongly encouraged in public parks and near the lakefront to protect both the pets and local wildlife. Owners are also expected to ensure their dogs are vaccinated and registered, which is vital for maintaining a healthy and safe animal population in this rural hub. The local 'scoop' law helps keep the town’s parks and historic district clean for everyone. For those seeking specialized pet services or indoor play during the region’s humid summers, our [Upper Cumberland guide](https://www.indoordogpark.org/states/tennessee) offers verified links to the best local clinics and regional amenities."
+      ],
+    },
+  },
+  {
+    slug: 'charleston-tn',
+    city: 'Charleston',
+    state: 'TN',
+    featuredImage: '/images/cities/charleston-tn/hero.webp',
+    summary: 'Historic riverfront charm and dedicated pet-friendly stops along the scenic Hiwassee River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Charleston, TN',
+      heroDescription: 'Explore Charleston with your dog, featuring beautiful river views and convenient pet-friendly facilities.',
+      longDescription: [
+        "Charleston, Tennessee, located in Bradley County along the banks of the Hiwassee River, offers a unique blend of industrial heritage and scenic natural beauty for dog owners. The community is well-known for its proximity to the [Hiwassee/Ocoee Scenic River State Park](https://tnstateparks.com/parks/hiwassee-ocoee), which provides outstanding opportunities for leashed exploration along the river’s edge. For those traveling or seeking a quick stop, the local Love's Travel Stop features a fully-fenced, dedicated dog park, providing a safe and convenient spot for off-leash breaks and socialization. Charleston’s quiet residential neighborhood and riverfront paths create a peaceful environment for daily walks where dogs can enjoy the sights and sounds of the water.",
+        "The city’s animal control ordinances are designed to ensure the safety and comfort of all residents and their pets. This includes a mandatory leash law in all public spaces, ensuring that the town’s parks and riverfront trails remain accessible and safe for everyone. Responsible owners are also encouraged to properly manage their pet's waste to help preserve the beauty of the Hiwassee River ecosystem. Proper vaccinations and identification tags are required by local code, supporting a healthy and well-managed animal population. For more information on navigating the best dog-friendly spots in the Cleveland-Athens corridor, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'chickamauga-ga',
+    city: 'Chickamauga',
+    state: 'GA',
+    featuredImage: '/images/cities/chickamauga-ga/hero.webp',
+    summary: 'Historic battlefield beauty and expansive parklands create a premier destination for adventurous pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Chickamauga, GA',
+      heroDescription: 'Discover the grandeur of Chickamauga, home to the sprawling National Military Park and scenic historic trails.',
+      longDescription: [
+        "Chickamauga, Georgia, located just south of the Tennessee border in Walker County, is a premier destination for dog owners who appreciate history and expansive natural spaces. The crown jewel of the area is the [Chickamauga & Chattanooga National Military Park](https://www.nps.gov/chch/), a massive preserve where leashed dogs are welcome on miles of historic trails and through open fields that once served as pivotal battlegrounds. The park’s well-maintained paths offer a unique and solemn backdrop for long, contemplative walks. Within the city limits, community parks like McCoy Farm and Gardens provide additional dog-friendly spaces, including off-leash areas that allow for high-energy play and socialization in a beautiful, historic setting.",
+        "Chickamauga and Walker County enforce strict animal control guidelines to protect the integrity of the historic sites and the safety of all visitors. This includes a mandatory leash requirement on all National Park Service land and in most city-operated public spaces. Responsible ownership is also supported by county codes that require dogs to be under physical control at all times when off the owner's property. Owners are expected to practice diligent waste management to keep the battlefield and community parks pristine for future generations. For those looking for the best local pet services or indoor options in the greater Chattanooga metro area, our [Regional Pet guide](https://www.indoordogpark.org/states/tennessee) lists the top-rated facilities and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'christiana-tn',
+    city: 'Christiana',
+    state: 'TN',
+    featuredImage: '/images/cities/christiana-tn/hero.webp',
+    summary: 'Rural Middle Tennessee tranquility where wide-open spaces and quiet country roads await every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Christiana, TN',
+      heroDescription: 'Experience the peace of Christiana, offering expansive natural views and quiet residential walking paths.',
+      longDescription: [
+        "Christiana, a scenic community in Rutherford County, offers a quintessential Middle Tennessee experience for dog owners seeking space and rural tranquility. The area is characterized by its rolling farmland and large residential lots, providing ample room for long, undisturbed walks. While it lacks its own major municipal dog park, Christiana’s proximity to Murfreesboro means that residents can easily access premier facilities like the [Murfreesboro Bark Park](https://www.murfreesborotn.gov/206/Beulah-Davis-Bark-Park). The local lifestyle in Christiana is centered around the outdoors, with quiet country roads and regional trails providing a peaceful backdrop for daily exploration where dogs are often the most common companions on local outings.",
+        "Adherence to Rutherford County’s animal control ordinances is essential for maintaining Christiana’s rural harmony. This includes keeping dogs under reasonable control at all times and preventing them from running at large to protect both the pets and local livestock. Using a sturdy leash in public areas and near roadways is highly recommended to ensure the safety of all community members. Owners are also expected to maintain current vaccinations and rabies tags, which are vital for a healthy animal population in this growing community. For more information on the best dog-friendly spots and services in the Rutherford County area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'chuckey-tn',
+    city: 'Chuckey',
+    state: 'TN',
+    featuredImage: '/images/cities/chuckey-tn/hero.webp',
+    summary: 'Rugged Appalachian beauty and riverfront trails make this a peaceful retreat for adventurous pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Chuckey, TN',
+      heroDescription: 'Conquer the regional trails of Chuckey, where the Nolichucky River and East Tennessee hills meet.',
+      longDescription: [
+        "Chuckey, Tennessee, nestled in the scenic valleys of Greene and Washington counties, is a dream for dog owners who love the rugged beauty of East Tennessee. The community is located along the [Nolichucky River](https://www.fs.usda.gov/recarea/nfsnc/recarea/?recid=48654), which offers a stunning backdrop for leashed exploration and scenic riverside paths. The area’s natural landscape is defined by its rolling hills and proximity to the Cherokee National Forest, providing endless opportunities for nature-loving dogs to explore diverse forest trails and fresh mountain air. Chuckey’s rural-suburban blend encourages a tight-knit pet community where residents often share tips on the best local trails and swimming holes.",
+        "Responsible ownership in Chuckey is supported by local traditions and East Tennessee animal control guidelines. This includes keeping dogs under control at all times, with leashes highly recommended when visiting public boat ramps, trailheads, or neighboring community centers. Owners are also responsible for ensuring their dogs are properly vaccinated, which is vital for the health of the local animal population. Diligent waste management is encouraged on all regional trails to preserve the beauty of the Nolichucky River ecosystem. For more information on navigating the unique dog-friendly landscape of the Tri-Cities region, our [Northeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and essential pet services."
+      ],
+    },
+  },
+  {
+    slug: 'cleveland-heights-tn',
+    city: 'Cleveland Heights',
+    state: 'TN',
+    featuredImage: '/images/cities/cleveland-heights-tn/hero.webp',
+    summary: 'A charming neighborhood enclave in Cleveland offering quick access to premier city parks and greenways.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cleveland Heights, TN',
+      heroDescription: 'Join the active dog community of Cleveland Heights, featuring easy access to Southeast Tennessee’s best walking trails.',
+      longDescription: [
+        "Cleveland Heights, a desirable and pet-friendly residential area in Cleveland, Tennessee, provides dog owners with a perfect balance of neighborhood charm and urban convenience. The community is located just a short distance from the [Cleveland Greenway](https://www.clevelandtn.gov/435/Greenway), an impressive paved trail system that offers miles of scenic walking through the heart of the city. Additionally, the nearby Tinsley Park and Fletcher Park provide expansive green spaces and wooded trails where leashed dogs are a frequent and welcome sight. Cleveland Heights’ tree-lined streets and well-maintained properties create a beautiful and social environment for daily morning and evening strolls, with a strong community of active pet owners.",
+        "Pet owners in Cleveland Heights and the broader Bradley County area are guided by ordinances that prioritize safety and community harmony. This includes a mandatory leash law in all city parks and on public streets, ensuring that shared spaces remain safe for pedestrians and other pets. Responsible ownership is also supported by city codes that require current rabies vaccinations and proper identification tags. Residents are encouraged to practice diligent waste management to help keep the city’s greenways and neighborhood parks pristine for everyone. For those seeking professional grooming, training, or indoor play options in the Cleveland area, our [Bradley County pet guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'collegedale-tn',
+    city: 'Collegedale',
+    state: 'TN',
+    featuredImage: '/images/cities/collegedale-tn/hero.webp',
+    summary: 'Home to the famous Collegedale Dog Park and beautiful greenway trails for every active pup.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Collegedale, TN',
+      heroDescription: 'Experience the pet-friendly excellence of Collegedale, featuring one of the region’s premier off-leash dog parks.',
+      longDescription: [
+        "Collegedale, Tennessee, in Hamilton County, is widely recognized as one of the most dog-friendly cities in the greater Chattanooga area. The crown jewel for local pet owners is the [Collegedale Dog Park](https://www.collegedaletn.gov/parks-and-recreation), a massive, fenced facility that offers separate areas for large and small breeds, complete with water stations and shaded seating. In addition to the dog park, the Little Debbie Park and the expansive Collegedale Greenway offer miles of beautifully paved paths that are perfect for leashed exploration. The city’s proactive approach to recreation and its high-quality public amenities make it a preferred destination for active families who include their dogs in every outing.",
+        "Operating under a forward-thinking park management policy, Collegedale requires all dogs to be on a leash when not within the designated off-leash park area. This ensures the safety of the city’s many multi-generational park users and trail enthusiasts. Owners are also required to verify vaccination records and ensure their pets wear proper tags, supporting a healthy and safe environment for all community members. The 'scoop' law is strictly enforced to keep the city's parks and greenways in top condition. For those seeking additional resources or looking for the best indoor options during Tennessee’s rainy season, our [Hamilton County guide](https://www.indoordogpark.org/states/tennessee) provides comprehensive listings for climate-controlled play and local pet services."
+      ],
+    },
+  },
+  {
+    slug: 'culleoka-tn',
+    city: 'Culleoka',
+    state: 'TN',
+    featuredImage: '/images/cities/culleoka-tn/hero.webp',
+    summary: 'Scenic Maury County tranquility where rolling farmland and quiet roads offer a peaceful dog walk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Culleoka, TN',
+      heroDescription: 'Escape to the quiet beauty of Culleoka, offering wide-open natural views and peaceful country trails.',
+      longDescription: [
+        "Culleoka, a charming rural community in Maury County, offers a peaceful and spacious environment for dog owners seeking a break from the suburban bustle. The area is characterized by its rolling hills and expansive agricultural landscapes, providing a stunning backdrop for long, contemplative walks. While Culleoka maintains its quiet, small-town atmosphere, it is located just a short drive from the major parks in Columbia, including [Chickasaw Trace Park](https://www.maurycounty-tn.gov/221/Parks-Recreation), which offers miles of wooded trails perfect for leashed exploration. The lifestyle in Culleoka is deeply rooted in the outdoors, where dogs are valued companions on local farms and during quiet walks along the community’s winding backroads.",
+        "Adherence to Maury County’s animal control ordinances is essential for maintaining the safety and harmony of the Culleoka community. This includes keeping dogs under reasonable control at all times and preventing them from running at large to protect both the pets and local livestock. Using a leash when visiting public areas or near roadways is highly recommended to ensure the safety of all community members. Responsible ownership is also supported by county codes that require current vaccinations and rabies tags, helping to maintain a healthy animal population in this rural enclave. For more information on the best dog-friendly spots and services in the Columbia region, our [Maury County guide](https://www.indoordogpark.org/states/tennessee) offers verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'cumberland-furnace-tn',
+    city: 'Cumberland Furnace',
+    state: 'TN',
+    featuredImage: '/images/cities/cumberland-furnace-tn/hero.webp',
+    summary: 'Historic Dickson County charm and rugged natural trails make this a peaceful retreat for outdoor pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cumberland Furnace, TN',
+      heroDescription: 'Discover the rugged beauty and historic allure of Cumberland Furnace with your favorite dog.',
+      longDescription: [
+        "Cumberland Furnace, a historic and scenic community in Dickson County, is a hidden gem for dog owners who appreciate a mix of history and rugged natural beauty. The area is known for its deep roots in Tennessee’s industrial history and its proximity to the vast [Montgomery Bell State Park](https://tnstateparks.com/parks/montgomery-bell), where leashed dogs are welcome on miles of trails that wind through lush forests and around pristine lakes. The community’s quiet residential streets and surrounding woodland roads provide a peaceful and varied environment for daily walks. Cumberland Furnace’s slow-paced atmosphere and historic architecture provide a beautiful backdrop for exploring the great outdoors with a four-legged friend.",
+        "The community follows Dickson County’s animal control guidelines, which emphasize the importance of keeping dogs under reasonable control and prevent them from running at large. This is especially important in an area characterized by deep woods and local wildlife. Using a sturdy leash in public areas and near state park land is mandatory to ensure the safety of both the pet and the environment. Responsible owners are also encouraged to practice 'leave no trace' principles and diligently manage pet waste on all regional trails. For more information on the best dog-friendly spots and essential pet services in the Dickson area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'doyle-tn',
+    city: 'Doyle',
+    state: 'TN',
+    featuredImage: '/images/cities/doyle-tn/hero.webp',
+    summary: 'A gateway to the stunning Fall Creek Falls and the rugged trails of the Cumberland Plateau.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Doyle, TN',
+      heroDescription: 'Conquer the epic trails of Doyle and the surrounding plateau with your favorite adventurous dog.',
+      longDescription: [
+        "Doyle, Tennessee, located in White County, is a premier destination for dog owners who seek access to some of Tennessee’s most iconic natural wonders. The community serves as a vital gateway to the nearby [Fall Creek Falls State Park](https://tnstateparks.com/parks/fall-creek-falls), where leashed dogs can enjoy miles of trails that lead to spectacular waterfalls and stunning overlooks. Additionally, the nearby Burgess Falls and Rock Island State Park provide further opportunities for leashed exploration along rugged river gorges and historic sites. Doyle’s small-town atmosphere and proximity to the vast natural beauty of the Cumberland Plateau make it a perfect home base for active families who love to hike with their dogs.",
+        "Pet safety in the Doyle area is a top priority, especially given the rugged terrain and proximity to protected natural areas. State park regulations require all pets to be on a leash no longer than six feet at all times, a rule that ensures the comfort of fellow hikers and protects local wildlife. Owners should be mindful of terrain difficulty and the importance of carrying enough water for their pets during longer hikes on the plateau. Proper vaccinations and identification tags are essential for visiting regional parks and local service facilities. For a full list of dog-friendly stops and essential services in the Sparta and Cookeville region, our [Upper Cumberland guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information."
+      ],
+    },
+  },
+  {
+    slug: 'east-flat-rock-nc',
+    city: 'East Flat Rock',
+    state: 'NC',
+    featuredImage: '/images/cities/east-flat-rock-nc/hero.webp',
+    summary: 'A tranquil Blue Ridge community where scenic walking trails and mountain views welcome every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in East Flat Rock, NC',
+      heroDescription: 'Discover the pet-friendly charm of East Flat Rock, featuring extensive trails at The Park at Flat Rock and historic sites.',
+      longDescription: [
+        "East Flat Rock, North Carolina, located in the heart of Henderson County, offers an exceptional environment for dog owners who appreciate the natural beauty of the Blue Ridge Mountains. The town’s pet culture is centered around its expansive green spaces, most notably [The Park at Flat Rock](https://www.flatrocknc.gov/parks), which welcomes leashed dogs on its miles of paved and natural trails. This 66-acre park provides a scenic backdrop for daily exercise, featuring open meadows and wooded areas perfect for active pups. Additionally, the nearby Carl Sandburg Home National Historic Site offers over five miles of hiking trails where dogs can enjoy the fresh mountain air while their owners take in the regional history. East Flat Rock’s quiet residential streets and friendly neighborhood atmosphere make it an ideal spot for those seeking a peaceful, outdoorsy lifestyle with their canine companions.",
+        "In East Flat Rock and the broader Henderson County area, pet safety is prioritized through local ordinances that require domestic animals to be under physical control at all times when off the owner's property. This includes a clear leash requirement in all public parks and on city streets, ensuring a safe experience for both pets and pedestrians. Responsible ownership is further supported by county codes that mandate current vaccinations and identification tags. The community emphasizes 'leave no trace' principles to maintain the beauty of its natural trails and public squares. For residents looking for specialized pet care or training in the Asheville-Hendersonville corridor, our [North Carolina regional guide](https://www.indoordogpark.org/states/tennessee) (covering the border region) provides verified links to the best local clinics and amenities."
+      ],
+    },
+  },
+  {
+    slug: 'elizabethton-tn',
+    city: 'Elizabethton',
+    state: 'TN',
+    featuredImage: '/images/cities/elizabethton-tn/hero.webp',
+    summary: 'Historic Carter County beauty where the Tweetsie Trail and riverfront parks offer a classic dog walk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elizabethton, TN',
+      heroDescription: 'Explore Elizabethton with your dog, featuring the famous Tweetsie Trail and dedicated local dog-friendly spaces.',
+      longDescription: [
+        "Elizabethton, Tennessee, known for its deep historical roots and scenic riverfront, provides a wonderful setting for dog owners in the Tri-Cities region. The community is a major anchor for the [Tweetsie Trail](https://www.tweetsietrail.com/), a 10-mile rail trail that links Elizabethton to Johnson City, offering a flat and beautiful path for leashed walks. Within the city limits, Civitan Park and Preston Forest Park provide expansive green spaces where dogs can enjoy the outdoors, with Preston Forest even featuring an unfenced enclosure where well-behaved pets often gather for informal play. The town’s historic Covered Bridge Park also serves as a picturesque destination for afternoon strolls, combining architectural charm with the calming sounds of the Watauga River.",
+        "Responsible pet ownership in Elizabethton is guided by Tennessee’s general animal control standards, which emphasize keeping dogs under 'reasonable control' and preventing them from running at large. This is essential for maintaining the safety and harmony of the city’s many public spaces and busy trail systems. Owners are expected to ensure their dogs are properly vaccinated and wear current identification tags, supporting a healthy and safe local animal population. The community’s commitment to cleanliness is seen in the 'scoop' laws that protect the integrity of the Watauga River ecosystem. For those seeking specialized pet services or indoor options in the Elizabethton-Johnson City area, our [Northeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'fairview-tn',
+    city: 'Fairview',
+    state: 'TN',
+    featuredImage: '/images/cities/fairview-tn/hero.webp',
+    summary: 'Home to the massive Bowie Nature Park and 17 miles of wooded trails for the ultimate dog adventure.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fairview, TN',
+      heroDescription: 'Conquer the vast trails of Fairview, featuring the premier Bowie Nature Park and a strong dog-loving community.',
+      longDescription: [
+        "Fairview, Tennessee, located in the western reaches of Williamson County, is a premier destination for dog owners who prioritize long, immersive nature walks. The community is famous for [Bowie Nature Park](https://www.fairview-tn.org/bowie-nature-park/), a massive 700-acre preserve that offers over 17 miles of trails winding through forests and around serene lakes. While dogs must remain leashed to protect the park's diverse wildlife, the sheer scale of the trail network provides endless variety and exercise for active pups. Fairview’s rural-suburban blend and large residential lots offer a quiet and spacious environment for daily life, where dogs are often the most common companions on local outings and neighborhood walks.",
+        "As part of Williamson County, Fairview enforces strict animal control ordinances that require all dogs to be under physical control via a leash in public spaces. This is especially important in a town defined by its massive parkland and active residential areas. Responsible owners are also required to ensure their pets are vaccinated and registered, contributing to a safe and healthy local pet population. The emphasis on maintaining clean trails is a point of pride for Fairview residents, who work together to keep Bowie Nature Park pristine. For those looking for the best professional pet services or climate-controlled play in the southwest Nashville metro area, our [Williamson County guide](https://www.indoordogpark.org/states/tennessee) provides verified links and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'fall-branch-tn',
+    city: 'Fall Branch',
+    state: 'TN',
+    featuredImage: '/images/cities/fall-branch-tn/hero.webp',
+    summary: 'Rural East Tennessee tranquility where rolling hills and quiet backroads offer a peaceful dog retreat.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fall Branch, TN',
+      heroDescription: 'Experience the quiet beauty of Fall Branch, offering expansive natural views and easy access to regional dog parks.',
+      longDescription: [
+        "Fall Branch, Tennessee, straddling the border of Washington and Greene counties, offers a quintessential rural experience for dog owners seeking space and tranquility. The area is defined by its rolling farmland and high-country views, providing a stunning backdrop for long, undisturbed walks along quiet country roads. While Fall Branch itself is a quiet community, its location provides quick access to major regional hubs. Residents frequently take advantage of nearby facilities like [Dogwood Park](https://www.kingsporttn.gov/parks-recreation/dog-park/) in Kingsport or the member-run Johnson City Dog Park for off-leash socialization. The local lifestyle encourages an active, outdoor bond between owners and their dogs, with nature always just a step away.",
+        "Responsible ownership in the Fall Branch area is guided by the animal control ordinances of Washington and Greene counties. These regulations prioritize pet safety and community harmony, emphasizing that dogs must be kept under reasonable control at all times to protect both the pets and local livestock. Using a leash when visiting public areas or near major roadways is highly recommended to ensure a safe experience for everyone. Owners are also expected to maintain current vaccinations and rabies tags, which are vital for a healthy animal population in this rural enclave. For more information on the best dog-friendly spots and services in the Tri-Cities region, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and essential pet services."
+      ],
+    },
+  },
+  {
+    slug: 'fort-campbell-tn',
+    city: 'Fort Campbell',
+    state: 'TN',
+    featuredImage: '/images/cities/fort-campbell-tn/hero.webp',
+    summary: 'A dedicated military community featuring premier on-post dog parks and expansive training grounds.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Campbell, TN',
+      heroDescription: 'Join the active dog community of Fort Campbell, featuring dedicated off-leash areas and miles of outdoor space.',
+      longDescription: [
+        "Fort Campbell, straddling the Tennessee-Kentucky border, provides an exceptionally structured and active environment for military families and their dogs. The installation boasts two dedicated off-leash areas: the [North Dog Park](https://campbell.armymwr.com/programs/outdoor-recreation) on Glider Road and the South Dog Park on Bastogne Avenue. Both facilities are well-maintained, fenced, and offer separate sections for large and small breeds, complete with exercise equipment and water stations. Beyond the designated parks, the vast training areas and residential trails on the installation offer miles of leashed walking opportunities. The community's unique environment fosters a tight-knit pet culture where dogs are constant companions for active duty members and their families.",
+        "Safety and discipline are hallmarks of pet ownership at Fort Campbell. The installation enforces clear regulations, including mandatory leashing when entering and exiting dog parks and a general requirement for physical control in all public areas. Owners are also required to register their pets with the Veterinary Treatment Facility and maintain current vaccinations, which are strictly monitored to ensure the health of the community. Certain breed restrictions apply to on-post housing and park usage, making it essential for residents to stay informed through MWR updates. For those looking for the best pet services or indoor play options in the surrounding Clarksville and Hopkinsville areas, our [regional guide](https://www.indoordogpark.org/states/tennessee) provides verified links to local clinics and trainers."
+      ],
+    },
+  },
+  {
+    slug: 'fort-oglethorpe-ga',
+    city: 'Fort Oglethorpe',
+    state: 'GA',
+    featuredImage: '/images/cities/fort-oglethorpe-ga/hero.webp',
+    summary: 'Historic Battlegrounds and the premier Bark City Dog Park make this a top choice for active pups near the TN border.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Oglethorpe, GA',
+      heroDescription: 'Discover the pet-friendly excellence of Fort Oglethorpe, home to dedicated off-leash play and scenic historic trails.',
+      longDescription: [
+        "Fort Oglethorpe, Georgia, located just south of Chattanooga, is a standout community for dog owners who value both history and modern amenities. The city is home to [Bark City Dog Park](https://www.forto.gov/parks-recreation), a premier 1.5-acre fenced facility that features agility equipment, water stations, and separate areas for different dog sizes. For those who prefer a more traditional walk, the adjacent Chickamauga & Chattanooga National Military Park offers miles of historic trails where leashed dogs are welcome to explore the rolling fields and wooded paths. The town's Blend of historic charm and growing retail district provides a varied and social environment for daily outings with four-legged family members.",
+        "Responsible pet ownership in Fort Oglethorpe is guided by municipal and county ordinances that prioritize community safety. This includes a mandatory leash law in all city parks and along public streets, ensuring that shared spaces remain accessible to everyone. Owners are also expected to ensure their dogs have current rabies vaccinations and wear proper identification tags at all times. The local 'scoop' law is a community standard, helping to keep the historic battlefield and local parks clean for all visitors. For residents looking for specialized pet care or indoor play options in the greater Chattanooga metro area, our [regional pet guide](https://www.indoordogpark.org/states/tennessee) (covering the border region) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'friendsville-tn',
+    city: 'Friendsville',
+    state: 'TN',
+    featuredImage: '/images/cities/friendsville-tn/hero.webp',
+    summary: 'Boutique pet-friendly charm and easy access to some of East Tennessee’s best regional dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Friendsville, TN',
+      heroDescription: 'Explore Friendsville with your dog, featuring beautiful lakeside views and elite local pet care facilities.',
+      longDescription: [
+        "Friendsville, Tennessee, located in Blount County along the shores of Fort Loudoun Lake, offers a quiet and sophisticated environment for dog owners. The community is home to the [Friendsville Animal Center](https://www.friendsvilleac.com/), which features 'Scentral Park,' a massive multi-acre facility that sets a high bar for local pet care and socialization. Beyond specialized facilities, Friendsville’s proximity to the water and its quiet, tree-lined residential streets make for peaceful daily strolls. For traditional off-leash play, residents often utilize the many PetSafe-sponsored dog parks in the nearby Knoxville and Maryville areas. The town’s upscale-rural atmosphere is perfect for those who want space and high-quality amenities for their pets.",
+        "Pet owners in Friendsville are guided by Blount County’s animal control regulations, which mandate that animals be under the direct control of a competent person when off the owner's premises. This includes a requirement for a leash no longer than six feet in public spaces, ensuring the safety of walkers and other pets. Responsible ownership also requires maintaining current rabies vaccinations and identification tags, which are vital for a healthy community. The local culture emphasizes respect for private property and the pristine natural surroundings. For more information on the best dog-friendly stops and essential services in the Maryville-Knoxville area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'georgetown-tn',
+    city: 'Georgetown',
+    state: 'TN',
+    featuredImage: '/images/cities/georgetown-tn/hero.webp',
+    summary: 'Peaceful rural beauty and riverfront proximity offer a quiet escape for nature-loving dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Georgetown, TN',
+      heroDescription: 'Discover the quiet charm of Georgetown, where expansive natural views and country roads create a canine paradise.',
+      longDescription: [
+        "Georgetown, Tennessee, situated on the border of Hamilton, Bradley, and Meigs counties, provides a quintessential rural retreat for dog owners seeking space and natural beauty. The area is characterized by its rolling farmland and proximity to the [Hiwassee River](https://tnstateparks.com/parks/hiwassee-ocoee), offering a peaceful backdrop for long, contemplative walks. While Georgetown lacks its own municipal dog park, the lifestyle here is centered around the great outdoors, with quiet country roads and regional nature preserves providing ample room for exploration. The slow-paced environment and friendly local community make it an ideal spot for dogs who prefer a quieter, low-traffic lifestyle where they are integrated into daily rural routines.",
+        "Responsible ownership in Georgetown is guided by the broader animal control ordinances of the surrounding counties. These regulations emphasize the importance of keeping dogs under reasonable control at all times and preventing them from running at large to protect both the pets and local livestock. Using a leash when visiting public access points for the river or nearby trailheads is standard practice to ensure the safety of all. Owners are also responsible for ensuring their dogs are properly vaccinated, which is vital for the health of the local animal population. For more information on the best dog-friendly spots and services in the Cleveland-Chattanooga corridor, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'glasgow-ky',
+    city: 'Glasgow',
+    state: 'KY',
+    featuredImage: '/images/cities/glasgow-ky/hero.webp',
+    summary: 'A historic regional hub where community parks and quiet streets offer a classic Bluegrass walk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Glasgow, KY',
+      heroDescription: 'Explore the cat-friendly and pet-centric community of Glasgow, featuring beautiful local parks and nearby state trails.',
+      longDescription: [
+        "Glasgow, Kentucky, the seat of Barren County, offers a charming and growing environment for dog owners in the South Central Kentucky region. The town’s pet culture is centered around its historic downtown and well-maintained public spaces, with local parks providing ample room for leashed exploration. While the city itself is working on expanding its dedicated pet facilities, its proximity to [Barren River Lake State Resort Park](https://parks.ky.gov/lucas/parks/resort/barren-river-lake-state-resort-park) provides world-class opportunities for leashed hiking along scenic shoreline trails. Glasgow’s small-town warmth and walkable layout make it a preferred location for those who enjoy taking their dogs along for errands or social outings in the town square.",
+        "The City of Glasgow maintains clear animal control ordinances to ensure a safe and pleasant environment for all residents. This includes a requirement that any dog off the owner's premises must be accompanied by a responsible person and restrained at all times. Responsible ownership is further supported by code requirements for current vaccinations and the diligent removal of pet waste in public areas. These measures help maintain the beauty of Glasgow’s historic district and community parks. For those looking for specialized pet care or indoor play options in the Bowling Green-Glasgow region, our [Kentucky-Tennessee regional guide](https://www.indoordogpark.org/states/tennessee) (covering the border region) provides verified links to the best local facilities and pet services."
+      ],
+    },
+  },
+  {
+    slug: 'gray-tn',
+    city: 'Gray',
+    state: 'TN',
+    featuredImage: '/images/cities/gray-tn/hero.webp',
+    summary: 'A rapidly growing Tri-Cities hub offering easy access to the region’s best dog-friendly social venues.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Gray, TN',
+      heroDescription: 'Join the active dog community in Gray, featuring high-quality residential areas and proximity to premier regional parks.',
+      longDescription: [
+        "Gray, Tennessee, ideally situated between Johnson City and Kingsport, has become a favored location for dog owners seeking a modern suburban lifestyle with quick access to regional amenities. The community is just a short drive from [Off-Leash Social](https://offleashsocial.com/), a unique venue in Johnson City that combines a dog park with a kitchen and bar, providing a premier social environment for both pets and their owners. Within Gray, many residential subdivisions offer well-maintained sidewalks and quiet cul-de-sacs perfect for daily walks. The town’s rapid growth is reflected in its pet-friendly culture, with many local businesses and outdoor spaces welcoming well-behaved four-legged family members.",
+        "Operating under Washington County’s guidelines, Gray requires all pets to be under the direct control of their owners in public spaces. This includes a general expectation for leashed walks in parks and residential areas to ensure the safety of the community’s many active residents. Responsible owners are also required to maintain up-to-date rabies vaccinations and proper identification tags. The local emphasis on clean shared spaces is vital for maintaining the appeal of this growing hub. For those seeking professional grooming, training, or indoor play options in the Tri-Cities area, our [Northeast Tennessee pet guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendation for everything Gray has to offer."
+      ],
+    },
+  },
+  {
+    slug: 'greenfield-tn',
+    city: 'Greenfield',
+    state: 'TN',
+    featuredImage: '/images/cities/greenfield-tn/hero.webp',
+    summary: 'Small-town charm featuring the dedicated Greenfield Dog Park for safe off-leash fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Greenfield, TN',
+      heroDescription: 'Experience the welcoming spirit of Greenfield, home to its own community dog park and peaceful walking paths.',
+      longDescription: [
+        "Greenfield, Tennessee, located in Weakley County, stands out as a pet-friendly community that punches above its weight with dedicated facilities for dog owners. The town is home to the [Greenfield Dog Park](https://www.facebook.com/GreenfieldParksandRec/), a fenced facility that provides a safe and social environment for off-leash play. This dog park is a central hub for local dog families, fostering a tight-knit community where playdates and social events are common. Beyond the dog park, Greenfield’s quiet residential streets and local community parks offer a peaceful and low-traffic environment for daily leashed strolls, where the town’s small-town friendly spirit is extended to every four-legged visitor.",
+        "Responsible ownership in Greenfield is supported by clear municipal rules. All dogs using the community dog park must be registered with the city and have current rabies vaccinations, ensuring a safe environment for all pets. When outside the designated off-leash area, dogs must be on a leash no longer than 10 feet, a policy that helps maintain the safety and comfort of everyone sharing the town’s parks and walking trails. The city also encourages diligent waste management to keep its public spaces pristine. For more information on the best dog-friendly spots and essential pet services in the Weakley County area, our [Northwest Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'harriman-tn',
+    city: 'Harriman',
+    state: 'TN',
+    featuredImage: '/images/cities/harriman-tn/hero.webp',
+    summary: 'Riverfront beauty and the dedicated Harriman Dog Park make this a top spot for active Roane County dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Harriman, TN',
+      heroDescription: 'Discover the pet-friendly riverfront of Harriman, featuring dedicated off-leash play and scenic waterfront trails.',
+      longDescription: [
+        "Harriman, Tennessee, situated along the banks of the Emory River in Roane County, offers a picturesque and active environment for dog owners. The city’s dedication to pet lovers is best exemplified by the [Harriman Dog Park](https://cityofharriman.com/parks-%26-recreation), a fenced facility that provides a safe space for dogs to burn off energy and socialize. Harriman’s riverfront area also features beautiful walking paths where leashed pups can enjoy the sights and sounds of the river. The community’s blend of historic industrial heritage and natural waterfront beauty provides a unique and engaging backdrop for daily exploration, with a strong spirit of outdoor activity shared by many local residents and their pets.",
+        "To ensure a safe and welcoming atmosphere for all park users, Harriman enforces municipal ordinances that require dogs to be leashed at all times when not within the fenced dog park area. This is essential for protecting the city’s many pedestrians and cyclists who enjoy the riverfront trails. Responsible ownership also includes maintaining current rabies vaccinations and proper identification, which are required for access to city-run facilities. The local 'scoop' law is strictly encouraged to preserve the beauty of the Emory River ecosystem. For those seeking professional grooming, training, or indoor options in the Roane County area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides verified links and local recommendation for the best stops in Harriman."
+      ],
+    },
+  },
+  {
+    slug: 'hartsville-tn',
+    city: 'Hartsville',
+    state: 'TN',
+    featuredImage: '/images/cities/hartsville-tn/hero.webp',
+    summary: 'Small-town Middle Tennessee tranquility with quick access to riverside trails and regional dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hartsville, TN',
+      heroDescription: 'Explore the quiet charm of Hartsville, where Cumberland River views and peaceful roads offer a canine retreat.',
+      longDescription: [
+        "Hartsville, the seat of Trousdale County, offers a peaceful and slow-paced environment for dog owners who enjoy a mix of community charm and natural beauty. The town is located near the [Cumberland River](https://www.trousdalecountytn.gov/), providing opportunities for leashed exploration along scenic river access points. While Hartsville lacks a massive municipal dog park of its own, residents often take advantage of the nearby Carthage Walking Track and Dog Park for off-leash play. Hartsville’s quiet residential streets and historic downtown district provide a beautiful and low-traffic setting for daily strolls, where the community’s friendly atmosphere is extended to well-behaved pets and their owners.",
+        "Responsible ownership in Hartsville is guided by Tennessee’s general animal control standards, which mandate keeping dogs under 'reasonable control' and prevent them from running at large. This is especially important in a community with active farms and shared public spaces. Using a leash when visiting public parks or the town square is standard practice to ensure the safety and comfort of all residents. Owners are also expected to ensure their dogs are vaccinated and registered, contributing to a healthy animal population. For residents looking for specialized pet care or training in the Trousdale-Smith County area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'henderson-tn',
+    city: 'Henderson',
+    state: 'TN',
+    featuredImage: '/images/cities/henderson-tn/hero.webp',
+    summary: 'A charming West Tennessee hub offering quick access to expansive state parks and regional dog-friendly gems.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Henderson, TN',
+      heroDescription: 'Conquer the local trails of Henderson, featuring easy access to Chickasaw State Park and nearby off-leash social spots.',
+      longDescription: [
+        "Henderson, Tennessee, located in Chester County, is a fantastic spot for dog owners who value proximity to world-class natural sites. The community is just a short drive from [Chickasaw State Park](https://tnstateparks.com/parks/chickasaw), where leashed dogs are welcome on miles of trails winding through southern pine and hardwood forests. Additionally, the nearby Jackson Downtown Dog Park provides an excellent destination for off-leash socialization and high-energy exercise. Henderson’s quiet residential neighborhoods and the campus environment of Freed-Hardeman University offer a peaceful and walkable setting for daily morning and evening strolls, with a high concentration of active pet owners creating a welcoming atmosphere.",
+        "The City of Henderson follows established animal control ordinances designed to ensure a safe and pleasant environment for all residents. This includes a general requirement that dogs be kept under reasonable control at all times, with leashes highly recommended in public parks and on city streets. Responsible ownership is also supported by county codes requiring current rabies vaccinations and proper identification tags. Residents are encouraged to practice diligent waste management to keep the city's parks and residential areas pristine for everyone. For those seeking specialized pet care or professional training in the Chester-Madison County corridor, our [West Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'huntsville-tn',
+    city: 'Huntsville',
+    state: 'TN',
+    featuredImage: '/images/cities/huntsville-tn/hero.webp',
+    summary: 'A gateway to the Big South Fork, offering rugged mountain trails and scenic beauty for adventurous dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Huntsville, TN',
+      heroDescription: 'Explore the wilderness of Huntsville, where the massive Big South Fork National River and Recreation Area awaits you and your pup.',
+      longDescription: [
+        "Huntsville, Tennessee, the seat of Scott County, is a prime destination for dog owners who crave rugged, high-country exploration. The community serves as a major gateway to the [Big South Fork National River and Recreation Area](https://www.nps.gov/biso/), a sprawling 125,000-acre preserve that offers hundreds of miles of dog-friendly trails. Leashed dogs are welcome to explore the plateau's dramatic sandstone arches, deep gorges, and lush forests. Within the town itself, the quiet mountain setting and small-town atmosphere provide a peaceful retreat for dogs who are integrated into an active, outdoorsy lifestyle. The local culture is deeply rooted in the appreciation of East Tennessee’s natural wonders, making the bond between owner and pet a naturally adventurous one.",
+        "Responsible pet ownership in Huntsville and the surrounding Big South Fork region is guided by federal and local standards that prioritize the protection of wildlife and visitor safety. This includes a strict requirement that all dogs remain on a leash no longer than six feet when on National Park trails. Locally, Scott County ordinances emphasize keeping dogs under reasonable control to prevent them from running at large, a policy essential for the safety of both pets and the area's diverse animal life. Residents are also expected to maintain current vaccinations and identification tags. For more information on the best trailheads and essential pet services in the Oneida-Huntsville area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'jacksboro-tn',
+    city: 'Jacksboro',
+    state: 'TN',
+    featuredImage: '/images/cities/jacksboro-tn/hero.webp',
+    summary: 'Lakeside living at the foot of the Cumberland Mountains, where Norris Lake beckons for scenic dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Jacksboro, TN',
+      heroDescription: 'Discover the waterfront charm of Jacksboro, featuring beautiful mountain views and easy access to regional parks.',
+      longDescription: [
+        "Jacksboro, Tennessee, located in Campbell County at the base of the stunning Cumberland Mountains, offers a picturesque setting for dog owners who love the water. The town is situated on the shores of [Norris Lake](https://www.tn.gov/environment/program-areas/state-parks-landing/norris-dam.html), providing a scenic and calming backdrop for leashed strolls along the waterfront. Jacksboro’s community parks and quiet residential streets offer ample space for daily walks, while the surrounding mountainous terrain provides world-class hiking opportunities just a short drive away. The town’s small-town warmth and growing residential base create a welcoming and pet-friendly atmosphere where neighbors and their dogs are a common sight in local public spaces.",
+        "Pet owners in Jacksboro are guided by Campbell County’s animal control regulations, which mandate that all dogs and cats be vaccinated against rabies and wear a current identification tag. These simple measures are vital for maintaining the health and safety of the community’s animal population. The general Tennessee state law also applies, requiring dog owners to keep their pets under reasonable control at all times and preventing them from running at large. This is especially important for protecting the local ecosystem and ensuring the safety of all park visitors. For residents seeking specialized pet care or professional training in the LaFollette-Jacksboro area, our [East Tennessee regional guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'jefferson-city-tn',
+    city: 'Jefferson City',
+    state: 'TN',
+    featuredImage: '/images/cities/jefferson-city-tn/hero.webp',
+    summary: 'Home to Centennial Park and beautiful mountain views, offering a perfect blend of college-town charm and canine activity.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Jefferson City, TN',
+      heroDescription: 'Experience the pet-friendly excellence of Jefferson City, featuring dedicated dog park facilities and scenic university views.',
+      longDescription: [
+        "Jefferson City, Tennessee, located in Jefferson County, is a standout community for dog owners who value a mix of community facilities and natural beauty. The city’s pet culture is centered around its well-maintained public spaces, most notably [Centennial Park](https://www.jeffersoncitytn.gov/departments/parks_and_recreation/parks_and_facilities.php), which features its own dedicated dog park area within its 14 acres of open space. This fenced facility allows for safe, off-leash socialization and play, making it a popular hub for local dog families. The campus of Carson-Newman University also provides a beautiful and walkable backdrop for leashed daily strolls, with its tree-lined paths and historic buildings offering a campus-cool atmosphere for pets and their owners alike.",
+        "Responsible ownership in Jefferson City is guided by municipal ordinances that prioritize the safety and cleanliness of shared public spaces. This includes a requirement for leashed walks in all city parks outside of the designated off-leash dog park areas. The city also mandates current vaccinations and identification for all pets, a standard that helps maintain a healthy local animal population. Residents are encouraged to practice diligent waste management to keep the city's parks and residential areas pristine for everyone. For those seeking professional grooming, training, or indoor play options in the Jefferson-Sevier County corridor, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations for everything Jefferson City has to offer."
+      ],
+    },
+  },
+  {
+    slug: 'lewisburg-tn',
+    city: 'Lewisburg',
+    state: 'TN',
+    featuredImage: '/images/cities/lewisburg-tn/hero.webp',
+    summary: 'Historic Middle Tennessee charm where community parks and quiet, tree-lined streets welcome every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lewisburg, TN',
+      heroDescription: 'Discover the pet-friendly spirit of Lewisburg, featuring beautiful historic walks and a welcoming atmosphere.',
+      longDescription: [
+        "Lewisburg, Tennessee, the seat of Marshall County, offers a quintessential Middle Tennessee experience for dog owners seeking a Blend of heritage and green space. The town’s pet culture is centered around its historic downtown district and well-maintained community parks, which provide a beautiful and low-traffic environment for daily leashed strolls. Lewisburg’s large residential lots and quiet neighborhood streets offer ample room for exercise and relaxation, fostering a strong bond between pets and their families. The town’s growing community of pet lovers is reflected in the many residents who enjoy taking their dogs along for errands or social visits in the town square, making well-behaved pups a common and welcome sight.",
+        "Responsible pet ownership in Lewisburg is guided by Tennessee’s general animal control standards, which emphasize keeping dogs under 'reasonable control' and preventing them from running at large. This is essential for maintaining the safety and harmony of the city’s many public spaces and residential areas. Owners are expected to ensure their dogs are properly vaccinated and wear current identification tags, supporting a healthy and safe local animal population. The community’s commitment to cleanliness is seen in the local standard for waste removal in public parks and on city sidewalks. For residents looking for specialized pet care or training in the Marshall-Maury County area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'livingston-tn',
+    city: 'Livingston',
+    state: 'TN',
+    featuredImage: '/images/cities/livingston-tn/hero.webp',
+    summary: 'A gateway to Dale Hollow Lake where historic town square walks and rugged nature meet for local pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Livingston, TN',
+      heroDescription: 'Explore the quiet beauty of Livingston with your dog, featuring scenic high-country views and nearby lake access.',
+      longDescription: [
+        "Livingston, Tennessee, located in Overton County, provides a tranquil and natural setting for dog owners who enjoy a mix of small-town life and high-country exploration. The community is a major gateway to the [Dale Hollow Lake](https://www.tn.gov/environment/program-areas/state-parks-landing/standing-stone.html) region and Standing Stone State Park, offering leashed dogs miles of rugged trails and beautiful shoreline paths. Within Livingston itself, the historic town square and local community parks provide a picturesque backdrop for daily walks. The town’s slow-paced environment and large rural lots offer plenty of space for dogs to relax and play, making it an ideal location for those seeking a connected but quiet lifestyle with their canine companions.",
+        "Pet owners in Livingston are guided by local and state regulations that prioritize community safety and animal health. This includes a clear standard for keeping dogs under reasonable control at all times, with leashes highly recommended in public parks and on city streets to ensure a safe experience for everyone. Responsible ownership also requires maintaining current rabies vaccinations and proper identification, which are vital for a healthy animal population in this rural enclave. The local culture emphasizes respect for private property and the pristine natural surroundings of the Highland Rim. For more information on the best dog-friendly spots and essential services in the Overton-Putnam County area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'lookout-mountain-tn',
+    city: 'Lookout Mountain',
+    state: 'TN',
+    featuredImage: '/images/cities/lookout-mountain-tn/hero.webp',
+    summary: 'Elite mountain views and historic trails at McCoy Farm make this a premier destination for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lookout Mountain, TN',
+      heroDescription: 'Conquer the heights of Lookout Mountain with your dog, featuring dedicated off-leash zones and miles of historic trails.',
+      longDescription: [
+        "Lookout Mountain, Tennessee, rising above the city of Chattanooga, offers one of the most prestigious and scenic environments for dog owners in the South. The community is home to the pet-friendly [McCoy Farm and Gardens](https://www.mccoyfarmandgardens.org/), which features a dedicated dog park divided into separate areas for small and large breeds, complete with agility equipment and water bowls. For traditional exploration, the mountain’s historic parklands and extensive trail systems provide miles of leashed walking opportunities through lush forests and past dramatic rock formations. The elite residential character of the mountain ensures a quiet, high-quality lifestyle where dogs are integral members of active, upscale families.",
+        "Responsible ownership on Lookout Mountain is governed by strict municipal ordinances that prioritize the safety and comfort of all residents. This includes a requirement that dogs be secured by a leash or under immediate physical control at all times when off the owner's premises. Pets are also prohibited from certain areas, such as public playgrounds, to ensure the safety of children. Responsible owners are expected to maintain current vaccinations and identification tags, contributing to the healthy and safe environment of the mountain. For residents looking for specialized pet care or professional training in the Chattanooga-Hamilton County area, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations for elite level care."
+      ],
+    },
+  },
+  {
+    slug: 'louisville-tn',
+    city: 'Louisville',
+    state: 'TN',
+    featuredImage: '/images/cities/louisville-tn/hero.webp',
+    summary: 'Lakeside tranquility in Blount County, featuring dedicated dog parks and scenic waterfront trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Louisville, TN',
+      heroDescription: 'Discover the pet-friendly waterfront of Louisville, home to dedicated off-leash areas and miles of lakeside paths.',
+      longDescription: [
+        "Louisville, Tennessee, located in Blount County along the shores of Fort Loudoun Lake, is a premier choice for dog owners who value a community built around the water. The town is home to [Beal Park](https://www.blounttn.gov/parks-recreation), which features a beautiful 0.75-mile paved trail and an adjacent dedicated dog park where pets can enjoy off-leash play. This facility serves as a social heart for the local pet community, offering a safe and well-maintained space for exercise. Louisville’s Blend of quiet lakefront living and easy access to the Maryville-Knoxville area makes it an ideal location for those who want a peaceful home base with high-quality pet amenities just minutes away.",
+        "Pet owners in Louisville are guided by Blount County’s animal control regulations, which mandate that animals be under the direct control of a competent person when off the owner's premises. This includes a requirement for a leash no longer than six feet in public spaces, ensuring the safety of walkers and other pets. Responsible ownership also requires maintaining current rabies vaccinations and identification tags, which are vital for a healthy community. The local culture emphasizes respect for the pristine natural surroundings and the shared beauty of the lakefront. For more information on the best dog-friendly stops and essential services in the Blount-Knox County corridor, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'mcdonald-tn',
+    city: 'McDonald',
+    state: 'TN',
+    featuredImage: '/images/cities/mcdonald-tn/hero.webp',
+    summary: 'Quiet rural beauty near the Cleveland-Chattanooga corridor, offering a peaceful retreat for adventurous pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in McDonald, TN',
+      heroDescription: 'Explore the quiet charm of McDonald with your dog, featuring nearby lake access and expansive high-country trails.',
+      longDescription: [
+        "McDonald, Tennessee, situated on the border of Bradley and Hamilton counties, provides a quintessential rural retreat for dog owners who enjoy proximity to regional nature preserves. The community is just a short drive from [Harrison Bay State Park](https://tnstateparks.com/parks/harrison-bay), which offers a dedicated fenced dog park with separate areas for different-sized breeds, along with miles of leashed walking trails along Chickamauga Lake. Within McDonald itself, the rolling countryside and quiet residential pockets provide a peaceful and low-traffic setting for daily walks. The town’s spacious, rural character makes it a preferred location for those who want a large home base for their pets while remaining close to the high-quality amenities of both Cleveland and Chattanooga.",
+        "Responsible ownership in McDonald is guided by the broader animal control ordinances of the surrounding counties and general Tennessee state law. These regulations emphasize the importance of keeping dogs under reasonable control at all times to protect both the pets and local wildlife. Using a leash when visiting public parks or regional trailheads is standard practice to ensure the safety and comfort of all residents. Owners are also responsible for ensuring their dogs are properly vaccinated and wear current identification tags, which is vital for the health of the local animal population. For more information on the best dog-friendly spots and services in the Cleveland-Chattanooga corridor, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'medina-tn',
+    city: 'Medina',
+    state: 'TN',
+    featuredImage: '/images/cities/medina-tn/hero.webp',
+    summary: 'A growing West Tennessee family hub where award-winning parks and quiet neighborhoods welcome active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Medina, TN',
+      heroDescription: 'Experience the welcoming spirit of Medina, featuring top-tier community parks and easy access to regional dog spots.',
+      longDescription: [
+        "Medina, Tennessee, located in Gibson and Madison counties, is a rapidly growing family community that prides itself on its high-quality public spaces. While the city itself is working on expanding its dedicated pet facilities, the award-winning [Medina City Parks](https://www.cityofmedinatn.com/parks) provide a beautiful and safe backdrop for leashed exploration. The town’s modern residential subdivisions offer well-maintained sidewalks and quiet streets that are perfect for daily morning and evening strolls. Medina’s reputation as a family-centered community naturally extends to its pet residents, with a high concentration of active dog owners fostering a friendly and social atmosphere in local parks and neighborhood gathering spots.",
+        "Pet owners in Medina are guided by municipal and county ordinances that prioritize community safety and animal health. This includes a clear standard for keeping dogs under reasonable control at all times, which is essential as the city continues to grow and shared public spaces become busier. Responsible ownership also requires maintaining current rabies vaccinations and proper identification tags, ensuring a safe environment for all local pets. The city encourages diligent waste management to keep its pristine parks and residential areas beautiful for every resident. For those seeking professional grooming, training, or indoor play options in the Jackson-Medina corridor, our [West Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'mills-river-nc',
+    city: 'Mills River',
+    state: 'NC',
+    featuredImage: '/images/cities/mills-river-nc/hero.webp',
+    summary: 'Blue Ridge beauty featuring a premier community dog park and miles of mountain trails for active pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mills River, NC',
+      heroDescription: 'Discover the pet-friendly excellence of Mills River, home to a dedicated off-leash park and scenic wilderness trails.',
+      longDescription: [
+        "Mills River, North Carolina, located in the stunning Blue Ridge corridor of Henderson County, is a standout destination for dog owners who value dedicated facilities and natural beauty. The town is home to the [Mills River Dog Park](https://www.millsriver.gov/parks-and-recreation), which offers separate fenced areas for large and small breeds, complete with running water, shade trees, and benches. This premier facility serves as a central hub for the local pet community. Beyond the dog park, the surrounding Pisgah National Forest and nearby trails offer endless opportunities for leashed adventure. Mills River’s Blend of agricultural heritage and modern residential life provides a spacious and high-quality environment for pets and their families.",
+        "Responsible ownership in Mills River is guided by clear municipal and county ordinances that prioritize the safety of all park users. This includes a strict requirement that dogs be on a leash no longer than four feet when outside of the designated off-leash dog park areas. All dogs using the community park must be properly licensed, vaccinated, and wear a collar with identification tags at all times. The city also enforces a strict policy for the removal of pet waste to protect the beauty and integrity of its local parks and river systems. For residents seeking specialized pet care or professional training in the Asheville-Hendersonville area, our [regional guide](https://www.indoordogpark.org/states/tennessee) (covering the border region) provides verified links and local recommendations for elite care."
+      ],
+    },
+  },
+  {
+    slug: 'minnetonka-mn',
+    city: 'Minnetonka',
+    state: 'MN',
+    featuredImage: '/images/cities/minnetonka-mn/hero.webp',
+    summary: 'Breezy lakeside living where expansive nature preserves and dedicated dog parks create a canine paradise.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Minnetonka, MN',
+      heroDescription: 'Conquer the beautiful trails of Minnetonka, featuring premier off-leash parks and miles of scenic wooded paths.',
+      longDescription: [
+        "Minnetonka, Minnesota, known for its stunning lakeside scenery and extensive park system, offers an exceptional environment for dog owners. The community features dedicated facilities for pet lovers, including several well-maintained off-leash areas where dogs can safely socialize and exercise. One of the most popular destinations is [Purgatory Park](https://www.minnetonkamn.gov/parks-recreation/parks), which offers expansive natural trails and wooded spaces. While the city has transitioned to a broader leash requirement for general park areas, the commitment to providing high-quality off-leash opportunities remains a priority. Minnetonka’s blend of pristine nature preserves and sophisticated residential areas ensures a high-quality, active lifestyle for well-loved pets and their families.",
+        "Pet owners in Minnetonka are guided by city ordinances designed to balance the needs of all park users with the safety of local wildlife. This includes a requirement that dogs be restrained by a leash in most public spaces, ensuring that the city’s many trails remain accessible and safe for everyone. Responsible ownership also mandates current rabies vaccinations and city licensing, which are vital for maintaining the health of the community’s animal population. The local standard for diligent pet waste removal is essential for protecting the integrity of Minnetonka’s waterways and wooded preserves. For those seeking professional grooming, elite training, or indoor play options in the Twin Cities metro area, our [regional pet guide](https://www.indoordogpark.org/states/tennessee) (covering top-tier national markets) provides verified links and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'mt-carmel-tn',
+    city: 'Mt Carmel',
+    state: 'TN',
+    featuredImage: '/images/cities/mt-carmel-tn/hero.webp',
+    summary: 'Peaceful upper East Tennessee living with quick access to the region’s best riverfront trails and dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mt Carmel, TN',
+      heroDescription: 'Explore the quiet charm of Mt. Carmel, where river views and serene roads offer a peaceful dog retreat.',
+      longDescription: [
+        "Mt. Carmel, Tennessee, located in Hawkins County just west of Kingsport, provides a tranquil setting for dog owners who enjoy a slower pace of life with easy access to regional amenities. The community is situated near the Holston River, offering a scenic backdrop for leashed daily walks along local riverfront access points. While Mt. Carmel is primarily a quiet residential town, it is just minutes away from [Off-Leash Social](https://offleashsocial.com/) in Johnson City and the many PetSafe parks in the Tri-Cities region. The town’s spacious lots and quiet residential streets offer a safe and low-traffic environment for exercise, making it an ideal choice for dogs who thrive in a consistent, quiet home environment.",
+        "Responsible pet ownership in Mt. Carmel is guided by Hawkins County’s animal control standards and general Tennessee state law. These regulations emphasize that dogs must be kept under reasonable control at all times and prevent them from running at large to protect both the pets and local wildlife. Using a leash when visiting public parks or shared residential spaces is standard practice to ensure the comfort and safety of all neighbors. Owners are also expected to ensure their dogs are properly vaccinated and wear identification tags, supporting a healthy local animal community. For residents looking for specialized pet care or professional training in the Kingsport-Hawkins County area, our [Northeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'new-market-tn',
+    city: 'New Market',
+    state: 'TN',
+    featuredImage: '/images/cities/new-market-tn/hero.webp',
+    summary: 'Rural Jefferson County beauty where open fields and historic charm offer a canine countryside retreat.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Market, TN',
+      heroDescription: 'Discover the quiet charm of New Market, featuring expansive natural views and easy access to local dog parks.',
+      longDescription: [
+        "New Market, Tennessee, set in the rolling countryside of Jefferson County, offers a quintessential rural experience for dog owners who value space and tranquility. The area is defined by its historic charm and expansive farmland, providing a beautiful and low-traffic setting for long, peaceful walks along quiet country roads. While New Market itself is a quiet community, residents are just a short drive from [Centennial Park](https://www.jeffersoncitytn.gov/) in Jefferson City, which features a dedicated off-leash dog park. The local lifestyle encourages an active, outdoor bond where dogs have plenty of room to explore and relax, surrounded by the natural beauty of the East Tennessee valleys.",
+        "Responsible ownership in the New Market area is guided by Jefferson County’s animal control regulations and general Tennessee state law. These standards focus on keeping dogs under reasonable control at all times and preventing them from running at large to protect both the pets and local livestock. Using a leash when visiting public spaces or the historic town center is highly recommended to ensure a safe experience for everyone. Owners are also expected to maintain current rabies vaccinations and proper identification tags, which are vital for a healthy animal population in this rural enclave. For more information on the best dog-friendly spots and services in the Jefferson-Sevier region, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'new-tazewell-tn',
+    city: 'New Tazewell',
+    state: 'TN',
+    featuredImage: '/images/cities/new-tazewell-tn/hero.webp',
+    summary: 'Foothills beauty near Claiborne County’s best trails, offering a rugged mountain escape for adventurous pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Tazewell, TN',
+      heroDescription: 'Experience the pet-friendly spirit of New Tazewell, where mountain views and quiet roads create a peaceful canine home.',
+      longDescription: [
+        "New Tazewell, Tennessee, located in the serene foothills of Claiborne County, provides a rugged and natural environment for dog owners who appreciate the Great Appalachian Valley. The community’s quiet, small-town atmosphere and large residential lots offer a peaceful setting for daily Life, where dogs are constant companions on local outings. While the town is focused on its natural charm, it is within easy driving distance of regional facilities like the [Wayne Hansard Park Dog Park](https://www.talbott-tn.org/) in nearby Talbott, which offers a fenced space for off-leash play. New Tazewell’s low-traffic roads and proximity to the Cumberland Gap National Historical Park make it an ideal choice for owners who love leashed high-country hiking.",
+        "Pet owners in New Tazewell follow animal control ordinances that prioritize community safety and the health of the local animal population. This includes a clear expectation that dogs be kept under reasonable control at all times and prevented from running at large, a policy that is essential in a town with a strong agricultural presence. Using a leash when visiting public parks or the downtown area is standard practice to ensure the safety and comfort of all residents. Owners are also responsible for ensuring their dogs are properly vaccinated and wear current identification tags. For residents seeking professional grooming, training, or essential pet services in the Claiborne-Grainger area, our [East Tennessee regional guide](https://www.indoordogpark.org/states/tennessee) provides verified links and local listings."
+      ],
+    },
+  },
+  {
+    slug: 'newbern-tn',
+    city: 'Newbern',
+    state: 'TN',
+    featuredImage: '/images/cities/newbern-tn/hero.webp',
+    summary: 'A quiet West Tennessee hub where community parks and peaceful residential streets offer a classic dog walk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Newbern, TN',
+      heroDescription: 'Discover the pet-friendly charm of Newbern, featuring beautiful community parks and easy access to regional nature spots.',
+      longDescription: [
+        "Newbern, Tennessee, located in Dyer County, offers a tranquil and welcoming environment for dog owners seeking a classic small-town experience. The community’s pet culture is centered around its well-maintained public spaces, most notably the Newbern Depot area and local community parks, which provide a picturesque backdrop for daily leashed strolls. Newbern’s spacious residential streets and friendly neighborhood atmosphere make it an ideal spot for dogs who enjoy a consistent and low-traffic exercise routine. The town’s location also provides quick access to the larger facilities of Dyersburg, ensuring that residents have the best of both quiet domestic life and high-quality regional amenities for their pets.",
+        "Pet owners in Newbern are guided by Dyer County’s animal control regulations, which prioritize community safety and animal health. This includes a general requirement for keeping dogs under reasonable control at all times, with leashes highly recommended in all public parks and shared spaces. Responsible ownership also requires maintaining current rabies vaccinations and proper identification tags, which are vital for a healthy local animal population. The town encourages diligent waste management to keep its pristine community areas beautiful for every resident. For more information on the best dog-friendly spots and essential services in the Dyersburg-Newbern area, our [West Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights into local trends and recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'nolensville-tn',
+    city: 'Nolensville',
+    state: 'TN',
+    featuredImage: '/images/cities/nolensville-tn/hero.webp',
+    summary: 'A rapidly growing family town in Williamson County where scenic trails and community parks welcome active pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Nolensville, TN',
+      heroDescription: 'Experience the pet-friendly excellence of Nolensville, featuring beautiful town trails and easy access to Williamson County’s best dog parks.',
+      longDescription: [
+        "Nolensville, Tennessee, located in the heart of Williamson County, is a premier destination for dog owners who value a modern, family-centered lifestyle. The community is home to the scenic [Nolensville Park](https://www.williamsoncounty-tn.gov/220/Nolensville-Park), which offers beautiful walking trails and open green spaces where leashed dogs are always welcome. Nolensville’s rapid growth has fostered a vibrant pet-friendly culture, with many of the town’s new residential developments featuring their own community paths and pocket parks. The town’s historic district, with its antique shops and local eateries, also provides a charming and social environment for leashed daily strolls where well-behaved four-legged family members are a common sight.",
+        "Operating under Williamson County’s strict animal control guidelines, Nolensville requires all pets to be under the direct control of their owners via a leash not exceeding six feet in length when in public spaces. This is essential for protecting the safety of the town’s many active families and maintaining harmony in busy shared areas. Responsible owners are also required to maintain up-to-date rabies vaccinations and proper identification tags. The local emphasis on clean shared spaces is vital for maintaining the appeal of this high-quality suburban hub. For those seeking professional grooming, training, or climate-controlled play in the Brentwood-Nolensville area, our [Williamson County pet guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'ocoee-tn',
+    city: 'Ocoee',
+    state: 'TN',
+    featuredImage: '/images/cities/ocoee-tn/hero.webp',
+    summary: 'A rugged riverfront paradise where world-class whitewater trails and mountain views await adventurous dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ocoee, TN',
+      heroDescription: 'Conquer the wilderness of Ocoee with your dog, featuring miles of riverfront trails and high-country mountain views.',
+      longDescription: [
+        "Ocoee, Tennessee, set in the breathtaking Cherokee National Forest of Polk County, provides an unparalleled environment for dog owners who live for outdoor adventure. The community is famous for its proximity to the [Ocoee River](https://www.fs.usda.gov/recarea/cherokee/recarea/?recid=34966), where leashed dogs can explore miles of rugged riverfront trails and scenic overlooks. The area’s high-country terrain and dense forest canopies offer endless variety for active pups, from quiet lakeside strolls at Parksville Lake to challenging mountain hikes. Ocoee’s rural and untamed character makes it a preferred location for those who want a large home base for their pets while being surrounded by some of the Southeast’s most stunning natural wonders.",
+        "Responsible ownership in the Ocoee and Cherokee National Forest region is guided by federal and local standards that prioritize the protection of local wildlife and visitor safety. This includes a strict requirement that all dogs remain on a leash when on National Forest trails and in developed recreation areas. Locally, Polk County ordinances emphasize keeping dogs under reasonable control to prevent them from running at large, a policy essential for the safety of both pets and the area's diverse animal life. Residents are also expected to maintain current vaccinations and identification tags. For more information on the best trailhead access points and essential pet services in the Cleveland-Ocoee area, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'old-hickory-tn',
+    city: 'Old Hickory',
+    state: 'TN',
+    featuredImage: '/images/cities/old-hickory-tn/hero.webp',
+    summary: 'Lakeside living in a historic company town, featuring beautiful riverfront views and easy access to Nashville’s best dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Old Hickory, TN',
+      heroDescription: 'Discover the pet-friendly history of Old Hickory, home to scenic lakefront trails and welcoming community parks.',
+      longDescription: [
+        "Old Hickory, Tennessee, a historic neighborhood of Nashville situated along the Cumberland River, offers a unique and picturesque environment for dog owners. The community is home to the beautiful [Old Hickory Beach](https://www.lrn.usace.army.mil/Missions/Engineering-and-Construction/Old-Hickory-Lock-and-Dam/Old-Hickory-Beach/) and the adjacent parkland, where leashed pups can enjoy cooling breezes and scenic river views. Old Hickory’s historic residential district, with its tree-lined streets and well-maintained sidewalks, provides a charming and walkable setting for daily morning and evening strolls. The neighborhood’s proximity to Hermitage and the larger Nashville park system ensures that residents have easy access to premier facilities like the Shelby Park Dog Park while maintaining a quiet, riverside lifestyle.",
+        "As part of the Metropolitan Nashville-Davidson County area, Old Hickory follows comprehensive animal control ordinances that require all dogs to be on a leash when in public spaces. This is vital for ensuring the safety of all park visitors and protecting the local waterfowl along the river. Responsible ownership also mandates current rabies vaccinations and city licensing, which are strictly enforced to maintain a healthy local pet population. The community places a high value on maintaining the cleanliness of its historic parks and lakeshore. For those seeking specialized pet care or professional training in the northeast Nashville metro area, our [Davidson County guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations for the best stops in Old Hickory."
+      ],
+    },
+  },
+  {
+    slug: 'oliver-springs-tn',
+    city: 'Oliver Springs',
+    state: 'TN',
+    featuredImage: '/images/cities/oliver-springs-tn/hero.webp',
+    summary: 'Tri-County historic charm where mountain views and quiet residential streets welcome every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Oliver Springs, TN',
+      heroDescription: 'Experience the quiet beauty of Oliver Springs, featuring scenic mountain trails and easy access to regional dog-friendly spots.',
+      longDescription: [
+        "Oliver Springs, Tennessee, straddling the border of Roane, Anderson, and Morgan counties, provides a tranquil and natural setting for dog owners who appreciate the foothills of the Cumberland Plateau. The town’s pet culture is centered around its historic downtown and the nearby [Windrock Park](https://windrockpark.com/), where adventurous leashed dogs can join their owners for exploration through miles of rugged high-country terrain. Oliver Springs’ quiet residential neighborhoods offer well-maintained, low-traffic streets perfect for peaceful daily walks. The town’s unique location provides quick access to the high-quality pet amenities of both Oak Ridge and Harriman, giving residents variety in their local exercise and socialization routines.",
+        "Pet owners in Oliver Springs are guided by the animal control ordinances of the surrounding counties and general Tennessee state law. These regulations emphasize that dogs must be kept under reasonable control at all times and prevent them from running at large to protect both the pets and local wildlife. Using a leash when visiting public parks or the historic town center is standard practice to ensure the safety and comfort of all residents. Owners are also expected to ensure their dogs are properly vaccinated and wear current identification tags, supporting a healthy local animal community. For residents looking for specialized pet care or professional training in the Oak Ridge-Clinton area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'parsons-tn',
+    city: 'Parsons',
+    state: 'TN',
+    featuredImage: '/images/cities/parsons-tn/hero.webp',
+    summary: 'West Tennessee riverfront beauty and small-town tranquility offer a peaceful retreat for local pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Parsons, TN',
+      heroDescription: 'Discover the pet-friendly spirit of Parsons, featuring scenic Tenessee River views and easy access to regional nature preserves.',
+      longDescription: [
+        "Parsons, Tennessee, the commercial hub of Decatur County, offers a charming and spacious environment for dog owners. The town’s pet culture is centered around its well-maintained community parks and proximity to the [Tennessee River](https://www.tn.gov/environment/program-areas/state-parks-landing/mousetail-landing.html), where leashed dogs can enjoy long, scenic walks at nearby Mousetail Landing State Park. Parsons’ quiet residential streets and friendly, slow-paced atmosphere make it an ideal spot for dogs who prefer a consistent and low-traffic lifestyle. The town’s spacious, rural-suburban blend provides plenty of room for exercise and relaxation, with many local businesses and outdoor areas welcoming well-behaved four-legged family members as constant companions.",
+        "Responsible pet ownership in Parsons is guided by Decatur County’s animal control standards and general Tennessee state law. These regulations focus on keeping dogs under reasonable control at all times and preventing them from running at large to protect both the pets and local livestock. Using a leash when visiting public parks or regional river access points is standard practice to ensure the safety and comfort of all residents. Owners are also expected to maintain up-to-date rabies vaccinations and proper identification tags, which are vital for a healthy local animal population. For more information on the best dog-friendly spots and services in the Decatur-Henderson County area, our [West Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides verified links and local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'pleasant-view-tn',
+    city: 'Pleasant View',
+    state: 'TN',
+    featuredImage: '/images/cities/pleasant-view-tn/hero.webp',
+    summary: 'A scenic Middle Tennessee gem where community parks and quiet residential paths welcome every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pleasant View, TN',
+      heroDescription: 'Experience the welcoming spirit of Pleasant View, featuring beautiful local parks and easy access to Nashville’s pet amenities.',
+      longDescription: [
+        "Pleasant View, Tennessee, located in Cheatham and Robertson counties, is a premier choice for dog owners seeking a high-quality residential lifestyle with quick access to both Nashville and Clarksville. The community is home to the well-maintained [Pleasant View Community Park](https://www.pleasantviewtn.com/parks-and-recreation), which offers beautiful walking trails and open space where leashed dogs are a common sight. Pleasant View’s modern residential developments and historic downtown district provide a safe and walkable setting for daily morning and evening strolls. The town’s reputation as a family-friendly community naturally extends to its pet residents, with a high concentration of active dog owners fostering a social and welcoming atmosphere in local public spaces.",
+        "Pet owners in Pleasant View are guided by municipal and county ordinances that prioritize community safety and animal health. This includes a clear standard for keeping dogs under reasonable control at all times, with leashes highly recommended in all public parks and shared residential areas. Responsible ownership also requires maintaining current rabies vaccinations and proper identification tags, ensuring a safe environment for all local pets. The town encourages diligent waste management to keep its pristine community areas beautiful for every resident. For those seeking professional grooming, training, or indoor play options in the Clarksville-Nashville corridor, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides the latest verified information and local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'portland-tn',
+    city: 'Portland',
+    state: 'TN',
+    featuredImage: '/images/cities/portland-tn/hero.webp',
+    summary: 'A traditional Middle Tennessee hub featuring the dedicated Portland Dog Park for safe off-leash fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Portland, TN',
+      heroDescription: 'Discover the pet-friendly excellence of Portland, home to its own community dog park and miles of scenic local paths.',
+      longDescription: [
+        "Portland, Tennessee, located in Sumner and Robertson counties, is a standout pet-friendly community that offers dedicated facilities and beautiful natural surroundings. The city’s pet culture is centered around the [Portland Dog Park](https://www.portlandtn.com/parks_and_recreation/parks/dog_park.php), a fenced facility located within the city’s extensive park system that provides a safe and social environment for off-leash play. Beyond the dog park, Portland’s quiet tree-lined streets and community parks offer a picturesque backdrop for daily leashed strolls. The town’s small-town friendly spirit is extended to every four-legged visitor, with a strong community of pet lovers who value the wellness and socialization of their canine companions.",
+        "Responsible ownership in Portland is guided by municipal ordinances that prioritize the safety and cleanliness of shared public spaces. All dogs using the city dog park must be properly vaccinated and wear current identification, a standard that helps maintain a healthy local animal population. When outside the designated off-leash area, dogs must be on a leash to ensure the safety of all park visitors and pedestrians. The city also enforces a strict policy for the removal of pet waste and encourages 'leave no trace' principles on its local trails. For residents seeking specialized pet care or professional training in the Portland-Gallatin area, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides verified links and local recommendations for elite care."
+      ],
+    },
+  },
+  {
+    slug: 'rossville-tn',
+    city: 'Rossville',
+    state: 'TN',
+    featuredImage: '/images/cities/rossville-tn/hero.webp',
+    summary: 'Quiet country charm near the Memphis metro, offering a peaceful and spacious retreat for West Tennessee dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Rossville, TN',
+      heroDescription: 'Explore the quiet beauty of Rossville with your dog, featuring scenic historic walks and easy access to regional parkland.',
+      longDescription: [
+        "Rossville, Tennessee, located in Fayette County, offers a quintessential rural-residential experience for dog owners seeking space and historic charm. The community is characterized by its historic town square and quiet, tree-lined streets, providing a beautiful and low-traffic environment for daily leashed strolls. Rossville’s proximity to the [Wolf River](https://wolfriver.org/) and its associated nature preserves offers leashed dogs miles of scenic riverfront trails and wooded paths for exploration. The town’s slow-paced environment and large home lots make it an ideal choice for dogs who thrive in a spacious, quiet home while remaining just a short drive from the high-quality pet amenities of Collierville and Memphis.",
+        "Responsible ownership in Rossville is guided by Fayette County’s animal control standards and general Tennessee state law. These regulations emphasize that dogs must be kept under reasonable control at all times and prevented from running at large to protect both the pets and local livestock. Using a leash when visiting the historic town center or shared public spaces is standard practice to ensure the safety and comfort of all neighbors. Owners are also expected to ensure their dogs are properly vaccinated and wear identification tags, supporting a healthy local animal community. For residents looking for specialized pet care or professional training in the Fayette-Shelby County corridor, our [West Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'smithville-tn',
+    city: 'Smithville',
+    state: 'TN',
+    featuredImage: '/images/cities/smithville-tn/hero.webp',
+    summary: 'A gateway to Center Hill Lake where lakeside trails and historic small-town walks meet for local pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Smithville, TN',
+      heroDescription: 'Discover the pet-friendly spirit of Smithville, featuring scenic lakefront views and easy access to regional state parks.',
+      longDescription: [
+        "Smithville, Tennessee, the seat of DeKalb County, offers a tranquil and scenic environment for dog owners who enjoy a mix of lakefront activity and small-town charm. The community is a major gateway to [Center Hill Lake](https://tnstateparks.com/parks/edgar-evins), where leashed dogs are welcome to explore the many trails and shoreline access points at Edgar Evins State Park and Burgess Falls. Within Smithville itself, the historic town square and community parks provide 10-acre and 14-acre expanses of green space for daily leashed exercise. The town’s slow-paced lifestyle and friendly atmosphere make it a preferred location for those who want a peaceful home base surrounded by Middle Tennessee’s stunning natural scenery.",
+        "Pet owners in Smithville are guided by local and state regulations that prioritize community safety and animal health. This includes a clear standard for keeping dogs under reasonable control at all times, with leashes highly recommended in all public parks and around the busy lakefront access areas. Responsible ownership also requires maintaining current rabies vaccinations and proper identification, which are vital for a healthy animal population. The local culture emphasizes respect for private property and the shared beauty of the lake region. For more information on the best dog-friendly spots and services in the DeKalb-Putnam County corridor, our [Middle Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'south-pittsburg-tn',
+    city: 'South Pittsburg',
+    state: 'TN',
+    featuredImage: '/images/cities/south-pittsburg-tn/hero.webp',
+    summary: 'Historic Tennessee Riverfront beauty and quiet residential streets offer a classic canine escape.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Pittsburg, TN',
+      heroDescription: 'Explore the historic charm of South Pittsburg with your dog, featuring scenic river walks and welcoming community parks.',
+      longDescription: [
+        "South Pittsburg, Tennessee, located in Marion County along the banks of the Tennessee River, provides a picturesque and traditional environment for dog owners. The city’s pet culture is centered around its historic downtown and the beautiful riverfront area, where leashed pups can enjoy cooling breezes and scenic views of the surrounding mountains. South Pittsburg’s quiet residential neighborhoods and local community parks offer a safe and low-traffic setting for daily strolls. The town’s unique heritage as home to the National Cornbread Festival is reflected in its welcoming social atmosphere, where well-behaved dogs are often integrated into local outings and community events.",
+        "Responsible pet ownership in South Pittsburg is guided by Marion County’s animal control standards and general Tennessee state law. These regulations focus on keeping dogs under reasonable control at all times and preventing them from running at large, a policy that is essential in a community with active farmland nearby. Using a leash when visiting public parks or the riverfront is standard practice to ensure the safety and comfort of all residents. Owners are also expected to maintain current rabies vaccinations and proper identification tags, supporting a healthy local animal population. For residents looking for specialized pet care or professional training in the Marion-Hamilton County corridor, our [Southeast Tennessee guide](https://www.indoordogpark.org/states/tennessee) provides curated insights and essential local service listings."
+      ],
+    },
+  },
+  {
+    slug: 'southaven-ms',
+    city: 'Southaven',
+    state: 'MS',
+    featuredImage: '/images/cities/southaven-ms/hero.webp',
+    summary: 'The premier Bark Park at Central Park makes this a top destination for active Memphis-area dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Southaven, MS',
+      heroDescription: 'Discover the pet-friendly excellence of Southaven, home to a dedicated off-leash park and expansive multi-use trails.',
+      longDescription: [
+        "Southaven, Mississippi, located just across the Tennessee border, is a standout community for dog owners in the greater Memphis metro area. The city is home to the premier [Bark Park at Central Park](https://southaven.org/parks-recreation/parks/central-park), a sprawling fenced facility that offers separate areas for small and large breeds, along with agility features and plenty of room for safely socializing. Central Park itself also features several miles of paved trails where leashed dogs are always welcome. Southaven’s modern residential developments and high-quality public infrastructure provide a safe and sophisticated environment for daily exercise, making it a preferred location for those who value dedicated pet amenities and a tight-knit dog-loving community.",
+        "Responsible pet ownership in Southaven is guided by municipal ordinances that prioritize the safety and cleanliness of shared public spaces. This includes a mandatory leash law for all dogs when outside of the designated off-leash park area. All dogs within the city must be properly vaccinated and wear a current identification tag, contributing to the health and safety of the local pet population. The city also enforces strict waste management policies to keep its parks and residential areas pristine for every resident. For those seeking professional grooming, elite training, or indoor play options in the Southaven-Olive Branch region, our [regional pet guide](https://www.indoordogpark.org/states/tennessee) (covering the border region) provides verified links and local recommendations for elite care."
+      ],
+    },
+  },
+  {
+    slug: 'walland-tn',
+    city: 'Walland',
+    state: 'TN',
+    featuredImage: '/images/cities/walland-tn/hero.webp',
+    summary: 'A peaceful gateway to the Smoky Mountains where mountain views and quiet rural roads create a dog escape.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Walland, TN',
+      heroDescription: 'Conquer the foothills of Walland with your dog, featuring elite mountain views and easy access to national park trails.',
+      longDescription: [
+        "Walland, Tennessee, located in Blount County along the 'Peaceful Side of the Smokies,' offers a serene and natural setting for dog owners who value tranquility and mountain views. The community is situated near the entrance to [Great Smoky Mountains National Park](https://www.nps.gov/grsm/), providing leashed dogs access to world-class natural beauty on specialized dog-friendly paths like the nearby Gatlinburg Trail. Within Walland itself, the rolling foothills and quiet country roads offer a beautiful and low-traffic backdrop for daily exercise. The area’s reputation as a premium getaway is reflected in its high-quality residential character, where dogs are constant companions on quiet morning walks surrounded by the majesty of the East Tennessee high country.",
+        "Pet owners in Walland are guided by Blount County’s animal control regulations, which mandate that animals be under the direct control of a competent person when off the owner's premises. This includes a requirement for a leash in all public spaces and shared residential areas, ensuring the safety of walkers and other pets. Responsible ownership also requires maintaining current rabies vaccinations and identification tags, which are vital for a healthy animal population in this rural enclave. The local culture emphasizes respect for private property and the pristine natural surroundings. For more information on the best dog-friendly spots and services in the Maryville-Townsend area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
 ];
 
 export function getPriorityCityBySlug(slug: string) {
