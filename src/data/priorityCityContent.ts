@@ -507,6 +507,616 @@ const arlingtonFaqs: FAQItem[] = [
   },
 ];
 
+const apexFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in Apex, NC?',
+    answer:
+      'Apex currently relies on outdoor facilities like the Apex Nature Park and Hunter Street Park. For indoor options, many locals look to dog-friendly businesses or nearby training facilities during inclement weather.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Does Apex have a public dog park?',
+    answer:
+      'Yes, the Apex Nature Park and Hunter Street Dog Park are popular off-leash areas. Both require a pass for entry, ensuring a safe environment for vaccinated dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there dog-friendly trails in Apex?',
+    answer:
+      'Absolutely. The Beaver Creek Greenway offers paved, scenic routes perfect for leashed walks. Salem Pond Park also provides a pleasant loop for a quick outing.',
+    category: 'planning',
+  },
+  {
+    question: 'What are the leash laws in Apex?',
+    answer:
+      'Apex maintains strict leash laws. Dogs must be on a leash and under the control of their owner when outside of their own property or designated off-leash areas.',
+    category: 'legal',
+  },
+];
+
+const caryFaqs: FAQItem[] = [
+  {
+    question: 'Where is the main dog park in Cary, NC?',
+    answer:
+      'The Barkyard at Downtown Cary Park is a premier destination with separate high-energy and low-energy play zones. Godbold Dog Park and Jack Smith Park also offer excellent off-leash facilities.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Do I need a membership for Cary dog parks?',
+    answer:
+      'Yes, Cary requires a dog park pass for its municipal dog parks. Single-day passes and annual memberships are available and can be purchased at community centers.',
+    category: 'membership',
+    popular: true,
+  },
+  {
+    question: 'How many miles of greenway are in Cary?',
+    answer:
+      'Cary boasts over 80 miles of greenways. The Black Creek Greenway and White Oak Creek Greenway are extensive networks connecting parks, neighborhoods, and shopping areas.',
+    category: 'planning',
+  },
+  {
+    question: 'Are dogs allowed at Hemlock Bluffs Nature Preserve?',
+    answer:
+      'Yes, leashed dogs are welcome on the mulch trails at Hemlock Bluffs. It’s a great spot for a shaded, scenic walk, though it is more of a nature walk than a rigorous hike.',
+    category: 'facilities',
+  },
+];
+
+const chapelHillFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog in Chapel Hill?',
+    answer:
+      'Southern Community Park and Homestead Park both feature fenced dog parks. For walks, the Bolin Creek Trail and the UNC campus (leashed) are fantastic options.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Franklin Street dog-friendly?',
+    answer:
+      'Yes, many outdoor patios along Franklin Street welcome dogs. It’s a vibrant area for a walk, especially when the university is in session, but it can get crowded.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are there leash laws in Chapel Hill?',
+    answer:
+      'Chapel Hill and Orange County strictly enforce leash laws. Dogs must be under control at all times, which usually means on a leash unless in a designated area.',
+    category: 'legal',
+  },
+  {
+    question: 'Can dogs hike at Occoneechee Mountain?',
+    answer:
+      'Nearby in Hillsborough, Occoneechee Mountain State Natural Area welcomes leashed dogs on its trails, offering some of the best views in the region.',
+    category: 'facilities',
+  },
+];
+
+const concordFaqs: FAQItem[] = [
+  {
+    question: 'Where is the dog park in Concord, NC?',
+    answer:
+      'Weddington Road Bark Park is the primary off-leash facility, featuring separate areas for large and small dogs. Frank Liske Park also has a smaller dog run.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog at Frank Liske Park?',
+    answer:
+      'Yes, Frank Liske Park is a massive recreational area perfect for leashed walks around the lake and playing fields. It’s a local favorite for active dog owners.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed at Charlotte Motor Speedway?',
+    answer:
+      'Generally, pets are allowed in the camping areas during race weeks but are restricted from the grandstands. Always check specific event rules before bringing your pet.',
+    category: 'events',
+  },
+  {
+    question: 'Is there a greenway in Concord?',
+    answer:
+      'Yes, the Hector H. Henry II Greenway offers paved trails that connect neighborhoods and parks, providing a safe, car-free environment for dog walking.',
+    category: 'facilities',
+  },
+];
+
+const fuquayVarinaFaqs: FAQItem[] = [
+  {
+    question: 'Does Fuquay-Varina have a dog park?',
+    answer:
+      'Yes, the Fuquay-Varina Downtown Dog Park is an impressive 8-acre facility. It is distinct for likely being one of the largest municipal dog parks in the region, with no membership fee required.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are trails dog-friendly in Fuquay-Varina?',
+    answer:
+      'Leashed dogs are welcome on the Jeff Wells Trail at Carroll Howard Johnson Environmental Park, offering a lovely wooded escape right in town.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What amenities does the dog park have?',
+    answer:
+      'The Downtown Dog Park features separate areas for large and small dogs, water misting stations for hot days, and plenty of open space for running.',
+    category: 'facilities',
+  },
+  {
+    question: 'Is Fuquay-Varina dog-friendly?',
+    answer:
+      'With its two downtown districts and the massive dog park, Fuquay-Varina is very welcoming. Many breweries like Aviator Brewing Company are known to be pet-friendly on their patios.',
+    category: 'socializing',
+  },
+];
+
+const gastoniaFaqs: FAQItem[] = [
+  {
+    question: 'Where can I hike with my dog near Gastonia?',
+    answer:
+      'Crowders Mountain State Park is the jewel of the area. The trails range from moderate to strenuous, offering incredible views. Dogs must be on a leash at all times.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is there a dog park in Gastonia?',
+    answer:
+      'Yes, the Goat Island Park (in nearby Cramerton) and Lineberger Park offer great outdoor spaces. Bradley Station Dog Park in downtown Gastonia is a convenient urban option.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I take my dog to the Whitewater Center?',
+    answer:
+      'The U.S. National Whitewater Center is very dog-friendly, allowing leashed dogs on its extensive trail network. It’s a fantastic spot for active dogs and owners.',
+    category: 'planning',
+  },
+  {
+    question: 'What are the leash laws in Gaston County?',
+    answer:
+      'Gaston County requires dogs to be under physical restraint (leash) or under the direct control of a competent person when off the owner’s property.',
+    category: 'legal',
+  },
+];
+
+const greenvilleFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog in Greenville, NC?',
+    answer:
+      'The Greenville Greenway system, especially along the Tar River, is outstanding. River Park North also offers miles of hiking trails suitable for leashed dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is there an off-leash dog park in Greenville?',
+    answer:
+      'Yes, the Greenville Off-Leash Dog Park includes separate areas for large and small dogs. It’s a great spot for socialization and exercise.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is the ECU campus dog-friendly?',
+    answer:
+      'The East Carolina University campus is generally open to leashed dogs in outdoor areas. It’s a park-like setting perfect for a long weekend stroll.',
+    category: 'planning',
+  },
+  {
+    question: 'Are there dog-friendly breweries in Greenville?',
+    answer:
+      'Yes, Greenville has a growing brewery scene with spots like Uptown Brewing Company often welcoming dogs in their outdoor spaces.',
+    category: 'socializing',
+  },
+];
+
+const highPointFaqs: FAQItem[] = [
+  {
+    question: 'Where can I find a dog park in High Point?',
+    answer:
+      'Hedgecock Dog Park is the primary off-leash facility, featuring two acres of play space. A permit is required from the Parks & Rec department.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there dog-friendly trails in High Point?',
+    answer:
+      'Yes, the High Point Greenway system offers outstanding paved trails. The Piedmont Environmental Center also has miles of natural surface trails for leashed hikes.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What are the leash laws in High Point?',
+    answer:
+      'High Point enforces a strict leash law. Dogs must be on a leash and under control when off the owner’s property. There are no exceptions for voice control in public parks.',
+    category: 'legal',
+  },
+  {
+    question: 'Is High Point University dog-friendly?',
+    answer:
+      'The campus is private and generally restricted, but the surrounding greenways and public city parks are very welcoming to pets.',
+    category: 'facilities',
+  },
+];
+
+const hollySpringsFaqs: FAQItem[] = [
+  {
+    question: 'Does Holly Springs have a dog park?',
+    answer:
+      'Yes, the designated dog park at Sugg Farm Park is a favorite. It serves as a community gathering spot with separate areas for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog at Bass Lake Park?',
+    answer:
+      'Absolutely. The trail around Bass Lake is a scenic, mulch-surfaced loop that is perfect for dogs. It connects to the paved greenway system as well.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are unleashed dogs allowed in Holly Springs?',
+    answer:
+      'No, Holly Springs requires all dogs to be on a leash when not in a designated dog park or on private property. This ensures the safety of all trail users.',
+    category: 'legal',
+  },
+  {
+    question: 'Is the Farmers Market dog-friendly?',
+    answer:
+      'Yes, the Holly Springs Farmers Market is a very pet-friendly event. It’s a great place to socialize your dog while shopping for local goods.',
+    category: 'socializing',
+  },
+];
+
+const huntersvilleFaqs: FAQItem[] = [
+  {
+    question: 'Where can I hike with my dog in Huntersville?',
+    answer:
+      'Latta Nature Preserve is the premier destination, offering miles of hiking trails along Mountain Island Lake. It is a nature lover’s paradise.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is there a dog park in Huntersville?',
+    answer:
+      'Yes, Rosedale Nature Park features a dedicated dog park. Additionally, the nearby Ramsey Creek Park in Cornelius is a short drive and offers lake access.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Birkdale Village dog-friendly?',
+    answer:
+      'Very. Birkdale Village is an open-air shopping center where many stores welcome dogs, and water bowls are commonly found outside shops.',
+    category: 'socializing',
+    popular: true,
+  },
+  {
+    question: 'Can dogs swim in Lake Norman?',
+    answer:
+      'At Ramsey Creek Park (nearby), there is a dog park with water access. However, generally, dogs should be kept on leash near the water in public parks unless designated otherwise.',
+    category: 'planning',
+  },
+];
+
+const indianTrailFaqs: FAQItem[] = [
+  {
+    question: 'Where is the dog park in Indian Trail?',
+    answer:
+      'Crooked Creek Park is home to a fantastic dog park with agility equipment and separate size zones. It is a hub for the local pet community.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there walking trails in Indian Trail?',
+    answer:
+      'Yes, Crooked Creek Park and Chestnut Square Park both offer paved and natural trails loop systems that are perfect for daily dog walking.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What are the rules for the dog park?',
+    answer:
+      'Crooked Creek Dog Park requires a pass/registration for entry. You will need to provide proof of current vaccinations to get access.',
+    category: 'membership',
+  },
+  {
+    question: 'Is Indian Trail a pet-friendly town?',
+    answer:
+      'Yes, with its growing park system and suburban layout, it is very family and pet-oriented. Many local events at Crossing Paths Park are pet-friendly.',
+    category: 'socializing',
+  },
+];
+
+const kannapolisFaqs: FAQItem[] = [
+  {
+    question: 'Does Kannapolis have a dog park?',
+    answer:
+      'Yes, DogWorld is a unique, privately owned 16-acre park with a swimming pond and massive play fields. For public options, nearby Concord offers Weddington Road Bark Park.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog in downtown Kannapolis?',
+    answer:
+      'The Loop at West Avenue in the revitalized downtown is perfect for leashed walks. It’s a beautiful, pedestrian-friendly streetscape.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed at Village Park?',
+    answer:
+      'Leashed dogs are welcome on the walking trails of Village Park, but they are generally restricted from the playground and splash pad areas.',
+    category: 'facilities',
+  },
+  {
+    question: 'Is the NC Research Campus dog-friendly?',
+    answer:
+      'The grounds around the campus are open to the public and offer manicured walking paths that are great for a structured leash walk.',
+    category: 'planning',
+  },
+];
+
+const matthewsFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog in Matthews?',
+    answer:
+      'The Four Mile Creek Greenway is a local favorite, offering a boardwalk and paved trail through the woods. Squirrel Lake Park is another excellent starting point.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is there a dog park in Matthews?',
+    answer:
+      'While Matthews itself relies on county parks, the nearby Colonel Francis Beatty Park offers extensive trails, and William R. Davie Park (Charlotte) is close by with a large dog park.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is downtown Matthews dog-friendly?',
+    answer:
+      'Yes, the historic downtown area near the train depot is very walkable, and several breweries and patios welcome leashed pets.',
+    category: 'socializing',
+  },
+  {
+    question: 'Are dogs allowed at Squirrel Lake Park?',
+    answer:
+      'Yes, leashed dogs are welcome. It connects directly to the Four Mile Creek Greenway, making it a perfect spot for a long outing.',
+    category: 'planning',
+  },
+];
+
+const monroeFaqs: FAQItem[] = [
+  {
+    question: 'Where is the dog park in Monroe, NC?',
+    answer:
+      'Sunset Park features a designated dog park area, making it a convenient spot for off-leash play within the city limits.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there hiking trails near Monroe?',
+    answer:
+      'Yes, nearby Cane Creek Park provides excellent hiking trails around a large lake. It’s a great spot for a day trip with your dog.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What is the leash law in Monroe?',
+    answer:
+      'Monroe requires dogs to be on a leash and under control when off the owner’s property. This is strictly enforced in public parks.',
+    category: 'legal',
+  },
+  {
+    question: 'Is downtown Monroe pet-friendly?',
+    answer:
+      'The revitalized downtown area is becoming more pet-friendly, with walkable sidewalks and occasional events that welcome leashed dogs.',
+    category: 'socializing',
+  },
+];
+
+const mooresvilleFaqs: FAQItem[] = [
+  {
+    question: 'Are dogs allowed at Lake Norman State Park?',
+    answer:
+      'Yes, dogs are welcome on all hiking trails, such as the Lake Shore Trail, as long as they are on a leash no longer than six feet.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Does Mooresville have a dog park?',
+    answer:
+      'The Cornelius Road Park and nearby Stumpy Creek Park offer great walking areas, but for dedicated off-leash zones, many residents head to the Weddington Road Bark Park in nearby Concord.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What are the leash laws in Mooresville?',
+    answer:
+      'Mooresville requires dogs to be under "direct control or restraint" in public. This effectively means a leash is required unless in a designated off-leash area.',
+    category: 'legal',
+  },
+  {
+    question: 'Can dogs swim in Lake Norman?',
+    answer:
+      'Swimming is generally restricted at designated swim beaches, but dogs often splash in quieter coves along trails. Always check for algae blooms before letting them in the water.',
+    category: 'planning',
+  },
+];
+
+const salisburyFaqs: FAQItem[] = [
+  {
+    question: 'Where is the dog park in Salisbury?',
+    answer:
+      'The primary spot is the Dog PAWS Park at the Salisbury Civic Center. There is also a small dog run at the Precious 9 Memorial Dog Park.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed on the Salisbury Greenway?',
+    answer:
+      'Yes, leashed dogs are welcome on the entire 4+ mile greenway system. It is a fantastic way to explore the city’s creeks and woods.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Is Dan Nicholas Park dog-friendly?',
+    answer:
+      'Leashed dogs are allowed in the park grounds and on trails, but they are not permitted in the zoo, carousel, or other specific attractions.',
+    category: 'facilities',
+  },
+  {
+    question: 'What is the leash law in Salisbury?',
+    answer:
+      'Salisbury and Rowan County generally mandate that dogs be under restraint, which typically means a leash, harness, or being within a secure fence.',
+    category: 'legal',
+  },
+];
+
+const stallingsFaqs: FAQItem[] = [
+  {
+    question: 'Does Stallings Municipal Park allow dogs?',
+    answer:
+      'No, Stallings Municipal Park generally has a "No Pets" policy to protect the playgrounds and splash pad areas. Check specific event rules as exceptions may occur.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Where can I take my dog near Stallings?',
+    answer:
+      'The nearby Colonel Francis Beatty Park in Matthews is an excellent alternative with miles of trails. For off-leash play, Crooked Creek Park in Indian Trail is just minutes away.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What are the leash laws in Stallings?',
+    answer:
+      'Stallings follows Union County ordinances, which prohibit dogs from running at large. Dogs must be leashed or contained when off their owner’s property.',
+    category: 'legal',
+  },
+  {
+    question: 'Is there a dog park in Stallings?',
+    answer:
+      'There is no public dog park within the town limits of Stallings itself. Residents typically use the facilities in neighboring Indian Trail or Matthews.',
+    category: 'facilities',
+  },
+];
+
+const wakeForestFaqs: FAQItem[] = [
+  {
+    question: 'Where is the dog park in Wake Forest?',
+    answer:
+      'Flaherty Dog Park is the town’s premier off-leash facility. It features two acres of shaded, grassy play space with separate areas for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed at Joyner Park?',
+    answer:
+      'Yes! E. Carroll Joyner Park is fantastic for dogs. Leashed pets can explore the 3 miles of paved trails and the expansive open meadows.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Can I walk on the Falls Lake Dam?',
+    answer:
+      'Yes, the dam offers a great paved walking surface with water on both sides. Dogs must be on a leash, and it can get windy!',
+    category: 'planning',
+  },
+  {
+    question: 'What are the leash rules in Wake Forest?',
+    answer:
+      'Wake Forest enforces Wake County animal control laws, which require dogs to be leashed at all times in public parks and greenways.',
+    category: 'legal',
+  },
+];
+
+const waxhawFaqs: FAQItem[] = [
+  {
+    question: 'Is there a dog park in Waxhaw?',
+    answer:
+      'Yes, Dogwood Park features a lovely off-leash dog run. It is a smaller, natural-surface area nestled within the larger park.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I hike with my dog in Waxhaw?',
+    answer:
+      'Wait for suspension bridge! The 12-mile Cane Creek Park trails nearby are excellent. Within Waxhaw, the Carolina Thread Trail sections are also dog-friendly.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'What is the Mary Warner Mack Dog Park?',
+    answer:
+      'This is a massive, membership-based dog park located at the Anne Springs Close Greenway, just across the border. It includes a lake for swimming.',
+    category: 'facilities',
+  },
+  {
+    question: 'Are dogs allowed downtown Waxhaw?',
+    answer:
+      'Yes, the historic downtown handles pet traffic well. The Overhead Bridge is a popular photo spot for pups. Keep leashes short near the train tracks.',
+    category: 'socializing',
+  },
+];
+
+const wilsonFaqs: FAQItem[] = [
+  {
+    question: 'Where is the Wilson Dog Park?',
+    answer:
+      'The Wilson Dog Park is located at 1413 Lawndale Dr. It’s a fenced facility with separate areas for large and small dogs, plus agility tunnels.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed at the Whirligig Park?',
+    answer:
+      'Yes! Leashed dogs are welcome in Vollis Simpson Whirligig Park. It’s a unique spot for a walk, but keep an eye on your dog around the moving sculptures.',
+    category: 'socializing',
+    popular: true,
+  },
+  {
+    question: 'Does Wilson have greenways?',
+    answer:
+      'Yes, the Wilson Greenway System is growing. The beautifully paved path around Lake Wilson is a particularly scenic spot for a 2-mile dog walk.',
+    category: 'planning',
+  },
+  {
+    question: 'What are the leash laws in Wilson?',
+    answer:
+      'Dogs must be on a leash and under physical control when off the owner’s property. Wilson takes animal control seriously to ensure public safety.',
+    category: 'legal',
+  },
+];
+
+const winstonSalemFaqs: FAQItem[] = [
+  {
+    question: 'What is the best dog park in Winston-Salem?',
+    answer:
+      'Washington Park is a local favorite for its "dinosaur" playground and large dog run. Tanglewoof at Tanglewood Park is the largest and most amenity-rich in the county.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can dogs walk around Salem Lake?',
+    answer:
+      'Yes! The 7-mile unpaved trail around Salem Lake is one of the best dog walks in the state. It is shaded, flat, and offers water views the whole way.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed in Old Salem?',
+    answer:
+      'Leashed dogs are welcome on the streets and sidewalks of the historic district. It’s a charming walk, but they cannot enter the museum buildings.',
+    category: 'socializing',
+  },
+  {
+    question: 'Is there an indoor dog park?',
+    answer:
+      'Yes, Tucker’s Tap Yard offers a supervised, membership-based dog park experience with a bar for the humans. It’s great for rainy days.',
+    category: 'facilities',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -8118,6 +8728,2707 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         "Wirtz is a rural community that serves as a gateway to the western side of Smith Mountain Lake. The landscape is a mix of farms, woods, and lakefront properties, offering a diverse environment for dogs. While mostly car-dependent, the large lots allow for plenty of at-home exercise. Visitors and residents alike enjoy the laid-back country vibe that defines Franklin County living.",
         "Franklin County animal control ordinances require dogs to be under control and vaccinated. The rural nature of Wirtz means owners should be vigilant about ticks and contact with wildlife. Leashes are recommended in public areas and campgrounds. For tips on pet safety, travel gear, and health, consult our comprehensive [owner resources](https://www.indoordogpark.org/owner-resources). By practicing responsible rural ownership, Wirtz residents ensure their community remains a safe haven for people and pets."
+      ],
+    },
+  },
+  {
+    slug: 'greensboro-va',
+    city: 'Greensboro',
+    state: 'NC',
+    featuredImage: '/images/cities/greensboro-nc/hero.webp',
+    summary: 'The "Gate City" offers expansive parks and a welcoming environment for all canine companions.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Greensboro, NC',
+      heroDescription: 'Greensboro offers a wealth of green space, from the Arboretum to expansive dog parks like Bark Park, making it a top destination for active pets.',
+      longDescription: [
+        'Greensboro, known as the "Gate City," is celebrated for its extensive park system and dog-friendly culture. The city features standout facilities like the [Bark Park at Country Park](https://www.greensboro-nc.gov/departments/parks-recreation/parks-gardens/dog-parks), which offers separate small and large dog areas in a wooded setting. Leashed dogs are also welcome to explore the enchanting [Greensboro Arboretum](https://greensborobeautiful.org/gardens/greensboro-arboretum/) and the Tanger Family Bicentennial Garden, providing sensory-rich walks among beautiful flora. Our [Greensboro directory](https://www.indoordogpark.org/cities/greensboro-nc#park-directory) highlights these premier locations for socialization and nature enjoyment.',
+        'The community is supported by a strong network of pet businesses and advocacy groups. Greensboro demands responsible ownership, including leash compliance on greenways and up-to-date vaccinations. For those new to the area or dog ownership, our [how-it-works](/how-it-works) page offers guidance on park etiquette. Whether playing off-leash or strolling through botanical gardens, Greensboro provides a diverse and enriching environment for every type of dog.'
+      ],
+    },
+  },
+  {
+    slug: 'addison-tx',
+    city: 'Addison',
+    state: 'TX',
+    summary: 'A vibrant urban enclave in Dallas known for its restaurants and Spruill Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Addison, TX',
+      heroDescription: 'Enjoy the urban flair and green spaces of Addison.',
+      longDescription: [
+        "Addison packs a lot of life into its 4.4 square miles, making it a lively spot for urban dogs. The town is famous for its high concentration of restaurants, many of which offer dog-friendly patios. For exercise, Spruill Park provides a dedicated dog run, while the wider circle of Addison Circle Park is perfect for leashed strolls and people-watching. It is a community that loves to get out and socialize.",
+        "Town ordinances require dogs to be leashed in all public areas outside of the designated dog park. Registration with the town is encouraged. Given the dense urban environment, owners must be diligent about cleaning up after their pets to keep the parks and sidewalks pristine. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By being courteous neighbors, Addison dog owners contribute to the town's reputation as a fun and friendly destination."
+      ],
+    },
+  },
+  {
+    slug: 'aransas-pass-tx',
+    city: 'Aransas Pass',
+    state: 'TX',
+    summary: 'A coastal destination known as the "Saltwater Heaven" for water-loving dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Aransas Pass, TX',
+      heroDescription: 'Experience the coastal charm and flats fishing culture of Aransas Pass.',
+      longDescription: [
+        "Aransas Pass is a gateway to the Gulf Coast, offering a laid-back atmosphere perfect for water dogs. Known for its flats fishing and kayaking, the area provides plenty of shoreline spots where leashed dogs can enjoy the sea breeze. Newbury Park offers local green space, while the nearby ferry to Port Aransas opens up miles of beach adventures. It is a haven for those who love the salt life.",
+        "Local laws require dogs to be leashed and under control, especially near water where wildlife is abundant. Vaccinations must be current. Owners should be mindful of sandspurs and hot pavement in the summer months. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By respecting the coastal environment, Aransas Pass residents ensure their town remains a beautiful retreat for all."
+      ],
+    },
+  },
+  {
+    slug: 'argyle-tx',
+    city: 'Argyle',
+    state: 'TX',
+    summary: 'A rural-suburban community in Denton County valued for its open spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Argyle, TX',
+      heroDescription: 'Enjoy the rural tranquility and community spirit of Argyle.',
+      longDescription: [
+        "Argyle offers a slice of country living within reach of the Metroplex. The town is characterized by large lots and equestrian roots, giving many dogs ample room to run at home. For socialization, the community is tight-knit, and leashed walks in the newer developments are a great way to meet neighbors. It is a quiet, upscale setting where pets are treated as family.",
+        "Denton County animal control laws apply, mandating leashes in public and current rabies vaccinations. The town encourages responsible ownership to maintain its peaceful atmosphere. With wildlife common in the area, keeping an eye on pets during dusk and dawn is wise. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on rural pet safety. By maintaining these standards, Argyle residents preserve the high quality of life that defines their town."
+      ],
+    },
+  },
+  {
+    slug: 'aubrey-tx',
+    city: 'Aubrey',
+    state: 'TX',
+    summary: 'A fast-growing town in Horse Country north of Denton.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Aubrey, TX',
+      heroDescription: 'Discover the charm of Horse Country in the growing town of Aubrey.',
+      longDescription: [
+        "Aubrey is at the center of Texas horse country, known for its sandy soil and green pastures. While the town is growing rapidly with new subdivisions, it retains a friendly, small-town feel. Dogs here often enjoy larger backyards, and the local parks provide gathering spots for families. Access to Ray Roberts Lake State Park nearby offers extensive hiking trails for the adventurous duo.",
+        "City ordinances require dogs to be leashed when off their owner's property. Licensing and vaccinations are mandatory. As the town expands, respecting new neighbors by managing barking and waste is essential for community harmony. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By balancing growth with rural courtesy, Aubrey remains a welcoming place for people and pets."
+      ],
+    },
+  },
+  {
+    slug: 'azle-tx',
+    city: 'Azle',
+    state: 'TX',
+    summary: 'A lakeside community on Eagle Mountain Lake offering outdoor recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Azle, TX',
+      heroDescription: 'Enjoy life on the lake and community parks in Azle.',
+      longDescription: [
+        "Azle serves as a gateway to Eagle Mountain Lake, offering a lifestyle centered around the outdoors. Central Park is a popular local spot with walking trails and a dedicated dog park area where pups can burn off energy. The community is active and down-to-earth, often seen enjoying the shaded paths or relaxing by the water. It is a great spot for dogs who love nature.",
+        "Azle animal services strictly enforce leash laws in all public parks outside the dog run. Current vaccinations and city registration are required. Owners are expected to pick up after their pets to keep the lakeside areas clean for everyone. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By being responsible stewards of the land, Azle dog owners help keep their city a recreational gem."
+      ],
+    },
+  },
+  {
+    slug: 'bellaire-tx',
+    city: 'Bellaire',
+    state: 'TX',
+    summary: 'A residential island within Houston known for its parks and family focus.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bellaire, TX',
+      heroDescription: 'Experience the "City of Homes" with its beautiful parks and canine community.',
+      longDescription: [
+        "Bellaire, known as the \"City of Homes,\" offers a distinct small-town feel right in the middle of Houston. The city is dotted with meticulous parks like Officer Lucy Dog Park, a local favorite named after a K-9 officer. Residents enjoy safe, tree-lined streets perfect for daily walks. It is a community that prioritizes quality of life, and that extends to its four-legged residents.",
+        "Bellaire enforces strict leash laws to ensure safety in its many family-friendly parks. All dogs must have a current city license and rabies tag. The dog park has specific rules regarding behavior and size separation that are well-respected by regulars. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By upholding these high standards, Bellaire dog owners ensure their community remains a pristine enclave."
+      ],
+    },
+  },
+  {
+    slug: 'belton-tx',
+    city: 'Belton',
+    state: 'TX',
+    summary: 'A historic town in Central Texas near Belton Lake.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Belton, TX',
+      heroDescription: 'Explore the trails of Nolan Creek and the shores of Belton Lake.',
+      longDescription: [
+        "Belton offers a rich history and fantastic recreational opportunities along the I-35 corridor. The hike and bike trail along Nolan Creek is a scenic route for dog walkers, winding through the heart of town. Nearby Belton Lake offers even more space for outdoor adventures. The community is welcoming, with a relaxed pace that suits leisurely strolls and porch sitting.",
+        "City ordinances require dogs to be leashed in public areas and parks. Rabies vaccinations and city licensing are mandatory. When visiting the creek or lake areas, owners should be mindful of water safety and local wildlife. newer owners can find helpful tips in our [community blog](https://www.indoordogpark.org/blog). By practicing responsible ownership, Belton residents contribute to the friendly and historic atmosphere of their town."
+      ],
+    },
+  },
+  {
+    slug: 'berkley-ave-ns-tx',
+    city: 'Berkley Ave NS',
+    state: 'TX',
+    summary: 'A spotlight on the Berkley Avenue neighborhood in the Oak Cliff area of Dallas.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks near Berkley Ave, Dallas',
+      heroDescription: 'Discover the charm of the Elmwood and Oak Cliff neighborhoods.',
+      longDescription: [
+        "The Berkley Avenue area in Oak Cliff offers a unique neighborhood vibe with mature trees and eclectic homes. It is a fantastic area for dog walking, with easy access to the trails of Elmwood Parkway. The community here is tight-knit and artistic, often gathering in local green spaces. It provides a quiet, leafy retreat just minutes from downtown Dallas.",
+        "Dallas city ordinances apply, requiring dogs to be leashed and registered. The Elmwoof Dog Park is a nearby community-driven project that serves the area. Owners are encouraged to be involved in neighborhood initiatives to keep the parks clean and safe. owners looking to sharpen obedience skills can find top-rated local experts in our [training guide](https://www.indoordogpark.org/training-facilities). By staying active and engaged, residents of this neighborhood make it one of the hidden gems of Dallas."
+      ],
+    },
+  },
+  {
+    slug: 'borger-tx',
+    city: 'Borger',
+    state: 'TX',
+    summary: 'An industrial hub in the Panhandle with unexpected topography and community spirit.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Borger, TX',
+      heroDescription: 'Experience the rugged beauty of the High Plains in Borger.',
+      longDescription: [
+        "Borger sits in the rugged terrain of the Texas Panhandle, offering a landscape of hills and plains. The city's Huber Park provides green space for families and their pets to enjoy the outdoors. Despite its industrial roots, the community is warm and focuses heavily on local events and school spirit. It is a resilient town where dogs are loyal companions on the high plains.",
+        "City laws mandate that dogs be leashed when off private property and fully vaccinated. Licensing is required. Due to the open nature of the surrounding country, preventing roaming is a key responsibility for owners. Tick and flea prevention is also critical in this region. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By keeping pets safe and secure, Borger residents maintain a friendly and orderly community."
+      ],
+    },
+  },
+  {
+    slug: 'brownsboro-tx',
+    city: 'Brownsboro',
+    state: 'TX',
+    summary: 'A small rural community in East Texas, known as the "Edible Nut Capital".',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brownsboro, TX',
+      heroDescription: 'Enjoy the quiet, wooded surroundings of East Texas in Brownsboro.',
+      longDescription: [
+        "Brownsboro offers a quiet, rural lifestyle in the piney woods of East Texas. The pace here is slow, with plenty of shade and open land for dogs to enjoy. While there are no large municipal dog parks, the community park provides a space for leashed walks. It is a place where neighbors know each other and life revolves around the local schools and churches.",
+        "Henderson County ordinances require dogs to be under control and vaccinated. Leashes are expected in public spaces to ensure safety. In this rural setting, keeping dogs away from livestock and on their own property is the golden rule. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By respecting these country values, Brownsboro residents ensure their town remains a peaceful place to live."
+      ],
+    },
+  },
+  {
+    slug: 'buda-tx',
+    city: 'Buda',
+    state: 'TX',
+    summary: 'The "Outdoor Capital of Texas" offering extensive parkland just south of Austin.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Buda, TX',
+      heroDescription: 'Explore the "Outdoor Capital of Texas" with your dog in Buda.',
+      longDescription: [
+        "Buda lives up to its moniker as the \"Outdoor Capital of Texas\" with fantastic amenities for dog owners. The Buda Dog Park at the Sportsplex is a massive facility with agility equipment and separate areas for different sized dogs. The city's trail system offers miles of scenic walking through wildflowers and oaks. It is a premier destination for active owners who want space to breathe.",
+        "City laws require dogs to be leashed on all trails and in parks outside the designated off-leash zones. Rabies vaccinations and city registration are mandatory. The dog park culture here is strong, with a focus on friendly play and self-policing cleanup. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By embracing the outdoor lifestyle responsibly, Buda residents keep their city beautiful and fun."
+      ],
+    },
+  },
+  {
+    slug: 'celina-tx',
+    city: 'Celina',
+    state: 'TX',
+    summary: 'A booming city in North Texas blending heritage with new development.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Celina, TX',
+      heroDescription: 'Experience the small-town square and new amenities of Celina.',
+      longDescription: [
+        "Celina is famous for its historic downtown square and rapid growth. New developments are bringing pocket parks and walking trails that connect neighborhoods, making it very dog-friendly. The city retains a strong sense of community, with festivals that often welcome leashed pets. It is a community where historic charm meets modern convenience.",
+        "Celina ordinances require dogs to be leashed in public and properly licensed. As the population grows, being a considerate neighbor by picking up waste and controlling barking is vital. The community is family-centric, and safe, well-behaved pets are a big part of that. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By practicing simple courtesies, Celina dog owners help their city grow gracefully."
+      ],
+    },
+  },
+  {
+    slug: 'channelview-tx',
+    city: 'Channelview',
+    state: 'TX',
+    summary: 'An industrial and residential community on the ship channel east of Houston.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Channelview, TX',
+      heroDescription: 'Live along the waterway in the resilient community of Channelview.',
+      longDescription: [
+        "Channelview is a community defined by its proximity to the Houston Ship Channel and the San Jacinto River. Residents have access to riverfront parks where leashed dogs can watch the water traffic. The area is a mix of industry and neighborhoods, with practical, hardworking residents. It offers affordable living with access to the water for fishing and relaxing.",
+        "Harris County leash laws are strictly enforced to ensure public safety. All pets must be vaccinated and licensed. Given the industrial nature of some areas, owners should be careful about where they walk their dogs to avoid hazards. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on safety gear and health. By prioritizing safety, Channelview dog owners keep their community a secure place for their families."
+      ],
+    },
+  },
+  {
+    slug: 'converse-tx',
+    city: 'Converse',
+    state: 'TX',
+    summary: 'A growing suburb of San Antonio adjacent to Randolph Air Force Base.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Converse, TX',
+      heroDescription: 'Enjoy the parks and community spirit of Converse, near Randolph AFB.',
+      longDescription: [
+        "Converse is a diverse and growing city that serves the military community and San Antonio commuters. Look for the Converse North Park, which features walking trails and pavilions perfect for family outings with the dog. A dedicated dog park is also a local asset, providing safe off-leash play. The community is supportive and patriotic, with a welcoming vibe for new residents.",
+        "City ordinances require dogs to be leashed in public areas not designated for off-leash use. Registration and rabies vaccinations are mandatory. At the dog park, owners are expected to monitor their pets closely to prevent conflicts. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By following these rules, Converse residents ensure their parks remain enjoyable for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'corinth-tx',
+    city: 'Corinth',
+    state: 'TX',
+    summary: 'A family-oriented community in Denton County located on Lewisville Lake.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Corinth, TX',
+      heroDescription: 'Access the lake and extensive trail systems in Corinth.',
+      longDescription: [
+        "Corinth offers a high quality of life with its location on the shores of Lewisville Lake. The city's trail system, including the Denton Rail Trail, connects neighborhoods and provides miles of safe walking for dogs. Community parks are well-maintained and abundant. It is a modern, active city where residents value health and outdoor recreation.",
+        "Corinth enforces leash laws to protect trail users and wildlife. Pet registration and vaccinations are required. The community is dense with families, so ensuring dogs are well-socialized is key for harmonious living. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By being responsible trail users, Corinth dog owners help make their city a model for suburban recreation."
+      ],
+    },
+  },
+  {
+    slug: 'cranberry-twp-tx',
+    city: 'Cranberry Twp',
+    state: 'PA',
+    summary: 'A bustling township in Butler County, PA (mapped from regional data).',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cranberry Township, PA',
+      heroDescription: 'Enjoy the top-tier amenities and dog park at Rotary Dog Park in Cranberry.',
+      longDescription: [
+        "Cranberry Township is a premier community known for its extensive park system and modern amenities. The Rotary Dog Park in Community Park is a highlight, offering a well-maintained, off-leash environment with separate areas for expansive play. The township is very walkable, with sidewalks connecting shopping areas and residential plans. It is a vibrant, forward-thinking community that invests heavily in quality of life.",
+        "Township ordinances require dogs to be leashed in all parks unless in the designated dog run. Licenses and vaccinations are mandatory. The dog park requires a membership or pass to ensure safety and accountability, a system that keeps the facility top-notch. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By supporting these organized systems, Cranberry residents maintain one of the best dog-friendly environments in the region."
+      ],
+    },
+  },
+  {
+    slug: 'deer-park-tx',
+    city: 'Deer Park',
+    state: 'TX',
+    summary: 'The "Birthplace of Texas" offering a rich history and community parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Deer Park, TX',
+      heroDescription: 'Explore the history and green spaces of Deer Park.',
+      longDescription: [
+        "Deer Park proudly holds the title of the \"Birthplace of Texas,\" being home to the site of the Battle of San Jacinto. Today, it is a thriving suburban community with excellent parks. The Ella and Friends Dog Park is a local gem, providing a safe, fenced space for dogs to socialize and run free. The community is deeply connected to its roots and values outdoor family activity.",
+        "City ordinances require dogs to be leashed in public areas outside of the dog park. Owners must register their pets with the city and keep rabies vaccinations current. At the dog park, following the posted rules about aggressive behavior and cleanup is essential. For a more social outing where you can grab a drink while your dog plays, check out our [parks with bars guide](https://www.indoordogpark.org/parks-with-bars). By adhering to these standards, Deer Park residents honor their historic legacy with a modern commitment to community care."
+      ],
+    },
+  },
+  {
+    slug: 'denton-tx',
+    city: 'Denton',
+    state: 'TX',
+    summary: 'A creative university town with a vibrant music scene and dog-friendly culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Denton, TX',
+      heroDescription: 'Experience the unique vibe and dog-friendly parks of Denton.',
+      longDescription: [
+        "Denton is a city with a personality all its own, fueled by two universities and a legendary music scene. It is incredibly dog-friendly, with venues like the North Lakes Dog Park offering ample space for play. The town square is often buzzing with students, locals, and their dogs enjoying the outdoors. It is a place where creativity and community blend seamlessly.",
+        "Denton animal services enforced leash laws strictly in all public spaces. City registration is required for all dogs. The dog park community is active and welcoming, but rules about pickup and behavior are taken seriously. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By embracing the eclectic and friendly spirit of the city, Denton dog owners make it a top destination for pets."
+      ],
+    },
+  },
+  {
+    slug: 'devine-tx',
+    city: 'Devine',
+    state: 'TX',
+    summary: 'A quiet rural community south of San Antonio known for its friendly atmosphere.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Devine, TX',
+      heroDescription: 'Enjoy the simple, rural life in the friendly town of Devine.',
+      longDescription: [
+        "Devine offers a peaceful escape from the city, located just south of San Antonio. It is a classic Texas small town where life moves a little slower. While there are no large dog parks, the open spaces and quiet residential streets are perfect for long, relaxed walks. The community is tight-knit, and neighbors look out for one another—and their pets.",
+        "Medina County laws require dogs to be vaccinated against rabies and kept under control. In town, leashing is the respectful choice when walking near the golf course or schools. Residents take pride in their town's tidy appearance, so waste cleanup is expected. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By preserving these small-town values, Devine residents keep their community a charming place to live."
+      ],
+    },
+  },
+  {
+    slug: 'dfw-airport-tx',
+    city: 'DFW Airport',
+    state: 'TX',
+    summary: 'The area surrounding Dallas-Fort Worth International Airport, serving travelers and locals.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks near DFW Airport',
+      heroDescription: 'Find convenient relief spots and trails near the DFW Airport area.',
+      longDescription: [
+        "The DFW Airport area is a bustling hub that connects the metroplex. For travelers with pets, finding a spot for a quick walk is essential. The surrounding communities like Grapevine and Irving offer excellent parks just minutes from the terminals. Founders' Plaza is a popular spot where you can watch planes land while walking your leashed dog on the grassy observation area.",
+        "Airport regulations strictly require dogs to be leashed and under control at all times in public accessible areas. Nearby cities enforce their own leash and vaccination laws. Whether you are a local resident or just passing through, keeping the area clean and safe is a shared responsibility. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By following these rules, the DFW Airport area remains a welcoming gateway for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'fairview-tx',
+    city: 'Fairview',
+    state: 'TX',
+    summary: 'An upscale community committed to "Keeping it Country" with large lots and open space.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fairview, TX',
+      heroDescription: 'Enjoy the open spaces and rural feel of Fairview.',
+      longDescription: [
+        "Fairview lives by the motto \"Keeping it Country,\" prioritizing large residential lots and open landscapes. This design offers a fantastic environment for dogs who have plenty of room to run at home. The town features extensive walking trails that weave through the natural terrain, providing a scenic backdrop for exercise. It is a community that values privacy and nature.",
+        "Town ordinances require dogs to be leashed when off private property. Registration is mandatory. The rural setting means owners should be aware of wildlife, including coyotes and bobcats, especially at night. newer owners can find helpful tips in our [community blog](https://www.indoordogpark.org/blog). By respecting the balance between development and nature, Fairview residents maintain their unique country-estate lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'farmersville-tx',
+    city: 'Farmersville',
+    state: 'TX',
+    summary: 'A historic town on the Northeast Texas Trail, known for its onion festival.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Farmersville, TX',
+      heroDescription: 'Walk the Chaparral Trail and explore historic Farmersville.',
+      longDescription: [
+        "Farmersville is a historic gem that serves as a trailhead for the Northeast Texas Trail (Chaparral Trail). This paved path is a favorite for dog walkers, stretching for miles through the countryside. The downtown area retains its brick streets and old-world charm, welcoming leashed pets to its outdoor spaces. It is a town that honors its agricultural past while embracing active living.",
+        "Collin County and city laws require dogs to be leashed in public and fully vaccinated. The Chaparral Trail is shared with cyclists and hikers, so keeping dogs close and under control is vital for safety. Waste stations are provided at trailheads. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on trail etiquette. By sharing the path responsibly, Farmersville dog owners ensure this recreational asset remains a joy for the whole region."
+      ],
+    },
+  },
+  {
+    slug: 'florence-tx',
+    city: 'Florence',
+    state: 'TX',
+    summary: 'A small rural community in Williamson County known for its stone quarries.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Florence, TX',
+      heroDescription: 'Enjoy the quiet, limestone hills of the Florence area.',
+      longDescription: [
+        "Florence is a quiet community located on the edge of the Texas Hill Country. Known for its limestone quarries, the terrain is rugged and scenic. Life here revolves around the small town center and the surrounding ranch land. For dog owners, it offers a peaceful, low-traffic environment where the stars shine bright at night. It is a place where simplicity is the ultimate luxury.",
+        "Williamson County animal control ordinances apply, requiring dogs to be licensed and vaccinated. In town, leashing is expected to prevent dogs from wandering into traffic or neighboring properties. The rural surroundings mean tick and flea prevention is a must. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By practicing responsible rural ownership, Florence residents keep their town safe and friendly."
+      ],
+    },
+  },
+  {
+    slug: 'flower-mound-tx',
+    city: 'Flower Mound',
+    state: 'TX',
+    summary: 'A premier suburb on Grapevine Lake dedicated to preserving its natural beauty.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Flower Mound, TX',
+      heroDescription: 'Discover the Mound and the Hound Mound Dog Park in Flower Mound.',
+      longDescription: [
+        "Flower Mound serves as a model for blending suburban living with natural preservation. The town is home to the popular Hound Mound Dog Park, a top-tier facility with separate paddocks and agility features. Miles of trails wind through the town's preserved green spaces and along the shores of Grapevine Lake. It is a community that deeply values its outdoor assets.",
+        "Town ordinances strictly enforce leash laws on trails and parks outside the Hound Mound. Registration and current vaccinations are mandatory. The community is very active, so trail etiquette—like yielding to others and picking up waste—is strictly observed. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By upholding these high standards, Flower Mound dog owners help maintain their town's reputation as a beautiful place to live."
+      ],
+    },
+  },
+  {
+    slug: 'heath-tx',
+    city: 'Heath',
+    state: 'TX',
+    summary: 'An affluent lakeside community on Lake Ray Hubbard known for its skyline views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Heath, TX',
+      heroDescription: 'Enjoy lakeside living and scenic trails in Heath.',
+      longDescription: [
+        "Heath offers a luxurious lakeside lifestyle on the shores of Lake Ray Hubbard. The city's parks feature scenic trails with breathtaking views of the Dallas skyline. Terry Park provides lake access where leashed dogs can enjoy the water's edge. It is a premier community where residents enjoy spacious properties and a quiet, upscale atmosphere.",
+        "City laws require dogs to be leashed in all public areas and properly licensed. The community values serenity and cleanliness, so controlling barking and picking up waste is essential. Owners enjoying the lake should prioritize water safety for their pets. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By being considerate neighbors, Heath residents preserve the tranquility of their lakeside retreat."
+      ],
+    },
+  },
+  {
+    slug: 'hickory-creek-tx',
+    city: 'Hickory Creek',
+    state: 'TX',
+    summary: 'A small town on the northern arm of Lewisville Lake offering rustic charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hickory Creek, TX',
+      heroDescription: 'Explore the natural shoreline and wooded parks of Hickory Creek.',
+      longDescription: [
+        "Hickory Creek maintains a rustic, small-town feel despite its location in the metroplex. The town's parks, like Sycamore Bend, offer direct access to Lewisville Lake for picnics and leashed walks. It is a community that embraces the natural landscape, with many residents enjoying the wooded surroundings. It is a quiet haven for dogs and nature lovers.",
+        "Town ordinances mandate that dogs be leashed when off private property. Rabies vaccinations are required. Given the proximity to the lake and corps of engineers land, obeying posted rules about wildlife and habitat protection is critical. newer owners can find helpful tips in our [community blog](https://www.indoordogpark.org/blog). By respecting the environment, Hickory Creek residents ensure their town remains a natural sanctuary."
+      ],
+    },
+  },
+  {
+    slug: 'hudson-oaks-tx',
+    city: 'Hudson Oaks',
+    state: 'TX',
+    summary: 'A commercial and residential hub in Parker County with no ad valorem property tax.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hudson Oaks, TX',
+      heroDescription: 'Enjoy the convenience and community of the Hudson Oaks area.',
+      longDescription: [
+        "Hudson Oaks fits a unique niche in Parker County, known for its commercial corridor and residential hill country feel. While focused on business, the residential areas are quiet and spacious. Nearby parks in Weatherford offer expanded recreation, but local streets provide safe routes for daily exercise. It is a practical, efficient community that values independence.",
+        "City ordinances require dogs to be under control and vaccinated. Leashes are the standard for safety in public areas. As a hub for commerce, owners should be mindful of traffic when walking near busy thoroughfares. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By practicing responsible ownership, Hudson Oaks residents keep their unique city safe and welcoming."
+      ],
+    },
+  },
+  {
+    slug: 'humble-tx',
+    city: 'Humble',
+    state: 'TX',
+    summary: 'A historic oil boom town that serves as a commercial center for the Lake Houston area.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Humble, TX',
+      heroDescription: 'Discover the parks and historic roots of Humble.',
+      longDescription: [
+        "Humble (pronounced \"Umble\") has a rich history tied to the oil industry. Today, it is a bustling commercial center with great access to green space. Hirsch Memorial Park offers a nice setting for walks, and the proximity to Jesse H. Jones Park & Nature Center provides miles of wooded trails for adventurous dogs. It is a hard-working community with a lot of heart.",
+        "Harris County and city laws strictly enforce leash requirements. All pets must be licensed and vaccinated. Given the busy nature of the area, keeping dogs secure and relaxed around traffic is important. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By adhering to these safety rules, Humble residents ensure their city remains a friendly place to live and work."
+      ],
+    },
+  },
+  {
+    slug: 'idalou-tx',
+    city: 'Idalou',
+    state: 'TX',
+    summary: 'A small agricultural community on the Llano Estacado northeast of Lubbock.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Idalou, TX',
+      heroDescription: 'Experience the big sky and small-town friendliness of Idalou.',
+      longDescription: [
+        "Idalou is a tight-knit community on the high plains where agriculture is king. The town parks serve as the center of social life, hosting festivals and daily gatherings. For dogs, the open spaces and quiet streets are ideal. Residents here are known for their friendliness, often stopping to chat during evening walks. It is a place where community connection comes first.",
+        "City ordinances require dogs to be leashed in public and prohibited from running at large. Current vaccinations are mandatory. In this farming region, respecting property boundaries and avoiding livestock is crucial. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on rural pet safety. By practicing these rural courtesies, Idalou residents preserve the warm, welcoming spirit of their town."
+      ],
+    },
+  },
+  {
+    slug: 'ingleside-tx',
+    city: 'Ingleside',
+    state: 'TX',
+    summary: 'A coastal community on Corpus Christi Bay known for its naval history.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ingleside, TX',
+      heroDescription: 'Enjoy live oak trees and bay views in Ingleside.',
+      longDescription: [
+        "Ingleside offers a coastal lifestyle with the added beauty of ancient live oak trees. The town's parks, such as Live Oak Park, provide shaded areas that are perfect for walking dogs even on warm days. Access to the bay offers opportunities for water play and scenic views. It is a resilient community that loves its natural environment.",
+        "City laws require dogs to be leashed in all public parks and strictly controlled to protect local wildlife. Registration and vaccinations are mandatory. Owners should be vigilant about heartworm prevention due to the coastal climate. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By caring for their environment, Ingleside residents ensure their town remains a shady oasis on the coast."
+      ],
+    },
+  },
+  {
+    slug: 'joshua-tx',
+    city: 'Joshua',
+    state: 'TX',
+    summary: 'A fast-growing city in Johnson County balancing rural roots with new growth.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Joshua, TX',
+      heroDescription: 'Experience community growth and country living in Joshua.',
+      longDescription: [
+        "Joshua is a city on the move, transforming from a rural outpost to a desirable suburb. The City Park offers walking trails and a splash pad area that families love. Dogs enjoy the spacious residential lots that are common here. The community retains a strong country vibe, where FFA projects and football games are the talk of the town.",
+        "Johnson County and city ordinances require dogs to be leashed in public and fully vaccinated. As the city grows, managing interactions between pets in new subdivisions is important. Cleaning up waste in public parks is expected of every responsible owner. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By respecting both old traditions and new neighbors, Joshua dog owners help their city thrive."
+      ],
+    },
+  },
+  {
+    slug: 'katy-tx',
+    city: 'Katy',
+    state: 'TX',
+    summary: 'A major suburban hub west of Houston known for its schools and dog-friendly parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Katy, TX',
+      heroDescription: 'Explore the premier dog parks and family-friendly trails of Katy.',
+      longDescription: [
+        "Katy is a destination for families, and that includes the four-legged members. The city boasts excellent facilities like the Katy Dog Park, known for its large wading pool and agility course. Miles of trails connect master-planned communities, making daily exercise easy and safe. It is a vibrant, active city where dogs are welcomed and catered to.",
+        "City ordinances strictly enforce leash laws in all areas outside designated dog parks. Annual registration and rabies vaccinations are mandatory. The dog park is a social hub, so ensuring your pet is well-socialized and responsive to commands is key for a good experience. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on park safety. By being responsible and active, Katy dog owners contribute to the high quality of life that defines their city."
+      ],
+    },
+  },
+  {
+    slug: 'kempner-tx',
+    city: 'Kempner',
+    state: 'TX',
+    summary: 'A rural community in Lampasas County known for its small-town charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Kempner, TX',
+      heroDescription: 'Enjoy the quiet, open countryside of Kempner.',
+      longDescription: [
+        "Kempner offers a quiet, rural lifestyle just outside of Fort Hood. The community is spread out, giving many dogs large yards to roam. For exercise, the country roads offer scenic routes, though caution is advised due to lack of sidewalks. It is a place where neighbors wave to each other and life moves at a relaxed pace.",
+        "Local laws require dogs to be vaccinated and under control at all times. Roaming pets are a concern in rural areas, so securing fences is a priority for responsible owners. Flea and tick prevention is essential given the grassy terrain. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By keeping pets safe and secure, Kempner residents maintain their peaceful community."
+      ],
+    },
+  },
+  {
+    slug: 'la-porte-tx',
+    city: 'La Porte',
+    state: 'TX',
+    summary: 'A historic bay area community with beach access and parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in La Porte, TX',
+      heroDescription: 'Experience the bay breeze and parks of La Porte.',
+      longDescription: [
+        "La Porte is invitingly situated on Galveston Bay, offering a mix of history and recreation. Sylvan Beach Park is a highlight, where leashed dogs can feel the bay breeze. The Little Cedar Bayou Dog Park provides a dedicated space for off-leash play with separation for small and large dogs. It is a community that values its waterfront and outdoor spaces.",
+        "City ordinances require dogs to be leashed in all public parks unless in the dog run. Registration and vaccinations are mandatory. The humidity and heat near the coast mean owners should bring plenty of water on outings. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By respecting the park rules, La Porte dog owners ensure their community remains a beautiful coastal gem."
+      ],
+    },
+  },
+  {
+    slug: 'lake-worth-tx',
+    city: 'Lake Worth',
+    state: 'TX',
+    summary: 'A lakeside city offering water views and parkland near Fort Worth.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lake Worth, TX',
+      heroDescription: 'Enjoy the lake and nature trails in Lake Worth.',
+      longDescription: [
+        "Lake Worth (the city) surrounds the lake of the same name, offering scenic views and recreational opportunities. Lake Worth Park provides open space and trails where leashed dogs can explore the natural shoreline. The community is laid-back and outdoorsy, with many residents taking advantage of the water access. It is a refreshing escape within the metroplex.",
+        "City laws mandate that dogs be leashed when off private property. Rabies vaccinations must be current. When near the water, monitoring for wildlife and water safety is crucial. The area is popular for fishing, so keeping dogs away from hooks and lines is a must. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By being aware and respectful, Lake Worth residents keep their city a safe haven for all."
+      ],
+    },
+  },
+  {
+    slug: 'lampasas-tx',
+    city: 'Lampasas',
+    state: 'TX',
+    summary: 'A historic town in the Hill Country known for its mineral springs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lampasas, TX',
+      heroDescription: 'Explore the springs and parks of historic Lampasas.',
+      longDescription: [
+        "Lampasas serves as a gateway to the Texas Hill Country, famous for its sulfur springs. Hancock Park is a local treasure where leashed dogs can accompany their owners on walks along the creek. The W.M. Brook Park offers shaded trails and picnic areas perfect for a family day out. It is a town rich in history and natural beauty.",
+        "City ordinances require dogs to be leashed in all public parks. Licensing and vaccinations are mandatory. The springs attract wildlife, so keeping interaction to a minimum is important for safety. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on hiking with dogs. By preserving the tranquility of the parks, Lampasas dog owners help maintain the town's historic charm."
+      ],
+    },
+  },
+  {
+    slug: 'lavon-tx',
+    city: 'Lavon',
+    state: 'TX',
+    summary: 'A growing community near Lake Lavon offering a quiet, semi-rural lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lavon, TX',
+      heroDescription: 'Enjoy the proximity to Lake Lavon in the growing town of Lavon.',
+      longDescription: [
+        "Lavon is a rapidly growing town that sits near the vast Lake Lavon. While new subdivisions are bringing paved walking paths, the area retains a semi-rural feel. Access to lake parks nearby offers extensive hiking and outdoor adventure for active dogs. It is a family-oriented community that values space and recreation.",
+        "City laws require dogs to be leashed in public and prohibited from running at large. Vaccinations must be up to date. As the town expands, respecting new neighbors and shared spaces is vital for community harmony. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By balancing growth with courtesy, Lavon dog owners ensure their town remains a welcoming place."
+      ],
+    },
+  },
+  {
+    slug: 'league-tx',
+    city: 'League',
+    state: 'TX',
+    summary: 'A major boating and recreation hub south of Houston (mapped as League City).',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in League City, TX',
+      heroDescription: 'Discover the "Bark Park at Countryside" and waterfront trails in League City.',
+      longDescription: [
+        "League City is a vibrant community known for its oak-lined streets and waterfront access. The Bark Park at Countryside is a premier facility, offering agility obstacles, washing stations, and separate play areas. The city's trail system is extensive, connecting neighborhoods to parks like Heritage Park. It is a top destination for active families and their pets.",
+        "City ordinances strictly enforce leash laws outside of the dog park. Pet registration and vaccinations are required. The dog park has a community of regulars who take pride in the facility, so cleaning up and monitoring behavior is expected. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By participating responsibly, League City residents keep their parks world-class."
+      ],
+    },
+  },
+  {
+    slug: 'lorena-tx',
+    city: 'Lorena',
+    state: 'TX',
+    summary: 'A small town south of Waco with a strong community spirit.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lorena, TX',
+      heroDescription: 'Enjoy the small-town atmosphere and open spaces of Lorena.',
+      longDescription: [
+        "Lorena offers a quiet, friendly environment just minutes from Waco. The town centers around its schools and local parks. While dedicated dog parks are found in nearby cities, Lorena's residential streets and McBrayer Park provide safe areas for leashed exercising. It is a community where people know your name—and your dog's.",
+        "Lorena ordinances require dogs to be confined or leashed at all times. Rabies vaccinations are mandatory. Being a small town, roaming dogs are quickly noticed, so secure fencing is important. newer owners can find helpful tips in our [community blog](https://www.indoordogpark.org/blog). By being responsible pet parents, Lorena residents contribute to the safety and friendliness of their town."
+      ],
+    },
+  },
+  {
+    slug: 'manchaca-tx',
+    city: 'Manchaca',
+    state: 'TX',
+    summary: 'An unincorporated community south of Austin with a quirky, rural vibe.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Manchaca, TX',
+      heroDescription: 'Experience the unique, laid-back culture of Manchaca.',
+      longDescription: [
+        "Manchaca (pronounced \"Man-shack\") retains a distinct rural identity despite being surrounded by Austin's growth. The area is known for large lots and local businesses that often welcome dogs on their patios. It is a place with character, home to eclectic venues and plenty of open space. The vibe is relaxed and unpretentious.",
+        "Travis County animal control laws apply, requiring dogs to be leashed in public and registered. Vaccinations are mandatory. The area has a lot of wildlife, so keeping dogs under control is for their own safety. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By embracing the local culture responsibly, Manchaca residents keep their community weird and wonderful."
+      ],
+    },
+  },
+  {
+    slug: 'marion-tx',
+    city: 'Marion',
+    state: 'TX',
+    summary: 'A small rural town northeast of San Antonio situated on the railroad.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Marion, TX',
+      heroDescription: 'Enjoy the quiet, country life in Marion.',
+      longDescription: [
+        "Marion is a classic Texas railroad town that prizes its small size and quiet streets. It serves as a bedroom community for the metro area but maintains its agricultural roots. Walking routes here are simple and peaceful, often passing by open fields. It is a community where simplicity and neighborliness are valued.",
+        "City ordinances require dogs to be leashed when off their owner's property. Vaccinations must be current. The rural setting means owners should be mindful of livestock and local farm dogs. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By respecting these country boundaries, Marion residents ensure a harmonious life for all inhabitants."
+      ],
+    },
+  },
+  {
+    slug: 'murphy-tx',
+    city: 'Murphy',
+    state: 'TX',
+    summary: 'An affluent suburb in Collin County known for its spacious parks and trail system.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Murphy, TX',
+      heroDescription: 'Explore the trails and Central Park of Murphy.',
+      longDescription: [
+        "Murphy prides itself on maintaining a \"country-living\" atmosphere with city amenities. The crown jewel is Central Park, which features winding trails, a pond, and plenty of green space for leashed walks. The Maxwell Creek Trail system connects neighborhoods, offering miles of safe exercise routes. It is a meticulously master-planned community that is great for dogs.",
+        "City laws strictly require dogs to be leashed in all public areas. Pet registration and vaccinations are mandatory. The city provides pet waste stations along trails, helping residents keep the environment pristine. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By using these resources, Murphy dog owners demonstrate their commitment to a clean and safe community."
+      ],
+    },
+  },
+  {
+    slug: 'new-castle-tx',
+    city: 'New Castle',
+    state: 'PA',
+    summary: 'A historic city in Western Pennsylvania (mapped from regional data).',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Castle, PA',
+      heroDescription: 'Discover the parks and historic charm of New Castle.',
+      longDescription: [
+        "New Castle offers a rich industrial history and beautiful parklands. Cascade Park and Pearson Park are local favorites, offering wooded trails and open spaces where leashed dogs can enjoy nature. The community is resilient and proud, with many residents enjoying the outdoors in the rolling hills of Western PA. It is a down-to-earth place for dog lovers.",
+        "City ordinances require dogs to be leashed in all public parks and properly licensed. Rabies vaccinations are mandatory under state law. Cleaning up after pets is essential to keeping these historic parks welcoming. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By taking pride in their public spaces, New Castle residents ensure their city remains a great place to walk and play."
+      ],
+    },
+  },
+  {
+    slug: 'north-richland-hills-tx',
+    city: 'North Richland Hills',
+    state: 'TX',
+    summary: 'A large suburb in Tarrant County home to the popular Tipsy Oak and extensive trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Richland Hills, TX',
+      heroDescription: 'Enjoy the Tipps Canine Hollow and trail system in NRH.',
+      longDescription: [
+        "North Richland Hills (NRH) is a dynamic city that caters to active families. The Tipps Canine Hollow is a dedicated dog park offering shaded play areas and agility equipment. The city's trail system connects parks like Green Valley, providing miles of walking paths. It is a community that blends suburban comfort with recreational variety.",
+        "NRH animal services strictly enforce leash laws on trails and in parks outside the dog run. Registration and vaccinations are required. The dog park is well-used, so following the rules regarding size separation and waste pickup is heavily emphasized. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on park safety. By being responsible stewards, NRH dog owners help make their city a model for pet-friendly living."
+      ],
+    },
+  },
+  {
+    slug: 'olmito-tx',
+    city: 'Olmito',
+    state: 'TX',
+    summary: 'A small community in the Rio Grande Valley known for its nature park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Olmito, TX',
+      heroDescription: 'Explore the resacas and nature trails of the Olmito area.',
+      longDescription: [
+        "Olmito is located in the vibrant Rio Grande Valley, home to the Olmito Nature Park. This park offers a chance to walk leashed dogs along the resaca (oxbow lake), viewing unique bird species and lush vegetation. The community is small but culturally rich, serving as a quiet respite near Brownsville. It is a hidden gem for nature-loving dogs.",
+        "Cameron County laws require dogs to be leashed and vaccinated. The proximity to water and brush means owners should be aware of local wildlife. Heartworm prevention is critical in this southern climate. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By respecting the natural habitat, Olmito residents preserve a beautiful slice of the Valley for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'olmos-park-tx',
+    city: 'Olmos Park',
+    state: 'TX',
+    summary: 'An affluent enclave within San Antonio known for its tree-lined streets.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Olmos Park, TX',
+      heroDescription: 'Walk the shaded, elegant avenues of Olmos Park.',
+      longDescription: [
+        "Olmos Park is renowned for its park-like setting and grand homes. Alameda Circle is a popular spot for residents to walk their leashed dogs under a canopy of mature oak trees. The city is entirely surrounded by San Antonio but functions as an independent, upscale community. It offers a safe, serene environment for daily strolls.",
+        "City ordinances require strict adherence to leash laws and pet registration. The community values cleanliness and order, so picking up waste is non-negotiable. With low speeds and quiet streets, it is one of the most pleasant walking environments in the metro area. Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By maintaining these high standards, Olmos Park residents protect the exclusive charm of their neighborhood."
+      ],
+    },
+  },
+  {
+    slug: 'pantego-tx',
+    city: 'Pantego',
+    state: 'TX',
+    summary: 'A small town surrounded by Arlington known for Bicentennial Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pantego, TX',
+      heroDescription: 'Enjoy the shaded trails of Bicentennial Park in Pantego.',
+      longDescription: [
+        "Pantego is a quiet oasis nestled within the heart of Arlington. Bicentennial Park is the town's pride, featuring a creek, walking trails, and statues that make for a picturesque walk with your dog. The community feels secluded and peaceful despite its central location. It is a favorite spot for locals who want a break from the city bustle.",
+        "Town ordinances require dogs to be leashed at all times in the park. Vacinnations and registration are mandatory. The park is a shared space with a playground, so keeping dogs under control around children is essential. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on park etiquette. By sharing the space respectfully, Pantego residents keep their park a welcoming retreat."
+      ],
+    },
+  },
+  {
+    slug: 'phoenix-tx',
+    city: 'Phoenix',
+    state: 'AZ',
+    summary: 'The bustling capital of Arizona (mapped from regional data).',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Phoenix, AZ',
+      heroDescription: 'Explore the desert trails and extensive dog parks of Phoenix.',
+      longDescription: [
+        "Phoenix is a sun-soaked metropolis that offers incredible outdoor access for dogs. From the hiking trails of Papago Park to dedicated facilities like Cosmo Dog Park in nearby Gilbert, the valley is full of options. Meraki Paws N Play is an indoor option that locals love for escaping the summer heat. It is a city that adapts its active lifestyle to the desert environment.",
+        "City laws strictly enforce leash requirements, especially on hiking trails. The desert heat is a major factor; owners must carry water and avoid hiking during midday. Summer paws need protection from hot pavement. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By being heat-aware and responsible, Phoenix dog owners ensure their pets thrive in the desert sun."
+      ],
+    },
+  },
+  {
+    slug: 'ponder-tx',
+    city: 'Ponder',
+    state: 'TX',
+    summary: 'A small rural town in Denton County famous for its bank and ranching roots.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ponder, TX',
+      heroDescription: 'Experience the small-town history and open spaces of Ponder.',
+      longDescription: [
+        "Ponder is a small town with a big history, known for the Ponder State Bank and its ranching heritage. The community is rural and close-knit, with plenty of open land surrounding the town center. While there are no municipal dog parks, the quiet residential streets are fine for walks. It is a place where cowboy culture is still alive and well.",
+        "Town ordinances require dogs to be leashed in public and fully vaccinated. Roaming dogs are discouraged to protect livestock and neighbors. In this setting, a good recall command and a sturdy fence are a dog owner's best friends. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By respecting the rural code of conduct, Ponder residents keep their town safe and friendly."
+      ],
+    },
+  },
+  {
+    slug: 'roanoke-tx',
+    city: 'Roanoke',
+    state: 'TX',
+    summary: 'The "Unique Dining Capital of Texas" offering parks and a vibrant main street.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Roanoke, TX',
+      heroDescription: 'Enjoy the culinary scene and Fairplay Park in Roanoke.',
+      longDescription: [
+        "Roanoke, known as the \"Unique Dining Capital of Texas,\" is a vibrant destination for foodies and families. The updated Fairplay Park offers walking paths and green space near the city center. Residents enjoy a walkable downtown where leashed dogs are often seen strolling Oak Street. It is a fun, energetic community that loves to host visitors.",
+        "City ordinances require dogs to be leashed in public areas outside of any designated zones. Registration and vaccinations are mandatory. As a dining destination, owners walking downtown should be mindful of patio diners and busy sidewalks. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By being courteous guests and residents, Roanoke dog owners add to the charm of their unique city."
+      ],
+    },
+  },
+  {
+    slug: 'ropesville-tx',
+    city: 'Ropesville',
+    state: 'TX',
+    summary: 'A small agricultural community on the South Plains near Lubbock.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ropesville, TX',
+      heroDescription: 'Experience the quiet plains and friendly spirit of Ropesville.',
+      longDescription: [
+        "Ropesville is a classic West Texas farming community where the horizon stretches for miles. The town is small and quiet, with residential streets that offer peaceful walking routes. The open land surrounding the town provides a sense of freedom, though it requires vigilance for pets. It is a place where community ties run deep.",
+        "Local laws require dogs to be under control and vaccinated against rabies. Leashes are expected in public areas to prevent accidents with traffic or farm equipment. The dry, dusty climate means keeping water handy and checking for burrs is part of the daily routine. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By looking out for one another, Ropesville residents keep their town a safe harbor on the plains."
+      ],
+    },
+  },
+  {
+    slug: 'royse-city-tx',
+    city: 'Royse City',
+    state: 'TX',
+    summary: 'A fast-growing city with a historic downtown and new recreational spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Royse City, TX',
+      heroDescription: 'Enjoy the blend of history and new parks in Royse City.',
+      longDescription: [
+        "Royse City is booming, blending its historic Main Street charm with modern suburban amenities. The city's parks, like Walker Hawk Sports Complex, offer walking loops that are popular with dog owners. New developments are including greenbelts, expanding the options for daily exercise. It is a forward-looking community that hasn't forgotten its roots.",
+        "City ordinances require dogs to be leashed in public and prohibited from running at large. Registration and vaccinations are mandatory. As the population grows, being a considerate neighbor by curbing your dog and controlling barking is essential. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on suburban pet safety. By practicing these courtesies, Royse City residents help their community navigate growth gracefully."
+      ],
+    },
+  },
+  {
+    slug: 'sachse-tx',
+    city: 'Sachse',
+    state: 'TX',
+    summary: 'A family-friendly suburb northeast of Dallas known for its community events.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sachse, TX',
+      heroDescription: 'Explore the parks and community trails of Sachse.',
+      longDescription: [
+        "Sachse is a welcoming suburb that prioritizes family life and outdoor activity. Heritage Park is a central gathering spot with walking trails that are perfect for leashed dogs. The community is active, with many residents taking advantage of the safe, clean streets for evening strolls. It is a place where neighbors connect outdoors.",
+        "City laws strictly require dogs to be leashed in all public areas. Pet registration and vaccinations are mandatory. Sachse animal control relies on responsible ownership to keep the city safe, so following leash and waste laws is expected. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By upholding these standards, Sachse dog owners ensure their city remains a pleasant place to call home."
+      ],
+    },
+  },
+  {
+    slug: 'salado-tx',
+    city: 'Salado',
+    state: 'TX',
+    summary: 'An artistic village on Salado Creek known for its history and creativity.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Salado, TX',
+      heroDescription: 'Stroll the artistic streets and creek side trails of Salado.',
+      longDescription: [
+        "Salado is a unique village that blends art, history, and nature. A walk down Main Street offers sights of sculpture gardens and historic buildings, many with dog-friendly outdoor spaces. Pace Park on Salado Creek is a serene spot for a leashed walk near the water. It is a creative haven where pets are often welcomed as part of the family.",
+        "Village ordinances require dogs to be leashed in public areas. Vaccinations must be current. The creek is a sensitive habitat, so owners should keep dogs on trails and pick up waste diligently. When visiting shops or patios, verifying pet policies beforehand is always polite. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By respecting the village's charm, Salado residents and visitors alike keep it a special destination."
+      ],
+    },
+  },
+  {
+    slug: 'san-benito-tx',
+    city: 'San Benito',
+    state: 'TX',
+    summary: 'The "Resaca City" in the Rio Grande Valley known for its musical heritage.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in San Benito, TX',
+      heroDescription: 'Walk along the resaca trails in the musical city of San Benito.',
+      longDescription: [
+        "San Benito, known as the \"Resaca City,\" offers beautiful walking trails along its waterways. The Heavin Memorial Park features a paved trail that follows the resaca, providing a scenic and safe route for dog walking. The community is proud of its cultural heritage, including being the birthplace of Conjunto music. It is a vibrant, culturally rich environment.",
+        "City laws require dogs to be leashed in public parks and fully vaccinated. The tropical climate means heartworm prevention is strictly necessary. The resaca trails are shared with runners and families, so keeping dogs close is important for safety. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on heat safety. By caring for their pets and public spaces, San Benito residents honor their city's unique landscape."
+      ],
+    },
+  },
+  {
+    slug: 'seabrook-tx',
+    city: 'Seabrook',
+    state: 'TX',
+    summary: 'A coastal community on Galveston Bay known for its hike and bike trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Seabrook, TX',
+      heroDescription: 'Explore miles of trails and bay views in Seabrook.',
+      longDescription: [
+        "Seabrook is a paradise for outdoor lovers, boasting over ten miles of hike and bike trails connecting parks and the waterfront. The Monroe Field Splash Pad and Dog Park in nearby Kemah offer off-leash fun, while Seabrook's own trails are perfect for leashed adventures. The community is deeply connected to nature and birdwatching. It is a scenic, active place to live.",
+        "City ordinances require dogs to be leashed on all trails and in parks. Registration and vaccinations are mandatory. The area is a bird sanctuary, so preventing dogs from chasing wildlife is a critical responsibility. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By sharing the trails responsibly, Seabrook dog owners ensure their city remains a haven for nature enthusiasts."
+      ],
+    },
+  },
+  {
+    slug: 'selma-tx',
+    city: 'Selma',
+    state: 'TX',
+    summary: 'A historic city along the I-35 corridor adjacent to San Antonio.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Selma, TX',
+      heroDescription: 'Enjoy the parks and history of the Selma area.',
+      longDescription: [
+        "Selma has grown from a stagecoach stop to a bustling city while retaining its historic Harrison House. The city's Stage Stop Park provides a community gathering space with playgrounds and walking paths suitable for dogs. It is a practical, well-connected community that values its history and convenient location. Residents appreciate the blend of old and new.",
+        "City ordinances require dogs to be leashed in public areas outside of any designated off-leash zones. Rabies vaccinations and city registration are mandatory. As a busy corridor, keeping dogs secure and away from traffic is a primary safety concern. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By practicing responsible ownership, Selma residents keep their growing city safe and friendly."
+      ],
+    },
+  },
+  {
+    slug: 'south-houston-tx',
+    city: 'South Houston',
+    state: 'TX',
+    summary: 'An industrial and residential city with a strong working-class spirit.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Houston, TX',
+      heroDescription: 'Discover the community parks of South Houston.',
+      longDescription: [
+        "South Houston is a resilient community known as the \"City of Dumplings\" within the metro area. Its local parks, like Avenue A Park, offer green space for families and leashed pets to get outdoors. The city is a mix of industry and neighborhoods, with a close-knit population. It provides affordable living with access to the greater Houston amenities.",
+        "Harris County and city laws strictly enforce leash requirements. All pets must be licensed and vaccinated. Given the urban/industrial mix, owners should be careful about where they walk to ensure safe footing (avoiding hot pavement or debris). Discover venues that combine off-leash play with social beverages in our [dog bar directory](https://www.indoordogpark.org/parks-with-bars). By keeping pets safe, South Houston residents demonstrate their community pride."
+      ],
+    },
+  },
+  {
+    slug: 'south-padre-island-tx',
+    city: 'South Padre Island',
+    state: 'TX',
+    summary: 'A premier beach destination offering sun, sand, and pet-friendly shores.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Padre Island, TX',
+      heroDescription: 'Run on the beach and enjoy the island life in South Padre.',
+      longDescription: [
+        "South Padre Island is a dream destination for water-loving dogs. Leashed pets are welcome on the miles of sandy beaches year-round. The island also features a dedicated dog park at the South Padre Island Convention Centre, offering a grassy respite from the sand. It is a laid-back, vacation-vibes community where every day feels like a getaway.",
+        "City ordinances require dogs to be leashed on the beach and in public areas. Owners must pick up waste immediately to keep the beaches pristine. Sun safety is key here; ample water and paw protection from hot sand are necessary. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By protecting the beach environment, South Padre residents and visitors keep the island beautiful for everyone."
+      ],
+    },
+  },
+  {
+    slug: 'south-pasadena-tx',
+    city: 'South Pasadena',
+    state: 'FL',
+    summary: 'A waterfront community in Pinellas County, FL (mapped from regional data).',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Pasadena, FL',
+      heroDescription: 'Enjoy the tropical waterfront and parks of South Pasadena.',
+      longDescription: [
+        "South Pasadena is a charming waterfront community located near St. Pete Beach. Residents enjoy scenic walks along the intercoastal waterways and in local parks like Galatea Garden. The Pasadena Pet Motel is a local institution loved by pet parents for its care. The vibe is relaxed and tropical, with a strong appreciation for the outdoors.",
+        "City ordinances require dogs to be leashed in all public areas. Vaccinations and county registration are mandatory. The proximity to water means owners should be aware of marine life and keep pets out of canals for safety. owners looking to sharpen obedience skills can find top-rated local experts in our [training guide](https://www.indoordogpark.org/training-facilities). By respecting the local habitat, South Pasadena residents keep their tropical paradise safe and enjoyable."
+      ],
+    },
+  },
+  {
+    slug: 'southlake-tx',
+    city: 'Southlake',
+    state: 'TX',
+    summary: 'An affluent city known for its Town Square and Bob Jones Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Southlake, TX',
+      heroDescription: 'Experience the luxury and nature trails of Southlake.',
+      longDescription: [
+        "Southlake is synonymous with upscale living and exceptional community planning. Bob Jones Park is a regional draw, featuring the sprawling Boo Boo's Buddies Dog Park and access to miles of wooded trails. Southlake Town Square is a walkable hub where leashed dogs are often welcome on patios. It is a city that demands quality in everything, including pet amenities.",
+        "City ordinances strictly enforce leash laws outside dedicated dog park zones. Registration is encouraged. The dog park requires a pass for non-residents, ensuring a well-maintained and safe environment. The community is highly active, and trail etiquette is strictly observed. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on social outings. By upholding these high standards, Southlake dog owners contribute to their city's pristine reputation."
+      ],
+    },
+  },
+  {
+    slug: 'spicewood-tx',
+    city: 'Spicewood',
+    state: 'TX',
+    summary: 'A Hill Country community near Lake Travis known for its natural beauty.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Spicewood, TX',
+      heroDescription: 'Enjoy the rolling hills and lake views of Spicewood.',
+      longDescription: [
+        "Spicewood offers quintessential Hill Country living with access to the upper reaches of Lake Travis. Muleshoe Bend Recreation Area is a favorite for camping and hiking with dogs, offering miles of trails through bluebonnet fields in spring. The community is spread out and relaxed, perfect for nature lovers. It is a place to unplug and enjoy the view.",
+        "Local laws require dogs to be under control and vaccinated. Leashing is required in LCRA parks like Muleshoe Bend to protect wildlife and other visitors. The rugged terrain means sturdy paws and water are essential for hikes. Need specific advice or have a suggestion? Feel free to [contact our team](https://www.indoordogpark.org/contact) directly. By preserving the natural landscape, Spicewood residents keep their home a scenic retreat."
+      ],
+    },
+  },
+  {
+    slug: 'spring-tx',
+    city: 'Spring',
+    state: 'TX',
+    summary: 'A large census-designated place north of Houston with Old Town charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Spring, TX',
+      heroDescription: 'Discover Old Town Spring and the massive Pundt Park.',
+      longDescription: [
+        "Spring is a diverse area that ranges from the historic shops of Old Town Spring to modern suburbs. Pundt Park is a major asset, offering a large dog park and access to the Spring Creek Greenway's miles of trails. Old Town is a fun destination for walking leashed dogs and browsing pet-friendly shops. It is a community that successfully blends the old with the new.",
+        "Harris County leash laws are strictly enforced. All pets must be licensed and vaccinated. The Spring Creek Greenway allows for long hikes, so owners should be prepared with water and waste bags. The dog park at Pundt Park is popular, so supervision is key. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By being responsible stewards, Spring dog owners help keep their community vibrant and green."
+      ],
+    },
+  },
+  {
+    slug: 'spur-loop-tx',
+    city: 'Spur Loop',
+    state: 'TX',
+    summary: 'A reference to the communities along the loop roads, likely near major interchanges.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks near Spur Loop',
+      heroDescription: 'Find convenient parks and walking paths near the Spur.',
+      longDescription: [
+        "The Spur Loop area typically refers to the accessible corridors connecting neighborhoods. In many Texas towns, these areas offer pocket parks and easy access to walking trails. Residents here value convenience and connectivity. While often busy with traffic, the adjacent residential areas provide quiet streets for daily dog walks.",
+        "City and county ordinances in these areas require dogs to be leashed for safety near roadways. Vaccinations must be current. Owners should be vigilant about traffic and use crosswalks when navigating near the loop. know a great spot that's missing? Help the community grow by [submitting a park](https://www.indoordogpark.org/list-your-park). By prioritizing safety, residents in these corridors maintain a livable, connected environment."
+      ],
+    },
+  },
+  {
+    slug: 'sugar-land-tx',
+    city: 'Sugar Land',
+    state: 'TX',
+    summary: 'An affluent, master-planned city southwest of Houston known for Memorial Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sugar Land, TX',
+      heroDescription: 'Enjoy the lakes and Pawm Springs Dog Park in Sugar Land.',
+      longDescription: [
+        "Sugar Land is an award-winning community known for its safety and beauty. The Pawm Springs Dog Park at Memorial Park is a tropical-themed facility with a swimming pond and agility course. The city's extensive trail network connects neighborhoods to lakes and parks. It is a premier destination for dogs who enjoy the finer things in life.",
+        "City ordinances strictly enforce leash laws in all areas outside the dog park. Registration and vaccinations are mandatory. Pawm Springs has specific rules to ensure safety, including limits on the number of dogs per person. residents often turn to our [owner resources](https://www.indoordogpark.org/owner-resources) for tips on park safety. By adhering to these high standards, Sugar Land dog owners contribute to one of the best living environments in Texas."
+      ],
+    },
+  },
+  {
+    slug: 'universal-city-tx',
+    city: 'Universal City',
+    state: 'TX',
+    summary: 'A city adjacent to Randolph AFB known for its parks and military support.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Universal City, TX',
+      heroDescription: 'Explore the Universal City Dog Park and local green spaces.',
+      longDescription: [
+        "Universal City is a patriotic community that borders Randolph Air Force Base. The Universal City Dog Park is a well-loved facility with shaded areas and separate runs for different sizes. Red Horse Park offers additional walking paths for leashed exercise. The city is welcoming and supportive, with a strong sense of service.",
+        "City ordinances require dogs to be leashed in public and prohibited from running at large. Current vaccinations and registration are mandatory. The dog park community is active and self-policing, ensuring a clean and safe environment for all. Curious about how our directory verifies listings? Learn more about our process on the [How It Works](https://www.indoordogpark.org/how-it-works) page. By following the rules, Universal City residents maintain a top-notch recreation area for their pets."
+      ],
+    },
+  },
+  {
+    slug: 'apex-nc',
+    city: 'Apex',
+    state: 'NC',
+    featuredImage: '/images/cities/apex-nc/hero.png',
+    summary:
+      'The "Peak of Good Living" lives up to its name for dogs, featuring pass-access parks like Hunter Street and extensive greenway connections.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Peak of Good Living',
+      heroHeading: 'Dog-Friendly Apex',
+      heroDescription:
+        'Consistently ranked as one of the best places to live, Apex extends that quality of life to its canine residents. With top-tier facilities like the Nature Park and Hunter Street Dog Park, plus the scenic Beaver Creek Greenway, active pups have plenty of room to roam.',
+      heroPill: 'Top Rated Community',
+      heroFootnotes: ['Access-controlled parks', 'Greenway network', 'Small-town charm'],
+      heroChips: [
+        { label: 'Dog Parks', value: '2+' },
+        { label: 'Greenway Miles', value: '10+' },
+      ],
+      insightIntro:
+        'Apex balances small-town charm with modern amenities. The town’s dog parks require registration, ensuring a safe and regulated environment for play.',
+      insightCards: [
+        {
+          tag: 'Safety First',
+          title: 'Registered Parks',
+          copy: 'Access to Apex dog parks requires a pass and proof of vaccination, creating a safer, more accountable community for off-leash play.',
+          accent: true,
+        },
+        {
+          tag: 'Nature',
+          title: 'Beaver Creek Greenway',
+          copy: 'For on-leash adventures, this greenway offers miles of paved path through wetlands and woods, perfect for varied sniff-walks.',
+        },
+        {
+          tag: 'Community',
+          title: 'Downtown Apex',
+          copy: 'Historic Salem Street is the heart of the town, where leashed dogs are often welcome at outdoor patio events and festivals.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-card-checklist',
+          title: 'Get your pass',
+          items: ['Visit the community center', 'Bring vaccination records', 'Receive your key fob for park entry'],
+        },
+        {
+          icon: 'bi-tree',
+          title: 'Explore nature',
+          items: ['Apex Nature Park trails', 'Salem Pond Park loop', 'Kelly Road Park playground'],
+        },
+        {
+          icon: 'bi-shop',
+          title: 'Visit downtown',
+          items: ['Weekend farmers market', 'Pet-friendly patio dining', 'Holiday parades with pets'],
+        },
+      ],
+      faqs: apexFaqs,
+      faqSupportCard: {
+        kicker: 'Apex locals',
+        title: 'Join the pack',
+        description: 'Connect with the active Apex dog owner community through local meetups and park events.',
+        primary: { label: 'Park Details', href: '/parks' },
+        secondary: { label: 'Contact Us', href: '/contact' },
+        footnote: 'Registration ensures a safe play experience.',
+      },
+      ownerCta: {
+        kicker: 'Business owners',
+        title: 'Reach Apex pet parents',
+        description:
+          'Apex’s growing family demographic is perfect for pet services. List your grooming salon, training center, or bakery with us.',
+        primary: { label: 'List your business', href: '/owner-resources' },
+        secondary: { label: 'Partner info', href: '/contact' },
+        footnote: 'Connect with a highly engaged local audience.',
+      },
+      longDescription: [
+        'Apex, North Carolina, often celebrated as the "Peak of Good Living," offers a fantastic environment for dogs and their owners. The town has invested significantly in high-quality recreational facilities, including two premier off-leash areas: the Dog Park at Apex Nature Park and the Hunter Street Dog Park. Unlike open-access parks, these facilities operate on a pass system, which helps ensure that all visiting dogs are vaccinated and registered. This added layer of safety makes Apex a preferred destination for owners who value a controlled and well-maintained play environment. The Apex Nature Park, in particular, combines the dog park experience with surrounding [nature trails](https://www.apexcp.org), allowing for a mix of socialization and wooded exploration.',
+        'Beyond the fenced parks, Apex boasts an impressive network of greenways, most notably the Beaver Creek Greenway. This paved trail winds through scenic wetlands and forests, providing miles of shaded, safe walking paths away from busy roads. The historic downtown area along Salem Street adds another dimension to the dog-friendly culture, with moderate foot traffic and pet-welcoming patios that make it easy to include your dog in a Saturday morning coffee run or an evening stroll. With strict but fair leash laws and a community that prioritizes safety and cleanliness, Apex stands out as a model for [suburban pet-friendly living](https://www.indoordogpark.org/) in the Triangle area.'
+      ],
+    },
+  },
+  {
+    slug: 'cary-nc',
+    city: 'Cary',
+    state: 'NC',
+    featuredImage: '/images/cities/cary-nc/hero.png',
+    summary:
+      'The "Greenway Capital" offers over 80 miles of trails and premium facilities like The Barkyard, setting a high standard for suburban dog amenities.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Greenway Capital',
+      heroHeading: 'Premier Play in Cary',
+      heroDescription:
+        'Cary sets the standard for recreational infrastructure. With the stunning Barkyard at Downtown Cary Park and over 80 miles of connected greenways, it is a paradise for active dogs.',
+      heroPill: 'Top Tier Amenities',
+      heroFootnotes: ['The Barkyard', '80+ miles of trails', 'Pass-required parks'],
+      heroChips: [
+        { label: 'Greenway Miles', value: '80+' },
+        { label: 'Dog Parks', value: '3' },
+      ],
+      insightIntro:
+        'Cary is renowned for its meticulous planning and high-quality amenities. The dog parks are well-maintained social hubs, and the greenway system is second to none.',
+      insightCards: [
+        {
+          tag: 'Urban Oasis',
+          title: 'The Barkyard',
+          copy: 'Located in the new Downtown Cary Park, this facility offers an urban play experience with agility features and a social atmosphere.',
+          accent: true,
+        },
+        {
+          tag: 'Connectivity',
+          title: 'Greenway Network',
+          copy: 'The Black Creek and White Oak Creek greenways allow you to walk for miles, connecting parks and neighborhoods seamlessly.',
+        },
+        {
+          tag: 'Variety',
+          title: 'Godbold & Jack Smith',
+          copy: 'These parks offer more traditional, spacious off-leash experiences with separate areas for size and energy levels.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-pass',
+          title: 'Membership needed',
+          items: ['Annual passes available', 'Day passes for visitors', 'RecTrac ID card required'],
+        },
+        {
+          icon: 'bi-map',
+          title: 'Map your walk',
+          items: ['Download the Bike & Hike map', 'Plan for water breaks', 'Check trail closures'],
+        },
+        {
+          icon: 'bi-sun',
+          title: 'Summer safety',
+          items: ['Greenways are paved (hot paws)', 'Utilize shaded trail sections', 'Morning walks are best'],
+        },
+      ],
+      faqs: caryFaqs,
+      faqSupportCard: {
+        kicker: 'Cary residents',
+        title: 'Get active',
+        description: 'Explore the vast trail network or join a meetup group at The Barkyard.',
+        primary: { label: 'View Trail Map', href: '/trails' },
+        secondary: { label: 'Park Rules', href: '/rules' },
+        footnote: 'A pass is your ticket to off-leash fun.',
+      },
+      ownerCta: {
+        kicker: 'Local businesses',
+        title: 'Serve the Cary community',
+        description:
+          'Cary dog owners demand quality. Advertise your premium pet services to this discerning audience.',
+        primary: { label: 'Advertising info', href: '/owner-resources' },
+        secondary: { label: 'Contact us', href: '/contact' },
+        footnote: 'Reach households that prioritize pet wellness.',
+      },
+      longDescription: [
+        'Cary, North Carolina, is widely recognized as one of the most dog-friendly towns in the Southeast, primarily due to its incredible infrastructure. Known as the "Greenway Capital of North Carolina," Cary maintains [over 80 miles of paved trails](https://www.carync.gov/recreation-enjoyment/parks-greenways-environment/greenways) that weave through neighborhoods, parks, and shopping districts. Trails like the Black Creek Greenway and White Oak Creek Greenway offer virtually endless opportunities for on-leash exercise, allowing you and your pup to explore miles of terrain without ever crossing a major road. This connectivity fosters a highly active dog-walking culture, where seeing neighbors out with their pets is a constant feature of daily life.',
+        'In addition to its trails, Cary offers exceptional off-leash facilities. The crown jewel is The Barkyard at Downtown Cary Park, a beautifully designed urban space that integrates seamlessly with the surrounding park and social scene. For those seeking more traditional open play, Robert V. Godbold Park and Jack Smith Park providing fenced, secure environments with separate small and large dog areas. Like neighboring Apex, Cary utilizes a pass system for its dog parks to ensure safety and accountability. Whether you are looking for a rigorous hike on the greenway or a social hour at the Barkyard, Cary provides a premium, well-maintained backdrop for [every canine activity](https://www.indoordogpark.org/training-facilities).'
+      ],
+    },
+  },
+  {
+    slug: 'chapel-hill-nc',
+    city: 'Chapel Hill',
+    state: 'NC',
+    featuredImage: '/images/cities/chapel-hill-nc/hero.png',
+    summary:
+      'The "Southern Part of Heaven" creates a welcoming vibe for dogs with college-town walkability, wooded trails like Bolin Creek, and great community parks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Southern Part of Heaven',
+      heroHeading: 'Chapel Hill Canines',
+      heroDescription:
+        'Home to UNC, Chapel Hill offers a vibrant, walkable community for dogs. From the trails of Bolin Creek to the energy of Franklin Street, there is a youthful and active spirit here.',
+      heroPill: 'University Town',
+      heroFootnotes: ['Homestead Park', 'Bolin Creek Trail', 'Franklin St Patios'],
+      heroChips: [
+        { label: 'Dog Parks', value: '2' },
+        { label: 'Trail Miles', value: '15+' },
+      ],
+      insightIntro:
+        'Chapel Hill combines the energy of a college town with the serenity of the Piedmont woods. It is a place where you can hike a creek trail in the morning and dine on a patio in the evening.',
+      insightCards: [
+        {
+          tag: ' Recreation',
+          title: 'Homestead Park',
+          copy: 'A favorite local spot with a dedicated dog park, skate park, and aquatic center, making it a hub for family activity.',
+          accent: true,
+        },
+        {
+          tag: 'Adventure',
+          title: 'Bolin Creek Trail',
+          copy: 'This paved and natural surface trail runs along the creek, offering a cool, shaded escape for hot summer days.',
+        },
+        {
+          tag: 'Social',
+          title: 'Southern Community Park',
+          copy: 'Another excellent dog park location that also features walking trails and pavilions for a full day out.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-mortarboard',
+          title: 'Campus walks',
+          items: ['Leashed dogs welcome', 'Busy during class changes', 'Iconic Photo ops'],
+        },
+        {
+          icon: 'bi-cup',
+          title: 'Franklin Street',
+          items: ['Many dog-friendly patios', 'Water bowls often provided', 'Great for people watching'],
+        },
+        {
+          icon: 'bi-sign-stop',
+          title: 'Leash laws',
+          items: ['Strictly enforced', 'Orange County rules apply', 'Maximum 6-foot leash'],
+        },
+      ],
+      faqs: chapelHillFaqs,
+      faqSupportCard: {
+        kicker: 'Students & Locals',
+        title: 'Find your spot',
+        description: 'Discover the best study-break spots to take your pup for a quick play session.',
+        primary: { label: 'Park Locator', href: '/locations' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Join the Tar Heel dog community.',
+      },
+      ownerCta: {
+        kicker: 'Pet professionals',
+        title: 'Connect in Chapel Hill',
+        description:
+          'From student dog walkers to premium vet clinics, there is a huge market here. List your services today.',
+        primary: { label: 'Get Listed', href: '/owner-resources' },
+        secondary: { label: 'Contact Support', href: '/contact' },
+        footnote: 'Serve a diverse and educated pet owner base.',
+      },
+      longDescription: [
+        'Chapel Hill, famously known as the "Southern Part of Heaven," extends its welcoming atmosphere to our four-legged friends. Dominated by the University of North Carolina, the town has a vibrant, pedestrian-friendly energy that makes dog walking a delight. [Franklin Street](https://www.visitchapelhill.org), the cultural hub, is lined with businesses that often put out water bowls, and many restaurant patios are happy to host well-behaved dogs. It is the perfect place for social pups who enjoy the hustle and bustle of a college town environment, provided they are comfortable with crowds and new faces.',
+        'Away from the downtown buzz, Chapel Hill offers serene escapes into nature. The Bolin Creek Trail is a local treasure, providing a paved, shaded route that follows the creek bed, offering a cool retreat even in the humid summer months. For off-leash time, Homestead Park and Southern Community Park provide [excellent, fenced facilities](https://www.indoordogpark.org/training-facilities) where dogs can run freely. The town’s topography—rolling hills and wooded lots—makes for interesting and active walks just about anywhere you go. With a community that deeply values outdoor recreation and green space, Chapel Hill creates a harmonious balance between urban walkability and natural retreat.'
+      ],
+    },
+  },
+  {
+    slug: 'concord-nc',
+    city: 'Concord',
+    state: 'NC',
+    featuredImage: '/images/cities/concord-nc/hero.png',
+    summary:
+      'Fast-growing and fun, Concord offers the massive Weddington Road Bark Park and the scenic Hector Henry Greenway near the legendary Speedway.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Fast-Paced Fun',
+      heroHeading: 'Concord Canines',
+      heroDescription:
+        'Concord is more than just racing; it is a booming city with a heart for pets. Weddington Road Bark Park is a flagship facility, and the expanding greenway system connects a community on the move.',
+      heroPill: 'Parks & Recreation',
+      heroFootnotes: ['Weddington Bark Park', 'Frank Liske Park', 'Historic Downtown'],
+      heroChips: [
+        { label: 'Dog Parks', value: '2' },
+        { label: 'Greenway Access', value: 'Yes' },
+      ],
+      insightIntro:
+        'As Concord grows, so do its amenities. The city has preserved green space effectively, offering large parks like Frank Liske where leashed walks are a daily ritual.',
+      insightCards: [
+        {
+          tag: 'Flagship Park',
+          title: 'Weddington Bark Park',
+          copy: 'A dedicated facility with generous space for large and small dogs to sprint, socialize, and play.',
+          accent: true,
+        },
+        {
+          tag: 'Recreation',
+          title: 'Frank Liske Park',
+          copy: 'A massive park with a lake, walking trails, and a smaller dog run. Perfect for a family picnic with the pup.',
+        },
+        {
+          tag: 'Walking',
+          title: 'Hector Henry Greenway',
+          copy: 'A scenic paved trail that offers a safe, traffic-free route for daily exercise and exploration.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-flag-fill',
+          title: 'Race days',
+          items: ['Traffic increases significantly', 'Noise levels can be high', 'Plan walks accordingly'],
+        },
+        {
+          icon: 'bi-tree-fill',
+          title: 'Park etiquette',
+          items: ['Pick up after your pet', 'Respect leash zones', 'Carry water in summer'],
+        },
+        {
+          icon: 'bi-building',
+          title: 'Downtown strolls',
+          items: ['Historic streetscape', 'Dog-friendly shop owners', 'Weekend events'],
+        },
+      ],
+      faqs: concordFaqs,
+      faqSupportCard: {
+        kicker: 'New residents',
+        title: 'Welcome to Concord',
+        description: 'Find the best vets, groomers, and parks in one of NC’s fastest-growing cities.',
+        primary: { label: 'City Guide', href: '/cities' },
+        secondary: { label: 'Newsletter', href: '/newsletter' },
+        footnote: 'Everything you need to settle in.',
+      },
+      ownerCta: {
+        kicker: 'Service providers',
+        title: 'Grow with Concord',
+        description:
+          'As new families move in, the demand for pet services is sky-high. Claim your spot in our directory.',
+        primary: { label: 'Add your business', href: '/owner-resources' },
+        secondary: { label: 'Marketing tips', href: '/tips' },
+        footnote: 'Target a rapidly expanding market.',
+      },
+      longDescription: [
+        'Concord, North Carolina, known globally for the Charlotte Motor Speedway, plays a much quieter but equally impressive game when it comes to pet amenities. The city has embraced its rapid growth by ensuring green spaces remain a priority. The [Weddington Road Bark Park](https://www.cabarruscounty.us/Government/Departments/Parks/Weddington-Road-Bark-Park) is the standout facility here, offering separate, spacious paddocks for large and small dogs. It is a social hub where regulars meet to let their dogs burn off steam. Additionally, Frank Liske Park, a former farm turned massive recreational complex, offers a diverse landscape of walking trails, a fishing lake, and ample open space for leashed exploration.',
+        'The city is also developing its greenway infrastructure, with the Hector H. Henry II Greenway providing a prime example of its commitment to walkability. This trail offers a safe, paved corridor through nature, perfect for avoiding traffic while getting in a few miles. Downtown Concord retains a historic charm that invites leisurely strolls, with wide sidewalks and storefronts that often welcome four-legged visitors. While race weeks bring a roar to the area, the day-to-day life in Concord is one of parks, trails, and a family-friendly atmosphere that places a high value on including [pets in the fun](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'fuquay-varina-nc',
+    city: 'Fuquay-Varina',
+    state: 'NC',
+    featuredImage: '/images/cities/fuquay-varina-nc/hero.png',
+    summary:
+      'With two downtowns and an 8-acre dog park, Fuquay-Varina offers "A Dash More" for dogs, including free access to one of the region’s largest play spaces.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'A Dash More',
+      heroHeading: 'Fuquay-Varina Fun',
+      heroDescription:
+        'Famous for having two downtown districts, giving you double the places to explore. The crown jewel is the 8-acre Downtown Dog Park, a free facility that draws pups from miles around.',
+      heroPill: 'Massive Dog Park',
+      heroFootnotes: ['8-Acre Off-Leash Park', 'Two Historic Districts', 'Aviator Brewing'],
+      heroChips: [
+        { label: 'Park Acres', value: '8' },
+        { label: 'Downtowns', value: '2' },
+      ],
+      insightIntro:
+        'Why have one downtown when you can have two? Fuquay-Varina’s unique dual-district layout offers varied walking routes, but the real star is the massive public dog park.',
+      insightCards: [
+        {
+          tag: 'Must Visit',
+          title: 'Downtown Dog Park',
+          copy: 'An 8-acre facility (huge by any standard) that is free to the public. It is a social center for the entire town.',
+          accent: true,
+        },
+        {
+          tag: 'Nature',
+          title: 'Carroll Howard Johnson',
+          copy: 'Home to the Jeff Wells Trail, this park offers nature trails and bridges for a peaceful, wooded walk.',
+        },
+        {
+          tag: 'Social',
+          title: 'Brewery Scene',
+          copy: 'With spots like Aviator Brewing, the town has a strong patio culture where dogs are part of the family.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-arrows-angle-expand',
+          title: 'Room to run',
+          items: ['8 acres of space', 'Bring tennis balls', 'Water is provided'],
+        },
+        {
+          icon: 'bi-geo-alt',
+          title: 'Two districts',
+          items: ['Fuquay District', 'Varina District', 'Connected by history'],
+        },
+        {
+          icon: 'bi-droplet',
+          title: 'Stay hydrated',
+          items: ['NC summers are hot', 'Misting stations at park', 'Carry a travel bowl'],
+        },
+      ],
+      faqs: fuquayVarinaFaqs,
+      faqSupportCard: {
+        kicker: 'Community',
+        title: 'Get involved',
+        description: 'Volunteer at the park or join a local walking group.',
+        primary: { label: 'Community Info', href: '/community' },
+        secondary: { label: 'Events Cal', href: '/events' },
+        footnote: 'A tight-knit dog loving town.',
+      },
+      ownerCta: {
+        kicker: 'Entrepreneurs',
+        title: 'Open in Fuquay-Varina',
+        description:
+          'A booming population means booming opportunity. Start your pet business here.',
+        primary: { label: 'Market Data', href: '/owner-resources' },
+        secondary: { label: 'List Business', href: '/contact' },
+        footnote: 'Join a supportive business community.',
+      },
+      longDescription: [
+        'Fuquay-Varina offers a unique "two-for-one" deal with its dual downtown districts, but for dog owners, the real headline is the [Fuquay-Varina Downtown Dog Park](https://www.fuquay-varina.org/406/Dog-Park). Spanning a massive 8 acres, this facility is one of the largest public dog parks in the Triangle region. Unlike many neighboring towns that charge membership fees, this park is free to the public, making it an incredibly accessible community hub. The sheer size allows for genuine sprinting and ball-chasing without the feeling of overcrowding that can plague smaller urban parks. It is a place where dogs can truly stretch their legs and owners can socialize in a relaxed setting.',
+        'Beyond the dog park, the town’s charm lies in its walkability and friendly atmosphere. The Carroll Howard Johnson Environmental Park provides wooded nature trails that feel miles away from the city, offering a quiet respite for contemplative walks. The brewery culture in town, led by staples like Aviator Brewing Company, is distinctly pet-friendly, with large outdoor spaces that welcome leashed dogs. Whether you are hopping between the Fuquay and Varina districts or spending the afternoon tired out at the dog park, this town offers a welcoming, unpretentious vibe that [dog owners love](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'gastonia-nc',
+    city: 'Gastonia',
+    state: 'NC',
+    featuredImage: '/images/cities/gastonia-nc/hero.png',
+    summary:
+      'The gateway to Crowders Mountain offers serious hiking for active dogs and urban convenience with the Bradley Station Dog Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Gateway to Adventure',
+      heroHeading: 'Gastonia Getaways',
+      heroDescription:
+        'Gastonia puts you at the doorstep of real adventure. With Crowders Mountain State Park minutes away, it is the perfect base camp for hiking dogs, while the city itself offers great parks and greenways.',
+      heroPill: 'Hiking Hub',
+      heroFootnotes: ['Crowders Mountain', 'Bradley Station Park', 'Avon Creek Greenway'],
+      heroChips: [
+        { label: 'State Park', value: '1' },
+        { label: 'Dog Parks', value: '2' },
+      ],
+      insightIntro:
+        'If your dog loves the trail, Gastonia is the place. The access to rugged terrain at Crowders Mountain is unmatched, but the city also provides polished urban parks for daily use.',
+      insightCards: [
+        {
+          tag: 'Adventure',
+          title: 'Crowders Mountain',
+          copy: 'Challenging hikes with rewarding views. A destination for fit dogs and owners who want a workout.',
+          accent: true,
+        },
+        {
+          tag: 'Urban Play',
+          title: 'Bradley Station',
+          copy: 'A convenient downtown dog park for a quick release of energy during the work week.',
+        },
+        {
+          tag: 'Stroll',
+          title: 'Avon Creek Greenway',
+          copy: 'A peaceful paved trail that winds through the city, perfect for a low-impact daily walk.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-image-alt',
+          title: 'Mountain views',
+          items: ['Leash required on trails', 'Bring ample water', 'Check trail difficulty'],
+        },
+        {
+          icon: 'bi-gem',
+          title: 'Hidden gems',
+          items: ['Rankin Lake Park', 'Lineberger Park', 'Goat Island (nearby)'],
+        },
+        {
+          icon: 'bi-shield-check',
+          title: 'Safety',
+          items: ['Watch for ticks in woods', 'Keep paws cool in summer', 'Carry first aid on hikes'],
+        },
+      ],
+      faqs: gastoniaFaqs,
+      faqSupportCard: {
+        kicker: 'Explorers',
+        title: 'Trail guide',
+        description: 'Find the best routes for your dog’s fitness level.',
+        primary: { label: 'Hiking Guide', href: '/hiking' },
+        secondary: { label: 'Park Map', href: '/cities' },
+        footnote: 'Adventure awaits just outside town.',
+      },
+      ownerCta: {
+        kicker: 'Vets & Trainers',
+        title: 'Support active dogs',
+        description:
+          'Active dogs need care. Promote your orthopedic or rehab services to hiking enthusiasts.',
+        primary: { label: 'Join Directory', href: '/owner-resources' },
+        secondary: { label: 'Contact Us', href: '/contact' },
+        footnote: 'Reach a targeted audience of active owners.',
+      },
+      longDescription: [
+        'Gastonia, North Carolina, serves as the perfect launchpad for dogs with an adventurous spirit. Dominating the landscape is [Crowders Mountain State Park](https://www.ncparks.gov/state-parks/crowders-mountain-state-park), a premier hiking destination that offers challenging trails and breathtaking views. For dog owners who love to hike, this is an invaluable resource right in their backyard. The trails vary in difficulty, allowing for everything from a strenuous summit climb to a pleasant woodland walk. It demands a leash, but the sensory experience for a dog—new scents, wildlife, and terrain—is unbeatable.',
+        'Within the city limits, Gastonia has modernized its pet amenities with facilities like the Bradley Station Dog Park. Located near the historic downtown, it provides a convenient, fenced space for urban residents to let their dogs play. The Avon Creek Greenway offers a more linear experience, connecting neighborhoods with green corridors ideal for daily leashed walks. The revitalization of the FUSE District is also bringing new energy to the town, with more pedestrian-friendly spaces emerging. Whether you are scaling a mountain peak or just enjoying a quiet evening at the park, Gastonia offers a diverse range of [experiences for you and your pet](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'greenville-nc',
+    city: 'Greenville',
+    state: 'NC',
+    featuredImage: '/images/cities/greenville-nc/hero.png',
+    summary:
+      'The "Emerald City" shines with the Tar River Greenway and the Greenville Off-Leash Dog Park, offering riverside beauty and active play.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Emerald City',
+      heroHeading: 'Greenville Greenways',
+      heroDescription:
+        'Greenville embraces its riverfront location. The Tar River Greenway is a scenic highlight, and the dedicated off-leash park ensures that dogs have a safe place to socialize.',
+      heroPill: 'Riverfront Living',
+      heroFootnotes: ['Tar River Greenway', 'Off-Leash Park', 'River Park North'],
+      heroChips: [
+        { label: 'Greenway Miles', value: '9+' },
+        { label: 'Waterfront', value: 'Yes' },
+      ],
+      insightIntro:
+        'Greenville is defined by the Tar River and East Carolina University. This combination creates a youthful, active city with excellent linear parks and recreational spaces.',
+      insightCards: [
+        {
+          tag: 'Scenic',
+          title: 'Tar River Greenway',
+          copy: 'A beautiful paved path running alongside the river. It is the signature walk in the city.',
+          accent: true,
+        },
+        {
+          tag: 'Play',
+          title: 'Off-Leash Dog Park',
+          copy: 'A designated space for freedom and fun, featuring separate areas for different sized dogs.',
+        },
+        {
+          tag: 'Nature',
+          title: 'River Park North',
+          copy: 'Just across the river, offering extensive hiking trails and fishing ponds for a nature immersive day.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-water',
+          title: 'River safety',
+          items: ['Keep dogs on leash near water', 'Watch for wildlife', 'No swimming in strong currents'],
+        },
+        {
+          icon: 'bi-basket',
+          title: 'Picnic time',
+          items: ['Town Common is great', 'Bring a blanket', 'Clean up crumbs'],
+        },
+        {
+          icon: 'bi-people',
+          title: 'Student vibes',
+          items: ['Campus is walkable', 'Avoid game day crowds', 'Enjoy the energy'],
+        },
+      ],
+      faqs: greenvilleFaqs,
+      faqSupportCard: {
+        kicker: 'ECU Community',
+        title: 'Student life with pets',
+        description: 'Tips for keeping a dog happy in a college town apartment.',
+        primary: { label: 'Student Guide', href: '/students' },
+        secondary: { label: 'Local Vets', href: '/vets' },
+        footnote: 'Go Pirates! (Responsibly)',
+      },
+      ownerCta: {
+        kicker: 'Local services',
+        title: 'Reach the Emerald City',
+        description:
+          'From student housing to family homes, Greenville loves pets. Market your business here.',
+        primary: { label: 'List Business', href: '/owner-resources' },
+        secondary: { label: 'Contact Us', href: '/contact' },
+        footnote: 'Connect with Pirate Nation rights.',
+      },
+      longDescription: [
+        'Greenville, North Carolina, widely known as the "Emerald City," offers a lush, green environment that is perfect for dog owners. The centerpiece of the city’s recreational life is the [Tar River Greenway](https://www.greenvillenc.gov/government/recreation-parks/tar-river-greenway), a scenic paved trail that meanders along the riverbank. It provides a peaceful, traffic-free route for long walks, allowing dogs to sniff the river breeze while owners enjoy the views. It connects major assets like the Town Common and the university area, making it a functional commuter route as well as a leisure destination.',
+        'For off-leash fun, the Greenville Off-Leash Dog Park provides the necessary fenced space for high-energy play. It is a well-used community asset where dogs can socialize safely. Just across the river, River Park North offers a more rugged experience with unpaved hiking trails and ponds, perfect for a weekend nature immersion. As the home of East Carolina University, the town has a vibrant, youthful energy, and you will often see students studying on the Town Common with their dogs or jogging along the greenways. This blend of riverfront beauty and college-town activity makes Greenville a dynamic place to [be a dog owner](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'wolfforth-tx',
+    city: 'Wolfforth',
+    state: 'TX',
+    summary: 'A rapidly growing suburb of Lubbock with a strong school district.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wolfforth, TX',
+      heroDescription: 'Enjoy the community parks and growth of Wolfforth.',
+      longDescription: [
+        "Wolfforth is a fast-growing community known for the highly rated Frenship school district. Patterson Park provides green space and walking paths that are popular with families and their dogs. The town retains a friendly, West Texas spirit despite its rapid expansion. It is a place where new developments are designed with community connection in mind.",
+        "City ordinances require dogs to be leashed in public and fully vaccinated. As the city grows denser, controlling barking and picking up waste is vital for being a good neighbor. The windy West Texas weather means securing fences is also important. For professional obedience classes or agility workshops, explore our [training facilities directory](https://www.indoordogpark.org/training-facilities). By practicing small-town courtesies, Wolfforth residents ensure their city grows into a wonderful place for pets."
+      ],
+    },
+  },
+  {
+    slug: 'high-point-nc',
+    city: 'High Point',
+    state: 'NC',
+    featuredImage: '/images/cities/high-point-nc/hero.png',
+    summary:
+      'The "Furniture Capital" furnishes great fun for dogs with Hedgecock Dog Park and the scenic Piedmont Environmental Center trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Furniture Capital',
+      heroHeading: 'High Point Hounds',
+      heroDescription:
+        'High Point isn’t just about showrooms; it’s about outdoor living. With Hedgecock Dog Park and the extensive Greenway system, the city offers a blend of urban convenience and natural escape.',
+      heroPill: 'Design & Play',
+      heroFootnotes: ['Hedgecock Dog Park', 'City Lake Park', 'Piedmont Environmental Center'],
+      heroChips: [
+        { label: 'Greenways', value: 'Yes' },
+        { label: 'Dog Parks', value: '1+' },
+      ],
+      insightIntro:
+        'High Point is a city of makers and designers, and that creativity extends to its parks. The greenway system is a masterpiece of connectivity, linking neighborhoods to nature.',
+      insightCards: [
+        {
+          tag: 'Off-Leash',
+          title: 'Hedgecock Dog Park',
+          copy: 'A secure, pass-required facility offering separate areas for large and small dogs. It’s the social hub for local pups.',
+          accent: true,
+        },
+        {
+          tag: 'Nature',
+          title: 'Environmental Center',
+          copy: 'Miles of natural surface trails that wind through the woods and along the lake. A true retreat from the city.',
+        },
+        {
+          tag: 'Walk',
+          title: 'City Lake Park',
+          copy: 'A historic park with paved paths and beautiful water views. Ideally suited for a leisurely afternoon stroll.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-card-heading',
+          title: 'Get a permit',
+          items: ['Required for Hedgecock Park', 'Proof of vaccination needed', 'Annual renewal'],
+        },
+        {
+          icon: 'bi-sign-turn-right',
+          title: 'Greenway etiquette',
+          items: ['Keep right, pass left', 'Short leash is best', 'Cyclists share the path'],
+        },
+        {
+          icon: 'bi-water',
+          title: 'Summer heat',
+          items: ['Carry water on trails', 'Pavement gets hot', 'Morning walks recommended'],
+        },
+      ],
+      faqs: highPointFaqs,
+      faqSupportCard: {
+        kicker: 'Furniture Shoppers',
+        title: 'Visiting with a pet?',
+        description: 'Find dog-friendly hotels and boarding while you shop the Market.',
+        primary: { label: 'Travel Guide', href: '/travel' },
+        secondary: { label: 'Boarding', href: '/boarding' },
+        footnote: 'Shop \'til you drop (your leash).',
+      },
+      ownerCta: {
+        kicker: 'Local Pros',
+        title: 'Serve High Point',
+        description:
+          'From dog walkers to groomers, the demand is high. List your services where owners are looking.',
+        primary: { label: 'Join Directory', href: '/owner-resources' },
+        secondary: { label: 'Contact Us', href: '/contact' },
+        footnote: 'Connect with a design-savvy audience.',
+      },
+      longDescription: [
+        'High Point, North Carolina, famous as the "Home Furnishings Capital of the World," also furnishes a wonderful lifestyle for dogs and their owners. The city has invested in creating accessible green spaces that serve its growing population. [Hedgecock Dog Park](https://www.highpointnc.gov/Facilities/Facility/Details/Hedgecock-Dog-Park-3) stands out as the premier off-leash venue, operating on a permit system that ensures verify vaccination status for all visitors. This creates a community atmosphere where safety is prioritized, and regular visitors can build lively social groups for their pets. Beyond the fence, the park itself offers additional amenities for family recreation.',
+        'For those who prefer a long walk, the Piedmont Environmental Center is a treasure. With miles of hiking trails that traverse hardwood forests and skirt the edges of High Point City Lake, it offers a "deep nature" experience right within the city limits. Leashed dogs are welcome to explore these sensory-rich paths. The High Point Greenway is another asset, providing paved miles for runners and walkers to exercise with their dogs away from traffic. Whether you are a resident or in town for the furniture market, High Point offers ample opportunity to get outside and active with your [canine companion](https://www.indoordogpark.org/training-facilities).'
+      ],
+    },
+  },
+  {
+    slug: 'holly-springs-nc',
+    city: 'Holly Springs',
+    state: 'NC',
+    featuredImage: '/images/cities/holly-springs-nc/hero.png',
+    summary:
+      'A family-focused town where Sugg Farm Park and Bass Lake offer picturesque, safe environments for dogs to play and explore.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Small Town Charm',
+      heroHeading: 'Holly Springs Hounds',
+      heroDescription:
+        'Rated as one of the safest towns in NC, Holly Springs is an idyllic place for pets. From the open fields of Sugg Farm to the waterside trails of Bass Lake, it is pure suburban bliss.',
+      heroPill: 'Family Friendly',
+      heroFootnotes: ['Sugg Farm Dog Park', 'Bass Lake Loop', 'Farmers Market'],
+      heroChips: [
+        { label: 'Safety Score', value: 'A+' },
+        { label: 'Dog Parks', value: '1' },
+      ],
+      insightIntro:
+        'Holly Springs feels like a retreat. The parks are expansive and well-maintained, reflecting a community that values outdoor family time—which always includes the dog.',
+      insightCards: [
+        {
+          tag: 'Community Hub',
+          title: 'Sugg Farm Park',
+          copy: 'A massive recreational area that hosts the town’s dog park. It’s expansive, grassy, and the center of local pet life.',
+          accent: true,
+        },
+        {
+          tag: 'Nature',
+          title: 'Bass Lake Park',
+          copy: 'A stunning lake with a mulch trail loop. It’s flat, shaded, and teeming with nature sounds.',
+        },
+        {
+          tag: 'Connectivity',
+          title: 'Greenways',
+          copy: 'New greenway connections are linking neighborhoods directly to these parks, making walkability a reality.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-calendar-check',
+          title: 'Events',
+          items: ['Hollyfest is huge', 'Dog Days in the Park', 'Farmers Market Saturdays'],
+        },
+        {
+          icon: 'bi-bug',
+          title: 'Nature tips',
+          items: ['Mulch trails are soft on paws', 'Check for ticks after wood walks', 'Wildlife is common'],
+        },
+        {
+          icon: 'bi-house-heart',
+          title: 'Local vibe',
+          items: ['Very neighborly', 'Strict leash enforcement', 'Clean up is expected'],
+        },
+      ],
+      faqs: hollySpringsFaqs,
+      faqSupportCard: {
+        kicker: 'New Families',
+        title: 'Settling in?',
+        description: 'Find out why Holly Springs is a top choice for pet owners.',
+        primary: { label: 'Resource Guide', href: '/resources' },
+        secondary: { label: 'Park Map', href: '/cities' },
+        footnote: 'Welcome to the neighborhood.',
+      },
+      ownerCta: {
+        kicker: 'Local Biz',
+        title: 'Grow in Holly Springs',
+        description:
+          'A booming young population needs pet services. Advertise to these engaged families.',
+        primary: { label: 'List Business', href: '/owner-resources' },
+        secondary: { label: 'Contact Us', href: '/contact' },
+        footnote: 'Target the family demographic.',
+      },
+      longDescription: [
+        'Holly Springs, North Carolina, has rapidly evolved from a quiet crossroads into a premier suburban destination, and its amenities for families and pets have led the way. The town’s approach to recreation is centered on [Sugg Farm Park](https://www.hollyspringsnc.gov/321/Sugg-Farm-at-Bass-Lake-Park), a sprawling venue that hosts festival events and serves as the home for the community dog park. This off-leash area is beloved for its open, grassy space where dogs can romp freely in a safe, fenced environment. It is a true community gathering spot where neighbors catch up while their dogs play.',
+        'Bass Lake Park offers a different but equally appealing experience. The mulch-covered loop trail around the lake is a favorite for runners and dog walkers alike, offering a soft surface that is easy on the joints and paws. The trail is shaded and scenic, providing a daily dose of nature that feels far removed from the hustle of the Triangle. With a strong commitment to safety and cleanliness, Holly Springs expects owners to be responsible, but in return, it offers some of the most pleasant and well-maintained public spaces in the region. Whether browsing the dog-friendly Farmers Market or hitting the trails, it is a [wonderful place to be a dog](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'huntersville-nc',
+    city: 'Huntersville',
+    state: 'NC',
+    featuredImage: '/images/cities/huntersville-nc/hero.png',
+    summary:
+      'Lake Norman living at its finest. Huntersville boasts Latta Nature Preserve and Birkdale Village for a mix of rugged trails and upscale socialization.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lake Norman Life',
+      heroHeading: 'Huntersville Adventures',
+      heroDescription:
+        'Nestled along Lake Norman, Huntersville offers the best of both worlds: rugged hiking at Latta Nature Preserve and refined patio dining at Birkdale Village.',
+      heroPill: 'Lakeside Living',
+      heroFootnotes: ['Latta Nature Preserve', 'Birkdale Village', 'Rosedale Nature Park'],
+      heroChips: [
+        { label: 'Nature Preserve', value: '1' },
+        { label: 'Lake Access', value: 'Yes' },
+      ],
+      insightIntro:
+        'Huntersville is where the city meets the lake. You can spend the morning hiking miles of shoreline trails and the afternoon shopping with your pup at an open-air village.',
+      insightCards: [
+        {
+          tag: 'Wild',
+          title: 'Latta Nature Preserve',
+          copy: 'The region’s largest nature preserve offering miles of hiking trails with stunning lake views. Leashes required.',
+          accent: true,
+        },
+        {
+          tag: 'Social',
+          title: 'Birkdale Village',
+          copy: 'A mixed-use town center that is incredibly dog-friendly. Shops, fountains, and patios welcome pets.',
+        },
+        {
+          tag: 'Play',
+          title: 'Rosedale Nature Park',
+          copy: 'A dedicated local park with an off-leash area for safe, fenced play sessions.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-droplet-half',
+          title: 'Lake safety',
+          items: ['Watch for boat traffic', 'Do not let dogs drink lake water', 'Check algae alerts'],
+        },
+        {
+          icon: 'bi-bag',
+          title: 'Shopping etiquette',
+          items: ['Potty before entering stores', 'Keep leash short in crowds', 'Ask before petting'],
+        },
+        {
+          icon: 'bi-sign-turn-slight-right',
+          title: 'Traffic',
+          items: ['I-77 can be busy', 'Plan travel times', 'Use back roads to parks'],
+        },
+      ],
+      faqs: huntersvilleFaqs,
+      faqSupportCard: {
+        kicker: 'Lake Lovers',
+        title: 'Water dogs wanted',
+        description: 'Find the best spots for a splash (where allowed).',
+        primary: { label: 'Lake Guide', href: '/lake' },
+        secondary: { label: 'Rules', href: '/regulations' },
+        footnote: 'Stay safe on the water.',
+      },
+      ownerCta: {
+        kicker: 'Lake Norman Biz',
+        title: 'Reach Huntersville',
+        description:
+          'From boat rentals to boutique pet shops, this is a premium market. Advertise with us.',
+        primary: { label: 'Media Kit', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Connect with an active, upscale audience.',
+      },
+      longDescription: [
+        'Huntersville, North Carolina, offers a lifestyle defined by its proximity to Lake Norman, and for dog owners, this means unparalleled access to nature and water. The crown jewel is the [Latta Nature Preserve](https://parkandrec.mecknc.gov/Places-to-Visit/Nature-Preserves-and-Nature-Centers/Latta-Nature-Preserve), a sprawling natural area that serves as the county’s largest nature preserve. Here, miles of hiking trails wind through hardwood forests and along the shoreline, offering a sensory feast for dogs. While swimming is restricted in many areas, the views and the quality of the hike make it a top destination for active owners.',
+        'Contrast this rugged beauty with Birkdale Village, an open-air shopping and dining destination that mimics a classic main street. It is the social heart of Huntersville and is famously dog-friendly. You will see countless residents walking their dogs past shop windows, stopping for water bowls left out by merchants, or lounging on restaurant patios. Rosedale Nature Park adds a dedicated off-leash facility to the mix, ensuring that whether you want a vigorous hike, a social shopping trip, or a game of fetch, Huntersville has a high-quality option [ready for you](https://www.indoordogpark.org/training-facilities).'
+      ],
+    },
+  },
+  {
+    slug: 'indian-trail-nc',
+    city: 'Indian Trail',
+    state: 'NC',
+    featuredImage: '/images/cities/indian-trail-nc/hero.png',
+    summary:
+      'A suburban haven with the top-tier Crooked Creek Dog Park and a calendar full of family-friendly events at Crossing Paths Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Suburban Sanctuary',
+      heroHeading: 'Crossing Paths',
+      heroDescription:
+        'Indian Trail lives up to its motto of "Crossing Paths" by creating spaces where community meets. Crooked Creek Park is a regional destination for dog owners.',
+      heroPill: 'Parks & Rec',
+      heroFootnotes: ['Crooked Creek Park', 'Chestnut Square', 'Crossing Paths Park'],
+      heroChips: [
+        { label: 'Dog Parks', value: '1' },
+        { label: 'Events', value: 'Weekly' },
+      ],
+      insightIntro:
+        'Indian Trail has mastered the suburban park experience. Facilities are modern, clean, and designed for families that include four-legged members.',
+      insightCards: [
+        {
+          tag: 'Top Pick',
+          title: 'Crooked Creek Park',
+          copy: 'A massive recreational complex with a dedicated dog park, agility features, and miles of paved walking loops.',
+          accent: true,
+        },
+        {
+          tag: 'Central',
+          title: 'Crossing Paths Park',
+          copy: 'The heart of town events. While more for leashed social walks during festivals, it is the community hub.',
+        },
+        {
+          tag: 'Active',
+          title: 'Chestnut Square',
+          copy: 'Another great recreational facility offering sports fields and walking paths for active outings.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-calendar3',
+          title: 'Event planning',
+          items: ['Check if events are pet-friendly', 'Bring a portable bowl', 'Crowds can be large'],
+        },
+        {
+          icon: 'bi-cone-striped',
+          title: 'Construction',
+          items: ['Roads are expanding', 'Check traffic apps', 'New parks coming soon'],
+        },
+        {
+          icon: 'bi-cloud-sun',
+          title: 'Open spaces',
+          items: ['Limited shade in new parks', 'Go early in summer', 'Sunscreen for you'],
+        },
+      ],
+      faqs: indianTrailFaqs,
+      faqSupportCard: {
+        kicker: 'Residents',
+        title: 'Community Guide',
+        description: 'Get connected with Park & Rec for the latest event updates.',
+        primary: { label: 'Town Website', href: '/town' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Family fun for everyone.',
+      },
+      ownerCta: {
+        kicker: 'Service Providers',
+        title: 'Grow in Indian Trail',
+        description:
+          'A rapidly growing family demographic needs your services. List your business today.',
+        primary: { label: 'Join Directory', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Reach households in Union County.',
+      },
+      longDescription: [
+        'Indian Trail, North Carolina, has transformed from a bedroom community into a vibrant suburban town with a strong focus on quality of life. At the forefront of this transformation for dog owners is [Crooked Creek Park](https://www.indiantrail.org/241/Crooked-Creek-Park). This premier facility is more than just a park; it is a recreational destination. The dog park within is spacious, well-equipped with agility obstacles, and serves as a social meeting ground for the community. Surrounding the dog park are miles of paved trails that offer a safe, smooth surface for strollers and dog walkers alike.',
+        'The town’s "Crossing Paths Park" serves as the venue for numerous community festivals and events, many of which welcome leashed pets. This integration of dogs into the social fabric of the town makes Indian Trail feel welcoming and inclusive. The parks are characterized by their modern design and safety features, reflecting the town’s commitment to its growing families. For residents, Indian Trail offers the perfect convenience of suburban living with [high-quality amenities](https://www.indoordogpark.org/) that rival larger cities.'
+      ],
+    },
+  },
+  {
+    slug: 'kannapolis-nc',
+    city: 'Kannapolis',
+    state: 'NC',
+    featuredImage: '/images/cities/kannapolis-nc/hero.png',
+    summary:
+      'Home to the uniquely massive DogWorld and a revitalized downtown Loop that makes for perfect urban strolling.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'City of Revitalization',
+      heroHeading: 'Kannapolis Canines',
+      heroDescription:
+        'Kannapolis has reinvented itself. The beautiful downtown streetscape and the NC Research Campus offer manicured walks, while the private DogWorld park offers unmatched freedom.',
+      heroPill: 'Unique Parks',
+      heroFootnotes: ['DogWorld (16 Acres)', 'Downtown Loop', 'Research Campus'],
+      heroChips: [
+        { label: 'Mega Park', value: 'Yes' },
+        { label: 'Downtown', value: 'New' },
+      ],
+      insightIntro:
+        'Kannapolis offers two distinct experiences: the refined, manicured walks of its revitalized downtown and Research Campus, and the wild, off-leash freedom of the private DogWorld.',
+      insightCards: [
+        {
+          tag: 'One of a Kind',
+          title: 'DogWorld',
+          copy: 'A private destination park like no other. 16 acres, swimming pond, and water slides. It is a theme park for dogs.',
+          accent: true,
+        },
+        {
+          tag: 'Urban',
+          title: 'West Avenue Loop',
+          copy: 'The "Loop" is a linear park and streetscape that is perfect for socialization and exercise in a beautiful setting.',
+        },
+        {
+          tag: 'Science',
+          title: 'Research Campus',
+          copy: 'The grounds of this massive scientific hub are open to the public, offering grand lawns and paved paths.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-ticket-perforated',
+          title: 'DogWorld reqs',
+          items: ['Private membership/fee', 'Strict vaccination checks', 'Check hours (seasonal)'],
+        },
+        {
+          icon: 'bi-shop-window',
+          title: 'Downtown manners',
+          items: ['Busy pedestrian area', 'Keep leash short', 'Clean up immediately'],
+        },
+        {
+          icon: 'bi-music-note-beamed',
+          title: 'Summer concerts',
+          items: ['Village Park events', 'Can be loud', 'Check if pets allowed'],
+        },
+      ],
+      faqs: kannapolisFaqs,
+      faqSupportCard: {
+        kicker: 'Visitors',
+        title: 'See the transformation',
+        description: 'Kannapolis is a city on the rise. Come explore the new downtown.',
+        primary: { label: 'City Map', href: '/cities' },
+        secondary: { label: 'Attractions', href: '/attractions' },
+        footnote: 'A perfect day trip destination.',
+      },
+      ownerCta: {
+        kicker: 'Local Entreprenuers',
+        title: 'Invest in Kannapolis',
+        description:
+          'The city is booming. Start your pet-focused business in this revitalized market.',
+        primary: { label: 'Business Guide', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Be part of the new Kannapolis.',
+      },
+      longDescription: [
+        'Kannapolis, North Carolina, offers one of the most unique dog amenities in the entire state: [DogWorld](https://www.dogworldnc.com). This private, 16-acre dog park is less of a park and more of a resort for canines, featuring an Olympic-sized swimming pool, water slides, and massive fenced fields. For owners willing to pay the daily or annual fee, it offers an off-leash experience that is simply unmatched in scale and fun. It draws visitors from across the region who want to give their dogs a special day of swimming and running.',
+        'Back in the city center, Kannapolis has undergone a stunning transformation. The revitalization of downtown, focused on West Avenue and the "Loop," has created a beautiful, pedestrian-friendly environment. Wide sidewalks, swings, and green spaces make it an inviting place for a leashed evening stroll. The nearby NC Research Campus adds to this with its grand architecture and manicured grounds, which are open to the public for walking. Kannapolis serves up a blend of high-energy adventure at DogWorld and [civilized, scenic walking](https://www.indoordogpark.org/) in its new urban core.'
+      ],
+    },
+  },
+  {
+    slug: 'matthews-nc',
+    city: 'Matthews',
+    state: 'NC',
+    featuredImage: '/images/cities/matthews-nc/hero.png',
+    summary:
+      'Historic charm meets modern trails. Walk the Four Mile Creek Greenway or visit the nearby Colonel Francis Beatty Park for a lakefront hike.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic & Active',
+      heroHeading: 'Matthews Movement',
+      heroDescription:
+        'Matthews preserves its small-town history while embracing active living. The Four Mile Creek Greenway is a local treasure, connecting parks to the vibrant downtown area.',
+      heroPill: 'Trail Town',
+      heroFootnotes: ['Four Mile Creek Greenway', 'Squirrel Lake Park', 'Historic Depot'],
+      heroChips: [
+        { label: 'Greenway Miles', value: '5+' },
+        { label: 'Downtown', value: 'Historic' },
+      ],
+      insightIntro:
+        'Matthews is a town where you can walk from a quiet nature trail right into a bustling downtown festival. Connectivity is key here.',
+      insightCards: [
+        {
+          tag: 'Connector',
+          title: 'Four Mile Creek',
+          copy: 'The greenway spine of the town. Boardwalks over wetlands and paved trails through the woods.',
+          accent: true,
+        },
+        {
+          tag: 'Nature',
+          title: 'Squirrel Lake Park',
+          copy: 'A tranquil park with a fishing pond and access to the greenway. A perfect starting point for a long walk.',
+        },
+        {
+          tag: 'Nearby',
+          title: 'Col. Francis Beatty',
+          copy: 'Just outside town, this large regional park offers extensive hiking and mountain biking trails.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-train-front',
+          title: ' downtown crossings',
+          items: ['Active railroad tracks', 'Use designated crossings', 'Watch for event crowds'],
+        },
+        {
+          icon: 'bi-tree',
+          title: 'Greenway safety',
+          items: ['Cyclists on trail', 'Boardwalks can be slippery', 'Wildlife active at dusk'],
+        },
+        {
+          icon: 'bi-cup-straw',
+          title: 'Patio culture',
+          items: ['Many local breweries', 'Ask for water bowls', 'Keep dogs close to table'],
+        },
+      ],
+      faqs: matthewsFaqs,
+      faqSupportCard: {
+        kicker: 'Locals',
+        title: 'Get active',
+        description: 'Join the weekly walking groups or train for a 5k on the greenway.',
+        primary: { label: 'Trail Map', href: '/trails' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Matthews is on the move.',
+      },
+      ownerCta: {
+        kicker: 'Business',
+        title: 'Serve Matthews',
+        description:
+          'A loyal, local-first community. Market your pet business to Matthews residents.',
+        primary: { label: 'Advertising', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Build lasting customer relationships.',
+      },
+      longDescription: [
+        'Matthews, North Carolina, strikes a perfect balance between its historic roots and modern recreation. The downtown area, with its preserved train depot and brick storefronts, offers a charming backdrop for a leisurely walk, with many local breweries and shops [welcoming dogs on their patios](https://www.indoordogpark.org/). It is a town that feels alive and walkable, where you can grab a coffee and stroll with your pet through a vibrant community hub.',
+        'But the real draw for active dogs is the Four Mile Creek Greenway. This scenic trail system features boardwalks that cross wetlands and paved paths that wind through dense forests, connecting Squirrel Lake Park to other parts of town. It allows for [miles of uninterrupted walking](https://www.matthewsnc.gov/pview.aspx?id=20817) in nature without leaving the city limits. For those wanting a more rugged experience, the nearby Colonel Francis Beatty Park offers extensive hiking trails around a large lake. Matthews proves that you don’t have to choose between small-town history and active outdoor living.'
+      ],
+    },
+  },
+  {
+    slug: 'monroe-nc',
+    city: 'Monroe',
+    state: 'NC',
+    featuredImage: '/images/cities/monroe-nc/hero.png',
+    summary:
+      'The heart of Union County offers the convenient Sunset Dog Park and expansive nature experiences at nearby Cane Creek Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Union County Hub',
+      heroHeading: 'Monroe & More',
+      heroDescription:
+        'As the county seat, Monroe offers history and hospitality. Sunset Park provides a dedicated space for play, while the surrounding county offers massive recreational lakes and trails.',
+      heroPill: 'County Seat',
+      heroFootnotes: ['Sunset Park', 'Cane Creek Park', 'Downtown History'],
+      heroChips: [
+        { label: 'Dog Park', value: '1' },
+        { label: 'Nearby Lake', value: 'Yes' },
+      ],
+      insightIntro:
+        'Monroe is a gateway. It has its own urban amenities like Sunset Park, but it also opens the door to the rural beauty and large parks of Union County.',
+      insightCards: [
+        {
+          tag: 'Local Spot',
+          title: 'Sunset Park',
+          copy: 'The go-to local park with a dedicated off-leash area and playgrounds for the human kids too.',
+          accent: true,
+        },
+        {
+          tag: 'Adventure',
+          title: 'Cane Creek Park',
+          copy: 'A short drive away, this massive park offers hiking, fishing, and camping opportunities for an outdoor weekend.',
+        },
+        {
+          tag: 'Heritage',
+          title: 'Downtown Monroe',
+          copy: 'A historic district that is revitalizing, offering interesting architecture for a town walk.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-clock',
+          title: 'Park hours',
+          items: ['Sunset to sunrise usually', 'Check holiday schedules', 'Gates lock at dusk'],
+        },
+        {
+          icon: 'bi-geo',
+          title: 'Regional travel',
+          items: ['Gateway to the beach', 'Traffic on 74', 'Plan rest stops'],
+        },
+        {
+          icon: 'bi-shield',
+          title: 'Leash laws',
+          items: ['Strictly enforced', 'Carry waste bags', 'Respect private property'],
+        },
+      ],
+      faqs: monroeFaqs,
+      faqSupportCard: {
+        kicker: 'Residents',
+        title: 'Community Resources',
+        description: 'Find the county animal shelter and low-cost vax clinics.',
+        primary: { label: 'Animal Control', href: '/services' },
+        secondary: { label: 'Parks', href: '/parks' },
+        footnote: 'Responsible ownership matters.',
+      },
+      ownerCta: {
+        kicker: 'Service Industry',
+        title: 'Work in Monroe',
+        description:
+          'From vets to boarding kennels, Monroe serves a large rural and suburban area.',
+        primary: { label: 'List Services', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Serve the whole county.',
+      },
+      longDescription: [
+        'Monroe, North Carolina, serves as the hub of Union County, blending a rich history with accessible recreation. For daily exercise and socialization, [Sunset Park](https://www.monroenc.org/Departments/Parks-Recreation/Parks-Facilities/Sunset-Park) is the local favorite, featuring a dedicated dog park where residents gather to let their pets play off-leash. It is a convenient, well-maintained community asset. The downtown area offers a glimpse into the region’s past, with historic buildings and a slow-paced atmosphere that is perfect for a relaxed afternoon walk.',
+        'Beyond the city limits, Monroe is the gateway to some of the region’s best outdoor assets, most notably Cane Creek Park. This expansive park, often compared to state parks in quality, offers miles of hiking trails around a large trophy bass lake. It is a destination for Monroe residents who want a true nature escape with their dogs. Whether sticking to the local amenities at Sunset Park or heading out for a day of hiking at Cane Creek, Monroe offers a solid foundation for a [dog-friendly lifestyle](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'mooresville-nc',
+    city: 'Mooresville',
+    state: 'NC',
+    featuredImage: '/images/cities/mooresville-nc/hero.png',
+    summary:
+      'Race City USA is also Dog City, offering access to Lake Norman State Park trails and Cornelius Road Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Race City USA',
+      heroHeading: 'Mooresville Motion',
+      heroDescription:
+        'Nestled on Lake Norman, Mooresville offers a fast-paced lifestyle with plenty of slow-down spots for dogs. From state park trails to lakeside walks, it is an active community.',
+      heroPill: 'Lake Life',
+      heroFootnotes: ['Lake Norman State Park', 'Cornelius Road Park', 'Stumpy Creek Park'],
+      heroChips: [
+        { label: 'Lake Access', value: 'Prime' },
+        { label: 'Hiking', value: ' abundant' },
+      ],
+      insightIntro:
+        'Mooresville is famous for racing, but for dogs, it’s all about the lake. The access to water and state park trails makes it a premier destination for active pets.',
+      insightCards: [
+        {
+          tag: 'Nature',
+          title: 'Lake Norman State Park',
+          copy: 'A massive natural asset with miles of hiking trails and lake access points (no swimming at beach, but wading elsewhere).',
+          accent: true,
+        },
+        {
+          tag: 'Walk',
+          title: 'Mazeppa Park',
+          copy: 'Features a great walking trail loop and plenty of open space for a long leash walk.',
+        },
+        {
+          tag: 'Quiet',
+          title: 'Stumpy Creek Park',
+          copy: 'A bit tucked away, offering wooded trails and a disc golf course area that is great for walks.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-water',
+          title: 'Lake rules',
+          items: ['Leash required on trails', 'Watch for boats', 'Check water quality'],
+        },
+        {
+          icon: 'bi-cone',
+          title: 'Traffic',
+          items: ['I-77 is busy', 'Plan travel times', 'Use back roads to parks'],
+        },
+        {
+          icon: 'bi-bug',
+          title: 'Trail safety',
+          items: ['Ticks are common', 'Carry water', 'Share trail with bikes'],
+        },
+      ],
+      faqs: mooresvilleFaqs,
+      faqSupportCard: {
+        kicker: 'Lake Dwellers',
+        title: 'Life on the Water',
+        description: 'Find boat rentals that allow dogs for a day on the lake.',
+        primary: { label: 'Boat Rentals', href: '/lakenorman' },
+        secondary: { label: 'Parks', href: '/parks' },
+        footnote: 'Anchors aweigh, pups!',
+      },
+      ownerCta: {
+        kicker: 'Lake Businesses',
+        title: 'Serve Mooresville',
+        description:
+          'A high-income, active demographic. Advertise your premium pet services here.',
+        primary: { label: 'Media Kit', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Reach the lake crowd.',
+      },
+      longDescription: [
+        'Mooresville, North Carolina, known as "Race City USA," offers a pace of life that can be as fast or as slow as you like, especially when you have a dog. The main attraction for pet owners is undoubtedly [Lake Norman State Park](https://www.ncparks.gov/state-parks/lake-norman-state-park). This expansive park offers miles of hiking trails that hug the shoreline, providing stunning views and a cool breeze off the water. While dogs must be leashed, the sensory experience of the forest and the lake makes for an unbeatable outing. It is a destination for hikers, trail runners, and nature lovers.',
+        'Closer to town, parks like Cornelius Road Park and Mazeppa Park offer excellent amenities for daily exercise. These parks feature well-maintained walking loops that are popular with locals. The town’s rapid growth has brought with it a host of pet-friendly businesses, from breweries to supply stores, catering to a community that clearly loves its animals. Whether you are training for a 5k on the trails or just relaxing by the water, Mooresville offers a [high quality of life](https://www.indoordogpark.org/) for dogs and their humans.'
+      ],
+    },
+  },
+  {
+    slug: 'salisbury-nc',
+    city: 'Salisbury',
+    state: 'NC',
+    featuredImage: '/images/cities/salisbury-nc/hero.png',
+    summary:
+      'A historic city with a modern pet-friendly vibe. Explore the Salisbury Community Park or the Dog PAWS Park for off-leash fun.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Center',
+      heroHeading: 'Salisbury Strolls',
+      heroDescription:
+        'Salisbury blends beautiful historic architecture with great green spaces. The Dog PAWS Park and the extensive Greenway system make it a hidden gem for dog owners.',
+      heroPill: 'History & Parks',
+      heroFootnotes: ['Dog PAWS Park', 'Salisbury Greenway', 'City Park'],
+      heroChips: [
+        { label: 'Dog Park', value: '1' },
+        { label: 'Greenway', value: '4+ mi' },
+      ],
+      insightIntro:
+        'Salisbury invites you to slow down. The tree-lined streets of the historic district are perfect for walks, and the parks offer ample space to run.',
+      insightCards: [
+        {
+          tag: 'Off-Leash',
+          title: 'Dog PAWS Park',
+          copy: 'Located at the Civic Center, this fenced park offers a safe place for dogs to burn off energy and socialize.',
+          accent: true,
+        },
+        {
+          tag: 'Connector',
+          title: 'Salisbury Greenway',
+          copy: 'A network of paved trails connecting parks and neighborhoods. Scenic, flat, and great for miles of walking.',
+        },
+        {
+          tag: 'Classic',
+          title: 'City Park',
+          copy: 'A beautiful traditional park with a lake, walking paths, and plenty of shade for a summer day.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-building',
+          title: 'Historic walks',
+          items: ['Stay on public sidewalks', 'Carry waste bags', 'Respect private gardens'],
+        },
+        {
+          icon: 'bi-train-lightrail-front',
+          title: 'Train safety',
+          items: ['Active rail lines', 'Keep dogs leashed near tracks', 'Noise can startle pups'],
+        },
+        {
+          icon: 'bi-tree',
+          title: 'Greenway tips',
+          items: ['Cyclists share path', 'Keep right', 'Watch for wildlife'],
+        },
+      ],
+      faqs: salisburyFaqs,
+      faqSupportCard: {
+        kicker: 'Visitors',
+        title: 'Historic Tour',
+        description: 'Grab a coffee downtown and take a self-guided walking tour.',
+        primary: { label: 'Walking Map', href: '/history' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'History unleashed.',
+      },
+      ownerCta: {
+        kicker: 'Local Biz',
+        title: 'Grow in Salisbury',
+        description:
+          'Connect with the revitalized downtown community. List your pet business today.',
+        primary: { label: 'Sign Up', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Be part of the growth.',
+      },
+      longDescription: [
+        'Salisbury, North Carolina, offers a charming setting for dog owning, defined by its well-preserved historic downtown and its commitment to public parks. A walk through the [historic district](https://www.visitsalisburync.com) with a leashed dog is a journey through time, with wide sidewalks and beautiful architecture. For more vigorous exercise, the Salisbury Greenway offers over 4 miles of paved trails that weave through the city, connecting neighborhoods and offering a safe, traffic-free route for walkers and runners.',
+        'The city specifically caters to dog owners with [excellent, fenced facilities](https://www.indoordogpark.org/training-facilities) like the Dog PAWS Park at the Salisbury Civic Center. This fenced off-leash area is a community favorite, providing a dedicated space for socialization and play. Additionally, places like Dan Nicholas Park (just outside the city) offer a vast array of recreational options where leashed dogs can join the family for a day of fun. Salisbury combines the aesthetic appeal of a historic town with the functional amenities active dog owners need.'
+      ],
+    },
+  },
+  {
+    slug: 'stallings-nc',
+    city: 'Stallings',
+    state: 'NC',
+    featuredImage: '/images/cities/stallings-nc/hero.png',
+    summary:
+      'A quiet, family-oriented community with easy access to neighborhing Colonel Francis Beatty Park for extensive trail walking.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Quiet Community',
+      heroHeading: 'Stallings Serenity',
+      heroDescription:
+        'Stallings is a residential haven. While it keeps its municipal park pet-free for playgrounds, it is perfectly positioned next to massive county parks for dog adventures.',
+      heroPill: 'Residential',
+      heroFootnotes: ['Stallings Municipal Park (No Pets)', 'Col. Francis Beatty Park', 'Blair Mill Park'],
+      heroChips: [
+        { label: 'Access to Parks', value: 'High' },
+        { label: 'Safety', value: 'High' },
+      ],
+      insightIntro:
+        'Stallings is designed for peaceful living. It relies on its neighbors for big box stores and big dog parks, offering a quiet retreat to come home to.',
+      insightCards: [
+        {
+          tag: 'Nearby Gem',
+          title: 'Col. Francis Beatty',
+          copy: 'Just minutes away, this is one of the best hiking and biking parks in the region. 265 acres of adventure.',
+          accent: true,
+        },
+        {
+          tag: 'Local Walk',
+          title: 'Blair Mill Park',
+          copy: 'A small, passive park perfect for a quick potty walk or a quiet moment on a bench.',
+        },
+        {
+          tag: 'Community',
+          title: 'Stallings Park',
+          copy: 'Note: The main municipal park generally restricts pets to protect the splash pad/playground areas.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-ban',
+          title: 'Know the rules',
+          items: ['Municipal Park is pet-free', 'Check signs at entry', 'Strict enforcement'],
+        },
+        {
+          icon: 'bi-house-door',
+          title: 'Neighborhoods',
+          items: ['Great sidewalks', 'Friendly community', 'Scoop the poop'],
+        },
+        {
+          icon: 'bi-car-front',
+          title: 'Short drive',
+          items: ['Indian Trail parks nearby', 'Matthews nearby', 'Easy access to 485'],
+        },
+      ],
+      faqs: stallingsFaqs,
+      faqSupportCard: {
+        kicker: 'New Residents',
+        title: 'Welcome Home',
+        description: 'Get the lowdown on local services and ordinances.',
+        primary: { label: 'Town Hall', href: '/town' },
+        secondary: { label: 'Nearby Parks', href: '/cities' },
+        footnote: 'A great place to settle down.',
+      },
+      ownerCta: {
+        kicker: 'Local Services',
+        title: 'Serve Stallings',
+        description:
+          'A dense residential area needing mobile grommers and walkers. List your business.',
+        primary: { label: 'Join Directory', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Service the suburbs.',
+      },
+      longDescription: [
+        'Stallings, North Carolina, creates a distinct niche as a quiet, residential-focused community. It prioritizes clean, safe neighborhoods and family-oriented spaces. It is important for dog owners to note that the flagship [Stallings Municipal Park](https://www.stallingsnc.org/Departments/Parks-Recreation/Parks/Stallings-Municipal-Park) generally restricts pets to preserve the cleanliness of its playgrounds and splash pads. However, this does not mean Stallings isn’t a great place to own a dog; rather, it serves as a peaceful home base with immediate access to some of the region’s best parks just across the town lines.',
+        'Residents frequently utilize Colonel Francis Beatty Park, located just minutes away in Matthews, for its extensive hiking trails and lake access. Crooked Creek Park in Indian Trail is also a short drive for off-leash fun. Within Stallings itself, the wide, sidewalk-lined streets of its subdivisions offer a safe and social environment for daily leashed walks. It is a town that offers the tranquility of a bedroom community while being physically connected to a [wealth of recreational resources](https://www.indoordogpark.org/training-facilities).'
+      ],
+    },
+  },
+  {
+    slug: 'wake-forest-nc',
+    city: 'Wake Forest',
+    state: 'NC',
+    featuredImage: '/images/cities/wake-forest-nc/hero.png',
+    summary:
+      'History meets nature. Flaherty Dog Park and the breathtaking E. Carroll Joyner Park offers miles of paved trails and open meadows.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'College Town Roots',
+      heroHeading: 'Wake Forest Walks',
+      heroDescription:
+        'Wake Forest is beautiful. From the historic district to the sprawling fields of Joyner Park, it offers a picturesque setting for dog owners.',
+      heroPill: 'Top Rated',
+      heroFootnotes: ['Flaherty Dog Park', 'Joyner Park', 'Falls Lake Dam'],
+      heroChips: [
+        { label: 'Dog Parks', value: '1' },
+        { label: 'Trail Miles', value: '50+' },
+      ],
+      insightIntro:
+        'Wake Forest has preserved its green space brilliantly. Joyner Park is arguably one of the most beautiful passive parks in the Triangle, and it welcomes dogs with open arms.',
+      insightCards: [
+        {
+          tag: 'Premier Park',
+          title: 'E. Carroll Joyner Park',
+          copy: '117 acres of sweeping meadows, paved trails, and historic farm buildings. A stunning place for a long leash walk.',
+          accent: true,
+        },
+        {
+          tag: 'Play',
+          title: 'Flaherty Dog Park',
+          copy: 'A well-maintained off-leash park with shade, water, and separate areas. The social hub for local pups.',
+        },
+        {
+          tag: 'Adventure',
+          title: 'Falls Lake Dam',
+          copy: 'Access to the Neuse River Greenway and scenic walks across the dam itself. Great views.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-sun',
+          title: 'Joyner tips',
+          items: ['Meadows can be hot', 'Paved trails radiate heat', 'Bring water bowl'],
+        },
+        {
+          icon: 'bi-people-fill',
+          title: 'Social scene',
+          items: ['Friday Night on White', 'Check pet rules for events', 'Downtown is busy'],
+        },
+        {
+          icon: 'bi-flower1',
+          title: 'Nature',
+          items: ['Ticks in tall grass', 'Snakes near water', 'Stay on paths'],
+        },
+      ],
+      faqs: wakeForestFaqs,
+      faqSupportCard: {
+        kicker: 'Locals',
+        title: 'Get Involved',
+        description: 'Join the community of nature lovers and park supporters.',
+        primary: { label: 'Park Foundation', href: '/community' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Preserve the beauty.',
+      },
+      ownerCta: {
+        kicker: 'Business',
+        title: 'Grow in Wake Forest',
+        description:
+          'A booming town with high pet ownership. Market your services effectively.',
+        primary: { label: 'Media Kit', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Connect with Wake Forest.',
+      },
+      longDescription: [
+        'Wake Forest, North Carolina, offers a blend of historic charm and expansive natural beauty that is hard to beat. The crown jewel for dog owners is [E. Carroll Joyner Park](https://www.wakeforestnc.gov/parks-recreation-cultural-resources/parks-facilities/e-carroll-joyner-park). This 117-acre former farm has been transformed into a stunning public space with miles of paved trails winding through stone walls, pecan groves, and open meadows. It is a photographer’s dream and a dog walker’s paradise, offering plenty of space to spread out and enjoy the outdoors knowing your dog is welcome on a leash.',
+        'For off-leash socialization, Flaherty Dog Park provides the necessary amenities, including shaded areas and water fountains, ensuring a comfortable play session. Wake Forest is also a gateway to the Neuse River Greenway and Falls Lake, providing access to endless miles of trails for those seeking a longer adventure. The downtown area, with its historic architecture and vibrant street life ("Friday Night on White"), is increasingly dog-friendly, making Wake Forest a [well-rounded community](https://www.indoordogpark.org/) for pets and their people.'
+      ],
+    },
+  },
+  {
+    slug: 'waxhaw-nc',
+    city: 'Waxhaw',
+    state: 'NC',
+    featuredImage: '/images/cities/waxhaw-nc/hero.png',
+    summary:
+      'Small town charm with big adventure. Visit Dogwood Park or explore the historic downtown overhead bridge with your pup.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Railroad Town',
+      heroHeading: 'Waxhaw Wandering',
+      heroDescription:
+        'Waxhaw retains its small-town feel while offering big-time amenities. Dogwood Park is a dedicated green space for off-leash fun, and the downtown is iconic.',
+      heroPill: 'Charming',
+      heroFootnotes: ['Dogwood Park', 'Downtown Bridge', 'Cane Creek Park'],
+      heroChips: [
+        { label: 'Dog Park', value: '1' },
+        { label: 'History', value: 'Rich' },
+      ],
+      insightIntro:
+        'Waxhaw moves at a slower pace. It is a place to walk over the iconic bridge, grab a treat, and let your dog run free in the woods at Dogwood Park.',
+      insightCards: [
+        {
+          tag: 'Local Fav',
+          title: 'Dogwood Park',
+          copy: 'Features a fenced off-leash area and trails. It’s a wooded retreat that feels very natural.',
+          accent: true,
+        },
+        {
+          tag: 'Iconic',
+          title: 'Overhead Bridge',
+          copy: 'Walk over the train tracks on the historic footbridge. Great view, but keep dogs secure.',
+        },
+        {
+          tag: 'Regional',
+          title: 'Cane Creek Park',
+          copy: 'Located in Waxhaw/Monroe, this massive park offers camping, hiking, and lake activities.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-train-freight-front',
+          title: 'Train tracks',
+          items: ['Active rail line', 'Loud noises', 'Cross only at designated spots'],
+        },
+        {
+          icon: 'bi-cup-hot',
+          title: 'Downtown',
+          items: ['Sidewalks are brick/narrow', 'Crowded on weekends', 'Many water bowls out'],
+        },
+        {
+          icon: 'bi-tree-fill',
+          title: 'Park hours',
+          items: ['Dogwood closes at dusk', 'Check seasonal hours', 'Membership for some nearby parks'],
+        },
+      ],
+      faqs: waxhawFaqs,
+      faqSupportCard: {
+        kicker: 'Newcomers',
+        title: 'Discover Waxhaw',
+        description: 'Explore the antique shops and trails of this unique town.',
+        primary: { label: 'Town Guide', href: '/cities' },
+        secondary: { label: 'Map', href: '/cities' },
+        footnote: 'Welcome to Waxhaw.',
+      },
+      ownerCta: {
+        kicker: 'Local Pros',
+        title: 'Serve Waxhaw',
+        description:
+          'From mobile groomers to pet sitters, Waxhaw families need reliable services.',
+        primary: { label: 'List Business', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Build your client base.',
+      },
+      longDescription: [
+        'Waxhaw, North Carolina, prides itself on its historic railroad heritage and small-town atmosphere. For dog owners, the experience centers around [Dogwood Park](https://www.waxhaw.com/government/departments/parks-and-recreation/dogwood-park), a facility that includes a fenced off-leash area and walking trails. Unlike the manicured, flat parks of some suburbs, Dogwood Park feels a bit more natural and wooded, offering a shady retreat for dogs to explore. It fits perfectly with the town’s slightly rustic, charming vibe.',
+        'The heart of the town is the historic overhead footbridge that spans the railroad tracks. Walking across it with your dog offers a unique vantage point and leads you directly into the downtown area, where brick sidewalks and antique shops create a nostalgic setting. Many [local businesses are welcoming](https://www.indoordogpark.org/) to pets, placing water bowls outside their doors. For those seeking more expansive nature, nearby Cane Creek Park offers camping and hiking, making Waxhaw a perfect base camp for both history buffs and nature lovers.'
+      ],
+    },
+  },
+  {
+    slug: 'wilson-nc',
+    city: 'Wilson',
+    state: 'NC',
+    featuredImage: '/images/cities/wilson-nc/hero.png',
+    summary:
+      'Home of the Whirligigs and a fantastic dog park on Lawndale Drive. Wilson combines art, history, and recreation.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'City of Innovation',
+      heroHeading: 'Wilson Whirls',
+      heroDescription:
+        'Wilson is famous for its Whirligig Park, but its investment in pet amenities is just as impressive. The Wilson Dog Park and Lake Wilson offer diverse experiences.',
+      heroPill: 'Art & Parks',
+      heroFootnotes: ['Wilson Dog Park', 'Whirligig Park', 'Lake Wilson'],
+      heroChips: [
+        { label: 'Dog Park', value: 'yes' },
+        { label: 'Art Park', value: 'Unique' },
+      ],
+      insightIntro:
+        'Wilson is unique. You can walk your dog beneath massive kinetic sculptures in the morning and let them romp in a dedicated dog park in the afternoon.',
+      insightCards: [
+        {
+          tag: 'Top Spot',
+          title: 'Wilson Dog Park',
+          copy: 'A well-equipped facility with agility tunnels, water stations, and separate play areas. The social center for pets.',
+          accent: true,
+        },
+        {
+          tag: 'Art Walk',
+          title: 'Whirligig Park',
+          copy: 'A one-of-a-kind park featuring massive wind-powered sculptures. Leashed dogs are welcome on the lawns.',
+        },
+        {
+          tag: 'Nature',
+          title: 'Lake Wilson',
+          copy: 'A beautiful 2-mile walking loop around the lake. Scenic, peaceful, and perfect for exercise.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-wind',
+          title: 'Whirligig safety',
+          items: ['Sculptures move', 'Can startle dogs', 'Keep leash short'],
+        },
+        {
+          icon: 'bi-water',
+          title: 'Hydration',
+          items: ['Dog park has water', 'Carry bottle on trails', 'Summer gets humid'],
+        },
+        {
+          icon: 'bi-shield-check',
+          title: 'Park rules',
+          items: ['Scoop the poop', 'No food in dog park', 'Two dog limit'],
+        },
+      ],
+      faqs: wilsonFaqs,
+      faqSupportCard: {
+        kicker: 'Visitors',
+        title: 'See the Gig',
+        description: 'Plan your trip to the Vollis Simpson Whirligig Park.',
+        primary: { label: 'Visitor Guide', href: '/visit' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Art in motion.',
+      },
+      ownerCta: {
+        kicker: 'Service Providers',
+        title: 'Work in Wilson',
+        description:
+          'Wilson is growing. Advertise your kennel, grooming, or training business here.',
+        primary: { label: 'Join Directory', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Connect with the community.',
+      },
+      longDescription: [
+        'Wilson, North Carolina, offers a dog-friendly experience that is infused with art and innovation. The [Vollis Simpson Whirligig Park](https://www.wilsonwhirligigpark.org) provides a stunning backdrop for a walk, with massive, kinetic sculptures spinning overhead. Leashed dogs are welcome in this green space, making for a walk unlike any other in the state. It serves as the anchor for a revitalized downtown that is becoming increasingly walkable and welcoming.',
+        'For specialized canine recreation, the [Wilson Dog Park](https://www.wilsonnc.org/government/departments/parks-recreation/dog-park) on Lawndale Drive is excellent. It features agility equipment, water stations, and separate areas for different sized dogs, showing the city’s commitment to providing high-quality amenities. Additionally, the loop trail around Lake Wilson offers a serene escape for those looking to enjoy nature. Wilson proves that a city can support both cultural tourism and a practical, [pet-friendly lifestyle](https://www.indoordogpark.org/).'
+      ],
+    },
+  },
+  {
+    slug: 'winston-salem-nc',
+    city: 'Winston-Salem',
+    state: 'NC',
+    featuredImage: '/images/cities/winston-salem-nc/hero.png',
+    summary:
+      'The City of Arts and Innovation loves its dogs, featuring the massive playground of Washington Park and the serene loop at Salem Lake.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Arts & Innovation',
+      heroHeading: 'Winston-Salem Walks',
+      heroDescription:
+        'From the cobblestones of Old Salem to the trails of Salem Lake, Winston-Salem offers a rich variety of environments. Washington Park and Tanglewood are legendary local spots.',
+      heroPill: 'Top Tier',
+      heroFootnotes: ['Washington Park', 'Salem Lake', 'Tanglewood Park'],
+      heroChips: [
+        { label: 'Dog Parks', value: 'Multiple' },
+        { label: 'History', value: 'Alive' },
+      ],
+      insightIntro:
+        'Winston-Salem is a city of distinct neighborhoods, each with its own dog-friendly flavor. Whether you want urban vibes, historic charm, or deep woods, it is all here.',
+      insightCards: [
+        {
+          tag: 'Favorite',
+          title: 'Washington Park',
+          copy: 'Home to a popular dog park and located in a historic neighborhood. Great community feel.',
+          accent: true,
+        },
+        {
+          tag: 'Trail',
+          title: 'Salem Lake',
+          copy: 'The 7-mile loop is the city’s premier walking trail. Shaded, flat, and beautiful.',
+        },
+        {
+          tag: 'Regional',
+          title: 'Tanglewood Park',
+          copy: 'A massive park with "Tanglewoof" dog park, trails, and holiday lights. A destination in itself.',
+        },
+      ],
+      planningCards: [
+        {
+          icon: 'bi-bricks',
+          title: 'Old Salem',
+          items: ['Cobblestones are uneven', 'Leash required', 'Outdoor areas only'],
+        },
+        {
+          icon: 'bi-bicycle',
+          title: 'Greenway sharing',
+          items: ['Bikers on Salem Lake', 'Stay right', 'Listen for bells'],
+        },
+        {
+          icon: 'bi-shop',
+          title: 'Downtown',
+          items: ['Arts District is fun', 'Patios are welcoming', 'Check for glass'],
+        },
+      ],
+      faqs: winstonSalemFaqs,
+      faqSupportCard: {
+        kicker: 'Locals',
+        title: 'Join the Pack',
+        description: 'Connect with local walking groups and finding the best vet care.',
+        primary: { label: 'resources', href: '/resources' },
+        secondary: { label: 'Events', href: '/events' },
+        footnote: 'Twin City living.',
+      },
+      ownerCta: {
+        kicker: 'Business',
+        title: 'Serve Winston-Salem',
+        description:
+          'A major market with a passionate pet community. List your business today.',
+        primary: { label: 'Media Kit', href: '/owner-resources' },
+        secondary: { label: 'Contact', href: '/contact' },
+        footnote: 'Reach the Triad.',
+      },
+      longDescription: [
+        'Winston-Salem, North Carolina, creates a fantastic environment for dogs by blending its rich history with top-tier recreational assets. [Washington Park](https://www.cityofws.org/Facilities/Facility/Details/Washington-Park-3) is a standout, located in a historic district and featuring a popular dog park that serves as a social hub for the neighborhood. It captures the city’s community-focused vibe. For those seeking distance, the 7-mile loop around Salem Lake is arguably one of the best walking trails in the Piedmont, offering a flat, shaded, and scenic route that is beloved by runners and dog walkers alike.',
+        'The city’s "Arts and Innovation" spirit extends to its [pet amenities](https://www.indoordogpark.org/training-facilities), with places like Tucker’s Tap Yard offering a social bar experience for dog owners. Nearby Tanglewood Park adds to the mix with "Tanglewoof," a large dog park, and miles of additional trails. Whether strolling the cobblestone streets of Old Salem (leashed, of course) or exploring the vast greenways, Winston-Salem offers a sophisticated and varied landscape for you and your dog to explore.'
       ],
     },
   },

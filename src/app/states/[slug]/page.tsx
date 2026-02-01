@@ -263,8 +263,8 @@ export default async function StatePage({ params }: StatePageProps) {
 
             {cities.length > 0 ? (
               <div className="cities-grid">
-                {cities.slice(0, 12).map((city) => (
-                  <CityCard key={`${city.slug}`} city={city} />
+                {cities.slice(0, 12).map((city, index) => (
+                  <CityCard key={`${city.slug}`} city={city} priority={index < 6} />
                 ))}
               </div>
             ) : (

@@ -4,9 +4,10 @@ import { CityData } from '@/lib/cityData';
 
 interface CityCardProps {
   city: CityData;
+  priority?: boolean;
 }
 
-export default function CityCard({ city }: CityCardProps) {
+export default function CityCard({ city, priority = false }: CityCardProps) {
   const hasImage = !!city.featuredImage;
 
   return (
@@ -19,8 +20,8 @@ export default function CityCard({ city }: CityCardProps) {
             alt={`Indoor dog parks in ${city.name}`}
             fill
             className="city-card-image"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={false}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            priority={priority}
           />
         </div>
       )}
