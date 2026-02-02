@@ -2584,7 +2584,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'Orange County spotlight',
-      heroHeading: 'Dog Parks in Santa Ana, CA',
+      heroHeading: 'Indoor Dog Park In Santa Ana',
       heroDescription:
         'Plan your next dog outing in Santa Ana with neighborhood-friendly parks and nearby Orange County favorites. Our directory refreshes weekly—submit a spot to help us verify more listings.',
       heroPill: 'OC dog-friendly picks',
@@ -2801,7 +2801,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'Bay Area Canine Culture',
-      heroHeading: 'Dog Parks in San Francisco, CA',
+      heroHeading: 'Indoor Dog Park In San Francisco',
       heroDescription: 'San Francisco’s unique geography and dense urban layout have fostered one of the most innovative and tight-knit dog owner communities in the United States. From the fog-swept bluffs of Fort Funston to the meticulously maintained runs in Dolores Park, the city offers a diverse array of play spaces that reflect its eclectic neighborhoods.',
       heroPill: 'Verified SF Directory',
       heroFootnotes: ['40+ verified locations', 'Updated for 2026 standards'],
@@ -2824,7 +2824,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'SoCal Sunshine Play',
-      heroHeading: 'Dog Parks in Los Angeles, CA',
+      heroHeading: 'Indoor Dog Park In Los Angeles',
       heroDescription: 'Los Angeles offers a sprawling network of dog-friendly spaces, from the iconic canyons of the Hollywood Hills to the meticulously landscaped urban runs of Downtown LA. The city’s year-round sunshine makes it a global leader in outdoor canine recreation.',
       heroPill: 'Verified LA Directory',
       heroFootnotes: ['50+ locations verified', 'Heat safety ratings included'],
@@ -2847,7 +2847,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'Coastal Canine Paradise',
-      heroHeading: 'Dog Parks in San Diego, CA',
+      heroHeading: 'Indoor Dog Park In San Diego',
       heroDescription: 'San Diego is widely considered one of the most dog-friendly cities in America, home to legendary off-leash beaches and a massive network of canyon-side parks that celebrate the quintessential California lifestyle.',
       heroPill: 'Verified SD Directory',
       heroFootnotes: ['Top-rated beach access', '35+ centers verified'],
@@ -4670,7 +4670,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A vibrant coastal metropolis with a rich maritime history, diverse culture, and endless recreational opportunities.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Long Beach',
+      heroHeading: 'Indoor Dog Park In Long Beach',
       heroDescription: 'From the historic Queen Mary to the bustling waterfront, Long Beach offers a dynamic playground for you and your pup.',
       longDescription: [
         "Long Beach, a vibrant coastal metropolis in Southern California, stands as a testament to the region's rich maritime history and diverse cultural tapestry. Home to one of the world's busiest ports, this city of nearly half a million residents blends the grit of a working harbor with the sophistication of a modern urban center. Its history is deeply rooted in the Roaring Twenties, visible in the Art Deco architecture that adorns the downtown skyline, while the iconic Queen Mary ocean liner, permanently docked in the harbor, serves as a floating museum and hotel that whispers tales of transatlantic glamour. The city's demographic landscape is remarkably diverse, boasting a vibrant blend of communities that contributes to a dynamic culinary and arts scene. Long Beach is also known for its strong sense of community, with distinct neighborhoods like Belmont Shore and Bixby Knolls offering a small-town feel within a major city. The city's commitment to sustainability and green living is evident in its bicycle-friendly streets and numerous eco-initiatives, making it a forward-thinking destination that honors its past.",
@@ -4685,7 +4685,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Home to Disneyland and a thriving entertainment district, Anaheim offers a magical blend of history, culture, and fun.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Anaheim',
+      heroHeading: 'Indoor Dog Park In Anaheim',
       heroDescription: 'Beyond the theme parks, discover a city rich in history, culinary delights, and vibrant local culture.',
       longDescription: [
         "Anaheim, globally recognized as the home of the original Disneyland Resort, is a city that has evolved far beyond its citrus-farming roots into a premier entertainment destination. Located in Orange County, it is the most populous city in the region and boasts a rich history that dates back to its founding by fifty German families in 1857. The city's name itself is a blend of \"Ana\" from the Santa Ana River and \"heim,\" the German word for home, reflecting its early heritage. Today, Anaheim is a bustling hub of tourism and business, anchored by the massive Anaheim Convention Center, the largest on the West Coast. The demographic makeup of the city is a vibrant mosaic of cultures, creating a lively atmosphere that permeates its neighborhoods and local businesses. While tourism drives much of the economy, Anaheim maintains a strong residential character, with historic districts like the Colony offering a glimpse into its architectural past amidst the modern developments. It is a city where imagination meets industry, creating a unique urban environment that is both welcoming and economically vital.",
@@ -4701,7 +4701,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The birthplace of California citrus, Riverside blends historic grandeur with modern culture and natural beauty.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Riverside',
+      heroHeading: 'Indoor Dog Park In Riverside',
       heroDescription: 'Explore the historic Mission Inn, hike Mount Rubidoux, and enjoy a city with deep agricultural roots.',
       longDescription: [
         "Riverside, the birthplace of California's citrus industry, is a city steeped in history and natural beauty, located in the Inland Empire. Founded in the early 1870s, it quickly became one of the wealthiest cities per capita in the United States due to the booming navel orange trade, a legacy that is still celebrated today at the California Citrus State Historic Park. The city serves as the county seat and is an educational and cultural hub, home to the University of California, Riverside, which infuses the area with youthful energy and academic prestige. Riverside's architecture is a defining characteristic, most notably the Mission Inn Hotel & Spa, a breathtaking National Historic Landmark that blends Mission Revival, Spanish Colonial, and Renaissance styles. The population is diverse and growing, reflecting a shift from agricultural roots to a modern suburban economy. The city's commitment to arts and culture is visible in its museums and galleries, making it a refined yet accessible destination that honors its golden agricultural past while looking toward a dynamic future.",
@@ -4716,7 +4716,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A master-planned model of safety and innovation, Irvine offers pristine parks, global cuisine, and a vibrant business hub.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Irvine',
+      heroHeading: 'Indoor Dog Park In Irvine',
       heroDescription: 'Enjoy immaculate trails, the Great Park balloon, and a global culinary scene in this master-planned gem.',
       longDescription: [
         "Irvine, a master-planned city in Orange County, is renowned for its immaculate layout, award-winning schools, and thriving business eco-system. Developed by the Irvine Company in the 1960s, the city is a model of urban planning, featuring distinct \"villages\" that are interconnected by greenbelts and bicycle paths. It is often cited as one of the safest and best-run cities in America, attracting a highly educated and diverse population, including a significant number of tech professionals and academics associated with the University of California, Irvine (UCI). The city's aesthetic is defined by its clean lines, manicured landscapes, and harmonious architecture, which reflect a commitment to order and quality of life. Irvine is not just a suburban enclave; it is a major economic powerhouse, hosting the headquarters of numerous international corporations. The demographic landscape is multicultural, with a rich blend of Asian and other communities that influences the city's exceptional culinary scene. Irvine represents a modern, forward-thinking vision of community living, prioritizing safety, education, and environmental sustainability.",
@@ -4731,7 +4731,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The City of Roses combines old-world elegance, scientific innovation, and stunning Craftsman architecture.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Pasadena',
+      heroHeading: 'Indoor Dog Park In Pasadena',
       heroDescription: 'From the Rose Bowl to world-class gardens, experience the sophistication and charm of historic Pasadena.',
       longDescription: [
         "Pasadena, famously known as the City of Roses, sits at the base of the San Gabriel Mountains and exudes a blend of old-world elegance and scientific innovation. Founded in 1874, it is one of the oldest cities in Los Angeles County and is globally recognized for hosting the annual Rose Parade and Rose Bowl Game. The city is a treasure trove of architectural gems, particularly the Craftsman-style homes, with the Gamble House standing as a prime example of American Arts and Crafts grandeur. Pasadena is also a brain trust, home to the California Institute of Technology (Caltech) and NASA's Jet Propulsion Laboratory, bridging the gap between historic tradition and cutting-edge space exploration. The demographic mix is culturally rich, with a strong appreciation for the arts, evident in the city's numerous museums and theaters. Old Pasadena, the historic downtown district, has been revitalized into a bustling shopping and dining area that retains its brick-and-mortar charm. It is a city that takes pride in its intellectual and floral heritage, offering a sophisticated yet welcoming atmosphere.",
@@ -4746,7 +4746,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The quintessence of California dreaming, featuring sun-drenched beaches, surf culture, and laid-back oceanfront living.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Coastal Cities',
+      heroHeading: 'Indoor Dog Park In Coastal Cities',
       heroDescription: 'Embrace the beach lifestyle with surf breaks, scenic drives, and a wellness-focused culture along the Pacific.',
       longDescription: [
         "The Coastal Cities of Southern California represent a quintessential lifestyle that has captivated the world's imagination, characterized by sun-drenched beaches, laid-back vibes, and effortless surfer chic. This collection of communities stretches along the Pacific Ocean, each with its own unique personality but united by a deep connection to the sea. From the surf breaks of North County San Diego to the dramatic cliffs of the Palos Verdes Peninsula, these cities are historically linked to the development of California beach culture, surf music, and the wellness movement. Demographically, these areas tend to be affluent, attracting residents who value outdoor living, health, and environmental stewardship. The architecture often features bright, airy designs that maximize ocean views, ranging from modern glass mansions to quaint beach cottages. Culturally, there is a strong emphasis on sustainability and ocean conservation, with local communities deeply invested in protecting their marine environments. Life here moves at the pace of the tides, offering a refreshing counterpoint to the frenetic energy of the inland metropolises.",
@@ -4761,7 +4761,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A luxurious seaside haven known for its massive recreational harbor, upscale shopping, and pristine beaches.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Newport Beach',
+      heroHeading: 'Indoor Dog Park In Newport Beach',
       heroDescription: 'Cruise the harbor, shop at Fashion Island, and enjoy the sophisticated coastal lifestyle of Newport Beach.',
       longDescription: [
         "Newport Beach, the jewel of Orange County's coast, is synonymous with luxury, nautical heritage, and a pristine seaside lifestyle. Incorporated in 1906, the city has grown from a small shipping wharf into one of the wealthiest and most sophisticated communities in the United States. Its harbor, one of the largest recreational boat harbors on the West Coast, is home to thousands of yachts and serves as the social and recreational heart of the city. The Balboa Peninsula, with its historic pavilion and fun zone, offers a nostalgic nod to the city's past as a summer resort town. Demographically, Newport Beach is home to successful professionals and families who enjoy a high quality of life centered around the ocean. The architecture is diverse, ranging from the charming cottages of Balboa Island to the ultra-modern estates of Crystal Cove. Cultural events like the Newport Beach Film Festival and the annual Christmas Boat Parade highlight a community that loves to celebrate art and tradition in style. It is a city where elegance meets the ocean, creating an atmosphere of relaxed opulence.",
@@ -4776,7 +4776,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Surf City USA represents the authentic, laid-back California beach culture with endless waves and bonfires.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Huntington Beach',
+      heroHeading: 'Indoor Dog Park In Huntington Beach',
       heroDescription: 'From the iconic pier to the dog beach, experience the ultimate surf culture and endless summer vibes.',
       longDescription: [
         "Huntington Beach, officially branded as \"Surf City USA,\" is the undisputed capital of American surfing culture and a city that embodies the eternal summer spirit. With 10 miles of uninterrupted coastline, its history is deeply intertwined with the sport of surfing, having hosted the US Open of Surfing since 1959. The city's pier, one of the longest on the West Coast, is an iconic landmark that stretches into the Pacific, serving as a gathering place for anglers, tourists, and sunset watchers. Demographically, Huntington Beach is a mix of old-school surf legends, young families, and professionals who appreciate the relaxed, beach-centric lifestyle. The International Surfing Museum stands as a tribute to the local heritage, showcasing the evolution of boards and the legends who rode them. The vibe here is noticeably more casual and gritty than its southern neighbors, with fire pits lining the sand and a strong sense of local pride. It attracts millions of visitors annually who come to experience the authentic California beach culture that has been immortalized in music and film.",
@@ -4791,7 +4791,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A classic beach town with historic roots, serving as the gateway to the Channel Islands and sustainable living.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Ventura',
+      heroHeading: 'Indoor Dog Park In Ventura',
       heroDescription: 'Discover a grounded beach town with a historic mission, thriving arts scene, and island adventures.',
       longDescription: [
         "Ventura, officially known as San Buenaventura, is a classic California beach town that has managed to retain its historic charm and unpretentious vibe amidst regional growth. Located between the Malibu coast and Santa Barbara, it serves as the gateway to the Channel Islands National Park, often referred to as the \"Galapagos of North America.\" Founded in 1782 with the establishment of Mission San Buenaventura, the city has a deep historical lineage that is evident in its preserved downtown architecture and archaeological sites. The city's demographic is a blend of surfers, artists, agricultural workers, and outdoor enthusiasts, creating a grounded and friendly community atmosphere. unlike some of its more manicured neighbors, Ventura embraces a rugged, natural aesthetic, backed by rolling hills and fronted by quality surf breaks. The city is also a hub for sustainable agriculture, with a thriving local produce scene thanks to the surrounding fertile farmland. It offers a slower pace of life where the focus is on nature, history, and community connection.",
@@ -4806,7 +4806,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The Village by the Sea offers a perfect blend of family fun, wellness, and floral beauty in North County San Diego.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Carlsbad',
+      heroHeading: 'Indoor Dog Park In Carlsbad',
       heroDescription: 'From LEGOLAND to the Flower Fields, explore a coastal resort city that prioritizes fun and wellness.',
       longDescription: [
         "Carlsbad, affectionately known as \"The Village by the Sea,\" is a coastal resort city in North San Diego County that perfectly balances small-town charm with world-class attractions. Historically, the city gained fame in the late 19th century for its improved mineral water wells, named after the famous spa in Karlsbad, Bohemia. This wellness legacy continues today with its focus on healthy living and outdoor activity. Carlsbad is perhaps best known globally as the home of LEGOLAND California, making it a premier family destination. The city's demographics include affluent families, retirees, and a growing tech sector, all drawn by the high quality of life, excellent schools, and seven miles of pristine beaches. The architecture in the village area features Victorian and coastal cottage influences, while newer developments maintain a cohesive, upscale aesthetic. Carlsbad is also the flower capital of the region, famous for the Flower Fields at Carlsbad Ranch, which burst into a spectacular display of giant tecolote ranunculus every spring. It is a city that feels both manicured and welcoming, offering luxury and leisure in equal measure.",
@@ -4821,7 +4821,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'East Bay hub blending redwood trails with urban dog culture; huge focus on hiking and brewery patios.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Oakland',
+      heroHeading: 'Indoor Dog Park In Oakland',
       heroDescription: 'From redwood forests to Jack London Square, explore the East Bay’s most active dog community.',
       longDescription: [
         "Oakland, situated in the heart of the East Bay, is a vibrant playground for dogs and their owners, offering a unique blend of urban excitement and rugged natural beauty. The city's dog culture is deeply ingrained, with a community that famously champions rescue pets and outdoor advocacy. From the towering redwoods of the hills to the bustling waterfront of Jack London Square, Oakland facilitates a lifestyle where four-legged companions are welcome almost everywhere. Weekend mornings often see locals flocking to the miles of dog-friendly trails that crisscross the East Bay Regional Park District, while afternoons are spent relaxing at dog-friendly venues like Temescal Brewing or The Good Hop. While dedicated public indoor dog parks are rare, the city's temperate climate allows for year-round outdoor play, and private rental networks like Sniffspot provide ample climate-controlled options for those seeking an exclusive experience away from the elements.",
@@ -4836,7 +4836,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Capital of Silicon Valley offering a mix of manicured urban parks and proximity to vast hiking trails.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly San Jose',
+      heroHeading: 'Indoor Dog Park In San Jose',
       heroDescription: 'Experience the best of the South Bay, from Santana Row strolls to expansive county parks.',
       longDescription: [
         "San Jose, the sun-drenched capital of Silicon Valley, offers a polished and diverse landscape for dog owners, blending the amenities of a major metropolis with easy access to nature. The city’s canine culture is reflective of its tech-forward population—active, social, and appreciative of well-maintained public spaces. Residents frequently take advantage of the 300+ days of sunshine to explore outdoor destinations like the upscale Santana Row, where dog-friendly patios and water bowls are a common sight. While dedicated indoor facilities are less common due to the favorable weather, the city compensates with a robust network of community parks and trails managed by [San Jose Parks](https://www.sanjoseca.gov). The culture here emphasizes responsible ownership, with a strong presence of training clubs and agility groups that utilize the city's expansive green spaces. Whether grabbing coffee in Japantown or hiking the foothills, dogs are an integral part of the San Jose lifestyle.",
@@ -4852,7 +4852,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The River City combines flat, walkable terrain with extensive parkways and growing indoor options.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Sacramento',
+      heroHeading: 'Indoor Dog Park In Sacramento',
       heroDescription: 'From the American River Parkway to indoor play centers, discover the capital’s best dog spots.',
       longDescription: [
         "Sacramento, California's capital, is a riverfront haven for dog lovers, offering a distinctive mix of historic charm, flat walkable terrain, and a rapidly growing pet-friendly infrastructure. The city's identity is defined by the American River Parkway, a 32-mile jewel known as the 'Jedediah Smith Memorial Trail,' which attracts thousands of dog walkers and joggers daily. Sacramento's dog culture is unpretentious and active, with a strong community that frequents the many local breweries like Bike Dog Brewing Company that openly embrace four-legged patrons. Unlike many California cities, Sacramento experiences distinct seasonal shifts, prompting the development of indoor options like Paws N' Play Canine Community Center, which provides a climate-controlled sanctuary during the scorching summer months. The city's abundant tree canopy provided by its 'City of Trees' moniker also makes outdoor walks pleasant even when the valley heat sets in.",
@@ -4867,7 +4867,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Wine Country gateway with a relaxed vibe, offering vineyard-adjacent parks and swimming lagoons.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Santa Rosa',
+      heroHeading: 'Indoor Dog Park In Santa Rosa',
       heroDescription: 'Explore Sonoma County’s hub, where wineries, redwoods, and dog parks roam free.',
       longDescription: [
         "Santa Rosa serves as the vibrant hub of Sonoma County Wine Country, offering a relaxed and scenic environment where dogs are treated as VIPs. The city's connection to Charles Schulz (creator of Peanuts) sets a playful tone, with Snoopy statues dotting a downtown that is remarkably pet-friendly. The culture here is deeply connected to the land; it’s common to see dogs joining their owners for tastings at vineyard patios like Kendall-Jackson or St. Francis Winery. While public indoor dog parks are practically non-existent due to the mild Mediterranean climate, the region excels in high-quality outdoor experiences. Facilities like Four Paws Pet Ranch offer private, membership-based play areas that feel like country clubs for canines. The city’s vibe is laid-back and agricultural, prioritizing open spaces and natural terrain over concrete runs.",
@@ -4882,7 +4882,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Central Valley hub serving as a gateway to Yosemite, with expansive parks and heat-smart options.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Fresno',
+      heroHeading: 'Indoor Dog Park In Fresno',
       heroDescription: 'Discover the Central Valley’s best dog parks and trails, right at the doorstep of the Sierras.',
       longDescription: [
         "Fresno, the agricultural powerhouse of the Central Valley, offers a surprisingly robust landscape for dog owners, serving as a gateway to the Sierra Nevada mountains. The city's dog culture is practical and community-focused, adapted to the region's hot summers and mild winters. Residents often flock to the San Joaquin River Parkway for cooler, shaded walks, utilizing trails like the Lewis S. Eaton Trail. While Fresno lacks a multitude of public indoor dog parks, the Dr. James W. Thornton Dog Park at the Valley Animal Center fills this gap with a top-tier membership facility that includes a wading pool and agility courses—critical amenities during triple-digit heatwaves. The community here is active, with frequent meetups at dog-friendly breweries like House of Pendragon, where pets are welcomed into the family atmosphere.",
@@ -4897,7 +4897,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Kern County energy meets outdoor enthusiasm; river trails and indoor training centers define the scene.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Bakersfield',
+      heroHeading: 'Indoor Dog Park In Bakersfield',
       heroDescription: 'From the Kern River Parkway to indoor agility, explore a city that loves its spirited pups.',
       longDescription: [
         "Bakersfield, historically known for country music and energy production, has cultivated a fiercely loyal and active dog-owning community. The city's geography is defined by the Kern River, which provides a natural corridor for recreation in an otherwise arid region. The Kern River Parkway Trail is the artery of local dog life, offering miles of paved, scenic paths where leashed dogs can exercise alongside cyclists and runners. Summers here are intense, which has driven the popularity of places like Zoom Room Bakersfield, an indoor training facility that doubles as a climate-controlled social hub for playgroups. The vibe is down-to-earth and neighborly; you're likely to strike up a conversation with fellow owners at any of the city's well-used parks. Establishments with patios, such as local steakhouses and breweries, increasingly welcome pets, reflecting a shift toward a more inclusive family culture.",
@@ -4913,7 +4913,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Central Valley charm with a pioneering indoor dog park and taproom scene.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Modesto',
+      heroHeading: 'Indoor Dog Park In Modesto',
       heroDescription: 'Home to California’s first indoor dog park taproom and shady neighborhood runs.',
       longDescription: [
         "Modesto, immortalized in 'American Graffiti', is carving out a new reputation as a forward-thinking city for pet owners in the Central Valley. The city's agricultural roots provide a backdrop of tree-lined streets and community-focused living. A major highlight of the local scene is Bark Dog Park & Tap Room, marketed as California's first 100% indoor dog park and taproom. This facility addresses the region's climate needs perfectly, offering a supervised, climate-controlled environment where humans can enjoy craft beer while dogs socialize on sanitary turf. Beyond this innovation, Modesto's culture is deeply social, with the Virginia Corridor Trailway serving as a daily promenade for walkers and their leashed companions. The city’s flat landscape makes it ideal for long, leisurely strolls, and the community is known for its friendliness and responsible ownership.",
@@ -4928,7 +4928,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Delta waterfront city with expansive agility parks and river-adjacent walking paths.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Stockton',
+      heroHeading: 'Indoor Dog Park In Stockton',
       heroDescription: 'Navigate the Delta city’s best agility courses and waterfront parks for active dogs.',
       longDescription: [
         "Stockton, a major inland port situated in the San Joaquin Delta, offers a unique waterfront-oriented lifestyle for dog owners. The city's extensive waterways provide a cooling influence and scenic backdrops for walks along the downtown waterfront or in parks like Louis Park. Stockton's dog community is active and values structured play, evidenced by the popularity of parks with built-in agility equipment. While dedicated indoor dog parks are scarce, the mild Delta breezes often make outdoor activity comfortable year-round. The city serves as a gateway to the nearby Lodi wine region, where dog-friendly wineries like Klinker Brick offer weekend excursions. Within Stockton, the vibe is diverse and resilient, with a strong network of rescue advocates and community groups working to maintain safe, engaging spaces for pets.",
@@ -4943,7 +4943,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'The Salad Bowl of the World offers cool coastal fog and hiking trails just minutes from Monterey.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Salinas',
+      heroHeading: 'Indoor Dog Park In Salinas',
       heroDescription: 'Enjoy the cool coastal climate with hiking at Toro Park and convenient city runs.',
       longDescription: [
         "Salinas, known as the 'Salad Bowl of the World' and the hometown of John Steinbeck, offers a dog-friendly environment defined by its cool coastal climate and agricultural heritage. Located just inland from Monterey Bay, the city benefits from ocean breezes and morning fog, creating ideal conditions for outdoor activity almost year-round. This makes the lack of public indoor dog parks negligible, as heat is rarely an issue. The dog culture here is grounded and family-oriented, with huge popularity for weekend hiking in the surrounding hills. Toro County Park is a regional favorite, offering miles of rugged trails where leashed dogs can accompany their owners on climbs that reveal sweeping views of the Salinas Valley. The proximity to Monterey means that beach days are just a short drive away, adding variety to the local routine.",
@@ -4958,7 +4958,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Gateway to the Sequoias with charming downtown vibes and spacious, oak-shaded parks.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Visalia',
+      heroHeading: 'Indoor Dog Park In Visalia',
       heroDescription: 'From Sequoia gateways to downtown trails, explore this charming Central Valley city.',
       longDescription: [
         "Visalia, situated in the heart of the San Joaquin Valley and known as the gateway to Sequoia National Park, blends small-town hospitality with robust amenities for dog owners. The city is celebrated for its preservation of valley oak trees, which provide essential shade in its many beautiful parks, making outdoor recreation pleasant even in summer. Visalia's downtown is remarkably charming and pedestrian-friendly, with a Main Street lined with restaurants like BarrelHouse Brewing that happily host pets on their patios. The community is tight-knit, favoring outdoor adventures; it’s common to see locals prepping for weekend trips to the nearby mountains or enjoying evening strolls along the St. Johns River Trail. While large indoor dog parks are not a staple, the abundance of shaded natural spaces and private rental options via Sniffspot fills the need for safe play areas.",
@@ -4975,7 +4975,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     parks: [],
     customContent: {
       heroEyebrow: 'City spotlight',
-      heroHeading: 'Dog Parks in Lodi, CA',
+      heroHeading: 'Indoor Dog Park In Lodi',
       heroDescription: 'Discover Lodi\'s wine country charm with river-adjacent trails and premium dog training facilities.',
       heroFootnotes: ['Data refreshed weekly', 'Live availability coming soon'],
       heroChips: [
@@ -5046,7 +5046,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'Urban sophistication meets massive park systems; top-rated runs nestled near the San Gabriel foothills.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Glendale',
+      heroHeading: 'Indoor Dog Park In Glendale',
       heroDescription: 'From the foothills to the urban core, discover Glendale’s most popular dog parks and trails.',
       longDescription: [
         "Glendale, nestled at the base of the Verdugo Mountains and the San Gabriels, offers a sophisticated urban environment paired with some of the region's most expansive natural spaces. As the fourth largest city in Los Angeles County, it maintains a unique balance between high-end shopping at the Americana at Brand and rugged outdoor recreation in Brand Park and Deukmejian Wilderness Park. The city's dog culture is active and social, with a community that values both polished urban strolls and challenging mountain hikes. While most recreation is outdoor-focused, the city's diverse architecture and safe, tree-lined neighborhoods make it a premier destination for pet parents in the foothills.",
@@ -5062,7 +5062,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     summary: 'A family-oriented Riverside County gem featuring modern dog parks and expansive community trails.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog-Friendly Eastvale',
+      heroHeading: 'Indoor Dog Park In Eastvale',
       heroDescription: 'Discover the Inland Empire’s most family-friendly dog parks and community-focused trails.',
       longDescription: [
         "Eastvale, one of the newest and fastest-growing cities in Western Riverside County, has been meticulously planned with families—including those with four legs—in mind. Formerly part of a dairying region, the city has transformed into a premier suburban destination known for its safety, award-winning schools, and an abundance of park space. The dog-owning community in Eastvale is vibrant and community-driven, often gathering at the city's multiple modern parks that feature dedicated areas for canine socialization. The city's flat terrain and extensive network of paved trails make it ideal for long, accessible walks and jogs under the Southern California sun.",
@@ -12421,6 +12421,422 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         "Walland, Tennessee, located in Blount County along the 'Peaceful Side of the Smokies,' offers a serene and natural setting for dog owners who value tranquility and mountain views. The community is situated near the entrance to [Great Smoky Mountains National Park](https://www.nps.gov/grsm/), providing leashed dogs access to world-class natural beauty on specialized dog-friendly paths like the nearby Gatlinburg Trail. Within Walland itself, the rolling foothills and quiet country roads offer a beautiful and low-traffic backdrop for daily exercise. The area’s reputation as a premium getaway is reflected in its high-quality residential character, where dogs are constant companions on quiet morning walks surrounded by the majesty of the East Tennessee high country.",
         "Pet owners in Walland are guided by Blount County’s animal control regulations, which mandate that animals be under the direct control of a competent person when off the owner's premises. This includes a requirement for a leash in all public spaces and shared residential areas, ensuring the safety of walkers and other pets. Responsible ownership also requires maintaining current rabies vaccinations and identification tags, which are vital for a healthy animal population in this rural enclave. The local culture emphasizes respect for private property and the pristine natural surroundings. For more information on the best dog-friendly spots and services in the Maryville-Townsend area, our [East Tennessee guide](https://www.indoordogpark.org/states/tennessee) offers curated insights and verified local recommendations."
+      ],
+    },
+  },
+  {
+    slug: 'chino-ca',
+    city: 'Chino',
+    state: 'CA',
+    featuredImage: '/images/cities/chino-ca/hero.webp',
+    summary: 'A family-oriented suburban community with robust park systems and a growing interest in climate-controlled play.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Chino, CA',
+      heroDescription: 'Discover the best local dog parks and climate-controlled play options in Chino, where suburban comfort meets active pet living.',
+      longDescription: [
+        "Chino, California, offers a robust suburban environment for pets, anchored by quality spaces like [Ayala Park](https://www.cityofchino.org/218/Ayala-Park) and the Waggin' Tails Dog Park at The Preserve. For those who prefer a scenic stroll, the Chino Creek Wetlands & Educational Park highlights the area's natural beauty. However, the Inland Empire's summer heat frequently exceeds 100°F, making climate-controlled play essential. Understanding [how indoor play works](https://www.indoordogpark.org/how-it-works) is vital for parents looking to keep dogs safe from scorching pavement during peak afternoon hours.",
+        "The community in Chino is family-oriented and maintains an active social life through organized meetups. Responsible ownership is guided by ordinances requiring a six-foot leash in public, ensuring safety for both wildlife and neighborhood dogs. There is a growing interest in specialized [training facilities](https://www.indoordogpark.org/training-facilities) that bridge the gap between outdoor exercise and indoor enrichment. This mix of agricultural roots and modern development makes Chino a premier destination for dog lovers who value safety and consistency."
+      ],
+    },
+  },
+  {
+    slug: 'corona-ca',
+    city: 'Corona',
+    state: 'CA',
+    featuredImage: '/images/cities/corona-ca/hero.webp',
+    summary: 'Known as "Circle City," Corona offers a unique circular layout and well-maintained off-leash zones for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Corona, CA',
+      heroDescription: 'Explore Corona’s "Circle City" pet culture, featuring expansive off-leash trails and essential safety tips for the Southern California heat.',
+      longDescription: [
+        "Corona, California, offers a vibrant suburban escape for dog owners, anchored by the popular [Santana Regional Park](https://www.coronaca.gov/government/departments-divisions/community-services/parks-recreation). This expansive facility features a dedicated off-leash area where local pups can socialize safely. For those seeking nature, the Skyline Drive Trail provides rewarding challenges for active owners and their leashed companions. However, the Inland Empire heat is a major factor, making climate-controlled play essential during the scorching summer months.",
+        "Residents often visit our [about page](https://www.indoordogpark.org/about) to learn more about our commitment to safe, indoor enrichment. Corona’s pet policies prioritize leash safety and mandatory licensing in residential areas. Many owners explore [how it works](https://www.indoordogpark.org/how-it-works) to find structured play that avoids the midday sun. By combining rugged canyon trails with modern, family-friendly amenities, Corona remains a top destination for Southern California dog lovers who value a healthy, balanced lifestyle for their pets."
+      ],
+    },
+  },
+  {
+    slug: 'davis-ca',
+    city: 'Davis',
+    state: 'CA',
+    featuredImage: '/images/cities/davis-ca/hero.webp',
+    summary: 'The "Bicycle Capital" is an eco-conscious haven where dogs and bikes share extensive greenbelts and arboretum trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Davis, CA',
+      heroDescription: 'Join the eco-friendly dog community in Davis, where greenbelts and bicycle-friendly paths create a world-class outdoor lifestyle.',
+      longDescription: [
+        "As the world-renowned \"Bicycle Capital of America,\" Davis, California, integrates pet culture into its eco-conscious lifestyle. From leashed strolls through the [UC Davis Arboretum](https://arboretum.ucdavis.edu/) to social hours at Toad Hollow Dog Park, the city is designed for active exploration. Unique to Davis is the sight of dogs being transported via cargo bikes along an extensive greenbelt network. Many owners rely on our [about page](https://www.indoordogpark.org/about) to understand our mission of expanding safe, accessible play options in academic cities where outdoor space is highly valued.",
+        "While the Central Valley is famous for its Mediterranean climate, Davis residents must contend with dry heat and rainy winters that can limit outdoor activity. The community values physical enrichment, often seeking out specialized [training facilities](https://www.indoordogpark.org/training-facilities) to maintain their dogs' skills year-round. Strict leash law enforcement ensures a safe environment for both pedestrians and cyclists. For Davis dog owners, the priority is a \"green\" and active lifestyle that doesn't skip a beat regardless of the northern California weather."
+      ],
+    },
+  },
+  {
+    slug: 'downey-ca',
+    city: 'Downey',
+    state: 'CA',
+    featuredImage: '/images/cities/downey-ca/hero.webp',
+    summary: 'A historic "Cradle of the Cosmic Age" community with shaded park havens and a strong focus on balanced canine lifestyles.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Downey, CA',
+      heroDescription: 'Experience the historic charm of Downey, home to shaded off-leash areas and forward-thinking pet care resources.',
+      longDescription: [
+        "Downey, California, is a historic hub in Southeast Los Angeles where the \"all-American city\" vibe extends to its pet culture. The [Rio San Gabriel Park](https://www.downeyca.org/departments/parks-recreation) is the local favorite, offering a well-maintained off-leash area for canines of all sizes. Residents often browse our [blog](https://www.indoordogpark.org/blog) for health tips, as the high density and urban traffic make structured exercise and respiratory safety a priority during seasonal smog alerts and summer heatwaves.",
+        "Downey’s municipal code requires a six-foot leash in public, ensuring safety in busy commercial districts. Many apartment dwellers look to [training facilities](https://www.indoordogpark.org/training-facilities) for indoor enrichment that bypasses the limitations of urban living. By balancing its aerospace heritage with a commitment to green spaces like Furman Park, Downey offers a stable environment for dog owners. This focus on community safety and proactive care makes it a premier choice for responsible pet parents seeking a well-ordered, dog-friendly Southern California lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'el-cajon-ca',
+    city: 'El Cajon',
+    state: 'CA',
+    featuredImage: '/images/cities/el-cajon-ca/hero.webp',
+    summary: 'A diverse East County hub where rugged trail access meets a dedicated "pack" culture and high-energy off-leash zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in El Cajon, CA',
+      heroDescription: 'Navigate the "East County Heat" in El Cajon with high-quality off-leash facilities and climate-controlled enrichment options.',
+      longDescription: [
+        "El Cajon serves as a major hub for San Diego's East County, offering a rugged landscape for dog owners. [Wells Park](https://www.elcajon.gov/departments/parks-and-recreation) is the local favorite, featuring a large off-leash area with agility gear for high-energy breeds. However, the \"East County Heat\" is a significant factor, with temperatures often soaring much higher than coastal regions. This creates a demand for climate-controlled [training facilities](https://www.indoordogpark.org/training-facilities) where dogs can exercise safely without the risk of overheating.",
+        "El Cajon's pet policies foster a strong local culture, allowing residents to keep up to four household pets. While nearby Mission Trails Regional Park offers world-class hiking, the city’s leash ordinance remains strictly enforced on public streets. Many residents choose to [list their park](https://www.indoordogpark.org/list-your-park) or private spaces to provide intimate, shaded alternatives to public lots. This mix of desert-fringe adventure and community regulation defines the El Cajon pet experience for families who value consistency and year-round safety."
+      ],
+    },
+  },
+  {
+    slug: 'fair-oaks-ca',
+    city: 'Fair Oaks',
+    state: 'CA',
+    featuredImage: '/images/cities/fair-oaks-ca/hero.webp',
+    summary: 'A bohemian village enclave famous for its roaming chickens and sprawling American River Parkway trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Fair Oaks, CA',
+      heroDescription: 'Discover the quirky, semi-rural charm of Fair Oaks, a village where river trails and community connection define pet ownership.',
+      longDescription: [
+        "Fair Oaks, California, is celebrated for its semi-rural charm and the quirky wild chickens that famously roam its \"Village\" center. For dog owners, the crown jewel is [Phoenix Park](https://forpd.org/233/Phoenix-Park), which offers a massive off-leash area and direct access to the scenic American River Parkway trails. The local culture is relaxed, focusing on the simple joys of nature and community connection. Owners often browse our [blog](https://www.indoordogpark.org/blog) for tips on socialized play and trail etiquette, ensuring that their dogs co-exist peacefully with both local wildlife and other trail users.",
+        "The Sacramento Valley climate brings both scorching summers and rainy winters, making the search for [how indoor play works](https://www.indoordogpark.org/how-it-works) a common topic among residents. Daily life revolves around leashed walks through wooded neighborhoods and pet-friendly outdoor cafes. Strict enforcement of county leash laws near the river helps maintain a safe environment for everyone. For those in Fair Oaks, dog ownership is about embracing a slower, more connected pace of life in one of Northern California’s most unique suburban enclaves."
+      ],
+    },
+  },
+  {
+    slug: 'folsom-ca',
+    city: 'Folsom',
+    state: 'CA',
+    featuredImage: '/images/cities/folsom-ca/hero.webp',
+    summary: 'An active high-tech center where premier sierra foothill trails and elite park facilities cater to the modern family dynamic.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Folsom, CA',
+      heroDescription: 'Elevate your dog’s active lifestyle in Folsom, featuring sierra foothill trails and tech-hub pet amenities.',
+      longDescription: [
+        "Folsom, California, is an outdoorsman's paradise at the foothills of the Sierra Nevada. The community revolves around active living, with the [Cummings Family Dog Park](https://www.folsom.ca.us/government/parks-recreation) serving as the primary social anchor. Adjacent to Folsom Lake, the city offers an incredible array of pet-friendly trails for hikers and casual walkers alike. Many residents visit our [about page](https://www.indoordogpark.org/about) to explore our commitment to safe, high-quality play spaces in tech hubs where pet wellness is a top priority.",
+        "Known as a high-tech center, Folsom attracts families who value sophisticated amenities. The intense Sacramento Valley heat often limits outdoor windows, driving interest in premium [training facilities](https://www.indoordogpark.org/training-facilities) and indoor solutions. Trail safety is paramount here, as the city reminds owners to follow six-foot leash rules to avoid encounters with local wildlife. By combining a modern lifestyle with respect for the natural landscape, Folsom offers a premier experience for dog owners who refuse to settle for less than excellence."
+      ],
+    },
+  },
+  {
+    slug: 'gardena-ca',
+    city: 'Gardena',
+    state: 'CA',
+    featuredImage: '/images/cities/gardena-ca/hero.webp',
+    summary: 'A resilient South Bay community where urban "apartment dog" lifestyles thrive with structured play and social green spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Gardena, CA',
+      heroDescription: 'Scale your urban pet lifestyle in Gardena, where community green spaces and climate-controlled enrichment meet.',
+      longDescription: [
+        "Gardena, California, is a diverse residential hub in the South Bay where the \"apartment dog\" lifestyle is a common reality. Local favorites like Arthur Lee Johnson Memorial Park and Thornburg Park offer essential green spaces for daily walks and community connection. However, the Los Angeles Basin frequently experiences heatwaves and seasonal smog, which can compromise air quality for active pets. Learning [how indoor play works](https://www.indoordogpark.org/how-it-works) is increasingly important for Gardena owners seeking a safe, filtered environment.",
+        "Per Gardena Municipal Code, dogs must be secured on a maximum six-foot leash in public spaces, emphasizing safety in this busy urban landscape. While the nearby Redondo Beach Dog Park provides a coastal escape, the daily need for reliable exercise leads residents to seek out local [training facilities](https://www.indoordogpark.org/training-facilities). By balancing city life with structured play, Gardena pet parents ensure their dogs remain socialized and healthy. This proactive approach to pet care makes Gardena a committed community for responsible Southern California dog owners."
+      ],
+    },
+  },
+  {
+    slug: 'glendora-ca',
+    city: 'Glendora',
+    state: 'CA',
+    featuredImage: '/images/cities/glendora-ca/hero.webp',
+    summary: 'The "Pride of the Foothills" offers elite gated socialization and family-centric pet infrastructure for foothill families.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Glendora, CA',
+      heroDescription: 'Experience the "Pride of the Foothills" in Glendora, featuring premier off-leash facilities and a dedicated responsible pet culture.',
+      longDescription: [
+        "Known as the \"Pride of the Foothills,\" Glendora, California, boasts a high-quality environment for canine companions, centered around the [South Hills Dog Park](https://www.cityofglendora.org/departments/community-services/parks-trails-and-facilities). Featuring double-gated entries and dog-level fountains, this facility is a local social anchor. However, Glendora’s position often leads to triple-digit summer temperatures, making safe outdoor play difficult. Staying updated with our [latest blog posts](https://www.indoordogpark.org/blog) helps owners identify the best times for exercise and avoid heat stress.",
+        "Glendora maintains strict safety rules, including a three-dog limit per owner in off-leash areas. The city’s trail system is perfect for leashed exploration, provided owners follow the six-foot leash rules to protect local wildlife. Many local entrepreneurs consult our [owner resources](https://www.indoordogpark.org/owner-resources) to identify opportunities for indoor, climate-controlled social hubs. This commitment to well-ordered spaces makes Glendora a premier destination for Southern California dog owners who prioritize safety and year-round enrichment for their pets."
+      ],
+    },
+  },
+  {
+    slug: 'north-hollywood-ca',
+    city: 'North Hollywood',
+    state: 'CA',
+    featuredImage: '/images/cities/north-hollywood-ca/hero.webp',
+    summary: 'A vibrant arts district where "studio dogs" and tech-adjacent professionals thrive in urban social play zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in North Hollywood, CA',
+      heroDescription: 'Join the creative pet community in NoHo, home to expansive off-leash parks and climate-controlled urban social spaces.',
+      longDescription: [
+        "North Hollywood, or NoHo, is an artsy district where dogs are often integrated into the \"studio\" lifestyle. The primary local destination is the [Whitnall Off-Leash Dog Park](https://www.laparks.org/dogpark/whitnall-off-leash), a massive facility serving the San Fernando Valley. Many residents visit our [about page](https://www.indoordogpark.org/about) to explore how we are helping urban owners find climate-controlled alternatives in areas where the Valley’s \"heat trap\" can make mid-afternoon walks dangerous on scorching city sidewalks.",
+        "The NoHo Arts District is walkable and pet-friendly, with luxury apartment dwellers seeking social outlets for high-energy pups. While Los Angeles leashing regulations are strictly enforced, the community logic focuses on responsible cleanup in high-traffic plazas. Because of the urban density, there is significant interest in specialized [listing your park](https://www.indoordogpark.org/list-your-park) options for private, controlled play. This combination of creative energy and urban pet needs makes North Hollywood a vibrant hub for the modern Los Angeles dog owner."
+      ],
+    },
+  },
+  {
+    slug: 'novato-ca',
+    city: 'Novato',
+    state: 'CA',
+    featuredImage: '/images/cities/novato-ca/hero.webp',
+    summary: 'An affluent Marin County enclave with specialized "slow play" zones and a strong focus on year-round pet wellness.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Novato, CA',
+      heroDescription: 'Elevate your dog’s wellness in Novato, featuring specialized off-leash meadows and elite indoor training options.',
+      longDescription: [
+        "Novato, California, offers a nature-centric retreat for dog owners in Marin County, highlighted by the [Dogbone Meadow Park](https://www.novato.org/government/parks-recreation-community-services/parks-trails). This acre-plus fenced facility includes \"Brian’s Place,\" a dedicated zone for timid or senior dogs. Residents often browse our guide on [how it works](https://www.indoordogpark.org/how-it-works) to integrate these social outings into a balanced lifestyle that mirrors the city’s focus on health and longevity for both humans and their canine companions.",
+        "While Novato’s trails are world-class, rainy winters can turn local meadows into muddy challenges. Strict leashing rules on city and state trails ensure the protection of Marin’s ecosystem while allowing for scenic exploration. This seasonal mud drives a preference for specialized [training facilities](https://www.indoordogpark.org/training-facilities) that provide clean, indoor alternatives during the wet months. By prioritizing trail safety and year-round exercise, Novato remains one of Northern California’s most desirable enclaves for active and responsible dog owners."
+      ],
+    },
+  },
+  {
+    slug: 'petaluma-ca',
+    city: 'Petaluma',
+    state: 'CA',
+    featuredImage: '/images/cities/petaluma-ca/hero.webp',
+    summary: 'A rustic-meets-refined community where massive off-leash fields and dog-friendly brewery patios create a premier social scene.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Petaluma, CA',
+      heroDescription: 'Experience the rustic social scene in Petaluma, home to massive 9-acre play fields and a world-class craft beer culture.',
+      longDescription: [
+        "Petaluma, California, perfectly blends its rustic roots with a sophisticated, pet-friendly craft beer and foodie scene. The standout facility is [Rocky Memorial Dog Park](https://cityofpetaluma.org/rocky-memorial-dog-park/), a massive 9-acre fully fenced haven that reflects the city’s commitment to open space. Many local residents follow our [blog](https://www.indoordogpark.org/blog) for insights on trail etiquette and socialization tips, especially when navigating the transition from the farm-heavy outskirts to the bustling, dog-friendly patios of the historic downtown district.",
+        "Unique to Petaluma are the \"Designated Dog Run Areas\" in city parks with specific off-leash hours, allowing for flexible exercise routines. While the climate is moderate, winter mud is a factor, leading many city-dwelling owners to [list their park](https://www.indoordogpark.org/list-your-park) or seek sterile, indoor social spaces to keep their homes clean. With restaurant patios often treating dogs as VIP guests, Petaluma offers a high-end social lifestyle matched by a community focus on responsible ownership and public safety."
+      ],
+    },
+  },
+  {
+    slug: 'playa-vista-ca',
+    city: 'Playa Vista',
+    state: 'CA',
+    featuredImage: '/images/cities/playa-vista-ca/hero.webp',
+    summary: 'The heart of Silicon Beach, offering ultra-modern turf parks and a seamless integration of pets into tech-hub daily life.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Playa Vista, CA',
+      heroDescription: 'Modern tech-living meets elite pet care in Playa Vista, featuring artificial turf parks and supervised play for busy professionals.',
+      longDescription: [
+        "As the heart of \"Silicon Beach,\" Playa Vista is a modern community where pets are central to the \"live-work-play\" philosophy. Facilities like [Bluff Creek Dog Park](https://www.playavista.com/) feature artificial turf and double-gated entries, catering to tech professionals who value cleanliness and efficiency. Many local owners consult our [how it works](https://www.indoordogpark.org/how-it-works) guide to find supervised play environments that align with their long office hours and fast-paced coastal lifestyles, ensuring their dogs remain socialized even during busy work weeks.",
+        "Playa Vista is designed for walkability, with dogs being a common sight in city plazas and tech hubs. Strict rules against leaving dogs unattended and a preference for positive reinforcement reflect the community's forward-thinking vibe. Local entrepreneurs often look to our [owner resources](https://www.indoordogpark.org/owner-resources) to develop indoor social clubs that cater to the luxury apartment market. This integration of technology and pet wellness makes Playa Vista a leading example of the modern, urban dog-friendly landscape in Southern California."
+      ],
+    },
+  },
+  {
+    slug: 'poway-ca',
+    city: 'Poway',
+    state: 'CA',
+    featuredImage: '/images/cities/poway-ca/hero.webp',
+    summary: 'The "City in the Country" provides lit evening play areas and a rugged outdoor lifestyle for San Diego County families.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Poway, CA',
+      heroDescription: 'Explore the "City in the Country" in Poway, offering expansive lit night-play areas and a dedicated active outdoor lifestyle.',
+      longDescription: [
+        "Known as \"The City in the Country,\" Poway, California, offers an active, outdoor-oriented lifestyle where pet owners value both rugged adventures and reliable social spaces. The [Poway Dog Park](https://poway.org/246/Dog-Park) provides nearly two acres of gated play, including lit sections for safe evening socialization. Many residents visit our [about page](https://www.indoordogpark.org/about) to learn about our mission of providing climate-controlled havens in areas where the intense Inland San Diego heat can make traditional daytime outdoor exercise dangerous for many breeds.",
+        "While leashed walks around Lake Poway offer stunning views, strict ordinances require dogs to stay well away from the shoreline and follow a general 6-foot leash rule on all public trails. The dry, intense \"fire season\" heatwaves make indoor [training facilities](https://www.indoordogpark.org/training-facilities) a vital safety net for high-energy dogs. By balancing its rural charm with a focus on well-lit, secure facilities for night play and summer safety, Poway remains a premier destination for San Diego County dog owners who prioritize a healthy, active, and safe environment for their pets."
+      ],
+    },
+  },
+  {
+    slug: 'rancho-cordova-ca',
+    city: 'Rancho Cordova',
+    state: 'CA',
+    featuredImage: '/images/cities/rancho-cordova-ca/hero.webp',
+    summary: 'A stable suburban community prioritizing high-energy off-leash play and essential heat-protection resources for the long dry season.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Rancho Cordova, CA',
+      heroDescription: 'Secure your dog’s active lifestyle in Rancho Cordova, where community-focused green spaces and essential heat-safety options thrive.',
+      longDescription: [
+        "Rancho Cordova, California, is a premier suburban hub in Sacramento County that prioritizes an active lifestyle for canine residents. The community’s heart is the [Hagan Community Dog Park](https://www.crpd.com/parks/hagan-community-park/), offering expansive, fenced sections for all breeds. For scenic outings, the American River Parkway provides miles of trails. Since the Central Valley often faces summer heat exceeding 100°F, understanding [how indoor play works](https://www.indoordogpark.org/how-it-works) is essential to protect paws and prevent heatstroke during the peak afternoon hours.",
+        "Responsible ownership is woven into the local culture with six-foot leash laws and mandatory licensing. Many residents seek out local [training facilities](https://www.indoordogpark.org/training-facilities) to keep high-energy breeds stimulated. By balancing its industrial history with a modern focus on green spaces, Rancho Cordova offers a supportive environment for owners. This dedication to pet wellness, especially during intense summers, makes it a standout community for dog lovers who prioritize safety and year-round physical health."
+      ],
+    },
+  },
+  {
+    slug: 'redlands-ca',
+    city: 'Redlands',
+    state: 'CA',
+    featuredImage: '/images/cities/redlands-ca/hero.webp',
+    summary: 'A refined Victorian enclave with a charming historic downtown and a strong commitment to premium pet care during the Inland Empire heat.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Redlands, CA',
+      heroDescription: 'Experience the historic charm of Redlands, where charming downtown cafes and proactive heat-safety measures create an elite pet experience.',
+      longDescription: [
+        "Redlands, California, is famously known for its historic citrus groves and Victorian architecture, providing a charming backdrop for dog owners. The social center is the [Redlands Dog Park](https://www.cityofredlands.org/post/ford-park) at Ford Park, where residents gather for off-leash play and community connection. Many owners follow our [blog](https://www.indoordogpark.org/blog) for tips on managing health during the Inland Empire’s intense heatwaves and Santa Ana winds. The historic downtown district is particularly welcoming, with many outdoor cafes treating leashed dogs as part of the local scenery.",
+        "Under Redlands Municipal Code, dogs must be secured on a leash at all times in public areas, ensuring the safety of historic neighborhoods. The community vibe drives interest among local entrepreneurs in our [owner resources](https://www.indoordogpark.org/owner-resources) for creating indoor social hubs that offer a reprieve from summer dust and heat. By prioritizing pet safety and maintaining high standards for public spaces, Redlands offers a sophisticated lifestyle for dog owners who value old-world charm and modern, climate-controlled amenities for their canine companions."
+      ],
+    },
+  },
+  {
+    slug: 'richmond-ca',
+    city: 'Richmond',
+    state: 'CA',
+    featuredImage: '/images/cities/richmond-ca/hero.webp',
+    summary: 'A coastal East Bay hub anchored by expansive world-class off-leash shoreline access and a practical, residential community vibe.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Richmond, CA',
+      heroDescription: 'Conquer the East Bay coastline in Richmond, featuring world-class off-leash shoreline access and reliable rainy-season alternatives.',
+      longDescription: [
+        "Richmond, California, offers a revitalized coastal experience in the East Bay, anchored by the world-famous [Point Isabel Regional Shoreline](https://www.ebparks.org/parks/point-isabel). As one of the largest off-leash parks in the United States, it attracts owners who value wide-open spaces and stunning bay views. Many visitors consult our [about page](https://www.indoordogpark.org/about) to find reliable indoor alternatives when the Bay Area’s signature fog, damp winters, and biting winds make outdoor play uncomfortable for many breeds.",
+        "For leashed exploration, the Richmond Marina Bay Trail offers miles of paved paths with beautiful views, provided owners adhere to the six-foot leash rules common in Contra Costa County. The local industrial roots are giving way to a practical, pet-centric residential vibe that values reliable exercise. Many residents choose to [list their park](https://www.indoordogpark.org/list-your-park) or private spaces as safe havens during the rainy season. This blend of coastal beauty and community regulation defines the modern Richmond dog-owning experience."
+      ],
+    },
+  },
+  {
+    slug: 'san-clemente-ca',
+    city: 'San Clemente',
+    state: 'CA',
+    featuredImage: '/images/cities/san-clemente-ca/hero.webp',
+    summary: 'The "Spanish Village by the Sea" offers classic surf-town charm with elite off-leash park options and premium coastal trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in San Clemente, CA',
+      heroDescription: 'Live the surf-town lifestyle in San Clemente, featuring elite off-leash park havens and world-class Beach Conservation Trail walks.',
+      longDescription: [
+        "Known as the \"Spanish Village by the Sea,\" San Clemente offers a laid-back, surf-town vibe where pets are integral to the coastal lifestyle. While beach access is regulated, the [Baron Von Willard Dog Park](https://www.san-clemente.org/) at Steed Park provides a premier off-leash destination. Many local owners browse our guide on [how it works](https://www.indoordogpark.org/how-it-works) to find structured play options that align with the town’s upscale pet culture, especially when the mid-day coastal sun or street beach conservation rules limit outdoor windows.",
+        "San Clemente is famous for its Beach Conservation Trail, where leashed pets enjoy the sea breeze while owners adhere to ordinances designed to protect the coastline. The community is highly focused on premium pet care, often utilizing local [training facilities](https://www.indoordogpark.org/training-facilities) to maintain high standards of behavior. By balancing its heritage as a classic beach destination with a responsible approach to pet ownership, San Clemente remains a top-tier enclave for Southern California dog owners who value natural beauty and sophisticated play."
+      ],
+    },
+  },
+  {
+    slug: 'sherman-oaks-ca',
+    city: 'Sherman Oaks',
+    state: 'CA',
+    featuredImage: '/images/cities/sherman-oaks-ca/hero.webp',
+    summary: 'An upscale Valley neighborhood where premium boutiques and social park hubs define a sophisticated pet lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Sherman Oaks, CA',
+      heroDescription: 'Join the sophisticated pet community in Sherman Oaks, featuring premium social park hubs and essential climate-controlled havens.',
+      longDescription: [
+        "Sherman Oaks is an upscale Valley neighborhood where pets are central to the sophisticated, suburban lifestyle. The community gathers at the [Van Nuys-Sherman Oaks Park](https://www.laparks.org/park/van-nuys-sherman-oaks), which features a well-used off-leash area that serves as a vital social hub. Many residents visit our [about page](https://www.indoordogpark.org/about) to learn more about our efforts to provide climate-controlled havens in the Valley, where \"heat traps\" frequently send summer temperatures surging, making midday walks on local boulevards a health risk.",
+        "The Sherman Oaks vibe is artistic and energetic, with high-end dog boutiques and pet-friendly patios defining the local culture. While Los Angeles leash laws require a six-foot lead, the community focus is on premium care and social enrichment. Busy professionals here often seek specialized [listing your park](https://www.indoordogpark.org/list-your-park) options to ensure their pets have access to private, secure play during long work days. This unique combination of upscale Valley living and urban necessity makes Sherman Oaks a leading market for high-quality, indoor dog-friendly amenities."
+      ],
+    },
+  },
+  {
+    slug: 'santa-monica-ca',
+    city: 'Santa Monica',
+    state: 'CA',
+    featuredImage: '/images/cities/santa-monica-ca/hero.webp',
+    summary: 'A world-class coastal destination for active living, featuring elite off-leash parks and a highly social pet community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Santa Monica, CA',
+      heroDescription: 'Experience the healthy coastal lifestyle in Santa Monica, home to pristine off-leash parks and elite fitness-focused pet services.',
+      longDescription: [
+        "Santa Monica, California, is a global icon of healthy living, and its dog-owning community is no exception. With facilities like the [Herb Katz Dog Park](https://www.smgov.net/Portals/Culture/Parks/Herb_Katz_Dog_Park.aspx) at Joslyn Park, the city provides excellent off-leash options for its pet parents. However, the coastal \"June Gloom\" fog and high humidity can make outdoor activity damp and uncomfortable, leading many residents to explore [how it works](https://www.indoordogpark.org/how-it-works) for indoor social clubs. These \"sand-free\" alternatives are popular given strict regulations against dogs on the beach sand.",
+        "Santa Monica maintains rigorous standards for pet ownership, including licensing and leashing rules designed to keep walkable plazas safe. The community vibe is incredibly social, with many owners seeking out [owner resources](https://www.indoordogpark.org/owner-resources) to develop luxury dog \"gyms\" and indoor social centers that mirror the city’s own fitness culture. By balancing its stunning location with a proactive approach to pet wellness, Santa Monica offers a premier experience for dog owners who refuse to compromise on quality or community standards."
+      ],
+    },
+  },
+  {
+    slug: 'south-san-francisco-ca',
+    city: 'South San Francisco',
+    state: 'CA',
+    featuredImage: '/images/cities/south-san-francisco-ca/hero.webp',
+    summary: 'A resilient biotech hub with high-quality fenced play areas and a practical, residential vibe that values reliable exercise.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in South San Francisco, CA',
+      heroDescription: 'Discover the practical pet-friendly landscape of South San Francisco, featuring elite fenced play areas and wind-shielded social options.',
+      longDescription: [
+        "Known as the \"Industrial City\" and a global biotech hub, South San Francisco is a highly practical and pet-friendly residential community. The [Centennial Way Dog Park](https://www.ssf.net/departments/parks-recreation) is a standout local asset, offering fenced play areas with separate zones for large and small dogs. Many residents follow our [blog](https://www.indoordogpark.org/blog) for insights on navigating the Peninsula’s unique weather, as the San Bruno Mountain effect often brings intense localized wind and fog that can make outdoor play a chilling experience for both dogs and owners.",
+        "South San Francisco prioritizes trail safety and community order, with six-to-eight-foot leash rules strictly enforced in public squares and greenbelts. For those seeking refuge from the cold gusts common near the hills, there is an increasing interest in specialized [listing your park](https://www.indoordogpark.org/list-your-park) options that provide indoor, wind-shielded environments. By balancing its reputation for innovation with a commitment to neighborhood green spaces like Commodore Park, South San Francisco offers a solid landscape for dog owners who value reliability and safety."
+      ],
+    },
+  },
+  {
+    slug: 'sunnyvale-ca',
+    city: 'Sunnyvale',
+    state: 'CA',
+    featuredImage: '/images/cities/sunnyvale-ca/hero.webp',
+    summary: 'A high-density tech center where high-quality turf parks and professional pet etiquette define the Silicon Valley lifestyle.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Sunnyvale, CA',
+      heroDescription: 'Level up your pet’s urban lifestyle in Sunnyvale, featuring premier off-leash facilities and Silicon Valley pet etiquette.',
+      longDescription: [
+        "Located in the heart of Silicon Valley, Sunnyvale is a high-density tech hub where dog ownership is central to the professional lifestyle. With popular spots like the [Las Palmas Dog Park](https://www.sunnyvale.ca.gov/recreation-and-community/parks-and-facilities/city-parks), featuring dedicated water stations and shade trees, the city provides essential social buffers. Many owners visit our [about page](https://www.indoordogpark.org/about) to understand how we are expanding safe play options in tech-centric areas where winter rains and summer heat can disrupt daily exercise routines.",
+        "Seven Seas Dog Park is another local favorite, though residents must follow regulations in nearby Baylands Park to protect wildlife. The Sunnyvale community is tech-savvy and active, often integrating leashed pets into outdoor dining. By following six-foot leash laws and prioritizing structured play, owners ensure a safe environment for all. Many locals are now exploring [how it works](https://www.indoordogpark.org/how-it-works) for indoor social clubs, seeking a \"smarter\" way to maintain their pets’ health regardless of unpredictable Northern California weather."
+      ],
+    },
+  },
+  {
+    slug: 'upland-ca',
+    city: 'Upland',
+    state: 'CA',
+    featuredImage: '/images/cities/upland-ca/hero.webp',
+    summary: 'A relaxed foothill community offering scenic mountain vistas and a strong focus on family-oriented pet safety.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Upland, CA',
+      heroDescription: 'Experience the relaxed foothill lifestyle in Upland, home to scenic off-leash parks and essential summer heat protection.',
+      longDescription: [
+        "Upland, California, is a picturesque community at the base of the San Gabriel Mountains, offering a stable suburban environment for pets. The local social anchor is the [Upland Dog Park](https://www.uplandca.gov/dog-park) at Baldy View Park, which features separate fenced areas for different breed sizes. Many residents browse our [blog](https://www.indoordogpark.org/blog) for tips on managing their pets' health during the Foothills' intense summer heat. The historic Euclid Avenue provides a perfect backdrop for leashed strolls under its canopy of mature trees.",
+        "Under Upland Municipal Code, all dogs must be secured on a six-foot leash in public areas, ensuring safety near busy thoroughfares. The community vibe is family-oriented, with many owners seeking out local [training facilities](https://www.indoordogpark.org/training-facilities) for structured socialization. Interest in [how it works](https://www.indoordogpark.org/how-it-works) for indoor play is growing among those who wish to avoid the midday sun and seasonal mountain winds. By prioritizing public safety and pet wellness, Upland remains a premier choice for responsible Inland Empire dog owners."
+      ],
+    },
+  },
+  {
+    slug: 'west-covina-ca',
+    city: 'West Covina',
+    state: 'CA',
+    featuredImage: '/images/cities/west-covina-ca/hero.webp',
+    summary: 'A bustling San Gabriel Valley hub with extensive park systems and a strong community focus on physical socialization.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in West Covina, CA',
+      heroDescription: 'Discover West Covina’s bustling pet-friendly culture, featuring quality off-leash anchors and temperature-controlled social havens.',
+      longDescription: [
+        "West Covina, California, is a vibrant suburban hub in the San Gabriel Valley, offering multiple parks for dog owners. The primary destination is the [West Covina Dog Park](https://www.westcovina.org/) at Galaster Park, where residents enjoy shaded trails and open fields. Many local owners visit our [about page](https://www.indoordogpark.org/about) to explore how we are helping urban communities find climate-controlled social spaces in areas where high summer temperatures can make afternoon outdoor play dangerous for active dogs.",
+        "West Covina enforces standard six-foot leash laws and requires licensing for all pets, promoting a safe and orderly environment. The city’s pet culture is highly active, with many residents frequenting local [training facilities](https://www.indoordogpark.org/training-facilities) for behavioral enrichment. Given the valley's intense heat waves, there is significant interest in [listing your park](https://www.indoordogpark.org/list-your-park) options for private, controlled play. This combination of community resources and proactive pet care makes West Covina a top destination for dog owners seeking a balanced, health-conscious lifestyle."
+      ],
+    },
+  },
+  {
+    slug: 'west-sacramento-ca',
+    city: 'West Sacramento',
+    state: 'CA',
+    featuredImage: '/images/cities/west-sacramento-ca/hero.webp',
+    summary: 'An up-and-coming trendy riverfront enclave where trendy breweries and active park life create a youthful pet culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in West Sacramento, CA',
+      heroDescription: 'Join the trendy riverfront pet culture in West Sacramento, home to elite off-leash anchors and active post-work brewery outings.',
+      longDescription: [
+        "West Sacramento, California, is a rapidly developing riverfront community that integrates pet culture into its modern urban design. The centerpiece is the [Summerfield Dog Park](https://www.cityofwestsacramento.org/government/departments/parks-recreation), offering off-leash zones and trails along the Sacramento River. Many owners consult our guide on [how it works](https://www.indoordogpark.org/how-it-works) to find reliable play options when summer heatwaves or rainy winters limit outdoor activity. These indoor social hubs are popular for owners living in new high-density developments.",
+        "West Sacramento maintains strict leashing rules near the River Walk Trail to ensure safe co-existence with cyclists and pedestrians. The community is youthful and active, with many residents seeking specialized [training facilities](https://www.indoordogpark.org/training-facilities) to maintain their dogs’ social skills. By balancing its industrial past with a green future, the city offers a unique lifestyle for dog owners. This focus on year-round exercise and safety makes West Sacramento one of the most exciting new hubs for canine companions in Northern California."
+      ],
+    },
+  },
+  {
+    slug: 'westlake-village-ca',
+    city: 'Westlake Village',
+    state: 'CA',
+    featuredImage: '/images/cities/westlake-village-ca/hero.webp',
+    summary: 'A master-planned community defined by pristine landscapes, elite park maintenance, and sophisticated trail etiquette.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park in Westlake Village, CA',
+      heroDescription: 'Experience elite pet ownership in Westlake Village, featuring meticulously maintained parks and sophisticated community trail access.',
+      longDescription: [
+        "Westlake Village is an upscale, master-planned community known for its pristine landscaping and commitment to a refined lifestyle. The [Westlake Village Dog Park](https://www.wlv.org/363/Dog-Park) is a meticulously maintained facility that serves as the premier social destination for the local pet community. Many residents visit our [about page](https://www.indoordogpark.org/about) to learn more about our focus on professional play spaces in communities that value tranquility and elite standards of care.",
+        "The city maintains strict leash enforcement on its private trail systems, and the dog park enforces a limit of three dogs per owner to ensure a peaceful environment. While the climate is pleasant, powerful Santa Ana winds can create dusty conditions, driving interest in specialized [list your park](https://www.indoordogpark.org/list-your-park) options for controlled outings. By prioritizing etiquette, Westlake Village offers a high-end experience for dog owners who seek a clean and sophisticated environment for their pets."
       ],
     },
   },

@@ -79,6 +79,9 @@ function getLocalBusinessSchemaType(businessType: string): 'SportsActivityLocati
 }
 
 function getCityH1(cityName: string, state: string, indoorCount: number) {
+  if (state === 'CA' || state === 'California') {
+    return `Indoor Dog Park In ${cityName}`;
+  }
   if (indoorCount > 0) {
     return indoorCount === 1
       ? `Indoor Dog Park in ${cityName}, ${state}`
@@ -126,9 +129,11 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   // Use an absolute title here to avoid the root `template` appending another suffix.
   // This keeps the final rendered <title> closer to the intended 55–65 char range.
   const cityTitle = createSEOTitle(
-    indoorCount > 0
-      ? `Indoor Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`
-      : `Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`,
+    city.state === 'CA' || city.state === 'California'
+      ? `Indoor Dog Park In ${city.name} | Map & Reviews | Indoor Dog Park`
+      : (indoorCount > 0
+        ? `Indoor Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`
+        : `Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`),
   );
   const pageDescription = createMetaDescription(
     indoorCount > 0
@@ -345,7 +350,7 @@ export default async function CityPage({ params }: CityPageProps) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': `${absoluteCanonicalUrl}#itemlist`,
-    name: `Dog Parks in ${city.name}`,
+    name: city.state === 'CA' || city.state === 'California' ? `Indoor Dog Park In ${city.name}` : `Dog Parks in ${city.name}`,
     description: `Top-rated dog parks and facilities in ${city.name}, ${city.state}`,
     numberOfItems: topParks.length,
     itemListElement: topParks.map((park, index) => {

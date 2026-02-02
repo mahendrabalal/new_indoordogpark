@@ -693,7 +693,9 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     stats: emptyStats,
     customContent: {
       heroEyebrow: 'City spotlight',
-      heroHeading: `Dog Parks in ${hydratedCity.name}, ${hydratedCity.state}`,
+      heroHeading: hydratedCity.state === 'CA' || hydratedCity.state === 'California'
+        ? `Indoor Dog Park In ${hydratedCity.name}`
+        : `Dog Parks in ${hydratedCity.name}, ${hydratedCity.state}`,
       heroDescription:
         `We’re building out our verified directory for ${hydratedCity.name}. Submit a park to help us review and publish more dog-friendly spots in this area.`,
       heroPill: 'Listings in review',
