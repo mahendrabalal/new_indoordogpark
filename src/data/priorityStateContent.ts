@@ -617,7 +617,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'florida',
         name: 'Florida',
         abbr: 'FL',
-        featuredImage: '/images/cities/jacksonville/hero.webp',
+        featuredImage: '/images/cities/miami-fl/hero.webp',
         customContent: {
             heroEyebrow: 'Sunshine State Dog Parks',
             heroHeading: 'Dog Parks in Florida',
@@ -957,7 +957,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'colorado',
         name: 'Colorado',
         abbr: 'CO',
-        featuredImage: '/images/cities/minneapolis-mn/hero.png',
+        featuredImage: '/images/cities/denver-co/hero.webp',
         customContent: {
             heroEyebrow: 'Centennial State Adventures',
             heroHeading: 'Dog Parks in Colorado',
