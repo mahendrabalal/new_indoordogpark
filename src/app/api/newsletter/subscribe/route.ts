@@ -3,10 +3,17 @@ import { createClient } from '@supabase/supabase-js';
 import { sendEmail, generateConsumerWelcomeEmail, generateOwnerWelcomeEmail } from '@/lib/email';
 import { RateLimiter } from '@/lib/rate-limiter';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 // Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+// Only create client if environment variables are available (allows build to pass)
+const supabase = (supabaseUrl && supabaseServiceKey)
+    ? createClient(supabaseUrl, supabaseServiceKey)
+    : null;
 
 // Rate limiter: 5 requests per minute per IP
 const rateLimiter = new RateLimiter({
@@ -25,6 +32,14 @@ interface SubscribeRequest {
 
 export async function POST(req: NextRequest) {
     try {
+        if (!supabase) {
+            console.error('Supabase client not initialized - check environment variables');
+            return NextResponse.json(
+                { error: 'Server configuration error' },
+                { status: 500 }
+            );
+        }
+
         // Get IP for rate limiting
         const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ||
             req.headers.get('x-real-ip') ||

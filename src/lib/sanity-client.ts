@@ -2,9 +2,19 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 // Sanity project configuration
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
+
+// Validate projectId - only throw if not in build environment
+if (!projectId) {
+  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
+    throw new Error('Configuration must contain `projectId`');
+  }
+}
+
 export const sanityConfig = {
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: projectId || 'placeholder',
+  dataset: dataset,
   apiVersion: '2024-11-14',
   useCdn: true, // Use CDN for performance (best practice)
   // Cache invalidation handled via Next.js cache tags and on-demand revalidation
@@ -116,13 +126,13 @@ export const queries = {
 
   // Get total count of posts
   postCount: `count(*[_type == "post" && !(_id in path("drafts.**"))])`,
-  
+
   // Get count of posts by category
   postCountByCategory: `count(*[_type == "post" && references(*[_type=="category" && slug.current == $categorySlug]._id) && !(_id in path("drafts.**"))])`,
-  
+
   // Get count of posts by tag
   postCountByTag: `count(*[_type == "post" && references(*[_type=="tag" && slug.current == $tagSlug]._id) && !(_id in path("drafts.**"))])`,
-  
+
   // Get count of posts by search
   postCountBySearch: `count(*[_type == "post" && !(_id in path("drafts.**")) && 
     (title match $searchTerm || excerpt match $searchTerm || pt::text(body) match $searchTerm)

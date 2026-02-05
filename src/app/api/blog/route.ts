@@ -3,12 +3,13 @@ import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogSearchParams } from '@/types/wordpress';
 
 export const revalidate = 300; // Revalidate every 5 minutes
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    
+
     const blogParams: BlogSearchParams = {
       page: parseInt(searchParams.get('page') || '1'),
       perPage: parseInt(searchParams.get('perPage') || '12'),

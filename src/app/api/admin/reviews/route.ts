@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 // GET /api/admin/reviews - List all reviews with filtering
