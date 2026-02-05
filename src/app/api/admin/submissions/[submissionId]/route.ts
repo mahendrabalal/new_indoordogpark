@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth-helpers';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 const STORAGE_BUCKET = process.env.SUPABASE_PHOTOS_BUCKET || 'park-submissions';
 
 export async function DELETE(
