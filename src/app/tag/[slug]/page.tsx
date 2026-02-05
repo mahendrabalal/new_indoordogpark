@@ -26,11 +26,11 @@ async function getTag(slug: string): Promise<WPTag | null> {
     const normalizedSlug = normalizeSlug(slug);
 
     // Try exact match first
-    let tag = tags.find(tag => tag.slug === slug);
+    let tag = tags.find((tag: any) => tag.slug === slug);
 
     // If not found, try normalized match
     if (!tag) {
-      tag = tags.find(tag => {
+      tag = tags.find((tag: any) => {
         const tagSlug = normalizeSlug(tag.slug);
         return tagSlug === normalizedSlug;
       });

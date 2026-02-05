@@ -25,11 +25,11 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
     const normalizedSlug = normalizeSlug(slug);
 
     // Try exact match first
-    let category = categories.find(cat => cat.slug === slug);
+    let category = categories.find((cat: any) => cat.slug === slug);
 
     // If not found, try normalized match
     if (!category) {
-      category = categories.find(cat => {
+      category = categories.find((cat: any) => {
         const catSlug = normalizeSlug(cat.slug);
         return catSlug === normalizedSlug;
       });

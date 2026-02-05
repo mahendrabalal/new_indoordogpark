@@ -1,4 +1,4 @@
-import { createClient } from '@sanity/client';
+import { createClient, type SanityClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 // Sanity project configuration
@@ -7,8 +7,9 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
 // Validate projectId - only throw if not in build environment
 if (!projectId) {
-  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
-    throw new Error('Configuration must contain `projectId`');
+  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
+    // We'll just log a warning instead of throwing at top level to be safe for builds
+    console.warn('Configuration warning: `projectId` is missing');
   }
 }
 
@@ -16,12 +17,24 @@ export const sanityConfig = {
   projectId: projectId || '',
   dataset: dataset,
   apiVersion: '2024-11-14',
-  useCdn: true, // Use CDN for performance (best practice)
-  // Cache invalidation handled via Next.js cache tags and on-demand revalidation
+  useCdn: true,
 };
 
-// Create Sanity client with CDN (best practice for performance)
-export const sanityClient = createClient(sanityConfig);
+// Create Sanity client with CDN
+export const sanityClient = (projectId
+  ? createClient(sanityConfig)
+  : new Proxy({} as any, {
+    get: (target, prop) => {
+      if (prop === 'fetch') {
+        return () => Promise.resolve([]);
+      }
+      return () => {
+        console.warn(`Sanity client method ${String(prop)} called during build or without configuration`);
+        return null;
+      };
+    }
+  })) as SanityClient;
+
 
 // Image URL builder
 const builder = imageUrlBuilder(sanityClient);

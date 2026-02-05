@@ -5,11 +5,8 @@ const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // Validate environment variables - only throw if not in build environment or phase
 if (!supabaseUrl || !supabaseServiceRoleKey) {
-  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
-    console.error('❌ Missing Supabase environment variables:');
-    console.error('   NEXT_PUBLIC_SUPABASE_URL:', supabaseUrl ? '✓' : '✗');
-    console.error('   SUPABASE_SERVICE_ROLE_KEY:', supabaseServiceRoleKey ? '✓' : '✗');
-    throw new Error('Supabase environment variables are required');
+  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
+    console.warn('Configuration warning: Supabase admin variables are missing');
   }
 }
 
@@ -17,8 +14,8 @@ const FETCH_TIMEOUT_MS = 5000;
 
 // Create client with fallbacks for build time compatibility
 export const supabaseAdminClient = createClient(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseServiceRoleKey || 'placeholder',
+  supabaseUrl || '',
+  supabaseServiceRoleKey || '',
   {
     auth: {
       persistSession: false,

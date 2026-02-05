@@ -159,8 +159,8 @@ export async function getRelatedCategories(
 
     // Score categories based on name similarity
     const scoredCategories = allCategories
-      .filter((cat) => cat.id !== category.id)
-      .map((cat) => {
+      .filter((cat: any) => cat.id !== category.id)
+      .map((cat: any) => {
         let score = 0;
         const catName = cat.name.toLowerCase();
 
@@ -176,10 +176,10 @@ export async function getRelatedCategories(
       });
 
     return scoredCategories
-      .filter((item) => item.score > 0)
-      .sort((a, b) => b.score - a.score)
+      .filter((item: any) => item.score > 0)
+      .sort((a: any, b: any) => b.score - a.score)
       .slice(0, limit)
-      .map((item) => item.category);
+      .map((item: any) => item.category);
   } catch (error) {
     console.error('Error fetching related categories:', error);
     return [];
@@ -196,8 +196,8 @@ export async function getRelatedTags(tag: WPTag, limit: number = 4): Promise<WPT
 
     // Score tags based on name similarity
     const scoredTags = allTags
-      .filter((t) => t.id !== tag.id)
-      .map((t) => {
+      .filter((t: any) => t.id !== tag.id)
+      .map((t: any) => {
         let score = 0;
         const tName = t.name.toLowerCase();
 
@@ -221,10 +221,10 @@ export async function getRelatedTags(tag: WPTag, limit: number = 4): Promise<WPT
       });
 
     return scoredTags
-      .filter((item) => item.score > 0)
-      .sort((a, b) => b.score - a.score)
+      .filter((item: any) => item.score > 0)
+      .sort((a: any, b: any) => b.score - a.score)
       .slice(0, limit)
-      .map((item) => item.tag);
+      .map((item: any) => item.tag);
   } catch (error) {
     console.error('Error fetching related tags:', error);
     return [];

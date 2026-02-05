@@ -7,7 +7,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 export async function createServerClient() {
   // Validate Supabase configuration - only throw if not in build environment or phase
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
       throw new Error('Supabase environment variables are missing');
     }
     // Return a dummy client during build

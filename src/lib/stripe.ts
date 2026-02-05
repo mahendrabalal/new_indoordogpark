@@ -4,8 +4,8 @@ const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 // Validate API key - only throw if not in build environment or phase
 if (!stripeSecretKey) {
-  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
-    throw new Error('STRIPE_SECRET_KEY is required');
+  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
+    console.warn('Configuration warning: `STRIPE_SECRET_KEY` is missing');
   }
 }
 

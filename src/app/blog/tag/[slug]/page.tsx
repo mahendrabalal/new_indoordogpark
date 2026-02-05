@@ -36,11 +36,11 @@ async function getTag(slug: string): Promise<WPTag | null> {
     const normalizedSlug = normalizeSlug(slug);
 
     // Try exact match first (with original slug)
-    let tag = tags.find(tag => tag.slug === slug);
+    let tag = tags.find((tag: any) => tag.slug === slug);
 
     // If not found, try normalized match
     if (!tag) {
-      tag = tags.find(tag => {
+      tag = tags.find((tag: any) => {
         const tagSlug = normalizeSlug(tag.slug);
         return tagSlug === normalizedSlug;
       });
@@ -49,7 +49,7 @@ async function getTag(slug: string): Promise<WPTag | null> {
     // If still not found, try matching by name (case-insensitive, normalized)
     if (!tag) {
       const normalizedName = normalizedSlug.replace(/-/g, ' ');
-      tag = tags.find(tag => {
+      tag = tags.find((tag: any) => {
         const tagNameNormalized = tag.name.toLowerCase().trim().replace(/\s+/g, '-');
         return tagNameNormalized === normalizedSlug ||
           tag.name.toLowerCase().trim() === normalizedName;

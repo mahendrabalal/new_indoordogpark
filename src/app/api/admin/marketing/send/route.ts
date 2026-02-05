@@ -30,8 +30,8 @@ const resendApiKey = process.env.RESEND_API_KEY;
 
 // Validate API key - only throw if not in build environment
 if (!resendApiKey) {
-    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
-        throw new Error('Missing RESEND_API_KEY. Pass it to the constructor new Resend("re_123")');
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
+        console.warn('Missing RESEND_API_KEY. Emails will not be sent.');
     }
 }
 

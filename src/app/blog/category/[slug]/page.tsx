@@ -36,11 +36,11 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
     const normalizedSlug = normalizeSlug(slug);
 
     // Try exact match first (with original slug)
-    let category = categories.find(cat => cat.slug === slug);
+    let category = categories.find((cat: WPCategory) => cat.slug === slug);
 
     // If not found, try normalized match
     if (!category) {
-      category = categories.find(cat => {
+      category = categories.find((cat: WPCategory) => {
         const catSlug = normalizeSlug(cat.slug);
         return catSlug === normalizedSlug;
       });
@@ -49,7 +49,7 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
     // If still not found, try matching by name (case-insensitive, normalized)
     if (!category) {
       const normalizedName = normalizedSlug.replace(/-/g, ' ');
-      category = categories.find(cat => {
+      category = categories.find((cat: WPCategory) => {
         const catNameNormalized = cat.name.toLowerCase().trim().replace(/\s+/g, '-');
         return catNameNormalized === normalizedSlug ||
           cat.name.toLowerCase().trim() === normalizedName;
