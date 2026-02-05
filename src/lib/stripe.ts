@@ -2,14 +2,14 @@ import Stripe from 'stripe';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
-// Validate API key - only throw if not in build environment
+// Validate API key - only throw if not in build environment or phase
 if (!stripeSecretKey) {
   if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
     throw new Error('STRIPE_SECRET_KEY is required');
   }
 }
 
-export const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder', {
+export const stripe = new Stripe(stripeSecretKey || '', {
   apiVersion: '2025-10-29.clover' as any,
 });
 

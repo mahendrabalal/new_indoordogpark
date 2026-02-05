@@ -4,14 +4,14 @@ import { AdminNotificationEmail } from './email-templates';
 
 const resendApiKey = process.env.RESEND_API_KEY;
 
-// Validate API key - only throw if not in build environment
+// Validate API key - only throw if not in build environment or phase
 if (!resendApiKey) {
   if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
     throw new Error('Missing RESEND_API_KEY. Pass it to the constructor new Resend("re_123")');
   }
 }
 
-const resend = new Resend(resendApiKey || 're_placeholder');
+const resend = new Resend(resendApiKey || '');
 
 interface EmailParams {
   to: string;

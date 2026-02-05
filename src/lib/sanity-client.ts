@@ -13,7 +13,7 @@ if (!projectId) {
 }
 
 export const sanityConfig = {
-  projectId: projectId || 'placeholder',
+  projectId: projectId || '',
   dataset: dataset,
   apiVersion: '2024-11-14',
   useCdn: true, // Use CDN for performance (best practice)

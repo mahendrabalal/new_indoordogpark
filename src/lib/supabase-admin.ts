@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-// Validate environment variables - only throw if not in build environment
+// Validate environment variables - only throw if not in build environment or phase
 if (!supabaseUrl || !supabaseServiceRoleKey) {
   if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
     console.error('❌ Missing Supabase environment variables:');

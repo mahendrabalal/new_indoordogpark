@@ -1,4 +1,4 @@
-import { sanityClient, queries, urlForImage } from './sanity-client';
+import { sanityClient, queries, urlForImage, sanityConfig } from './sanity-client';
 import { BlogPost, BlogListResponse, BlogSearchParams, WPMedia } from '@/types/wordpress';
 import { PortableTextBlock } from '@portabletext/types';
 import { unstable_cache } from 'next/cache';
@@ -438,6 +438,18 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
 
 // Fetch posts with pagination and filtering
 export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
+  const emptyResponse = {
+    posts: [],
+    total: 0,
+    totalPages: 0,
+    page: searchParams.page || 1,
+    perPage: searchParams.perPage || 10,
+  };
+
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    return emptyResponse;
+  }
+
   try {
     const page = searchParams.page || 1;
     const perPage = searchParams.perPage || 10;
@@ -504,6 +516,7 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
 
 // Fetch single post by slug
 export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return null;
   try {
     // Use regular client with CDN for performance
     // Cache invalidation handled via Next.js cache tags and revalidation
@@ -518,6 +531,7 @@ export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
 
 // Fetch categories
 export async function fetchCategories() {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
   try {
     const sanityCategories = await sanityClient.fetch<SanityCategory[]>(queries.categories);
     return sanityCategories.map((cat, index: number) => ({
@@ -539,6 +553,7 @@ export async function fetchCategories() {
 
 // Fetch tags
 export async function fetchTags() {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
   try {
     const sanityTags = await sanityClient.fetch<SanityTag[]>(queries.tags);
     return sanityTags.map((tag, index: number) => ({
