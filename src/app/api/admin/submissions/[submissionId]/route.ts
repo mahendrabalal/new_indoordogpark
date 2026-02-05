@@ -48,14 +48,14 @@ export async function DELETE(
 
     const photos = Array.isArray(submission.photos) ? submission.photos : [];
     const storagePaths = photos
-      .map((photo) => {
+      .map((photo: any) => {
         if (!photo || typeof photo !== 'object') {
           return null;
         }
         const typedPhoto = photo as { storagePath?: string; storage_path?: string };
         return typedPhoto.storagePath || typedPhoto.storage_path || null;
       })
-      .filter((value): value is string => typeof value === 'string' && value.length > 0);
+      .filter((value: any): value is string => typeof value === 'string' && value.length > 0);
 
     if (storagePaths.length > 0) {
       const { error: removeError } = await supabaseAdminClient.storage.from(STORAGE_BUCKET).remove(storagePaths);

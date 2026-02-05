@@ -13,10 +13,8 @@ if (!supabaseUrl || !supabaseServiceRoleKey) {
 const FETCH_TIMEOUT_MS = 5000;
 
 // Create client with fallbacks for build time compatibility
-export const supabaseAdminClient = createClient(
-  supabaseUrl || '',
-  supabaseServiceRoleKey || '',
-  {
+export const supabaseAdminClient = (supabaseUrl && supabaseServiceRoleKey)
+  ? createClient(supabaseUrl, supabaseServiceRoleKey, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,
@@ -32,4 +30,16 @@ export const supabaseAdminClient = createClient(
         }).finally(() => clearTimeout(timeoutId));
       },
     },
+  })
+  : new Proxy({} as any, {
+    get: (target, prop) => {
+      if (typeof prop === 'string' && ['from', 'auth', 'storage'].includes(prop)) {
+        return () => new Proxy({}, { get: () => () => ({ data: null, error: null }) });
+      }
+      return () => {
+        console.warn(`Supabase admin client method ${String(prop)} called during build or without configuration`);
+        return { data: null, error: null };
+      };
+    }
   });
+

@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const ids = searchParams.get('ids');
-    
+
     if (!ids) {
       return NextResponse.json(
         { error: 'Missing park IDs parameter' },
@@ -16,8 +16,8 @@ export async function GET(request: Request) {
     }
 
     // Parse the comma-separated IDs
-    const parkIds = ids.split(',').map(id => id.trim());
-    
+    const parkIds = ids.split(',').map((id: string) => id.trim());
+
     // Fetch all parks data relative to the incoming request origin
     const requestUrl = new URL(request.url);
     const dataUrl = new URL('/data/california.json', requestUrl.origin);
@@ -25,16 +25,16 @@ export async function GET(request: Request) {
     if (!response.ok) {
       throw new Error('Failed to fetch parks data');
     }
-    
+
     const allParks: DogPark[] = await response.json();
-    
+
     // Filter parks by the requested IDs
-    const filteredParks = allParks.filter(park => 
+    const filteredParks = allParks.filter((park: any) =>
       parkIds.includes(park.id)
     );
-    
+
     // Add some mock "live" data (in a real app, this would come from a real-time source)
-    const parksWithLiveData = filteredParks.map(park => ({
+    const parksWithLiveData = filteredParks.map((park: any) => ({
       ...park,
       liveData: {
         currentVisitors: Math.floor(Math.random() * 20),
@@ -42,7 +42,7 @@ export async function GET(request: Request) {
         status: 'open' // or 'closed', 'maintenance', etc.
       }
     }));
-    
+
     return NextResponse.json(parksWithLiveData);
   } catch (error) {
     console.error('Error fetching live park data:', error);

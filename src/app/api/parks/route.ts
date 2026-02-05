@@ -76,7 +76,7 @@ export async function GET(request: Request) {
         .order('created_at', { ascending: false });
 
       if (!error && submissions) {
-        submissionParks = submissions.map(sub => {
+        submissionParks = submissions.map((sub: any) => {
           const normalizedPhotos = normalizePhotos(sub.photos);
 
           return {

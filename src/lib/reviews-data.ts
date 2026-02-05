@@ -13,8 +13,28 @@ export interface Review {
  * This allows the function to be used during static page generation
  */
 function createPublicClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
+      console.warn('Configuration warning: Supabase public variables are missing');
+    }
+    return new Proxy({} as any, {
+      get: () => () => ({
+        from: () => ({
+          select: () => ({
+            eq: () => ({
+              order: () => ({
+                limit: () => Promise.resolve({ data: [], error: null })
+              })
+            })
+          })
+        })
+      })
+    });
+  }
+
   return createClient(supabaseUrl, supabaseAnonKey);
 }
 
@@ -32,7 +52,7 @@ function createPublicClient() {
 export async function getParkReviews(parkId: string): Promise<Review[]> {
   try {
     const supabase = createPublicClient();
-    
+
     // Build base query - try with status filter first
     let query = supabase
       .from('reviews')
@@ -53,7 +73,7 @@ export async function getParkReviews(parkId: string): Promise<Review[]> {
         .eq('park_id', parkId)
         .order('created_at', { ascending: false })
         .limit(10);
-      
+
       const result = await query;
       reviews = result.data;
       error = result.error;

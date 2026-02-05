@@ -162,7 +162,7 @@ export async function GET(request: Request) {
       } else if (submissions && submissions.length > 0) {
         // Industry standard: Log success for monitoring
         console.log(`[SEARCH API] Found ${submissions.length} approved submission(s)`);
-        submissionParks = submissions.map(sub => {
+        submissionParks = submissions.map((sub: any) => {
           const normalizedPhotos = normalizePhotos(sub.photos);
 
           return {
@@ -324,7 +324,7 @@ export async function GET(request: Request) {
     }
 
     // CALCULATE RELEVANCE SCORES (for relevance sorting)
-    const parksWithScores = filteredParks.map(park => ({
+    const parksWithScores = filteredParks.map((park: any) => ({
       park,
       relevance: calculateRelevance(park, params.q || '')
     }));
@@ -361,13 +361,13 @@ export async function GET(request: Request) {
       }
     });
 
-    const sortedParks = parksWithScores.map(item => item.park);
+    const sortedParks = parksWithScores.map((item: any) => item.park);
 
     // Diagnostic log for featured parks in sorted list
     const topFeatured = sortedParks.filter(p => p.listingType === 'featured').slice(0, 3);
     if (topFeatured.length > 0) {
       console.log(`[SEARCH API] Top featured matches for "${params.q}":`,
-        topFeatured.map(p => `${p.name} (${p.city}, ${p.state})`).join(', ')
+        topFeatured.map((p: any) => `${p.name} (${p.city}, ${p.state})`).join(', ')
       );
     } else {
       console.log(`[SEARCH API] No featured matches found for "${params.q}"`);

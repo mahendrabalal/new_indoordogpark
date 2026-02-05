@@ -41,7 +41,7 @@ export async function GET(request: Request) {
         .eq('status', 'approved');
 
       if (!error && submissions) {
-        submissionParks = submissions.map(sub => ({
+        submissionParks = submissions.map((sub: any) => ({
           name: sub.name,
           city: sub.city,
           businessType: sub.business_type,

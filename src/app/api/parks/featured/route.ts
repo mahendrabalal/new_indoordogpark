@@ -72,7 +72,7 @@ export async function GET() {
     }
 
     // Transform snake_case to camelCase for frontend
-    const transformedParks = parks?.map(park => {
+    const transformedParks = parks?.map((park: any) => {
       const normalizedPhotos = normalizePhotos(park.photos);
 
       return {

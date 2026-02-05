@@ -58,7 +58,7 @@ export async function getAllParksForStateAggregation(): Promise<DogPark[]> {
       .eq('status', 'approved');
 
     if (!error && submissions) {
-      submissionParks = submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow));
+      submissionParks = submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow));
     } else if (error) {
       console.warn('[Supabase] Failed to fetch submissions for state aggregation');
     }

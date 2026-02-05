@@ -11,7 +11,16 @@ if (!resendApiKey) {
   }
 }
 
-const resend = new Resend(resendApiKey || '');
+const resend = resendApiKey
+  ? new Resend(resendApiKey)
+  : new Proxy({} as any, {
+    get: (target, prop) => {
+      return () => {
+        console.warn(`Resend client method ${String(prop)} called during build or without configuration`);
+        return Promise.resolve({ data: null, error: null });
+      };
+    }
+  }) as unknown as Resend;
 
 interface EmailParams {
   to: string;

@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Transform to camelCase
-    const transformedSubmissions = submissions?.map(sub => ({
+    const transformedSubmissions = submissions?.map((sub: any) => ({
       id: sub.id,
       userId: sub.user_id,
       name: sub.name,

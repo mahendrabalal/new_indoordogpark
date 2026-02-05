@@ -62,7 +62,7 @@ export async function GET() {
     }
 
     // Transform database submissions to match frontend park format
-    const transformedSubmissions = submissions?.map(sub => {
+    const transformedSubmissions = submissions?.map((sub: any) => {
       const normalizedPhotos = normalizePhotos(sub.photos);
 
       return {

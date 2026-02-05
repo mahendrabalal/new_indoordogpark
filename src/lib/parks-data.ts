@@ -362,7 +362,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       .eq('status', 'approved');
 
     if (!fetchError && allApproved) {
-      const matchingSubmission = allApproved.find((sub) => {
+      const matchingSubmission = allApproved.find((sub: any) => {
         const generatedSlug = sub.slug || slugify(sub.name, sub.city);
         return generatedSlug === slug;
       });
@@ -374,7 +374,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       // Last resort: try name-based matching (case-insensitive, partial match)
       // This handles cases where the slug doesn't match exactly
       const normalizedSearchSlug = slug.toLowerCase().trim();
-      const nameBasedMatch = allApproved.find((sub) => {
+      const nameBasedMatch = allApproved.find((sub: any) => {
         const subName = sub.name.toLowerCase().trim();
         const expectedSlug = slugify(sub.name, sub.city).toLowerCase();
 
@@ -412,7 +412,7 @@ async function loadUserSubmissions(): Promise<DogPark[]> {
       return [];
     }
 
-    return submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow));
+    return submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow));
   } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
       console.warn('[Supabase] Timeout loading user submissions');

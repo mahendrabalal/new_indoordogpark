@@ -204,7 +204,7 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
         .not('approved_at', 'is', null)
 
       if (!dbError && submissions && submissions.length > 0) {
-        const submissionParks = submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow))
+        const submissionParks = submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow))
         allParks.push(...submissionParks)
         console.log(`[sitemap-parks] Added ${submissionParks.length} approved database submissions`)
       } else if (dbError) {

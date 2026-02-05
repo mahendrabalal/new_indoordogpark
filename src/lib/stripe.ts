@@ -9,9 +9,18 @@ if (!stripeSecretKey) {
   }
 }
 
-export const stripe = new Stripe(stripeSecretKey || '', {
-  apiVersion: '2025-10-29.clover' as any,
-});
+export const stripe = stripeSecretKey
+  ? new Stripe(stripeSecretKey, {
+    apiVersion: '2025-10-29.clover' as any,
+  })
+  : new Proxy({} as any, {
+    get: (target, prop) => {
+      return () => {
+        console.warn(`Stripe client method ${String(prop)} called during build or without configuration`);
+        return Promise.resolve({ data: [] });
+      };
+    }
+  }) as unknown as Stripe;
 
 export const getStripeProducts = async () => {
   const products = await stripe.products.list({
