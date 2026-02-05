@@ -26,8 +26,16 @@ interface EmailLogDetail {
     error?: string;
 }
 
-// Initialize Clients
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendApiKey = process.env.RESEND_API_KEY;
+
+// Validate API key - only throw if not in build environment
+if (!resendApiKey) {
+    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
+        throw new Error('Missing RESEND_API_KEY. Pass it to the constructor new Resend("re_123")');
+    }
+}
+
+const resend = new Resend(resendApiKey || 're_placeholder');
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
