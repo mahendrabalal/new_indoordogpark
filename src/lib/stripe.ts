@@ -1,7 +1,16 @@
 import Stripe from 'stripe';
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-10-29.clover',
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+// Validate API key - only throw if not in build environment
+if (!stripeSecretKey) {
+  if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE) {
+    throw new Error('STRIPE_SECRET_KEY is required');
+  }
+}
+
+export const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder', {
+  apiVersion: '2025-10-29.clover' as any,
 });
 
 export const getStripeProducts = async () => {
@@ -17,11 +26,11 @@ export const getStripePrices = async (productId?: string) => {
     active: true,
     limit: 10,
   };
-  
+
   if (productId) {
     params.product = productId;
   }
-  
+
   const prices = await stripe.prices.list(params);
   return prices;
 };
@@ -39,7 +48,7 @@ export const createPaymentIntent = async (
       enabled: true,
     },
   });
-  
+
   return paymentIntent;
 };
 
@@ -53,7 +62,7 @@ export const createCustomer = async (
     name,
     metadata,
   });
-  
+
   return customer;
 };
 
@@ -73,7 +82,7 @@ export const createSubscription = async (
     },
     expand: ['latest_invoice.payment_intent'],
   });
-  
+
   return subscription;
 };
 

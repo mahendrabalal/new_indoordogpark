@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createPaymentIntent } from '@/lib/stripe';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
   try {
     const { amount, currency = 'usd', parkId, parkName } = (await req.json()) as {
