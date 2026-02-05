@@ -1,10 +1,14 @@
 import { MetadataRoute } from 'next'
 import { SITE_URL } from './metadata'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
-import { getAllStaticParks, getAllCitySlugs, getCityContentBySlug, mapSubmissionToDogPark, type SubmissionRow } from './parks-data'
+import { DogPark } from '@/types/dog-park'
+import {
+  getAllStaticParks,
+  getAllCitySlugs,
+  getCityContentBySlug,
+  mapSubmissionToDogPark,
+  type SubmissionRow
+} from './parks-data'
 import { supabaseAdminClient } from './supabase-admin'
-import type { DogPark } from '@/types/dog-park'
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
 
 /**
@@ -166,7 +170,6 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 }
-
 /**
  * Gets parks sitemap data
  */
@@ -178,62 +181,13 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     let allParks: DogPark[] = []
 
-    // Try to get parks using the library function first
+    // Use the library function which is now Edge-compatible (imports JSON instead of fs)
     try {
       allParks = await getAllStaticParks()
-      console.log(`[sitemap-parks] Successfully loaded ${allParks.length} parks via library function`)
+      console.log(`[sitemap-parks] Successfully loaded ${allParks.length} static parks`)
     } catch (libraryError) {
-      console.error('[sitemap-parks] Library function failed, trying direct file read:', {
-        error: libraryError instanceof Error ? libraryError.message : String(libraryError),
-        stack: libraryError instanceof Error ? libraryError.stack : undefined,
-        cwd: process.cwd(),
-      })
-
-      // Fallback: Read parks directly from JSON files using absolute paths
-      try {
-        const parksFromFiles: DogPark[] = []
-        const projectRoot = process.cwd()
-        const dataPath = resolve(projectRoot, 'public', 'data')
-
-        // Dynamic loading for fallback
-        try {
-          const { readdir } = await import('fs/promises')
-          const files = await readdir(dataPath)
-          const jsonFiles = files.filter((file) =>
-            file.endsWith('.json') &&
-            !file.startsWith('.') &&
-            file !== 'keyword_clusters.json'
-          )
-
-          console.log(`[sitemap-parks] Fallback found ${jsonFiles.length} data files`)
-
-          for (const file of jsonFiles) {
-            try {
-              const filePath = resolve(dataPath, file)
-              const content = await readFile(filePath, 'utf-8')
-              const parks: DogPark[] = JSON.parse(content)
-              parksFromFiles.push(...parks)
-              console.log(`[sitemap-parks] Loaded ${parks.length} parks from ${file}`)
-            } catch (readError) {
-              console.error(`[sitemap-parks] Failed to read ${file}:`, {
-                error: readError instanceof Error ? readError.message : String(readError)
-              })
-            }
-          }
-        } catch (dirError) {
-          console.error('[sitemap-parks] Failed to read data directory for fallback:', dirError)
-        }
-
-        allParks = parksFromFiles
-        console.log(`[sitemap-parks] Total parks loaded from files: ${allParks.length}`)
-      } catch (fileError) {
-        console.error('[sitemap-parks] Critical: Failed to read parks from files:', {
-          error: fileError instanceof Error ? fileError.message : String(fileError),
-          stack: fileError instanceof Error ? fileError.stack : undefined,
-          cwd: process.cwd(),
-        })
-        allParks = []
-      }
+      console.error('[sitemap-parks] Failed to load static parks:', libraryError)
+      allParks = []
     }
 
     if (!allParks || allParks.length === 0) {

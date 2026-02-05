@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const baseUrl = getBaseUrl(request);
+    const baseUrl = await getBaseUrl(request);
 
     // Create customer portal session
     const portalSession = await createCustomerPortalSession({

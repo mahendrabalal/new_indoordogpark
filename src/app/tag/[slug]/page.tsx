@@ -5,9 +5,9 @@ import { getCachedTags } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
 interface TagPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Normalize slug for matching (handles URL encoding, spaces, case, etc.)
@@ -24,10 +24,10 @@ async function getTag(slug: string): Promise<WPTag | null> {
   try {
     const tags = await getCachedTags();
     const normalizedSlug = normalizeSlug(slug);
-    
+
     // Try exact match first
     let tag = tags.find(tag => tag.slug === slug);
-    
+
     // If not found, try normalized match
     if (!tag) {
       tag = tags.find(tag => {
@@ -35,7 +35,7 @@ async function getTag(slug: string): Promise<WPTag | null> {
         return tagSlug === normalizedSlug;
       });
     }
-    
+
     return tag || null;
   } catch (error) {
     console.error('Error fetching tag:', error);
@@ -44,7 +44,8 @@ async function getTag(slug: string): Promise<WPTag | null> {
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const tag = await getTag(params.slug);
+  const { slug } = await params;
+  const tag = await getTag(slug);
 
   if (!tag) {
     return {
@@ -88,7 +89,8 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const tag = await getTag(params.slug);
+  const { slug } = await params;
+  const tag = await getTag(slug);
 
   if (!tag) {
     return notFound();

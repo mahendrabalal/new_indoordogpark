@@ -3,10 +3,11 @@ import { createServerClient } from '@/lib/supabase-server';
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { parkId: string } }
+  { params }: { params: Promise<{ parkId: string }> }
 ) {
   try {
-    const supabase = createServerClient();
+    const { parkId } = await params;
+    const supabase = await createServerClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -17,7 +18,7 @@ export async function DELETE(
       .from('favorites')
       .delete()
       .eq('user_id', user.id)
-      .eq('park_id', params.parkId);
+      .eq('park_id', parkId);
 
     if (error) {
       console.error('Error removing favorite:', error);

@@ -3,9 +3,7 @@ import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity
 import { SITE_URL } from '@/lib/metadata'
 import { MetadataRoute } from 'next'
 
-export const revalidate = 3600
 export const dynamic = 'force-dynamic'
-export const maxDuration = 20
 export const runtime = 'nodejs'
 
 /**

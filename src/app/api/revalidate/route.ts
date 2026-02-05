@@ -25,13 +25,14 @@ export async function GET(request: NextRequest) {
   try {
     // Revalidate specific path
     if (path) {
-      revalidatePath(path);
+      await revalidatePath(path);
       console.log(`Revalidated path: ${path}`);
     }
 
     // Revalidate specific tag
     if (tag) {
-      revalidateTag(tag);
+      // @ts-expect-error - Next.js 16 signature mismatch
+      await revalidateTag(tag);
       console.log(`Revalidated tag: ${tag}`);
     }
 
@@ -71,7 +72,7 @@ export async function POST(request: NextRequest) {
     // Revalidate multiple paths
     for (const path of paths) {
       try {
-        revalidatePath(path);
+        await revalidatePath(path);
         results.paths.push(path);
         console.log(`Revalidated path: ${path}`);
       } catch (error) {
@@ -82,7 +83,8 @@ export async function POST(request: NextRequest) {
     // Revalidate multiple tags
     for (const tag of tags) {
       try {
-        revalidateTag(tag);
+        // @ts-expect-error - Next.js 16 signature mismatch
+        await revalidateTag(tag);
         results.tags.push(tag);
         console.log(`Revalidated tag: ${tag}`);
       } catch (error) {

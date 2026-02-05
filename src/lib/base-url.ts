@@ -8,12 +8,13 @@ const LOCALHOST_FALLBACK = 'http://localhost:3000';
  * Prefers the incoming request origin so local dev ports are always in sync,
  * then falls back to the configured public URL or localhost.
  */
-export function getBaseUrl(request?: NextRequest) {
+export async function getBaseUrl(request?: NextRequest) {
   if (request?.nextUrl?.origin) {
     return request.nextUrl.origin;
   }
 
-  const headerOrigin = headers().get('origin');
+  const headerList = await headers();
+  const headerOrigin = headerList.get('origin');
   if (headerOrigin) {
     return headerOrigin;
   }

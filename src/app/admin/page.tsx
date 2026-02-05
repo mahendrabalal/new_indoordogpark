@@ -3,7 +3,7 @@ import { createServerClient } from '@/lib/supabase-server';
 import AdminDashboardClient from './AdminDashboardClient';
 
 export default async function AdminDashboardPage() {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const {
     data: { session },
   } = await supabase.auth.getSession();

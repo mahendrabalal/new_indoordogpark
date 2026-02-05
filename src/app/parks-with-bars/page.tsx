@@ -85,7 +85,7 @@ function filterParksWithBars(parks: DogPark[]): DogPark[] {
   });
 }
 
-export const revalidate = 60 * 60; // Refresh hourly
+export const revalidate = 3600; // Refresh hourly
 
 export default async function ParksWithBarsPage() {
   // Get all parks and filter for those with bars

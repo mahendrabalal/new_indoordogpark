@@ -3,7 +3,7 @@ import { createServerClient } from '@/lib/supabase-server';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase = await createServerClient();
     const { searchParams } = new URL(request.url);
     const parkId = searchParams.get('parkId');
     const includeUserReview = searchParams.get('includeUserReview') === 'true';
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     // Get current user if includeUserReview is true
     let currentUserId: string | null = null;
     let userReview: unknown = null;
-    
+
     if (includeUserReview) {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
@@ -77,7 +77,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase = await createServerClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     // Debug logging
@@ -144,18 +144,18 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Error submitting review:', error);
-      
+
       // Provide more helpful error messages
       if (error.code === '23503') {
         // Foreign key constraint violation
-        return NextResponse.json({ 
+        return NextResponse.json({
           error: 'Database configuration error',
           details: 'The reviews table foreign key constraint is misconfigured. Please run the migration to fix it.',
           code: error.code
         }, { status: 500 });
       }
-      
-      return NextResponse.json({ 
+
+      return NextResponse.json({
         error: 'Failed to submit review',
         details: error.message || 'Unknown error occurred'
       }, { status: 500 });

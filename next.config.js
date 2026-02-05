@@ -428,8 +428,6 @@ const nextConfig = {
   trailingSlash: false,
   // Compression
   compress: true,
-  // Enable SWC minification for better performance
-  swcMinify: true,
   // Power by header
   poweredByHeader: false,
   // Optimize production builds

@@ -3,9 +3,7 @@ import { SITE_URL } from '@/lib/metadata'
 import { MetadataRoute } from 'next'
 import { getAllStateSlugs, getStateContentBySlug } from '@/lib/state-page-data'
 
-export const revalidate = 3600
 export const dynamic = 'force-dynamic'
-export const maxDuration = 30
 export const runtime = 'nodejs'
 
 /**

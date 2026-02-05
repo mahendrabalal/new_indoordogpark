@@ -62,13 +62,13 @@ export interface DogPark {
   id: string;
   name: string;
   businessType:
-    | 'Dog Park'
-    | 'Indoor Dog Park'
-    | 'Dog-Friendly Establishment'
-    | 'General Play / Daycare Parks'
-    | 'Agility & Training Parks'
-    | 'Themed & Enrichment Parks'
-    | 'Specialty / Social Parks';
+  | 'Dog Park'
+  | 'Indoor Dog Park'
+  | 'Dog-Friendly Establishment'
+  | 'General Play / Daycare Parks'
+  | 'Agility & Training Parks'
+  | 'Themed & Enrichment Parks'
+  | 'Specialty / Social Parks';
   description: string;
   slug: string;
 
@@ -91,8 +91,8 @@ export interface DogPark {
   faqs?: ParkFAQ[];
 
   // Media Assets
-  photos?: MediaAsset[];
-  photo?: string; // Primary/featured photo URL (deprecated - use photos[0])
+  photos?: MediaAsset[] | null;
+  photo?: string | null; // Primary/featured photo URL (deprecated - use photos[0])
   photo2?: string; // Secondary photo (deprecated)
   photo3?: string; // Tertiary photo (deprecated)
 
@@ -105,7 +105,7 @@ export interface DogPark {
   pricing?: PricingInfo;
 
   // Operating Hours
-  openingHours?: Record<string, string>;
+  openingHours?: Record<string, string | null | undefined>;
   hours24x7?: boolean;
   hoursNote?: string;
 
@@ -120,7 +120,7 @@ export interface DogPark {
   placeTypes?: string[];
   websiteVerified?: boolean;
   verificationDate?: string;
-  lastUpdated?: string;
+  lastUpdated?: string | null;
   dataQuality?: 'verified' | 'partial' | 'unverified';
 
   // Data source tracking

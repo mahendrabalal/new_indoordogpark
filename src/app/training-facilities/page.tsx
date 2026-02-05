@@ -91,7 +91,7 @@ function filterTrainingFacilities(parks: DogPark[]): DogPark[] {
   });
 }
 
-export const revalidate = 60 * 60; // Refresh hourly
+export const revalidate = 3600; // Refresh hourly
 
 export default async function TrainingFacilitiesPage() {
   // Get all parks and filter for training facilities

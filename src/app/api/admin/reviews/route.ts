@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 // GET /api/admin/reviews - List all reviews with filtering
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase = await createServerClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {

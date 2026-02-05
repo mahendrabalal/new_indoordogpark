@@ -22,9 +22,9 @@ import { SITE_URL } from '@/lib/metadata';
 export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for ISR (optional - helps with known posts)
@@ -52,7 +52,7 @@ const estimateReadingTime = (content: string) => {
 
 // Blog post page component
 async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch the blog post from Sanity
   let post: BlogPost | null = null;
@@ -570,7 +570,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
 // Generate metadata for the blog post
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     // Use the same data fetching method as the page component

@@ -12,7 +12,7 @@ import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_U
 import { getAllCitySlugs, getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
-import dynamic from 'next/dynamic';
+import CityMapClient from '@/components/CityMapClient';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Amenities, DogPark } from '@/types/dog-park';
@@ -21,15 +21,11 @@ import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 import CityParkComparison from '@/components/CityParkComparison';
-const CityMap = dynamic(() => import('@/components/Map'), {
-  ssr: false,
-  loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
-});
 
 interface CityPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
@@ -115,7 +111,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
-  const cityContent = await getCityContentBySlug(params.slug);
+  const { slug } = await params;
+  const cityContent = await getCityContentBySlug(slug);
   if (!cityContent) {
     return {};
   }
@@ -188,12 +185,13 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 }
 
 export default async function CityPage({ params }: CityPageProps) {
-  const cityContent = await getCityContentBySlug(params.slug);
+  const { slug } = await params;
+  const cityContent = await getCityContentBySlug(slug);
 
   if (!cityContent) {
     // Check if this is a state name mistakenly used as a city
     const stateNames = ['california', 'ca', 'new-york', 'ny', 'washington', 'wa', 'florida', 'fl', 'texas', 'tx'];
-    const normalizedSlug = params.slug.toLowerCase().replace(/[^a-z]/g, '');
+    const normalizedSlug = slug.toLowerCase().replace(/[^a-z]/g, '');
 
     if (stateNames.some(state => normalizedSlug.includes(state) || state.includes(normalizedSlug))) {
       // Redirect to home page with a helpful message for state names
@@ -205,7 +203,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
   // Redirect to canonical slug if the current slug doesn't match
   // e.g., /cities/portland -> /cities/portland-or (301 permanent redirect for SEO)
-  if (cityContent.city.slug !== params.slug) {
+  if (cityContent.city.slug !== slug) {
     permanentRedirect(`/cities/${cityContent.city.slug}`);
   }
 
@@ -755,7 +753,7 @@ export default async function CityPage({ params }: CityPageProps) {
             <div className="map-grid">
               <div className="map-panel">
                 {cityParks.length > 0 ? (
-                  <CityMap parks={cityParks} />
+                  <CityMapClient parks={cityParks} />
                 ) : (
                   <div className="map-empty-state" style={{ minHeight: 320, background: '#f8fafc', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

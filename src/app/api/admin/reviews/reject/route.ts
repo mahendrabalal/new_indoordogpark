@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    const supabase = await createServerClient();
     const { data: { user }, error: authError } = await supabase.auth.getUser();
 
     if (authError || !user) {
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     // Update review status to rejected
     const { data: review, error } = await supabase
       .from('reviews')
-      .update({ 
+      .update({
         status: 'rejected',
         // Store rejection reason if provided (you may need to add a rejection_reason column)
       })

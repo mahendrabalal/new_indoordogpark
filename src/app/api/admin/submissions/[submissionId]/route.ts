@@ -6,7 +6,7 @@ const STORAGE_BUCKET = process.env.SUPABASE_PHOTOS_BUCKET || 'park-submissions';
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { submissionId: string } }
+  { params }: { params: Promise<{ submissionId: string }> }
 ) {
   try {
     const { user, error: authError } = await getUserFromRequest(request);
@@ -20,7 +20,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Forbidden. Admin access required.' }, { status: 403 });
     }
 
-    const submissionId = params.submissionId;
+    const { submissionId } = await params;
     if (!submissionId) {
       return NextResponse.json({ error: 'Submission ID is required' }, { status: 400 });
     }

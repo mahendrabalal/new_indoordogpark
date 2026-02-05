@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getBlogSitemap, generateSitemapXML } from '@/lib/sitemap-utils'
 
-export const revalidate = 3600
 export const dynamic = 'force-dynamic'
-export const maxDuration = 20
 export const runtime = 'nodejs'
 
 /**

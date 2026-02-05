@@ -30,12 +30,11 @@ interface EmailLogDetail {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const dynamic = 'force-dynamic';
-export const maxDuration = 300; // Allow 5 minutes for execution
 
 export async function POST(request: NextRequest) {
     try {
         // 1. Auth Check
-        const supabase = createServerClient();
+        const supabase = await createServerClient();
         const { data: { user }, error: authError } = await supabase.auth.getUser();
 
         if (authError || !user) {

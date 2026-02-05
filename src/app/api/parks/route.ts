@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
+import { getAllStaticParks } from '@/lib/parks-data';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
@@ -12,40 +12,8 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10));
     const limit = Math.min(100, parseInt(searchParams.get('limit') || '20', 10));
-
-    // Fetch static parks from JSON files
-    const allStaticParks: DogPark[] = [];
-    
-    // Load California parks
-    try {
-      const californiaPath = join(process.cwd(), 'public/data/california.json');
-      const californiaContent = await readFile(californiaPath, 'utf-8');
-      const californiaParks: DogPark[] = JSON.parse(californiaContent);
-      allStaticParks.push(...californiaParks);
-    } catch (error) {
-      console.error('Failed to read California parks data:', error);
-    }
-    
-    // Load Washington parks
-    try {
-      const washingtonPath = join(process.cwd(), 'public/data/washington.json');
-      const washingtonContent = await readFile(washingtonPath, 'utf-8');
-      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
-      allStaticParks.push(...washingtonParks);
-    } catch (error) {
-      console.error('Failed to read Washington parks data:', error);
-    }
-    
-    // Load Mixmatch parks (multi-state parks)
-    try {
-      const mixmatchPath = join(process.cwd(), 'public/data/mixmatch.json');
-      const mixmatchContent = await readFile(mixmatchPath, 'utf-8');
-      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
-      allStaticParks.push(...mixmatchParks);
-    } catch (error) {
-      console.error('Failed to read Mixmatch parks data:', error);
-    }
-    
+    // Use the Edge-compatible library function which bundles all JSON data
+    const allStaticParks = await getAllStaticParks();
     const staticParks = allStaticParks;
 
     // Add source tracking to static parks
@@ -130,8 +98,8 @@ export async function GET(request: Request) {
             email: sub.email,
             website: sub.website,
             description: sub.description,
-          photos: normalizedPhotos,
-          photo: normalizedPhotos[0]?.url,
+            photos: normalizedPhotos,
+            photo: normalizedPhotos[0]?.url,
             priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
             openingHours: sub.opening_hours,
             amenities: sub.amenities || {},

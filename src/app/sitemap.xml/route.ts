@@ -2,10 +2,7 @@ import { NextResponse } from 'next/server'
 import { SITE_URL } from '@/lib/metadata'
 import { generateSitemapIndexXML } from '@/lib/sitemap-utils'
 
-export const revalidate = 3600
 export const dynamic = 'force-dynamic'
-export const maxDuration = 10
-export const runtime = 'nodejs'
 
 /**
  * Main sitemap index - Industry best practice for sites with 500+ URLs

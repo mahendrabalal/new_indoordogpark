@@ -2,10 +2,8 @@ import { NextResponse } from 'next/server'
 import { SITE_URL } from '@/lib/metadata'
 import { MetadataRoute } from 'next'
 
-export const revalidate = 3600
+// Simplified segment configs for build troubleshooting
 export const dynamic = 'force-dynamic'
-export const maxDuration = 10
-export const runtime = 'nodejs'
 
 /**
  * Static pages sitemap API route

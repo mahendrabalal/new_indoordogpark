@@ -17,7 +17,7 @@ function extractAccessToken(authHeader: string | null): string | undefined {
 }
 
 export async function getUserFromRequest(request: NextRequest) {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
   const accessToken = extractAccessToken(request.headers.get('authorization'));
 
   const {

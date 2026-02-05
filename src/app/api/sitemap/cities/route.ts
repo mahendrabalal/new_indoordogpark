@@ -3,9 +3,7 @@ import { getAllCitySlugs } from '@/lib/parks-data'
 import { SITE_URL } from '@/lib/metadata'
 import { MetadataRoute } from 'next'
 
-export const revalidate = 3600
 export const dynamic = 'force-dynamic'
-export const maxDuration = 30
 export const runtime = 'nodejs'
 
 /**

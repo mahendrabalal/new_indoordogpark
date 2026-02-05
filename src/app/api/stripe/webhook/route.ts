@@ -5,13 +5,15 @@ import { supabaseAdminClient } from '@/lib/supabase-admin';
 import Stripe from 'stripe';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-// Disable body parsing, need raw body for webhook verification
-export const runtime = 'nodejs';
+// Use edge runtime for Cloudflare compatibility
+// Note: Stripe SDK supports edge runtime natively
+// export const runtime = 'edge'; - temporarily commented out for build debugging
 
 export async function POST(request: NextRequest) {
   console.log('🔔 Webhook received at /api/stripe/webhook');
   const body = await request.text();
-  const signature = headers().get('stripe-signature');
+  const headersList = await headers();
+  const signature = headersList.get('stripe-signature');
 
   if (!signature) {
     console.error('❌ No signature found in webhook request');
@@ -131,7 +133,7 @@ async function handleCheckoutSessionCompleted(
   // Extract dates safely - subscription is a Response object, access data via subscription.data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionData = (subscription as any).data || subscription;
-  
+
   // Verify subscription is in a valid active state
   const validStatuses = ['active', 'trialing'];
   if (!validStatuses.includes(subscriptionData.status)) {

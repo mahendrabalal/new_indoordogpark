@@ -1,4 +1,3 @@
-import dynamicImport from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
@@ -8,20 +7,17 @@ import Footer from '@/components/Footer';
 import ReviewSection from '@/components/ReviewSection';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
 import ParkStatusBadge from '@/components/ParkStatusBadge';
+import ParkMapClient from '@/components/ParkMapClient';
 import { extractLocationFromSlug, getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas, generateWebPageSchema } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
 
-const ParkMap = dynamicImport(() => import('@/components/ParkMap'), {
-  ssr: false,
-});
-
 type ParkPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 function getStateName(abbr: string | undefined): string {
@@ -80,7 +76,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ParkPageProps): Promise<Metadata> {
-  const park = await getParkBySlug(params.slug);
+  const { slug } = await params;
+  const park = await getParkBySlug(slug);
   if (!park) {
     return {};
   }
@@ -88,11 +85,12 @@ export async function generateMetadata({ params }: ParkPageProps): Promise<Metad
 }
 
 export default async function ParkDetailPage({ params }: ParkPageProps) {
-  const park = await getParkBySlug(params.slug);
+  const { slug } = await params;
+  const park = await getParkBySlug(slug);
 
   if (!park) {
     // Park not found - try smart redirect before 404
-    const location = extractLocationFromSlug(params.slug);
+    const location = extractLocationFromSlug(slug);
     if (location) {
       const citySlug = await getCitySlugByName(location.city, location.state);
       if (citySlug) {
@@ -107,7 +105,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   // Redirect to canonical slug if different (301 permanent redirect for SEO)
   const canonicalSlug = park.slug || park.id;
-  if (canonicalSlug !== params.slug) {
+  if (canonicalSlug !== slug) {
     permanentRedirect(`/parks/${canonicalSlug}`);
   }
 
@@ -413,7 +411,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
                 {park.latitude && park.longitude && (
                   <div className="mb-6 rounded-xl overflow-hidden shadow-inner border border-gray-100 h-[400px]">
-                    <ParkMap park={park} />
+                    <ParkMapClient park={park} />
                   </div>
                 )}
                 <p className="directions-intro">

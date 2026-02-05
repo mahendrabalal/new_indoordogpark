@@ -1,20 +1,15 @@
 import { NextResponse } from 'next/server'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
-import { getAllStaticParks, normalizePark, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data'
 import { supabaseAdminClient } from '@/lib/supabase-admin'
 import { SITE_URL } from '@/lib/metadata'
-import type { DogPark } from '@/types/dog-park'
 import { MetadataRoute } from 'next'
 
-export const revalidate = 3600
+// Simplified segment configs for build troubleshooting
 export const dynamic = 'force-dynamic'
-export const maxDuration = 60
-export const runtime = 'nodejs'
 
 /**
- * Parks sitemap API route
+ * Parks sitemap API route (Edge-compatible)
  * Returns XML sitemap for all park pages
+ * Uses Supabase to fetch all parks instead of filesystem
  */
 export async function GET() {
   const baseUrl = SITE_URL
@@ -22,80 +17,16 @@ export async function GET() {
   const parkPages: MetadataRoute.Sitemap = []
 
   try {
-    let allParks: DogPark[] = []
+    // Fetch all approved parks from Supabase
+    const { data: parks, error } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('id, slug, name, updated_at, approved_at')
+      .eq('status', 'approved')
+      .not('approved_at', 'is', null)
+      .order('name', { ascending: true })
 
-    // Try to get parks using the library function first
-    try {
-      allParks = await getAllStaticParks()
-      console.log(`[sitemap-parks] Successfully loaded ${allParks.length} parks via library function`)
-    } catch (libraryError) {
-      console.error('[sitemap-parks] Library function failed, trying direct file read:', {
-        error: libraryError instanceof Error ? libraryError.message : String(libraryError),
-        stack: libraryError instanceof Error ? libraryError.stack : undefined,
-        cwd: process.cwd(),
-      })
-
-      // Fallback: Read parks directly from JSON files using absolute paths
-      try {
-        const parksFromFiles: DogPark[] = []
-        const projectRoot = process.cwd()
-
-        // Load California parks
-        try {
-          const californiaPath = resolve(projectRoot, 'public', 'data', 'california.json')
-          const californiaContent = await readFile(californiaPath, 'utf-8')
-          const californiaParks: DogPark[] = JSON.parse(californiaContent)
-          parksFromFiles.push(...californiaParks)
-          console.log(`[sitemap-parks] Loaded ${californiaParks.length} California parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read California parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'california.json'),
-          })
-        }
-
-        // Load Washington parks
-        try {
-          const washingtonPath = resolve(projectRoot, 'public', 'data', 'washington.json')
-          const washingtonContent = await readFile(washingtonPath, 'utf-8')
-          const washingtonParks: DogPark[] = JSON.parse(washingtonContent)
-          parksFromFiles.push(...washingtonParks)
-          console.log(`[sitemap-parks] Loaded ${washingtonParks.length} Washington parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read Washington parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'washington.json'),
-          })
-        }
-
-        // Load Mixmatch parks
-        try {
-          const mixmatchPath = resolve(projectRoot, 'public', 'data', 'mixmatch.json')
-          const mixmatchContent = await readFile(mixmatchPath, 'utf-8')
-          const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent)
-          parksFromFiles.push(...mixmatchParks)
-          console.log(`[sitemap-parks] Loaded ${mixmatchParks.length} Mixmatch parks`)
-        } catch (error) {
-          console.error('[sitemap-parks] Failed to read Mixmatch parks:', {
-            error: error instanceof Error ? error.message : String(error),
-            path: resolve(projectRoot, 'public', 'data', 'mixmatch.json'),
-          })
-        }
-
-        allParks = parksFromFiles.map(normalizePark)
-        console.log(`[sitemap-parks] Total parks loaded from files: ${allParks.length}`)
-      } catch (fileError) {
-        console.error('[sitemap-parks] Critical: Failed to read parks from files:', {
-          error: fileError instanceof Error ? fileError.message : String(fileError),
-          stack: fileError instanceof Error ? fileError.stack : undefined,
-          cwd: process.cwd(),
-        })
-        allParks = []
-      }
-    }
-
-    if (!allParks || allParks.length === 0) {
-      console.warn('[sitemap-parks] WARNING: No parks loaded - returning empty sitemap')
+    if (error) {
+      console.error('[sitemap-parks] Supabase error:', error)
       return new NextResponse(generateSitemapXML([]), {
         status: 200,
         headers: {
@@ -105,33 +36,24 @@ export async function GET() {
       })
     }
 
-    // Also load approved database submissions (user-submitted parks)
-    try {
-      const { data: submissions, error: dbError } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('*')
-        .eq('status', 'approved')
-        .not('approved_at', 'is', null)
-
-      if (!dbError && submissions && submissions.length > 0) {
-        const submissionParks = submissions.map((sub) => mapSubmissionToDogPark(sub as SubmissionRow))
-        allParks.push(...submissionParks)
-        console.log(`[sitemap-parks] Added ${submissionParks.length} approved database submissions`)
-      } else if (dbError) {
-        console.warn('[sitemap-parks] Failed to load database submissions:', dbError)
-      }
-    } catch (dbError) {
-      console.warn('[sitemap-parks] Error loading database submissions:', dbError)
-      // Continue with static parks even if database fails
+    if (!parks || parks.length === 0) {
+      console.warn('[sitemap-parks] WARNING: No parks found in database')
+      return new NextResponse(generateSitemapXML([]), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/xml; charset=utf-8',
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate',
+        },
+      })
     }
 
-    console.log(`[sitemap-parks] Processing ${allParks.length} total parks (static + database) into sitemap`)
+    console.log(`[sitemap-parks] Successfully loaded ${parks.length} parks from Supabase`)
 
-    // Add individual park pages (deduplicate by URL)
-    let skippedCount = 0
+    // Build sitemap entries
     const seenUrls = new Set<string>()
+    let skippedCount = 0
 
-    for (const park of allParks) {
+    for (const park of parks) {
       const slug = park.slug || park.id
       if (!slug) {
         skippedCount++
@@ -140,14 +62,14 @@ export async function GET() {
 
       const parkUrl = `${baseUrl}/parks/${slug}`
 
-      // Skip if we've already added this URL (deduplicate)
+      // Skip duplicates
       if (seenUrls.has(parkUrl)) {
         skippedCount++
         continue
       }
 
       seenUrls.add(parkUrl)
-      const lastUpdated = park.lastUpdated ? new Date(park.lastUpdated) : currentDate
+      const lastUpdated = park.updated_at ? new Date(park.updated_at) : currentDate
 
       parkPages.push({
         url: parkUrl,
@@ -163,11 +85,7 @@ export async function GET() {
 
     console.log(`[sitemap-parks] Successfully added ${parkPages.length} park pages to sitemap`)
   } catch (error) {
-    console.error('[sitemap-parks] CRITICAL: Error building park sitemap entries:', {
-      error: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-    })
-    // Return empty sitemap instead of failing completely
+    console.error('[sitemap-parks] CRITICAL: Error building park sitemap:', error)
     return new NextResponse(generateSitemapXML([]), {
       status: 200,
       headers: {
@@ -219,4 +137,3 @@ function escapeXML(str: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;')
 }
-

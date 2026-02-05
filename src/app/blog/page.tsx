@@ -23,13 +23,13 @@ export const revalidate = 60; // Revalidate every 1 minute for faster updates
 
 // Define the BlogPage component props
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     perPage?: string;
     search?: string;
     category?: string;
     tag?: string;
-  };
+  }>;
 }
 
 const getFeaturedImage = (post: BlogPost) =>
@@ -39,11 +39,12 @@ const getFeaturedImage = (post: BlogPost) =>
 
 // Blog page with search params
 async function BlogPageContent({ searchParams }: BlogPageProps) {
-  const page = parseInt(searchParams.page || '1');
-  const perPage = parseInt(searchParams.perPage || '12');
-  const searchTerm = searchParams.search;
-  const categorySlug = searchParams.category;
-  const tagSlug = searchParams.tag;
+  const resolvedSearchParams = await searchParams;
+  const page = parseInt(resolvedSearchParams.page || '1');
+  const perPage = parseInt(resolvedSearchParams.perPage || '12');
+  const searchTerm = resolvedSearchParams.search;
+  const categorySlug = resolvedSearchParams.category;
+  const tagSlug = resolvedSearchParams.tag;
 
   // Canonicalize legacy query-based category/tag filters to dedicated routes
   // (prevents duplicate content and matches sitemap URLs)
@@ -558,9 +559,10 @@ export default function BlogPage(props: BlogPageProps) {
 
 // Generate metadata for the page
 export async function generateMetadata({ searchParams }: BlogPageProps): Promise<Metadata> {
-  const searchTerm = searchParams.search;
-  const categorySlug = searchParams.category;
-  const tagSlug = searchParams.tag;
+  const resolvedSearchParams = await searchParams;
+  const searchTerm = resolvedSearchParams.search;
+  const categorySlug = resolvedSearchParams.category;
+  const tagSlug = resolvedSearchParams.tag;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   let title = 'Indoor Dog Park Blog - Tips & Guides';

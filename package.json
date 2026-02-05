@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
-    "build": "next build",
+    "build": "next build --webpack",
+    "build:cloudflare": "npx @opennextjs/cloudflare build",
+    "preview:cloudflare": "npx wrangler dev",
+    "deploy:cloudflare": "npx wrangler deploy",
     "start": "next start",
     "lint": "next lint",
     "outreach:test": "npx ts-node scripts/send-park-outreach.ts --test --limit 5",
@@ -64,9 +67,11 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.15.7",
+    "@opennextjs/cloudflare": "^1.16.2",
     "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.10",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "wrangler": "^4.63.0"
   },
   "overrides": {
     "@sanity/icons": "^2.8.0"

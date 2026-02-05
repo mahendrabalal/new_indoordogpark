@@ -11,12 +11,12 @@ import { SITE_URL, createMetaDescription, createSEOTitle, generateBreadcrumbSche
 import { getStateContentBySlug } from '@/lib/state-page-data';
 
 type StatePageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export const revalidate = 60 * 60; // hourly
+export const revalidate = 3600; // hourly
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);
@@ -29,7 +29,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: StatePageProps): Promise<Metadata> {
-  const stateContent = await getStateContentBySlug(params.slug);
+  const { slug } = await params;
+  const stateContent = await getStateContentBySlug(slug);
   if (!stateContent) return {};
 
   const { state, stats, indexable, customContent } = stateContent;
@@ -88,7 +89,8 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
 }
 
 export default async function StatePage({ params }: StatePageProps) {
-  const stateContent = await getStateContentBySlug(params.slug);
+  const { slug } = await params;
+  const stateContent = await getStateContentBySlug(slug);
   if (!stateContent) {
     notFound();
   }
@@ -96,7 +98,7 @@ export default async function StatePage({ params }: StatePageProps) {
   const { state, stats, cities, indexable, canonicalSlug, customContent } = stateContent;
 
   // 301 to canonical slug if needed (e.g. /states/az -> /states/arizona)
-  if (canonicalSlug !== params.slug) {
+  if (canonicalSlug !== slug) {
     permanentRedirect(`/states/${canonicalSlug}`);
   }
 

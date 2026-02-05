@@ -4,9 +4,9 @@ import { WPCategory } from '@/types/wordpress';
 import { getCachedCategories } from '@/lib/sanity-api';
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Normalize slug for matching (handles URL encoding, spaces, case, etc.)
@@ -23,10 +23,10 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
   try {
     const categories = await getCachedCategories();
     const normalizedSlug = normalizeSlug(slug);
-    
+
     // Try exact match first
     let category = categories.find(cat => cat.slug === slug);
-    
+
     // If not found, try normalized match
     if (!category) {
       category = categories.find(cat => {
@@ -34,7 +34,7 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
         return catSlug === normalizedSlug;
       });
     }
-    
+
     return category || null;
   } catch (error) {
     console.error('Error fetching category:', error);
@@ -43,8 +43,9 @@ async function getCategory(slug: string): Promise<WPCategory | null> {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { slug } = await params;
   // Decode slug for lookup
-  const decodedSlug = decodeURIComponent(params.slug);
+  const decodedSlug = decodeURIComponent(slug);
   const category = await getCategory(decodedSlug);
 
   if (!category) {
@@ -90,8 +91,9 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = await params;
   // Decode slug for lookup
-  const decodedSlug = decodeURIComponent(params.slug);
+  const decodedSlug = decodeURIComponent(slug);
   const category = await getCategory(decodedSlug);
 
   if (!category) {

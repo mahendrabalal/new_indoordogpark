@@ -1,5 +1,3 @@
-import { readFile, access } from 'fs/promises';
-import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
 import { normalizeState, normalizeStateKey, getStateName } from '@/lib/state';
@@ -16,6 +14,20 @@ import {
   slugToCityName,
 } from '@/lib/cityData';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+
+// Static JSON imports for Edge compatibility
+import californiaParks from '../../public/data/california.json';
+import washingtonParks from '../../public/data/washington.json';
+import virginiaParks from '../../public/data/virginia.json';
+import texasParks from '../../public/data/texas.json';
+import tennesseeParks from '../../public/data/tennessee.json';
+import pennsylvaniaParks from '../../public/data/pennsylvania.json';
+import ohioParks from '../../public/data/ohio.json';
+import northCarolinaParks from '../../public/data/northcarolina.json';
+import nyParks from '../../public/data/newyork.json';
+import missouriParks from '../../public/data/missouri.json';
+import newJerseyParks from '../../public/data/newjersey.json';
+import mixmatchParks from '../../public/data/mixmatch.json';
 
 export interface PaginatedParks {
   data: DogPark[];
@@ -36,19 +48,6 @@ export interface CityContentPayload {
   customContent?: CityCustomContent;
   nearbyCities?: CityData[];
 }
-
-const californiaDataPath = path.join(process.cwd(), 'public/data/california.json');
-const washingtonDataPath = path.join(process.cwd(), 'public/data/washington.json');
-const virginiaDataPath = path.join(process.cwd(), 'public/data/virginia.json');
-const texasDataPath = path.join(process.cwd(), 'public/data/texas.json');
-const tennesseeDataPath = path.join(process.cwd(), 'public/data/tennessee.json');
-const pennsylvaniaDataPath = path.join(process.cwd(), 'public/data/pennsylvania.json');
-const ohioDataPath = path.join(process.cwd(), 'public/data/ohio.json');
-const northCarolinaDataPath = path.join(process.cwd(), 'public/data/northcarolina.json');
-const nyDataPath = path.join(process.cwd(), 'public/data/newyork.json');
-const missouriDataPath = path.join(process.cwd(), 'public/data/missouri.json');
-const newJerseyDataPath = path.join(process.cwd(), 'public/data/newjersey.json');
-const mixmatchDataPath = path.join(process.cwd(), 'public/data/mixmatch.json');
 
 let parksCache: DogPark[] | null = null;
 
@@ -202,7 +201,10 @@ export function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
 function dedupeParks(parks: DogPark[]): DogPark[] {
   const seen = new Set<string>();
   return parks.filter((park) => {
-    const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}|${normalizeStateKey(park.state)}`;
+    const name = (park.name || 'Unknown Park').toLowerCase();
+    const city = (park.city || 'Unknown City').toLowerCase();
+    const stateAbbr = normalizeStateKey(park.state) || '';
+    const key = `${name}|${city}|${stateAbbr}`;
     if (seen.has(key)) {
       return false;
     }
@@ -216,127 +218,26 @@ async function loadStaticParks(): Promise<DogPark[]> {
     return parksCache;
   }
 
-  try {
-    const allParks: DogPark[] = [];
+  const allParks: DogPark[] = [
+    ...(californiaParks as DogPark[]),
+    ...(washingtonParks as DogPark[]),
+    ...(virginiaParks as DogPark[]),
+    ...(texasParks as DogPark[]),
+    ...(tennesseeParks as DogPark[]),
+    ...(pennsylvaniaParks as DogPark[]),
+    ...(ohioParks as DogPark[]),
+    ...(northCarolinaParks as DogPark[]),
+    ...(nyParks as DogPark[]),
+    ...(missouriParks as DogPark[]),
+    ...(newJerseyParks as DogPark[]),
+    ...(mixmatchParks as DogPark[]),
+  ];
 
-    // Load California parks
-    try {
-      const californiaContent = await readFile(californiaDataPath, 'utf-8');
-      const californiaParks: DogPark[] = JSON.parse(californiaContent);
-      allParks.push(...californiaParks);
-    } catch (error) {
-      console.error('Failed to read California parks data:', error);
-    }
-
-    // Load Washington parks
-    try {
-      const washingtonContent = await readFile(washingtonDataPath, 'utf-8');
-      const washingtonParks: DogPark[] = JSON.parse(washingtonContent);
-      allParks.push(...washingtonParks);
-    } catch (error) {
-      console.error('Failed to read Washington parks data:', error);
-    }
-
-    // Load Virginia parks
-    try {
-      const virginiaContent = await readFile(virginiaDataPath, 'utf-8');
-      const virginiaParks: DogPark[] = JSON.parse(virginiaContent);
-      allParks.push(...virginiaParks);
-    } catch (error) {
-      console.error('Failed to read Virginia parks data:', error);
-    }
-
-    // Load Texas parks
-    try {
-      const texasContent = await readFile(texasDataPath, 'utf-8');
-      const texasParks: DogPark[] = JSON.parse(texasContent);
-      allParks.push(...texasParks);
-    } catch (error) {
-      console.error('Failed to read Texas parks data:', error);
-    }
-
-    // Load Tennessee parks
-    try {
-      const tennesseeContent = await readFile(tennesseeDataPath, 'utf-8');
-      const tennesseeParks: DogPark[] = JSON.parse(tennesseeContent);
-      allParks.push(...tennesseeParks);
-    } catch (error) {
-      console.error('Failed to read Tennessee parks data:', error);
-    }
-
-    // Load Pennsylvania parks
-    try {
-      const pennsylvaniaContent = await readFile(pennsylvaniaDataPath, 'utf-8');
-      const pennsylvaniaParks: DogPark[] = JSON.parse(pennsylvaniaContent);
-      allParks.push(...pennsylvaniaParks);
-    } catch (error) {
-      console.error('Failed to read Pennsylvania parks data:', error);
-    }
-
-    // Load Ohio parks
-    try {
-      const ohioContent = await readFile(ohioDataPath, 'utf-8');
-      const ohioParks: DogPark[] = JSON.parse(ohioContent);
-      allParks.push(...ohioParks);
-    } catch (error) {
-      console.error('Failed to read Ohio parks data:', error);
-    }
-
-    // Load North Carolina parks
-    try {
-      const ncContent = await readFile(northCarolinaDataPath, 'utf-8');
-      const ncParks: DogPark[] = JSON.parse(ncContent);
-      allParks.push(...ncParks);
-    } catch (error) {
-      console.error('Failed to read North Carolina parks data:', error);
-    }
-
-    // Load New York parks
-    try {
-      const nyContent = await readFile(nyDataPath, 'utf-8');
-      const nyParks: DogPark[] = JSON.parse(nyContent);
-      allParks.push(...nyParks);
-    } catch (error) {
-      console.error('Failed to read New York parks data:', error);
-    }
-
-    // Load Missouri parks
-    try {
-      const missouriContent = await readFile(missouriDataPath, 'utf-8');
-      const missouriParks: DogPark[] = JSON.parse(missouriContent);
-      allParks.push(...missouriParks);
-    } catch (error) {
-      console.error('Failed to read Missouri parks data:', error);
-    }
-
-    // Load New Jersey parks
-    try {
-      const njContent = await readFile(newJerseyDataPath, 'utf-8');
-      const njParks: DogPark[] = JSON.parse(njContent);
-      allParks.push(...njParks);
-    } catch (error) {
-      console.error('Failed to read New Jersey parks data:', error);
-    }
-
-    // Load Mixmatch parks (multi-state parks)
-    try {
-      const mixmatchContent = await readFile(mixmatchDataPath, 'utf-8');
-      const mixmatchParks: DogPark[] = JSON.parse(mixmatchContent);
-      allParks.push(...mixmatchParks);
-    } catch (error) {
-      console.error('Failed to read Mixmatch parks data:', error);
-    }
-
-    const normalized = allParks.map(normalizePark);
-    const deduped = dedupeParks(normalized);
-    deduped.sort((a, b) => a.name.localeCompare(b.name));
-    parksCache = deduped;
-    return deduped;
-  } catch (error) {
-    console.error('Failed to read parks data from disk:', error);
-    parksCache = [];
-    return [];
-  }
+  const normalized = allParks.map(normalizePark);
+  const deduped = dedupeParks(normalized);
+  deduped.sort((a, b) => a.name.localeCompare(b.name));
+  parksCache = deduped;
+  return deduped;
 }
 
 export async function getAllStaticParks(): Promise<DogPark[]> {
@@ -570,40 +471,11 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     // Resolve featured image with fallback to state image
     let featuredImage = priorityConfig?.featuredImage || city.featuredImage;
 
-    // Verify if the assigned image actually exists (handle cityData.ts blind assignment)
-    if (featuredImage && featuredImage.startsWith('/')) {
-      try {
-        const absolutePath = path.join(process.cwd(), 'public', featuredImage);
-        await access(absolutePath);
-      } catch {
-        featuredImage = undefined;
-      }
-    }
-
     if (!featuredImage) {
       const cityImagePath = `/images/cities/${city.slug}/hero.webp`;
-      const absoluteCityPath = path.join(process.cwd(), 'public', cityImagePath);
-      try {
-        await access(absoluteCityPath);
-        featuredImage = cityImagePath;
-      } catch {
-        // City image doesn't exist, try state fallback
-        const stateName = getStateName(city.state);
-        if (stateName) {
-          const stateSlug = stateName.toLowerCase().replace(/\s+/g, '-');
-          const stateImagePath = `/images/states/${stateSlug}/hero.webp`;
-          const absoluteStatePath = path.join(process.cwd(), 'public', stateImagePath);
-          try {
-            await access(absoluteStatePath);
-            featuredImage = stateImagePath;
-          } catch {
-            // Fallback handled in UI or use default
-            featuredImage = cityImagePath;
-          }
-        } else {
-          featuredImage = cityImagePath;
-        }
-      }
+      // Note: Edge runtime doesn't support direct disk access (fs.access)
+      // We assume the image exists or let the absolute path fall back in the UI
+      featuredImage = cityImagePath;
     }
 
     const hydratedCity: CityData = {

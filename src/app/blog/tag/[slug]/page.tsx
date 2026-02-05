@@ -9,13 +9,13 @@ import { getCachedPosts, getCachedTags } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
 interface TagPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     page?: string;
     perPage?: string;
-  };
+  }>;
 }
 
 // Normalize slug for matching (handles URL encoding, spaces, case, etc.)
@@ -37,7 +37,7 @@ async function getTag(slug: string): Promise<WPTag | null> {
 
     // Try exact match first (with original slug)
     let tag = tags.find(tag => tag.slug === slug);
-    
+
     // If not found, try normalized match
     if (!tag) {
       tag = tags.find(tag => {
@@ -51,8 +51,8 @@ async function getTag(slug: string): Promise<WPTag | null> {
       const normalizedName = normalizedSlug.replace(/-/g, ' ');
       tag = tags.find(tag => {
         const tagNameNormalized = tag.name.toLowerCase().trim().replace(/\s+/g, '-');
-        return tagNameNormalized === normalizedSlug || 
-               tag.name.toLowerCase().trim() === normalizedName;
+        return tagNameNormalized === normalizedSlug ||
+          tag.name.toLowerCase().trim() === normalizedName;
       });
     }
 
@@ -64,7 +64,8 @@ async function getTag(slug: string): Promise<WPTag | null> {
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const tag = await getTag(params.slug);
+  const { slug } = await params;
+  const tag = await getTag(slug);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   if (!tag) {
@@ -129,7 +130,9 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 }
 
 export default async function TagPage({ params, searchParams }: TagPageProps) {
-  const tag = await getTag(params.slug);
+  const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
+  const tag = await getTag(slug);
 
   if (!tag) {
     return notFound();
@@ -142,16 +145,16 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
 
   // Redirect to canonical slug if the requested slug doesn't match exactly
   // (handles URL encoding, spaces, case differences)
-  if (tag.slug !== params.slug && normalizeSlug(tag.slug) === normalizeSlug(params.slug)) {
+  if (tag.slug !== slug && normalizeSlug(tag.slug) === normalizeSlug(slug)) {
     const qs = new URLSearchParams();
-    if (searchParams.page && searchParams.page !== '1') qs.set('page', searchParams.page);
-    if (searchParams.perPage && searchParams.perPage !== '12') qs.set('perPage', searchParams.perPage);
+    if (resolvedSearchParams.page && resolvedSearchParams.page !== '1') qs.set('page', resolvedSearchParams.page);
+    if (resolvedSearchParams.perPage && resolvedSearchParams.perPage !== '12') qs.set('perPage', resolvedSearchParams.perPage);
     const suffix = qs.toString() ? `?${qs.toString()}` : '';
     permanentRedirect(`/blog/tag/${encodeURIComponent(tag.slug)}${suffix}`);
   }
 
-  const page = parseInt(searchParams.page || '1');
-  const perPage = parseInt(searchParams.perPage || '12');
+  const page = parseInt(resolvedSearchParams.page || '1');
+  const perPage = parseInt(resolvedSearchParams.perPage || '12');
 
   // Fetch posts server-side (best practice)
   const blogData = await getCachedPosts({
@@ -223,80 +226,80 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
         <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white">
-        <div className="container mx-auto px-4 py-16">
-          <nav aria-label="Breadcrumb" className="text-sm mb-4">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <Link href="/blog" className="hover:text-purple-200">Blog</Link>
-              </li>
-              <li aria-hidden="true" className="text-purple-300">/</li>
-              <li className="text-purple-200" aria-current="page">
-                Tag: {tag.name}
-              </li>
-            </ol>
-          </nav>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{tag.name} Articles</h1>
-          {tag.description && (
-            <p className="text-xl text-purple-100 max-w-2xl">{tag.description}</p>
-          )}
-          <div className="mt-6 text-purple-100">
-            <span className="font-semibold">{tag.count}</span> articles tagged with &quot;{tag.name}&quot;
+          <div className="container mx-auto px-4 py-16">
+            <nav aria-label="Breadcrumb" className="text-sm mb-4">
+              <ol className="flex items-center space-x-2">
+                <li>
+                  <Link href="/blog" className="hover:text-purple-200">Blog</Link>
+                </li>
+                <li aria-hidden="true" className="text-purple-300">/</li>
+                <li className="text-purple-200" aria-current="page">
+                  Tag: {tag.name}
+                </li>
+              </ol>
+            </nav>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{tag.name} Articles</h1>
+            {tag.description && (
+              <p className="text-xl text-purple-100 max-w-2xl">{tag.description}</p>
+            )}
+            <div className="mt-6 text-purple-100">
+              <span className="font-semibold">{tag.count}</span> articles tagged with &quot;{tag.name}&quot;
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 py-12">
-        {posts.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
-            <p className="text-gray-600 mb-4">
-              No articles have been tagged with &quot;{tag.name}&quot; yet.
-            </p>
-            <Link href="/blog" className="text-purple-600 hover:text-purple-700">
-              ← Browse all articles
-            </Link>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-              {posts.map((post) => (
-                <BlogCard key={post.id} post={post} />
-              ))}
+        {/* Content */}
+        <div className="container mx-auto px-4 py-12">
+          {posts.length === 0 ? (
+            <div className="bg-white rounded-lg shadow-md p-8 text-center">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+              <p className="text-gray-600 mb-4">
+                No articles have been tagged with &quot;{tag.name}&quot; yet.
+              </p>
+              <Link href="/blog" className="text-purple-600 hover:text-purple-700">
+                ← Browse all articles
+              </Link>
             </div>
-
-            {pagination.totalPages > 1 && (
-              <BlogPagination
-                pagination={pagination}
-                basePath={`/blog/tag/${encodeURIComponent(tag.slug)}`}
-                className="mt-8"
-              />
-            )}
-
-            {/* Explore More Section */}
-            <div className="mt-8 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Explore More</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link
-                  href="/"
-                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
-                >
-                  <h4 className="font-semibold text-gray-900 mb-2">Browse All Parks</h4>
-                  <p className="text-sm text-gray-600">Discover dog parks across California</p>
-                </Link>
-                <Link
-                  href="/blog"
-                  className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
-                >
-                  <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>
-                  <p className="text-sm text-gray-600">Read all our guides and articles</p>
-                </Link>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                {posts.map((post) => (
+                  <BlogCard key={post.id} post={post} />
+                ))}
               </div>
-            </div>
-          </>
-        )}
+
+              {pagination.totalPages > 1 && (
+                <BlogPagination
+                  pagination={pagination}
+                  basePath={`/blog/tag/${encodeURIComponent(tag.slug)}`}
+                  className="mt-8"
+                />
+              )}
+
+              {/* Explore More Section */}
+              <div className="mt-8 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Explore More</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Link
+                    href="/"
+                    className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                  >
+                    <h4 className="font-semibold text-gray-900 mb-2">Browse All Parks</h4>
+                    <p className="text-sm text-gray-600">Discover dog parks across California</p>
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
+                  >
+                    <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>
+                    <p className="text-sm text-gray-600">Read all our guides and articles</p>
+                  </Link>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
     </>
   );
 }

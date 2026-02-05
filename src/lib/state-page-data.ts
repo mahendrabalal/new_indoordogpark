@@ -37,7 +37,10 @@ function dedupeParks(parks: DogPark[]): DogPark[] {
   const seen = new Set<string>();
   const result: DogPark[] = [];
   for (const park of parks) {
-    const key = `${park.name.toLowerCase()}|${park.city.toLowerCase()}|${normalizeStateKey(park.state)}`;
+    const name = (park.name || 'Unknown Park').toLowerCase();
+    const city = (park.city || 'Unknown City').toLowerCase();
+    const stateAbbr = normalizeStateKey(park.state) || '';
+    const key = `${name}|${city}|${stateAbbr}`;
     if (seen.has(key)) continue;
     seen.add(key);
     result.push(park);

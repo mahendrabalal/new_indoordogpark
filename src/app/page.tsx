@@ -7,7 +7,7 @@ import { generateCollectionPageSchema } from '@/lib/metadata';
 import { normalizeTypeParameter } from '@/lib/type-normalizer';
 
 type HomePageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
@@ -26,13 +26,14 @@ function getParamValue(
 
 // Generate metadata for homepage
 export async function generateMetadata({
-  searchParams = {},
+  searchParams,
 }: HomePageProps): Promise<Metadata> {
+  const resolvedSearchParams = await searchParams;
   const title = 'Indoor Parks for Dogs Near Me | Find Indoor Dog Parks';
   const description =
     'Find indoor parks for dogs near you. Search 500+ climate-controlled indoor dog parks across the US. Bars, training facilities & more. Search by city or zip code.';
 
-  const isFiltered = hasActiveSearchParams(searchParams);
+  const isFiltered = hasActiveSearchParams(resolvedSearchParams);
 
   return {
     metadataBase: new URL(siteUrl),
@@ -102,16 +103,17 @@ function hasActiveSearchParams(
   return false;
 }
 
-export const revalidate = 60 * 60; // Refresh server-rendered home data hourly
+export const revalidate = 3600; // Refresh server-rendered home data hourly
 
-export default async function HomePage({ searchParams = {} }: HomePageProps) {
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const resolvedSearchParams = (await searchParams) || {};
   // Redirect if default or unnecessary parameters are present
-  const sortByParam = getParamValue(searchParams.sortBy);
+  const sortByParam = getParamValue(resolvedSearchParams.sortBy);
   if (sortByParam === 'relevance') {
     const newSearchParams = new URLSearchParams();
 
     // Copy all other parameters
-    Object.entries(searchParams).forEach(([key, value]) => {
+    Object.entries(resolvedSearchParams).forEach(([key, value]) => {
       if (key !== 'sortBy' && value) {
         newSearchParams.set(key, getParamValue(value));
       }
@@ -125,7 +127,7 @@ export default async function HomePage({ searchParams = {} }: HomePageProps) {
   }
 
   // Existing validation for type parameter
-  const typeParam = getParamValue(searchParams.type);
+  const typeParam = getParamValue(resolvedSearchParams.type);
   if (typeParam && typeParam !== 'all') {
     const normalizedType = normalizeTypeParameter(typeParam);
 
@@ -135,19 +137,19 @@ export default async function HomePage({ searchParams = {} }: HomePageProps) {
       const newSearchParams = new URLSearchParams();
 
       // Preserve other valid search parameters
-      const query = getParamValue(searchParams.q);
+      const query = getParamValue(resolvedSearchParams.q);
       if (query) newSearchParams.set('q', query);
 
-      const minRating = getParamValue(searchParams.minRating);
+      const minRating = getParamValue(resolvedSearchParams.minRating);
       if (minRating) newSearchParams.set('minRating', minRating);
 
-      const priceRange = getParamValue(searchParams.priceRange);
+      const priceRange = getParamValue(resolvedSearchParams.priceRange);
       if (priceRange) newSearchParams.set('priceRange', priceRange);
 
-      const city = getParamValue(searchParams.city);
+      const city = getParamValue(resolvedSearchParams.city);
       if (city) newSearchParams.set('city', city);
 
-      const listingType = getParamValue(searchParams.listingType);
+      const listingType = getParamValue(resolvedSearchParams.listingType);
       if (listingType && (listingType === 'featured' || listingType === 'free')) {
         newSearchParams.set('listingType', listingType);
       }
@@ -165,19 +167,19 @@ export default async function HomePage({ searchParams = {} }: HomePageProps) {
       newSearchParams.set('type', normalizedType);
 
       // Preserve other search parameters
-      const query = getParamValue(searchParams.q);
+      const query = getParamValue(resolvedSearchParams.q);
       if (query) newSearchParams.set('q', query);
 
-      const minRating = getParamValue(searchParams.minRating);
+      const minRating = getParamValue(resolvedSearchParams.minRating);
       if (minRating) newSearchParams.set('minRating', minRating);
 
-      const priceRange = getParamValue(searchParams.priceRange);
+      const priceRange = getParamValue(resolvedSearchParams.priceRange);
       if (priceRange) newSearchParams.set('priceRange', priceRange);
 
-      const city = getParamValue(searchParams.city);
+      const city = getParamValue(resolvedSearchParams.city);
       if (city) newSearchParams.set('city', city);
 
-      const listingType = getParamValue(searchParams.listingType);
+      const listingType = getParamValue(resolvedSearchParams.listingType);
       if (listingType && (listingType === 'featured' || listingType === 'free')) {
         newSearchParams.set('listingType', listingType);
       }
@@ -186,7 +188,7 @@ export default async function HomePage({ searchParams = {} }: HomePageProps) {
     }
   }
 
-  const initialShowSearchLayout = hasActiveSearchParams(searchParams);
+  const initialShowSearchLayout = hasActiveSearchParams(resolvedSearchParams);
   const initialData = await getPaginatedStaticParks(1, 20);
   const collectionPageSchema = generateCollectionPageSchema(initialData.data);
 

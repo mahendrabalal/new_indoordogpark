@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const baseUrl = getBaseUrl(request);
+    const baseUrl = await getBaseUrl(request);
 
     // Create checkout session with fallback success URL
     const session = await createCheckoutSession({

@@ -17463,6 +17463,57 @@ export const priorityCityContent: PriorityCityConfig[] = [
       faqs: [],
     },
   },
+  {
+    slug: 'warrenton-mo',
+    city: 'Warrenton',
+    state: 'MO',
+    featuredImage: '/images/cities/warrenton-mo/hero.webp',
+    summary: 'Discover dog-friendly parks and outdoor adventures in Warrenton, MO.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Warrenton',
+      heroDescription: 'Discover dog-friendly parks and trails in Warrenton, MO. Your guide to exploring Warren County with your pup.',
+      longDescription: [
+        "Warrenton is a charming small town in Warren County, Missouri, offering dog owners a peaceful blend of historic Main Street appeal and scenic rural landscapes. The community maintains several well-kept parks where dogs can enjoy fresh air and open spaces, while the surrounding countryside provides endless opportunities for leashed hikes and nature walks. Local businesses along the downtown corridor often welcome well-behaved dogs, making it easy to combine errands with quality time outdoors. For indoor play options during Missouri's hot summers or cold winters, check out nearby facilities in the St. Louis metro area or browse our [directory](https://www.indoordogpark.org/directory) for the latest listings.",
+        "Warren County enforces standard leash laws requiring dogs to be under control in public spaces, so always bring a secure lead for town outings. The area's agricultural heritage means you may encounter livestock on rural roads, making leash compliance especially important. Warrenton's small-town atmosphere fosters a tight-knit community of pet owners who often share tips on the best trails and swimming holes in the region. Whether you are exploring the historic downtown, hiking nearby conservation areas, or simply enjoying a quiet afternoon at a local park, Warrenton offers an ideal setting for dogs who thrive in relaxed, natural environments. Learn more about dog-friendly destinations on our [blog](https://www.indoordogpark.org/blog)."
+      ],
+      faqs: [],
+    },
+  },
+  {
+    slug: 'lincoln-ne',
+    city: 'Lincoln',
+    state: 'NE',
+    featuredImage: '/images/cities/lincoln-ne/hero.webp',
+    summary: 'Discover dog parks, trails, and pet-friendly spots in Lincoln, NE.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Lincoln',
+      heroDescription: "Discover dog parks and trails in Lincoln, NE. Your guide to dog-friendly adventures in Nebraska's capital city.",
+      longDescription: [
+        "Lincoln, Nebraska's capital city, offers dog owners a welcoming blend of urban amenities and expansive outdoor recreation. The city boasts an impressive trail system with over 130 miles of paved paths, including the popular MoPac Trail and Rock Island Trail that wind through prairies and wetlands. Holmes Lake Park and Pioneers Park provide excellent off-leash dog areas where pups can socialize and burn energy in a safe, fenced environment. The University of Nebraska campus adds a youthful, pet-friendly vibe to the downtown area, with many coffee shops and patios welcoming leashed dogs. For professional training or daycare services, browse our [partners](https://www.indoordogpark.org/partners) page for verified local businesses.",
+        "Lincoln enforces leash laws in public spaces, so always keep your dog secured outside of designated off-leash areas. The city's four-season climate means hot summers and cold winters, making climate-controlled indoor play options valuable for year-round exercise. Local pet stores, breweries, and restaurants throughout the Haymarket District often accommodate well-behaved dogs on their patios. Whether you are jogging the scenic trails around Capitol Beach Lake, exploring the Sunken Gardens, or cheering on the Huskers at a dog-friendly tailgate, Lincoln delivers a high quality of life for pets and their owners. Check our [blog](https://www.indoordogpark.org/blog) for tips on exploring Nebraska with your pup."
+      ],
+      faqs: [],
+    },
+  },
+  {
+    slug: 'reno',
+    city: 'Reno',
+    state: 'NV',
+    featuredImage: '/images/cities/reno/hero.png',
+    summary: 'Discover dog parks, trails, and pet-friendly spots in Reno, NV.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Reno',
+      heroDescription: 'Discover the best dog parks and trails in Reno, NV. Your guide to dog-friendly adventures in "The Biggest Little City in the World."',
+      longDescription: [
+        "Reno, Nevada, famously known as \"The Biggest Little City in the World,\" offers a surprisingly robust landscape for dog owners, blending high-desert beauty with urban convenience. The city is home to several well-maintained off-leash areas, including the popular [Virginia Lake Park](https://www.reno.gov/government/departments/parks-recreation-community-services/parks-facilities-directory) and the expansive Whitaker Park, where pups can run against the backdrop of the Sierra Nevada mountains. Reno's location along the Truckee River provides a scenic corridor for leashed walks, with miles of paved trails connecting downtown to the quieter residential reaches. For those looking for professional socialization or climate-controlled environments, our [partners](https://www.indoordogpark.org/partners) page lists verified local businesses dedicated to canine wellness.",
+        "Nevada's climate, characterized by scorching summers and snowy winters, makes the search for indoor play options a high priority for local residents. While the city celebrates its outdoor culture through events like \"Dog Days of Summer\" and pet-friendly brewery patios in the Midtown District, having a reliable space for exercise during extreme weather is essential. Reno maintains a welcoming atmosphere for pets, with many local shops and restaurants accommodating well-behaved companions. Whether you are exploring the rugged trails of Peavine Mountain, strolling through the Nevada Museum of Art's surrounding plazas, or simply enjoying the neon lights of the Reno Arch, the city provides a high quality of life for dogs and their handlers alike. Visit our [blog](https://www.indoordogpark.org/blog) for more tips on exploring the high desert with your pup."
+      ],
+      faqs: [],
+    },
+  },
 ];
 
 
