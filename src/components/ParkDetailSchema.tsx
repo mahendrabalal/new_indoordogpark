@@ -64,9 +64,9 @@ export default function ParkDetailSchema({ park, url }: ParkDetailSchemaProps) {
         name: 'Features',
         value: park.amenities
           ? Object.entries(park.amenities)
-              .filter(([, value]) => value === true)
-              .map(([key]) => key.replace(/([A-Z])/g, ' $1').trim())
-              .join(', ')
+            .filter(([, value]) => value === true)
+            .map(([key]) => key.replace(/([A-Z])/g, ' $1').trim())
+            .join(', ')
           : 'Standard amenities',
       },
       ...(park.sizeCategory ? [{
@@ -101,7 +101,7 @@ export default function ParkDetailSchema({ park, url }: ParkDetailSchemaProps) {
   }
 
   // Helper function to format opening hours for schema.org
-  function formatOpeningHours(hours: Record<string, string>): string[] {
+  function formatOpeningHours(hours: Record<string, string | null | undefined>): string[] {
     const dayMap: { [key: string]: string } = {
       monday: 'Mo',
       tuesday: 'Tu',
