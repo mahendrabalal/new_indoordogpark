@@ -10,13 +10,21 @@ export async function createServerClient() {
     if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PHASE && !process.env.OPEN_NEXT) {
       throw new Error('Supabase environment variables are missing');
     }
-    // Return a dummy client during build
-    return new Proxy({} as any, {
-      get: () => () => {
-        console.warn('Supabase server client called during build or without configuration');
-        return { data: { session: null, user: null }, error: null };
-      }
-    });
+    // Return a robust recursive proxy during build to prevent crashes on nested calls
+    const createSafeProxy = (label: string): any => {
+      const proxy: any = new Proxy(() => { }, {
+        get: (target, prop) => {
+          if (prop === 'then') return undefined;
+          return createSafeProxy(`${label}.${String(prop)}`);
+        },
+        apply: (target, thisArg, args) => {
+          console.warn(`${label}() called during build or without configuration`);
+          return Promise.resolve({ data: { session: null, user: null }, error: null, count: 0 });
+        }
+      });
+      return proxy;
+    };
+    return createSafeProxy('supabaseServer');
   }
 
   const cookieStore = await cookies();

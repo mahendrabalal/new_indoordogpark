@@ -3,6 +3,9 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 // Types
 interface BlogPost {
     title: string;
@@ -122,11 +125,11 @@ export default function MarketingPage() {
             let mergedParks: ParkContact[] = [];
 
             if (submissions) {
-                mergedParks = [...submissions.map(p => ({ ...p, source_type: 'submission' as const }))];
+                mergedParks = [...submissions.map((p: any) => ({ ...p, source_type: 'submission' as const }))];
             }
 
             if (subscriberParks) {
-                const subParksMapped = subscriberParks.map(s => {
+                const subParksMapped = subscriberParks.map((s: any) => {
                     const metadata = s.metadata as SubscriberMetadata | null;
                     return {
                         id: s.id,
@@ -141,8 +144,8 @@ export default function MarketingPage() {
                 });
 
                 // Avoid duplicates if email exists in both
-                const submissionEmails = new Set(mergedParks.map(p => p.email.toLowerCase()));
-                const uniqueSubParks = subParksMapped.filter(p => !submissionEmails.has(p.email.toLowerCase()));
+                const submissionEmails = new Set(mergedParks.map((p: any) => p.email.toLowerCase()));
+                const uniqueSubParks = subParksMapped.filter((p: any) => !submissionEmails.has(p.email.toLowerCase()));
 
                 mergedParks = [...mergedParks, ...uniqueSubParks];
             }
