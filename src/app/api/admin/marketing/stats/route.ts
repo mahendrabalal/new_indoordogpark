@@ -1,7 +1,7 @@
 
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -20,18 +20,7 @@ export async function GET() {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
         }
 
-        // Fetch counts using Service Role Client to bypass RLS
-        const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-
-        if (!serviceRoleKey || !supabaseUrl) {
-            console.error('Missing Service Role Key or URL');
-            return NextResponse.json({ error: 'Configuration error' }, { status: 500 });
-        }
-
-        // We use a direct REST call or separate client instance for admin operations
-        // Importing createClient from @supabase/supabase-js specifically for admin tasks
-        const adminClient = createClient(supabaseUrl, serviceRoleKey);
+        const adminClient = supabaseAdminClient;
 
         const { count: total, error: e1 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active');
         const { count: owners, error: e2 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'owner');

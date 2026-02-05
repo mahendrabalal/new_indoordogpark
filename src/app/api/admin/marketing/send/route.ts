@@ -7,7 +7,7 @@ import BlogPostEmail from '@/emails/BlogPostEmail';
 import MarketingEmail from '@/emails/MarketingEmail';
 import ParkOutreachEmail from '@/emails/ParkOutreachEmail';
 import { fetchPostBySlug } from '@/lib/sanity-api';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 import * as React from 'react';
 
 interface Recipient {
@@ -99,9 +99,7 @@ export async function POST(request: NextRequest) {
         } else if (template === 'outreach') {
             const { parkId, personalizedNote } = data;
 
-            const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+            const adminClient = supabaseAdminClient;
 
             // Try park_submissions first
             const { data: initialPark, error: parkError } = await adminClient
@@ -173,9 +171,7 @@ export async function POST(request: NextRequest) {
             recipients = [{ email: testEmail }];
         } else if (segment === 'specific-park') {
             const { parkId } = data;
-            const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+            const adminClient = supabaseAdminClient;
 
             // Check park_submissions
             const { data: park } = await adminClient
@@ -199,9 +195,7 @@ export async function POST(request: NextRequest) {
                 }
             }
         } else {
-            const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-            const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+            const adminClient = supabaseAdminClient;
 
             let query = adminClient.from('subscribers').select('email, id').eq('status', 'active');
 
@@ -247,9 +241,7 @@ export async function POST(request: NextRequest) {
                     details.push({ email: recipient.email, status: 'success' });
 
                     // Prepare admin client for updates
-                    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-                    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-                    const adminClient = createClient(supabaseUrl!, serviceRoleKey!);
+                    const adminClient = supabaseAdminClient;
 
                     // Record outreach tracking if it's an outreach template and from park_submissions
                     if (template === 'outreach' && segment === 'specific-park' && recipient.id) {

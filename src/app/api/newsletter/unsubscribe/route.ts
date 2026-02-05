@@ -1,15 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const supabase = (supabaseUrl && supabaseServiceKey)
-    ? createClient(supabaseUrl, supabaseServiceKey)
-    : null;
+// Use build-safe admin client
+const supabase = supabaseAdminClient;
 
 export async function POST(req: NextRequest) {
     try {

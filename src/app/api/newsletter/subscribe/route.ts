@@ -1,19 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { sendEmail, generateConsumerWelcomeEmail, generateOwnerWelcomeEmail } from '@/lib/email';
 import { RateLimiter } from '@/lib/rate-limiter';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-// Only create client if environment variables are available (allows build to pass)
-const supabase = (supabaseUrl && supabaseServiceKey)
-    ? createClient(supabaseUrl, supabaseServiceKey)
-    : null;
+// Use build-safe admin client
+const supabase = supabaseAdminClient;
 
 // Rate limiter: 5 requests per minute per IP
 const rateLimiter = new RateLimiter({
