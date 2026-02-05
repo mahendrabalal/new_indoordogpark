@@ -80,7 +80,7 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       if (parkWithPhoto?.photos?.[0]) {
         featuredImage = parkWithPhoto.photos[0].url;
       } else {
-        featuredImage = cityParks.find(p => p.photo)?.photo;
+        featuredImage = cityParks.find(p => p.photo)?.photo || undefined;
       }
     }
 
