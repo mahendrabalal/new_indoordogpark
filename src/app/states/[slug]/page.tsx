@@ -17,15 +17,11 @@ type StatePageProps = {
 };
 
 export const revalidate = 3600; // hourly
+// Render on-demand to avoid prebuilding all state paths
+export const dynamic = 'force-dynamic';
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);
-}
-
-export async function generateStaticParams() {
-  const { getAllStateSlugs } = await import('@/lib/state-page-data');
-  const slugs = await getAllStateSlugs();
-  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: StatePageProps): Promise<Metadata> {
@@ -316,5 +312,4 @@ export default async function StatePage({ params }: StatePageProps) {
     </>
   );
 }
-
 

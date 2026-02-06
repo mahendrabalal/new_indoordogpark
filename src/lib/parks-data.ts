@@ -15,20 +15,6 @@ import {
 } from '@/lib/cityData';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
-// Static JSON imports for Edge compatibility
-import californiaParks from '../../public/data/california.json';
-import washingtonParks from '../../public/data/washington.json';
-import virginiaParks from '../../public/data/virginia.json';
-import texasParks from '../../public/data/texas.json';
-import tennesseeParks from '../../public/data/tennessee.json';
-import pennsylvaniaParks from '../../public/data/pennsylvania.json';
-import ohioParks from '../../public/data/ohio.json';
-import northCarolinaParks from '../../public/data/northcarolina.json';
-import nyParks from '../../public/data/newyork.json';
-import missouriParks from '../../public/data/missouri.json';
-import newJerseyParks from '../../public/data/newjersey.json';
-import mixmatchParks from '../../public/data/mixmatch.json';
-
 export interface PaginatedParks {
   data: DogPark[];
   pagination: {
@@ -50,6 +36,25 @@ export interface CityContentPayload {
 }
 
 let parksCache: DogPark[] | null = null;
+const STATIC_PARK_FILES = [
+  'california.json',
+  'washington.json',
+  'virginia.json',
+  'texas.json',
+  'tennessee.json',
+  'pennsylvania.json',
+  'ohio.json',
+  'northcarolina.json',
+  'newyork.json',
+  'missouri.json',
+  'newjersey.json',
+  'mixmatch.json',
+];
+
+function getStaticDataBaseUrl() {
+  // Point to dedicated static data Pages project
+  return 'https://new-indoordogpark-data.pages.dev';
+}
 
 function getPriorityCityConfigBySlug(slug: string) {
   const normalized = slug.toLowerCase().trim();
@@ -218,21 +223,26 @@ async function loadStaticParks(): Promise<DogPark[]> {
     return parksCache;
   }
 
-  const allParks: DogPark[] = [
-    ...(californiaParks as DogPark[]),
-    ...(washingtonParks as DogPark[]),
-    ...(virginiaParks as DogPark[]),
-    ...(texasParks as DogPark[]),
-    ...(tennesseeParks as DogPark[]),
-    ...(pennsylvaniaParks as DogPark[]),
-    ...(ohioParks as DogPark[]),
-    ...(northCarolinaParks as DogPark[]),
-    ...(nyParks as DogPark[]),
-    ...(missouriParks as DogPark[]),
-    ...(newJerseyParks as DogPark[]),
-    ...(mixmatchParks as DogPark[]),
-  ];
+  const baseUrl = getStaticDataBaseUrl();
+  const parkArrays = await Promise.all(
+    STATIC_PARK_FILES.map(async (file) => {
+      const url = `${baseUrl.replace(/\/$/, '')}/${file}`;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) {
+          console.warn(`[parks-data] Failed to fetch ${url}: ${res.status}`);
+          return [];
+        }
+        const json = await res.json();
+        return Array.isArray(json) ? (json as DogPark[]) : [];
+      } catch (err) {
+        console.warn(`[parks-data] Error fetching ${url}:`, err);
+        return [];
+      }
+    }),
+  );
 
+  const allParks: DogPark[] = parkArrays.flat();
   const normalized = allParks.map(normalizePark);
   const deduped = dedupeParks(normalized);
   deduped.sort((a, b) => a.name.localeCompare(b.name));
@@ -770,8 +780,3 @@ export async function getAllCitySlugs(): Promise<string[]> {
 
   return Array.from(slugs);
 }
-
-
-
-
-

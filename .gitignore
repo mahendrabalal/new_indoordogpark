@@ -77,3 +77,4 @@ outreach-results-*.json
 # Production
 *.tsbuildinfo
 .vercel
+.open-next/

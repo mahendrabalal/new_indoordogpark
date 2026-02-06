@@ -9,7 +9,7 @@ import FAQSection from '@/components/FAQSection';
 import CityStats from '@/components/CityStats';
 import ScrollToButton from '@/components/ScrollToButton';
 import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
-import { getAllCitySlugs, getCityContentBySlug } from '@/lib/parks-data';
+import { getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
 import CityMapClient from '@/components/CityMapClient';
@@ -27,6 +27,9 @@ interface CityPageProps {
     slug: string;
   }>;
 }
+
+// Render on-demand to avoid prebuilding thousands of city pages
+export const dynamic = 'force-dynamic';
 
 const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
 
@@ -103,11 +106,6 @@ function buildUniqueHeroDescription(params: {
       : `Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
 
   return inventoryLine;
-}
-
-export async function generateStaticParams() {
-  const slugs = await getAllCitySlugs();
-  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
@@ -1038,4 +1036,3 @@ export default async function CityPage({ params }: CityPageProps) {
     </>
   );
 }
-

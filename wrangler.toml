@@ -7,4 +7,6 @@ pages_build_output_dir = ".open-next"
 # https://opennext.js.org/cloudflare
 
 [vars]
+DATA_BASE_URL = "https://new-indoordogpark.pages.dev"
+NEXT_PUBLIC_DATA_BASE_URL = "https://new-indoordogpark.pages.dev"
 # Environment variables will be set in Cloudflare dashboard

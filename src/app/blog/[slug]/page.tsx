@@ -20,26 +20,13 @@ import { SITE_URL } from '@/lib/metadata';
 // Pages are statically generated and cached for performance
 // Revalidate via webhook when posts are updated in Sanity
 export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
+// Render on-demand; avoid prebuilding all post slugs to keep bundle small
+export const dynamic = 'force-dynamic';
 
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
   }>;
-}
-
-// Generate static params for ISR (optional - helps with known posts)
-export async function generateStaticParams() {
-  try {
-    const response = await getCachedPosts({ perPage: 100 });
-    const posts = response.posts || [];
-
-    return posts.map((post: BlogPost) => ({
-      slug: post.slug,
-    }));
-  } catch (error) {
-    console.error('Error generating static params:', error);
-    return [];
-  }
 }
 
 // Estimate reading time

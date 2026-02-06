@@ -14,6 +14,10 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // Disable instrumentation hook to avoid dynamic require in Cloudflare Workers
+    instrumentationHook: false,
+  },
   env: {
     NEXT_PUBLIC_SOCIAL_INSTAGRAM: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || 'https://www.instagram.com/indoordogpark2025/',
     NEXT_PUBLIC_SOCIAL_DIGG: process.env.NEXT_PUBLIC_SOCIAL_DIGG || 'https://digg.com/indoordogpark',

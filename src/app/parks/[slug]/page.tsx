@@ -68,13 +68,6 @@ function getStateAbbr(state: string | undefined): string {
 // Reviews are dynamic, so pages must be dynamic too
 export const dynamic = 'force-dynamic';
 
-export async function generateStaticParams() {
-  const parks = await getAllStaticParks();
-  return parks.map((park) => ({
-    slug: park.slug || park.id,
-  }));
-}
-
 export async function generateMetadata({ params }: ParkPageProps): Promise<Metadata> {
   const { slug } = await params;
   const park = await getParkBySlug(slug);
