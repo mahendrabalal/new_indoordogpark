@@ -3,7 +3,6 @@ import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { sendEmail, generateConsumerWelcomeEmail, generateOwnerWelcomeEmail } from '@/lib/email';
 import { RateLimiter } from '@/lib/rate-limiter';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 // Use build-safe admin client

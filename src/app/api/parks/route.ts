@@ -4,7 +4,6 @@ import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
 import { getAllStaticParks } from '@/lib/parks-data';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {

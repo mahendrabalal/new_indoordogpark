@@ -7,7 +7,6 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 // Use edge runtime for Cloudflare compatibility
 // Note: Stripe SDK supports edge runtime natively
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {

@@ -3,7 +3,6 @@ import { getUserFromRequest } from '@/lib/auth-helpers';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { submitParkToIndexNow } from '@/lib/indexnow';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {

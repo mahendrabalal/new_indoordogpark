@@ -1,0 +1,10 @@
+Contact: mailto:security@indoordogpark.org
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.indoordogpark.org/.well-known/security.txt
+Policy: https://www.indoordogpark.org/security-policy
+Acknowledgments: https://www.indoordogpark.org/security-acknowledgments
+
+# Please report security vulnerabilities to security@indoordogpark.org
+# We appreciate responsible disclosure and will respond within 48 hours.
+

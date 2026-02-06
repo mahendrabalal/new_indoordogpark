@@ -2,7 +2,6 @@ import { redirect } from 'next/navigation';
 import { createServerClient } from '@/lib/supabase-server';
 import AdminDashboardClient from './AdminDashboardClient';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboardPage() {

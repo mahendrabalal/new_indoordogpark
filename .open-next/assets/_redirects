@@ -1,0 +1,19 @@
+# Static redirects for known 404 pages
+# Format: <source> <destination> [permanent|temporary]
+# Default is permanent (301)
+
+# State pages that should redirect to home
+/cities/california / 301
+
+# Blog redirects (ensure www canonicalization)
+/blog/best-indoor-dog-parks-chicago https://www.indoordogpark.org/blog/best-indoor-dog-parks-chicago 301
+/blog/starting-indoor-dog-park-business-guide https://www.indoordogpark.org/blog/starting-indoor-dog-park-business-guide 301
+
+# Park page fixes
+/parks/indoor-dog-park-california-california /parks/indoor-dog-park-california 301
+
+# City page fixes with special characters
+/cities/steiner-st-& /cities/steiner-st 301
+
+# Common typos and variations
+/cities/durham /cities/durham-nc 301

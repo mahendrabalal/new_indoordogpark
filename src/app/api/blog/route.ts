@@ -3,7 +3,6 @@ import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogSearchParams } from '@/types/wordpress';
 
 export const revalidate = 300; // Revalidate every 5 minutes
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {

@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import EmailService from '@/lib/email-service';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 type ContactPayload = {

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 // Use build-safe admin client
