@@ -94,13 +94,13 @@ export function useAutocomplete(options: AutocompleteOptions = {}) {
   }, [debouncedQuery, fetchSuggestions]);
 
   // Update query
-  const updateQuery = (value: string, preventOpen?: boolean) => {
+  const updateQuery = useCallback((value: string, preventOpen?: boolean) => {
     if (value !== query) {
       // If the user is typing (value changed), we want to allow opening unless explicitly prevented
       skipOpenAfterFetch.current = !!preventOpen;
       setQuery(value);
     }
-  };
+  }, [query]);
 
   // Close dropdown
   const close = () => {
