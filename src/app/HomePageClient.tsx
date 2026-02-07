@@ -20,11 +20,10 @@ import SeoContentSection from '@/components/SeoContentSection';
 import PopularCitiesSection from '@/components/PopularCitiesSection';
 import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
 
-// Map component temporarily disabled (leaflet dependency removed)
-// const Map = dynamic(() => import('@/components/Map'), {
-//   ssr: false,
-//   loading: () => <div style={{ height: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading map...</div>
-// });
+const Map = dynamic(() => import('@/components/Map'), {
+  ssr: false,
+  loading: () => <div style={{ height: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading map...</div>
+});
 
 interface HomePageClientProps {
   initialParks: DogPark[];
@@ -639,10 +638,13 @@ export default function HomePageClient({
 
             {/* Right Side - Map */}
             <div className="search-results-map">
-              {/* Map temporarily disabled - leaflet dependency removed */}
-              <div style={{ height: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>
-                Map view temporarily unavailable
-              </div>
+              <Map
+                parks={filteredParks}
+                activeParkId={null}
+                onMarkerClick={(park) => {
+                  window.location.href = `/parks/${park.slug || park.id}`;
+                }}
+              />
             </div>
           </section>
         )}

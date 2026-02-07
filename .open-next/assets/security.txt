@@ -1,4 +1,0 @@
-Contact: mailto:security@indoordogpark.org
-Preferred-Languages: en
-Canonical: https://www.indoordogpark.org/.well-known/security.txt
-
