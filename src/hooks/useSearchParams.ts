@@ -15,7 +15,7 @@ export function useSearchParams() {
    */
   const setSearchParam = useCallback((key: string, value: string) => {
     const params = new URLSearchParams(searchParams?.toString());
-    
+
     if (value) {
       params.set(key, value);
     } else {
@@ -24,7 +24,7 @@ export function useSearchParams() {
 
     const search = params.toString();
     const query = search ? `?${search}` : '';
-    
+
     router.push(`${pathname}${query}`, { scroll: false });
   }, [pathname, router, searchParams]);
 
@@ -33,7 +33,7 @@ export function useSearchParams() {
    */
   const setSearchParams = useCallback((updates: Record<string, string>) => {
     const params = new URLSearchParams(searchParams?.toString());
-    
+
     Object.entries(updates).forEach(([key, value]) => {
       if (value) {
         params.set(key, value);
@@ -44,8 +44,13 @@ export function useSearchParams() {
 
     const search = params.toString();
     const query = search ? `?${search}` : '';
-    
-    router.push(`${pathname}${query}`, { scroll: false });
+    const newUrl = `${pathname}${query}`;
+    const currentUrl = `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`;
+
+    // Only push if URL actually changed (prevents infinite loops)
+    if (newUrl !== currentUrl) {
+      router.push(newUrl, { scroll: false });
+    }
   }, [pathname, router, searchParams]);
 
   /**
