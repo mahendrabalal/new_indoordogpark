@@ -640,8 +640,7 @@ export default function HomePageClient({
             <div className="search-results-map">
               <Map
                 parks={filteredParks}
-                activeParkId={null}
-                onMarkerClick={(park) => {
+                onParkClick={(park) => {
                   window.location.href = `/parks/${park.slug || park.id}`;
                 }}
               />
