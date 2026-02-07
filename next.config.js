@@ -440,7 +440,7 @@ const nextConfig = {
   experimental: {
     // CSS optimization - requires 'critters' package (now installed)
     optimizeCss: true,
-    optimizePackageImports: ['@heroicons/react', 'date-fns', 'leaflet', 'react-leaflet'],
+    optimizePackageImports: ['@heroicons/react', 'date-fns'],
     // Enable partial prerendering for better performance
     ppr: false, // Disable for now as it's experimental
   },

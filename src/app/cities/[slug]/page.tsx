@@ -12,7 +12,7 @@ import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_U
 import { getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
-import CityMapClient from '@/components/CityMapClient';
+// import CityMapClient from '@/components/CityMapClient'; // Temporarily disabled - leaflet dependency removed
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Amenities, DogPark } from '@/types/dog-park';
@@ -751,7 +751,12 @@ export default async function CityPage({ params }: CityPageProps) {
             <div className="map-grid">
               <div className="map-panel">
                 {cityParks.length > 0 ? (
-                  <CityMapClient parks={cityParks} />
+                  <>
+                    {/* Map temporarily disabled - leaflet dependency removed */}
+                    <div style={{ height: '400px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', borderRadius: '16px' }}>
+                      Map view temporarily unavailable
+                    </div>
+                  </>
                 ) : (
                   <div className="map-empty-state" style={{ minHeight: 320, background: '#f8fafc', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -1029,7 +1034,7 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
           </div>
         </section>
-      </main>
+      </main >
 
       <Footer />
       <CityPageStyles />

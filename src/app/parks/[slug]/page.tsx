@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import ReviewSection from '@/components/ReviewSection';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
 import ParkStatusBadge from '@/components/ParkStatusBadge';
-import ParkMapClient from '@/components/ParkMapClient';
+// import ParkMapClient from '@/components/ParkMapClient'; // Temporarily disabled - leaflet dependency removed
 import { extractLocationFromSlug, getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas, generateWebPageSchema } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
@@ -404,7 +404,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
                 {park.latitude && park.longitude && (
                   <div className="mb-6 rounded-xl overflow-hidden shadow-inner border border-gray-100 h-[400px]">
-                    <ParkMapClient park={park} />
+                    {/* Map temporarily disabled - leaflet dependency removed */}\n                    <div style={{ height: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>\n                      Map view temporarily unavailable\n                    </div>
                   </div>
                 )}
                 <p className="directions-intro">
