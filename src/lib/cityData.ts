@@ -1,6 +1,9 @@
+import fs from 'fs';
+import path from 'path';
 import { DogPark } from '@/types/dog-park';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
+import { priorityStateContent } from '@/data/priorityStateContent';
 
 export interface CityData {
   slug: string;
@@ -29,9 +32,12 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
   // Group parks by city
   parks.forEach(park => {
-    const cityKey = (park.city || '').toLowerCase().trim();
+    const cityName = (park.city || '').trim();
+    if (!cityName) return;
+
+    const citySlug = cityNameToSlug(cityName);
     const stateKey = normalizeStateKey(park.state);
-    const key = `${cityKey}|${stateKey}`;
+    const key = `${citySlug}|${stateKey}`;
     if (!cityMap.has(key)) {
       cityMap.set(key, []);
     }
@@ -63,14 +69,17 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
     const totalReviews = cityParks.reduce((sum, p) => sum + p.reviewCount, 0);
 
-    // Get featured image - check priority content first, then park photos
-    let featuredImage: string | undefined;
-
-    // Check priority content for curated image
     const priorityConfig = priorityCityContent.find(c =>
       c.city.toLowerCase() === cityName.toLowerCase() &&
       (!c.state || normalizeStateKey(c.state) === normalizeStateKey(cityState))
     );
+
+    const prioritySlug = priorityConfig?.slug;
+    const citySlug = prioritySlug || (needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug);
+
+    // Get featured image - check priority content first, then park photos
+    let featuredImage: string | undefined;
+
 
     if (priorityConfig?.featuredImage) {
       featuredImage = priorityConfig.featuredImage;
@@ -84,21 +93,29 @@ export function getAllCities(parks: DogPark[]): CityData[] {
       }
     }
 
-    // Final fallback to standard hero image path - only if not known missing
-    if (!featuredImage) {
-      const citySlug = needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug;
-      // List of cities that we know don't have images yet to avoid 404 errors
-      const knownMissingCities: string[] = [
-        // All Missouri cities now have images added
-      ];
+    // Check for city hero image on filesystem
+    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', citySlug, 'hero.webp');
+    const cityHeroExists = fs.existsSync(cityHeroPath);
 
-      if (!knownMissingCities.includes(citySlug)) {
-        featuredImage = `/images/cities/${citySlug}/hero.webp`;
+    if (!featuredImage && cityHeroExists) {
+      featuredImage = `/images/cities/${citySlug}/hero.webp`;
+    }
+
+    // STATE FALLBACK: If still no image (or it's explicitly missing), use state image
+    if (!featuredImage) {
+      const stateConfig = priorityStateContent.find(s =>
+        normalizeStateKey(s.abbr) === normalizeStateKey(cityState) ||
+        normalizeStateKey(s.name) === normalizeStateKey(cityState)
+      );
+      if (stateConfig?.featuredImage) {
+        featuredImage = stateConfig.featuredImage;
       }
     }
 
+
+
     return {
-      slug: needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug,
+      slug: citySlug,
       name: cityName,
       parkCount: cityParks.length,
       avgRating,

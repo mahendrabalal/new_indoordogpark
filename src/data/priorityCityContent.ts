@@ -1,6 +1,807 @@
 import { PriorityCityConfig } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
 
+
+const jonesboroughTnFaqs = [
+  {
+    question: 'Is Jonesborough, TN dog-friendly?',
+    answer: 'Yes, Jonesborough is very dog-friendly. The historic downtown area is walkable for leashed pets, and Persimmon Ridge Park offers extensive trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails for dogs in Jonesborough?',
+    answer: 'Absolutely. Persimmon Ridge Park is a local favorite, offering over 130 acres of woodland trails that are perfect for hiking with a leashed dog.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to downtown Jonesborough?',
+    answer: 'Yes, leashed dogs are welcome on the sidewalks of the historic district. Many shops put out water bowls, and some outdoor dining areas are pet-friendly.',
+    category: 'General',
+  },
+  {
+    question: 'What is the closest off-leash dog park to Jonesborough?',
+    answer: 'While Jonesborough has great parks, the closest dedicated off-leash facilities are in nearby Johnson City, such as the Willow Springs Park dog area.',
+    category: 'General',
+  },
+];
+
+const kingsportTnFaqs = [
+  {
+    question: 'Does Kingsport have a dog park?',
+    answer: 'Yes, Kingsport is home to Dogwood Park at Hunter Wright Stadium, a fully fenced off-leash facility with agility equipment and separate areas for different sized dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Kingsport?',
+    answer: 'The Kingsport Greenbelt is the premier spot for dog walking. It offers 10 miles of paved trails along the river and through scenic natural areas.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Warriors\' Path State Park?',
+    answer: 'Yes, leashed dogs are welcome on the hiking trails and in most outdoor areas of Warriors\' Path State Park, making it a great day-trip destination.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Kingsport Greenbelt dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the entire 10-mile stretch of the Kingsport Greenbelt. Owners are expected to clean up after their pets.',
+    category: 'General',
+  },
+];
+
+const lebanonTnFaqs = [
+  {
+    question: 'Where is the dog park in Lebanon, TN?',
+    answer: 'The City of Lebanon Dog Park is located near the Jimmy Floyd Family Center. It features fenced off-leash areas for both large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Cedars of Lebanon State Park?',
+    answer: 'Yes, leashed dogs are welcome on the hiking trails and in the campground at Cedars of Lebanon State Park. They are not allowed in some public buildings.',
+    category: 'General',
+  },
+  {
+    question: 'Is Don Fox Community Park dog-friendly?',
+    answer: 'Don Fox Community Park generally restricts pets in many areas, especially near playgrounds. It is best to use the dedicated City Dog Park or State Park trails.',
+    category: 'General',
+  },
+  {
+    question: 'What amenities does the Lebanon Dog Park have?',
+    answer: 'The park includes separate fenced sections for large and small breeds, benches for owners, and waste disposal stations.',
+    category: 'General',
+  },
+];
+
+const lenoirCityTnFaqs = [
+  {
+    question: 'Does Lenoir City Park have a dog park?',
+    answer: 'Yes, Lenoir City Park features a dedicated dog park area where dogs can play off-leash. It is located near the tennis courts and walking trails.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim in Lenoir City?',
+    answer: 'While the dog park doesn\'t have a pool, the park is located on Fort Loudoun Lake. Always check local advisories before letting your dog swim in natural bodies of water.',
+    category: 'General',
+  },
+  {
+    question: 'Are there walking trails in Lenoir City?',
+    answer: 'Yes, both Lenoir City Park and Rock Springs Park offer walking trails. The trails at Lenoir City Park offer beautiful views of the lake and dam.',
+    category: 'General',
+  },
+  {
+    question: 'Is Lenoir City good for dogs?',
+    answer: 'Lenoir City is excellent for dogs, offering waterfront parks, a dedicated off-leash area, and easy access to outdoor recreation in the Tennessee Valley.',
+    category: 'General',
+  },
+];
+
+const lexingtonTnFaqs = [
+  {
+    question: 'Is Beech Lake in Lexington dog-friendly?',
+    answer: 'Yes, the areas around Beech Lake are generally dog-friendly for leashed pets. It\'s a popular spot for walking and enjoying the water views.',
+    category: 'General',
+  },
+  {
+    question: 'Does Lexington, TN have a dog park?',
+    answer: 'Dedicated off-leash parks are limited in immediate rural areas, but the extensive public lands and lake access provide plenty of space for leashed recreation.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog near Lexington?',
+    answer: 'The trails around Beech Lake are convenient. For longer hikes, Natchez Trace State Park is nearby and offers miles of dog-friendly trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Natchez Trace State Park?',
+    answer: 'Yes, leashed dogs are welcome on the trails and campgrounds at Natchez Trace State Park, which serves the Lexington area.',
+    category: 'General',
+  },
+];
+
+const maryvilleTnFaqs = [
+  {
+    question: 'Where is the dog park in Maryville, TN?',
+    answer: 'The PetSafe Pistol Creek Dog Park is located near the city center and connects to the Greenway. It offers separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog on the Maryville-Alcoa Greenway?',
+    answer: 'Yes, the Greenway is very dog-friendly. Dogs must be kept on a leash at all times while on the paved paths.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in Maryville?',
+    answer: 'Yes, several downtown restaurants and local breweries in Maryville have outdoor patios that welcome well-behaved leashed dogs.',
+    category: 'General',
+  },
+];
+
+const bluffCityTnFaqs = [
+  {
+    question: 'Does Bluff City have a dog park?',
+    answer: 'While Bluff City itself doesn\'t have a municipal dog park, residents often use the nearby Johnson City Dog Park or rent private spaces like Pibble Hill.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly activities in Bluff City?',
+    answer: 'Yes, visiting Appalachian Caverns is a unique dog-friendly activity. Additionally, the Holston River offers scenic spots for walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog near Bluff City?',
+    answer: 'The nearby Worley\'s Cave and trails around Boone Lake offer rigorous hiking. For a paved option, the Tweetsie Trail in Elizabethton is just a short drive away.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Appalachian Caverns?',
+    answer: 'Yes, Appalachian Caverns is pet-friendly and allows leashed dogs on tours, making it a rare underground adventure for you and your pup.',
+    category: 'General',
+  },
+];
+
+const brentwoodTnFaqs = [
+  {
+    question: 'Where is the dog park in Brentwood, TN?',
+    answer: 'Miss Peggy\'s Bark Park is located within Tower Park on Heritage Way. It features separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Marcella Vivrette Smith Park?',
+    answer: 'Yes, leashed dogs are welcome on the miles of hiking trails at Smith Park, which is known for its beautiful wooded scenery.',
+    category: 'General',
+  },
+  {
+    question: 'Does Brentwood have good dog walking trails?',
+    answer: 'Brentwood has an excellent trail system, including paved paths at Crockett Park and rugged hiking trails at Smith Park.',
+    category: 'General',
+  },
+  {
+    question: 'Is Tower Park dog-friendly?',
+    answer: 'Yes, Tower Park is home to the city\'s dog park and also features multi-use trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+];
+
+const bristolTnFaqs = [
+  {
+    question: 'Does Bristol have a dog park?',
+    answer: 'Yes, Bristol is home to the Sugar Hollow Dog Park (in the VA side park but serving the metro area) and the Bark Park at Charlie Robinette Park.',
+    category: 'General',
+  },
+  {
+    question: 'Is Steele Creek Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome in Steele Creek Park, which offers extensive trails, a lake, and picnic areas.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to downtown Bristol?',
+    answer: 'Yes, downtown Bristol (State Street) is dog-friendly, with many shops and patios welcoming leashed pets. Don\'t miss a photo op at the state line sign!',
+    category: 'General',
+  },
+  {
+    question: 'What amenities does Sugar Hollow Dog Park have?',
+    answer: 'Sugar Hollow Dog Park features separate fenced areas for large and small dogs, agility equipment, and water stations.',
+    category: 'General',
+  },
+];
+
+const colliervilleTnFaqs = [
+  {
+    question: 'Does Collierville have an off-leash dog park?',
+    answer: 'Yes, Suggs Park features an off-leash dog run with separate areas for large and small dogs, along with agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Is W.C. Johnson Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the boardwalks and trails of W.C. Johnson Park, a popular spot for scenic walks.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Carriage Crossing?',
+    answer: 'The Avenue Carriage Crossing is a dog-friendly outdoor shopping center where many stores welcome leashed pets and provide water bowls.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Collierville?',
+    answer: 'In addition to W.C. Johnson Park, the Collierville Greenbelt system offers miles of connecting trails perfect for dog walking.',
+    category: 'General',
+  },
+];
+
+const columbiaTnFaqs = [
+  {
+    question: 'Does Columbia, TN have a dog park?',
+    answer: 'Yes, Muletown Bark Park is located in Maury County Park. It features separate play areas and agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Is Riverwalk Park dog-friendly?',
+    answer: 'Yes, Riverwalk Park is a great spot for a leashed walk along the Duck River, offering paved paths and green space.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in downtown Columbia?',
+    answer: 'Downtown Columbia is very pet-friendly. Many shops and restaurant patios on the square welcome leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog at Cheeks Bend?',
+    answer: 'Yes, the Cheeks Bend Bluff Trail is a popular dog-friendly hike nearby that offers stunning views of the Duck River.',
+    category: 'General',
+  },
+];
+
+const cordovaTnFaqs = [
+  {
+    question: 'Is Shelby Farms Park in Cordova?',
+    answer: 'Shelby Farms Park is adjacent to Cordova and is the primary outdoor recreation hub for the area. It features the massive Outback off-leash area.',
+    category: 'General',
+  },
+  {
+    question: 'Does Cordova have its own dog park?',
+    answer: 'Most Cordova residents utilize The Outback at Shelby Farms Park, which is one of the largest off-leash dog parks in the country.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Shelby Farms Greenline dog-friendly?',
+    answer: 'Yes, the Greenline is a paved trail connecting midtown Memphis to Cordova, perfect for long walks or runs with a leashed dog.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in Cordova?',
+    answer: 'Yes, many Cordova restaurants with patios, such as those near the Germantown Parkway corridor, are dog-friendly.',
+    category: 'General',
+  },
+];
+
+const eastRidgeTnFaqs = [
+  {
+    question: 'Does East Ridge have a dog park?',
+    answer: 'Yes, the East Ridge Dog Park is located behind City Hall and offers separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is Camp Jordan Park dog-friendly?',
+    answer: 'Yes, Camp Jordan is a massive park where leashed dogs are welcome on the paved walking loop and nature trails.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to nearby Chattanooga parks?',
+    answer: 'East Ridge is minutes away from Chattanooga amenities like the Riverwalk and diverse dog-friendly breweries.',
+    category: 'General',
+  },
+  {
+    question: 'What amenities are at the East Ridge Dog Park?',
+    answer: 'The park features agility equipment, water fountains with dog bowls, and benches for owners.',
+    category: 'General',
+  },
+];
+
+const blountvilleTnFaqs = [
+  {
+    question: 'Are there dog parks in Blountville?',
+    answer: 'While Blountville itself is more rural, it is centrally located between Kingsport and Bristol, giving residents easy access to Dogwood Park and the Bristol Bark Park.',
+    category: 'General',
+  },
+  {
+    question: 'Is outdoor dining dog-friendly in Blountville?',
+    answer: 'Options are more limited than in the big cities, but local spots like Mona Lisa\'s Gelato often welcome leashed pets on their patio.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Blountville?',
+    answer: 'The rural roads and areas around historic sites offer peaceful walking, though many residents drive to nearby Steele Creek Park for extensive trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are pets allowed at the Appalachian Fairgrounds?',
+    answer: 'Pets are generally not allowed during the fair itself, but the grounds may host specific pet-friendly events throughout the year. Always check ahead.',
+    category: 'General',
+  },
+];
+
+const chapmansboroTnFaqs = [
+  {
+    question: 'Does Chapmansboro have a dog park?',
+    answer: 'There are no public dog parks in Chapmansboro, but private rental spots are available, and the expansive parks of Ashland City are nearby.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Bicentennial Trail dog-friendly?',
+    answer: 'Yes, the Cumberland River Bicentennial Trail is a popular spot for dog walking, offering miles of flat, shaded paths along the river.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim near Chapmansboro?',
+    answer: 'Access to the Cumberland River is possible at boat ramps, but owners should be cautious of currents and boat traffic. Private rentals often offer safer water access.',
+    category: 'General',
+  },
+  {
+    question: 'Are there ticks in Chapmansboro?',
+    answer: 'Yes, being a rural, wooded area along the river, ticks are common. Use preventative medication and check your dog after walks.',
+    category: 'General',
+  },
+];
+
+const churchHillTnFaqs = [
+  {
+    question: 'Is Laurel Run Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the hiking trails and open areas of Laurel Run Park, a favorite spot for local nature lovers.',
+    category: 'General',
+  },
+  {
+    question: 'Does Church Hill have a dog park?',
+    answer: 'Currently, Church Hill relies on the nearby dog parks in Kingsport (Dogwood Park) and Rogersville for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to the Holston River?',
+    answer: 'Yes, public access points along the river allow for leashed walks and water enjoyment, though safety around currents is advised.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly events in Church Hill?',
+    answer: 'Community festivals often welcome leashed pets, but it is best to check specific event guidelines before attending.',
+    category: 'General',
+  },
+];
+
+const clintonTnFaqs = [
+  {
+    question: 'Does Clinton have an off-leash dog park?',
+    answer: 'Yes, Clinton is home to Carden Farm Dog Park, a massive 17-acre facility, and the new Bark Park at Aspire.',
+    category: 'General',
+  },
+  {
+    question: 'Is Carden Farm Dog Park fenced?',
+    answer: 'Yes, Carden Farm features securely fenced areas for large and small dogs, along with walking trails inside the perimeter.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs go to Aspire Park?',
+    answer: 'Yes, Aspire Park is very dog-friendly, featuring the Bark Park and miles of trails for leashed hiking and walking.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in Clinton?',
+    answer: 'Several downtown eateries and fast-casual spots with outdoor seating welcome leashed dogs. The historic district is also pleasant for walking.',
+    category: 'General',
+  },
+];
+
+const eadsTnFaqs = [
+  {
+    question: 'How close is Eads to Shelby Farms Dog Park?',
+    answer: 'Eads borders Shelby Farms Park, placing residents just minutes away from "The Outback," a premier 100+ acre off-leash area.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks in Eads?',
+    answer: 'While Eads is residential, its proximity to Shelby Farms provides immediate access to world-class off-leash facilities.',
+    category: 'General',
+  },
+  {
+    question: 'Is the area safe for dogs?',
+    answer: 'Eads is a quiet, rural community generally safe for pets, but owners should be mindful of wildlife and heat during the summer months.',
+    category: 'General',
+  },
+  {
+    question: 'Can I ride horses with my dog in Eads?',
+    answer: 'Many private properties are equestrian, and while dogs often coexist, public trails may require leashes to ensure safety around horses.',
+    category: 'General',
+  },
+];
+
+const harrisonTnFaqs = [
+  {
+    question: 'Does Harrison Bay State Park have a dog park?',
+    answer: 'Yes, Harrison Bay was the first Tennessee State Park to feature a dedicated, fenced dog park for campers and visitors.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on the trails at Harrison Bay?',
+    answer: 'Yes, leashed dogs are welcome on all hiking trails within the state park.',
+    category: 'General',
+  },
+  {
+    question: 'Can my dog swim in Chickamauga Lake?',
+    answer: 'Yes, dogs can swim in the lake at non-designated swim beach areas. Always monitor for boat traffic and water conditions.',
+    category: 'General',
+  },
+  {
+    question: 'Is camping at Harrison Bay pet-friendly?',
+    answer: 'Absolutely. Pets are welcome at campsites and RV spots, provided they are kept on a leash and not left unattended.',
+    category: 'General',
+  },
+];
+
+const madisonTnFaqs = [
+  {
+    question: 'Is Peeler Park dog-friendly?',
+    answer: 'Yes, Peeler Park welcomes leashed dogs on its paved greenway and unpaved equestrian trails, offering a quiet, remote experience.',
+    category: 'General',
+  },
+  {
+    question: 'Does Madison have a dog park?',
+    answer: 'Madison residents often use the nearby Peeler Park for walks or travel to Cedar Hill Park and Two Rivers Dog Park for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly rentals near Madison?',
+    answer: 'Yes, private dog park rentals (Sniffspots) are becoming available in the area, offering fenced yards for private play.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Cumberland River Greenway safe for dogs?',
+    answer: 'Yes, the greenway is paved and generally safe, though it can be secluded. It is perfect for dogs who prefer a quieter walk.',
+    category: 'General',
+  },
+];
+
+const oakRidgeTnFaqs = [
+  {
+    question: 'Does Oak Ridge have a dog park?',
+    answer: 'Yes, Big Turtle Dog Park offers separate fenced areas for large and small dogs, along with water stations.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Haw Ridge Park?',
+    answer: 'Yes, leashed dogs are welcome on all 30+ miles of trails at Haw Ridge Park, a popular spot for hiking and trail running.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Melton Lake Greenway dog-friendly?',
+    answer: 'Yes, the paved greenway along the waterfront is a favorite destination for dog walkers and runners.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly breweries in Oak Ridge?',
+    answer: 'Yes, local spots like Crafter\'s Brew often welcome well-behaved dogs on their patios or in designated areas.',
+    category: 'General',
+  },
+];
+
+const ooltewahTnFaqs = [
+  {
+    question: 'Is there a dog park in Ooltewah?',
+    answer: 'Yes, the new "Barks & Tails" Dog Park is located within Enterprise South Nature Park, featuring agility equipment and a splash pad.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Cambridge Square?',
+    answer: 'Yes, the outdoor common areas and many restaurant patios at Cambridge Square are pet-friendly and popular for social outings.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog at Enterprise South?',
+    answer: 'Yes, leashed dogs are permitted on the miles of hiking and biking trails throughout the nature park.',
+    category: 'General',
+  },
+  {
+    question: 'Is the area good for active dogs?',
+    answer: 'Absolutely. With access to Enterprise South and private rentals, active dogs have plenty of space to run, hike, and play.',
+    category: 'General',
+  },
+];
+
+const pineyFlatsTnFaqs = [
+  {
+    question: 'Does Piney Flats have a dog park?',
+    answer: 'Piney Flats relies on nearby facilities in Johnson City and Bristol, both less than 20 minutes away.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog at Rocky Mount State Historic Site?',
+    answer: 'Leashed dogs are typically allowed on the grounds and walking paths, but may be restricted from entering historic buildings.',
+    category: 'General',
+  },
+  {
+    question: 'Is Boone Lake dog-friendly?',
+    answer: 'Yes, dogs can enjoy the water at public access points and boat ramps, though owners should be mindful of other visitors.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants nearby?',
+    answer: 'Yes, several restaurants with outdoor seating in the Tri-Cities area (Johnson City/Bristol) are just a short drive away.',
+    category: 'General',
+  },
+];
+
+const powellTnFaqs = [
+  {
+    question: 'Does Powell have a dog park?',
+    answer: 'Yes, Powell is home to the PetSafe Dog Park at Tommy Schumpert Park, famous for its swimming pond and wooded trails.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim at Tommy Schumpert Park?',
+    answer: 'Yes, the large dog area features a dedicated pond with a dock specifically for dogs to swim.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails in Powell for dog walking?',
+    answer: 'Yes, the park connects to the Sterchi Hills Greenway, offering paved paths for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is the dog park safe for small dogs?',
+    answer: 'Yes, there is a separate, securely fenced area specifically for small dogs to play safely away from larger breeds.',
+    category: 'General',
+  },
+];
+
+const redBankTnFaqs = [
+  {
+    question: 'Does Red Bank have a dog park?',
+    answer: 'Yes, Red Bank is home to the Red Bank Dog Park located within White Oak Park. It features separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is White Oak Park dog-friendly?',
+    answer: 'Yes, in addition to the dog park, White Oak Park offers walking trails and open green spaces where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'What amenities does the Red Bank Dog Park have?',
+    answer: 'The park includes shaded benches, waste stations, and water access. Community volunteers often provide toys and pools in the summer.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog near Red Bank?',
+    answer: 'Yes, Stringer\'s Ridge Park is just a short drive away and offers miles of dog-friendly hiking and mountain biking trails.',
+    category: 'General',
+  },
+];
+
+const rockIslandTnFaqs = [
+  {
+    question: 'Is Rock Island State Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on all hiking trails and in the campground at Rock Island State Park.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim at Rock Island?',
+    answer: 'Dogs can swim in the river at non-designated beach areas, but owners must be very cautious of strong currents and rapid water level changes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks in Rock Island?',
+    answer: 'There are no fenced dog parks in Rock Island itself. The main attraction for dogs is the extensive trail system within the state park.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike to the waterfalls with my dog?',
+    answer: 'Yes, you can view the falls from the overlooks and hike strictly leashed dogs on the trails, though some paths are steep and slippery.',
+    category: 'General',
+  },
+];
+
+const seviervilleTnFaqs = [
+  {
+    question: 'Does Sevierville have a dog park?',
+    answer: 'Yes, the PetSafe Unleashed Dog Park is located at Sevierville City Park. It offers separate areas, agility equipment, and Wi-Fi.',
+    category: 'General',
+  },
+  {
+    question: 'Is Tanger Outlets Sevierville dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome in the common areas of the outlet mall and inside many pet-friendly stores.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to the Great Smoky Mountains National Park?',
+    answer: 'Dogs are allowed on two trails in the park: the Gatlinburg Trail and the Oconaluftee River Trail. They are not allowed on other trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in Sevierville?',
+    answer: 'Yes, several restaurants, including the popular Applewood Farmhouse Grill, offer outdoor seating where you can dine with your dog.',
+    category: 'General',
+  },
+];
+
+const signalMountainTnFaqs = [
+  {
+    question: 'Is there a dog park on Signal Mountain?',
+    answer: 'Yes, The Puppy Patch at McCoy Farm & Gardens offers separate fenced areas for large and small dogs and agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Rainbow Lake?',
+    answer: 'Yes, leashed dogs are welcome on the trails to Rainbow Lake and Signal Point, offering beautiful views and rigorous exercise.',
+    category: 'General',
+  },
+  {
+    question: 'Is McCoy Farm dog-friendly?',
+    answer: 'Yes, in addition to the dog park, leashed dogs are welcome to walk the perimeter trail and grounds of the historic McCoy Farm.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike to Signal Point with a dog?',
+    answer: 'Yes, the trail to Signal Point is dog-friendly, providing stunning views of the Tennessee River Gorge for you and your leashed pup.',
+    category: 'General',
+  },
+];
+
+const smyrnaTnFaqs = [
+  {
+    question: 'Does Smyrna have a dog park?',
+    answer: 'Yes, Smyrna is home to Bark Springs Park, located inside Sharp Springs Park. It features separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is Sharp Springs Park dog-friendly?',
+    answer: 'Yes, Sharp Springs Park offers miles of unpaved hiking trails and paved greenways perfect for leashed dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim in Percy Priest Lake?',
+    answer: 'Yes, there are several access points along the lake shore at Sharp Springs where dogs can swim, though not at designated human beaches.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly events in Smyrna?',
+    answer: 'The town often hosts outdoor events at the park where leashed pets are welcome. Always check specific event rules.',
+    category: 'General',
+  },
+];
+
+const soddyDaisyTnFaqs = [
+  {
+    question: 'Does Soddy-Daisy have a dog park?',
+    answer: 'Yes, the Soddy-Daisy Dog Park is located at 9009 Dayton Pike and offers a fenced area for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Is Big Soddy Creek Gulf dog-friendly?',
+    answer: 'Yes, the Gulf is a popular spot for walking leashed dogs along the flat, gravel trail that follows the creek.',
+    category: 'General',
+  },
+  {
+    question: 'Can dogs swim in Big Soddy Creek?',
+    answer: 'Yes, many locals bring their dogs to cool off in the creek at accessible points along the trail.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails in Soddy-Daisy?',
+    answer: 'In addition to the Gulf, the Cumberland Trail has trailheads nearby offering rugged hiking for active dogs.',
+    category: 'General',
+  },
+];
+
+const springHillTnFaqs = [
+  {
+    question: 'Does Spring Hill have a dog park?',
+    answer: 'Yes, Barkley Park is located within Evans Park. It features separate areas for large and small dogs and agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Is Fischer Park dog-friendly?',
+    answer: 'Yes, Fischer Park offers paved walking trails and open green spaces where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in Spring Hill?',
+    answer: 'Yes, the Crossings shopping center has several restaurants with patios that are pet-friendly.',
+    category: 'General',
+  },
+  {
+    question: 'Is Harvey Park dog-friendly?',
+    answer: 'Yes, Harvey Park allows leashed dogs on its walking catch and green spaces.',
+    category: 'General',
+  },
+];
+
+const thompsonsStationTnFaqs = [
+  {
+    question: 'Is there a dog park in Thompson\'s Station?',
+    answer: 'Yes, Nutro Dog Park at Sarah Benson Park offers 4 acres of off-leash play space with separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Preservation Park?',
+    answer: 'Yes, leashed dogs are welcome on the hiking trails at Preservation Park, including the Battlefield Trail.',
+    category: 'General',
+  },
+  {
+    question: 'Is Sarah Benson Park dog-friendly?',
+    answer: 'Yes, in addition to the dog park, the park features a walking loop and connection to the Alexander Trail for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Nutro Dog Park have agility equipment?',
+    answer: 'Yes, the park features agility obstacles and a sensory garden sponsored by Mars Petcare.',
+    category: 'General',
+  },
+];
+
+const trentonTnFaqs = [
+  {
+    question: 'Does Trenton have a dog park?',
+    answer: 'Yes, the Trenton Dog Park is located near the YMCA and Shady Acres Park, offering separate fenced areas.',
+    category: 'General',
+  },
+  {
+    question: 'Is Shady Acres Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome to walk in the park and enjoy the open green spaces.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly events in Trenton?',
+    answer: 'Local festivals like the Teapot Festival may have pet-friendly outdoor areas. Always check current guidelines.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Trenton?',
+    answer: 'The residential streets and local parks offer quiet, safe environments for daily leashed walks.',
+    category: 'General',
+  },
+];
+
+const whiteHouseTnFaqs = [
+  {
+    question: 'Does White House have a dog park?',
+    answer: 'Yes, Rover\'s Ridge Dog Park features separate areas for large and small dogs and agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Is the White House Greenway dog-friendly?',
+    answer: 'Yes, the Greenway is a popular paved trail for walking leashed dogs, connecting several parks and neighborhoods.',
+    category: 'General',
+  },
+  {
+    question: 'Are there private dog parks nearby?',
+    answer: 'Yes, several Sniffspot private dog park rentals are available in the White House area for reactive or solo-play dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is W.L. Anderson Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome at the park, which serves as a trailhead for the Greenway.',
+    category: 'General',
+  },
+];
+
+const woodlawnTnFaqs = [
+  {
+    question: 'Does Woodlawn have a dog park?',
+    answer: 'Woodlawn relies on nearby Clarksville for municipal dog parks, such as the Heritage Park Bark Park.',
+    category: 'General',
+  },
+  {
+    question: 'Is Woodlawn Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome at Woodlawn Park for walks and family outings.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike nearby with my dog?',
+    answer: 'Dunbar Cave State Park is a short drive away and offers scenic hiking trails and cave tours (grounds only for dogs).',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly rentals?',
+    answer: 'Private dog parks (Sniffspots) like "K\'s Private Dog Park" offer 100 acres of off-leash space in the Woodlawn area.',
+    category: 'General',
+  },
+];
+
 const chicagoFaqs: FAQItem[] = [
   {
     question: 'Where can I walk my dog indoors in Chicago?',
@@ -2872,6 +3673,536 @@ const wildwoodFaqs: FAQItem[] = [
   },
 ];
 
+const yorktownFaqs: FAQItem[] = [
+  {
+    question: 'Are there indoor dog parks in Yorktown, VA?',
+    answer: 'While Yorktown currently relies on scenic outdoor spots like Back Creek Park, several professional boarding and daycare facilities in the surrounding York County area offer climate-controlled play environments.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog at the Yorktown Battlefield?',
+    answer: 'Yes, leashed dogs are welcome on the grounds and miles of tour roads at Colonial National Historical Park (Yorktown Battlefield). It is one of the most historic walking spots in Virginia.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const williamsburgFaqs: FAQItem[] = [
+  {
+    question: 'Where is the best dog park in Williamsburg?',
+    answer: 'Waller Mill Park is a local favorite, offering a dedicated off-leash area within its large forested park. It features separate runs for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed in Colonial Williamsburg?',
+    answer: 'Absolutely. Leashed dogs are welcome to walk along the historic streets and public pastures of the Colonial Williamsburg historic area, making it a unique destination for a social stroll.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const restonFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog off-leash in Reston?',
+    answer: 'The Baron Cameron Dog Park is the primary off-leash facility in Reston, featuring fenced-in play areas and a dedicated community of local pet owners.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Does Reston have dog-friendly trails?',
+    answer: 'Yes, Reston is famous for its 55+ miles of paved and natural trails managed by the Reston Association. Most are heavily wooded and perfect for leashed exercise.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const newBraunfelsFaqs: FAQItem[] = [
+  {
+    question: 'Is there a dog park in New Braunfels?',
+    answer: 'Yes, Puppy Playland is the city\'s premier off-leash dog park, located near Landa Park. It offers multiple acres of space and agility obstacles.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can dogs swim in the rivers in New Braunfels?',
+    answer: 'While dogs are generally welcome in the Comal and Guadalupe rivers, owners should check specific park rules. Landa Park and various river access points are popular for leashed outings.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const midlothianFaqs: FAQItem[] = [
+  {
+    question: 'Are there dog parks in Midlothian, VA?',
+    answer: 'While Mid-Lothian Mines Park is great for leashed walks, residents often use the nearby Pocahontas State Park or private daycare facilities for more intensive play.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Mid-Lothian Mines Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome to explore the 80 acres of historic industrial ruins and wooded trails at Mid-Lothian Mines Park.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const martinsburgFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog off-leash in Martinsburg?',
+    answer: 'The Berkeley County Dog Park is the primary dedicated off-leash facility in the Martinsburg area, featuring separate sections for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed in War Memorial Park?',
+    answer: 'Leashed dogs are welcome in War Memorial Park, a central green space in Martinsburg that is popular for community walks and events.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const crossroadsFaqs: FAQItem[] = [
+  {
+    question: 'Where is the nearest dog park to Crossroads, VA?',
+    answer: 'Residents of Crossroads often visit the Thrasher Park Dog Park in nearby Roanoke County for dedicated off-leash space and socialization.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I hike with my dog near Crossroads?',
+    answer: 'Absolutely. Crossroads is a gateway to the Blue Ridge Parkway and several local trail systems where leashed dogs are welcome to explore the mountain terrain.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const bayShoreFaqs: FAQItem[] = [
+  {
+    question: 'Does Bay Shore have a dog park?',
+    answer: 'Gardiners County Park in Bay Shore is a premier dog-friendly destination, offering extensive trails and a dedicated area for leashed beach access.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is the Bay Shore Marina dog-friendly?',
+    answer: 'Leashed dogs are welcome at the Bay Shore Marina for scenic waterfront walks, though owners should always check for specific seasonal signage.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const bristowFaqs: FAQItem[] = [
+  {
+    question: 'Are there dog parks in Bristow, VA?',
+    answer: 'While Bristow Station Battlefield is perfect for leashed walks, residents often use the nearby Brentsville Park Dog Park for dedicated off-leash socialization.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Bristow Station Battlefield Heritage Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome to explore the miles of scenic trails through this historic battlefield park.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const carrolltonFaqs: FAQItem[] = [
+  {
+    question: 'Where is the nearest dog park to Carrollton, VA?',
+    answer: 'Nike Park in nearby Isle of Wight is the primary off-leash facility for the Carrollton area, offering a large fenced run for dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog near the James River in Carrollton?',
+    answer: 'Yes, several local access points and riverfront paths in Carrollton provide scenic leashed walking opportunities for dogs and their owners.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const cascadeFaqs: FAQItem[] = [
+  {
+    question: 'Are there dog parks in Cascade, VA?',
+    answer: 'Cascade is primarily a rural community; for dedicated off-leash dog parks, residents typically head to nearby Danville, VA, or Eden, NC.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Where can I walk my dog in Cascade?',
+    answer: 'Leashed dogs can enjoy the rural trails and proximity to the Dan River, which offers a peaceful natural setting for outdoor exploration.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const chandlerFaqs: FAQItem[] = [
+  {
+    question: 'What is the best dog park in Chandler, AZ?',
+    answer: 'Paseo Vista Recreation Area is highly recommended, featuring a well-maintained off-leash area with plenty of space and agility equipment.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Does Chandler have indoor dog parks?',
+    answer: 'Chandler features several professional daycare and social club facilities that offer climate-controlled indoor play, essential for exercise during the hot Arizona summers.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const cranberryTwpFaqs: FAQItem[] = [
+  {
+    question: 'Where is the best dog park in Cranberry Township?',
+    answer: 'The Dog Park at North Boundary Park is a premier facility, offering acres of fenced-in play space with separate areas for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Graham Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the miles of paved walking trails throughout Graham Park, making it a popular spot for daily exercise.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const crozetFaqs: FAQItem[] = [
+  {
+    question: 'Does Crozet have a dog park?',
+    answer: 'Yes, Claudius Crozet Park features a dedicated dog park that is a central hub for the local pet community to socialize and play off-leash.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I take my dog to local wineries in Crozet?',
+    answer: 'Many wineries and breweries in the Crozet area are dog-friendly and offer scenic outdoor seating, but it is always best to check their specific pet policy before visiting.',
+    category: 'socializing',
+    popular: true,
+  },
+];
+
+const elkridgeFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog off-le leash in Elkridge?',
+    answer: 'Rockburn Branch Park features a well-regarded off-leash dog park, providing a safe and fenced environment for exercise and socialization.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Patapsco Valley State Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the extensive trail system within the Patapsco Valley State Park area near Elkridge.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const fortLauderdaleFaqs: FAQItem[] = [
+  {
+    question: 'What are the best dog parks in Fort Lauderdale?',
+    answer: 'Snyder Bark Park is a standout, featuring large fenced areas, agility equipment, and even a dedicated K9 Water World for swimming.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed on the beach in Fort Lauderdale?',
+    answer: 'Fort Lauderdale has a dedicated Dog Beach area where leashed dogs are welcome during specific hours; a permit or daily fee may be required.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const haymarketFaqs: FAQItem[] = [
+  {
+    question: 'Are there dog parks in Haymarket, VA?',
+    answer: 'While Leopold\'s Preserve is excellent for leashed walks, residents often use the nearby dog parks in Gainsville or western Prince William County for off-leash play.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is Leopold\'s Preserve dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome to explore the seven miles of trails throughout this 380-acre natural preserve.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const hopewellFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog in Hopewell, VA?',
+    answer: 'Riverside Park is a popular destination, offering scenic waterfront walking paths and green spaces for you and your leashed dog.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Are there off-leash dog parks in Hopewell?',
+    answer: 'Hopewell currently focuses on leashed recreation in its public parks; for dedicated off-leash facilities, residents often visit nearby Prince George County or Chesterfield County.',
+    category: 'facilities',
+    popular: true,
+  },
+];
+
+const bethlehemFaqs: FAQItem[] = [
+  {
+    question: 'Where is the best off-leash park in Bethlehem, PA?',
+    answer: 'The Monocacy Dog Park is the city\'s premier off-leash facility, offering separate fenced areas for large and small dogs, along with seasonal water stations and shaded benches.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I walk my dog at SteelStacks?',
+    answer: 'Yes, leashed dogs are welcome on the grounds of the SteelStacks campus and the Hoover-Mason Trestle, providing a unique industrial backdrop for your daily walk.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const butlerFaqs: FAQItem[] = [
+  {
+    question: 'What amenities does Jade\'s Dog Park in Butler offer?',
+    answer: 'Jade\'s Dog Park at Alameda Park features fenced play zones, water fountains, waste stations, and a pavilion for shade, making it a comfortable spot for year-round socialization.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there long-distance trails for dogs in Butler?',
+    answer: 'Absolutely. The Butler-Freeport Community Trail offers over 20 miles of leashed walking paths, perfect for active dogs and owners looking for a scenic nature escape.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const eastonFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog off-leash in Easton?',
+    answer: 'Easton features multiple options including the Hugh Moore Bark Park and the dedicated dog run located along the Karl Stirner Arts Trail near the Silk Mill.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed on the Karl Stirner Arts Trail?',
+    answer: 'Yes, leashed dogs are welcome to explore the 2.5-mile Karl Stirner Arts Trail, which combines a paved walking path with outdoor sculptures and beautiful creek views.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const erieFaqs: FAQItem[] = [
+  {
+    question: 'Can dogs go to the beach in Erie, PA?',
+    answer: 'Yes! Leashed dogs are welcome on guarded beaches at Presque Isle State Park near the tree line, and can even swim off-leash on many of the unguarded beach areas.',
+    category: 'planning',
+    popular: true,
+  },
+  {
+    question: 'Is there an indoor-friendly dog park in Erie?',
+    answer: 'While Erie is known for its outdoor parks like the Fabrizi Dog Park, spots like Barks & Brews offer a unique social experience that combines pet play with a climate-controlled bar environment.',
+    category: 'facilities',
+    popular: true,
+  },
+];
+
+const lebanonFaqs: FAQItem[] = [
+  {
+    question: 'Are there off-leash areas in Lebanon, PA?',
+    answer: 'The Sheetz Dog Park is a popular local spot for off-leash play. Additionally, many residents enjoy leashed walks on the scenic Lebanon Valley Rail-Trail.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What are the best dog-friendly parks in Lebanon?',
+    answer: 'Coleman Memorial Park and South Hills Park both offer expansive green spaces and wooded trails that are perfect for leashed exploration and daily exercise.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const stateCollegeFaqs: FAQItem[] = [
+  {
+    question: 'What is the best dog park near Penn State?',
+    answer: 'The Tom Tudek Memorial Park features a large, fenced-in dog park with separate sections for small breeds, water pumps, and plenty of room for high-energy play.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed on the Penn State campus?',
+    answer: 'Yes, leashed dogs are welcome in the outdoor areas of the University Park campus, which offers beautiful architecture and open lawns for a relaxing walk.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const wilkesBarreFaqs: FAQItem[] = [
+  {
+    question: 'Where is the main dog park in Wilkes-Barre?',
+    answer: 'The Hollenback Park Dog Park is the primary off-leash destination, featuring fenced areas, pet waste stations, and drinking water for visiting pups.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Can I take my dog to Kirby Park?',
+    answer: 'Kirby Park is very dog-friendly for leashed pets, offering expansive trails and river views. However, dogs must remain on a leash to protect the park\'s wildlife and visitors.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const williamsportFaqs: FAQItem[] = [
+  {
+    question: 'Is there a free dog park in Williamsport?',
+    answer: 'Yes, Paws Park is a community-supported, free off-leash facility with separate sections for different dog sizes and plenty of open space for running.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there dog-friendly hiking trails in Williamsport?',
+    answer: 'The Susquehanna State Park and the nearby Pine Creek Rail Trail offer miles of dog-friendly, leashed walking paths with beautiful scenic views of the river valley.',
+    category: 'planning',
+    popular: true,
+  },
+];
+
+const arlingtonTnFaqs: FAQItem[] = [
+  {
+    question: 'Where can I walk my dog indoors in Arlington, TN?',
+    answer: 'While dedicated indoor parks are emerging, most residents utilize large retail hubs in nearby Memphis or Cordova, such as Hollywood Feed, which often host community social events and indoor training clinics.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What is the best nearby off-leash area for Arlington dogs?',
+    answer: 'The Outback at Shelby Farms Park in Cordova is the premier choice, offering 100 acres of off-leash ponds, trails, and fields just 15 minutes away from the heart of Arlington.',
+    category: 'facilities',
+  }
+];
+
+const alcoaTnFaqs: FAQItem[] = [
+  {
+    question: 'Is there an indoor dog park in Alcoa or Maryville?',
+    answer: 'Most indoor play occurs at local boarding and daycare centers like PetSafe’s primary facilities. For a unique private experience, many locals book David’s Private Dog Park for exclusive, weather-protected outings.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'What is the "Paws in the Pool" event in Alcoa?',
+    answer: 'This is a popular annual end-of-summer event at Springbrook Pool where the facility opens up specifically for dogs to swim before the pool is drained for the season.',
+    category: 'events',
+  }
+];
+
+const mtJulietTnFaqs: FAQItem[] = [
+  {
+    question: 'Are there shaded dog parks in Mt. Juliet?',
+    answer: 'Yes, the Mount Juliet Bark Park and nearby Stones River Dog Park both offer shaded pavilions and mature trees to help keep pups cool during the Middle Tennessee summer.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are the shopping centers in Mt. Juliet dog-friendly?',
+    answer: 'Providence Marketplace is a hub for pet owners, with many stores and restaurant patios welcoming leashed companions, especially during their seasonal outdoor events.',
+    category: 'amenities',
+  }
+];
+
+const morristownTnFaqs: FAQItem[] = [
+  {
+    question: 'Where can I take my dog for a long hike in Morristown?',
+    answer: 'Panther Creek State Park is the top choice, offering over 17 miles of dog-friendly trails along the ridges of Cherokee Lake, providing excellent elevation for active breeds.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there public dog parks within Morristown city limits?',
+    answer: 'Morristown features several municipal parks with greenways. Residents often visit local community-run spaces or travel to nearby Jefferson City for dedicated off-leash enclosures.',
+    category: 'facilities',
+  }
+];
+
+const farragutTnFaqs: FAQItem[] = [
+  {
+    question: 'Where is the best dog park near Farragut?',
+    answer: 'Concord Park Dog Park is the local favorite, featuring a massive fenced area, lake access for swimming, and proximity to the Turkey Creek greenway system.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Do any Farragut restaurants offer dog-centric menus?',
+    answer: 'Yes! Local spots like Sparrow Wine Bar are known for "bark-cuterie" boards, and Summer Moon Coffee offers popular "pup cups" for four-legged guests on their patio.',
+    category: 'amenities',
+  }
+];
+
+const gallatinTnFaqs: FAQItem[] = [
+  {
+    question: 'Are there off-leash dog parks in Gallatin, TN?',
+    answer: 'Yes, Gallatin features several local parks with greenways. Residents often visit Fenway’s Dog Park in nearby Goodlettsville or utilize the inclusive green spaces at Gallatin Miracle Park.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Where can I take my dog for a walk near the water in Gallatin?',
+    answer: 'Lock 4 Park and the Gallatin Greenway both offer beautiful views along the Cumberland River and Old Hickory Lake, with miles of paved and natural trails.',
+    category: 'facilities',
+  }
+];
+
+const germantownTnFaqs: FAQItem[] = [
+  {
+    question: 'Do I need a permit for the dog park in Germantown?',
+    answer: 'Yes, Forgey Dog Park requires a "Pooch Pass," which ensures all visiting dogs are vaccinated and registered with the city for a safe environment.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Where is the best place to walk my dog on a leash in Germantown?',
+    answer: 'The Germantown Greenway is the premier choice, offering a multi-mile paved trail system that connects several major parks and residential areas.',
+    category: 'facilities',
+  }
+];
+
+const goodlettsvilleTnFaqs: FAQItem[] = [
+  {
+    question: 'Is Fenway’s Dog Park free to use?',
+    answer: 'Yes, Fenway’s Dog Park at Moss-Wright Park is open to the public during park hours and features separate areas for large and small dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are dogs allowed at Moss-Wright Park events?',
+    answer: 'Leashed dogs are typically welcome in the park’s general areas, though it’s always best to check specific event guidelines for high-traffic festivals.',
+    category: 'events',
+  }
+];
+
+const hixsonTnFaqs: FAQItem[] = [
+  {
+    question: 'Does Greenway Farm have a dog park?',
+    answer: 'Yes, Greenway Farm features an excellent fully enclosed off-leash dog park within its 180-acre nature preserve.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Is there water access for dogs at Hixson parks?',
+    answer: 'Greenway Farm provides access to North Chickamauga Creek for leashed dogs, and most local parks include water spigots for hydration.',
+    category: 'amenities',
+  }
+];
+
+const humboldtTnFaqs: FAQItem[] = [
+  {
+    question: 'Does Humboldt have a fenced dog park?',
+    answer: 'Yes! The Humboldt Dog Park is a fully fenced facility featuring agility equipment, a wash station, and separate areas for different sized dogs.',
+    category: 'facilities',
+    popular: true,
+  },
+  {
+    question: 'Are there any dog-friendly events in Humboldt?',
+    answer: 'While primarily known for the Strawberry Festival, the dog park hosts regular community meetups and annual seasonal pet events.',
+    category: 'events',
+  }
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'chicago-il',
@@ -4262,7 +5593,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'austin',
     city: 'Austin',
     state: 'TX',
-    featuredImage: '/images/cities/austin-tx/hero.png',
+    featuredImage: '/images/cities/austin-tx/hero.webp',
     summary:
       'Tech hub + extreme summer heat: indoor parks with AC, coworking spaces, and heat alerts are essential for Austin dog families.',
     parks: [],
@@ -4404,7 +5735,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
-    slug: 'houston',
+    slug: 'houston-tx',
     city: 'Houston',
     state: 'TX',
     featuredImage: '/images/cities/houston-tx/hero.webp',
@@ -4840,25 +6171,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
       faqs: corpusChristiFaqs,
     },
   },
-  {
-    slug: 'houston-tx',
-    city: 'Houston',
-    state: 'TX',
-    summary: 'Texas\'s largest city features an extensive network of dog parks, indoor facilities, and bayou trails.',
-    parks: [],
-    featuredImage: '/images/cities/houston-tx/hero.webp',
-    customContent: {
-      heroEyebrow: 'Space City Dog Spots',
-      heroHeading: 'Dog Parks in Houston, TX',
-      heroDescription: 'Houston offers the largest selection of dog parks in Texas, from sprawling grounds to climate-controlled indoor facilities.',
-      heroPill: 'Verified Houston Directory',
-      heroFootnotes: ['80+ miles of bayou trails', 'Year-round indoor options'],
-      longDescription: [
-        'Houston, Texas, offers a diverse and expansive environment for dog owners, influenced by its humid subtropical climate and vast urban sprawl. The city is home to some of the state\'s most celebrated green spaces, including the [Buffalo Bayou Park](https://buffalobayou.org/), offering miles of skyline-view trails for leashed walks, and the heavily trafficked Johnny Steele Dog Park, featuring ponds and large dog runs. However, the intense summer heat makes climate-controlled play essential. Houston\'s sheer size means neighborhood-specific amenities vary, but the Heights and Montrose districts stand out for their density of patio-friendly restaurants and boutique pet services. Our [Houston directory](https://www.indoordogpark.org/cities/houston-tx#park-directory) reflects this blend of outdoor adventure and necessary indoor relief.',
-        'To combat the heat, Houston has seen a rise in "drink-and-play" concepts like [Barkley\'s](https://www.indoordogpark.org/parks-with-bars), where owners can socialize in air-conditioned comfort while their pets play. These venues require strict vaccination records, ensuring a safe environment for all. For those interested in the business side of this booming market, our [owner resources](/owner-resources) provide data on operating in such a large metro area. Whether navigating the [bayou trails](https://www.houstontx.gov/parks/) or retreating to an indoor oasis, Houston ensures dogs remain active and social year-round.'
-      ],
-    },
-  },
+
   {
     slug: 'lubbock-tx',
     city: 'Lubbock',
@@ -7386,6 +8699,134 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
+    slug: 'beavercreek-oh',
+    city: 'Beavercreek',
+    state: 'OH',
+    featuredImage: '/images/cities/beavercreek-oh/hero.webp',
+    summary: 'Near Dayton, known for expansive parks and the innovative Owen\'s Place inclusive playground.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Beavercreek, Ohio',
+      heroDescription: 'From the specialized turf of Owen\'s Place to the natural beauty of Rotary Park, Beavercreek offers high-quality recreational spaces for the Dayton area\'s most active pups.',
+      longDescription: [
+        'Beavercreek is a premier destination for dog owners in the Dayton metro area, offering a blend of traditional park settings and specialized facilities. The city is home to **Rotary Park**, which features the widely acclaimed **Owen\'s Place**, an inclusive playground and recreation area that includes a specifically designed dog park with synthetic turf and sensory elements. Nature-loving pups can also explore the trails at **Dominick Lofino Park** or the wooded paths of the **Wortman Nature Preserve**. With its suburban charm and high-quality recreational infrastructure, Beavercreek provides ample opportunities for off-leash play and scenic leashed walks. ',
+        'The community\'s dedication to pet-friendliness is supported by a robust network of local veterinary services and grooming boutiques that cater to the city\'s growing pet population. Whether you are a long-time resident or just visiting the Dayton region, the accessibility of Beavercreek\'s green spaces makes it a standout choice for canine enrichment. For those interested in the growing local scene for climate-controlled exercise and managed socialization, our [Beavercreek city guide](https://www.indoordogpark.org/cities/beavercreek-oh) offers the latest verified listings and professional care tips.'
+      ],
+    },
+  },
+  {
+    slug: 'cuyahoga-falls-oh',
+    city: 'Cuyahoga Falls',
+    state: 'OH',
+    featuredImage: '/images/cities/cuyahoga-falls-oh/hero.webp',
+    summary: 'Gateway to Cuyahoga Valley National Park, providing unmatched access to rugged trails and scenic falls.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Cuyahoga Falls, Ohio',
+      heroDescription: 'With direct access to the Cuyahoga Valley National Park and the scenic Towpath Trail, Cuyahoga Falls is a nature-lover’s paradise for dogs and their owners.',
+      longDescription: [
+        'Cuyahoga Falls offers dog owners a unique living environment with direct access to some of Ohio\'s most stunning natural landscapes. Bordering the **Cuyahoga Valley National Park**, residents can enjoy miles of dog-friendly trails, including the famous **Towpath Trail** and the scenic routes through **Cascade Valley Park**. The city also maintains several community parks like **Water Works Park**, which provides open green spaces for exercise and socialization. The area\'s commitment to pet-friendliness is evident in its local businesses and the active community of hikers who regularly bring their dogs along for adventures through the gorge.',
+        'Beyond the national park access, Cuyahoga Falls boasts a vibrant downtown area where many seasonal events and outdoor patios welcome well-behaved pets. The local dog culture is supported by specialized training facilities and a community that prioritizes active outdoor living. As the region develops more year-round pet amenities, staying informed is easy through our [Cuyahoga Falls city guide](https://www.indoordogpark.org/cities/cuyahoga-falls-oh), where we provide verified updates on managed indoor play zones and premium boarding options.'
+      ],
+    },
+  },
+  {
+    slug: 'elyria-oh',
+    city: 'Elyria',
+    state: 'OH',
+    featuredImage: '/images/cities/elyria-oh/hero.webp',
+    summary: 'Famous for the dramatic waterfalls of Cascade Park and its community-focused dog-friendly atmosphere.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Elyria, Ohio',
+      heroDescription: 'Explore the sandstone cliffs of Cascade Park or enjoy the community atmosphere of local runs in the heart of Lorain County.',
+      longDescription: [
+        'Elyria is a gem for dog owners in Lorain County, primarily centered around the spectacular **Cascade Park**. This flagship facility allows leashed pets to explore trails that wind past massive sandstone cliffs and two distinct waterfalls, providing a dramatic backdrop for daily walks that is rare in the region. For off-leash socialization, many locals head to the **Elyria Dog Park**, which offers fenced runs for different breed sizes and a community-centric environment where pups can burn off energy. The city\'s dense network of neighborhood parks ensures that green space is never far away for quick outings or daily training sessions.',
+        'The city’s pet-friendly vibe extends to its local service providers, with a variety of long-standing veterinary clinics and grooming salons serving the area. Elyria’s balance of historic charm and natural beauty makes it an inviting place for pet families to put down roots. As the region develops more climate-controlled facilities to combat the lake-effect winter weather, stay informed by visiting our [Elyria city guide](https://www.indoordogpark.org/cities/elyria-oh) for verified updates on managed indoor play zones and local pet professional listings.'
+      ],
+    },
+  },
+  {
+    slug: 'kettering-oh',
+    city: 'Kettering',
+    state: 'OH',
+    featuredImage: '/images/cities/kettering-oh/hero.webp',
+    summary: 'A park-heavy suburb of Dayton featuring top-tier recreation complexes and well-maintained off-leash runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Kettering, Ohio',
+      heroDescription: 'Enjoy wide-open green spaces at Delco Park and high-energy play at the dedicated Kettering Dog Park.',
+      longDescription: [
+        'Kettering is widely recognized for its award-winning park system, making it one of the most pet-friendly suburbs in the Miami Valley. **Delco Park** is a local favorite, providing expansive lake views and paved trails perfect for leashed strolls, while the **Kettering Dog Park** provides a dedicated, well-shaded area for high-energy play and socialization. The city\'s commitment to recreation is further evidenced by spots like **Fraze Pavilion**, which often hosts community events where well-behaved pets are welcome in the surrounding green belts and grassy common areas.',
+        'Whether you are seeking a quiet nature walk or a social playground experience, Kettering\'s diverse park offerings deliver high-quality enrichment for dogs of all ages. The local community is highly engaged in pet welfare, supported by numerous specialty pet shops and expert training centers. For more information on local boarding facilities and the latest indoor exercise options designed for Ohio\'s variable weather, refer to our [Kettering city guide](https://www.indoordogpark.org/cities/kettering-oh) for verified professional listings.'
+      ],
+    },
+  },
+  {
+    slug: 'lakewood-oh',
+    city: 'Lakewood',
+    state: 'OH',
+    featuredImage: '/images/cities/lakewood-oh/hero.webp',
+    summary: 'One of Ohio\'s most walkable cities with a vibrant, high-density dog culture and stunning lakefront views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Lakewood, Ohio',
+      heroDescription: 'From sunsets at the Solstice Steps to the energetic play at the Metroparks Valley dog run, Lakewood is a premier lakefront destination for pups.',
+      longDescription: [
+        'Lakewood is a hub for dog owners who value a walkable, community-oriented lifestyle right on the shores of Lake Erie. **Lakewood Park** is the city\'s crown jewel, featuring its famous Solstice Steps and paved walkways where leashed dogs and their owners gather for stunning sunset views. The city is famous for its exceptionally pet-friendly hospitality scene, with many restaurants and breweries along Detroit Avenue welcoming pups on their patios. For off-leash run time, the **Lakewood Dog Park**, nestled in the scenic Rocky River Reservation of the Metroparks, provides a spacious, well-managed environment for socialization.',
+        'The high density of pets in Lakewood has fostered a robust network of professional walkers, premium daycares, and elite trainers, making it one of the most resource-rich cities for pet parents in Ohio. Its mix of urban energy and suburban green space creates a unique environment for canine enrichment. Explore our [Lakewood city guide](https://www.indoordogpark.org/cities/lakewood-oh) for verified listings on the city\'s premier indoor play options, grooming facilities, and the latest pet-friendly community events.'
+      ],
+    },
+  },
+  {
+    slug: 'middletown-oh',
+    city: 'Middletown',
+    state: 'OH',
+    featuredImage: '/images/cities/middletown-oh/hero.webp',
+    summary: 'Strategically located between major hubs, offering serene nature preserves and growing pet-friendly amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Middletown, Ohio',
+      heroDescription: 'Discover the wooded serenity of Bull\'s Run or take a long-distance run along the Great Miami River Trail.',
+      longDescription: [
+        'Middletown provides a peaceful retreat for dog owners, balancing its rich industrial heritage with beautiful natural escapes. The **Bull\'s Run Nature Sanctuary and Arboretum** is a standout destination for leashed walks, offering wood chip trails through a historic garden and forest preserve that provides excellent scent-work opportunities for curious dogs. For traditional park amenities, **Smith Park** features large open spaces and athletic fields that are popular for local pet families. The city\'s location along the Great Miami River also connects it to the extensive **Great Miami River Trail**, ideal for long-distance walking.',
+        'As Middletown continues to revitalize its downtown, a growing number of businesses are adopting pet-friendly policies, creating more social opportunities for owners and their dogs. The community is served by dedicated local veterinarians and several well-established boarding centers. To stay updated on the latest indoor socialization hubs and professional training services in this developing region, visit our [Middletown city guide](https://www.indoordogpark.org/cities/middletown-oh) for verified local insights and care listings.'
+      ],
+    },
+  },
+  {
+    slug: 'parma-oh',
+    city: 'Parma',
+    state: 'OH',
+    featuredImage: '/images/cities/parma-oh/hero.webp',
+    summary: 'Home to massive Metropark reservations with expansive trail systems and a deep community love for pets.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Parma, Ohio',
+      heroDescription: 'Traverse the diverse habitats of West Creek Reservation or enjoy the neighborhood charm of State Road Park.',
+      longDescription: [
+        'Parma is a haven for dog owners who enjoy the extensive trail networks provided by the Cleveland Metroparks. The **West Creek Reservation** is a primary draw, offering miles of paved and natural trails that traverse diverse habitats, providing endless enrichment for curious pups throughout the seasons. Additionally, **Veterans Memorial Park** and **State Road Park** offer convenient local green spaces for daily exercise and neighborhood socialization within the city limits. Parma\'s residential atmosphere is notably pet-friendly, with a strong culture of responsible ownership evident in its well-kept yards and active walking community.',
+        'The city is supported by a high concentration of veterinary clinics, grooming boutiques, and specialized pet supply stores, ensuring all facets of dog care are easily accessible. Parma’s proximity to larger regional parks makes it a strategic home base for active dog owners. For the latest information on verified indoor facilities, climate-controlled enrichment labs, and professional training centers, check out our [Parma city guide](https://www.indoordogpark.org/cities/parma-oh) for updated listings.'
+      ],
+    },
+  },
+  {
+    slug: 'springfield-oh',
+    city: 'Springfield',
+    state: 'OH',
+    featuredImage: '/images/cities/springfield-oh/hero.webp',
+    summary: 'Boasting the massive Buck Creek State Park and a heritage of outdoor adventure along the Eco Sports Corridor.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor dog park in Springfield, Ohio',
+      heroDescription: 'Explore the shoreline trails of Buck Creek State Park or utilize the dedicated runs at the Springfield Dog Park.',
+      longDescription: [
+        'Springfield offers some of the most diverse outdoor recreation opportunities in Clark County, highlighted by the expanse of **Buck Creek State Park**. This massive facility provides thousands of acres of water and wooded trails where leashed dogs can explore the shoreline or hike through rolling meadows, making it a premier regional destination. Closer to the city center, the **Springfield Dog Park** provides a dedicated off-leash zone with separate runs for large and small breeds, featuring agility elements and plenty of space for social play.',
+        'The city\'s development of the **Eco Sports Corridor** along the Mad River also offers unique walking paths for active dogs and their owners to enjoy the natural scenery. Springfield\'s welcoming atmosphere is reflected in its growing number of pet-friendly businesses and community events that celebrate the bond between pets and people. For verified details on local indoor play options, premium boarding, and professional care, visit our [Springfield city guide](https://www.indoordogpark.org/cities/springfield-oh) to explore our latest directory updates.'
+      ],
+    },
+  },
+  {
     slug: 'pittsburgh-pa',
     city: 'Pittsburgh',
     state: 'PA',
@@ -7575,6 +9016,142 @@ export const priorityCityContent: PriorityCityConfig[] = [
         'Altoona offers a friendly community for dog owners, with several local parks providing space for daily walks and fresh air. City parks generally welcome pets that are kept on a leash no longer than six feet and attended by their owners at all times. For a more expansive adventure, the nearby trails of **Canoe Creek State Park** provide a beautiful backdrop for a day of hiking with your leashed companion. Altoona’s local ordinances strictly enforce leash laws and waste removal to ensure that public spaces remain clean and safe for everyone. All dogs in Blair County must be licensed and have current rabies vaccinations, reflecting the community’s commitment to responsible pet ownership.',
         'The [Central PA Humane Society (CPHS)](https://centralpahumane.org/) is the primary resource for animal welfare in the Altoona area, functioning as a life-saving shelter that focuses on enrichment and adoption for at-risk animals. Other local groups like **Mending Hearts Animal Rescue** also play a vital role in finding forever homes for cats and dogs in the region. Whether you are strolling through resident neighborhoods or visiting a local pet supply store, you will find a supportive atmosphere for pet lovers. For additional guidance on local dog rules and discovering new dog-friendly spots throughout Pennsylvania, visit [Indoordogpark.org](https://www.indoordogpark.org/). Altoona’s combination of practical leash laws and dedicated animal welfare organizations ensures a high quality of life for its four-legged residents.'
       ],
+    },
+  },
+  {
+    slug: 'bethlehem-pa',
+    city: 'Bethlehem',
+    state: 'PA',
+    featuredImage: '/images/cities/bethlehem-pa/hero.webp',
+    summary: 'A historic Lehigh Valley gem offering scenic river walks, culturally rich campuses, and premier off-leash zones.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Bethlehem, PA',
+      heroDescription: 'From the industrial charm of SteelStacks to the riverside trails of Sand Island, Bethlehem is a premier Lehigh Valley destination for pups.',
+      longDescription: [
+        'Bethlehem, Pennsylvania, famously known as the Christmas City, offers a rich tapestry of historic charm and pet-friendly amenities. Dog owners frequent the [Monocacy Dog Park](https://www.bethlehem-pa.gov), a well-maintained off-leash facility with dedicated zones for breeds. For scenic walks, Sand Island Park provides picturesque trails along the Lehigh River and historic canals. Additionally, the industrial heritage is on display at the [SteelStacks](https://www.steelstacks.org) campus, where leashed pets can stroll among iconic blast furnaces.',
+        'The local pet community is supported by businesses in the historic downtown that welcome four-legged visitors. From patios at Bethlehem Brew Works to boutiques with ready water bowls, the city’s walkable reputation is well-earned. Residents consult our [owner resources](/owner-resources) for the latest on indoor enrichment as demand grows for year-round play. By following leash laws and maintaining vaccinations, Bethlehem’s pet parents ensure the city remains a healthy haven.'
+      ],
+      faqs: bethlehemFaqs,
+    },
+  },
+  {
+    slug: 'butler-pa',
+    city: 'Butler',
+    state: 'PA',
+    featuredImage: '/images/cities/butler-pa/hero.webp',
+    summary: 'A gateway to Western PA nature trails, featuring the expansive Alameda Park and the historic Butler-Freeport Community Trail.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Butler, PA',
+      heroDescription: 'Discover the wooded serenity of the Butler-Freeport Community Trail or enjoy the energetic play at Jade\'s Dog Park.',
+      longDescription: [
+        'Butler, Pennsylvania, serves as a gateway to some of the most beautiful natural spaces in Greater Pittsburgh. At the heart of the local dog scene is Jade\'s Dog Park, located within the scenic [Alameda Park](https://www.butlercountypa.gov), offering fenced enclosures with separate zones for size-specific play. For long-distance walkers, the [Butler-Freeport Community Trail](https://www.butlerfreeporttrail.org) provides over 20 miles of limestone paths winding through lush valleys and historic rail corridors.',
+        'Social life for dogs in Butler extends to a hospitality scene that embraces the local "pet-first" culture. Favorites like Shubrew and Recon Brewing offer dog-friendly outdoor seating, while events like the annual "Pool PAWty" at Alameda Pool let dogs swim before the facility closes. This lifestyle is backed by high standards for pet wellness and responsible ownership. For those interested in infrastructure, our [indoor dog park directory](https://www.indoordogpark.org) offers insights into how communities adapt.'
+      ],
+      faqs: butlerFaqs,
+    },
+  },
+  {
+    slug: 'easton-pa',
+    city: 'Easton',
+    state: 'PA',
+    featuredImage: '/images/cities/easton-pa/hero.webp',
+    summary: 'A riverside community where historic canals meet modern art trails, offering unique sensory-rich adventures for every dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Easton, PA',
+      heroDescription: 'Explore the scenic Karl Stirner Arts Trail or enjoy a relaxing stroll along the Delaware and Lehigh National Heritage Trail.',
+      longDescription: [
+        'Easton, Pennsylvania, is a vibrant city situated at the confluence of the Delaware and Lehigh Rivers. A celebrated destination is the [Karl Stirner Arts Trail](https://www.karlstirnerartstrail.org), featuring outdoor sculptures along the Bushkill Creek for sensory-rich leashed walks. For off-leash socialization, the Hugh Moore Bark Park offers dedicated fenced areas within a larger park setting. Access to the [Delaware & Lehigh National Heritage Trail](https://www.delawareandlehigh.org) provides a regional network perfect for owners seeking long-distance hikes.',
+        'Easton’s pet-friendly culture is captured in its historic downtown, where the [Easton Farmers\' Market](https://www.eastonfarmersmarket.com) often sees many well-behaved pups. Local businesses frequently offer outdoor seating that welcomes dogs, fostering a social atmosphere beyond the park system. Given the regional climate, having a plan for year-round enrichment is vital, and our [owner resources](/owner-resources) provide guidance on navigating pet amenities. Following city leash ordinances and mandatory vaccinations ensures a healthy community.'
+      ],
+      faqs: eastonFaqs,
+    },
+  },
+  {
+    slug: 'erie-pa',
+    city: 'Erie',
+    state: 'PA',
+    featuredImage: '/images/cities/erie-pa/hero.webp',
+    summary: 'Pennsylvania\'s premier waterfront destination, featuring the stunning Presque Isle State Park and innovative social play spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Erie, PA',
+      heroDescription: 'From the sandy beaches of Presque Isle to the high-energy play at Larry R. Fabrizi Dog Park, Erie offers world-class coastal fun for dogs.',
+      longDescription: [
+        'Erie, Pennsylvania, stands out as the state\'s premier waterfront destination for dog owners who enjoy a coastal lifestyle along Lake Erie. The crown jewel is [Presque Isle State Park](https://www.dcnr.pa.gov/StateParks/FindAPark/PresqueIsleStatePark), which welcomes leashed dogs on many beaches and allows them to swim off-leash in designated areas. This access to fresh water and sandy shorelines provides a rare sensory experience for pups. For structured off-leash play, the Larry R. Fabrizi Dog Park offers a well-maintained urban option with separate fenced areas.',
+        'The lifestyle in Erie is connected to the rhythm of the lake, fostering hospitality venues like Barks & Brews, which pioneered climate-controlled socializing and supervised dog play. The community is highly engaged in pet welfare, supported by organizations like the Erie Humane Society and specialized veterinary services. Safety is managed through city ordinances focused on responsible leash use and mandatory vaccinations. For those looking for the next big thing in infrastructure, our [indoor dog park directory](https://www.indoordogpark.org) offers data on local demand.'
+      ],
+      faqs: erieFaqs,
+    },
+  },
+  {
+    slug: 'lebanon-pa',
+    city: 'Lebanon',
+    state: 'PA',
+    featuredImage: '/images/states/pennsylvania/hero.webp',
+    summary: 'A tranquil community in the heart of Lebanon Valley, offering historic rail trails and expansive wooded parklands.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Lebanon, PA',
+      heroDescription: 'Traverse the scenic Lebanon Valley Rail-Trail or enjoy the neighborhood charm and off-leash play at Sheetz Dog Park.',
+      longDescription: [
+        'Lebanon, Pennsylvania, nestled in the heart of the Lebanon Valley, offers a serene lifestyle for dog owners seeking a peaceful retreat. A primary draw is the [Lebanon Valley Rail-Trail](https://www.lvrt.org), a stone path stretching for miles through farmlands and wooded corridors, providing a safe and accessible route for leashed exercise. For off-leash socialization, residents frequent the Sheetz Dog Park at Ironwood Community Park, which features fenced enclosures in a secure environment. Local green spaces like Coleman Memorial Park also offer expansive lawns and shaded trails.',
+        'Social life for dogs in Lebanon is supported by a community culture that embraces pet-friendly policies at local businesses. From neighborhood breweries to regional fairs, well-behaved dogs are a celebrated sight in the valley. Finding consistent enrichment options year-round is a priority for pet parents, many of whom consult our [owner resources](/owner-resources) for the latest tips on indoor activity. Safety and health are emphasized through county guidelines on responsible leash use and mandatory vaccinations. Lebanon provides a picturesque and supportive environment.'
+      ],
+      faqs: lebanonFaqs,
+    },
+  },
+  {
+    slug: 'state-college-pa',
+    city: 'State College',
+    state: 'PA',
+    featuredImage: '/images/states/pennsylvania/hero.webp',
+    summary: 'A vibrant university town where academic charm meets the rugged beauty of the Appalachian foothills.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In State College, PA',
+      heroDescription: 'From the historic architecture of the Penn State campus to the off-leash freedom of Tom Tudek Memorial Park, Happy Valley is a pup-friendly haven.',
+      longDescription: [
+        'State College, Pennsylvania, home to [Penn State University](https://www.psu.edu), blends collegiate energy with the beauty of "Happy Valley." Tom Tudek Memorial Park features a massive, fenced-in dog park with separate sections for breeds and shaded areas. The university campus is pet-friendly, with many enjoying leashed walks along the lawns of Old Main. For adventure, the [Rothrock State Forest](https://www.dcnr.pa.gov) offers thousands of acres of trails where leashed dogs can experience the Appalachian foothills. This mix of convenience and wilderness makes State College a top destination.',
+        'High demand for pet services exists here, from dog walking to specialized training. Local taprooms welcome dogs, creating a social environment central to the Happy Valley lifestyle. With significant snowfall, the availability of monitored indoor play is a valuable resource. Safety is prioritized through [Centre County](https://www.centrecountypa.gov) ordinances that mandate vaccinations and responsible leash management in public spaces. Whether exploring local trails or enjoying a game-day stroll, State College provides a supportive backdrop.'
+      ],
+      faqs: stateCollegeFaqs,
+    },
+  },
+  {
+    slug: 'wilkes-barre-pa',
+    city: 'Wilkes-Barre',
+    state: 'PA',
+    featuredImage: '/images/states/pennsylvania/hero.webp',
+    summary: 'A historic riverfront city in the Wyoming Valley, offering expansive nature preserves and dedicated off-leash socialization hubs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Wilkes-Barre, PA',
+      heroDescription: 'Explore the iconic riverfront trails of Kirby Park or enjoy the dedicated off-leash play at Hollenback Park.',
+      longDescription: [
+        'Wilkes-Barre, Pennsylvania, situated in the Wyoming Valley along the Susquehanna River, provides a robust environment for dog owners. [Kirby Park](https://www.wilkes-barre.city) offers expansive leashed walking paths and riverfront views, while Hollenback Park Dog Park provides a dedicated fenced area for off-leash play. Quick access to the [Seven Tubs Recreation Area](https://www.dcnr.pa.gov), a natural site with carved rock pools and wooded trails, ensures that leashed dogs can experience rugged terrain. This mix of urban parks and wilderness preserves ensures that every dog’s needs are met year-round.',
+        'The local pet community is social, with dog-friendly cafes reflecting the city’s spirit. As Wilkes-Barre revitalization continues, demand for improved pet infrastructure and indoor play options has reached new heights. Residents turn to our [owner resources](/owner-resources) to find information on climate-controlled enrichment and care. Safety is managed through city ordinances focused on responsible leash use and mandatory vaccinations. Whether attending an event at Public Square or taking a sunset walk along the river levee, Wilkes-Barre provides a supportive environment.'
+      ],
+      faqs: wilkesBarreFaqs,
+    },
+  },
+  {
+    slug: 'williamsport-pa',
+    city: 'Williamsport',
+    state: 'PA',
+    featuredImage: '/images/states/pennsylvania/hero.webp',
+    summary: 'The birthplace of Little League, offering a home-run experience for dogs with beautiful river valley trails and community-run bark parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Williamsport, PA',
+      heroDescription: 'From the scenic Susquehanna Riverwalk to the off-leash freedom of Paws Park, Williamsport is a Grand Slam for dog owners.',
+      longDescription: [
+        'Williamsport, Pennsylvania, home of the [Little League World Series](https://www.littleleague.org), offers a winning environment for dog owners seeking community spirit. The city is anchored by the Susquehanna Riverwalk, a paved trail system providing river views and a safe route for leashed exercise. For off-leash socialization, [Paws Park](https://www.williamsportpa.gov) stands as a community-supported gem with dedicated fenced areas. Williamsport’s location also provides access to the trails of the Tiadaghton State Forest, perfect for hiking through dense woodlands and scenic mountain overlooks.',
+        'Social culture for pets is active, with many breweries and restaurant patios welcoming leashed dogs. Given the region\'s variable weather, residents look to our [owner resources](/owner-resources) for insights on maintaining a consistent exercise schedule. Safety is a top priority, with local ordinances emphasizing responsible leash use and vaccinations to ensure a healthy environment. Whether exploring the trails of Brandon Park or enjoying a meal in the historic downtown, Williamsport provides a supportive backdrop for dogs to thrive.'
+      ],
+      faqs: williamsportFaqs,
     },
   },
   {
@@ -10506,16 +12083,16 @@ export const priorityCityContent: PriorityCityConfig[] = [
   {
     slug: 'greensboro-va',
     city: 'Greensboro',
-    state: 'NC',
-    featuredImage: '/images/cities/greensboro-nc/hero.webp',
-    summary: 'The "Gate City" offers expansive parks and a welcoming environment for all canine companions.',
+    state: 'VA',
+
+    summary: 'A quiet community in Virginia offering accessible green spaces and scenic walking routes.',
     parks: [],
     customContent: {
-      heroHeading: 'Dog Parks in Greensboro, NC',
-      heroDescription: 'Greensboro offers a wealth of green space, from the Arboretum to expansive dog parks like Bark Park, making it a top destination for active pets.',
+      heroHeading: 'Indoor Dog Park In Greensboro, VA',
+      heroDescription: 'Discover the peaceful charm of Greensboro, VA. Your guide to dog-friendly walks and outdoor spaces in this Virginia community.',
       longDescription: [
-        'Greensboro, known as the "Gate City," is celebrated for its extensive park system and dog-friendly culture. The city features standout facilities like the [Bark Park at Country Park](https://www.greensboro-nc.gov/departments/parks-recreation/parks-gardens/dog-parks), which offers separate small and large dog areas in a wooded setting. Leashed dogs are also welcome to explore the enchanting [Greensboro Arboretum](https://greensborobeautiful.org/gardens/greensboro-arboretum/) and the Tanger Family Bicentennial Garden, providing sensory-rich walks among beautiful flora. Our [Greensboro directory](https://www.indoordogpark.org/cities/greensboro-nc#park-directory) highlights these premier locations for socialization and nature enjoyment.',
-        'The community is supported by a strong network of pet businesses and advocacy groups. Greensboro demands responsible ownership, including leash compliance on greenways and up-to-date vaccinations. For those new to the area or dog ownership, our [how-it-works](/how-it-works) page offers guidance on park etiquette. Whether playing off-leash or strolling through botanical gardens, Greensboro provides a diverse and enriching environment for every type of dog.'
+        'Greensboro, Virginia, provides a tranquil setting for dog owners who enjoy the natural beauty of the region. This community offers a variety of leashed walking options through its suburban streets and local greenways. While distinct from larger urban gateways, Greensboro maintains a welcoming atmosphere for pets, with plenty of open space for daily exercise and fresh air.',
+        'The lifestyle here is centered on the outdoors, with safe roads and well-maintained public paths making it easy to stay active with your dog. Local ordinances prioritize pet safety through licensing and vaccination requirements, ensuring a healthy environment for all. Whether you are exploring the quiet residential areas or visiting a nearby nature preserve, Greensboro offers a simple and supportive home for you and your canine companion.'
       ],
     },
   },
@@ -10891,6 +12468,24 @@ export const priorityCityContent: PriorityCityConfig[] = [
       longDescription: [
         "Heath offers a luxurious lakeside lifestyle on the shores of Lake Ray Hubbard. The city's parks feature scenic trails with breathtaking views of the Dallas skyline. Terry Park provides lake access where leashed dogs can enjoy the water's edge. It is a premier community where residents enjoy spacious properties and a quiet, upscale atmosphere.",
         "City laws require dogs to be leashed in all public areas and properly licensed. The community values serenity and cleanliness, so controlling barking and picking up waste is essential. Owners enjoying the lake should prioritize water safety for their pets. Have questions about park rules or etiquette? Find answers in our [comprehensive FAQ](https://www.indoordogpark.org/faq). By being considerate neighbors, Heath residents preserve the tranquility of their lakeside retreat."
+      ],
+    },
+  },
+  {
+    slug: 'hickory-nc',
+    city: 'Hickory',
+    state: 'NC',
+    featuredImage: '/images/cities/hickory-nc/hero.webp',
+    summary:
+      'The "Furniture Capital" with a heart of oak, Hickory offers beautiful lakeside trails and sprawling community parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hickory, NC',
+      heroDescription:
+        "Discover Hickory's diverse park system, from the scenic shores of Lake Hickory to the shaded runs of Glenn Hilton Jr. Memorial Park.",
+      longDescription: [
+        'Hickory, NC, nested in the Catawba Valley, offers an exceptional environment for dog-friendly recreation. The city\'s crown jewel is [Glenn Hilton Jr. Memorial Park](https://www.hickorync.gov/glenn-hilton-jr-memorial-park), which features a popular boardwalk, scenic trails along the creek, and dedicated off-leash areas for dogs of all sizes. For those who enjoy water views, the [Lake Hickory City Park](https://www.hickorync.gov/lake-hickory-city-park) provides miles of paved paths and lakeside access perfect for evening strolls with your companion.',
+        'The community in Hickory is deeply committed to maintaining its beautiful green spaces. Local ordinances require dogs to be leashed in municipal parks and current on vaccinations. Our [Hickory directory](https://www.indoordogpark.org/cities/hickory-nc#park-directory) lists these and other verified spots where you can enjoy the city\'s natural beauty. Whether you\'re exploring the foothills or relaxing in a neighborhood park, Hickory provides a welcoming and scenic home for pets and their families.',
       ],
     },
   },
@@ -11513,7 +13108,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'apex-nc',
     city: 'Apex',
     state: 'NC',
-    featuredImage: '/images/cities/apex-nc/hero.png',
+    featuredImage: '/images/cities/apex-nc/hero.webp',
     summary:
       'The "Peak of Good Living" lives up to its name for dogs, featuring pass-access parks like Hunter Street and extensive greenway connections.',
     parks: [],
@@ -11593,7 +13188,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'cary-nc',
     city: 'Cary',
     state: 'NC',
-    featuredImage: '/images/cities/cary-nc/hero.png',
+    featuredImage: '/images/cities/cary-nc/hero.webp',
     summary:
       'The "Greenway Capital" offers over 80 miles of trails and premium facilities like The Barkyard, setting a high standard for suburban dog amenities.',
     parks: [],
@@ -11673,7 +13268,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'chapel-hill-nc',
     city: 'Chapel Hill',
     state: 'NC',
-    featuredImage: '/images/cities/chapel-hill-nc/hero.png',
+    featuredImage: '/images/cities/chapel-hill-nc/hero.webp',
     summary:
       'The "Southern Part of Heaven" creates a welcoming vibe for dogs with college-town walkability, wooded trails like Bolin Creek, and great community parks.',
     parks: [],
@@ -11833,7 +13428,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'fuquay-varina-nc',
     city: 'Fuquay-Varina',
     state: 'NC',
-    featuredImage: '/images/cities/fuquay-varina-nc/hero.png',
+    featuredImage: '/images/cities/fuquay-varina-nc/hero.webp',
     summary:
       'With two downtowns and an 8-acre dog park, Fuquay-Varina offers "A Dash More" for dogs, including free access to one of the region’s largest play spaces.',
     parks: [],
@@ -11913,7 +13508,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'gastonia-nc',
     city: 'Gastonia',
     state: 'NC',
-    featuredImage: '/images/cities/gastonia-nc/hero.png',
+    featuredImage: '/images/cities/gastonia-nc/hero.webp',
     summary:
       'The gateway to Crowders Mountain offers serious hiking for active dogs and urban convenience with the Bradley Station Dog Park.',
     parks: [],
@@ -11993,7 +13588,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'greenville-nc',
     city: 'Greenville',
     state: 'NC',
-    featuredImage: '/images/cities/greenville-nc/hero.png',
+    featuredImage: '/images/cities/greenville-nc/hero.webp',
     summary:
       'The "Emerald City" shines with the Tar River Greenway and the Greenville Off-Leash Dog Park, offering riverside beauty and active play.',
     parks: [],
@@ -12088,7 +13683,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'high-point-nc',
     city: 'High Point',
     state: 'NC',
-    featuredImage: '/images/cities/high-point-nc/hero.png',
+    featuredImage: '/images/cities/high-point-nc/hero.webp',
     summary:
       'The "Furniture Capital" furnishes great fun for dogs with Hedgecock Dog Park and the scenic Piedmont Environmental Center trails.',
     parks: [],
@@ -12168,7 +13763,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'holly-springs-nc',
     city: 'Holly Springs',
     state: 'NC',
-    featuredImage: '/images/cities/holly-springs-nc/hero.png',
+    featuredImage: '/images/cities/holly-springs-nc/hero.webp',
     summary:
       'A family-focused town where Sugg Farm Park and Bass Lake offer picturesque, safe environments for dogs to play and explore.',
     parks: [],
@@ -12248,7 +13843,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'huntersville-nc',
     city: 'Huntersville',
     state: 'NC',
-    featuredImage: '/images/cities/huntersville-nc/hero.png',
+    featuredImage: '/images/cities/huntersville-nc/hero.webp',
     summary:
       'Lake Norman living at its finest. Huntersville boasts Latta Nature Preserve and Birkdale Village for a mix of rugged trails and upscale socialization.',
     parks: [],
@@ -12328,7 +13923,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'indian-trail-nc',
     city: 'Indian Trail',
     state: 'NC',
-    featuredImage: '/images/cities/indian-trail-nc/hero.png',
+    featuredImage: '/images/cities/indian-trail-nc/hero.webp',
     summary:
       'A suburban haven with the top-tier Crooked Creek Dog Park and a calendar full of family-friendly events at Crossing Paths Park.',
     parks: [],
@@ -12408,7 +14003,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'kannapolis-nc',
     city: 'Kannapolis',
     state: 'NC',
-    featuredImage: '/images/cities/kannapolis-nc/hero.png',
+    featuredImage: '/images/cities/kannapolis-nc/hero.webp',
     summary:
       'Home to the uniquely massive DogWorld and a revitalized downtown Loop that makes for perfect urban strolling.',
     parks: [],
@@ -12488,7 +14083,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'matthews-nc',
     city: 'Matthews',
     state: 'NC',
-    featuredImage: '/images/cities/matthews-nc/hero.png',
+    featuredImage: '/images/cities/matthews-nc/hero.webp',
     summary:
       'Historic charm meets modern trails. Walk the Four Mile Creek Greenway or visit the nearby Colonel Francis Beatty Park for a lakefront hike.',
     parks: [],
@@ -12568,7 +14163,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'monroe-nc',
     city: 'Monroe',
     state: 'NC',
-    featuredImage: '/images/cities/monroe-nc/hero.png',
+    featuredImage: '/images/cities/monroe-nc/hero.webp',
     summary:
       'The heart of Union County offers the convenient Sunset Dog Park and expansive nature experiences at nearby Cane Creek Park.',
     parks: [],
@@ -12648,7 +14243,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'mooresville-nc',
     city: 'Mooresville',
     state: 'NC',
-    featuredImage: '/images/cities/mooresville-nc/hero.png',
+    featuredImage: '/images/cities/mooresville-nc/hero.webp',
     summary:
       'Race City USA is also Dog City, offering access to Lake Norman State Park trails and Cornelius Road Park.',
     parks: [],
@@ -12728,7 +14323,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'salisbury-nc',
     city: 'Salisbury',
     state: 'NC',
-    featuredImage: '/images/cities/salisbury-nc/hero.png',
+    featuredImage: '/images/cities/salisbury-nc/hero.webp',
     summary:
       'A historic city with a modern pet-friendly vibe. Explore the Salisbury Community Park or the Dog PAWS Park for off-leash fun.',
     parks: [],
@@ -12808,7 +14403,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'stallings-nc',
     city: 'Stallings',
     state: 'NC',
-    featuredImage: '/images/cities/stallings-nc/hero.png',
+    featuredImage: '/images/cities/stallings-nc/hero.webp',
     summary:
       'A quiet, family-oriented community with easy access to neighborhing Colonel Francis Beatty Park for extensive trail walking.',
     parks: [],
@@ -12888,7 +14483,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'wake-forest-nc',
     city: 'Wake Forest',
     state: 'NC',
-    featuredImage: '/images/cities/wake-forest-nc/hero.png',
+    featuredImage: '/images/cities/wake-forest-nc/hero.webp',
     summary:
       'History meets nature. Flaherty Dog Park and the breathtaking E. Carroll Joyner Park offers miles of paved trails and open meadows.',
     parks: [],
@@ -12968,7 +14563,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'waxhaw-nc',
     city: 'Waxhaw',
     state: 'NC',
-    featuredImage: '/images/cities/waxhaw-nc/hero.png',
+    featuredImage: '/images/cities/waxhaw-nc/hero.webp',
     summary:
       'Small town charm with big adventure. Visit Dogwood Park or explore the historic downtown overhead bridge with your pup.',
     parks: [],
@@ -13048,7 +14643,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'wilson-nc',
     city: 'Wilson',
     state: 'NC',
-    featuredImage: '/images/cities/wilson-nc/hero.png',
+    featuredImage: '/images/cities/charlotte/hero.webp',
     summary:
       'Home of the Whirligigs and a fantastic dog park on Lawndale Drive. Wilson combines art, history, and recreation.',
     parks: [],
@@ -13128,7 +14723,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'winston-salem-nc',
     city: 'Winston-Salem',
     state: 'NC',
-    featuredImage: '/images/cities/winston-salem-nc/hero.png',
+    featuredImage: '/images/cities/winston-salem-nc/hero.webp',
     summary:
       'The City of Arts and Innovation loves its dogs, featuring the massive playground of Washington Park and the serene loop at Salem Lake.',
     parks: [],
@@ -17514,11 +19109,1454 @@ export const priorityCityContent: PriorityCityConfig[] = [
       faqs: [],
     },
   },
+  {
+    slug: 'yorktown-va',
+    city: 'Yorktown',
+    state: 'VA',
+
+    summary: 'Historic Yorktown offers scenic battlefield walks and community-focused dog parks in the heart of Virginia\'s Coastal Plain.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Yorktown, VA',
+      heroDescription: 'Experience historic Yorktown with your canine companion, featuring scenic waterfront trails and verified local play spaces.',
+      longDescription: [
+        'Yorktown, Virginia, famous for its pivotal role in American history, offers a surprisingly pet-friendly environment that blends historical landmarks with modern recreation. The [Yorktown Battlefield](https://www.nps.gov/colo) allows leashed dogs on its miles of tour roads and scenic trails, providing a unique opportunity for both education and exercise. For off-leash play, residents often look to the [Back Creek Park\'s Bark Park](https://www.yorkcounty.gov/parksandrec), which features dedicated fenced areas for both large and small breeds. This community-focused infrastructure ensures that dogs in Yorktown have ample space to safely socialize and burn off energy amidst the city\'s historic backdrop.',
+        'The local lifestyle in Yorktown is deeply connected to the outdoors, making indoor play options a valuable alternative during Virginia\'s humid summers or occasional winter freezes. While the city maintains a quiet, historic charm, the surrounding York County area is rapidly expanding its pet-related services, including boutique grooming and professional training centers. Safety and community health are prioritized through local ordinances that mandate up-to-date vaccinations and responsible waste management. Whether you\'re strolling along the York River waterfront or exploring the wooded trails of the Newport News border, Yorktown provides a high quality of life for dogs and their handlers alike.'
+      ],
+      faqs: yorktownFaqs,
+    },
+  },
+  {
+    slug: 'williamsburg-va',
+    city: 'Williamsburg',
+    state: 'VA',
+
+    summary: 'The historic heart of colonial Virginia, Williamsburg offers world-class historic walks and premier off-leash dog facilities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Williamsburg, VA',
+      heroDescription: 'Walk through history in Williamsburg, home to Colonial Williamsburg\'s pet-friendly grounds and top-rated dog parks like Waller Mill.',
+      longDescription: [
+        'Williamsburg, Virginia, is a premier destination for dog owners who appreciate a blend of history and high-quality outdoor recreation. The iconic [Colonial Williamsburg](https://www.colonialwilliamsburg.org) historic area is notably pet-friendly, allowing leashed dogs to stroll alongside their owners through the 18th-century streets and gardens. For more intense activity, [Waller Mill Park](https://www.williamsburgva.gov/parks) offers a dedicated off-leash dog park within its 2,700-acre forest, featuring separate runs and plenty of shade. The city\'s commitment to canine wellness is evident in the well-maintained trails and the active community of local pet parents who frequent the city\'s numerous parks and greenways.',
+        'Operating a pet-friendly lifestyle in Williamsburg is convenient thanks to a robust network of local businesses, from dog-friendly breweries to professional boarding suites. During extreme weather, having access to monitored indoor environments is essential for the city\'s active dog population. Williamsburg\'s strict vaccination and licensing standards ensure that play remains safe and healthy for all participants. Whether you are exploring the scenic Chickahominy Riverfront or enjoying a quiet walk through the historic college grounds, Williamsburg provides a welcoming and sophisticated environment for dogs of all sizes. Visit our [owner resources](/owner-resources) for more tips on navigating this historic Virginia hub.'
+      ],
+      faqs: williamsburgFaqs,
+    },
+  },
+  {
+    slug: 'reston-va',
+    city: 'Reston',
+    state: 'VA',
+
+    summary: 'A master-planned community in Northern Virginia featuring extensive wooded trails and the popular Baron Cameron Dog Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Reston, VA',
+      heroDescription: 'Discover Reston\'s innovative park system, offering miles of canopy-covered trails and verified off-leash areas in the heart of Fairfax County.',
+      longDescription: [
+        'Reston, Virginia, was designed with a focus on integrating nature and community, making it one of the most dog-friendly master-planned cities in the country. The community boasts over 55 miles of interconnected paved and natural trails managed by the [Reston Association](https://www.reston.org), many of which are heavily shaded and perfect for leashed summer walks. For off-leash fun, the [Baron Cameron Dog Park](https://www.fairfaxcounty.gov/parks) is a central social hub, featuring size-specific runs and inclusive community events. This focus on "green-space-first" planning ensures that Reston\'s 100,000+ residents and their pets have consistent access to high-quality outdoor activity regardless of their neighborhood.',
+        'The professional demographic in Reston drives high demand for premium pet services, including indoor enrichment centers that provide a safe haven during Virginia\'s humid summers. Facilities in the Reston Town Center area often cater to hybrid workers who value proximity to exercise spots during the workday. Safety standards are rigorous, with digital vaccination verification and professional supervision being the norm for the region\'s elite boarding and daycare suites. By blending urban convenience with a deep respect for the natural environment, Reston has created a model for a sustainable, dog-centric community. Our [Reston directory](#park-directory) helps you find the best spots for socialization and exercise in this Northern Virginia gem.'
+      ],
+      faqs: restonFaqs,
+    },
+  },
+  {
+    slug: 'new-braunfels-va',
+    city: 'New Braunfels',
+    state: 'VA',
+
+    summary: 'A quiet riverside community in Virginia offering scenic trails and dog-friendly outdoor spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In New Braunfels, VA',
+      heroDescription: 'Discover dog-friendly parks and trails in New Braunfels, VA. Your guide to outdoor adventures in this peaceful community.',
+      longDescription: [
+        'New Braunfels, Virginia, offers a serene setting for dog owners who appreciate the quiet beauty of the countryside. Though sharing a name with its famous Texas counterpart, this community provides a distinctly different, more relaxed pace of life. Dog owners here enjoy access to open green spaces and local trails where leashed pets can explore safely. The area\'s natural landscape features gentle hills and woodlands, making it a perfect backdrop for daily exercise away from city congestion.',
+        'The community is welcoming to pets, with many residents taking advantage of the rural roads and nearby state parks for hiking. While dedicated indoor facilities are not common, the moderate climate often allows for year-round outdoor play. For those looking for socialization, informal meetups at local parks are a great way to connect. New Braunfels offers a simple, nature-focused lifestyle that is ideal for dogs and owners seeking a retreat into the quiet Virginia outdoors.'
+      ],
+      faqs: newBraunfelsFaqs,
+    },
+  },
+  {
+    slug: 'midlothian-va',
+    city: 'Midlothian',
+    state: 'VA',
+
+    summary: 'A thriving suburban hub south of Richmond, Midlothian offers modern parks like Mid-Lothian Mines and premium pet services.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Midlothian, VA',
+      heroDescription: 'Explore Midlothian\'s perfect mix of historic industrial parks and modern suburban amenities for dogs in Chesterfield County.',
+      longDescription: [
+        'Midlothian, Virginia, located in the rapidly growing Chesterfield County, has evolved into a premier suburban destination for dog owners. The community is anchored by unique spaces like [Mid-Lothian Mines Park](https://www.chesterfield.gov/parks), where leashed dogs can accompany their owners through 80 acres of historic industrial ruins and scenic wooded trails. For off-leash play, the nearby [Pocahontas State Park](https://www.dcr.virginia.gov/state-parks/pocahontas) offers a massive natural playground, while several private daycare and training facilities provide structured socialization in the heart of the village. This combination of historic charm and modern infrastructure makes Midlothian a highly desirable area for active pet parents.',
+        'The lifestyle in Midlothian is increasingly pet-focused, with many local shopping centers and restaurant patios welcoming well-behaved dogs. During Virginia\'s unpredictable weather, indoor play options become a priority, leading to a rise in professional facilities that offer air-conditioned play zones and elite grooming suites. Safety and community standards are upheld through Chesterfield County\'s clear licensing and vaccination mandates. Whether you are strolling through the walkable neighborhoods of Woodlake or attending a local community event, Midlothian provides a safe and supportive environment for dogs of all sizes. Our [Virginia state directory](https://www.indoordogpark.org/states/virginia) serves as a guide to the best verified local spots for your canine companion.'
+      ],
+      faqs: midlothianFaqs,
+    },
+  },
+  {
+    slug: 'martinsburg-va',
+    city: 'Martinsburg',
+    state: 'VA',
+
+    summary: 'A historic Virginia community offering scenic valley views and peaceful walking trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Martinsburg, VA',
+      heroDescription: 'Explore the historic charm and scenic beauty of Martinsburg, VA. Your guide to dog-friendly adventures in the Shenandoah Valley.',
+      longDescription: [
+        'Martinsburg, Virginia, nestled in the picturesque Shenandoah Valley, offers a perfect blend of historic architecture and natural beauty for dog owners. The community provides numerous opportunities for leashed walks through its historic downtown and along scenic valley trails. Its location near the Blue Ridge Mountains ensures that dogs have access to fresh mountain air and diverse landscapes for daily exercise.',
+        'The local pet community is active and welcoming, with many residents enjoying the quiet, suburban pace of life. Safety and wellness are prioritized through clear local guidelines on pet care and vaccinations. Whether you are strolling through a community park or enjoying the views of the rolling hills, Martinsburg provides a serene and supportive environment for dogs of all sizes and their handlers.'
+      ],
+      faqs: martinsburgFaqs,
+    },
+  },
+  {
+    slug: 'crossroads-va',
+    city: 'Crossroads',
+    state: 'VA',
+    summary: 'A scenic community in the Roanoke Valley, Crossroads offers peaceful rural trails and access to the region\'s top mountain parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Crossroads, VA',
+      heroDescription: 'Escape to Crossroads for a dog-friendly mountain lifestyle, featuring easy access to the Blue Ridge Parkway and local valley trails.',
+      longDescription: [
+        'Crossroads, Virginia, nestled in the southern reaches of the Roanoke Valley, offers a tranquil lifestyle for dog owners who value proximity to the Blue Ridge Mountains. This community serves as a gateway to some of Virginia\'s most iconic outdoor spaces, including the [Blue Ridge Parkway](https://www.nps.gov/blri), where leashed dogs can experience world-class scenic overlooks and forest trails. For off-leash socialization, the nearby [Thrasher Park](https://www.roanokecountyva.gov/parks) in Roanoke County provides a dedicated dog park with separate areas for different breeds and plenty of shade. This unique location allows residents of Crossroads to enjoy the peace of a rural setting without sacrificing access to professional pet infrastructure.',
+        'Pet ownership in the Crossroads area is deeply connected to the rhythm of the valley, making seasonal planning essential for active dogs. While the region is a paradise for hikers, it also boasts a growing number of pet-friendly businesses that cater to the local demographic. During periods of extreme mountain weather, having a plan for indoor enrichment is crucial for maintaining your dog\'s health and spirits. Safety is managed through local county ordinances that focus on responsible leash use and mandatory rabies vaccinations. Whether you\'re exploring the winding roads of the foothills or visiting local farms and markets, Crossroads provides a picturesque and welcoming backdrop for dogs who love the great outdoors. Visit our [Virginia directory](https://www.indoordogpark.org/states/virginia) for more verified local tips.'
+      ],
+      faqs: crossroadsFaqs,
+    },
+  },
+  {
+    slug: 'bay-shore-va',
+    city: 'Bay Shore',
+    state: 'VA',
+
+    summary: 'A beautiful waterfront community in Virginia offering coastal views and dog-friendly walking paths.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Bay Shore, VA',
+      heroDescription: 'Experience the coastal charm of Bay Shore, VA. Your guide to dog-friendly parks and trails along the Virginia waterfront.',
+      longDescription: [
+        'Bay Shore, Virginia, offers a scenic waterfront lifestyle for dog owners who enjoy the coastal breeze and natural beauty of the region. The community features accessible trails and green spaces that are perfect for leashed walks with views of the water. Its peaceful atmosphere makes it an ideal retreat for those who value outdoor activity in a serene environment.',
+        'Pet owners in Bay Shore benefit from a supportive community and well-maintained public paths. Local safety standards ensure that dogs and their owners can enjoy the waterfront safely, with clear guidelines on vaccinations and leash use. Whether you are strolling along the beach or exploring the local neighborhoods, Bay Shore provides a welcoming and high-quality environment for your canine companion.'
+      ],
+      faqs: bayShoreFaqs,
+    },
+  },
+  {
+    slug: 'bristow-va',
+    city: 'Bristow',
+    state: 'VA',
+
+    summary: 'A premier Northern Virginia suburb in Prince William County, Bristow offers modern parks and access to the Bristow Station Battlefield.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Bristow, VA',
+      heroDescription: 'Discover Bristow\'s perfect blend of historic preservation and modern suburban dog-friendly facilities in Northern Virginia.',
+      longDescription: [
+        'Bristow, Virginia, located in the heart of Prince William County, offers a high quality of life for dog owners who appreciate both history and modern suburban convenience. The community is well-known for the [Bristow Station Battlefield Heritage Park](https://www.pwcva.gov/department/historic-preservation/bristow-station-battlefield), which features miles of scenic, leashed walking trails through historic landscapes. For off-leash socialization, residents often head to the nearby [Brentsville Park Dog Park](https://www.pwcva.gov/parks), providing dedicated space for dogs to run and play in a safe, fenced environment. This focus on preserving open space while providing modern amenities makes Bristow a top choice for pet parents in the Northern Virginia area.',
+        'The lifestyle in Bristow is increasingly tailored to the needs of busy families and their pets, with a variety of local services ranging from high-end grooming to professional obedience training. During the humid Virginia summers, indoor play options are a vital resource, leading to the growth of climate-controlled facilities that provide a retreat from the heat. Safety and health are prioritized through Prince William County\'s clear vaccination and licensing requirements. Whether you\'re exploring the historic trails of the battlefield or visiting a local pet-friendly brewery in the surrounding area, Bristow provides a supportive and active environment for dogs of all sizes. Our [Virginia state directory](https://www.indoordogpark.org/states/virginia) helps you find the best verified local spots for your canine companion.'
+      ],
+      faqs: bristowFaqs,
+    },
+  },
+  {
+    slug: 'carrollton-va',
+    city: 'Carrollton',
+    state: 'VA',
+
+    summary: 'A scenic coastal community in Isle of Wight County, Carrollton offers riverside trails and proximity to Nike Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Carrollton, VA',
+      heroDescription: 'Explore Carrollton\'s unique coastal charm and riverfront trails, with easy access to Isle of Wight\'s premier dog-friendly parks.',
+      longDescription: [
+        'Carrollton, Virginia, situated in Isle of Wight County near the banks of the James River, offers a peaceful and picturesque environment for dog owners. The community is just minutes away from [Nike Park](https://www.iwus.net/parks-and-recreation), a regional hub that features a dedicated off-leash dog park within its 100-acre forest and recreation complex. Carrollton\'s coastal location also provides opportunities for leashed walks along scenic riverfront paths and through historic marshlands, making it an ideal home for pets that enjoy the sights and sounds of the Virginia coast. This combination of natural beauty and dedicated park infrastructure ensures that dogs in Carrollton have ample space to safely socialize and explore.',
+        'Dog ownership in Carrollton is supported by a growing network of local services, with a focus on holistic care and professional training. Given the region\'s humid climate, the availability of monitored indoor play environments is a valuable asset for maintaining a consistent exercise routine year-round. Isle of Wight County maintains high standards for pet health, with requirements for rabies vaccinations and responsible waste management on all public lands. Whether you are visiting the historic Smithfield area nearby or enjoying a quiet sunset walk at the Jones Creek boat ramp, Carrollton provides a welcoming and serene backdrop for you and your dog. Consult our [owner resources](/owner-resources) for more tips on navigating the coastal Virginia pet lifestyle.'
+      ],
+      faqs: carrolltonFaqs,
+    },
+  },
+  {
+    slug: 'cascade-va',
+    city: 'Cascade',
+    state: 'VA',
+
+    summary: 'A quiet rural community in Pittsylvania County, Cascade offers expansive natural spaces and easy access to Dan River recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Cascade, VA',
+      heroDescription: 'Escape to the quiet beauty of Cascade, featuring rural trails and proximity to the scenic Dan River for you and your dog.',
+      longDescription: [
+        'Cascade, Virginia, located in the rolling hills of Pittsylvania County, provides a tranquil rural retreat for dog owners who value space and natural beauty. This community is defined by its wide-open fields and proximity to the [Dan River](https://www.danriver.org), where leashed dogs can accompany their owners for scenic walks along the water and through shaded forest paths. While Cascade offers a quiet, slow-paced lifestyle, it is conveniently located near the more robust park systems of Danville and Eden, NC, allowing residents to enjoy the best of both worlds. This unique location is perfect for dogs that thrive in a peaceful, nature-focused environment away from the bustle of the city.',
+        'Maintaining an active lifestyle in Cascade requires a focus on seasonal planning, as the rural landscape offers endless exploration but fewer monitored public facilities. Owners in the area often rely on private lands and nearby state parks for intensive exercise, while local county ordinances ensure that pets remain safe and healthy through mandatory vaccinations and responsible leash use. During periods of extreme heat or rain, finding indoor enrichment options in the surrounding towns is a valuable way to maintain your dog\'s social skills. Whether you\'re hiking the trails of the Dan River basin or exploring the quiet country roads of the foothills, Cascade provides a scenic and welcoming home for dogs and their families. Visit our [Virginia directory](https://www.indoordogpark.org/states/virginia) for more verified local insights.'
+      ],
+      faqs: cascadeFaqs,
+    },
+  },
+  {
+    slug: 'chandler-va',
+    city: 'Chandler',
+    state: 'VA',
+
+    summary: 'A modern Virginia community offering innovative park spaces and dog-friendly neighborhood trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Chandler, VA',
+      heroDescription: 'Discover the modern pet-friendly lifestyle of Chandler, VA. Your guide to verified walking paths and open green spaces in Virginia.',
+      longDescription: [
+        'Chandler, Virginia, is a contemporary community designed with active lifestyles in mind. For dog owners, it offers a network of well-planned neighborhoods featuring wooded trails and accessible parks perfect for daily exercise. The area emphasizes a balance of urban convenience and natural preservation, ensuring a high quality of life for pets and their owners.',
+        'The local community is pet-focused, with safe walking infrastructure and a variety of nearby services. Safety is managed through clear county ordinances and a commitment to responsible ownership. Whether you are exploring the shaded trails or visiting a local pet-friendly spot, Chandler provides a supportive and modern environment for dogs of all sizes. Our guide helps you find the best verified locations for socialization in this Virginia gem.'
+      ],
+      faqs: chandlerFaqs,
+    },
+  },
+  {
+    slug: 'cranberry-twp-va',
+    city: 'Cranberry Twp',
+    state: 'VA',
+
+    summary: 'A charming community in Virginia offering scenic dog-walking trails and open green spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Cranberry Twp, VA',
+      heroDescription: 'Discover dog-friendly parks and trails in Cranberry Twp, VA. Your guide to outdoor adventures in this scenic Virginia community.',
+      longDescription: [
+        'Cranberry Twp offers a peaceful, nature-focused setting for dog owners in Virginia. While distinct from its larger Pennsylvania namesake, this community provides its own charm with accessible green spaces and wooded trails perfect for daily walks. The area\'s quiet, rural atmosphere is ideal for dogs who prefer a relaxed environment over the bustle of city life. Local parks offer open fields where leashed pets can enjoy the fresh air and scenic views characteristic of the Virginia countryside.',
+        'Community life here is centered around the outdoors, and pet owners will find welcoming neighbors and safe roads for walking. Although dedicated indoor dog parks are not a local staple, the moderate Virginia climate allows for year-round outdoor activity. For those seeking more extensive amenities or social opportunities, nearby larger towns offer dog-friendly patios and services. Cranberry Twp is a hidden gem for those who value tranquility and nature in their life with a dog.'
+      ],
+      faqs: cranberryTwpFaqs,
+    },
+  },
+  {
+    slug: 'crozet-va',
+    city: 'Crozet',
+    state: 'VA',
+
+    summary: 'Nestled in the foothills of the Blue Ridge, Crozet offers scenic mountain views and the popular Claudius Crozet Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Crozet, VA',
+      heroDescription: 'Escape to the mountains in Crozet, featuring stunning Blue Ridge trails and the community-focused Claudius Crozet Dog Park.',
+      longDescription: [
+        'Crozet, Virginia, located in Albemarle County with the Blue Ridge Mountains as its backdrop, offers a world-class environment for dogs and their active owners. The community is anchored by [Claudius Crozet Park](https://www.crozetpark.org), a historic 22-acre park that features a dedicated dog park, walking trails, and expansive green spaces for leashed play. Crozet\'s unique location provides easy access to some of Virginia\'s most iconic hiking trails and farm-to-table destinations, many of which welcome well-behaved canine companions. This blend of small-town community spirit and rugged mountain scenery makes Crozet an ideal home for breeds that thrive on outdoor adventure.',
+        'Pet ownership in Crozet is central to the local lifestyle, with a thriving network of dog-friendly breweries, wineries, and cafes that reflect the region\'s social culture. While the area is a paradise for hikers, it also benefits from proximity to the professional pet services in nearby Charlottesville, including elite veterinary care and monitored indoor play environments. Safety is upheld through Albemarle County\'s licensing and vaccination standards, ensuring a healthy environment for all. Whether you\'re exploring the trails of Mint Springs Valley Park or enjoying a quiet afternoon at a local orchard, Crozet provides a picturesque and welcoming backdrop for you and your dog. Consult our [Virginia directory](https://www.indoordogpark.org/states/virginia) for more verified local tips.'
+      ],
+      faqs: crozetFaqs,
+    },
+  },
+  {
+    slug: 'elkridge-va',
+    city: 'Elkridge',
+    state: 'VA',
+
+    summary: 'A charming community in Virginia offering riverside trails and historic walking paths for dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Elkridge, VA',
+      heroDescription: 'Explore the natural beauty of Elkridge, VA. Your guide to riverside adventures and scenic trails in this Virginia community.',
+      longDescription: [
+        'Elkridge, Virginia, situated along the banks of a scenic river, offers a peaceful and nature-focused environment for dog owners. The community provides numerous leashed walking options through its wooded trails and regional parks. It is an ideal home for those who enjoy the fresh air and the historic beauty of the Virginia landscape.',
+        'Pet ownership in Elkridge is central to the local lifestyle, with safe roads and accessible paths making it easy to stay active with your canine companion. Local ordinances prioritize community health through mandatory vaccinations and responsible waste management. Whether you are exploring the riverside trails or visiting a nearby green space, Elkridge provides a scenic and welcoming home for dogs and their families.'
+      ],
+      faqs: elkridgeFaqs,
+    },
+  },
+  {
+    slug: 'fort-lauderdale-va',
+    city: 'Fort Lauderdale',
+    state: 'VA',
+
+    summary: 'A vibrant coastal-style community in Virginia offering sunny parks and dog-friendly neighborhood walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Fort Lauderdale, VA',
+      heroDescription: 'Experience the sunny, welcoming atmosphere of Fort Lauderdale, VA. Your guide to pet-friendly paths in this Virginia community.',
+      longDescription: [
+        'Fort Lauderdale, Virginia, offers a unique blend of coastal-inspired living and suburban comfort for dog owners. This community features a variety of leashed walking options through its open fields and along its winding neighborhood paths. Its bright and welcoming atmosphere makes it an ideal spot for pet parents who value outdoor activity and community engagement.',
+        'The lifestyle here is increasingly focused on pet wellness, with local services and quiet roads making daily exercise convenient and safe. Safety standards are high, with clear guidelines on vaccinations and responsible ownership helping to maintain a healthy environment for all. Whether you are walking through a local greenway or enjoying the fresh air in a nearby park, Fort Lauderdale provides a supportive and active backdrop for you and your dog.'
+      ],
+      faqs: fortLauderdaleFaqs,
+    },
+  },
+  {
+    slug: 'haymarket-va',
+    city: 'Haymarket',
+    state: 'VA',
+
+    summary: 'A historic crossroads in Prince William County, Haymarket offers scenic farm stays and access to the Leopold\'s Preserve trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Haymarket, VA',
+      heroDescription: 'Escape to Haymarket\'s rural charm, featuring preserved natural landscapes and verify local dog-friendly farm trails.',
+      longDescription: [
+        'Haymarket, Virginia, located at the foot of the Bull Run Mountains in Prince William County, offers a serene and scenic environment for dog owners. The community is home to [Leopold\'s Preserve](https://www.whitehallsfarm.com/leopolds-preserve), a 380-acre natural area with seven miles of leashed walking trails through diverse habitats including forests, meadows, and wetlands. This commitment to environmental preservation makes Haymarket a top choice for pet parents who enjoy quiet, nature-focused exercise. The town\'s historic center and surrounding rural landscapes provide a peaceful backdrop for dogs to explore the richness of the Virginia countryside.',
+        'The lifestyle in Haymarket is characterized by a balance of rural traditions and modern suburban needs, with local businesses and community events often welcoming well-behaved pets. During the hot and humid Virginia summers, finding cool, shaded spots for exercise is a priority, and the increased availability of professional indoor facilities in the surrounding area offers a vital resource for year-round socialization. Safety is ensured through Prince William County\'s licensing and vaccination requirements. Whether you are walking the trails of the preserve or visiting a local farm market, Haymarket provides a charming and supportive home for you and your dog. Consult our [Virginia state directory](https://www.indoordogpark.org/states/virginia) for more verified local insights.'
+      ],
+      faqs: haymarketFaqs,
+    },
+  },
+  {
+    slug: 'hopewell-va',
+    city: 'Hopewell',
+    state: 'VA',
+
+    summary: 'An independent city on the James and Appomattox Rivers, Hopewell offers waterfront parks and the popular Riverside Park trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Hopewell, VA',
+      heroDescription: 'Explore Hopewell\'s historic waterfront with your dog, featuring scenic river views and the city\'s popular Riverside Park green spaces.',
+      longDescription: [
+        'Hopewell, Virginia, situated at the confluence of the James and Appomattox Rivers, offers a unique waterfront experience for dog owners. The city\'s recreational life is highlighted by [Riverside Park](https://www.hopewellva.gov/parks-and-recreation), which provides beautiful leashed walking paths with panoramic river views and ample green space for socialization. Hopewell\'s historic neighborhoods and scenic riverwalks make it an ideal setting for daily exercise and community engagement. This water-focused environment provides a cool and breezy escape for pets, particularly during the transition from the humid coastal plain to the interior of the state.',
+        'Dog ownership in Hopewell is supported by a growing network of local services and a community that values its public parks and natural resources. As the city continues to revitalize its waterfront and downtown areas, the demand for pet-friendly amenities and indoor enrichment options is on the rise. Hopewell maintains standard safety protocols, including mandatory vaccinations and licensing, to ensure a healthy environment for all canine residents. Whether you are enjoying a sunset walk along the riverwalk or exploring the wooded trails of the nearby conservation areas, Hopewell provides a scenic and welcoming home for dogs who love the water. Learn more about local resources in our [Virginia directory](https://www.indoordogpark.org/states/virginia).'
+      ],
+      faqs: hopewellFaqs,
+    },
+  },
+  {
+    slug: 'woodbridge-va',
+    city: 'Woodbridge',
+    state: 'VA',
+
+    summary: 'A vibrant hub in Prince William County, Woodbridge offers scenic riverfront trails and premier dog-friendly parks like Veteran’s Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Woodbridge, VA',
+      heroDescription: 'Experience the best of Northern Virginia with your dog, featuring scenic trails at Leesylvania State Park and verified local play spaces.',
+      longDescription: [
+        'Woodbridge, Virginia, located in Prince William County, is a standout destination for dog owners who value a mix of suburban convenience and expansive natural beauty. The community is anchored by the stunning [Leesylvania State Park](https://www.dcr.virginia.gov/state-parks/leesylvania), which offers miles of leashed walking trails along the Potomac River, providing a refreshing coastal breeze and sensory-rich forest paths. For off-leash play, residents often visit the [Veteran’s Memorial Park Dog Park](https://www.pwcva.gov/parks), which features well-maintained fenced areas for both large and small breeds. This robust park infrastructure ensures that dogs in Woodbridge have consistent access to high-quality socialization and outdoor activity.',
+        'The professional demographic in Woodbridge has cultivated a high demand for premium pet services, including modern indoor enrichment centers that provide a safe haven during Virginia’s humid summers. Facilities in the Stonebridge and Potomac Mills area often cater to commuters who value proximity to exercise spots and professional grooming suites. Safety and community health are prioritized through local county ordinances that mandate up-to-date vaccinations and responsible waste management in all public spaces. Whether you’re strolling along the Occoquan Bay waterfront or exploring the wooded trails of Neabsco Creek, Woodbridge provides an exceptional quality of life for dogs and their handlers alike.'
+      ],
+      faqs: [],
+    },
+  },
+  {
+    slug: 'arlington-tn',
+    city: 'Arlington',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A peaceful community near Memphis offering historic charm and easy access to the massive 100-acre Outback at Shelby Farms Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'West Tennessee Haven',
+      heroHeading: 'Dog Parks in Arlington',
+      heroDescription: 'From the historic Depot Square to the sprawling trails of Shelby Farms, Arlington offers a serene lifestyle for active pets and their owners.',
+      heroPill: 'Top Rated in Shelby County',
+      heroFootnotes: ['15 minutes to Shelby Farms', 'Nearby Loosahatchie nature areas'],
+      heroChips: [
+        { label: 'Off-leash space', value: '100ac', caption: 'Nearby access' },
+        { label: 'Dog-friendly Cafe', value: 'Yes', caption: 'Local spots' },
+        { label: 'Trail network', value: '40mi+', caption: 'Greenway access' },
+      ],
+      longDescription: [
+        'Arlington, Tennessee, offers a charming blend of historic character and expansive outdoor recreation near the Memphis metro area. Situated in Shelby County, pups can enjoy the scenic beauty of the Loosahatchie River valley and the town\'s many green spaces. While mostly residential, many locals take the short drive west to the world-renowned [Shelby Farms Park](https://www.shelbyfarmspark.org/). This canine crown jewel features "The Outback," a massive 100-acre off-leash area with ponds and miles of trails where socialized dogs can roam free.',
+        'Back in Arlington, the growing downtown district provides a quiet environment for leashed walks, while proximity to Memphis ensures premium indoor play options and pet-centric events are always within reach. Whether you are seeking [apartment living tips](/owner-resources) or looking for local veterinary care along Highway 64, Arlington provides a supportive backdrop for you and your dog. From the historic charm of Depot Square to the rugged trails of the nearby Shelby Farms Greenline, Arlington delivers the best of the Volunteer State\'s outdoor hospitality.'
+      ],
+      faqs: arlingtonTnFaqs,
+    },
+  },
+  {
+    slug: 'alcoa-tn',
+    city: 'Alcoa',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A mountain-gateway city famous for its "Paws in the Pool" events and miles of gorgeous greenway trails in the Smoky Mountain foothills.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Smoky Mountain Gateway',
+      heroHeading: 'Dog Parks in Alcoa',
+      heroDescription: 'Experience the perfect blend of industrial heritage and natural beauty with your pup in Alcoa’s sprawling parks and lakeside greenways.',
+      heroPill: 'Blount County Favorite',
+      heroFootnotes: ['Annual Paws in the Pool event', 'Pistol Creek Dog Park access'],
+      heroChips: [
+        { label: 'Greenway miles', value: '9mi', caption: 'Paved paths' },
+        { label: 'Smoky Mt. Access', value: '20min', caption: 'Nearby trails' },
+        { label: 'Private Parks', value: 'Available', caption: 'Rental areas' },
+      ],
+      longDescription: [
+        'Alcoa, at the base of the Smoky Mountains, is a premier destination for dog lovers who appreciate industrial history and natural access. The city is famous for its unique "Paws in the Pool" event at Springbrook Pool, where local pups take over the swimming lanes annually. For daily exercise, the Maryville-Alcoa Greenway provides miles of paved, shaded paths winding through lush parks and along Pistol Creek. These routes connect to the [PetSafe Pistol Creek Dog Park](https://www.visitknoxville.com/), offering dedicated off-leash zones and hydration stations.',
+        'Alcoa pet parents also benefit from private rental options like David\'s Private Dog Park, offering quiet retreats with creek access for sensitive pups. Successfully navigating the humid Tennessee summers requires [indoor cooling strategies](/owner-resources) and access to the region\'s robust veterinary network. With the Great Smoky Mountains National Park just a short drive away, Alcoa serves as a vital base camp for adventurous duos. From seasonal firefly events to morning walks on the greenbelt, Alcoa delivers a high-quality, pet-centric lifestyle in East Tennessee.'
+      ],
+      faqs: alcoaTnFaqs,
+    },
+  },
+  {
+    slug: 'mt-juliet-tn',
+    city: 'Mt. Juliet',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The "City Between the Lakes" offering expansive water access, shaded bark parks, and a thriving dog-friendly shopping scene.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'City Between the Lakes',
+      heroHeading: 'Dog Parks in Mt. Juliet',
+      heroDescription: 'Enjoy a lakeside lifestyle with your pup in one of Middle Tennessee’s most progressive and pet-inclusive suburban communities.',
+      heroPill: 'Fastest Growing Hub',
+      heroFootnotes: ['Steps from Old Hickory Lake', 'Shaded Bark Park facilities'],
+      heroChips: [
+        { label: 'Nearby Lakes', value: '2', caption: 'Percy Priest/Old Hickory' },
+        { label: 'Pet-friendly Hubs', value: 'Providence', caption: 'Shopping/Dining' },
+        { label: 'State Parks', value: 'Nearby', caption: 'Cedars of Lebanon' },
+      ],
+      longDescription: [
+        'Mt. Juliet, known as the "City Between the Lakes," is one of the fastest-growing suburbs in Middle Tennessee. Hemmed in by Old Hickory and Percy Priest Lakes, the city offers unparalleled water access and verdant trails. The [Mount Juliet Bark Park](https://www.mtjuliet-tn.gov/) serves as a central hub for socialization, while nearby Charlie Daniels Park provides beautifully maintained walking paths. The local culture is deeply inclusive, with retail hubs like Providence Marketplace offering pet-friendly patios and outdoor events throughout the year.',
+        'Wilson County pet parents benefit from proximity to Nashville’s world-class veterinary services and indoor daycare centers. For a quiet escape, the Cedars of Lebanon State Park is just a short drive away, offering miles of dog-friendly trails through unique cedar glades. As the city modernizes, the integration of green spaces and trail connectivity remains a high priority for local planners. Between the top-tier local parks and the community\'s welcoming spirit, Mt. Juliet stands as a premier destination for dogs and their handlers.'
+      ],
+      faqs: mtJulietTnFaqs,
+    },
+  },
+  {
+    slug: 'morristown-tn',
+    city: 'Morristown',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The heart of the Lakeway Area, featuring the rugged beauty of Panther Creek State Park and a close-knit Appalachian community.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lakeway Area Hub',
+      heroHeading: 'Dog Parks in Morristown',
+      heroDescription: 'Explore the wooded ridges of East Tennessee and the serene shores of Cherokee Lake with your favorite four-legged hiking partner.',
+      heroPill: 'Outdoor Enthusiast Choice',
+      heroFootnotes: ['Panther Creek State Park trails', 'Historic Downtown walks'],
+      heroChips: [
+        { label: 'Hiking Trails', value: '17mi+', caption: 'Panther Creek' },
+        { label: 'Lake Access', value: 'Cherokee', caption: 'Lakeway living' },
+        { label: 'Elevation', value: 'High', caption: 'Mountain views' },
+      ],
+      longDescription: [
+        'Morristown serves as the heart of the Lakeway Area, offering pet owners scenic Appalachian vistas and easy access to Cherokee Lake. Active explorers often frequent [Panther Creek State Park](https://tnstateparks.com/parks/panther-creek), which features over 17 miles of hiking trails with stunning overlooks of the Holston River valley. For closer-to-home options, Morristown’s municipal parks provide well-maintained greenways perfect for daily exercise. The historic downtown district further reflects a culture that values four-legged companions, offering a welcoming atmosphere for leashed strolls.',
+        'Pet owners here benefit from a supportive network of veterinarians and groomers who understand the unique needs of East Tennessee’s canine population. The proximity to Douglas Lake and the Great Smoky Mountains expands weekend possibilities for adventurous duos seeking new horizons. Managed properly, the transition from outdoor adventures to home life is seamless with the help of [pet-friendly home maintenance](/owner-resources) resources. From seasonal festivals to quiet lakefront moments, Morristown provides a fertile ground for pets to thrive amidst the region\'s natural beauty.'
+      ],
+      faqs: morristownTnFaqs,
+    },
+  },
+  {
+    slug: 'farragut-tn',
+    city: 'Farragut',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A premier West Knoxville suburb boasting elite greenway networks and the lakefront playground of Concord Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Suburban Luxury',
+      heroHeading: 'Dog Parks in Farragut',
+      heroDescription: 'From "bark-cuterie" boards at local wine bars to the canine swimming lanes at Concord Park, Farragut is a pet lover’s paradise.',
+      heroPill: 'Top Rated Infrastructure',
+      heroFootnotes: ['Lakefront dog park access', 'Extensive Greenway system'],
+      heroChips: [
+        { label: 'Greenways', value: 'Paved', caption: 'Turkey Creek/Grigsby' },
+        { label: 'Dog Events', value: 'Dog Daze', caption: 'Annual fun' },
+        { label: 'Swimming', value: 'Lakefront', caption: 'Concord Park access' },
+      ],
+      longDescription: [
+        'Farragut is a premier West Knoxville suburb known for its elite network of greenways, including the Turkey Creek and Grigsby Chapel trails. These paved paths provide miles of interconnected terrain perfect for year-round exercise. Nearby [Concord Park](https://knoxcounty.org/parks/concord.php) serves as a primary playground, boasting a sprawling off-leash area with lake access for water-loving dogs. The town\'s commitment to pet wellness is further showcased in local events like "Dog Daze," which celebrates the canine community with socialization hubs and diving competitions.',
+        'Sophisticated living in Farragut is complemented by high-end pet care, with specialty shops like River Dog Bakery offering premium treats and accessories. Residents benefit from [canine socialization techniques](/owner-resources) fostered by a welcoming community and dog-friendly patios at local favorites like Sparrow Wine Bar. The town’s strategic proximity to the Tennessee River ensures there is never a shortage of new terrains to explore. Farragut continues to lead the way in municipal park planning, guaranteeing a top-tier destination for dog lovers in East Tennessee.'
+      ],
+      faqs: farragutTnFaqs,
+    },
+  },
+  {
+    slug: 'gallatin-tn',
+    city: 'Gallatin',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A historic waterfront city on Old Hickory Lake, combining scenic river views with the expansive recreation areas of Lock 4 Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Sumner County Shores',
+      heroHeading: 'Dog Parks in Gallatin',
+      heroDescription: 'Enjoy the best of Middle Tennessee’s lake country with your pup in Gallatin’s expansive parks and historic downtown.',
+      heroPill: 'Waterfront Recreation Hub',
+      heroFootnotes: ['Old Hickory Lake views', 'Gallatin Greenway access'],
+      heroChips: [
+        { label: 'Water Access', value: 'Lakeside', caption: 'Lakeside trails' },
+        { label: 'Historic Core', value: 'Downtown', caption: 'Dog-friendly vibe' },
+        { label: 'Miracle Park', value: 'Gallatin', caption: 'Inclusive recreation' },
+      ],
+      longDescription: [
+        'Gallatin, situated along the northern banks of Old Hickory Lake, offers an inviting blend of historic charm and waterfront recreation. Pet owners find a haven at [Lock 4 Park](https://www.gallatintn.gov/), where rugged trails and stunning lake views provide an engaging environment for explorers. The city’s Miracle Park and surrounding greenways offer safe, well-maintained paths for daily exercise and community meetups. Gallatin’s historic downtown district further reflects a culture that values four-legged companions, with its quaint shops and welcoming neighborhood atmosphere.',
+        'Maintaining an active lifestyle in Sumner County is easy with the help of [seasonal outdoor tips](/owner-resources) and access to Gallatin’s robust veterinary network. The city’s growth has introduced more dog-friendly dining options and community events like local farmers markets. For weekend excursions, the nearby Bledsoe Creek State Park offers miles of wooded shoreline paths perfect for adventurous duos. From peaceful residential streets to the dynamic waterfront, Gallatin provides a balanced and enriched lifestyle that celebrates the joy of pet ownership in Middle Tennessee\'s lake country.'
+      ],
+      faqs: gallatinTnFaqs,
+    },
+  },
+  {
+    slug: 'germantown-tn',
+    city: 'Germantown',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'An elite Memphis suburb priding itself on pristine parks, a premier membership dog park, and an extensive greenway system.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Elite Memphis Suburb',
+      heroHeading: 'Dog Parks in Germantown',
+      heroDescription: 'Experience a higher standard of pet ownership in Germantown, where world-class parks and sophisticated neighborhoods cater to every canine need.',
+      heroPill: 'Highest Rated Amenities',
+      heroFootnotes: ['Forgey Dog Park Pooch Pass', 'Extensive Greenway system'],
+      heroChips: [
+        { label: 'Municipal Parks', value: '25+', caption: 'City-wide access' },
+        { label: 'Dog Park', value: 'Forgey', caption: 'Agility/Water bar' },
+        { label: 'Pooch Pass', value: 'Required', caption: 'For off-leash area' },
+      ],
+      longDescription: [
+        'Germantown is an upscale Memphis suburb that prides itself on exceptionally high standards for parks and community amenities. For dog owners, this translates into more than two dozen municipal parks and an extensive greenway system. The [Forgey Dog Park](https://www.germantown-tn.gov/) stands as the city\'s premier off-leash destination, offering a membership-based space complete with agility equipment and a doggie water bar. Germantown’s Greenway provides a tranquil, paved corridor perfect for long-distance walking or jogging with a leashed companion.',
+        'Navigating Germantown pet ownership involves [responsible community engagement](/owner-resources) and utilizing the city’s superior local resources. Residents have access to elite specialized veterinary services and boutique pet retailers offering organic treats and designer accessories. For those seeking weekend adventures, the nearby Wolf River Nature Area provides rugged natural surface trails through lush wetlands. As Germantown continues to expand its greenway network, it remains an elite destination for those who believe in a high-quality life for their canine partners.'
+      ],
+      faqs: germantownTnFaqs,
+    },
+  },
+  {
+    slug: 'goodlettsville-tn',
+    city: 'Goodlettsville',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A welcoming suburban retreat featuring the massive Moss-Wright Park and the popular Fenway’s Dog Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Davidson-Sumner Gateway',
+      heroHeading: 'Dog Parks in Goodlettsville',
+      heroDescription: 'Find your perfect pace in Goodlettsville’s expansive parks and friendly neighborhoods, where community spirit and pet wellness go hand-in-hand.',
+      heroPill: 'Family-Friendly Choice',
+      heroFootnotes: ['Fenway’s Dog Park at Moss-Wright', 'Easy Nashville metro access'],
+      heroChips: [
+        { label: 'Moss-Wright Park', value: '147ac', caption: 'Community hub' },
+        { label: 'Off-leash area', value: 'Fenway’s', caption: 'Separate zones' },
+        { label: 'Trail network', value: 'Greenways', caption: 'Regional access' },
+      ],
+      longDescription: [
+        'Goodlettsville offers a perfectly balanced suburban retreat with deep roots in community-focused recreation. The city’s crown jewel is Moss-Wright Park, a massive 147-acre facility that houses [Fenway’s Dog Park](https://www.goodlettsville.gov/). This dedicated off-leash area features separate sections for large and small breeds, providing a safe harbor for socialization. Local dog lovers also appreciate the city’s proximity to the Cumberland River and the extensive greenway systems that connect Goodlettsville to the broader Nashville metropolitan area.',
+        'Succeeding as a Goodlettsville pet parent means staying informed about local [urban and suburban safety tips](/owner-resources) while enjoying community gatherings. The local business community is notably pet-friendly, with many establishments along the Main Street corridor providing outdoor seating for furry guests. For a change of pace, the nearby Long Hunter State Park offers intensive hiking options along the shores of Percy Priest Lake. From the morning meetup at Fenway’s to the evening sunset walk at Moss-Wright, Goodlettsville is a place where every pup can find their stride.'
+      ],
+      faqs: goodlettsvilleTnFaqs,
+    },
+  },
+  {
+    slug: 'hixson-tn',
+    city: 'Hixson',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A nature-lover’s paradise defined by the 180-acre Greenway Farm and its stunning creek-side dog park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Chattanooga Nature Gem',
+      heroHeading: 'Dog Parks in Hixson',
+      heroDescription: 'From creek-side hikes to fully enclosed play fields, Hixson offers a rugged and beautiful escape for high-energy dogs and their owners.',
+      heroPill: 'Outdoor Adventure Hub',
+      heroFootnotes: ['Greenway Farm Dog Park', 'Lakeside paths at Chester Frost'],
+      heroChips: [
+        { label: 'Nature Center', value: '180ac', caption: 'Greenway Farm' },
+        { label: 'Creek Access', value: 'N. Chickamauga', caption: 'Swimming/Hiking' },
+        { label: 'Park Type', value: 'Off-leash', caption: 'Enclosed fields' },
+      ],
+      longDescription: [
+        'Hixson, nestled just north of Chattanooga, is a hidden gem for dog owners craving river access and expansive preserves. The community is anchored by the massive [Greenway Farm](https://chattanooga.gov/parks/recreation/greenway-farm), a 180-acre nature center featuring a fully enclosed off-leash dog park. Dogs here can transition from social play in the fenced area to leashed hikes along the scenic turns of North Chickamauga Creek. The area’s rugged beauty is a perfect match for high-energy breeds and owners who enjoy paddling or exploring wooded ridges.',
+        'Navigating Hixson’s outdoor lifestyle requires a handle on [active breed engagement](/owner-resources) and local safety knowledge for river environments. Residents benefit from a supportive community of pet professionals and proximity to Chattanooga’s urban dog parks and breweries. For structured socialization, the nearby Heritage Dog Park offers a membership-based alternative with specialized agility features. As Hixson grows, preserving its creek-side green spaces remains a priority, ensuring future generations can enjoy the natural splendor that defines this unique East Tennessee corner.'
+      ],
+      faqs: hixsonTnFaqs,
+    },
+  },
+  {
+    slug: 'humboldt-tn',
+    city: 'Humboldt',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A welcoming Gibson County town boasting a top-tier dog park with agility equipment and a dog-washing station.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'West Tennessee Hospitality',
+      heroHeading: 'Dog Parks in Humboldt',
+      heroDescription: 'Experience the warm welcome of Humboldt, where elite pet amenities like the Humboldt Dog Park meet small-town Southern charm.',
+      heroPill: 'Best in Gibson County',
+      heroFootnotes: ['Agility equipment on-site', 'Humboldt Dog Park wash station'],
+      heroChips: [
+        { label: 'Facility', value: 'Fenced', caption: 'Separate zones' },
+        { label: 'Amenities', value: 'Wash station', caption: 'On-site cleanup' },
+        { label: 'Trail', value: 'Scenic', caption: 'Inside dog park' },
+      ],
+      longDescription: [
+        'Humboldt, famous for its annual Strawberry Festival, prides itself on hospitality and beautifully maintained public spaces. For dog owners, the city offers superb amenities centered around the [Humboldt Dog Park](https://www.humboldtchamber.com/). This facility is a regional standout, featuring agility equipment, dog water stations, and a wash station for cleanup after play. The separate areas for different breeds and a scenic walking trail make it a daily destination for local pet parents, while Pugh Bourne Park offers additional shaded streets for leashed strolls.',
+        'Embracing the Humboldt lifestyle means staying tuned into [seasonal community events](/owner-resources) and utilizing local service networks. Proximity to Jackson provides access to expanded veterinary care, while residents enjoy the lower-paced charm of Gibson County. Nearby nature preserves like Milan City Park further expand weekend options for adventurous duos. As the city modernizes its recreational offerings, high-quality pet amenities remain a key part of the municipal vision, ensuring that dogs continue to be celebrated central figures in Humboldt’s vibrant social life.'
+      ],
+      faqs: humboldtTnFaqs,
+    },
+  },
+  {
+    slug: 'jonesborough-tn',
+    city: 'Jonesborough',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Tennessee’s oldest town offers historic charm and pet-friendly trails like Persimmon Ridge Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Storytelling Capital',
+      heroHeading: 'Dog Parks in Jonesborough',
+      heroDescription: 'Walk through history with your pup in Tennessee’s oldest town, featuring scenic trails and welcoming local parks.',
+      heroPill: 'Oldest Town in TN',
+      heroFootnotes: ['Persimmon Ridge Park trails', 'Main Street pet-friendly dining'],
+      heroChips: [
+        { label: 'Park', value: 'Persimmon', caption: '130 acres' },
+        { label: 'Dining', value: 'Main St', caption: 'Patio access' },
+        { label: 'Vibe', value: 'Historic', caption: 'Walkable downtown' },
+      ],
+      longDescription: [
+        'Jonesborough, famed as the "Storytelling Capital of the World," seamlessly blends historic preservation with a friendly pet culture. Dogs are welcome along the historic brick sidewalks, often finding water bowls outside shops. [Persimmon Ridge Park](https://www.jonesboroughtn.org/) anchors the town with 130 acres of green space and miles of wooded hiking trails. For a more relaxed outing, the quaint Stage Road Park offers open green space near downtown. Jonesborough uniquely offers both a bustling, pet-welcoming Main Street and immediate access to serene, forested retreats.',
+        'Life in Jonesborough offers a slower pace without sacrificing amenities. The town hosts numerous outdoor festivals where leashed pets are often welcome, fostering a strong sense of community. While lacking a local off-leash facility, large dog parks in Johnson City are just a short drive away. [Veterinary care](/owner-resources) is readily available, and you\'ll quickly become regulars at spots like the Main Street Cafe. Whether exploring the Lost State Scenic Walkway or relaxing in the park, Jonesborough offers a timeless backdrop for pet parenting.'
+      ],
+      faqs: jonesboroughTnFaqs,
+    },
+  },
+  {
+    slug: 'kingsport-tn',
+    city: 'Kingsport',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A model city for recreation featuring the expansive Dogwood Park and the scenic Kingsport Greenbelt.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Model City Recreation',
+      heroHeading: 'Dog Parks in Kingsport',
+      heroDescription: 'Discover Kingsport’s top-tier amenities, from the agility-equipped Dogwood Park to the miles of scenic riverfront on the Greenbelt.',
+      heroPill: 'Tri-Cities Hub',
+      heroFootnotes: ['Dogwood Park agility course', '10-mile Kingsport Greenbelt'],
+      heroChips: [
+        { label: 'Park', value: 'Dogwood', caption: 'Agility/Fenced' },
+        { label: 'Trail', value: 'Greenbelt', caption: '10 miles paved' },
+        { label: 'Views', value: 'Riverfront', caption: 'Holston River' },
+      ],
+      longDescription: [
+        'Kingsport is a recreational powerhouse in the Tri-Cities region, offering some of the best dog-friendly infrastructure in Tennessee. The crown jewel is [Dogwood Park](https://www.kingsporttn.gov/) at Hunter Wright Stadium, a dedicated off-leash facility that goes beyond the basics with agility equipment, separate small dog areas, and water stations. For leashed walks, the Kingsport Greenbelt offers a stunning 10-mile paved path meandering along the Holston River. This network connects neighborhoods and parks, making it easy to integrate a scenic workout into your daily routine.',
+        'Kingsport’s commitment to "The Model City" philosophy extends to its pet amenities, ensuring well-maintained and accessible public spaces. Pet owners should be mindful of [seasonal park hours](/owner-resources) and trail etiquette, especially on the popular Greenbelt. The city is also home to a variety of pet-friendly patios and breweries, perfect for post-hike relaxation. With Warriors’ Path State Park nearby offering additional hiking trails and boat rentals, Kingsport serves as an ideal basecamp for active dog owners seeking urban convenience and outdoor adventure.'
+      ],
+      faqs: kingsportTnFaqs,
+    },
+  },
+  {
+    slug: 'lebanon-tn',
+    city: 'Lebanon',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Home to the famous Cedars of Lebanon State Park and a dedicated city dog park for off-leash play.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Cedar City Outdoors',
+      heroHeading: 'Dog Parks in Lebanon',
+      heroDescription: 'From the rugged trails of Cedars of Lebanon State Park to the social scene at the city dog park, Lebanon is a haven for active pets.',
+      heroPill: 'Nature & Community',
+      heroFootnotes: ['Cedars of Lebanon trails', 'City Dog Park amenities'],
+      heroChips: [
+        { label: 'State Park', value: 'Cedars', caption: 'Hiking trails' },
+        { label: 'Dog Park', value: 'Fenced', caption: 'Separate zones' },
+        { label: 'Event', value: 'Fairgrounds', caption: 'Pet events' },
+      ],
+      longDescription: [
+        'Lebanon, known affectionately as "Cedar City," offers a robust mix of municipal convenience and rugged natural beauty. The [City of Lebanon Dog Park](https://www.lebanontn.org/), located near the Jimmy Floyd Family Center, provides a safe, fenced environment with separate areas for large and small dogs, making it a social hub for local pet parents. Nearby, Cedars of Lebanon State Park draws hikers with miles of trails through unique cedar glades and limestone formations, offering a sensory-rich experience hard to match.',
+        'Navigating pet life in Lebanon involves balancing easy access to [local veterinary services](/owner-resources) with the call of the wild. While popular spots like Don Fox Community Park have restrictions on pets to protect children’s play areas, the dedicated dog park and state park access more than compensate. The historic town square also hosts events that often welcome four-legged guests. Whether you are training for agility or simply enjoying a sunset walk through the cedars, Lebanon provides a diverse and welcoming landscape for dogs of all energy levels.'
+      ],
+      faqs: lebanonTnFaqs,
+    },
+  },
+  {
+    slug: 'lenoir-city-tn',
+    city: 'Lenoir City',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The "Lake Capital of the South" features the waterfront Lenoir City Park and its popular dog park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lake Capital Living',
+      heroHeading: 'Dog Parks in Lenoir City',
+      heroDescription: 'Enjoy waterfront walks and off-leash fun at Lenoir City Park, the heart of this dog-friendly lakeside community.',
+      heroPill: 'Waterfront Access',
+      heroFootnotes: ['Lenoir City Dog Park', 'Walking trails by the lake'],
+      heroChips: [
+        { label: 'Location', value: 'Lakeside', caption: 'Scenic views' },
+        { label: 'Facility', value: 'Fenced', caption: 'Off-leash area' },
+        { label: 'Nearby', value: 'Fort Loudoun', caption: 'Dam views' },
+      ],
+      longDescription: [
+        'Lenoir City, often called the "Lake Capital of the South," leverages its beautiful waterfront location to provide exceptional outdoor experiences for dog owners. The centerpiece is [Lenoir City Park](https://www.lenoircitytn.gov/), which features a dedicated dog park with separate sections for different sized breeds. This park is a favorite for its scenic views of Fort Loudoun Lake and the dam, allowing owners to relax while their pets burn off energy. The surrounding walking trails offer calming, breezy routes along the water, perfect for leashed strolls during the cooler parts of the day.',
+        'Life in Lenoir City revolves around the water, so safety tips regarding [blue-green algae](/owner-resources) and boating with pets are essential knowledge here. The community is supportive and active, with Rock Springs Park providing additional wooded trails for those seeking a break from the sun. The city’s proximity to Knoxville means advanced veterinary care is always within reach, yet it retains a relaxed, vacation-like atmosphere year-round. For dogs who love the water and owners who appreciate a view, Lenoir City is a top-tier destination.'
+      ],
+      faqs: lenoirCityTnFaqs,
+    },
+  },
+  {
+    slug: 'lexington-tn',
+    city: 'Lexington',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A West Tennessee hub featuring the pet-friendly Beech Lake and a community devoted to outdoor recreation.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Beech Lake Beauty',
+      heroHeading: 'Dog Parks in Lexington',
+      heroDescription: 'Explore the shores of Beech Lake and the welcoming community parks that make Lexington a great spot for outdoor-loving dogs.',
+      heroPill: 'Water & Woods',
+      heroFootnotes: ['Beech Lake access', 'Local walking trails'],
+      heroChips: [
+        { label: 'Lake', value: 'Beech Lake', caption: 'Water activities' },
+        { label: 'Area', value: 'West TN', caption: 'Rural charm' },
+        { label: 'Activity', value: 'Hiking', caption: 'Lake trails' },
+      ],
+      longDescription: [
+        'Lexington serves as a gateway to water recreation in West Tennessee, centered around the beautiful [Beech Lake](https://www.beechriverwatershed.com/). While formal dog parks are less common in rural areas, Lexington shines by offering extensive access to natural spaces where leashed dogs are welcome. The trails around Beech Lake provide miles of hiking opportunities with stunning water views, making it a popular spot for active dogs and their owners. The community values its natural resources, and responsible pet ownership is key to keeping these areas open and pristine.',
+        'Lexington residents enjoy a quiet, community-focused lifestyle where [local pet safety](/owner-resources) often involves tick prevention for trail hikers. The town provides essential amenities and a friendly atmosphere where dogs are often greeted by name. Nearby Natchez Trace State Park expands the adventure possibilities significantly, offering thousands of acres for exploration. For those seeking a simple, nature-forward life with their dog, Lexington offers the perfect balance of small-town comfort and big-water adventure.'
+      ],
+      faqs: lexingtonTnFaqs,
+    },
+  },
+  {
+    slug: 'maryville-tn',
+    city: 'Maryville',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A vibrant city at the Smokies’ edge, featuring the PetSafe Pistol Creek Dog Park and extensive greenway connections.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Foothills Adventure',
+      heroHeading: 'Dog Parks in Maryville',
+      heroDescription: 'Access the best of East Tennessee with Maryville’s premier dog parks and the connecting Greenway system.',
+      heroPill: 'Smokies Gateway',
+      heroFootnotes: ['Pistol Creek Dog Park', 'Maryville-Alcoa Greenway'],
+      heroChips: [
+        { label: 'Park', value: 'Pistol Creek', caption: 'Premier facility' },
+        { label: 'Trail', value: 'Greenway', caption: 'Interconnected' },
+        { label: 'Landscape', value: 'Foothills', caption: 'Mountain views' },
+      ],
+      longDescription: [
+        'Maryville stands out as one of the most dog-friendly cities in East Tennessee, serving as a recreational hub near the Great Smoky Mountains. The city boasts the [PetSafe Pistol Creek Dog Park](https://www.maryvillegov.com/), a top-tier facility located conveniently near the city center. This park features separate areas for large and small dogs, agility elements, and shade structures, all closely maintained. It connects directly to the Maryville-Alcoa Greenway, a paved trail system allowing for miles of extended walks through parks, wetlands, and urban areas.',
+        'Maryville’s pet culture is vibrant, supported by numerous [pet-friendly businesses](/owner-resources) and a calendar full of outdoor events. The Bicentennial Greenbelt Park offers a picturesque setting for leashed walks along the creek, where wildlife sightings are common. With its proximity to the national park, Maryville is the perfect launchpad for mountain adventures, yet it offers enough local amenities to keep you and your dog entertained right in town. From the morning rush at the dog park to a lazy afternoon at a brewery patio, Maryville delivers a complete package for modern dog owners.'
+      ],
+      faqs: maryvilleTnFaqs,
+    },
+  },
+  {
+    slug: 'bluff-city-tn',
+    city: 'Bluff City',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A gateway to Tri-Cities adventure featuring access to Appalachian Caverns and Boone Lake.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Tri-Cities Gateway',
+      heroHeading: 'Dog Parks in Bluff City',
+      heroDescription: 'Discover unique pet-friendly adventures like Appalachian Caverns and the scenic shores of Boone Lake.',
+      heroPill: 'Caverns & Lakes',
+      heroFootnotes: ['Appalachian Caverns tours', 'Boone Lake access'],
+      heroChips: [
+        { label: 'Attraction', value: 'Caverns', caption: 'Dog-friendly tours' },
+        { label: 'Water', value: 'Boone Lake', caption: 'Nearby access' },
+        { label: 'Area', value: 'Quiet', caption: 'Private parks' },
+      ],
+      longDescription: [
+        'Bluff City offers a quieter pace of life within the Tri-Cities region, situated perfectly between Bristol and Johnson City. While it lacks a large municipal dog park, it makes up for it with unique attractions like [Appalachian Caverns](https://appalachiancaverns.com/), where leashed dogs are welcome to join their owners on underground tours. For outdoor enthusiasts, the nearby Boone Lake provides ample opportunities for shoreline walks and water activities. The area is also served by private rental spots like Pibble Hill, offering safe, enclosed spaces for off-leash play away from the crowds.',
+        'Residents of Bluff City enjoy a rural-suburban mix where [flea and tick prevention](/owner-resources) is essential due to the wooded surroundings. The community is tight-knit, and while dining options are more limited than in neighboring big cities, the local vibe is welcoming. For extensive off-leash socialization, a short drive connects pet parents to the larger dog parks in Bristol or Johnson City. Bluff City is ideal for those who want a peaceful home base with easy access to the region’s most adventurous pet-friendly outings.'
+      ],
+      faqs: bluffCityTnFaqs,
+    },
+  },
+  {
+    slug: 'brentwood-tn',
+    city: 'Brentwood',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Tennessee’s premier suburban community offering upscale parks like Tower Park and extensive trail networks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Premier Suburban Parks',
+      heroHeading: 'Dog Parks in Brentwood',
+      heroDescription: 'Experience top-tier amenities at Miss Peggy’s Bark Park and miles of wooded trails at Smith Park.',
+      heroPill: 'Upscale Recreation',
+      heroFootnotes: ['Miss Peggy’s Bark Park', 'Smith Park hiking trails'],
+      heroChips: [
+        { label: 'Park', value: 'Tower Park', caption: 'Bark Park' },
+        { label: 'Hiking', value: 'Smith Park', caption: 'Wooded trails' },
+        { label: 'Trails', value: 'Paved', caption: 'Concord Park' },
+      ],
+      longDescription: [
+        'Brentwood is renowned for its manicured landscapes and high-quality public amenities, and its provisions for pets are no exception. The city’s standout facility is [Miss Peggy’s Bark Park](https://www.brentwoodtn.gov/) located within Tower Park. This fenced, off-leash area features separate sections for large and small dogs, shaded seating, and hydration stations, all set against the backdrop of the historic WSM tower. Beyond the dog park, Brentwood offers arguably the best suburban hiking in the region at Marcella Vivrette Smith Park, where miles of rugged, wooded trails challenge both dogs and owners.',
+        'Living in Brentwood means access to a "gold standard" of suburban pet ownership. [Local veterinary clinics](/owner-resources) are top-notch, and the connecting trail systems in Crockett and Concord parks ensure that paved, stroller-friendly walks are always an option. The community is active and outdoor-focused, with many residents taking advantage of the safe, clean, and extensive greenways. Whether you seek a social hour at the Bark Park or a solitary hike in the hills of Smith Park, Brentwood delivers a premium experience for four-legged residents.'
+      ],
+      faqs: brentwoodTnFaqs,
+    },
+  },
+  {
+    slug: 'bristol-tn',
+    city: 'Bristol',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The "Twin City" offers cross-state adventures with Sugar Hollow Park and a dog-friendly downtown.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Twin City Adventure',
+      heroHeading: 'Dog Parks in Bristol',
+      heroDescription: 'Walk across state lines with your pup on State Street and play at the expansive Sugar Hollow Dog Park.',
+      heroPill: 'State Line Fun',
+      heroFootnotes: ['Sugar Hollow Dog Park', 'State Street photo op'],
+      heroChips: [
+        { label: 'Park', value: 'Sugar Hollow', caption: 'Regional favorite' },
+        { label: 'Downtown', value: 'State St', caption: 'Walkable' },
+        { label: 'Nature', value: 'Steele Creek', caption: 'Park trails' },
+      ],
+      longDescription: [
+        'Bristol offers a unique "Twin City" experience where you can walk your dog across the state line in the middle of downtown State Street. Beyond this famous photo op, the city serves as a hub for outdoor recreation. The primary destination for off-leash fun is [Sugar Hollow Park](https://www.bristolva.org/), which, while technically on the Virginia side, serves the entire metro area with a large, well-equipped dog park. On the Tennessee side, the Bark Park at Charlie Robinette Park provides a convenient local spot for play. Steele Creek Park adds to the mix with over 2,000 acres of trails and a lake, perfect for leashed exploration.',
+        'Bristol’s pet culture is fueled by its music heritage and outdoor spirit. The [Birthplace of Country Music](/owner-resources) area is walkable and vibrant, with many shops welcoming pets. Residents benefit from the dual-city resources, accessing amenities on both sides of the border seamlessly. Whether you are catching a concert series from a distance or hiking the ridge lines at Steele Creek, Bristol provides a diverse and spirited backdrop for life with a dog.'
+      ],
+      faqs: bristolTnFaqs,
+    },
+  },
+  {
+    slug: 'collierville-tn',
+    city: 'Collierville',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A charming town featuring the renovated Suggs Park dog run and the scenic W.C. Johnson Park boardwalks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Square Charm',
+      heroHeading: 'Dog Parks in Collierville',
+      heroDescription: 'From the off-leash fun at Suggs Park to shopping strolls at Carriage Crossing, Collierville offers a polished pet-friendly lifestyle.',
+      heroPill: 'Community & Class',
+      heroFootnotes: ['Suggs Dog Park', 'W.C. Johnson boardwalks'],
+      heroChips: [
+        { label: 'Off-Leash', value: 'Suggs Park', caption: 'Agility/Run' },
+        { label: 'Walks', value: 'W.C. Johnson', caption: 'Scenic trails' },
+        { label: 'Shopping', value: 'Carriage', caption: 'Pet-friendly' },
+      ],
+      longDescription: [
+        'Collierville combines small-town historic charm with modern suburban luxury, creating a fantastic environment for pets. The local favorite for off-leash exercise is [Suggs Park](https://www.colliervilletn.gov/), which features a dedicated dog run with separate areas for different sized breeds and agility equipment. For nature lovers, W.C. Johnson Park offers a stunning network of elevated boardwalks and trails that wind through wetlands and forests, providing a cool, shaded environment for dog walking even in the summer heat.',
+        'The lifestyle in Collierville is active and social. The Avenue Carriage Crossing is a notable destination where leashed dogs are welcome in common areas and many stores, making it easy to include your pup in errands. [Pet safety](/owner-resources) in this area includes being mindful of heat on pavement during summer shopping trips. With a highly rated school system and safe neighborhoods, family dogs are a fixture of the community. From the historic Town Square to the expansive greenbelt trails, Collierville offers a safe, beautiful, and welcoming home for pets.'
+      ],
+      faqs: colliervilleTnFaqs,
+    },
+  },
+  {
+    slug: 'columbia-tn',
+    city: 'Columbia',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Muletown welcomes pets with the dedicated Muletown Bark Park and the scenic Riverwalk Park along the Duck River.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Muletown Pet Culture',
+      heroHeading: 'Dog Parks in Columbia',
+      heroDescription: 'Experience the best of Maury County at Muletown Bark Park and enjoy riverside strolls in the vibrant Arts District.',
+      heroPill: 'Arts & Outdoors',
+      heroFootnotes: ['Muletown Bark Park', 'Riverwalk Park trails'],
+      heroChips: [
+        { label: 'Park', value: 'Muletown', caption: 'Agility/Fenced' },
+        { label: 'River', value: 'Duck River', caption: ' scenic walks' },
+        { label: 'District', value: 'Arts', caption: 'Pet-friendly' },
+      ],
+      longDescription: [
+        'Columbia, known as "Muletown," has rapidly evolved into a trendy, pet-friendly destination south of Nashville. The city’s commitment to pet owners is evident at [Muletown Bark Park](https://www.columbiatn.com/) in Maury County Park. This facility features separate enclosures, agility obstacles, and plenty of room to run. Closer to downtown, Riverwalk Park offers a paved, scenic path along the Duck River, connecting the natural beauty of the region with the bustling Arts District. It’s the perfect spot for a morning jog or an evening stroll with your dog.',
+        'The revitalization of downtown Columbia has brought a wave of pet-friendly patios and shops, creating a vibrant social scene for dog owners. Visitors and residents alike enjoy the "First Fridays" where the streets come alive. [Outdoor safety](/owner-resources) here means watching for ticks in the riverside brush, but the groomed parks are generally very safe. With easy access to the Cheeks Bend Bluff for hiking and a welcoming community spirit, Columbia offers a rich, diverse lifestyle for pets and their people.'
+      ],
+      faqs: columbiaTnFaqs,
+    },
+  },
+  {
+    slug: 'cordova-tn',
+    city: 'Cordova',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The gateway to Shelby Farms Park, home to "The Outback," one of the largest off-leash dog areas in the nation.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Shelby Farms Gateway',
+      heroHeading: 'Dog Parks in Cordova',
+      heroDescription: 'Live next door to The Outback at Shelby Farms, a 100-acre off-leash paradise with lakes, trails, and open fields.',
+      heroPill: 'Massive Dog Park',
+      heroFootnotes: ['The Outback (100+ acres)', 'Shelby Farms Greenline'],
+      heroChips: [
+        { label: 'Park', value: 'The Outback', caption: '100 acres' },
+        { label: 'Trail', value: 'Greenline', caption: 'Paved connection' },
+        { label: 'Area', value: 'Suburban', caption: 'Convenient' },
+      ],
+      longDescription: [
+        'Cordova offers dog owners an unparalleled perk: immediate access to [Shelby Farms Park](https://www.shelbyfarmspark.org/), specifically "The Outback." This expansive, multi-use off-leash area covers over 100 acres and features open fields, wooded trails, and ponds where dogs can swim freely. It is widely considered one of the best dog parks in the country. Beyond the park, the Shelby Farms Greenline provides a paved artery for cyclists and dog walkers, connecting Cordova to the heart of Memphis.',
+        'Life in Cordova is defined by this access to massive green space. Residents can enjoy a suburban lifestyle with convenient shopping and dining along Germantown Parkway, where many patios are dog-friendly, while being minutes away from a wilderness-like experience for their pets. [Water safety](/owner-resources) is key here due to the lakes in The Outback. Whether your dog is a swimmer, a runner, or a trail hiker, Cordova provides the ultimate playground right in your backyard. The humid climate makes the shaded trails of the park particularly valuable during summer months.'
+      ],
+      faqs: cordovaTnFaqs,
+    },
+  },
+  {
+    slug: 'east-ridge-tn',
+    city: 'East Ridge',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A bordering city to Chattanooga featuring the new East Ridge Dog Park and the massive Camp Jordan facility.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Border Town Recreation',
+      heroHeading: 'Dog Parks in East Ridge',
+      heroDescription: 'Enjoy the new amenities at East Ridge Dog Park and the endless trails at Camp Jordan, just minutes from Chattanooga.',
+      heroPill: 'Active & Accessible',
+      heroFootnotes: ['East Ridge Dog Park', 'Camp Jordan loop'],
+      heroChips: [
+        { label: 'Park', value: 'East Ridge', caption: 'New facility' },
+        { label: 'Complex', value: 'Camp Jordan', caption: '275 acres' },
+        { label: 'Access', value: 'Chattanooga', caption: 'Minutes away' },
+      ],
+      longDescription: [
+        'East Ridge serves as a vital gateway to the Chattanooga metropolitan area, offering its own robust set of recreational amenities. The city recently added the [East Ridge Dog Park](https://www.eastridgetn.gov/) behind City Hall, a modern facility with separate areas for large and small dogs and agility equipment. This complements the massive Camp Jordan Park, a 275-acre complex where leashed dogs can accompany their owners on miles of paved loops and nature trails. The park is a hive of activity, often hosting events that bring the community together.',
+        'Being so close to the Georgia state line and Chattanooga means East Ridge residents have double the options. [Local pet resources](/owner-resources) are abundant, from specialized vets to dog-friendly breweries just across the border. East Ridge offers affordable, accessible living with high-quality public parks that cater to active families and their pets. Whether you are training at the new dog park or taking a long Saturday walk at Camp Jordan, East Ridge is a welcoming community for dogs.'
+      ],
+      faqs: eastRidgeTnFaqs,
+    },
+  },
+  {
+    slug: 'blountville-tn',
+    city: 'Blountville',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A historic town offering rural charm and easy access to Tri-Cities dog parks like Dogwood Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic Rural Charm',
+      heroHeading: 'Dog Parks in Blountville',
+      heroDescription: 'Enjoy the peaceful atmosphere of Blountville while being minutes away from top-tier dog parks in Kingsport and Bristol.',
+      heroPill: 'Central Location',
+      heroFootnotes: ['Near Dogwood Park', 'Rural walking areas'],
+      heroChips: [
+        { label: 'Access', value: 'Tri-Cities', caption: 'Central hub' },
+        { label: 'Park', value: 'Dogwood', caption: 'Nearby off-leash' },
+        { label: 'Vibe', value: 'Quiet', caption: 'Historic town' },
+      ],
+      longDescription: [
+        'Blountville, the historic county seat of Sullivan County, offers a quiet, rural lifestyle with the distinct advantage of being centrally located between Kingsport and Bristol. While the town itself is known for its historic sites rather than large municipal parks, dog owners are perfectly positioned to access the best amenities of the Tri-Cities. A short drive connects residents to [Dogwood Park](https://www.kingsporttn.gov/) in Kingsport, a favorite for its agility equipment and separate play areas, or the Bark Park in Bristol for cross-border adventures.',
+        'Life in Blountville is about enjoying open spaces and a slower pace. The [local veterinary options](/owner-resources) are convenient, serving the rural community with personal care. Residents often take advantage of the scenic country roads for long leashed walks, soaking in the views of the Appalachian foothills. Whether you\'re visiting a local farm stand or taking a quick trip to the city for abundant off-leash play, Blountville serves as a peaceful, pet-friendly home base in Northeast Tennessee.'
+      ],
+      faqs: blountvilleTnFaqs,
+    },
+  },
+  {
+    slug: 'chapmansboro-tn',
+    city: 'Chapmansboro',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A riverside community offering access to the Cumberland River Bicentennial Trail and private dog parks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Riverside Retreat',
+      heroHeading: 'Dog Parks in Chapmansboro',
+      heroDescription: 'Explore the Cumberland River Bicentennial Trail or book a private off-leash experience in this scenic rural community.',
+      heroPill: 'River & Trails',
+      heroFootnotes: ['Bicentennial Trail', 'Private Sniffspots'],
+      heroChips: [
+        { label: 'Trail', value: 'Bicentennial', caption: 'Rail-trail' },
+        { label: 'River', value: 'Cumberland', caption: 'Water views' },
+        { label: 'Private', value: 'Rentals', caption: 'Off-leash spots' },
+      ],
+      longDescription: [
+        'Chapmansboro is a hidden gem for dog owners who prefer the quiet of nature over bustling city parks. Located along the Cumberland River, the area’s premier attraction is the nearby [Cumberland River Bicentennial Trail](https://www.ashlandcitytn.gov/). This converted rail-trail offers miles of flat, shaded paths through wetlands and forests, perfect for long, scenic walks with your leashed dog. The trail is renowned for its birdwatching and peaceful atmosphere, providing a sensory-rich environment for curious pups.',
+        'While public off-leash parks are scarce in the immediate vicinity, Chapmansboro has a growing number of private dog park rentals available through apps like Sniffspot, offering safe, fenced acreage for spirited runs. [Tick prevention](/owner-resources) is important here due to the wooded riverside terrain. The community vibe is laid-back and outdoorsy, with easy access to Ashland City for more amenities. For those seeking ample space to roam and river breezes, Chapmansboro is an idyllic spot for rural dog ownership.'
+      ],
+      faqs: chapmansboroTnFaqs,
+    },
+  },
+  {
+    slug: 'church-hill-tn',
+    city: 'Church Hill',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A scenic valley town featuring Laurel Run Park’s wooded trails and easy access to the Holston River.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Valley Recreation',
+      heroHeading: 'Dog Parks in Church Hill',
+      heroDescription: 'Hike the wooded trails at Laurel Run Park or enjoy a day by the Holston River in this nature-loving community.',
+      heroPill: 'Nature Trails',
+      heroFootnotes: ['Laurel Run Park', 'Holston River access'],
+      heroChips: [
+        { label: 'Hiking', value: 'Laurel Run', caption: 'Wooded trails' },
+        { label: 'Park', value: 'A.S. Derrick', caption: 'City park' },
+        { label: 'River', value: 'Holston', caption: 'Fishing/Views' },
+      ],
+      longDescription: [
+        'Church Hill offers a picturesque setting for dog owners, nestled in a valley with abundant natural beauty. The standout local amenity is [Laurel Run Park](https://www.hawkinscountytn.gov/), a 440-acre gem that draws nature lovers from across the region. Here, leashed dogs can accompany their owners on miles of hiking trails that wind through lush forests, past wildflowers, and along the creek. Additional recreational options include A.S. Derrick City Park, which provides open green spaces for casual strolls and family outings.',
+        'The community in Church Hill is deeply connected to the outdoors, with the Holston River providing a scenic backdrop for daily life. While there isn\'t a fenced municipal dog park in town, the expansive nature of Laurel Run offers plenty of exercise. Residents usually travel to nearby Kingsport for dedicated off-leash facilities. [Outdoor safety](/owner-resources) in wooded areas like Laurel Run includes watching for local wildlife. Church Hill is perfect for active dogs and owners who view nature as their primary playground.'
+      ],
+      faqs: churchHillTnFaqs,
+    },
+  },
+  {
+    slug: 'clinton-tn',
+    city: 'Clinton',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Home to the impressive Carden Farm Dog Park and the new Bark Park at Aspire.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Top-Tier Dog Parks',
+      heroHeading: 'Dog Parks in Clinton',
+      heroDescription: 'Experience the 17-acre Carden Farm Dog Park or the modern amenities at The Bark Park at Aspire.',
+      heroPill: 'Dual Dog Parks',
+      heroFootnotes: ['Carden Farm (17 acres)', 'Aspire Park'],
+      heroChips: [
+        { label: 'Park', value: 'Carden Farm', caption: 'Massive space' },
+        { label: 'New', value: 'Aspire', caption: 'Modern park' },
+        { label: 'River', value: 'Clinch', caption: 'Scenic walks' },
+      ],
+      longDescription: [
+        'Clinton punches well above its weight when it comes to dog-friendly amenities, boasting two exceptional off-leash facilities. [Carden Farm Dog Park](https://clintontn.net/) is a standout, offering a massive 17-acre space that includes open fields, wooded trails, and river access, allowing dogs to run, swim, and explore in a securely fenced environment. It’s one of the largest municipal dog parks in the region. Complementing this is the newer Bark Park at the Aspire community park, which features modern agility equipment and separate areas for different play styles.',
+        'Located along the Clinch River, Clinton offers a rich outdoor lifestyle. Beyond the dog parks, residents enjoy walking the Green McAdoo Cultural Center grounds or exploring the riverfront. The town’s commitment to providing high-quality pet amenities makes it a destination for dog owners from surrounding counties. [Local pet services](/owner-resources) are robust, catering to the active community. Whether your dog loves a rugged forest run or a manicured play space, Clinton delivers world-class options right at home.'
+      ],
+      faqs: clintonTnFaqs,
+    },
+  },
+  {
+    slug: 'eads-tn',
+    city: 'Eads',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A quiet equestrian community with backdoor access to the massive Shelby Farms Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Country Living',
+      heroHeading: 'Dog Parks in Eads',
+      heroDescription: 'Enjoy wide-open rural spaces and immediate proximity to the world-class off-leash areas at Shelby Farms Park.',
+      heroPill: 'Rural Access',
+      heroFootnotes: ['Shelby Farms nearby', 'Rural trails'],
+      heroChips: [
+        { label: 'Access', value: 'Shelby Farms', caption: 'Minutes away' },
+        { label: 'Area', value: 'Equestrian', caption: 'Open space' },
+        { label: 'Park', value: 'The Outback', caption: '100+ acres' },
+      ],
+      longDescription: [
+        'Eads offers a distinct rural and equestrian lifestyle just east of Memphis, providing dog owners with ample personal space and quiet country roads. While the community itself is residential and agricultural, its prime asset for pet owners is its border with [Shelby Farms Park](https://www.shelbyfarmspark.org/). Residents are just a stone’s throw away from "The Outback," a premier 100-acre off-leash area with lakes and trails that is unrivaled in the region. This proximity allows for daily adventures in a world-class park without the hustle of city living.',
+        'The lifestyle in Eads is relaxed, with large lots often allowing for private backyard play. However, the social scene revolves around the nearby parks and the shops of Cordova. [Heat safety](/owner-resources) is crucial for dogs in this humid climate, making the lakes at Shelby Farms a vital resource for cooling off. Eads is the perfect location for those who want a quiet retreat for their pets with arguably the best dog park in the state essentially in their backyard.'
+      ],
+      faqs: eadsTnFaqs,
+    },
+  },
+  {
+    slug: 'harrison-tn',
+    city: 'Harrison',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Lakeside living featuring Harrison Bay State Park, the first Tennessee State Park to have a dedicated dog park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lakeside State Park',
+      heroHeading: 'Dog Parks in Harrison',
+      heroDescription: 'Visit Harrison Bay State Park, offering a dedicated dog park, miles of shoreline, and wooded trails.',
+      heroPill: 'Water & Woods',
+      heroFootnotes: ['Harrison Bay Dog Park', 'Chickamauga Lake'],
+      heroChips: [
+        { label: 'Park', value: 'Harrison Bay', caption: 'State Park' },
+        { label: 'Water', value: 'Chickamauga', caption: 'Lake access' },
+        { label: 'Camping', value: 'Pet-friendly', caption: 'RV/Tent' },
+      ],
+      longDescription: [
+        'Harrison is defined by its beautiful location along Chickamauga Lake, and its crown jewel is [Harrison Bay State Park](https://tnstateparks.com/courts/harrison-bay). Notably, this was the first Tennessee State Park to install a dedicated dog park, allowing campers and day-use visitors to let their pups run off-leash in a fenced area. Beyond the dog park, the state park offers miles of wooded trails and extensive shoreline where leashed dogs can enjoy the water and wildlife. It’s a haven for outdoor enthusiasts who love boating, fishing, and hiking with their pets.',
+        'The community atmosphere in Harrison is laid-back and centered on the water. Residents often enjoy evening walks along the lake or quiet afternoons at the park. [Tick prevention](/owner-resources) is recommended due to the dense woods in the park areas. With its unique combination of state park amenities and residential quiet, Harrison offers a vacation-like lifestyle for dogs who love nature, swimming, and exploring the woods.'
+      ],
+      faqs: harrisonTnFaqs,
+    },
+  },
+  {
+    slug: 'madison-tn',
+    city: 'Madison',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A revitalizing Nashville suburb offering Peeler Park’s remote river trails and growing pet amenities.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Riverfront Greenways',
+      heroHeading: 'Dog Parks in Madison',
+      heroDescription: 'Discover the quiet trails of Peeler Park on the Cumberland River and enjoy the growing pet-friendly scene.',
+      heroPill: 'Urban Outdoors',
+      heroFootnotes: ['Peeler Park Greenway', 'Cedar Hill Park nearby'],
+      heroChips: [
+        { label: 'Trail', value: 'Peeler Park', caption: 'River views' },
+        { label: 'Access', value: 'Nashville', caption: 'Short drive' },
+        { label: 'Park', value: 'Cedar Hill', caption: 'Large spaces' },
+      ],
+      longDescription: [
+        'Madison is an evolving community that offers dog owners some surprising natural retreats within the metro Nashville area. The highlight is [Peeler Park](https://www.nashville.gov/departments/parks), situated on a "lazy" bend of the Cumberland River. This park features a remote 1.9-mile paved greenway and equestrian trails that offer a quiet, pastoral setting perfect for nervous or reactive dogs who need space. The unpaved trails wind through open fields and woods, providing a true escape from the urban bustle.',
+        'While Madison doesn\'t have a flagship off-leash park of its own, it sits adjacent to areas with excellent facilities, and private rentals like "1213 Dog Park" are appearing. Residents also frequent nearby Cedar Hill Park for its ample green space. The area is becoming more pet-friendly with new businesses opening, but the primary draw remains the secluded feel of its riverfront parks. For dog owners seeking quiet, lengthy walks without leaving the city limits, Madison is an excellent and convenient choice.'
+      ],
+      faqs: madisonTnFaqs,
+    },
+  },
+  {
+    slug: 'oak-ridge-tn',
+    city: 'Oak Ridge',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The "Secret City" welcomes pets with the Big Turtle Dog Park and extensive trails at Haw Ridge Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Science & Nature',
+      heroHeading: 'Dog Parks in Oak Ridge',
+      heroDescription: 'Play at Big Turtle Dog Park and explore over 30 miles of trails at the scenic Haw Ridge Park.',
+      heroPill: 'Trails & Tails',
+      heroFootnotes: ['Big Turtle Dog Park', 'Haw Ridge Park trails'],
+      heroChips: [
+        { label: 'Off-Leash', value: 'Big Turtle', caption: ' separate areas' },
+        { label: 'Hiking', value: 'Haw Ridge', caption: '30+ miles' },
+        { label: 'Water', value: 'Melton Lake', caption: 'Greenway' },
+      ],
+      longDescription: [
+        'Oak Ridge, famous for its history, is also a modern destination for outdoor recreation. The city caters to dog owners with [Big Turtle Dog Park](https://www.oakridgetn.gov/), a well-maintained facility with separate play areas for large and small dogs, water stations, and benches. For those seeking adventure, Haw Ridge Park is a standout, offering over 30 miles of trails on a scenic peninsula along the Clinch River. These trails are a paradise for leashed hiking and trail running, challenging both dogs and owners with varied terrain.',
+        'The Melton Lake Greenway provides another excellent option for flatter, paved walks along the waterfront, popular for social outings. The Oak Ridge community is very active and values its green spaces highly. [Local regulations](/owner-resources) emphasize leash laws on the multi-use trails to ensure safety for bikers and hikers. With a mix of dedicated play spaces and extensive wilderness trails, Oak Ridge offers a scientifically proven formula for a happy dog.'
+      ],
+      faqs: oakRidgeTnFaqs,
+    },
+  },
+  {
+    slug: 'ooltewah-tn',
+    city: 'Ooltewah',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A booming community featuring the new Barks & Tails Dog Park at Enterprise South Nature Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Nature Park Access',
+      heroHeading: 'Dog Parks in Ooltewah',
+      heroDescription: 'Visit the Barks & Tails Dog Park and hike the miles of wooded trails at Enterprise South Nature Park.',
+      heroPill: 'New & Natural',
+      heroFootnotes: ['Barks & Tails Dog Park', 'Enterprise South trails'],
+      heroChips: [
+        { label: 'Park', value: 'Barks & Tails', caption: 'Agility/Splash' },
+        { label: 'Hike', value: 'Enterprise', caption: 'Nature Park' },
+        { label: 'Event', value: 'Cambridge', caption: 'The Commons' },
+      ],
+      longDescription: [
+        'Ooltewah has grown into a vibrant suburb with exceptional recreational assets. The headline attraction is [Enterprise South Nature Park](https://parks.hamiltontn.gov/), which recently added the "Barks & Tails" Dog Park. This modern facility features agility equipment, a splash pad for hot days, and woodland settings. Beyond the dog park, the massive nature park offers miles of hiking and biking trails through rehabilitated woodlands, where leashed dogs can explore fascinating bunkers and diverse ecosystems.',
+        'The community center at Cambridge Square also offers a pet-friendly atmosphere for dining and social events. The area has seen significant growth, bringing with it more amenities and a welcoming vibe for pet owners. Ooltewah’s location provides a perfect balance of upscale suburban living and rugged outdoor access. [Pet safety notes](/owner-resources) include watching for wildlife in the nature park. Whether you are letting your dog cool off in the splash pad or taking a long Sunday hike, Ooltewah provides a fresh and exciting environment for pets.'
+      ],
+      faqs: ooltewahTnFaqs,
+    },
+  },
+  {
+    slug: 'piney-flats-tn',
+    city: 'Piney Flats',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A lakefront community offering historic trails at Rocky Mount and nearby access to Tri-Cities dog parks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'History & Lake Views',
+      heroHeading: 'Dog Parks in Piney Flats',
+      heroDescription: 'Walk historic grounds near Rocky Mount and enjoy quick access to Boone Lake and regional dog parks.',
+      heroPill: 'Central & Scenic',
+      heroFootnotes: ['Rocky Mount trails', 'Boone Lake access'],
+      heroChips: [
+        { label: 'Lake', value: 'Boone', caption: 'Water recreation' },
+        { label: 'History', value: 'Rocky Mount', caption: 'Walking paths' },
+        { label: 'Access', value: 'Regional', caption: 'Near parks' },
+      ],
+      longDescription: [
+        'Piney Flats is a growing community nestled between Johnson City and Bristol, offering a lifestyle centered around Boone Lake and local history. While it lacks a dedicated municipal dog park, residents enjoy walking their leashed dogs near the grounds of the [Rocky Mount State Historic Site](https://rockymountmuseum.com/), which offers a glimpse into Tennessee’s past along with pleasant walking areas. The shores of Boone Lake provide excellent spots for adventurous dogs to wade into the water and for owners to enjoy the serene views.',
+        'The primary advantage of Piney Flats is its central location. Residents are under 20 minutes away from major off-leash facilities in both Johnson City and Bristol, allowing for easy variety in exercise routines. The local vibe is friendly and increasingly suburban, with new developments often incorporating walking paths. For dog owners who want a quiet, water-oriented home base with the ability to easily hop over to a big city dog park, Piney Flats is an ideal compromise.'
+      ],
+      faqs: pineyFlatsTnFaqs,
+    },
+  },
+  {
+    slug: 'powell-tn',
+    city: 'Powell',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A popular Knoxville suburb home to the renowned Tommy Schumpert Park and its top-tier dog facilities.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Premier Pet Park',
+      heroHeading: 'Dog Parks in Powell',
+      heroDescription: 'Play at the famous PetSafe Dog Park at Tommy Schumpert Park, featuring a swimming pond and mulch trails.',
+      heroPill: 'Swimming & Play',
+      heroFootnotes: ['Tommy Schumpert Park', 'Swimming pond'],
+      heroChips: [
+        { label: 'Park', value: 'Schumpert', caption: 'Swimming pond' },
+        { label: 'Trail', value: 'Greenway', caption: 'Sterchi Hills' },
+        { label: 'Feature', value: 'Water', caption: 'Dog dock' },
+      ],
+      longDescription: [
+        'Powell is widely recognized by local dog owners as the home of one of the best facilities in the county: The PetSafe Dog Park at [Tommy Schumpert Park](https://www.knoxcounty.org/parks/). This park is a destination in itself, featuring separate areas for small and large dogs. The large dog area is famous for its swimming pond with a dock, allowing water-loving pups to dive and swim to their heart\'s content. The park also includes wooded trails within the fenced area, providing a diverse sensory experience.',
+        'Beyond the dog park, Powell offers excellent connectivity via the greenway system that links to Sterchi Hills Park, perfect for leashed runs or walks. The community is very family and pet-oriented, with many locals gathering at the park on weekends within the scenic fenced areas. [Water safety](/owner-resources) is important at the pond, but the facility is well-maintained. Living in Powell means enjoying elite-level amenities just minutes away, making it a truly top choice for active dog owners in the Knoxville area.'
+      ],
+      faqs: powellTnFaqs,
+    },
+  },
+  {
+    slug: 'red-bank-tn',
+    city: 'Red Bank',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A unique enclave city surrounded by Chattanooga, featuring the popular Red Bank Dog Park and easy access to hiking.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Scenic Pet Park',
+      heroHeading: 'Indoor Dog Park In Red Bank',
+      heroDescription: 'Visit the Red Bank Dog Park at White Oak Park for off-leash play and a strong community feel.',
+      heroPill: 'Parks & Trails',
+      heroFootnotes: ['Red Bank Dog Park', 'White Oak Park'],
+      heroChips: [
+        { label: 'Park', value: 'White Oak', caption: 'Dog park' },
+        { label: 'Trail', value: 'Stringer\'s Ridge', caption: 'Hiking' },
+        { label: 'Feature', value: 'Community', caption: 'Events' },
+      ],
+      longDescription: [
+        'Red Bank is a unique enclave city surrounded by Chattanooga, offering a distinct community feel with big-city access. The crown jewel for pet owners is the [Red Bank Dog Park](https://www.redbanktn.gov/) located within White Oak Park. This facility features separate fenced areas for large and small dogs, shaded seating, and water stations, making it a social hub for locals. Community volunteers often organize clean-up days and social events here, fostering a strong sense of belonging among dog owners. The park\'s central location makes it an easy daily stop for residents.',
+        'Beyond the dog park, **White Oak Park** itself offers walking trails and open green spaces perfect for leashed strolls. The park\'s amenities, including pavilions and playgrounds, make it a great spot for the whole family. Nearby, the [Stringer\'s Ridge Park](https://www.trustforpublicland.org/) is easily accessible, providing miles of rugged hiking and mountain biking trails popular with active dog owners. Red Bank combines the convenience of suburban living with immediate access to premier outdoor recreation, providing diverse options for every activity level.',
+      ],
+      faqs: redBankTnFaqs,
+    },
+  },
+  {
+    slug: 'rock-island-tn',
+    city: 'Rock Island',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Home to the magnificent Rock Island State Park, offering rugged hiking trails and waterfall views for active dogs.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Waterfall Hiking',
+      heroHeading: 'Indoor Dog Park In Rock Island',
+      heroDescription: 'Hike the rugged trails of Rock Island State Park and view the majestic Twin Falls with your dog.',
+      heroPill: 'Hiking & Nature',
+      heroFootnotes: ['Rock Island State Park', 'Twin Falls'],
+      heroChips: [
+        { label: 'Park', value: 'State Park', caption: 'Rock Island' },
+        { label: 'Trail', value: 'Caney Fork', caption: 'River views' },
+        { label: 'Feature', value: 'Waterfalls', caption: 'Scenic' },
+      ],
+      longDescription: [
+        'Rock Island is a haven for outdoor enthusiasts and their four-legged companions, centered around the magnificent [Rock Island State Park](https://tnstateparks.com/parks/rock-island). While there are no traditional fenced dog parks here, the area offers something even better for active dogs: miles of rugged, scenic hiking trails. Leashed dogs are welcome on all trails, including the popular Collins River Nature Trail and the Moonshine Trail, allowing you to explore the dramatic gorge and view the stunning Twin Falls together. The park\'s diverse terrain, from sandy beaches along the Caney Fork River to rocky overlooks, provides varied sensory experiences for your pet.',
+        'Safety is paramount near the water due to swift currents from the dam releases, so keeping your dog leashed and aware is crucial. However, the hiking opportunities are world-class and provide a fantastic workout for high-energy breeds. For a true nature adventure, Rock Island provides an unforgettable backdrop of cascading waterfalls, lush forests, and limestone bluffs. It is a destination where the bond between dog and owner is strengthened through shared exploration of Tennessee\'s wild beauty.',
+      ],
+      faqs: rockIslandTnFaqs,
+    },
+  },
+  {
+    slug: 'sevierville-tn',
+    city: 'Sevierville',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'The gateway to the Smokies, featuring the PetSafe Unleashed Dog Park and pet-friendly shopping outlets.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Gateway to Smokies',
+      heroHeading: 'Indoor Dog Park In Sevierville',
+      heroDescription: 'Play at PetSafe Unleashed Dog Park or shop with your pup at Tanger Outlets.',
+      heroPill: 'Park & Shopping',
+      heroFootnotes: ['PetSafe Unleashed', 'Tanger Outlets'],
+      heroChips: [
+        { label: 'Park', value: 'Unleashed', caption: 'Agility' },
+        { label: 'Shop', value: 'Tanger', caption: 'Pet-friendly' },
+        { label: 'Trail', value: 'Greenway', caption: 'River walk' },
+      ],
+      longDescription: [
+        'Sevierville serves as the vibrant gateway to the Smoky Mountains and is incredibly welcoming to pets. The city\'s standout facility is the [PetSafe Unleashed Dog Park](https://seviervilleparksandrec.com/) at Sevierville City Park. This premier park features separate areas for large and small dogs, safe double-gated entries, agility equipment for training, and even Wi-Fi for owners to stay connected while their pups play. It\'s the perfect place to burn off energy before exploring the rest of the area. The park is well-maintained and often bustling with friendly locals and visitors alike.',
+        'Uniquely, Sevierville is also home to the dog-friendly [Tanger Outlets](https://www.tanger.com/sevierville), where leashed well-behaved dogs are allowed in common areas and inside many pet-friendly stores (look for the sticker on the door). For nature lovers, the city offers the Memorial River Trail Greenway, a scenic paved path following the river. While the Great Smoky Mountains National Park has restrictions, the nearby Gatlinburg Trail is one of the few that allows dogs. Sevierville offers a perfect mix of play, shopping, and outdoor access, making it a fantastic home for pets.',
+      ],
+      faqs: seviervilleTnFaqs,
+    },
+  },
+  {
+    slug: 'signal-mountain-tn',
+    city: 'Signal Mountain',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A mountaintop retreat featuring The Puppy Patch at McCoy Farm and access to breathtaking hiking trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Mountain Retreat',
+      heroHeading: 'Indoor Dog Park In Signal Mountain',
+      heroDescription: 'Visit The Puppy Patch at McCoy Farm or hike the scenic trails to Rainbow Lake.',
+      heroPill: 'Mountain Views',
+      heroFootnotes: ['The Puppy Patch', 'Rainbow Lake'],
+      heroChips: [
+        { label: 'Park', value: 'Puppy Patch', caption: 'McCoy Farm' },
+        { label: 'Trail', value: 'Rainbow Lake', caption: 'Gorge views' },
+        { label: 'Feature', value: 'Views', caption: 'Scenic' },
+      ],
+      longDescription: [
+        'Signal Mountain offers a serene, elevated escape with fantastic amenities for dogs. The community loves **The Puppy Patch** located at the historic [McCoy Farm & Gardens](https://www.mccoyfarmandgardens.com/). This dog park features separate sections for large and small dogs and agility equipment, all set against a beautiful pastoral backdrop of barns and rolling hills. The surrounding farm grounds are also open for leashed walks, allowing for a peaceful stroll through history. The combination of a secure play area and scenic walking paths makes McCoy Farm a favorite daily destination.',
+        'For the adventurous, Signal Mountain is a hiker\'s paradise. The trail to [Rainbow Lake](https://www.cumberlandtrail.org/) and Signal Point offers moderate to strenuous hikes with breathtaking views of the Tennessee River Gorge. These shaded, rocky paths are perfect for active dogs and owners who enjoy a challenge. The cool mountain air and dense forest canopy provide a comfortable environment for hiking even in warmer months. Whether you prefer a quiet park visit or a rugged mountain trek, Signal Mountain delivers top-tier outdoor experiences that cater to both the leisure-seeker and the adventurer.',
+      ],
+      faqs: signalMountainTnFaqs,
+    },
+  },
+  {
+    slug: 'smyrna-tn',
+    city: 'Smyrna',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Features the expansive Bark Springs Dog Park and lakeside recreation along Percy Priest Lake.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Lakefront Play',
+      heroHeading: 'Indoor Dog Park In Smyrna',
+      heroDescription: 'Let your dog run free at Bark Springs Dog Park or explore the trails at Sharp Springs Park.',
+      heroPill: 'Park & Lake',
+      heroFootnotes: ['Bark Springs', 'Sharp Springs'],
+      heroChips: [
+        { label: 'Park', value: 'Bark Springs', caption: 'Off-leash' },
+        { label: 'Lake', value: 'Percy Priest', caption: 'Swimming' },
+        { label: 'Trail', value: 'Greenway', caption: 'Nature' },
+      ],
+      longDescription: [
+        'Smyrna is a fantastic destination for water-loving dogs and active owners, blending parkland with lakeside recreation. The highlight is [Bark Springs Dog Park](https://www.townofsmyrna.org/), located within the massive Sharp Springs Park. This off-leash area offers separate zones for large and small dogs, agility obstacles, and is well-shaded by mature trees, keeping it cool in the summer. **Sharp Springs Park** itself is a gem, featuring miles of unpaved hiking trails and paved greenways that wind through forests and along the lakeshore, offering endless variety for your daily walks.',
+        'Access to J. Percy Priest Lake provides unique opportunities for dogs to cool off in the water at casual access points (while respecting designated human-only beaches). The town\'s commitment to parks and recreation ensures that trails and facilities are well-maintained and accessible year-round. From forest hikes to lakeside splashes and off-leash romps, Smyrna offers a diverse array of activities. The community is active and pet-friendly, with many events and gatherings held in the parks, making it an ideal place for you and your dog to thrive.',
+      ],
+      faqs: smyrnaTnFaqs,
+    },
+  },
+  {
+    slug: 'soddy-daisy-tn',
+    city: 'Soddy-Daisy',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Home to the Soddy-Daisy Dog Park and the scenic wildness of Big Soddy Creek Gulf.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Creek & Park',
+      heroHeading: 'Indoor Dog Park In Soddy-Daisy',
+      heroDescription: 'Play at the local dog park or take a scenic walk along Big Soddy Creek Gulf.',
+      heroPill: 'Nature Walks',
+      heroFootnotes: ['Soddy-Daisy Dog Park', 'Big Soddy Creek'],
+      heroChips: [
+        { label: 'Park', value: 'City Park', caption: 'Fenced' },
+        { label: 'Trail', value: 'Big Soddy', caption: 'Creek side' },
+        { label: 'Feature', value: 'Swimming', caption: 'Water' },
+      ],
+      longDescription: [
+        'Soddy-Daisy offers a wonderful balance of structured play and wild nature, making it a hidden gem for dog owners. The [Soddy-Daisy Dog Park](https://soddy-daisy.org/) at 9009 Dayton Pike provides a secure, fenced environment for off-leash exercise. It features separate areas for different sized dogs, water access, and benches, serving as a popular local gathering spot for socialization. It\'s a reliable, safe space for your dog to run free and make friends.',
+        'The real star for nature lovers is the [Big Soddy Creek Gulf](https://cumberlandtrail.org/), a stunning natural area with a flat, wide gravel trail following the creek. It\'s an easy, scenic walk perfect for dogs of all activity levels and ages. The trail offers plenty of spots to dip paws in the cool mountain water or simply sit and enjoy the sound of the stream. For those seeking more challenge, the nearby Cumberland Trail offers rugged hiking options. The combination of a dedicated dog park and accessible wilderness makes Soddy-Daisy a versatile and welcoming community for pet owners in the region.',
+      ],
+      faqs: soddyDaisyTnFaqs,
+    },
+  },
+  {
+    slug: 'spring-hill-tn',
+    city: 'Spring Hill',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A rapidly growing community featuring Barkley Park at Evans Park and pet-friendly dining options.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Suburban & Active',
+      heroHeading: 'Indoor Dog Park In Spring Hill',
+      heroDescription: 'Visit Barkley Park at Evans Park or enjoy a walk at the beautiful Fischer Park.',
+      heroPill: 'Parks & Dining',
+      heroFootnotes: ['Barkley Park', 'Fischer Park'],
+      heroChips: [
+        { label: 'Park', value: 'Barkley', caption: 'Agility' },
+        { label: 'Trail', value: 'Fischer', caption: 'Paved' },
+        { label: 'Feature', value: 'Agility', caption: 'Training' },
+      ],
+      longDescription: [
+        'Spring Hill\'s rapid growth has brought excellent amenities for pet owners, creating a modern, dog-friendly community. [Barkley Park](https://www.springhilltn.org/), located within Evans Park, is the city\'s premier off-leash facility. It features separate areas for size safety, water fountains, and agility equipment for training and fun. The park is a central hub for the local dog-owning community, often busy with playful pups and friendly owners. Its location within Evans Park means you also have access to restrooms and other amenities.',
+        'Beyond the dog park, [Fischer Park](https://www.springhilltn.org/) offers the city\'s largest green space with extensive paved walking trails perfect for leashed exercise. These paths wind through sports fields and open grassy areas, providing a safe environment for long walks. The Crossings shopping center adds to the appeal with several pet-friendly restaurant patios, allowing you to include your dog in your dining plans. Spring Hill provides a modern, convenient lifestyle where including your dog in your daily activities—from morning jogs to evening dining—is seamless and encouraged.',
+      ],
+      faqs: springHillTnFaqs,
+    },
+  },
+  {
+    slug: 'thompsons-station-tn',
+    city: 'Thompson\'s Station',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Pastoral charm with the top-tier Nutro Dog Park and extensive preservation nature trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Rural Preservation',
+      heroHeading: 'Indoor Dog Park In Thompson\'s Station',
+      heroDescription: 'Experience the world-class Nutro Dog Park at Sarah Benson Park or hike the trails.',
+      heroPill: 'Premium Park',
+      heroFootnotes: ['Nutro Dog Park', 'Preservation Park'],
+      heroChips: [
+        { label: 'Park', value: 'Nutro', caption: 'Sensory garden' },
+        { label: 'Trail', value: 'Battlefield', caption: 'Historic' },
+        { label: 'Feature', value: 'Sensory', caption: 'Enrichment' },
+      ],
+      longDescription: [
+        'Thompson\'s Station blends beautiful rural landscapes with world-class pet amenities, offering a high quality of life. The centerpiece is the [Nutro Dog Park](https://www.thompsons-station.com/) at Sarah Benson Park. This 4-acre facility is a destination in itself, featuring agility play structures, separate small and large dog areas, and a unique "sensory garden" designed to stimulate your dog\'s mind with different textures and scents. It stands out as one of the most thoughtful and well-designed dog parks in the region.',
+        'The town\'s commitment to conservation is evident in [Preservation Park](https://www.thompsons-station.com/), which offers miles of hiking trails through rolling hills and historic battlefields. Leashed dogs are welcome to explore these scenic paths, which provide a peaceful, pastoral escape from the hustle and bustle. The trails offer varying levels of difficulty and stunning views of the Tennessee countryside. With its premium facilities and preservation-minded ethos, Thompson\'s Station offers a sophisticated and deeply nature-connected lifestyle for dogs and their owners.',
+      ],
+      faqs: thompsonsStationTnFaqs,
+    },
+  },
+  {
+    slug: 'trenton-tn',
+    city: 'Trenton',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A friendly small town featuring the Trenton Dog Park and quiet neighborhood walks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Small Town Charm',
+      heroHeading: 'Indoor Dog Park In Trenton',
+      heroDescription: 'Visit the Trenton Dog Park near Shady Acres for off-leash fun in a quiet setting.',
+      heroPill: 'Quiet & Local',
+      heroFootnotes: ['Trenton Dog Park', 'Shady Acres'],
+      heroChips: [
+        { label: 'Park', value: 'Trenton', caption: 'Fenced' },
+        { label: 'Park', value: 'Shady Acres', caption: 'Leashed' },
+        { label: 'Feature', value: 'Community', caption: 'Local' },
+      ],
+      longDescription: [
+        'Trenton offers a welcoming, small-town atmosphere where dog ownership is celebrated with dedicated spaces and community spirit. The city maintains the [Trenton Dog Park](https://trentontn.net/), conveniently located near the YMCA and Shady Acres Park. This facility provides a safe, fully fenced environment for dogs to play and socialize off-leash. It features separate areas for large and small dogs, ensuring safety for all breeds. The park serves as a community meeting point where neighbors catch up while their pets exercise.',
+        '[Shady Acres Park](https://trentontn.net/) itself is a lovely spot for leashed walks, with open green spaces and well-maintained grounds that are perfect for a relaxing afternoon. The town\'s quiet residential streets are also ideal for daily strolls, offering a safe and peaceful environment away from heavy traffic. While it may not have the vast wilderness of larger cities, Trenton\'s dedicated facilities and friendly, close-knit community make it a comfortable place to raise a dog. Annual local events often welcome pets, further reinforcing Trenton\'s identity as a dog-friendly town.',
+      ],
+      faqs: trentonTnFaqs,
+    },
+  },
+  {
+    slug: 'white-house-tn',
+    city: 'White House',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'Features the popular Rover\'s Ridge Dog Park and the connecting White House Greenway system.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Greenways & Parks',
+      heroHeading: 'Indoor Dog Park In White House',
+      heroDescription: 'Play at Rover\'s Ridge Dog Park or walk along the scenic White House Greenway.',
+      heroPill: 'Connected Trails',
+      heroFootnotes: ['Rover\'s Ridge', 'Greenway'],
+      heroChips: [
+        { label: 'Park', value: 'Rover\'s Ridge', caption: 'Agility' },
+        { label: 'Trail', value: 'Greenway', caption: 'Connected' },
+        { label: 'Feature', value: 'Agility', caption: 'Training' },
+      ],
+      longDescription: [
+        'White House is a standout community for connectivity and outdoor access, prioritizing a pet-friendly lifestyle. [Rover\'s Ridge Dog Park](https://www.cityofwhitehouse.com/) is a well-loved local facility featuring separate areas for large and small dogs, along with agility equipment for fun and training. It offers plenty of shade and seating for owners, making it a comfortable spot to spend an hour or two while your dog burns off energy. The park is known for its cleanliness and friendly regulars.',
+        'The city\'s crown jewel is the [White House Greenway](https://www.cityofwhitehouse.com/), an extensive paved trail system that connects parks (like W.L. Anderson Park), neighborhoods, and schools. It\'s ideal for long, safe leashed walks away from traffic, allowing you to traverse the city amidst greenery. The availability of private dog park rentals (Sniffspots) in the area adds another layer of convenience for those seeking privacy or specific training environments. White House offers a comprehensive network of pet-friendly amenities that keep the community active, connected, and engaged with the outdoors.',
+      ],
+      faqs: whiteHouseTnFaqs,
+    },
+  },
+  {
+    slug: 'woodlawn-tn',
+    city: 'Woodlawn',
+    state: 'TN',
+    featuredImage: '/images/states/tennessee/hero.webp',
+    summary: 'A rural community with access to Woodlawn Park and nearby Dunbar Cave recreation.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Rural Access',
+      heroHeading: 'Indoor Dog Park In Woodlawn',
+      heroDescription: 'Explore Woodlawn Park or visit nearby Dunbar Cave State Park for scenic hikes.',
+      heroPill: 'Nature & Space',
+      heroFootnotes: ['Woodlawn Park', 'Dunbar Cave'],
+      heroChips: [
+        { label: 'Park', value: 'Woodlawn', caption: 'Open' },
+        { label: 'Park', value: 'Dunbar Cave', caption: 'Hikes' },
+        { label: 'Feature', value: 'Open Space', caption: 'Rural' },
+      ],
+      longDescription: [
+        'Woodlawn offers a peaceful, rural lifestyle just minutes from the amenities of Clarksville, providing the best of both worlds for dog owners. While the community itself is quiet and residential, [Woodlawn Park](https://mcgtn.org/parks) serves as an excellent local green space for family outings and leashed dog walks. Its open fields and walking paths are perfect for ample exercise without the crowds. For off-leash play, residents typically make the short drive to Clarksville\'s extensive facilities, such as the Heritage Park Bark Park.',
+        'Nature lovers will appreciate the close proximity to [Dunbar Cave State Park](https://tnstateparks.com/parks/dunbar-cave), a natural treasure where leashed dogs can join you on trails winding through forests and around the historic cave entrance. The abundance of open land in Woodlawn also means many private "Sniffspot" rentals are available, offering acres of fenced or unfenced space for dogs to run freely in a private setting. Whether you have a working breed that needs space or a companion dog who loves a quiet walk, Woodlawn\'s rural charm and access to nature make it a wonderful home.',
+      ],
+      faqs: woodlawnTnFaqs,
+    },
+  },
 ];
-
-
-
-
 
 export function getPriorityCityBySlug(slug: string) {
   return priorityCityContent.find(

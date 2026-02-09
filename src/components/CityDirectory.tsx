@@ -118,7 +118,7 @@ export default function CityDirectory({ citiesByState, sortedStateKeys, abbrToNa
                                     {visibleCities
                                         .sort((a, b) => a.name.localeCompare(b.name))
                                         .map(city => (
-                                            <li key={city.slug}>
+                                            <li key={`${city.slug}-${stateAbbr}`}>
                                                 <Link href={`/cities/${city.slug}`} className="city-link">
                                                     {city.name}
                                                 </Link>

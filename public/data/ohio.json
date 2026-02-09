@@ -10359,5 +10359,56 @@
         "source": "website"
       }
     ]
+  },
+  {
+    "id": "ChIJu278sU78MIgR7oROba_ISIs",
+    "name": "PawsCLE",
+    "businessType": "Dog Park",
+    "description": "Pet parents in the area rave about PawsCLE.  What makes this dog facility special is its friendly, great, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. their prices are reasonable, the staff is very friendly, and they have great communication This facility specializes in Pet care and Professional services. For more information, call (216) 713-0585. Visit their website at http://www.pawscle.com/ to learn more about their services and pricing.",
+    "slug": "pawscle",
+    "address": "1970 Lee Rd",
+    "street": "1970 Lee Rd",
+    "city": "Cleveland Heights",
+    "state": "OH",
+    "zipCode": "44118",
+    "full_address": "1970 Lee Rd, Cleveland Heights, OH 44118, USA",
+    "latitude": 41.50562819999999,
+    "longitude": -81.5657118,
+    "googlePlaceId": "ChIJu278sU78MIgR7oROba_ISIs",
+    "phone": "(216) 713-0585",
+    "website": "http://www.pawscle.com/",
+    "photos": null,
+    "rating": 4.8,
+    "reviewCount": 129,
+    "openingHours": {
+      "Monday": "6:30 AM – 7:30 PM",
+      "Tuesday": "6:30 AM – 7:30 PM",
+      "Wednesday": "6:30 AM – 7:30 PM",
+      "Thursday": "6:30 AM – 7:30 PM",
+      "Friday": "6:30 AM – 7:30 PM",
+      "Saturday": "8:00 AM – 5:00 PM",
+      "Sunday": "8:00 – 10:00 AM, 5:00 – 7:00 PM"
+    },
+    "amenities": {
+      "Onsite services": true,
+      "Indoor facilities": true,
+      "Professional staff": true,
+      "Climate controlled": true,
+      "Wheelchair accessible entrance": true,
+      "Parking available": true,
+      "Easy access": true
+    },
+    "pricing": {
+      "pricingSource": "website",
+      "isFree": false
+    },
+    "placeTypes": [
+      "point_of_interest",
+      "establishment"
+    ],
+    "lastUpdated": null,
+    "dataQuality": "verified",
+    "photo": null,
+    "faqs": []
   }
 ]

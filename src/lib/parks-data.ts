@@ -1,7 +1,10 @@
+import fs from 'fs';
+import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
 import { CityCustomContent } from '@/types/city-content';
 import { normalizeState, normalizeStateKey, getStateName } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
+import { priorityStateContent } from '@/data/priorityStateContent';
 import {
   CityData,
   CityStats,
@@ -481,11 +484,27 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     // Resolve featured image with fallback to state image
     let featuredImage = priorityConfig?.featuredImage || city.featuredImage;
 
+    // Check for city hero image on filesystem
+    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', city.slug, 'hero.webp');
+    const cityHeroExists = fs.existsSync(cityHeroPath);
+
+    if (!featuredImage && cityHeroExists) {
+      featuredImage = `/images/cities/${city.slug}/hero.webp`;
+    }
+
+    // STATE FALLBACK: If still no image (or it's explicitly missing), use state image
     if (!featuredImage) {
-      const cityImagePath = `/images/cities/${city.slug}/hero.webp`;
-      // Note: Edge runtime doesn't support direct disk access (fs.access)
-      // We assume the image exists or let the absolute path fall back in the UI
-      featuredImage = cityImagePath;
+      const stateConfig = priorityStateContent.find(s =>
+        normalizeStateKey(s.abbr) === normalizeStateKey(city.state) ||
+        normalizeStateKey(s.name) === normalizeStateKey(city.state)
+      );
+
+      if (stateConfig?.featuredImage) {
+        featuredImage = stateConfig.featuredImage;
+      } else {
+        // Ultimate fallback to the city path even if it might 404
+        featuredImage = `/images/cities/${city.slug}/hero.webp`;
+      }
     }
 
     const hydratedCity: CityData = {

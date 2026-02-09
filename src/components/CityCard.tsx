@@ -20,8 +20,9 @@ export default function CityCard({ city, priority = false }: CityCardProps) {
             alt={`Indoor dog parks in ${city.name}`}
             fill
             className="city-card-image"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1200px) 33vw, 400px"
             priority={priority}
+            unoptimized={city.featuredImage?.startsWith('/images/')}
           />
         </div>
       )}

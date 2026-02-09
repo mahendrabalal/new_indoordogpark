@@ -714,57 +714,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJ7Ujmia01s1IRWZ7UCWp4H-4",
-    "name": "Indoor Zoomies indoor dog park",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Indoor Zoomies indoor dog park.  What makes this dog facility special is its caring, knowledgeable, safe. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. the owner is knowledgeable, caring, treats each dog with love and individual attention Located in a safe area, This facility specializes in Pet care and Professional services. Visit their website at http://www.indoorzoomiestonka.com/ to learn more about their services and pricing.",
-    "slug": "indoor-zoomies-indoor-dog-park",
-    "address": "10924 Greenbrier Rd",
-    "street": "10924 Greenbrier Rd",
-    "city": "Minnetonka",
-    "state": "TN",
-    "zipCode": "55305",
-    "full_address": "10924 Greenbrier Rd, Minnetonka, MN 55305, USA",
-    "latitude": 44.9513872,
-    "longitude": -93.4183939,
-    "googlePlaceId": "ChIJ7Ujmia01s1IRWZ7UCWp4H-4",
-    "phone": "",
-    "website": "http://www.indoorzoomiestonka.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 60,
-    "openingHours": {
-      "Monday": "4:00 – 7:00 PM",
-      "Tuesday": "4:00 – 7:00 PM",
-      "Wednesday": "4:00 – 7:00 PM",
-      "Thursday": "4:00 – 7:00 PM",
-      "Friday": "Closed",
-      "Saturday": "10:00 AM – 2:00 PM",
-      "Sunday": "10:00 AM – 2:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJpStOYgpnZIgRiQVWT_YMH-w",
     "name": "Gulch Dog Park",
     "businessType": "Dog Park",
@@ -4499,57 +4448,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJIUBtoPqRf4gRMiT6bT6hiFA",
-    "name": "Olive Bark Dog Park",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Olive Bark Dog Park.  What makes this dog facility special is its amazing, clean, great. it's amazing and there's water whenever they need to rehydrate Located in a quiet area, This facility specializes in Pet care and Professional services. For more information, call (662) 892-9200. Visit their website at http://www.obms.us/city-departments/parks-and-recreation/ to learn more about their services and pricing.",
-    "slug": "olive-bark-dog-park",
-    "address": "8820-8840 City Park Dr",
-    "street": "8820-8840 City Park Dr",
-    "city": "Olive Branch",
-    "state": "TN",
-    "zipCode": "38654",
-    "full_address": "8820-8840 City Park Dr, Olive Branch, MS 38654, USA",
-    "latitude": 34.9602969,
-    "longitude": -89.841179,
-    "googlePlaceId": "ChIJIUBtoPqRf4gRMiT6bT6hiFA",
-    "phone": "(662) 892-9200",
-    "website": "http://www.obms.us/city-departments/parks-and-recreation/",
-    "photos": null,
-    "rating": 4.6,
-    "reviewCount": 628,
-    "openingHours": {
-      "Monday": "6:00 AM – 11:00 PM",
-      "Tuesday": "6:00 AM – 11:00 PM",
-      "Wednesday": "6:00 AM – 11:00 PM",
-      "Thursday": "6:00 AM – 11:00 PM",
-      "Friday": "6:00 AM – 11:00 PM",
-      "Saturday": "6:00 AM – 11:00 PM",
-      "Sunday": "6:00 AM – 11:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJhQ97vyq9f4gR8NClJrW2EL8",
     "name": "Suggs Dog Park",
     "businessType": "Dog Park",
@@ -5358,57 +5256,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJvYTfu6OSf4gRT_ryGws-aKE",
-    "name": "Sidlehill Farms",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Sidlehill Farms.  What makes this dog facility special is its great, amazing, outstanding. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. all in all it was a great experience, 10 stars This facility specializes in Pet care and Professional services. For more information, call (662) 890-6291. Visit their website at http://www.sidlehillfarms.com/ to learn more about their services and pricing.",
-    "slug": "sidlehill-farms",
-    "address": "1308 Ross Rd",
-    "street": "1308 Ross Rd",
-    "city": "Olive Branch",
-    "state": "TN",
-    "zipCode": "38654",
-    "full_address": "1308 Ross Rd, Olive Branch, MS 38654, USA",
-    "latitude": 34.8818511,
-    "longitude": -89.84675589999999,
-    "googlePlaceId": "ChIJvYTfu6OSf4gRT_ryGws-aKE",
-    "phone": "(662) 890-6291",
-    "website": "http://www.sidlehillfarms.com/",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 419,
-    "openingHours": {
-      "Monday": "7:30 AM – 5:30 PM",
-      "Tuesday": "7:30 AM – 5:30 PM",
-      "Wednesday": "7:30 AM – 5:30 PM",
-      "Thursday": "7:30 AM – 5:30 PM",
-      "Friday": "7:30 AM – 5:30 PM",
-      "Saturday": "8:30 AM – 4:30 PM",
-      "Sunday": "8:30 AM – 4:30 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ3aWPuh2Xf4gR8DZQz6Va7hg",
     "name": "PetSuites Collierville",
     "businessType": "Dog Park",
@@ -6047,108 +5894,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJXSLZVNyNf4gR1Z5Mfgq2L0k",
-    "name": "Sit Means Sit Midsouth Dog Training",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Sit Means Sit Midsouth Dog Training.  What makes this dog facility special is its amazing, great, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. i sent my 4 month old bully (now 6 months) here for training and they were amazing This facility specializes in Pet care and Professional services. For more information, call (662) 863-8960. Visit their website at http://www.sitmeanssitmidsouth.com/ to learn more about their services and pricing.",
-    "slug": "sit-means-sit-midsouth-dog-training",
-    "address": "3911 Magnolia Ln",
-    "street": "3911 Magnolia Ln",
-    "city": "Nesbit",
-    "state": "TN",
-    "zipCode": "38651",
-    "full_address": "3911 Magnolia Ln, Nesbit, MS 38651, USA",
-    "latitude": 34.8799568,
-    "longitude": -89.9206329,
-    "googlePlaceId": "ChIJXSLZVNyNf4gR1Z5Mfgq2L0k",
-    "phone": "(662) 863-8960",
-    "website": "http://www.sitmeanssitmidsouth.com/",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 49,
-    "openingHours": {
-      "Monday": "9:00 AM – 5:00 PM",
-      "Tuesday": "9:00 AM – 5:00 PM",
-      "Wednesday": "9:00 AM – 5:00 PM",
-      "Thursday": "9:00 AM – 5:00 PM",
-      "Friday": "9:00 AM – 5:00 PM",
-      "Saturday": "9:00 AM – 5:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJVWMqZ2KNf4gReVt0TybLy00",
-    "name": "The K9 Consultant",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about The K9 Consultant.  What makes this dog facility special is its wonderful. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. not to mention, she was able to get some wonderful socialization while she was there This facility specializes in Pet care and Professional services. For more information, call (901) 337-4267. Visit their website at https://www.dogtrainingms.com/ to learn more about their services and pricing.",
-    "slug": "the-k9-consultant",
-    "address": "845 Nesbit Cv",
-    "street": "845 Nesbit Cv",
-    "city": "Nesbit",
-    "state": "TN",
-    "zipCode": "38651",
-    "full_address": "845 Nesbit Cv, Nesbit, MS 38651, USA",
-    "latitude": 34.8800674,
-    "longitude": -90.0048338,
-    "googlePlaceId": "ChIJVWMqZ2KNf4gReVt0TybLy00",
-    "phone": "(901) 337-4267",
-    "website": "https://www.dogtrainingms.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 63,
-    "openingHours": {
-      "Monday": "9:00 AM – 5:30 PM",
-      "Tuesday": "9:00 AM – 5:30 PM",
-      "Wednesday": "9:00 AM – 5:30 PM",
-      "Thursday": "9:00 AM – 5:30 PM",
-      "Friday": "9:00 AM – 5:30 PM",
-      "Saturday": "9:00 AM – 5:30 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -7059,108 +6804,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJA7oaQkmRf4gR7PPtKrcb3qw",
-    "name": "PetSuites Olive Branch",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about PetSuites Olive Branch.  What makes this dog facility special is its friendly, professional, wonderful. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. a wonderful first experience\nthis was my dog midnight’s first time at a daycare and away from me, and i couldn’t be more impressed with petsuites This facility specializes in Pet care and Professional services. For more information, call (662) 253-7655. Visit their website at http://olivebranch.petsuitesofamerica.com/?utm_source=gmb&utm_medium=organic&y_source=1_MzAxMzIzNzItNzE1LWxvY2F0aW9uLndlYnNpdGU%3D to learn more about their services and pricing.",
-    "slug": "petsuites-olive-branch",
-    "address": "8228 Goodman Rd",
-    "street": "8228 Goodman Rd",
-    "city": "Olive Branch",
-    "state": "TN",
-    "zipCode": "38654",
-    "full_address": "8228 Goodman Rd, Olive Branch, MS 38654, USA",
-    "latitude": 34.9627647,
-    "longitude": -89.8433227,
-    "googlePlaceId": "ChIJA7oaQkmRf4gR7PPtKrcb3qw",
-    "phone": "(662) 253-7655",
-    "website": "http://olivebranch.petsuitesofamerica.com/?utm_source=gmb&utm_medium=organic&y_source=1_MzAxMzIzNzItNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
-    "photos": null,
-    "rating": 4.5,
-    "reviewCount": 125,
-    "openingHours": {
-      "Monday": "6:30 AM – 7:00 PM",
-      "Tuesday": "6:30 AM – 7:00 PM",
-      "Wednesday": "6:30 AM – 7:00 PM",
-      "Thursday": "6:30 AM – 7:00 PM",
-      "Friday": "6:30 AM – 7:00 PM",
-      "Saturday": "7:00 AM – 5:00 PM",
-      "Sunday": "12:00 – 5:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJ1c5lsGKOf4gRaVoR8wBRQ98",
-    "name": "Paws Inn & Suites",
-    "businessType": "Dog Park",
-    "description": "Paws Inn & Suites has become a favorite among the area residents.  What makes this dog facility special is its amazing, great, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. my very first experience was nothing short from amazing This facility specializes in Pet care and Professional services. For more information, call (662) 890-5790. Visit their website at http://www.pawsinn-suites.com/ to learn more about their services and pricing.",
-    "slug": "paws-inn-suites",
-    "address": "5850 Goodman Rd Bldg B",
-    "street": "5850 Goodman Rd Bldg B",
-    "city": "Olive Branch",
-    "state": "TN",
-    "zipCode": "38654",
-    "full_address": "5850 Goodman Rd Bldg B, Olive Branch, MS 38654, USA",
-    "latitude": 34.9628709,
-    "longitude": -89.8865512,
-    "googlePlaceId": "ChIJ1c5lsGKOf4gRaVoR8wBRQ98",
-    "phone": "(662) 890-5790",
-    "website": "http://www.pawsinn-suites.com/",
-    "photos": null,
-    "rating": 4.3,
-    "reviewCount": 69,
-    "openingHours": {
-      "Monday": "7:30 AM – 12:00 PM, 1:00 – 5:30 PM",
-      "Tuesday": "7:30 AM – 12:00 PM, 1:00 – 5:30 PM",
-      "Wednesday": "7:30 AM – 12:00 PM, 1:00 – 5:30 PM",
-      "Thursday": "7:30 AM – 12:00 PM, 1:00 – 5:30 PM",
-      "Friday": "7:30 AM – 12:00 PM, 1:00 – 5:30 PM",
-      "Saturday": "8:00 – 10:00 AM",
-      "Sunday": "5:00 – 6:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
       "Parking available": true,
       "Easy access": true
     },
@@ -11100,57 +10743,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJM30u6OAhXIgRkoEq9ybQZXE",
-    "name": "Louisville Dog Park",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Louisville Dog Park.  What makes this dog facility special is its great, clean. great dog park This facility specializes in Pet care and Professional services. ",
-    "slug": "louisville-dog-park",
-    "address": "RXPV+5H",
-    "street": "RXPV+5H",
-    "city": "Louisville",
-    "state": "TN",
-    "zipCode": "37777",
-    "full_address": "RXPV+5H, Louisville, TN 37777, USA",
-    "latitude": 35.83541659999999,
-    "longitude": -84.0060062,
-    "googlePlaceId": "ChIJM30u6OAhXIgRkoEq9ybQZXE",
-    "phone": "",
-    "website": "",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 54,
-    "openingHours": {
-      "Monday": "6:30 AM – 7:00 PM",
-      "Tuesday": "6:30 AM – 7:00 PM",
-      "Wednesday": "6:30 AM – 7:00 PM",
-      "Thursday": "6:30 AM – 7:00 PM",
-      "Friday": "6:30 AM – 7:00 PM",
-      "Saturday": "6:30 AM – 7:00 PM",
-      "Sunday": "6:30 AM – 7:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ19BavNg6XIgRgaDm60pDUuY",
     "name": "Dog Gone Rite, LLC",
     "businessType": "Dog Park",
@@ -12477,57 +12069,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJacSweJRcYIgR4MTNW4_3U-I",
-    "name": "Blowing Springs Kennel",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Blowing Springs Kennel.  What makes this dog facility special is its attentive, friendly, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. they are very good at communicating and very attentive to our dogs and their quirky behaviors and personalities This facility specializes in Pet care and Professional services. For more information, call (423) 413-2314. Visit their website at http://www.blowingsprings.com/ to learn more about their services and pricing.",
-    "slug": "blowing-springs-kennel",
-    "address": "370 Chattanooga Valley Rd",
-    "street": "370 Chattanooga Valley Rd",
-    "city": "Flintstone",
-    "state": "TN",
-    "zipCode": "30725",
-    "full_address": "370 Chattanooga Valley Rd, Flintstone, GA 30725, USA",
-    "latitude": 34.977214,
-    "longitude": -85.3375561,
-    "googlePlaceId": "ChIJacSweJRcYIgR4MTNW4_3U-I",
-    "phone": "(423) 413-2314",
-    "website": "http://www.blowingsprings.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 61,
-    "openingHours": {
-      "Monday": "7:30 AM – 6:30 PM",
-      "Tuesday": "7:30 AM – 6:30 PM",
-      "Wednesday": "7:30 AM – 6:30 PM",
-      "Thursday": "7:30 AM – 6:30 PM",
-      "Friday": "7:30 AM – 6:30 PM",
-      "Saturday": "7:30 AM – 6:30 PM",
-      "Sunday": "7:30 AM – 6:30 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJhRlAIjKbYIgRGW2n5bslNFQ",
     "name": "Happy Tails Bed And Biscuit",
     "businessType": "Dog Park",
@@ -12732,57 +12273,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJ-YWtBwdvYIgRFrMpfaW2pQI",
-    "name": "Good Citizen K9",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Good Citizen K9.  What makes this dog facility special is its amazing, friendly, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. damon and his staff were amazing and really helped us to understand what we were doing wrong and how to properly train and take care of our high energy breed This facility specializes in Pet care and Professional services. For more information, call (423) 641-1586. Visit their website at https://www.goodcitizenk9.com/ to learn more about their services and pricing.",
-    "slug": "good-citizen-k9",
-    "address": "339 Akins Rd",
-    "street": "339 Akins Rd",
-    "city": "Ringgold",
-    "state": "TN",
-    "zipCode": "30736",
-    "full_address": "339 Akins Rd, Ringgold, GA 30736, USA",
-    "latitude": 34.9259827,
-    "longitude": -85.1579103,
-    "googlePlaceId": "ChIJ-YWtBwdvYIgRFrMpfaW2pQI",
-    "phone": "(423) 641-1586",
-    "website": "https://www.goodcitizenk9.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 87,
-    "openingHours": {
-      "Monday": "9:00 AM – 5:00 PM",
-      "Tuesday": "9:00 AM – 5:00 PM",
-      "Wednesday": "9:00 AM – 5:00 PM",
-      "Thursday": "9:00 AM – 5:00 PM",
-      "Friday": "9:00 AM – 5:00 PM",
-      "Saturday": "10:00 AM – 4:00 PM",
-      "Sunday": "10:00 AM – 4:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJ__8z3HCbskwR_V250B4Tc9g",
     "name": "Canine Movement Lab",
     "businessType": "Dog Park",
@@ -12885,100 +12375,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJQ3JjhI1rYIgRoMCIphmuc6g",
-    "name": "Fame Kennels & Training Academy",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Fame Kennels & Training Academy.  What makes this dog facility special is its professional, excellent, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. despite not seeing bo for a couple of weeks, i felt confident that he was in excellent hands Located in a safe area, This facility specializes in Pet care and Professional services. For more information, call (423) 208-2249. Visit their website at http://www.famekennels.com/ to learn more about their services and pricing.",
-    "slug": "fame-kennels-training-academy",
-    "address": "644 N Beaumont Rd",
-    "street": "644 N Beaumont Rd",
-    "city": "Ringgold",
-    "state": "TN",
-    "zipCode": "30736",
-    "full_address": "644 N Beaumont Rd, Ringgold, GA 30736, USA",
-    "latitude": 34.830997,
-    "longitude": -85.199297,
-    "googlePlaceId": "ChIJQ3JjhI1rYIgRoMCIphmuc6g",
-    "phone": "(423) 208-2249",
-    "website": "http://www.famekennels.com/",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 75,
-    "openingHours": {
-      "Monday": "9:00 AM – 6:00 PM",
-      "Tuesday": "9:00 AM – 6:00 PM",
-      "Wednesday": "9:00 AM – 6:00 PM",
-      "Thursday": "9:00 AM – 6:00 PM",
-      "Friday": "9:00 AM – 6:00 PM",
-      "Saturday": "10:00 AM – 2:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJPflqOURDYIgRsGFWVk3x3cI",
-    "name": "Obedience Club of Chattanooga",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Obedience Club of Chattanooga.  What makes this dog facility special is its friendly, professional, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. everyone there is professional and very knowledgeable This facility specializes in Pet care and Professional services. For more information, call (423) 463-0288. Visit their website at https://occdogtraining.org/ to learn more about their services and pricing.",
-    "slug": "obedience-club-of-chattanooga",
-    "address": "244 Lake City Dr",
-    "street": "244 Lake City Dr",
-    "city": "Flintstone",
-    "state": "TN",
-    "zipCode": "30725",
-    "full_address": "244 Lake City Dr, Flintstone, GA 30725, USA",
-    "latitude": 34.9319105,
-    "longitude": -85.34194719999999,
-    "googlePlaceId": "ChIJPflqOURDYIgRsGFWVk3x3cI",
-    "phone": "(423) 463-0288",
-    "website": "https://occdogtraining.org/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 27,
-    "openingHours": {},
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJDWNFPmKOYIgR6Prz6dqBdmo",
     "name": "Camelot K9 Academy",
     "businessType": "Dog Park",
@@ -13013,108 +12409,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJO3BMQLNdYIgRt9XFyC4n0TI",
-    "name": "Anvil K9 Dog Training Llc",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Anvil K9 Dog Training Llc.  What makes this dog facility special is its friendly, professional, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. we can finally take them on walks in public and enjoy all of chattanooga’s dog-friendly spots without stress This facility specializes in Pet care and Professional services. For more information, call (423) 290-7584. Visit their website at http://anvilk9.com/ to learn more about their services and pricing.",
-    "slug": "anvil-k9-dog-training-llc",
-    "address": "232 Longview Dr",
-    "street": "232 Longview Dr",
-    "city": "Rossville",
-    "state": "TN",
-    "zipCode": "30741",
-    "full_address": "232 Longview Dr, Rossville, GA 30741, USA",
-    "latitude": 34.9664853,
-    "longitude": -85.2729557,
-    "googlePlaceId": "ChIJO3BMQLNdYIgRt9XFyC4n0TI",
-    "phone": "(423) 290-7584",
-    "website": "http://anvilk9.com/",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 32,
-    "openingHours": {
-      "Monday": "8:00 AM – 6:00 PM",
-      "Tuesday": "8:00 AM – 6:00 PM",
-      "Wednesday": "8:00 AM – 6:00 PM",
-      "Thursday": "8:00 AM – 6:00 PM",
-      "Friday": "8:00 AM – 6:00 PM",
-      "Saturday": "8:00 AM – 6:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJ38ls3epcYIgRRrUk4koiUYI",
-    "name": "Southern Pro Kennel",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Southern Pro Kennel.  What makes this dog facility special is its clean, great, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. we had a great experience boarding our girls This facility specializes in Pet care and Professional services. For more information, call (423) 208-7461. Visit their website at http://www.southernprokennel.com/ to learn more about their services and pricing.",
-    "slug": "southern-pro-kennel",
-    "address": "721 GA-193",
-    "street": "721 GA-193",
-    "city": "Flintstone",
-    "state": "TN",
-    "zipCode": "30725",
-    "full_address": "721 GA-193, Flintstone, GA 30725, USA",
-    "latitude": 34.9735914,
-    "longitude": -85.3330924,
-    "googlePlaceId": "ChIJ38ls3epcYIgRRrUk4koiUYI",
-    "phone": "(423) 208-7461",
-    "website": "http://www.southernprokennel.com/",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 61,
-    "openingHours": {
-      "Monday": "7:30 AM – 6:00 PM",
-      "Tuesday": "7:30 AM – 6:00 PM",
-      "Wednesday": "7:30 AM – 6:00 PM",
-      "Thursday": "7:30 AM – 6:00 PM",
-      "Friday": "7:30 AM – 6:00 PM",
-      "Saturday": "9:00 AM – 12:00 PM",
-      "Sunday": "9:00 AM – 12:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -13897,57 +13191,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJo7RwheVnYIgRe70JGOjqgVk",
-    "name": "Dusty Paws Pet Grooming &Spa",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Dusty Paws Pet Grooming &Spa.  What makes this dog facility special is its great, amazing, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. the staff are courteous and explain everything in detail, and our dog is always treated very well and given great care This facility specializes in Pet care and Professional services. For more information, call (423) 355-2416. Visit their website at https://dogl.net/explore/dusty-paws-pet-grooming-spa/ to learn more about their services and pricing.",
-    "slug": "dusty-paws-pet-grooming-spa",
-    "address": "2173 Lafayette Rd",
-    "street": "2173 Lafayette Rd",
-    "city": "Fort Oglethorpe",
-    "state": "TN",
-    "zipCode": "30742",
-    "full_address": "2173 Lafayette Rd, Fort Oglethorpe, GA 30742, USA",
-    "latitude": 34.9578475,
-    "longitude": -85.2582106,
-    "googlePlaceId": "ChIJo7RwheVnYIgRe70JGOjqgVk",
-    "phone": "(423) 355-2416",
-    "website": "https://dogl.net/explore/dusty-paws-pet-grooming-spa/",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 104,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "8:00 AM – 3:00 PM",
-      "Wednesday": "8:00 AM – 3:00 PM",
-      "Thursday": "8:00 AM – 3:00 PM",
-      "Friday": "8:00 AM – 3:00 PM",
-      "Saturday": "8:00 AM – 3:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJA6jxvJFlYIgRjqCLvSQ9y7Y",
     "name": "Slobberbones Pet Bakery & Bath",
     "businessType": "Dog Park",
@@ -14230,57 +13473,6 @@
       "Friday": "7:00 AM – 12:00 PM, 3:00 – 5:30 PM",
       "Saturday": "Closed",
       "Sunday": "2:30 – 4:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJi-miAwFBYIgRCouU5RmvXBI",
-    "name": "Country Lane Kennel",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Country Lane Kennel.  What makes this dog facility special is its friendly, professional, outstanding. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. hallie and her husband were new owners of the kennel last year when we started using them, and i've always been impressed with their friendly professionalism and knowledge of dogs 🐕‍🦺 This facility specializes in Pet care and Professional services. For more information, call (706) 375-1735. Visit their website at http://www.clkennel.com/ to learn more about their services and pricing.",
-    "slug": "country-lane-kennel",
-    "address": "735 Baker and Hearn Cir",
-    "street": "735 Baker and Hearn Cir",
-    "city": "Chickamauga",
-    "state": "TN",
-    "zipCode": "30707",
-    "full_address": "735 Baker and Hearn Cir, Chickamauga, GA 30707, USA",
-    "latitude": 34.8195209,
-    "longitude": -85.3161705,
-    "googlePlaceId": "ChIJi-miAwFBYIgRCouU5RmvXBI",
-    "phone": "(706) 375-1735",
-    "website": "http://www.clkennel.com/",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 76,
-    "openingHours": {
-      "Monday": "9:00 AM – 1:00 PM, 4:00 – 6:00 PM",
-      "Tuesday": "9:00 AM – 1:00 PM, 4:00 – 6:00 PM",
-      "Wednesday": "9:00 AM – 1:00 PM, 4:00 – 6:00 PM",
-      "Thursday": "9:00 AM – 1:00 PM, 4:00 – 6:00 PM",
-      "Friday": "9:00 AM – 1:00 PM, 4:00 – 6:00 PM",
-      "Saturday": "9:00 – 11:00 AM, 4:00 – 6:00 PM",
-      "Sunday": "9:00 – 11:00 AM, 4:00 – 6:00 PM"
     },
     "amenities": {
       "Onsite services": true,
@@ -15249,49 +14441,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJaR3LiPErZYgR7voFLWZVMYs",
-    "name": "Dog Park",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Dog Park.  What makes this dog facility special is its spacious. its ok big spacious quiet Located in a quiet area, This facility specializes in Pet care and Professional services. ",
-    "slug": "dog-park",
-    "address": "7103 Hedgerow Ct",
-    "street": "7103 Hedgerow Ct",
-    "city": "Fort Campbell",
-    "state": "TN",
-    "zipCode": "42223",
-    "full_address": "7103 Hedgerow Ct, Fort Campbell, KY 42223, USA",
-    "latitude": 36.668569,
-    "longitude": -87.476702,
-    "googlePlaceId": "ChIJaR3LiPErZYgR7voFLWZVMYs",
-    "phone": "",
-    "website": "",
-    "photos": null,
-    "rating": 4.6,
-    "reviewCount": 20,
-    "openingHours": {},
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -17187,7 +16336,7 @@
     "slug": "clarksville-canine-sports-association",
     "address": "Chester Stahl Rd",
     "street": "Chester Stahl Rd",
-    "city": "Chester Stahl",
+    "city": "Clarksville",
     "state": "TN",
     "zipCode": "",
     "full_address": "Chester Stahl Rd, Kentucky 42286, USA",
@@ -17980,57 +17129,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJb525BgxtYogRJy-l4JiRKFM",
-    "name": "Huntsville Pet Resort",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Huntsville Pet Resort.  What makes this dog facility special is its safe, friendly, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. the staff are clearly passionate about canine care, always keeping a close eye on interactions and ensuring everyone feels safe and comfortable Located in a safe area, This facility specializes in Pet care and Professional services. For more information, call (256) 270-8971. Visit their website at https://huntsvillepetresort.com/ to learn more about their services and pricing.",
-    "slug": "huntsville-pet-resort",
-    "address": "2308 Memorial Pkwy SW",
-    "street": "2308 Memorial Pkwy SW",
-    "city": "Huntsville",
-    "state": "TN",
-    "zipCode": "35801",
-    "full_address": "2308 Memorial Pkwy SW, Huntsville, AL 35801, USA",
-    "latitude": 34.7152891,
-    "longitude": -86.5919273,
-    "googlePlaceId": "ChIJb525BgxtYogRJy-l4JiRKFM",
-    "phone": "(256) 270-8971",
-    "website": "https://huntsvillepetresort.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 133,
-    "openingHours": {
-      "Monday": "7:00 AM – 6:00 PM",
-      "Tuesday": "7:00 AM – 6:00 PM",
-      "Wednesday": "7:00 AM – 6:00 PM",
-      "Thursday": "7:00 AM – 6:00 PM",
-      "Friday": "7:00 AM – 6:00 PM",
-      "Saturday": "8:00 AM – 4:00 PM",
-      "Sunday": "2:00 – 4:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJvcRUcO0ZZ4gRVDXfNDt7OhY",
     "name": "Copyright Pet Resort",
     "businessType": "Dog Park",
@@ -18065,100 +17163,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJDb16VcEXZogRSRxm8Ju8WRU",
-    "name": "The Pet Resort",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about The Pet Resort.  What makes this dog facility special is its friendly, professional, wonderful. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. their staff is super friendly This facility specializes in Pet care and Professional services. For more information, call (270) 651-7387. Visit their website at http://www.petresortglasgow.com/ to learn more about their services and pricing.",
-    "slug": "the-pet-resort",
-    "address": "582 Reynolds Rd",
-    "street": "582 Reynolds Rd",
-    "city": "Glasgow",
-    "state": "TN",
-    "zipCode": "42141",
-    "full_address": "582 Reynolds Rd, Glasgow, KY 42141, USA",
-    "latitude": 37.01055829999999,
-    "longitude": -85.9359947,
-    "googlePlaceId": "ChIJDb16VcEXZogRSRxm8Ju8WRU",
-    "phone": "(270) 651-7387",
-    "website": "http://www.petresortglasgow.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 88,
-    "openingHours": {
-      "Monday": "6:00 AM – 6:00 PM",
-      "Tuesday": "6:00 AM – 6:00 PM",
-      "Wednesday": "6:00 AM – 6:00 PM",
-      "Thursday": "6:00 AM – 6:00 PM",
-      "Friday": "6:00 AM – 6:00 PM",
-      "Saturday": "7:00 AM – 5:00 PM",
-      "Sunday": "7:00 AM – 5:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJfQz6M1g0ZYgR-N-amRiQlt0",
-    "name": "The Pet Lodge",
-    "businessType": "Dog Park",
-    "description": "The Pet Lodge has become a favorite among the area residents.  What makes this dog facility special is its caring, excellent, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. over the past 4 years, we have had a consistently positive experience, received excellent caring service, and highly recommend the pet lodge This facility specializes in Pet care and Professional services. For more information, call (270) 886-6200. Visit their website at https://www.pet-lodge.net/ to learn more about their services and pricing.",
-    "slug": "the-pet-lodge",
-    "address": "616 North Dr",
-    "street": "616 North Dr",
-    "city": "Hopkinsville",
-    "state": "TN",
-    "zipCode": "42240",
-    "full_address": "616 North Dr, Hopkinsville, KY 42240, USA",
-    "latitude": 36.873158,
-    "longitude": -87.497232,
-    "googlePlaceId": "ChIJfQz6M1g0ZYgR-N-amRiQlt0",
-    "phone": "(270) 886-6200",
-    "website": "https://www.pet-lodge.net/",
-    "photos": null,
-    "rating": 4.4,
-    "reviewCount": 95,
-    "openingHours": {},
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -25125,7 +24129,7 @@
     "slug": "connie-s-dogtopia",
     "address": "Johnson City",
     "street": "Johnson City",
-    "city": "Johnson",
+    "city": "Johnson City",
     "state": "TN",
     "zipCode": "",
     "full_address": "Johnson City, TN 37604, USA",
@@ -31158,57 +30162,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJZZ-DKrKOf4gRZka0CFf2upg",
-    "name": "Pampered Paws Pet Grooming",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Pampered Paws Pet Grooming.  What makes this dog facility special is its friendly, clean, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. the ladies there were so friendly and helpful This facility specializes in Pet care and Professional services. For more information, call (662) 470-5116. Visit their website at http://www.pamperedpawspetgroomer.com/ to learn more about their services and pricing.",
-    "slug": "pampered-paws-pet-grooming",
-    "address": "3964 Goodman Rd E #123",
-    "street": "3964 Goodman Rd E #123",
-    "city": "Southaven",
-    "state": "TN",
-    "zipCode": "38672",
-    "full_address": "3964 Goodman Rd E #123, Southaven, MS 38672, USA",
-    "latitude": 34.964276,
-    "longitude": -89.920665,
-    "googlePlaceId": "ChIJZZ-DKrKOf4gRZka0CFf2upg",
-    "phone": "(662) 470-5116",
-    "website": "http://www.pamperedpawspetgroomer.com/",
-    "photos": null,
-    "rating": 4.5,
-    "reviewCount": 169,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "8:30 AM – 5:00 PM",
-      "Wednesday": "8:30 AM – 5:00 PM",
-      "Thursday": "8:30 AM – 5:00 PM",
-      "Friday": "8:30 AM – 5:00 PM",
-      "Saturday": "8:30 AM – 5:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJz21GnyKYf4gRKHaNj8vDTCI",
     "name": "Three Dog Bakery",
     "businessType": "Dog Park",
@@ -31243,57 +30196,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJbwiatB69f4gRxxf1FgVvnIg",
-    "name": "Edgewood Farm and Kennel",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Edgewood Farm and Kennel.  What makes this dog facility special is its great, caring, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great people Located in a safe area, This facility specializes in Pet care and Professional services. For more information, call (662) 895-5983. Visit their website at http://edgewoodfarm.wix.com/1#! to learn more about their services and pricing.",
-    "slug": "edgewood-farm-and-kennel",
-    "address": "1063 Farley Rd",
-    "street": "1063 Farley Rd",
-    "city": "Byhalia",
-    "state": "TN",
-    "zipCode": "38611",
-    "full_address": "1063 Farley Rd, Byhalia, MS 38611, USA",
-    "latitude": 34.9524809,
-    "longitude": -89.6852542,
-    "googlePlaceId": "ChIJbwiatB69f4gRxxf1FgVvnIg",
-    "phone": "(662) 895-5983",
-    "website": "http://edgewoodfarm.wix.com/1#!",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 15,
-    "openingHours": {
-      "Monday": "8:00 AM – 6:00 PM",
-      "Tuesday": "8:00 AM – 6:00 PM",
-      "Wednesday": "8:00 AM – 6:00 PM",
-      "Thursday": "8:00 AM – 6:00 PM",
-      "Friday": "8:00 AM – 6:00 PM",
-      "Saturday": "8:00 AM – 6:00 PM",
-      "Sunday": "8:00 AM – 6:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -32044,57 +30946,6 @@
       "Friday": "Open 24 hours",
       "Saturday": "Open 24 hours",
       "Sunday": "Open 24 hours"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJu278sU78MIgR7oROba_ISIs",
-    "name": "PawsCLE",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about PawsCLE.  What makes this dog facility special is its friendly, great, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. their prices are reasonable, the staff is very friendly, and they have great communication This facility specializes in Pet care and Professional services. For more information, call (216) 713-0585. Visit their website at http://www.pawscle.com/ to learn more about their services and pricing.",
-    "slug": "pawscle",
-    "address": "1970 Lee Rd",
-    "street": "1970 Lee Rd",
-    "city": "Cleveland Heights",
-    "state": "TN",
-    "zipCode": "44118",
-    "full_address": "1970 Lee Rd, Cleveland Heights, OH 44118, USA",
-    "latitude": 41.50562819999999,
-    "longitude": -81.5657118,
-    "googlePlaceId": "ChIJu278sU78MIgR7oROba_ISIs",
-    "phone": "(216) 713-0585",
-    "website": "http://www.pawscle.com/",
-    "photos": null,
-    "rating": 4.8,
-    "reviewCount": 129,
-    "openingHours": {
-      "Monday": "6:30 AM – 7:30 PM",
-      "Tuesday": "6:30 AM – 7:30 PM",
-      "Wednesday": "6:30 AM – 7:30 PM",
-      "Thursday": "6:30 AM – 7:30 PM",
-      "Friday": "6:30 AM – 7:30 PM",
-      "Saturday": "8:00 AM – 5:00 PM",
-      "Sunday": "8:00 – 10:00 AM, 5:00 – 7:00 PM"
     },
     "amenities": {
       "Onsite services": true,
@@ -39891,57 +38742,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJXwcKzyfrWYgRcxNmLveLKK0",
-    "name": "Mills River Dog Park",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Mills River Dog Park.  What makes this dog facility special is its friendly, convenient, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. there has been super friendly Located in a convenient area, This facility specializes in Pet care and Professional services. For more information, call (828) 890-2901. Visit their website at https://www.millsriver.org/269/Dog-Park to learn more about their services and pricing.",
-    "slug": "mills-river-dog-park",
-    "address": "124 Town Center Dr",
-    "street": "124 Town Center Dr",
-    "city": "Mills River",
-    "state": "TN",
-    "zipCode": "28759",
-    "full_address": "124 Town Center Dr, Mills River, NC 28759, USA",
-    "latitude": 35.3820956,
-    "longitude": -82.5502017,
-    "googlePlaceId": "ChIJXwcKzyfrWYgRcxNmLveLKK0",
-    "phone": "(828) 890-2901",
-    "website": "https://www.millsriver.org/269/Dog-Park",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 568,
-    "openingHours": {
-      "Monday": "12:00 – 7:00 PM",
-      "Tuesday": "7:00 AM – 7:00 PM",
-      "Wednesday": "7:00 AM – 7:00 PM",
-      "Thursday": "7:00 AM – 7:00 PM",
-      "Friday": "7:00 AM – 7:00 PM",
-      "Saturday": "7:00 AM – 7:00 PM",
-      "Sunday": "7:00 AM – 7:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJF3YTs6U5ZIgREH7oXmxVX38",
     "name": "The Barking Spot",
     "businessType": "Dog Park",
@@ -41957,57 +40757,6 @@
       "Professional staff": true,
       "Climate controlled": true,
       "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJJTD4sRDDWYgRCbmNJfRVsFY",
-    "name": "Just 4 Paws Grooming and Boarding",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Just 4 Paws Grooming and Boarding.  What makes this dog facility special is its amazing, great, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. what an amazing experience This facility specializes in Pet care and Professional services. For more information, call (936) 245-2016. Visit their website at https://www.just4pawsnc.com/ to learn more about their services and pricing.",
-    "slug": "just-4-paws-grooming-and-boarding",
-    "address": "220 Bell Ave",
-    "street": "220 Bell Ave",
-    "city": "East Flat Rock",
-    "state": "TN",
-    "zipCode": "28726",
-    "full_address": "220 Bell Ave, East Flat Rock, NC 28726, USA",
-    "latitude": 35.2943069,
-    "longitude": -82.42167409999999,
-    "googlePlaceId": "ChIJJTD4sRDDWYgRCbmNJfRVsFY",
-    "phone": "(936) 245-2016",
-    "website": "https://www.just4pawsnc.com/",
-    "photos": null,
-    "rating": 4.7,
-    "reviewCount": 115,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "8:00 AM – 5:00 PM",
-      "Wednesday": "8:00 AM – 5:00 PM",
-      "Thursday": "8:00 AM – 5:00 PM",
-      "Friday": "8:00 AM – 5:00 PM",
-      "Saturday": "8:00 AM – 5:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
       "Parking available": true,
       "Easy access": true
     },
@@ -45800,57 +44549,6 @@
       "Friday": "6:00 AM – 11:00 PM",
       "Saturday": "6:00 AM – 11:00 PM",
       "Sunday": "6:00 AM – 11:00 PM"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": false,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
-    "id": "ChIJjS-jI7E_qAkRmuokvHwPEVg",
-    "name": "Trained Wright K9",
-    "businessType": "Dog Park",
-    "description": "Pet parents in the area rave about Trained Wright K9.  What makes this dog facility special is its great, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. if you are looking for a great place to take good care of your fur baby and to train them, then this is the place This facility specializes in Pet care and Professional services. For more information, call (423) 646-7153. Visit their website at https://trainedwrightk9.com/ to learn more about their services and pricing.",
-    "slug": "trained-wright-k9",
-    "address": "17061 Lee Hwy",
-    "street": "17061 Lee Hwy",
-    "city": "Abingdon",
-    "state": "TN",
-    "zipCode": "24210",
-    "full_address": "17061 Lee Hwy, Abingdon, VA 24210, USA",
-    "latitude": 36.66772439999999,
-    "longitude": -82.0618456,
-    "googlePlaceId": "ChIJjS-jI7E_qAkRmuokvHwPEVg",
-    "phone": "(423) 646-7153",
-    "website": "https://trainedwrightk9.com/",
-    "photos": null,
-    "rating": 5,
-    "reviewCount": 46,
-    "openingHours": {
-      "Monday": "9:00 AM – 5:00 PM",
-      "Tuesday": "9:00 AM – 5:00 PM",
-      "Wednesday": "9:00 AM – 5:00 PM",
-      "Thursday": "9:00 AM – 5:00 PM",
-      "Friday": "9:30 AM – 5:00 PM",
-      "Saturday": "Closed",
-      "Sunday": "Closed"
     },
     "amenities": {
       "Onsite services": true,

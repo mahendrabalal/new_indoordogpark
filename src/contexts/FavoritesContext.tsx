@@ -119,9 +119,12 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     async (parkId: string) => {
       if (!user) return;
 
-      // Optimistic update
-      const previousFavorites = [...favorites];
-      setFavorites((prev) => prev.filter((fav) => fav.park_id !== parkId));
+      // Optimistic update - capture previous state for potential rollback
+      let previousFavorites: Favorite[] = [];
+      setFavorites((prev) => {
+        previousFavorites = [...prev];
+        return prev.filter((fav) => fav.park_id !== parkId);
+      });
 
       try {
         const response = await fetch(`/api/favorites/${parkId}`, {
@@ -141,7 +144,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
         throw error;
       }
     },
-    [user, favorites]
+    [user]
   );
 
   const refreshFavorites = useCallback(async () => {
