@@ -5590,7 +5590,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
-    slug: 'austin',
+    slug: 'austin-tx',
     city: 'Austin',
     state: 'TX',
     featuredImage: '/images/cities/austin-tx/hero.webp',
