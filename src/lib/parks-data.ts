@@ -5,6 +5,7 @@ import { CityCustomContent } from '@/types/city-content';
 import { normalizeState, normalizeStateKey, getStateName } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
 import { priorityStateContent } from '@/data/priorityStateContent';
+import { californiaFallbackCities } from '@/data/californiaFallbackCities';
 import {
   CityData,
   CityStats,
@@ -481,15 +482,25 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     const parksByType = getParksByType(allCityParks);
     const stats = getCityStatistics(allCityParks);
 
-    // Resolve featured image with fallback to state image
-    let featuredImage = priorityConfig?.featuredImage || city.featuredImage;
+    // Resolve featured image:
+    // 1. Local filesystem hero.webp (Highest priority, allows future overrides)
+    // 2. Fallback list for specific cities (Force state image)
+    // 3. Priority Config / DB value
+    let featuredImage: string | undefined | null = undefined;
 
     // Check for city hero image on filesystem
     const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', city.slug, 'hero.webp');
     const cityHeroExists = fs.existsSync(cityHeroPath);
 
-    if (!featuredImage && cityHeroExists) {
+    if (cityHeroExists) {
       featuredImage = `/images/cities/${city.slug}/hero.webp`;
+    } else if (californiaFallbackCities.includes(city.name)) {
+      // If no local file exists and it's in our fallback list, 
+      // explicitly leave featuredImage undefined to trigger state fallback
+      featuredImage = undefined;
+    } else {
+      // Otherwise use the configured image (from DB or priority content)
+      featuredImage = priorityConfig?.featuredImage || city.featuredImage;
     }
 
     // STATE FALLBACK: If still no image (or it's explicitly missing), use state image
@@ -536,6 +547,34 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     const parksByType = getParksByType(allCityParks);
     const stats = getCityStatistics(allCityParks);
 
+    // Resolve featured image with priority: Local > Fallback List > Config > State Fallback > Default
+    let featuredImage: string | undefined = priorityConfig.featuredImage;
+    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', priorityConfig.slug, 'hero.webp');
+    const cityHeroExists = fs.existsSync(cityHeroPath);
+
+    if (cityHeroExists) {
+      // Priority 1: Local file
+      featuredImage = `/images/cities/${priorityConfig.slug}/hero.webp`;
+    } else if (!featuredImage && californiaFallbackCities.includes(priorityConfig.city)) {
+      // Priority 2: Fallback list (triggers state fallback below)
+      featuredImage = undefined;
+    }
+
+    if (!featuredImage) {
+      // Priority 4: State Fallback
+      const stateConfig = priorityStateContent.find(s =>
+        normalizeStateKey(s.abbr) === normalizeStateKey(priorityConfig.state) ||
+        normalizeStateKey(s.name) === normalizeStateKey(priorityConfig.state)
+      );
+
+      if (stateConfig?.featuredImage) {
+        featuredImage = stateConfig.featuredImage;
+      } else {
+        // Ultimate Fallback
+        featuredImage = `/images/cities/${priorityConfig.slug}/hero.webp`;
+      }
+    }
+
     const hydratedCity: CityData = {
       slug: priorityConfig.slug,
       name: priorityConfig.city,
@@ -543,7 +582,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       parkCount: allCityParks.length,
       avgRating: stats.avgRating,
       totalReviews: stats.totalReviews,
-      featuredImage: priorityConfig.featuredImage || `/images/cities/${priorityConfig.slug}/hero.webp`,
+      featuredImage: featuredImage!,
       latitude: allCityParks.find((p) => typeof p.latitude === 'number')?.latitude,
       longitude: allCityParks.find((p) => typeof p.longitude === 'number')?.longitude,
     };

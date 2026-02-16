@@ -4203,7 +4203,3226 @@ const humboldtTnFaqs: FAQItem[] = [
   }
 ];
 
+const valleyGlenCaFaqs = [
+  {
+    question: 'Where can I take my dog in Valley Glen?',
+    answer: 'Valley Glen Community Park is a great local spot for leashed walks. For off-leash play, the nearby Whitnall Off-Leash Dog Park is highly recommended.',
+    category: 'General',
+  },
+  {
+    question: 'Is Valley Glen dog-friendly?',
+    answer: 'Yes, Valley Glen is a quiet, residential neighborhood with wide streets perfect for walking dogs, and it offers easy access to major dog parks in the San Fernando Valley.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Valley Glen?',
+    answer: 'While Valley Glen is flat and urban, a short drive south takes you to Fryman Canyon Park, which offers popular dog-friendly hiking trails with great views.',
+    category: 'General',
+  },
+  {
+    question: 'Does Valley Glen have a dog park?',
+    answer: 'There isn’t a dedicated off-leash park within the neighborhood boundaries, but the Whitnall Highway Dog Park is just minutes away in North Hollywood.',
+    category: 'General',
+  },
+];
+
+const vanNuysCaFaqs = [
+  {
+    question: 'What is the best dog park in Van Nuys?',
+    answer: 'The Sepulveda Basin Off-Leash Dog Park is the premier facility, featuring separate sections for large and small dogs, agility equipment, and plenty of space.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Woodley Park?',
+    answer: 'Yes, leashed dogs are welcome at Woodley Park, which offers vast open green spaces perfect for long walks and picnics with your pet.',
+    category: 'General',
+  },
+  {
+    question: 'Is Van Nuys dog-friendly?',
+    answer: 'Absolutely. Van Nuys boasts one of the largest dog parks in LA (Sepulveda Basin) and has many pet-friendly businesses and parks throughout the area.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Van Nuys?',
+    answer: 'The Sepulveda Basin Recreation Area offers miles of flat trails. For hillier hikes, you can head nearby to the Santa Monica Mountains or Griffith Park.',
+    category: 'General',
+  },
+];
+
+const yorbaLindaCaFaqs = [
+  {
+    question: 'Does Yorba Linda have a dog park?',
+    answer: 'Yes, Checkers Dog Park is a dedicated off-leash facility with separate areas for active and passive dogs, water stations, and shade.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Yorba Regional Park?',
+    answer: 'Yes, leashed dogs are welcome at Yorba Regional Park, which features scenic walking paths around lakes and plenty of grass for picnics.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly hiking trails in Yorba Linda?',
+    answer: 'Yorba Linda has an extensive trail system. The El Cajon Trail and trails within Chino Hills State Park (via Rim Crest) are popular for leashed hiking.',
+    category: 'General',
+  },
+  {
+    question: 'Is Carbon Canyon Regional Park dog-friendly?',
+    answer: 'Yes, Carbon Canyon Regional Park allows leashed dogs and is famous for its grove of coastal redwoods, offering a unique walking experience.',
+    category: 'General',
+  },
+];
+
+const whittierCaFaqs = [
+  {
+    question: 'Does Whittier have an off-leash dog park?',
+    answer: 'Yes, the Whittier Dog Park located at 12206 Philadelphia St features separate fenced areas for large and small dogs, benches, and water stations.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on the Whittier Greenway Trail?',
+    answer: 'Yes, leashed dogs are welcome on the Whittier Greenway Trail, a popular 4.5-mile recreational path that runs through the heart of the city.',
+    category: 'General',
+  },
+  {
+    question: 'Is Whittier a dog-friendly city?',
+    answer: 'Whittier is very dog-friendly, offering dedicated dog parks, scenic trails like the Greenway, and numerous restaurants with pet-friendly patios.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Whittier for dogs?',
+    answer: 'Yes, the nearby Turnbull Canyon and Murphy Ranch Park offer hiking trails where leashed dogs are permitted, providing great views and exercise.',
+    category: 'General',
+  },
+];
+
+const tracyCaFaqs = [
+  {
+    question: 'Does Tracy have a dog park?',
+    answer: 'Yes, Ellis Dog Park and El Pescadero Dog Park are popular off-leash areas with separate sections for small and large dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Tracy?',
+    answer: 'The nearby Carnegie State Vehicular Recreation Area offers some trails, and a short drive leads to the scenic hiking paths of the Diablo Range.',
+    category: 'General',
+  },
+  {
+    question: 'Is Tracy considered dog-friendly?',
+    answer: 'Tracy is a growing, family-oriented community with several parks and residential areas that are perfect for dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to El Pescadero Park?',
+    answer: 'Yes, El Pescadero Park features a dedicated dog run, making it a convenient spot for local pet owners.',
+    category: 'General',
+  },
+];
+
+const topangaCaFaqs = [
+  {
+    question: 'Are dogs allowed in Topanga State Park?',
+    answer: 'Generally, dogs are not allowed on trails in Topanga State Park, but they are permitted in day-use areas and campgrounds on a leash.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Topanga?',
+    answer: 'The Topanga Lookout Trail and Red Rock Canyon Park allow leashed dogs and offer stunning views of the canyon and ocean.',
+    category: 'General',
+  },
+  {
+    question: 'Is Topanga a dog-friendly community?',
+    answer: 'Yes, Topanga has a very pet-friendly vibe with many locals owning dogs, though trail restrictions in state parks are strictly enforced.',
+    category: 'General',
+  },
+  {
+    question: 'Does Topanga have a dog park?',
+    answer: 'There are no dedicated off-leash parks in Topanga Canyon itself, but nearby Calabasas and Woodland Hills offer facilities.',
+    category: 'General',
+  },
+];
+
+const thousandOaksCaFaqs = [
+  {
+    question: 'Where is the dog park in Thousand Oaks?',
+    answer: 'Conejo Creek Dog Park on Avenida de Las Flores is the main off-leash facility, featuring spacious separate areas and agility equipment.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly trails in Thousand Oaks?',
+    answer: 'Yes, the Conejo Valley is famous for its open space. Trails like Los Robles and Wildwood Park (in designated areas) are popular for leashed hiking.',
+    category: 'General',
+  },
+  {
+    question: 'Is Thousand Oaks dog-friendly?',
+    answer: 'Extremely. With its abundance of open space trails and the large Conejo Creek Dog Park, it’s one of the best cities for active dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Gardens of the World?',
+    answer: 'Generally, Gardens of the World does not allow pets, so it’s best to stick to the many public parks and trails in the area.',
+    category: 'General',
+  },
+];
+
+const templeCityCaFaqs = [
+  {
+    question: 'Does Temple City have a dog park?',
+    answer: 'Temple City does not have a dedicated off-leash park, but Live Oak Park allows leashed dogs and is a popular walking spot.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Temple City?',
+    answer: 'Temple City Park and Live Oak Park are the main green spaces. The tree-lined residential streets are also excellent for daily walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Temple City dog-friendly?',
+    answer: 'Yes, it is a quiet, family-centric community. While lacking an off-leash park, it is safe and pleasant for leashed dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks nearby?',
+    answer: 'Yes, the Arcadia Dog Park is just a short drive away and provides a dedicated off-leash area for residents.',
+    category: 'General',
+  },
+];
+
+const temeculaCaFaqs = [
+  {
+    question: 'Are Temecula wineries dog-friendly?',
+    answer: 'Many Temecula wineries are dog-friendly, especially on their outdoor patios. Always check with specific vineyards like Akash or Wilson Creek before visiting.',
+    category: 'General',
+  },
+  {
+    question: 'Does Temecula have dog parks?',
+    answer: 'Yes, Redhawk Community Park and Birdsall Sports Park both feature designated dog runs with separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike in Temecula with my dog?',
+    answer: 'The Santa Rosa Plateau Ecological Reserve allows leashed dogs on specific trails (like Sylvan Meadows), and Dripping Springs Trail is another option.',
+    category: 'General',
+  },
+  {
+    question: 'Is Old Town Temecula dog-friendly?',
+    answer: 'Yes, Old Town is very walkable and many restaurants with outdoor seating welcome leashed pets.',
+    category: 'General',
+  },
+];
+
+const tarzanaCaFaqs = [
+  {
+    question: 'Does Tarzana have a dog park?',
+    answer: 'Tarzana residents typically use the massive Sepulveda Basin Off-Leash Dog Park nearby, or the smaller local parks for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Tarzana?',
+    answer: 'Caballero Canyon Trail is a favorite local hike that allows leashed dogs and offers great views of the Valley.',
+    category: 'General',
+  },
+  {
+    question: 'Is Tarzana dog-friendly?',
+    answer: 'Yes, with easy access to the Santa Monica Mountains for hiking and the Sepulveda Basin for play, it’s a great location for dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Marvin Braude Mulholland Gateway Park?',
+    answer: 'Yes, leashed dogs are permitted on the trails, offering a rugged nature experience right in the city.',
+    category: 'General',
+  },
+];
+
+const sutterCreekCaFaqs = [
+  {
+    question: 'Is Sutter Creek dog-friendly?',
+    answer: 'Yes, this historic Gold Rush town loves pets. Many shops and tasting rooms on Main Street welcome well-behaved dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly wineries in Sutter Creek?',
+    answer: 'Absolutely. Amador County is known for its relaxed vibe, and many wineries like Sutter Creek Wine Tasting allow dogs on patios.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Sutter Creek?',
+    answer: 'Minnie Provis Park is a lovely spot near the creek for a walk, and the historic Main Street is perfect for a town stroll.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails nearby?',
+    answer: 'Yes, the surrounding Sierra foothills offer numerous trails. The Kennedy Tailing Wheels Park in nearby Jackson is also worth a visit.',
+    category: 'General',
+  },
+];
+
+const sunValleyCaFaqs = [
+  {
+    question: 'Does Sun Valley have a dog park?',
+    answer: 'Yes, the Sun Valley Regional Park (Stough Canyon) area is popular, walking distance to wilder trails, and nearby Burbank offers dedicated runs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike in Sun Valley?',
+    answer: 'La Tuna Canyon Trail offers a rigorous hike with sweeping views where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Is Sun Valley dog-friendly?',
+    answer: 'Sun Valley offers a mix of urban and rural feel with plenty of backyard space and access to rugged canyon trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Theodore Payne Foundation?',
+    answer: 'Leashed dogs are often welcome on the nature trail at this native plant nursery, but always check current posted rules.',
+    category: 'General',
+  },
+];
+
+const studioCityCaFaqs = [
+  {
+    question: 'Where can I hike with my dog in Studio City?',
+    answer: 'Fryman Canyon Park (Wilacre Park) is the premier spot. The loop trail is extremely popular with local dog walkers.',
+    category: 'General',
+  },
+  {
+    question: 'Does Studio City have a dog park?',
+    answer: 'Laurel Canyon Dog Park (in nearby Mulholland area) and Woodbridge Park are the closest dedicated off-leash facilities.',
+    category: 'General',
+  },
+  {
+    question: 'Is Studio City dog-friendly?',
+    answer: 'Yes, it is one of the most dog-friendly neighborhoods in LA. Ventura Blvd is lined with pet-friendly patio dining.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to the farmers market?',
+    answer: 'The Studio City Farmers Market is very popular, but check current rules as crowded markets sometimes restrict pets to the perimeter.',
+    category: 'General',
+  },
+];
+
+const springValleyCaFaqs = [
+  {
+    question: 'Does Spring Valley have a dog park?',
+    answer: 'Yes, Lamar County Park is a gem in Spring Valley, offering a spacious off-leash area and plenty of shade.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails in Spring Valley?',
+    answer: 'Sweetwater Reservoir Riding and Hiking Trail is a great nearby option for a long, scenic leashed walk.',
+    category: 'General',
+  },
+  {
+    question: 'Is Spring Valley dog-friendly?',
+    answer: 'Yes, with easy access to large county parks and the Sweetwater Reservoir, there is plenty of outdoor space for pets.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Sweetwater Regional Park?',
+    answer: 'Yes, leashed dogs are welcome in the park’s camping and day-use areas, as well as on designated trails.',
+    category: 'General',
+  },
+];
+
+const elSegundoCaFaqs = [
+  {
+    question: 'Does El Segundo have a dog park?',
+    answer: 'Yes, El Segundo Dog Park offers separate fenced areas for large and small dogs, shade trees, water fountains, and benches.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on El Segundo Beach?',
+    answer: 'Leashed dogs are welcome for walks along El Segundo Beach, providing a scenic coastal experience along the South Bay.',
+    category: 'General',
+  },
+  {
+    question: 'Is El Segundo dog-friendly?',
+    answer: 'Yes, El Segundo is very dog-friendly with a dedicated dog park, pet-friendly restaurants on Main Street, and beautiful beach walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly restaurants in El Segundo?',
+    answer: 'Many restaurants along Main Street and Smoky Hollow offer pet-friendly patios where your dog can join you for a meal.',
+    category: 'General',
+  },
+];
+
+const oakParkCaFaqs = [
+  {
+    question: 'Does Oak Park have a dog park?',
+    answer: 'Yes, Oak Canyon Dog Park offers separate areas for large and small dogs with water fountains. It closes Fridays from 7-10 AM for maintenance.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails in Oak Park for dogs?',
+    answer: 'While Oak Park itself is residential, it borders the Conejo Valley trail system managed by COSCA, offering miles of leashed-dog-friendly hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Is Oak Park near Conejo Creek Dog Park?',
+    answer: 'Yes, the acclaimed Conejo Creek Dog Park in nearby Thousand Oaks is just a short drive away and features expansive off-leash areas.',
+    category: 'General',
+  },
+  {
+    question: 'Is Oak Park a good place for dog owners?',
+    answer: 'Absolutely. Oak Park combines a safe, quiet suburban setting with its own dog park and proximity to world-class open space trails.',
+    category: 'General',
+  },
+];
+
+const pinoleCaFaqs = [
+  {
+    question: 'Does Pinole have a dog park?',
+    answer: 'Yes, Pinole Valley Dog Park at 3790 Pinole Valley Rd. features separate fenced areas for large and small dogs, shade, and water.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Point Pinole Regional Shoreline?',
+    answer: 'Yes, dogs are permitted at Point Pinole Regional Shoreline and can even be off-leash in undeveloped sections, with stunning bay views.',
+    category: 'General',
+  },
+  {
+    question: 'Is Pinole dog-friendly?',
+    answer: 'Very much so. Between its dedicated dog park and the expansive Point Pinole shoreline trails, Pinole is a great place for dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash beaches in Pinole?',
+    answer: 'Point Pinole Regional Shoreline has undeveloped areas where dogs can be off-leash. Nearby Point Isabel in Richmond is another popular option.',
+    category: 'General',
+  },
+];
+
+const pleasantGroveCaFaqs = [
+  {
+    question: 'Does Pleasant Grove have a dog park?',
+    answer: 'Pleasant Grove is a small rural community without a dedicated public dog park, but private options through Sniffspot are available nearby.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I take my dog near Pleasant Grove?',
+    answer: 'Sacramento County offers many nearby dog parks including Hagan Park in Rancho Cordova and the Bark Park run by Sacramento County Animal Care.',
+    category: 'General',
+  },
+  {
+    question: 'Is Pleasant Grove good for dogs?',
+    answer: 'Yes, the rural atmosphere with larger lots provides ample space for dogs. Nearby Sacramento and Elk Grove offer excellent off-leash facilities.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly trails near Pleasant Grove?',
+    answer: 'The American River Parkway is a short drive away and offers over 30 miles of multi-use trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+];
+
+const pomonaCaFaqs = [
+  {
+    question: 'Does Pomona have a dog park?',
+    answer: 'Yes, Phillips Ranch Park is a popular dog-friendly park with designated sections for large and small dogs, agility obstacles, and water stations.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly trails in Pomona?',
+    answer: 'Thompson Creek Trail is a lush, leashed-dog-friendly trail. Nearby Frank G. Bonelli Regional Park also has a 9.5-mile loop trail around Puddingstone Reservoir.',
+    category: 'General',
+  },
+  {
+    question: 'Can I bring my dog to Bonelli Park?',
+    answer: 'Yes, leashed dogs are welcome on the trails at Frank G. Bonelli Regional Park. They are not allowed in the water or on sand beaches.',
+    category: 'General',
+  },
+  {
+    question: 'Is Pomona dog-friendly?',
+    answer: 'Pomona offers a solid mix of dog parks, trails like Thompson Creek, and proximity to Bonelli Regional Park for outdoor adventures with your pup.',
+    category: 'General',
+  },
+];
+
+const ranchoSantaFeCaFaqs = [
+  {
+    question: 'Is Rancho Santa Fe dog-friendly?',
+    answer: 'Yes, Rancho Santa Fe is very pet-friendly with scenic equestrian and hiking trails, nearby off-leash parks, and a welcoming rural atmosphere.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog-friendly trails near Rancho Santa Fe?',
+    answer: 'Lusardi Creek Loop, Del Dios Gorge Trail, and Lake Hodges Trail are all excellent dog-friendly options requiring leashes.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the nearest dog park to Rancho Santa Fe?',
+    answer: 'Poinsettia Dog Park in Carlsbad and Poway Dog Park are both within a short drive and offer separate areas for different dog sizes.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog in the San Elijo Lagoon?',
+    answer: 'Yes, leashed dogs are welcome on trails like the Rios Trail in the San Elijo Lagoon Ecological Reserve, offering scenic wetland views.',
+    category: 'General',
+  },
+];
+
+const redondoBeachCaFaqs = [
+  {
+    question: 'Does Redondo Beach have a dog park?',
+    answer: 'Yes, the Redondo Beach Dog Park at Dominguez Park is a three-acre fenced facility with separate areas for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on Redondo Beach?',
+    answer: 'No, dogs are not permitted on Redondo Beach or its pier. However, nearby Rosie\'s Dog Beach in Long Beach offers off-leash beach access.',
+    category: 'General',
+  },
+  {
+    question: 'When is Redondo Beach Dog Park open?',
+    answer: 'The dog park is open dawn to dusk daily, except Wednesdays when it is closed until noon for maintenance.',
+    category: 'General',
+  },
+  {
+    question: 'Is Redondo Beach a good city for dog owners?',
+    answer: 'Yes, with a great dog park, pet-friendly coastal neighborhoods, and proximity to off-leash beaches in Long Beach, it\'s a wonderful city for dogs.',
+    category: 'General',
+  },
+];
+
+const sanDimasCaFaqs = [
+  {
+    question: 'Does San Dimas have a dog park?',
+    answer: 'Yes, the San Dimas Dog Park at Horsethief Canyon Park offers separate fenced areas for large and small dogs with water fountains and benches.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog at Bonelli Park?',
+    answer: 'Yes, Frank G. Bonelli Regional Park offers the 9.5-mile Bonelli Trail around Puddingstone Reservoir where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Is San Dimas dog-friendly?',
+    answer: 'Very much so. Between its dedicated dog park and the adjacent Bonelli Regional Park with miles of trails, it\'s a great city for active dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails in San Dimas for dogs?',
+    answer: 'The Walnut Creek/Antonovich Trail and trails within Horsethief Canyon Park are all dog-friendly with leashes required.',
+    category: 'General',
+  },
+];
+
+const sanLeandroCaFaqs = [
+  {
+    question: 'Does San Leandro have a dog park?',
+    answer: 'Yes, the Marina Dog Park at Marina Park features a 58,000 sq ft fenced area with separate sections for small and large dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog along the San Leandro shoreline?',
+    answer: 'Yes, leashed dogs are welcome on the shoreline trails at Marina Park, offering scenic views of the San Francisco Bay.',
+    category: 'General',
+  },
+  {
+    question: 'Is San Leandro a dog-friendly city?',
+    answer: 'Absolutely. With the Marina Dog Park, shoreline trails, and Oyster Bay Regional Shoreline, San Leandro is a great city for dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are there other dog-friendly trails near San Leandro?',
+    answer: 'The Heron Bay Trail connects to the San Francisco Bay Trail, and Oyster Bay Regional Shoreline offers miles of leashed-dog-friendly paths.',
+    category: 'General',
+  },
+];
+
+const sanRamonCaFaqs = [
+  {
+    question: 'How many dog parks does San Ramon have?',
+    answer: 'San Ramon has four off-leash dog parks: Del Mar Dog Park, Memorial Park Dog Run, Bark and Ride, and Tassajara Ridge Dog Park.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on the Iron Horse Trail?',
+    answer: 'Yes, leashed dogs are welcome on the Iron Horse Regional Trail, a 32-mile multi-use path with a 4.5-mile section through San Ramon.',
+    category: 'General',
+  },
+  {
+    question: 'What is Bark and Ride in San Ramon?',
+    answer: 'Bark and Ride is a unique 4.5-acre off-leash dog park integrated with a park-and-ride lot, featuring separate areas, fountains, and shade.',
+    category: 'General',
+  },
+  {
+    question: 'Is San Ramon a good city for dog owners?',
+    answer: 'Yes, with four dedicated dog parks, the Iron Horse Trail, and Bishop Ranch Regional Preserve, San Ramon is one of the best Bay Area cities for dogs.',
+    category: 'General',
+  },
+];
+
+const santaClaraCaFaqs = [
+  {
+    question: 'Does Santa Clara have a dog park?',
+    answer: 'Yes, Raymond G. Gamma Dog Park offers separate areas for large and small dogs with synthetic turf, water fountains, and lighting.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in Central Park Santa Clara?',
+    answer: 'Yes, leashed dogs are welcome at Central Park on its paved walking trails around the duck pond, rose garden, and open lawns.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas in Santa Clara?',
+    answer: 'Yes, besides Gamma Dog Park, Larry J. Marsalli Park and Everett N. "Eddie" Souza Park also have designated off-leash dog areas.',
+    category: 'General',
+  },
+  {
+    question: 'Is Santa Clara dog-friendly?',
+    answer: 'Yes, with multiple off-leash parks, beautiful Central Park, and access to Santa Clara County\'s extensive trail system, it\'s very dog-friendly.',
+    category: 'General',
+  },
+];
+
+const scottsValleyCaFaqs = [
+  {
+    question: 'Does Scotts Valley have a dog park?',
+    answer: 'Yes, Scotts Valley Bark Park at Skypark Complex offers separate areas for small and large dogs, toys, water dishes, and a play pool.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog through redwoods near Scotts Valley?',
+    answer: 'Yes, the Lodato Trail is a 1.2-mile path through second-growth redwoods that welcomes leashed dogs. Glenwood Preserve also has redwood groves.',
+    category: 'General',
+  },
+  {
+    question: 'Is Scotts Valley dog-friendly?',
+    answer: 'Very much so. With its Bark Park, redwood trails, and proximity to Henry Cowell Redwoods State Park, it\'s a nature lover\'s dream for dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Henry Cowell Redwoods State Park?',
+    answer: 'Dogs are allowed on a leash on the 6-mile Pipeline Trail, which winds through redwoods along the San Lorenzo River. Most other trails restrict dogs.',
+    category: 'General',
+  },
+];
+
+const simiValleyCaFaqs = [
+  {
+    question: 'Does Simi Valley have a dog park?',
+    answer: 'Yes, Simi Dog Park at 2251 Lost Canyons Drive offers spacious fenced areas for large and small dogs, open 7 AM to dusk daily.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog at Corriganville Park?',
+    answer: 'Yes, leashed dogs are welcome on all trails at Corriganville Park, a historic former movie ranch with scenic sandstone formations and canyon views.',
+    category: 'General',
+  },
+  {
+    question: 'Is Simi Valley dog-friendly?',
+    answer: 'Yes, Simi Valley offers a dedicated dog park, the trails at Corriganville Park, and access to Rocky Peak and other mountain trails for adventurous dogs.',
+    category: 'General',
+  },
+  {
+    question: 'What trails in Simi Valley allow dogs?',
+    answer: 'Corriganville Park trails (Loop Trail, Interpretive Trail), and many of the surrounding mountain trails welcome leashed dogs.',
+    category: 'General',
+  },
+];
+
+const andoverNjFaqs = [
+  {
+    question: 'Is Kittatinny Valley State Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the park\'s extensive trail network and in picnic areas.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any off-leash dog parks in Andover?',
+    answer: 'While Andover itself doesn\'t have a municipal dog park, nearby Newton offers additional dog-friendly spaces.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog on the Sussex Branch Trail?',
+    answer: 'Absolutely! The trail is popular for dog walking, provided your pet remains on a leash.',
+    category: 'General',
+  },
+];
+
+const asburyParkNjFaqs = [
+  {
+    question: 'When are dogs allowed on the Asbury Park Dog Beach?',
+    answer: 'Dogs are allowed all day from Oct 1 to May 15. From May 16 to Sept 30, they are allowed off-leash from 6 PM to 8:30 AM.',
+    category: 'Beach Access',
+  },
+  {
+    question: 'Are dogs allowed on the Asbury Park Boardwalk?',
+    answer: 'Yes, leashed dogs are permitted on the boardwalk, though individual businesses may have their own policies.',
+    category: 'General',
+  },
+  {
+    question: 'What is "Yappy Hour" at the Wonder Bar?',
+    answer: 'It\'s a world-famous event where dogs can play in a fenced-in outdoor area while owners enjoy drinks and food.',
+    category: 'Events',
+  },
+];
+
+const audubonNjFaqs = [
+  {
+    question: 'Where can I walk my dog in Audubon?',
+    answer: 'The tree-lined neighborhood streets and nearby Haddon Lake Park are excellent options for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Audubon have a dedicated dog park?',
+    answer: 'No, but several off-leash facilities are located within a 15-minute drive in neighboring towns like Haddon Township and Blackwood.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Haddon Lake Park?',
+    answer: 'Yes, leashed dogs are permitted throughout the park and on the walking paths.',
+    category: 'General',
+  },
+];
+
+const barnegatLightNjFaqs = [
+  {
+    question: 'Where is the dog park in Barnegat Light?',
+    answer: 'The dog park is located at 10th Street and Bay Avenue, near the Coast Guard station.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Barnegat Lighthouse State Park?',
+    answer: 'Yes, leashed dogs are welcome on the paved walkways and in the picnic areas of the park.',
+    category: 'General',
+  },
+  {
+    question: 'When are dogs allowed on the beaches in Barnegat Light?',
+    answer: 'Dogs are typically allowed on the beach from October 1st through April 15th, provided they are leashed.',
+    category: 'Beach Access',
+  },
+];
+
+const bedminsterNjFaqs = [
+  {
+    question: 'Does Bedminster have a dog park?',
+    answer: 'Yes, the River Road Dog Park is located on River Road and offers an off-leash area for pups.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog on a leash in Bedminster?',
+    answer: 'The Bedminster Hike & Bikeway and various municipal parks like Burnt Mills Park are great options.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any dog-friendly hiking trails near Bedminster?',
+    answer: 'Yes, the nearby Hacklebarney State Park offers extensive trails that are dog-friendly.',
+    category: 'General',
+  },
+];
+
+const belleMeadNjFaqs = [
+  {
+    question: 'Are there dog parks near Belle Mead?',
+    answer: 'Yes, Skillman Park in Montgomery Township features a leash-free area for dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I take my dog for a hike near Belle Mead?',
+    answer: 'The Sourland Mountain Preserve offers challenging, dog-friendly trails just a few miles away.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on municipal property in Belle Mead?',
+    answer: 'Yes, dogs are generally permitted on a leash in public areas and on residential sidewalks.',
+    category: 'General',
+  },
+];
+
+const belfordNjFaqs = [
+  {
+    question: 'Where is the nearest dog park to Belford?',
+    answer: 'The Middletown Dog Park on Tindall Road is the closest official off-leash facility.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on the Henry Hudson Trail?',
+    answer: 'Yes, leashed dogs are welcome on the trail, which offers a great route through the local area.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on the waterfront in Belford?',
+    answer: 'Leashed dogs are permitted in most public waterfront areas, offering great bay views.',
+    category: 'General',
+  },
+];
+
+const belmarNjFaqs = [
+  {
+    question: 'When can I take my dog on the Belmar beach?',
+    answer: 'Dogs are permitted on the beach from October 1st through April 30th.',
+    category: 'Beach Access',
+  },
+  {
+    question: 'Are leashed dogs allowed on the Belmar boardwalk?',
+    answer: 'Yes, leashed dogs are welcome on the boardwalk during the same off-season period (Oct 1 - April 30).',
+    category: 'General',
+  },
+  {
+    question: 'Is Maclearie Park dog-friendly?',
+    answer: 'Yes, leashed dogs are allowed in Maclearie Park, which offers great views of the Shark River.',
+    category: 'General',
+  },
+];
+
+const berlinNjFaqs = [
+  {
+    question: 'Where can I walk my dog in Berlin?',
+    answer: 'Berlin Park offers lovely trails and green spaces for leashed dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any off-leash dog parks in Berlin?',
+    answer: 'While Berlin doesn\'t have its own municipal dog park, the world-class Timber Creek Pooch Park is nearby.',
+    category: 'General',
+  },
+  {
+    question: 'Is Wharton State Forest dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the vast network of trails within the forest.',
+    category: 'General',
+  },
+];
+
+const berlinTownshipNjFaqs = [
+  {
+    question: 'Are dogs allowed in Berlin Township\'s municipal parks?',
+    answer: 'Yes, dogs are generally welcome on a leash in the township\'s public parks and green spaces.',
+    category: 'General',
+  },
+  {
+    question: 'What is the best place for a long walk near Berlin Township?',
+    answer: 'The nearby Haddon Lake Park or even the trails in Wharton State Forest are great options.',
+    category: 'General',
+  },
+  {
+    question: 'Does Berlin Township have a dedicated dog run?',
+    answer: 'No, but several excellent dog parks are located in neighboring towns like Mount Laurel and Blackwood.',
+    category: 'General',
+  },
+];
+
+const bethlehemNjFaqs = [
+  {
+    question: 'Where can I take my dog for a hike in Bethlehem?',
+    answer: 'The various local nature preserves and nearby Spruce Run Recreation Area offer great trails.',
+    category: 'General',
+  },
+  {
+    question: 'Is Spruce Run Recreation Area dog-friendly?',
+    answer: 'Yes, leashed dogs are allowed in designated areas of the park, including many trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas in Bethlehem?',
+    answer: 'There are no municipal off-leash areas in Bethlehem, but the spacious environment provides plenty of room for leashed play.',
+    category: 'General',
+  },
+];
+
+const blairstownNjFaqs = [
+  {
+    question: 'Is the Paulinskill Valley Trail dog-friendly?',
+    answer: 'Yes, it is one of the most popular spots in the area for dog walking, provided pets are leashed.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any off-leash dog parks in Blairstown?',
+    answer: 'While there isn\'t a municipal dog park, the abundance of local trails provides plenty of exercise opportunities.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to the Blairstown Farmers Market?',
+    answer: 'Yes, leashed dogs are usually welcome at this seasonal community event.',
+    category: 'General',
+  },
+];
+
+const bloomsburyNjFaqs = [
+  {
+    question: 'Where can I walk my dog in Bloomsbury?',
+    answer: 'The borough\'s historic streets and the areas near the Musconetcong River are excellent for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any dog parks near Bloomsbury?',
+    answer: 'While Bloomsbury is small, several larger dog parks are located within a 20-minute drive in more populated areas of Hunterdon County.',
+    category: 'General',
+  },
+  {
+    question: 'Is the Musconetcong River area dog-friendly?',
+    answer: 'Yes, leashed dogs can enjoy many of the trails and public areas along the river\'s edge.',
+    category: 'General',
+  },
+];
+
+const boundBrookNjFaqs = [
+  {
+    question: 'Where is the best place to walk a dog in Bound Brook?',
+    answer: 'The D&R Canal State Park trails and Codrington Park are top choices for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Bound Brook have a dog park?',
+    answer: 'No, but several municipal and county dog parks are located just a few miles away in neighboring Somerset County towns.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Codrington Park?',
+    answer: 'Yes, leashed dogs are permitted in the park and on its walking paths.',
+    category: 'General',
+  },
+];
+
+const bradleyBeachNjFaqs = [
+  {
+    question: 'When are dogs allowed on the beach in Bradley Beach?',
+    answer: 'Dogs are permitted on a leash from October 1st through May 15th.',
+    category: 'Beach Access',
+  },
+  {
+    question: 'Are dogs allowed on the Bradley Beach boardwalk?',
+    answer: 'Yes, leashed dogs are welcome on the boardwalk during the off-season (Oct 1 - May 15).',
+    category: 'General',
+  },
+  {
+    question: 'Is Riley Park dog-friendly?',
+    answer: 'Yes, leashed dogs are permitted in the park and on its surrounding sidewalks.',
+    category: 'General',
+  },
+];
+
+const brickNjFaqs = [
+  {
+    question: 'Where is the dog park in Brick?',
+    answer: 'The Angela Hibbard Dog Park is located on Drum Point Road and offers off-leash areas.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Windward Beach Park?',
+    answer: 'Yes, leashed dogs are welcome to explore the park and its trails.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog on the trails at Brick Reservoir?',
+    answer: 'No, dogs are generally not permitted on the path surrounding the Brick Reservoir to protect the water supply.',
+    category: 'General',
+  },
+];
+
+const bridgetonNjFaqs = [
+  {
+    question: 'Is Bridgeton City Park dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome throughout the park and on its many trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the dog park in Bridgeton?',
+    answer: 'The Little Creek Dog Park is a dedicated off-leash facility with separate runs for different dog sizes.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to the Cohanzick Zoo in the park?',
+    answer: 'No, for the safety of the animals, pets are typically not allowed inside the zoo area.',
+    category: 'General',
+  },
+];
+
+const bronxNyFaqs = [
+  {
+    question: 'What are the best dog runs in the Bronx?',
+    answer: 'Van Cortlandt Park and Pelham Bay Park both offer excellent off-leash dog runs with multiple sections.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on the trails in Bronx parks?',
+    answer: 'Yes, leashed dogs are welcome on the vast network of hiking and walking trails throughout the borough\'s parks.',
+    category: 'General',
+  },
+  {
+    question: 'When can dogs be off-leash in NYC parks?',
+    answer: 'Many parks allow off-leash play in designated areas from 9 PM to 9 AM, though you should always check local signage.',
+    category: 'General',
+  },
+];
+
+const brooklawnNjFaqs = [
+  {
+    question: 'Does Brooklawn have a dog park?',
+    answer: 'Yes, the Brooklawn Dog Park is a popular off-leash facility located within the borough.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog with a view in Brooklawn?',
+    answer: 'The waterfront trail along the Delaware River is perfect for scenic leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any pet-friendly events in Brooklawn?',
+    answer: 'The borough often includes pet-friendly activities in its local community fairs and gatherings.',
+    category: 'General',
+  },
+];
+
+const capeMayCourtHouseNjFaqs = [
+  {
+    question: 'Are dogs allowed in Cape May County Park?',
+    answer: 'Yes, leashed dogs are permitted on the walking paths and in the recreational areas of the park.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the nearest dog beach?',
+    answer: 'The Higbee Beach Wildlife Management Area and Wildwood Dog Beach are both excellent options within a short drive.',
+    category: 'Beach Access',
+  },
+  {
+    question: 'Does Cape May Court House have an off-leash dog park?',
+    answer: 'While the township itself doesn\'t have one, several municipal dog parks are located nearby in Cape May and Upper Township.',
+    category: 'General',
+  },
+];
+
+const cedarGroveNjFaqs = [
+  {
+    question: 'Where is the best place to hike with a dog in Cedar Grove?',
+    answer: 'Mills Reservation is a top choice, offering beautiful trails and great views.',
+    category: 'General',
+  },
+  {
+    question: 'Does Cedar Grove have any off-leash dog parks?',
+    answer: 'While there isn\'t one within the township, the Brookdale Dog Park (nearby) is a popular regional option.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in Cedar Grove Park?',
+    answer: 'Yes, leashed dogs are permitted in the park and on its walking paths.',
+    category: 'General',
+  },
+];
+
+const cinnaminsonNjFaqs = [
+  {
+    question: 'Are dogs allowed in Wood Park?',
+    answer: 'Yes, leashed dogs are welcome on the walking paths and in the grassy areas of the park.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the nearest off-leash dog park?',
+    answer: 'The Swede Run Fields Dog Park in neighboring Moorestown is a popular and well-maintained off-leash facility.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog by the river in Cinnaminson?',
+    answer: 'Yes, many of the public access points along the river offer lovely views for a leashed walk.',
+    category: 'General',
+  },
+];
+
+const clementonNjFaqs = [
+  {
+    question: 'Is there a dog park in Clementon?',
+    answer: 'Yes, the Palmer Doggie Depot is a popular and dedicated off-leash facility in the borough.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog on a leash in Clementon?',
+    answer: 'The areas surrounding Clementon Lake and local neighborhood streets are great for leashed strolls.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any pet services nearby?',
+    answer: 'Yes, the Clementon area is home to several veterinary clinics, groomers, and pet supply stores to meet your pup\'s needs.',
+    category: 'General',
+  },
+];
+
+const cliftonParkNyFaqs = [
+  {
+    question: 'Does Clifton Park have a dog park?',
+    answer: 'Yes, the Scentral Bark Dog Park on Harris Road is a popular and well-equipped off-leash facility.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed in the Vischer Ferry Preserve?',
+    answer: 'Yes, leashed dogs are welcome to explore the miles of trails within this huge nature preserve.',
+    category: 'General',
+  },
+  {
+    question: 'What is the local policy for dogs in town parks?',
+    answer: 'Generally, dogs are welcome on a leash in all public park areas unless otherwise noted.',
+    category: 'General',
+  },
+];
+
+const cranburyNjFaqs = [
+  {
+    question: 'Is there an off-leash dog park in Cranbury?',
+    answer: 'Yes, Heritage Park features a dedicated off-leash area for local pets.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I take my dog for a long walk in Cranbury?',
+    answer: 'The walking loop in Heritage Park and the quiet village streets are excellent options.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs welcome in the historic downtown area?',
+    answer: 'Yes, leashed dogs are a common sight in the village, and many businesses are pet-friendly.',
+    category: 'General',
+  },
+];
+
+const denvilleNjFaqs = [
+  {
+    question: 'Where can I walk my dog in Denville?',
+    answer: 'Muriel Hepner Park and the trails in Tourne County Park are among the best spots for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Denville have a dedicated dog park?',
+    answer: 'While there isn\'t one within the township, several regional dog parks are located nearby in Morris County.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed on the downtown sidewalks in Denville?',
+    answer: 'Yes, the downtown area is very pedestrian-friendly and welcoming to leashed pets.',
+    category: 'General',
+  },
+];
+
+const doverNjFaqs = [
+  {
+    question: 'Are dogs allowed in Dover\'s municipal parks?',
+    answer: 'Yes, leashed dogs are generally welcome in public parks like Hurd Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the best place to walk a dog in Dover?',
+    answer: 'Neighborhood streets and the riverside paths offer great options for leashed exploration.',
+    category: 'General',
+  },
+  {
+    question: 'Are there any dog parks near Dover?',
+    answer: 'Yes, several well-equipped dog parks are located within a 15-minute drive in more suburban areas of Morris County.',
+    category: 'General',
+  },
+];
+
+const dumontNjFaqs = [
+  {
+    question: 'Is there a dog-friendly area in Dumont?',
+    answer: 'Yes, Gina\'s Field is a local spot that is popular for dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Where are the nearest major dog parks?',
+    answer: 'Van Saun County Park and Overpeck County Park both offer excellent off-leash facilities within a short drive.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in Dumont\'s residential areas?',
+    answer: 'Absolutely, the borough\'s sidewalks and tree-lined streets are perfect for leashed daily walks.',
+    category: 'General',
+  },
+];
+
+const eastOrangeNjFaqs = [
+  {
+    question: 'Are there dog parks in East Orange, NJ?',
+    answer: 'East Orange has several community parks where leashed dogs are welcome, and the nearby South Mountain Reservation offers extensive trails and off-leash areas.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in South Mountain Reservation?',
+    answer: 'Yes, leashed dogs are welcome on all trails. The reservation also has a designated off-leash dog park area.',
+    category: 'General',
+  },
+  {
+    question: 'Is East Orange walkable for dogs?',
+    answer: 'Yes, East Orange has well-maintained sidewalks and several neighborhood parks ideal for daily leashed walks.',
+    category: 'General',
+  },
+];
+
+const eatontownNjFaqs = [
+  {
+    question: 'Does Eatontown have a dog park?',
+    answer: 'Eatontown is near the Wolf Hill Off-Leash Dog Area in Oceanport, which offers a large fenced space for dogs to play freely.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Eatontown?',
+    answer: 'Wampum Park and the surrounding residential streets are popular for leashed walks. The area is very flat and walkable.',
+    category: 'General',
+  },
+  {
+    question: 'Are there pet-friendly shops in Eatontown?',
+    answer: 'Yes, the Monmouth Mall area and surrounding shops often accommodate pets, and there are several pet supply stores nearby.',
+    category: 'General',
+  },
+];
+
+const edgewaterNjFaqs = [
+  {
+    question: 'Is Edgewater dog-friendly?',
+    answer: 'Yes, Edgewater offers scenic waterfront walks along the Hudson River and is close to several Bergen County dog parks.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog along the Edgewater waterfront?',
+    answer: 'Yes, the waterfront promenade is a popular spot for leashed walks with stunning views of the Manhattan skyline.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the nearest dog park to Edgewater?',
+    answer: 'Overpeck County Park in nearby Leonia features a large, well-maintained off-leash dog area.',
+    category: 'General',
+  },
+];
+
+const eggHarborTownshipNjFaqs = [
+  {
+    question: 'Does Egg Harbor Township have a dog park?',
+    answer: 'Yes, the Tony Canale Dog Park at Bargaintown Park offers a fenced off-leash area for dogs of all sizes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails in Egg Harbor Township?',
+    answer: 'Yes, the Atlantic County Bikeway and nearby nature preserves offer miles of trails suitable for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is Egg Harbor Township good for dog owners?',
+    answer: 'Absolutely. The township is suburban with many parks, pet-friendly businesses, and a dedicated dog park.',
+    category: 'General',
+  },
+];
+
+const elizabethNjFaqs = [
+  {
+    question: 'Are there dog-friendly parks in Elizabeth, NJ?',
+    answer: 'Yes, Elizabeth River Trail Park and Warinanco Park are popular spots for leashed walks and outdoor recreation with dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Elizabeth have an off-leash dog park?',
+    answer: 'Warinanco Park, shared with Roselle, features a dog run area where dogs can play off-leash.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog along the waterfront in Elizabeth?',
+    answer: 'Yes, the Elizabeth River Trail offers a scenic paved path along the waterfront suitable for leashed dogs.',
+    category: 'General',
+  },
+];
+
+const elmwoodParkNjFaqs = [
+  {
+    question: 'Is Elmwood Park dog-friendly?',
+    answer: 'Yes, Elmwood Park has several neighborhood parks and is close to the Saddle River County Park, which is great for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Elmwood Park?',
+    answer: 'The Saddle River County Park pathway runs along the borough and offers miles of paved, dog-friendly trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Elmwood Park?',
+    answer: 'The Garfield Dog Park and other Bergen County off-leash areas are a short drive away.',
+    category: 'General',
+  },
+];
+
+const emersonNjFaqs = [
+  {
+    question: 'Does Emerson have a dog park?',
+    answer: 'While Emerson does not have a dedicated dog park, the borough is close to the Oradell Reservoir trails and other Bergen County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Emerson?',
+    answer: 'The quiet residential streets and local parks like Veterans Park are ideal for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Emerson a good place for dog owners?',
+    answer: 'Yes, Emerson is a quiet, suburban community with walkable streets and easy access to Bergen County parks and trails.',
+    category: 'General',
+  },
+];
+
+const englewoodNjFaqs = [
+  {
+    question: 'Does Englewood have a dog park?',
+    answer: 'Yes, Flat Rock Brook Nature Center offers trails for leashed dogs, and the city is near several Bergen County off-leash parks.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog in Englewood?',
+    answer: 'Yes, the Palisades Interstate Park and Flat Rock Brook Nature Center provide excellent hiking trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Is Englewood walkable for dog owners?',
+    answer: 'Yes, downtown Englewood is very walkable with many pet-friendly businesses and restaurants along Palisade Avenue.',
+    category: 'General',
+  },
+];
+
+const fairHavenNjFaqs = [
+  {
+    question: 'Is Fair Haven dog-friendly?',
+    answer: 'Yes, Fair Haven is a very dog-friendly community with local parks and easy access to the Navesink River waterfront for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Fair Haven?',
+    answer: 'Fair Haven Fields and McCarter Park are popular spots. The village streets are also very walkable.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash dog parks near Fair Haven?',
+    answer: 'The Thompson Park Dog Park in nearby Lincroft offers a dedicated off-leash area and is just a short drive away.',
+    category: 'General',
+  },
+];
+
+const fanwoodNjFaqs = [
+  {
+    question: 'Does Fanwood have a dog park?',
+    answer: 'Fanwood does not have a dedicated dog park, but nearby Watchung Reservation offers extensive trails, and Echo Lake Park has open spaces for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Fanwood?',
+    answer: 'The borough is compact and walkable. LaGrande Park and the downtown area are popular spots for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Fanwood a good community for dogs?',
+    answer: 'Yes, Fanwood is a quiet, family-friendly borough with tree-lined streets and easy access to Union County parks.',
+    category: 'General',
+  },
+];
+
+const flemingtonNjFaqs = [
+  {
+    question: 'Does Flemington have a dog park?',
+    answer: 'Yes, the Hunterdon County Dog Park near the Arboretum is a popular off-leash destination for local dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in downtown Flemington?',
+    answer: 'Yes, the historic downtown is very walkable and many shops and restaurants along Main Street are pet-friendly.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Flemington?',
+    answer: 'Yes, the Hunterdon County Arboretum and the nearby Round Valley Reservoir offer excellent trails for leashed dogs.',
+    category: 'General',
+  },
+];
+
+const florenceNjFaqs = [
+  {
+    question: 'Is Florence Township dog-friendly?',
+    answer: 'Yes, Florence has several community parks and is located along the Delaware River, providing scenic spots for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Florence, NJ?',
+    answer: 'Florence Township Community Park and the riverfront areas are popular for walking with leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Florence?',
+    answer: 'Burlington County has several dog parks within a short drive, including facilities in nearby Bordentown and Burlington.',
+    category: 'General',
+  },
+];
+
+const forkedRiverNjFaqs = [
+  {
+    question: 'Is Forked River good for dogs?',
+    answer: 'Yes, Forked River is part of Lacey Township, offering access to natural areas like the Edwin B. Forsythe National Wildlife Refuge and local parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Forked River?',
+    answer: 'The Lacey Township trails, local parks, and the bayfront areas provide ample space for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Forked River State Marina?',
+    answer: 'Leashed dogs are generally welcome in the park areas around the marina, but check posted rules for specific restrictions.',
+    category: 'General',
+  },
+];
+
+const fortLeeNjFaqs = [
+  {
+    question: 'Does Fort Lee have a dog park?',
+    answer: 'Yes, Fort Lee has a dog run located in Constitution Park, offering a fenced area for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog near Fort Lee?',
+    answer: 'Yes, the Palisades Interstate Park offers stunning cliff-top trails along the Hudson River where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Is Fort Lee walkable for dog owners?',
+    answer: 'Very much so. Fort Lee is compact and pedestrian-friendly with parks, the waterfront, and many pet-friendly businesses.',
+    category: 'General',
+  },
+];
+
+const freeholdNjFaqs = [
+  {
+    question: 'Are there dog parks in Freehold?',
+    answer: 'Yes, the Michael J. Tighe Park Dog Park in nearby Freehold Township offers a fenced off-leash area with separate sections for large and small dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in downtown Freehold?',
+    answer: 'Yes, the historic downtown is very walkable, and the municipal trail system provides additional recreational options.',
+    category: 'General',
+  },
+  {
+    question: 'Is Freehold pet-friendly?',
+    answer: 'Absolutely. Freehold has numerous pet services, and many downtown restaurants offer pet-friendly outdoor seating.',
+    category: 'General',
+  },
+];
+
+const garfieldNjFaqs = [
+  {
+    question: 'Does Garfield have a dog park?',
+    answer: 'Yes, the Garfield Dog Park provides a fenced off-leash area for dogs to socialize and exercise.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Garfield?',
+    answer: 'The Passaic River walkway and local parks like Dahnert Park provide scenic leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Is Garfield close to other dog parks?',
+    answer: 'Yes, Garfield is centrally located in Bergen County with easy access to parks in Saddle Brook, Rochelle Park, and Passaic County.',
+    category: 'General',
+  },
+];
+
+const glenRockNjFaqs = [
+  {
+    question: 'Is Glen Rock dog-friendly?',
+    answer: 'Yes, Glen Rock is a very walkable community with tree-lined streets and proximity to the Saddle River County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Glen Rock?',
+    answer: 'The Saddle River County Park pathway runs through the borough and is ideal for leashed walks. Local parks also offer green space.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Glen Rock?',
+    answer: 'Nearby communities in Bergen County offer dog parks, and the broader county park system has designated off-leash areas.',
+    category: 'General',
+  },
+];
+
+const gloucesterCityNjFaqs = [
+  {
+    question: 'Is Gloucester City dog-friendly?',
+    answer: 'Yes, Gloucester City has local parks and a waterfront area along the Delaware River that are suitable for leashed dog walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Gloucester City?',
+    answer: 'Johnson Park and the Delaware River waterfront area are popular spots for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Gloucester City?',
+    answer: 'The Timber Creek Dog Park in nearby Blackwood is a well-known off-leash facility within a short drive.',
+    category: 'General',
+  },
+];
+
+const guttenbergNjFaqs = [
+  {
+    question: 'Is Guttenberg good for dog owners?',
+    answer: 'Yes, despite its small size, Guttenberg offers waterfront walking paths along the Hudson River and is close to Bergen County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Guttenberg?',
+    answer: 'The waterfront boulevard along the Hudson River is the primary walking spot, offering stunning views and a paved path.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Guttenberg?',
+    answer: 'Yes, nearby North Bergen and West New York have dog parks, and Braddock Park in North Bergen is a short drive away.',
+    category: 'General',
+  },
+];
+
+const hackettstownNjFaqs = [
+  {
+    question: 'Does Hackettstown have a dog park?',
+    answer: 'Hackettstown has local parks and is close to several state parks and nature areas in Warren County that are dog-friendly.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog near Hackettstown?',
+    answer: 'Allamuchy Mountain State Park is nearby and offers extensive trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Is Hackettstown walkable?',
+    answer: 'Yes, the downtown area along Main Street is walkable and features local shops and restaurants.',
+    category: 'General',
+  },
+];
+
+const haddonfieldNjFaqs = [
+  {
+    question: 'Is Haddonfield dog-friendly?',
+    answer: 'Yes, Haddonfield is one of the most walkable and dog-friendly communities in South Jersey, with a charming downtown and numerous parks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Haddonfield have a dog park?',
+    answer: 'While there is no dedicated fenced dog park in Haddonfield, the borough has several parks with walking trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on Kings Highway?',
+    answer: 'Yes, the Kings Highway shopping district is very pedestrian and dog-friendly, with many shops welcoming leashed pets.',
+    category: 'General',
+  },
+];
+
+const hamburgNjFaqs = [
+  {
+    question: 'Is Hamburg good for dog owners?',
+    answer: 'Yes, Hamburg is surrounded by natural beauty including Wallkill River National Wildlife Refuge and several state parks with dog-friendly trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog near Hamburg?',
+    answer: 'The Appalachian Trail passes nearby, and Wallkill River National Wildlife Refuge offers trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks in Hamburg?',
+    answer: 'While Hamburg itself is small, nearby communities in Sussex County offer recreational facilities, and the surrounding natural areas provide ample space.',
+    category: 'General',
+  },
+];
+
+const hammontonNjFaqs = [
+  {
+    question: 'Does Hammonton have a dog park?',
+    answer: 'Hammonton is close to the Wharton State Forest and other Pine Barrens trails that are excellent for leashed dog adventures.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in downtown Hammonton?',
+    answer: 'Yes, Hammonton has a charming and walkable downtown along Bellevue Avenue with shops and restaurants.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Hammonton for dogs?',
+    answer: 'Yes, the Batona Trail and other paths in Wharton State Forest are nearby and welcome leashed dogs.',
+    category: 'General',
+  },
+];
+
+const harrisonNjFaqs = [
+  {
+    question: 'Is Harrison dog-friendly?',
+    answer: 'Yes, Harrison has undergone significant redevelopment and offers waterfront paths along the Passaic River and local parks for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Harrison?',
+    answer: 'The Passaic Riverfront walkway and the parks near Red Bull Arena are popular spots for leashed dog walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Harrison?',
+    answer: 'Nearby Newark and Kearny have dog parks and larger recreational areas within a short drive.',
+    category: 'General',
+  },
+];
+
+const harringtonParkNjFaqs = [
+  {
+    question: 'Is Harrington Park dog-friendly?',
+    answer: 'Yes, Harrington Park is a quiet, residential borough with walkable streets and proximity to Bergen County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Harrington Park?',
+    answer: 'The borough has local parks and tree-lined streets ideal for leashed walks. Nearby Tenafly Nature Center also offers trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Harrington Park?',
+    answer: 'Bergen County parks nearby, including Overpeck County Park, feature off-leash dog areas.',
+    category: 'General',
+  },
+];
+
+const hawthorneNjFaqs = [
+  {
+    question: 'Does Hawthorne have a dog park?',
+    answer: 'Hawthorne has community parks and is close to Goffle Brook Park in nearby Ridgewood, which is popular for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Hawthorne?',
+    answer: 'The borough has several parks and the Goffle Brook pathway provides a scenic trail for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Hawthorne walkable?',
+    answer: 'Yes, Hawthorne is compact and residential with good sidewalks, making daily dog walks convenient.',
+    category: 'General',
+  },
+];
+
+const highlandParkNjFaqs = [
+  {
+    question: 'Does Highland Park have a dog park?',
+    answer: 'Yes, Highland Park has local parks along the Raritan River and is close to the Donaldson Park Dog Run for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Highland Park?',
+    answer: 'The Raritan River promenade and local parks like Donaldson Park offer scenic leashed walking options.',
+    category: 'General',
+  },
+  {
+    question: 'Is Highland Park walkable?',
+    answer: 'Very much so. Highland Park is compact with a walkable downtown along Raritan Avenue and tree-lined residential streets.',
+    category: 'General',
+  },
+];
+
+const hopewellNjFaqs = [
+  {
+    question: 'Is Hopewell dog-friendly?',
+    answer: 'Yes, Hopewell is a charming and walkable community with historic streets and access to extensive trail systems in the surrounding township.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog near Hopewell?',
+    answer: 'The Ted Stiles Preserve at Baldpate Mountain and the D&R Canal State Park offer extensive trails where leashed dogs are welcome.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks in Hopewell?',
+    answer: 'Hopewell Township has several parks and open spaces. The nearby Mercer County parks also offer dog-friendly facilities.',
+    category: 'General',
+  },
+];
+
+const irvingtonNjFaqs = [
+  {
+    question: 'Are there dog parks in Irvington?',
+    answer: 'Irvington has several public parks where leashed dogs are welcome, and nearby Branch Brook Park in Newark offers extensive trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Irvington?',
+    answer: 'Irvington Park and the surrounding residential areas provide good options for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Irvington close to off-leash dog parks?',
+    answer: 'Yes, the South Mountain Reservation dog park and other Essex County facilities are a short drive away.',
+    category: 'General',
+  },
+];
+
+const iselinNjFaqs = [
+  {
+    question: 'Is Iselin dog-friendly?',
+    answer: 'Yes, Iselin is a section of Woodbridge Township with access to numerous township parks and the Middlesex Greenway trail.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Iselin?',
+    answer: 'The Middlesex Greenway trail and local parks like Merrill Park provide excellent options for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Iselin?',
+    answer: 'Woodbridge Township has dog-friendly facilities, and nearby Middlesex County parks offer additional options.',
+    category: 'General',
+  },
+];
+
+const keansburgNjFaqs = [
+  {
+    question: 'Is Keansburg dog-friendly?',
+    answer: 'Yes, Keansburg offers a boardwalk and bayfront areas that are popular for leashed dog walks during the off-season.',
+    category: 'General',
+  },
+  {
+    question: 'Can I bring my dog to the Keansburg boardwalk?',
+    answer: 'Dogs are generally welcome on the boardwalk during off-peak hours and the off-season. Check local regulations for specific times.',
+    category: 'General',
+  },
+  {
+    question: 'Where are the nearest dog parks to Keansburg?',
+    answer: 'Bayshore Waterfront Park and nearby Monmouth County parks offer dog-friendly walking areas.',
+    category: 'General',
+  },
+];
+
+const kenilworthNjFaqs = [
+  {
+    question: 'Does Kenilworth have a dog park?',
+    answer: 'Kenilworth has local parks and is close to the Watchung Reservation and Nomahegan Park for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Kenilworth?',
+    answer: 'Black Brook Park and the borough streets are popular for daily walks. The nearby Lenape Park also offers trails.',
+    category: 'General',
+  },
+  {
+    question: 'Is Kenilworth walkable?',
+    answer: 'Yes, Kenilworth is compact and suburban with good sidewalks, making it easy to walk your dog daily.',
+    category: 'General',
+  },
+];
+
+const keyportNjFaqs = [
+  {
+    question: 'Is Keyport dog-friendly?',
+    answer: 'Yes, Keyport offers a scenic waterfront along the Raritan Bay and a walkable downtown that is welcoming to dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on the Keyport waterfront?',
+    answer: 'Yes, the Keyport Waterfront Promenade is a popular spot for leashed walks with beautiful bay views.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Keyport?',
+    answer: 'Nearby Monmouth County parks, including Henry Hudson Trail, offer extended walking and cycling paths.',
+    category: 'General',
+  },
+];
+
+const kinnelonNjFaqs = [
+  {
+    question: 'Is Kinnelon good for dogs?',
+    answer: 'Yes, Kinnelon is surrounded by natural beauty with mountain trails and reservoirs, making it ideal for active dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Kinnelon?',
+    answer: 'Silas Condict County Park and the numerous trails in the Kinnelon area offer excellent hiking for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Kinnelon have a dog park?',
+    answer: 'While Kinnelon does not have a dedicated fenced dog park, the extensive natural areas provide ample exercise opportunities.',
+    category: 'General',
+  },
+];
+
+const lakeHiawathaNjFaqs = [
+  {
+    question: 'Is Lake Hiawatha dog-friendly?',
+    answer: 'Yes, Lake Hiawatha is part of Parsippany-Troy Hills Township, which offers numerous parks and trails for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Lake Hiawatha?',
+    answer: 'The lakefront area and surrounding township parks provide pleasant routes for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Lake Hiawatha?',
+    answer: 'Parsippany has dog-friendly park facilities, and Morris County parks offer additional off-leash options.',
+    category: 'General',
+  },
+];
+
+const lakehurstNjFaqs = [
+  {
+    question: 'Is Lakehurst good for dog owners?',
+    answer: 'Yes, Lakehurst is a small community with a quiet, walkable setting and access to nearby Ocean County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Lakehurst?',
+    answer: 'Local parks and the quiet streets of the borough provide daily walking opportunities. Nearby state forests offer more trails.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Lakehurst?',
+    answer: 'Yes, the Pine Barrens trails and nearby Brendan T. Byrne State Forest offer extensive leashed hiking options.',
+    category: 'General',
+  },
+];
+
+const lambertvilleNjFaqs = [
+  {
+    question: 'Is Lambertville dog-friendly?',
+    answer: 'Yes, Lambertville is one of the most dog-friendly towns in New Jersey, with a walkable downtown and the D&R Canal towpath.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog on the Delaware Canal towpath?',
+    answer: 'Yes, the D&R Canal State Park towpath runs through Lambertville and is a premier destination for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs welcome in downtown Lambertville?',
+    answer: 'Absolutely. Many shops, galleries, and restaurants in downtown Lambertville welcome leashed dogs, especially at outdoor seating.',
+    category: 'General',
+  },
+];
+
+const lavalletteNjFaqs = [
+  {
+    question: 'Can I bring my dog to Lavallette beach?',
+    answer: 'Dogs are allowed on Lavallette beaches during the off-season (typically October-April). Check local ordinances for specific dates.',
+    category: 'General',
+  },
+  {
+    question: 'Is Lavallette walkable for dogs?',
+    answer: 'Yes, Lavallette is a compact beach community with a boardwalk and quiet streets ideal for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Lavallette?',
+    answer: 'Nearby Ocean County parks offer dog-friendly areas. The Island Beach State Park trails are also accessible.',
+    category: 'General',
+  },
+];
+
+const lawnsideNjFaqs = [
+  {
+    question: 'Is Lawnside dog-friendly?',
+    answer: 'Yes, Lawnside has community parks and is close to the Timber Creek Dog Park and other Camden County recreational areas.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Lawnside?',
+    answer: 'Local parks and the borough streets provide daily walking routes. The historic Peter Mott House area is also scenic.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Lawnside?',
+    answer: 'The Timber Creek Dog Park in nearby Blackwood offers 9 acres of fenced off-leash play space.',
+    category: 'General',
+  },
+];
+
+const lincolnParkNjFaqs = [
+  {
+    question: 'Does Lincoln Park have a dog park?',
+    answer: 'Lincoln Park has community parks and is close to the Pequannock River pathway and Morris County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Lincoln Park?',
+    answer: 'The Pequannock River trail and local parks provide scenic options for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Lincoln Park walkable?',
+    answer: 'Yes, Lincoln Park has residential streets and parks that are suitable for daily dog walks.',
+    category: 'General',
+  },
+];
+
+const lodiNjFaqs = [
+  {
+    question: 'Does Lodi have a dog park?',
+    answer: 'Lodi has local parks and is close to the Saddle River County Park, which offers excellent leashed walking trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Lodi?',
+    answer: 'Memorial Park and the residential streets are popular for daily walks. The Saddle River pathway is also nearby.',
+    category: 'General',
+  },
+  {
+    question: 'Is Lodi close to off-leash parks?',
+    answer: 'Yes, Bergen County has several dog parks within a short drive, including facilities in Garfield and Rochelle Park.',
+    category: 'General',
+  },
+];
+
+const madisonNjFaqs = [
+  {
+    question: 'Does Madison have a dog park?',
+    answer: 'Yes, Madison has the Dodge Field Dog Park, a fenced off-leash area that is popular with local dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Can I walk my dog in downtown Madison?',
+    answer: 'Yes, the downtown area along Main Street is very walkable and many businesses are pet-friendly.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Madison?',
+    answer: 'Yes, the Loantaka Brook Reservation and the Great Swamp National Wildlife Refuge offer excellent trails nearby.',
+    category: 'General',
+  },
+];
+
+const mahwahNjFaqs = [
+  {
+    question: 'Does Mahwah have a dog park?',
+    answer: 'Yes, Mahwah has the Darlington County Park dog park and the Ramapo Valley County Reservation offers extensive trails for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Mahwah?',
+    answer: 'The Ramapo Valley County Reservation offers over 3,000 acres of trails through forests and along streams, perfect for leashed hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Is Mahwah dog-friendly?',
+    answer: 'Yes, Mahwah is surrounded by natural beauty and offers numerous parks and trails that welcome leashed dogs.',
+    category: 'General',
+  },
+];
+
+const manasquanNjFaqs = [
+  {
+    question: 'Can I bring my dog to Manasquan beach?',
+    answer: 'Dogs are allowed on Manasquan beach during the off-season. Check local ordinances for specific dates and restrictions.',
+    category: 'General',
+  },
+  {
+    question: 'Is there a dog park in Manasquan?',
+    answer: 'Manasquan has local parks, and the Manasquan Reservoir is nearby with a 5-mile perimeter trail that welcomes leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Manasquan?',
+    answer: 'The Manasquan Inlet and the quiet residential streets are popular for daily leashed walks.',
+    category: 'General',
+  },
+];
+
+const manvilleNjFaqs = [
+  {
+    question: 'Is Manville dog-friendly?',
+    answer: 'Yes, Manville has community parks along the Raritan River and quiet residential streets for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Manville?',
+    answer: 'The Raritan River waterfront area and local parks like Dukes Parkway provide pleasant walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Manville?',
+    answer: 'Nearby Somerset County parks offer dog-friendly facilities and trails for more extensive outings.',
+    category: 'General',
+  },
+];
+
+const maplewoodNjFaqs = [
+  {
+    question: 'Does Maplewood have a dog park?',
+    answer: 'Yes, Maplewood has the DeHart Park Dog Run, a popular fenced off-leash area for local dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Maplewood?',
+    answer: 'The South Mountain Reservation trails, Maplewood Memorial Park, and the walkable village center are all excellent options.',
+    category: 'General',
+  },
+  {
+    question: 'Is Maplewood walkable?',
+    answer: 'Very much so. Maplewood Village is a vibrant, pedestrian-friendly area with shops and restaurants that welcome leashed dogs.',
+    category: 'General',
+  },
+];
+
+const margateCityNjFaqs = [
+  {
+    question: 'Can I bring my dog to Margate City beach?',
+    answer: 'Dogs are allowed on Margate beaches during the off-season. Check local ordinances for specific dates and leash requirements.',
+    category: 'General',
+  },
+  {
+    question: 'Is Margate City walkable for dogs?',
+    answer: 'Yes, Margate City is a compact beach community with flat streets and a relaxed atmosphere ideal for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where is Lucy the Elephant in Margate?',
+    answer: 'Lucy the Elephant is a famous landmark on Atlantic Avenue. The surrounding area is pleasant for leashed walks, though dogs cannot enter the structure.',
+    category: 'General',
+  },
+];
+
+const matawanNjFaqs = [
+  {
+    question: 'Is Matawan dog-friendly?',
+    answer: 'Yes, Matawan offers a walkable downtown and access to the Lake Lefferts trail and nearby Monmouth County parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Matawan?',
+    answer: 'The Lake Lefferts area and the Henry Hudson Trail are popular spots for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Matawan?',
+    answer: 'Nearby Monmouth County parks offer dog-friendly areas and trails. The Thompson Park dog park is within easy reach.',
+    category: 'General',
+  },
+];
+
+const maywoodNjFaqs = [
+  {
+    question: 'Does Maywood have a dog park?',
+    answer: 'Maywood has local parks and is close to the Saddle River County Park for leashed walks along paved trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Maywood?',
+    answer: 'Memorial Park and the Saddle River pathway provide scenic walking routes for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is Maywood walkable?',
+    answer: 'Yes, Maywood is a compact borough with good sidewalks and easy access to Bergen County trails.',
+    category: 'General',
+  },
+];
+
+const medfordNjFaqs = [
+  {
+    question: 'Is Medford dog-friendly?',
+    answer: 'Yes, Medford is surrounded by pine forests and cranberry bogs, offering unique hiking experiences for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Medford?',
+    answer: 'The Medford Wildlife Management Area and nearby Brendan T. Byrne State Forest offer extensive trails for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Medford have a dog park?',
+    answer: 'Medford has community parks, and the nearby Freedom Park in Medford Lakes offers recreational facilities.',
+    category: 'General',
+  },
+];
+
+const mendhamNjFaqs = [
+  {
+    question: 'Is Mendham dog-friendly?',
+    answer: 'Yes, Mendham is a scenic Morris County community with rolling hills, horse farms, and excellent trails for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Mendham?',
+    answer: 'Patriots Path trail system runs through the area, and the Scherman Hoffman Wildlife Sanctuary offers nature walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does Mendham have a dog park?',
+    answer: 'While Mendham does not have a dedicated fenced dog park, the extensive trail systems and open spaces provide ample exercise opportunities.',
+    category: 'General',
+  },
+];
+
+const metuchenNjFaqs = [
+  {
+    question: 'Does Metuchen have a dog park?',
+    answer: 'Metuchen has local parks and is close to Roosevelt Park and other Middlesex County facilities for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Metuchen walkable?',
+    answer: 'Yes, Metuchen is one of the most walkable communities in Middlesex County, with a vibrant downtown and tree-lined streets.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in downtown Metuchen?',
+    answer: 'Main Street and the surrounding blocks are very pedestrian-friendly, with many shops welcoming leashed dogs.',
+    category: 'General',
+  },
+];
+
+const middlesexNjFaqs = [
+  {
+    question: 'Is Middlesex borough dog-friendly?',
+    answer: 'Yes, the borough has community parks and is close to the Middlesex Greenway trail and county parks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Middlesex?',
+    answer: 'Mountain View Park and the Middlesex Greenway trail are popular options for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Middlesex?',
+    answer: 'Nearby Middlesex and Somerset County parks offer dog-friendly facilities and designated areas.',
+    category: 'General',
+  },
+];
+
+const midlandParkNjFaqs = [
+  {
+    question: 'Is Midland Park dog-friendly?',
+    answer: 'Yes, Midland Park is a quiet residential borough with walkable streets and proximity to the Saddle River County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Midland Park?',
+    answer: 'Local parks and the Saddle River pathway provide scenic walking routes for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Midland Park?',
+    answer: 'Bergen County has several dog parks within a short drive, and the broader county park system has designated off-leash areas.',
+    category: 'General',
+  },
+];
+
+const milfordNjFaqs = [
+  {
+    question: 'Is Milford dog-friendly?',
+    answer: 'Yes, Milford is a charming Delaware River village with scenic waterfront walks and access to the D&R Canal towpath.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Milford?',
+    answer: 'The Delaware River waterfront and the D&R Canal towpath offer beautiful leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Milford?',
+    answer: 'Yes, the D&R Canal State Park towpath and nearby Hunterdon County trails provide extensive hiking options for leashed dogs.',
+    category: 'General',
+  },
+];
+
+const millvilleNjFaqs = [
+  {
+    question: 'Does Millville have a dog park?',
+    answer: 'Millville has community parks and is close to the Union Lake Wildlife Management Area for leashed nature walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Millville?',
+    answer: 'The Maurice River walkway and local parks provide scenic leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Is Millville good for outdoor dogs?',
+    answer: 'Yes, Millville is surrounded by natural areas, including the Maurice River and state forests, offering diverse outdoor experiences.',
+    category: 'General',
+  },
+];
+
+const montagueNjFaqs = [
+  {
+    question: 'Is Montague dog-friendly?',
+    answer: 'Yes, Montague Township is a rural community at the northernmost tip of NJ, offering the Delaware Water Gap and Stokes State Forest for leashed hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Montague?',
+    answer: 'Stokes State Forest and High Point State Park offer extensive trails with stunning views for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Montague have a dog park?',
+    answer: 'While there is no dedicated fenced dog park, the vast state forests and parks provide ample space for leashed outdoor adventures.',
+    category: 'General',
+  },
+];
+
+const mullicaHillNjFaqs = [
+  {
+    question: 'Is Mullica Hill dog-friendly?',
+    answer: 'Yes, Mullica Hill is a charming village in Harrison Township with antique shops, walkable streets, and nearby nature areas.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Mullica Hill?',
+    answer: 'The historic Main Street and surrounding countryside roads offer pleasant leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there parks near Mullica Hill?',
+    answer: 'Harrison Township parks and nearby Gloucester County trails provide additional recreational options for dog owners.',
+    category: 'General',
+  },
+];
+
+const nanuetNyFaqs = [
+  {
+    question: 'Does Nanuet have a dog park?',
+    answer: 'Nanuet has local parks and is near the Clausland Mountain trails and other Rockland County recreational areas.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Nanuet?',
+    answer: 'Local parks and the Rockland Lake State Park are popular destinations for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Nanuet dog-friendly?',
+    answer: 'Yes, Nanuet is a suburban hamlet in Rockland County with good parks and walkable neighborhoods for daily dog outings.',
+    category: 'General',
+  },
+];
+
+const netcongNjFaqs = [
+  {
+    question: 'Is Netcong dog-friendly?',
+    answer: 'Yes, Netcong is a small borough near the Musconetcong River and Allamuchy State Park, providing trails for leashed hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Netcong?',
+    answer: 'The Musconetcong River path and nearby state park trails offer scenic leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Netcong?',
+    answer: 'Morris County parks offer designated dog-friendly areas within a short drive of Netcong.',
+    category: 'General',
+  },
+];
+
+const newBrunswickNjFaqs = [
+  {
+    question: 'Does New Brunswick have a dog park?',
+    answer: 'Yes, New Brunswick has the Boyd Park Dog Run and other parks along the Raritan River for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in New Brunswick?',
+    answer: 'The D&R Canal towpath, Boyd Park, and the Rutgers campus areas provide excellent walking options.',
+    category: 'General',
+  },
+  {
+    question: 'Is downtown New Brunswick dog-friendly?',
+    answer: 'Yes, many restaurants and shops along George Street have outdoor seating that welcomes leashed dogs.',
+    category: 'General',
+  },
+];
+
+const newMilfordNjFaqs = [
+  {
+    question: 'Does New Milford have a dog park?',
+    answer: 'New Milford has local parks and is close to the Saddle River County Park for leashed walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in New Milford?',
+    answer: 'The Saddle River pathway and local parks provide scenic routes for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is New Milford walkable?',
+    answer: 'Yes, New Milford is a compact Bergen County borough with good sidewalks and access to county trails.',
+    category: 'General',
+  },
+];
+
+const northArlingtonNjFaqs = [
+  {
+    question: 'Is North Arlington dog-friendly?',
+    answer: 'Yes, North Arlington has community parks and is close to the Meadowlands environment areas for nature walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in North Arlington?',
+    answer: 'Local parks and the nearby Belleville Turnpike corridors provide leashed walking opportunities.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near North Arlington?',
+    answer: 'The Meadowlands area and nearby Bergen County parks offer trails and wildlife walks accessible from North Arlington.',
+    category: 'General',
+  },
+];
+
+const northBergenNjFaqs = [
+  {
+    question: 'Does North Bergen have a dog park?',
+    answer: 'Yes, North Bergen has dog-friendly facilities within its parks and is near the Hudson River waterfront for walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in North Bergen?',
+    answer: 'James J. Braddock North Hudson County Park and the Palisades cliffside paths offer scenic leashed walking.',
+    category: 'General',
+  },
+  {
+    question: 'Is North Bergen close to trails?',
+    answer: 'Yes, the Palisades Interstate Park and Hudson River Waterfront Walkway are easily accessible.',
+    category: 'General',
+  },
+];
+
+const northPlainfieldNjFaqs = [
+  {
+    question: 'Is North Plainfield dog-friendly?',
+    answer: 'Yes, North Plainfield has community parks and is near the Green Brook and Watchung Reservation trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in North Plainfield?',
+    answer: 'The Green Brook corridor and local borough parks provide pleasant routes for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near North Plainfield?',
+    answer: 'The Watchung Reservation and nearby Somerset County parks have dog-friendly areas within a short drive.',
+    category: 'General',
+  },
+];
+
+const nutleyNjFaqs = [
+  {
+    question: 'Does Nutley have a dog park?',
+    answer: 'Yes, Nutley has the Monsignor Owens Park Dog Park, a fenced off-leash area popular with local dog owners.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Nutley?',
+    answer: 'The Third River Greenway, Kingsland Manor grounds, and the residential streets offer scenic leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Nutley walkable?',
+    answer: 'Yes, Nutley is very walkable with tree-lined streets, good sidewalks, and a vibrant downtown area.',
+    category: 'General',
+  },
+];
+
+const oaklandNjFaqs = [
+  {
+    question: 'Is Oakland dog-friendly?',
+    answer: 'Yes, Oakland is a Bergen County borough with Ramapo Valley County Reservation access and scenic trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Oakland?',
+    answer: 'The Ramapo Valley trails and nearby state parks offer extensive hiking options for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Oakland have a dog park?',
+    answer: 'Oakland has community parks, and the nearby Ramapo Valley County Reservation provides ample outdoor recreation space.',
+    category: 'General',
+  },
+];
+
+const oceanGateNjFaqs = [
+  {
+    question: 'Is Ocean Gate dog-friendly?',
+    answer: 'Yes, Ocean Gate is a tiny bayfront borough on Barnegat Bay with quiet streets and seasonal beach walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Ocean Gate?',
+    answer: 'The bayfront area and quiet residential streets provide pleasant leashed walking routes year-round.',
+    category: 'General',
+  },
+  {
+    question: 'Can I bring my dog to Ocean Gate beach?',
+    answer: 'Dogs are generally welcome on the bayfront during the off-season. Check local regulations for seasonal restrictions.',
+    category: 'General',
+  },
+];
+
+const oldBridgeNjFaqs = [
+  {
+    question: 'Does Old Bridge have a dog park?',
+    answer: 'Yes, Old Bridge has a dog park at Lombardi Field and the township maintains numerous parks and trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Old Bridge?',
+    answer: 'The Old Bridge waterfront, Cheesequake State Park, and township parks provide diverse options for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Can I hike with my dog near Old Bridge?',
+    answer: 'Yes, Cheesequake State Park offers trails through unique ecological terrain where leashed dogs are welcome.',
+    category: 'General',
+  },
+];
+
+const palmyraNjFaqs = [
+  {
+    question: 'Is Palmyra dog-friendly?',
+    answer: 'Yes, Palmyra is a Delaware River borough with community parks and access to the Palmyra Cove Nature Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Palmyra?',
+    answer: 'Palmyra Cove Nature Park offers trails through tidal wetlands and forests with beautiful river views.',
+    category: 'General',
+  },
+  {
+    question: 'Does Palmyra have trails?',
+    answer: 'Yes, Palmyra Cove Nature Park has over 250 acres of trails through diverse habitats along the Delaware River.',
+    category: 'General',
+  },
+];
+
+const parkRidgeNjFaqs = [
+  {
+    question: 'Is Park Ridge dog-friendly?',
+    answer: 'Yes, Park Ridge is a quiet Bergen County borough with local parks and access to the Saddle River County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Park Ridge?',
+    answer: 'The Saddle River pathway and local parks provide scenic leashed walking options.',
+    category: 'General',
+  },
+  {
+    question: 'Are there off-leash areas near Park Ridge?',
+    answer: 'Bergen County has several dog parks accessible from Park Ridge, and the county park system offers additional options.',
+    category: 'General',
+  },
+];
+
+const peapackGladstoneNjFaqs = [
+  {
+    question: 'Is Peapack-Gladstone dog-friendly?',
+    answer: 'Yes, Peapack-Gladstone is a scenic Somerset County community with rolling hills, horse country, and trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Peapack-Gladstone?',
+    answer: 'The Raritan River area and surrounding countryside roads offer beautiful leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Peapack-Gladstone?',
+    answer: 'Yes, the Somerset County park trail system and the nearby US Golf Association grounds provide walking opportunities.',
+    category: 'General',
+  },
+];
+
+const penningtonNjFaqs = [
+  {
+    question: 'Is Pennington dog-friendly?',
+    answer: 'Yes, Pennington is a charming Mercer County borough with a walkable downtown and nearby nature preserves.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Pennington?',
+    answer: 'The downtown area and surrounding nature preserves like the Rosedale Park offer scenic leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Pennington?',
+    answer: 'Yes, the Baldpate Mountain preserve and nearby D&R Canal towpath offer excellent hiking for leashed dogs.',
+    category: 'General',
+  },
+];
+
+const pequannockNjFaqs = [
+  {
+    question: 'Does Pequannock have a dog park?',
+    answer: 'Pequannock has community parks and is close to the Pequannock River and Morris County trails.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Pequannock?',
+    answer: 'The Pequannock River greenway and local parks provide scenic routes for daily leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is Pequannock walkable?',
+    answer: 'Yes, Pequannock has quiet residential streets and parks that are suitable for daily dog walks.',
+    category: 'General',
+  },
+];
+
+const perthAmboyNjFaqs = [
+  {
+    question: 'Is Perth Amboy dog-friendly?',
+    answer: 'Yes, Perth Amboy offers a scenic waterfront along the Raritan Bay and Arthur Kill, with walking paths for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Perth Amboy?',
+    answer: 'The Waterfront Park and marina area provide scenic leashed walking routes with bay views.',
+    category: 'General',
+  },
+  {
+    question: 'Does Perth Amboy have parks?',
+    answer: 'Yes, the city has multiple parks including Waterfront Park, Bayview Park, and the revitalized downtown areas.',
+    category: 'General',
+  },
+];
+
+const phillipsburgNjFaqs = [
+  {
+    question: 'Is Phillipsburg dog-friendly?',
+    answer: 'Yes, Phillipsburg offers Delaware River waterfront areas and the D&R Canal towpath for scenic leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Phillipsburg?',
+    answer: 'The Delaware River waterfront and nearby canal paths provide pleasant walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Phillipsburg?',
+    answer: 'Yes, the Delaware & Lehigh Trail and nearby Warren County parks offer extensive trails for leashed dogs.',
+    category: 'General',
+  },
+];
+
+const pitmanNjFaqs = [
+  {
+    question: 'Is Pitman dog-friendly?',
+    answer: 'Yes, Pitman is a charming Gloucester County borough with a walkable downtown and Alcyon Lake Park for walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Pitman?',
+    answer: 'Alcyon Lake Park and the quiet downtown streets provide pleasant leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Does Pitman have a dog park?',
+    answer: 'While Pitman does not have a dedicated fenced dog park, the borough parks and nearby Gloucester County trails offer exercise options.',
+    category: 'General',
+  },
+];
+
+const pointPleasantNjFaqs = [
+  {
+    question: 'Can I bring my dog to Point Pleasant beach?',
+    answer: 'Dogs are allowed on Point Pleasant Beach during the off-season. Check local ordinances for specific dates and restrictions.',
+    category: 'General',
+  },
+  {
+    question: 'Is Point Pleasant dog-friendly?',
+    answer: 'Yes, Point Pleasant offers boardwalk areas, Manasquan Reservoir trails, and a pet-welcoming community.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Point Pleasant?',
+    answer: 'The Manasquan Reservoir trail, Canal Walk, and quiet residential streets provide diverse walking options.',
+    category: 'General',
+  },
+];
+
+const ringwoodNjFaqs = [
+  {
+    question: 'Is Ringwood dog-friendly?',
+    answer: 'Yes, Ringwood offers Ringwood State Park with trails through forests and around lakes, ideal for leashed hiking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Ringwood?',
+    answer: 'Ringwood State Park, Skylands Manor grounds, and the Ramapo Mountain trails offer excellent leashed hiking.',
+    category: 'General',
+  },
+  {
+    question: 'Does Ringwood have a dog park?',
+    answer: 'While Ringwood does not have a dedicated fenced dog park, the extensive state park trails provide ample exercise opportunities.',
+    category: 'General',
+  },
+];
+
+const roeblingNjFaqs = [
+  {
+    question: 'Is Roebling dog-friendly?',
+    answer: 'Yes, Roebling is a historic village in Florence Township with quiet streets and access to the Delaware River for walks.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Roebling?',
+    answer: 'The historic village streets and nearby Delaware River waterfront provide pleasant leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near Roebling?',
+    answer: 'Yes, the D&R Canal towpath and nearby Burlington County parks offer additional walking and hiking options.',
+    category: 'General',
+  },
+];
+
+const roselleParkNjFaqs = [
+  {
+    question: 'Is Roselle Park dog-friendly?',
+    answer: 'Yes, Roselle Park is a small Union County borough with community parks and friendly neighborhoods for walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Roselle Park?',
+    answer: 'Local parks and the quiet residential streets provide pleasant leashed walking routes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there large parks near Roselle Park?',
+    answer: 'Warinanco Park and the Rahway River Park are nearby, offering extensive trails and green space.',
+    category: 'General',
+  },
+];
+
+const rutherfordNjFaqs = [
+  {
+    question: 'Is Rutherford dog-friendly?',
+    answer: 'Yes, Rutherford is known as the "Borough of Trees" and offers beautiful, shaded streets for dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Rutherford?',
+    answer: 'Memorial Park and the tree-lined residential avenues provide excellent leashed walking options.',
+    category: 'General',
+  },
+  {
+    question: 'Does Rutherford have a dog park?',
+    answer: 'While Rutherford doesn\'t have a dedicated dog park, widely accessible nearby parks like Riverside County Park offer great runs.',
+    category: 'General',
+  },
+];
+
+const saddleBrookNjFaqs = [
+  {
+    question: 'Is Saddle Brook dog-friendly?',
+    answer: 'Yes, Saddle Brook is home to Saddle River County Park, a premier destination for dog walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Saddle Brook?',
+    answer: 'The Saddle River County Park path runs directly through the township, offering miles of paved walking trails.',
+    category: 'General',
+  },
+  {
+    question: 'Does Saddle Brook have a dog park?',
+    answer: 'Saddle River County Park has designated areas, and the path connects to other dog-friendly zones.',
+    category: 'General',
+  },
+];
+
+const sayrevilleNjFaqs = [
+  {
+    question: 'Is Sayreville dog-friendly?',
+    answer: 'Yes, Sayreville offers waterfront parks along the Raritan River and extensive community green spaces.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Sayreville?',
+    answer: 'Kennedy Park and the Julian Capik Nature Preserve offer trails and open space for leashed walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there nature trails in Sayreville?',
+    answer: 'Yes, the Julian Capik Nature Preserve features miles of trails through woods and around lakes.',
+    category: 'General',
+  },
+];
+
+const scotchPlainsNjFaqs = [
+  {
+    question: 'Is Scotch Plains dog-friendly?',
+    answer: 'Yes, Scotch Plains is home to part of the Watchung Reservation and offers excellent outdoor access.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Scotch Plains?',
+    answer: 'The Watchung Reservation offers miles of hiking trails suitable for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Does Scotch Plains have a dog park?',
+    answer: 'Scotch Plains is near several Union County dog parks, and the Reservation is a major attraction.',
+    category: 'General',
+  },
+];
+
+const seasideHeightsNjFaqs = [
+  {
+    question: 'Can I bring my dog to Seaside Heights beach?',
+    answer: 'Dogs are welcomed on the beach and boardwalk during the off-season. Check local rules for seasonal dates.',
+    category: 'General',
+  },
+  {
+    question: 'Is Seaside Heights dog-friendly?',
+    answer: 'Yes, it is a popular destination for off-season beach walks with your pup.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Seaside Heights?',
+    answer: 'The boardwalk and beach (off-season) are the main attractions for dog walkers.',
+    category: 'General',
+  },
+];
+
+const secaucusNjFaqs = [
+  {
+    question: 'Is Secaucus dog-friendly?',
+    answer: 'Yes, Secaucus has the Mill Creek Point Park and other greenways with skyline views.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Secaucus?',
+    answer: 'The Secaucus Greenway and Mill Creek Marsh trails offer scenic nature walks near the city.',
+    category: 'General',
+  },
+  {
+    question: 'Does Secaucus have a dog park?',
+    answer: 'Yes, the sheer number of parks and the dedicated dog run at the duck pond make it very pet-friendly.',
+    category: 'General',
+  },
+];
+
+const somersPointNjFaqs = [
+  {
+    question: 'Is Somers Point dog-friendly?',
+    answer: 'Yes, this bayfront town offers the Kennedy Park and scenic views for dog walkers.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Somers Point?',
+    answer: 'The Route 52 Causeway trail and Kennedy Park offer great walking routes with water views.',
+    category: 'General',
+  },
+  {
+    question: 'Is there beach access for dogs in Somers Point?',
+    answer: 'Somers Point has a bay beach where dog rules vary; the nearby Longport Dog Beach is a famous off-leash spot.',
+    category: 'General',
+  },
+];
+
+const southAmboyNjFaqs = [
+  {
+    question: 'Is South Amboy dog-friendly?',
+    answer: 'Yes, South Amboy has a beautiful waterfront park along the Raritan Bay.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in South Amboy?',
+    answer: 'The Raritan Bay Waterfront Park allows for scenic leashed walks with bay views.',
+    category: 'General',
+  },
+  {
+    question: 'Are there parks in South Amboy?',
+    answer: 'Yes, the expansive waterfront park is the highlight for local dog owners.',
+    category: 'General',
+  },
+];
+
+const southOrangeNjFaqs = [
+  {
+    question: 'Is South Orange dog-friendly?',
+    answer: 'Yes, South Orange lies on the edge of the South Mountain Reservation, offering premier hiking access.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in South Orange?',
+    answer: 'Flood\'s Hill and the trails of South Mountain Reservation are top spots.',
+    category: 'General',
+  },
+  {
+    question: 'Can I store my dog\'s leash at a restaurant?',
+    answer: 'Many downtown South Orange establishments have outdoor seating that welcomes dogs.',
+    category: 'General',
+  },
+];
+
+const southPlainfieldNjFaqs = [
+  {
+    question: 'Is South Plainfield dog-friendly?',
+    answer: 'Yes, South Plainfield has Spring Lake Park and other community green spaces.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in South Plainfield?',
+    answer: 'Spring Lake Park offers paved paths and a lake that are perfect for daily walks.',
+    category: 'General',
+  },
+  {
+    question: 'Does South Plainfield have a dog park?',
+    answer: 'Local residents often use the trails at Spring Lake Park for exercise.',
+    category: 'General',
+  },
+];
+
+const southRiverNjFaqs = [
+  {
+    question: 'Is South River dog-friendly?',
+    answer: 'Yes, South River is a quiet borough with parks like Grekoski Park for walking.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in South River?',
+    answer: 'Grekoski Park and the local school grounds (when not in use) are popular spots.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails near South River?',
+    answer: 'Nearby East Brunswick offers additional parks and trails accessible to South River residents.',
+    category: 'General',
+  },
+];
+
+const springLakeNjFaqs = [
+  {
+    question: 'Is Spring Lake dog-friendly?',
+    answer: 'Yes, Spring Lake is a picturesque town with a beautiful boardwalk and Divine Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Spring Lake?',
+    answer: 'The boardwalk (off-season) and the path around Spring Lake in Divine Park are idyllic.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog on the Spring Lake boardwalk?',
+    answer: 'Yes, during the off-season months. Always double-check current dates and times.',
+    category: 'General',
+  },
+];
+
+const stanhopeNjFaqs = [
+  {
+    question: 'Is Stanhope dog-friendly?',
+    answer: 'Yes, Stanhope is located near Lake Musconetcong and Hopatcong State Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Stanhope?',
+    answer: 'Trails around Lake Musconetcong and nearby state parks offer scenic hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there hiking trails near Stanhope?',
+    answer: 'Yes, the Sussex Branch Trail and other state park trails are easily accessible.',
+    category: 'General',
+  },
+];
+
+const suffernNyFaqs = [
+  {
+    question: 'Is Suffern dog-friendly?',
+    answer: 'Yes, Suffern is a gateway to the Ramapo Mountains and Harriman State Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Suffern?',
+    answer: 'Harriman State Park offers endless miles of hiking trails for leashed dogs.',
+    category: 'General',
+  },
+  {
+    question: 'Is downtown Suffern walkable?',
+    answer: 'Yes, the village center is walkable and has a friendly, community feel.',
+    category: 'General',
+  },
+];
+
+const summitNjFaqs = [
+  {
+    question: 'Is Summit dog-friendly?',
+    answer: 'Yes, Summit is known for its green spaces, including the Watchung Reservation and Reeves-Reed Arboretum.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Summit?',
+    answer: 'Briant Park and the trails of the Watchung Reservation are excellent local options.',
+    category: 'General',
+  },
+  {
+    question: 'Does Summit have a dog park?',
+    answer: 'Summit has a municipal dog park where residents can let their dogs run off-leash.',
+    category: 'General',
+  },
+];
+
+const teaneckNjFaqs = [
+  {
+    question: 'Is Teaneck dog-friendly?',
+    answer: 'Yes, Teaneck has an extensive park system, including Milton Votee Park and Overpeck County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Does Teaneck have a dog park?',
+    answer: 'Yes, the Teaneck Dog Park in Windsor Park is a dedicated space for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Teaneck?',
+    answer: 'Overpeck County Park offers miles of paved trails with water views.',
+    category: 'General',
+  },
+];
+
+const tenaflyNjFaqs = [
+  {
+    question: 'Is Tenafly dog-friendly?',
+    answer: 'Yes, Tenafly features the Tenafly Nature Center (check dog rules) and Davis Johnson Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Tenafly?',
+    answer: 'The majestic Palisades Interstate Park is nearby, offering cliffside trails.',
+    category: 'General',
+  },
+  {
+    question: 'Does Tenafly have a dog park?',
+    answer: 'Tenafly has a dog run where residents can socialize their pets.',
+    category: 'General',
+  },
+];
+
+const tomsRiverNjFaqs = [
+  {
+    question: 'Is Toms River dog-friendly?',
+    answer: 'Yes, Toms River has numerous parks, including Cattus Island County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Toms River?',
+    answer: 'Cattus Island offers miles of trails with bay views (dogs must be leashed).',
+    category: 'General',
+  },
+  {
+    question: 'Does Toms River have a dog park?',
+    answer: 'Yes, there are dog parks in nearby Ocean County facilities.',
+    category: 'General',
+  },
+];
+
+const totowaNjFaqs = [
+  {
+    question: 'Is Totowa dog-friendly?',
+    answer: 'Yes, Totowa is close to the Garret Mountain Reservation.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Totowa?',
+    answer: 'Garret Mountain Reservation offers trails and panoramic views of the skyline.',
+    category: 'General',
+  },
+  {
+    question: 'Does Totowa have parks?',
+    answer: 'Yes, local parks and the nearby Passaic County park system provide plenty of space.',
+    category: 'General',
+  },
+];
+
+const unionBeachNjFaqs = [
+  {
+    question: 'Is Union Beach dog-friendly?',
+    answer: 'Yes, Union Beach offers a quiet waterfront along the Raritan Bay.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Union Beach?',
+    answer: 'The beachfront path offers scenic views and a fresh breeze for walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is it crowded in Union Beach?',
+    answer: 'It is typically a quieter alternative to larger shore towns, perfect for peaceful walks.',
+    category: 'General',
+  },
+];
+
+const unionCityNjFaqs = [
+  {
+    question: 'Is Union City dog-friendly?',
+    answer: 'Yes, despite being urban, it offers Washington Park and skyline views.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Union City?',
+    answer: 'Washington Park on the border with Jersey City is a large green space.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks in Union City?',
+    answer: 'Yes, local runs and nearby parks in Hoboken/Weehawken are easily accessible.',
+    category: 'General',
+  },
+];
+
+const ventnorCityNjFaqs = [
+  {
+    question: 'Is Ventnor City dog-friendly?',
+    answer: 'Yes, Ventnor allows dogs on the boardwalk during the off-season.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Ventnor?',
+    answer: 'The boardwalk and beach (seasonal rules apply) are perfect for long walks.',
+    category: 'General',
+  },
+  {
+    question: 'Is it quieter than Atlantic City?',
+    answer: 'Yes, Ventnor offers a more relaxed, residential vibe for dog walking.',
+    category: 'General',
+  },
+];
+
+const waldwickNjFaqs = [
+  {
+    question: 'Is Waldwick dog-friendly?',
+    answer: 'Yes, Waldwick is home to Borough Park and is near Saddle River County Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Waldwick?',
+    answer: 'The bike path connecting to Saddle River County Park is a highlight.',
+    category: 'General',
+  },
+  {
+    question: 'Does Waldwick have a dog park?',
+    answer: 'Nearby Ridgewood and county parks offer designated off-leash areas.',
+    category: 'General',
+  },
+];
+
+const wanaqueNjFaqs = [
+  {
+    question: 'Is Wanaque dog-friendly?',
+    answer: 'Yes, Wanaque is surrounded by the Wanaque Reservoir and protected forests.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Wanaque?',
+    answer: 'Nearby Norvin Green State Forest offers rugged trails and scenic views.',
+    category: 'General',
+  },
+  {
+    question: 'Are there parks in Wanaque?',
+    answer: 'Yes, Back Beach Park and other local spots are good for walks.',
+    category: 'General',
+  },
+];
+
+const washingtonNjFaqs = [
+  {
+    question: 'Is Washington Township dog-friendly?',
+    answer: 'Yes, Washington offers diverse parks including parts of the Morris Canal.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Washington?',
+    answer: 'Roaring Rock Park and the Morris Canal Greenway are scenic options.',
+    category: 'General',
+  },
+  {
+    question: 'Are there trails in Washington?',
+    answer: 'Yes, the township preserves open space with trails suitable for hiking.',
+    category: 'General',
+  },
+];
+
+const wayneNjFaqs = [
+  {
+    question: 'Is Wayne dog-friendly?',
+    answer: 'Yes, Wayne has High Mountain Park Preserve and Terhune Memorial Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I hike with my dog in Wayne?',
+    answer: 'High Mountain offers hiking trails with skyline views of NYC.',
+    category: 'General',
+  },
+  {
+    question: 'Does Wayne have a dog park?',
+    answer: 'While Wayne has many parks, dedicated runs are found in nearby communities.',
+    category: 'General',
+  },
+];
+
+const westfieldNjFaqs = [
+  {
+    question: 'Is Westfield dog-friendly?',
+    answer: 'Yes, Westfield has magnificent parks like Tamaques Park and Mindowaskin Park.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Westfield?',
+    answer: 'Tamaques Park has a loop that is very popular for dog walkers.',
+    category: 'General',
+  },
+  {
+    question: 'Is downtown Westfield pet-friendly?',
+    answer: 'Yes, it is a bustling downtown where many locals walk their dogs.',
+    category: 'General',
+  },
+];
+
+const westNewYorkNjFaqs = [
+  {
+    question: 'Is West New York dog-friendly?',
+    answer: 'Yes, it offers access to the Hudson River Waterfront Walkway.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in West New York?',
+    answer: 'The waterfront walkway provides stunning views and a long path for exercise.',
+    category: 'General',
+  },
+  {
+    question: 'Are there parks in West New York?',
+    answer: 'Patricia M. McEldowney Field and other local parks serve the community.',
+    category: 'General',
+  },
+];
+
+const wildwoodNjFaqs = [
+  {
+    question: 'Is Wildwood dog-friendly?',
+    answer: 'Yes, Wildwood is famous for its huge dog beach and dog-friendly boardwalk times.',
+    category: 'General',
+  },
+  {
+    question: 'Does Wildwood have a dog beach?',
+    answer: 'Yes, the Wildwood Dog Park & Beach is a top attraction with a giant fire hydrant sculpture.',
+    category: 'General',
+  },
+  {
+    question: 'When can dogs go on the boardwalk?',
+    answer: 'Dogs are allowed on the boardwalk during specific off-season times and events.',
+    category: 'General',
+  },
+];
+
+const woodbridgeNjFaqs = [
+  {
+    question: 'Is Woodbridge dog-friendly?',
+    answer: 'Yes, Woodbridge has Alvin P. Williams Memorial Park on the waterfront.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Woodbridge?',
+    answer: 'The waterfront park in Sewaren and William Warren Park offer great walking paths.',
+    category: 'General',
+  },
+  {
+    question: 'Does Woodbridge have a dog park?',
+    answer: 'Yes, the township manages dog parks for residents to enjoy.',
+    category: 'General',
+  },
+];
+
+const wrightstownNjFaqs = [
+  {
+    question: 'Is Wrightstown dog-friendly?',
+    answer: 'Yes, Wrightstown is a rural community near Joint Base McGuire-Dix-Lakehurst.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Wrightstown?',
+    answer: 'The rural roads and nearby wildlife management areas offer quiet walks.',
+    category: 'General',
+  },
+  {
+    question: 'Are there parks near Wrightstown?',
+    answer: 'Yes, the expansive pine barrens and state forests are a short drive away.',
+    category: 'General',
+  },
+];
+
+const sicklervilleNjFaqs = [
+  {
+    question: 'Is Sicklerville Park dog-friendly?',
+    answer: 'Sicklerville Park is a great spot for leashed walks, featuring paved paths and open green spaces. While it doesn\'t have a dedicated off-leash park, it\'s popular for daily exercise.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Sicklerville?',
+    answer: 'In addition to Sicklerville Park, the nearby Gloucester Township Community Park offers extensive walking trails and a more rugged environment for longer hikes.',
+    category: 'General',
+  },
+  {
+    question: 'Are there dog parks near Sicklerville?',
+    answer: 'Yes, the Timber Creek Dog Park is a short drive away in Gloucester Township. It is a highly rated 9-acre fenced park with wooded trails and a swimming area.',
+    category: 'General',
+  },
+  {
+    question: 'What are the leash laws in Sicklerville?',
+    answer: 'Dogs must be kept on a leash no longer than 6 feet in all public areas and parks in Gloucester Township/Sicklerville, unless in a designated off-leash facility.',
+    category: 'General',
+  },
+];
+
+const southamptonTownshipNjFaqs = [
+  {
+    question: 'Does Southampton Township have a dog park?',
+    answer: 'Southampton Township itself relies on its rural character and open spaces. For off-leash play, residents often visit Freedom Park in nearby Medford or other county facilities.',
+    category: 'General',
+  },
+  {
+    question: 'Can I take my dog to Brendan T. Byrne State Forest?',
+    answer: 'Yes! A portion of this massive state forest is in Southampton Township. Leashed dogs are welcome on the miles of sandy trails through the Pine Barrens.',
+    category: 'General',
+  },
+  {
+    question: 'Where is the best place to walk a dog in Southampton?',
+    answer: 'The rural roads and trails near the Vincentown village area offer scenic walks. The historic village center is also pleasant for a leashed stroll.',
+    category: 'General',
+  },
+  {
+    question: 'Are dogs allowed at Rancocas State Park?',
+    answer: 'Rancocas State Park, located nearby, is a fantastic destination for dog owners with miles of hiking trails. Dogs must be kept on a leash.',
+    category: 'General',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
+  // ... existing cities
+  {
+    slug: 'sicklerville-nj',
+    city: 'Sicklerville',
+    state: 'NJ',
+    summary: 'Explore the community parks of Sicklerville and nearby Timber Creek Dog Park in this Gloucester Township community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sicklerville, NJ',
+      heroDescription: 'Walk the parks of Sicklerville and visit Timber Creek.',
+      longDescription: [
+        "Sicklerville, New Jersey, is a large unincorporated community within Gloucester Township. Ideally situated for dog owners, it offers easy access to some of the region's best dog-friendly assets. While Sicklerville Park provides local walking paths, the real gem is the nearby Timber Creek Dog Park. Just a short drive away, this 9-acre fenced facility offers wooded trails a swimming area, and open fields, widely considered one of the best dog parks in South Jersey. Sicklerville's suburban neighborhoods are also well-suited for daily leashed walks. The community offers a perfect balance of suburban convenience and access to premier outdoor recreation.",
+      ],
+      faqs: sicklervilleNjFaqs,
+    },
+  },
+  {
+    slug: 'southampton-township-nj',
+    city: 'Southampton Township',
+    state: 'NJ',
+    summary: 'Discover the rural charm and Pine Barrens trails of Southampton Township, NJ, a scenic Burlington County community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Southampton Township, NJ',
+      heroDescription: 'Hike the Pine Barrens trails in Southampton Township.',
+      longDescription: [
+        "Southampton Township, New Jersey, known as the 'Hub of the Pinelands,' offers a spacious and rural environment for dog owners. Located in Burlington County, it serves as a gateway to the Pine Barrens. The historic village of Vincentown offers a quaint setting for walks. The township's proximity to Brendan T. Byrne State Forest provides residents with immediate access to miles of sandy trails for hiking and exploring nature with their dogs. The area's open farmland and quiet roads create a peaceful atmosphere. Southampton is an ideal home for dog owners who prefer a country lifestyle with endless opportunities for outdoor adventure right in their backyard.",
+      ],
+      faqs: southamptonTownshipNjFaqs,
+    },
+  },
+
   {
     slug: 'chicago-il',
     city: 'Chicago',
@@ -20554,6 +23773,2797 @@ export const priorityCityContent: PriorityCityConfig[] = [
         'Nature lovers will appreciate the close proximity to [Dunbar Cave State Park](https://tnstateparks.com/parks/dunbar-cave), a natural treasure where leashed dogs can join you on trails winding through forests and around the historic cave entrance. The abundance of open land in Woodlawn also means many private "Sniffspot" rentals are available, offering acres of fenced or unfenced space for dogs to run freely in a private setting. Whether you have a working breed that needs space or a companion dog who loves a quiet walk, Woodlawn\'s rural charm and access to nature make it a wonderful home.',
       ],
       faqs: woodlawnTnFaqs,
+    },
+  },
+  {
+    slug: 'whittier',
+    city: 'Whittier',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A historic city featuring the popular Whittier Dog Park and the scenic Greenway Trail.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Historic & Pet-Friendly',
+      heroHeading: 'Indoor Dog Park In Whittier',
+      heroDescription: 'Discover Whittier’s pet-friendly charm, from the dedicated run at Whittier Dog Park to miles of scenic walking on the Greenway Trail.',
+      heroPill: 'City & Trails',
+      heroFootnotes: ['Whittier Dog Park', 'Greenway Trail'],
+      heroChips: [
+        { label: 'Park', value: 'Whittier Dog Park', caption: 'Off-leash' },
+        { label: 'Trail', value: 'Greenway', caption: '4.5 miles' },
+        { label: 'Dining', value: 'Patios', caption: 'Dog-friendly' },
+      ],
+      longDescription: [
+        'Whittier offers a wonderful blend of historic charm and modern amenities that make it a great place for dog owners. The centerpiece for canine recreation is the [Whittier Dog Park](https://www.whittierprcs.org/parks-facilities/parks/whittier-dog-park), located on Philadelphia Street. This well-maintained facility features separate fenced areas for large and small dogs, ensuring safe socialization for pups of all sizes. With ample shade, benches, and water stations, it’s a favorite gathering spot for the local community.',
+        'Beyond the dog park, Whittier is known for its outdoor opportunities. The [Whittier Greenway Trail](https://www.whittierprcs.org/parks-facilities/trails/greenway-trail) is a 4.5-mile paved rail-trail that is perfect for walking, running, or biking with a leashed dog, traversing through residential and commercial areas away from street traffic. For those seeking more rugged adventures, nearby trails in the Puente Hills Preserve offer hiking options with stunning views. The city’s welcoming atmosphere extends to its business districts, where you’ll find pet-friendly patios at local favorites, making Whittier a truly inclusive community for you and your four-legged companion.',
+      ],
+      faqs: whittierCaFaqs,
+    },
+  },
+  {
+    slug: 'valley-glen',
+    city: 'Valley Glen',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A peaceful community with easy access to Whitnall Dog Park and local green spaces.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Community & Comfort',
+      heroHeading: 'Indoor Dog Park In Valley Glen',
+      heroDescription: 'Enjoy the quiet, tree-lined streets of Valley Glen or visit nearby world-class off-leash facilities.',
+      heroPill: 'Parks & Walks',
+      heroFootnotes: ['Valley Glen Park', 'Whitnall Dog Park'],
+      heroChips: [
+        { label: 'Park', value: 'Community Park', caption: 'Leashed' },
+        { label: 'Nearby', value: 'Whitnall Park', caption: 'Off-leash' },
+        { label: 'Vibe', value: 'Family', caption: 'Quiet' },
+      ],
+      longDescription: [
+        'Valley Glen is a hidden gem in the San Fernando Valley, known for its wide, tree-lined streets and family-friendly atmosphere that makes dog walking a pleasure. While the neighborhood itself is a tranquil retreat, it offers immediate access to some of the Valley’s best dog amenities. [Valley Glen Community Park](https://www.laparks.org/park/valley-glen-community) (formerly Erwin Park) is a local favorite for morning jogs and evening strolls with leashed pets, offering green lawns and shaded pathways.',
+        'For off-leash adventures, residents are just minutes away from the [Whitnall Off-Leash Dog Park](https://www.laparks.org/dogpark/whitnall), located under the power lines in North Hollywood. This convenient facility provides a safe, fenced environment for dogs to run and socialize. Valley Glen’s central location also puts you within a short drive of the massive Sepulveda Basin recreation area, giving you and your dog a variety of options ranging from quiet neighborhood walks to energetic play sessions.',
+      ],
+      faqs: valleyGlenCaFaqs,
+    },
+  },
+  {
+    slug: 'van-nuys',
+    city: 'Van Nuys',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'Home to the expansive Sepulveda Basin Off-Leash Dog Park and diverse recreation options.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Recreation Hub',
+      heroHeading: 'Indoor Dog Park In Van Nuys',
+      heroDescription: 'Experience the best of the Valley with acres of off-leash space at Sepulveda Basin and mild recreation at Woodley Park.',
+      heroPill: 'Big Parks',
+      heroFootnotes: ['Sepulveda Basin', 'Woodley Park'],
+      heroChips: [
+        { label: 'Park', value: 'Sepulveda Basin', caption: 'Huge' },
+        { label: 'Park', value: 'Woodley', caption: 'Scenic' },
+        { label: 'Activity', value: 'Agility', caption: 'Training' },
+      ],
+      longDescription: [
+        'Van Nuys is a central hub for dog owners in the San Fernando Valley, boasting some of the region’s most significant recreational assets. The crown jewel is undoubtedly the [Sepulveda Basin Off-Leash Dog Park](https://www.laparks.org/dogpark/sepulveda-basin), one of the largest and most popular dog parks in Los Angeles. With separate areas for large and small dogs, agility equipment, and acres of space to run, it’s a destination for pet parents across the city.',
+        'Beyond the dog park, the surrounding [Sepulveda Basin Recreation Area](https://www.laparks.org/park/sepulveda-basin-recreation-area), including majestic Woodley Park, offers miles of walking paths where leashed dogs can enjoy the open sky and greenery. Van Nuys combines urban convenience with serious outdoor space, making it easy to find a pet-friendly apartment or a home with a yard while staying connected to a vibrant community of dog lovers.',
+      ],
+      faqs: vanNuysCaFaqs,
+    },
+  },
+  {
+    slug: 'yorba-linda',
+    city: 'Yorba Linda',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A scenic city with the dedicated Checkers Dog Park and miles of equestrian trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Trails & Open Space',
+      heroHeading: 'Indoor Dog Park In Yorba Linda',
+      heroDescription: 'Explore miles of scenic trails and the dedicated Checkers Dog Park in beautiful Yorba Linda.',
+      heroPill: 'Equestrian Trails',
+      heroFootnotes: ['Checkers Dog Park', 'Regional Park'],
+      heroChips: [
+        { label: 'Park', value: 'Checkers', caption: 'Off-leash' },
+        { label: 'Place', value: 'Yorba Regional', caption: 'Lakes' },
+        { label: 'Trail', value: 'El Cajon', caption: 'Hiking' },
+      ],
+      longDescription: [
+        'Yorba Linda is distinguished by its commitment to outdoor living and equestrian roots, which translates into a fantastic environment for dogs. The city features [Checkers Dog Park](https://www.yorbalindaca.gov/Facilities/Facility/Details/Checkers-Dog-Park-4), a well-appointed off-leash facility with separate sections for active and passive dogs, ensuring a safe experience for every temperament. It’s a clean, community-focused spot where locals gather daily.',
+        'What truly sets Yorba Linda apart is its extensive trail system. From the landscaped paths of the El Cajon Trail to the rugged beauty of nearby [Chino Hills State Park](https://www.parks.ca.gov/?page_id=648), there are endless opportunities for long, scenic leashed hikes. [Yorba Regional Park](https://www.ocparks.com/yorba), with its chain of lakes and shaded picnic areas, is another perfect destination for a family day out with your pup. With its spacious homes and access to nature, Yorba Linda is a premier destination for pet owners.',
+      ],
+      faqs: yorbaLindaCaFaqs,
+    },
+  },
+  {
+    slug: 'tracy',
+    city: 'Tracy',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A family-oriented community featuring Ellis Dog Park and easy access to the Delta.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Community & Play',
+      heroHeading: 'Indoor Dog Park In Tracy',
+      heroDescription: 'Discover Tracy’s dog-friendly parks like Ellis Dog Park and the scenic trails of the nearby Diablo Range.',
+      heroPill: 'Family Friendly',
+      heroFootnotes: ['Ellis Dog Park', 'El Pescadero Park'],
+      heroChips: [
+        { label: 'Park', value: 'Ellis', caption: 'Off-leash' },
+        { label: 'Park', value: 'El Pescadero', caption: 'Local' },
+        { label: 'Vibe', value: 'Suburban', caption: 'Quiet' },
+      ],
+      longDescription: [
+        'Tracy is a welcoming, family-centric community in the Central Valley that offers a great quality of life for dog owners. The city has invested in pet-friendly amenities, most notably [Ellis Dog Park](https://www.cityoftracy.org/), which features separate areas for large and small dogs and is a social hub for local pet parents. Another local favorite is El Pescadero Park, which provides a dedicated space for dogs to run and play.',
+        'Beyond the parks, Tracy’s location offers easy access to outdoor adventures. A short drive connects you to the hiking trails of the Diablo Range or the nature of the Carnegie State Vehicular Recreation Area. The city’s residential neighborhoods are designed with sidewalks and green belts, making daily leashed walks safe and enjoyable. With its blend of suburban comfort and outdoor access, Tracy is a growing haven for families with four-legged members.',
+      ],
+      faqs: tracyCaFaqs,
+    },
+  },
+  {
+    slug: 'topanga',
+    city: 'Topanga',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'An artistic canyon community with stunning views and access to Santa Monica Mountains trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Canyon Living',
+      heroHeading: 'Indoor Dog Park In Topanga',
+      heroDescription: 'Explore the rugged beauty of Topanga Canyon with leashed hikes at panoramic viewpoints like Topanga Lookout.',
+      heroPill: 'Nature Hikes',
+      heroFootnotes: ['Lookout Trail', 'Red Rock Canyon'],
+      heroChips: [
+        { label: 'Trail', value: 'Lookout', caption: 'Views' },
+        { label: 'Park', value: 'Red Rock', caption: 'Leashed' },
+        { label: 'Vibe', value: 'Bohemian', caption: 'Nature' },
+      ],
+      longDescription: [
+        'Topanga is a legendary bohemian enclave nestled in the Santa Monica Mountains, offering a unique, nature-immersed lifestyle for dog owners. While Topanga State Park has strict restrictions, the surrounding area is rich with dog-friendly adventures. The [Topanga Lookout Trail](https://www.hikespeak.com/trails/topanga-lookout/) is a favorite for leashed hikes, rewarding you and your pup with spectacular 360-degree views of the mountains and ocean.',
+        'Red Rock Canyon Park is another gem where leashed dogs can accompany you through stunning sandstone formations. The community itself is incredibly pet-friendly, with a laid-back vibe where dogs are part of the family. While you won’t find manicured dog runs here, the access to rugged wilderness and the fresh canyon air make it a paradise for nature-loving dogs and owners.',
+      ],
+      faqs: topangaCaFaqs,
+    },
+  },
+  {
+    slug: 'thousand-oaks',
+    city: 'Thousand Oaks',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A premier city for open space, featuring Conejo Creek Dog Park and endless hiking trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Open Space & Trails',
+      heroHeading: 'Indoor Dog Park In Thousand Oaks',
+      heroDescription: 'Roam miles of scenic trails in the Conejo Valley and play at the expansive Conejo Creek Dog Park.',
+      heroPill: 'Hiking Paradise',
+      heroFootnotes: ['Conejo Creek Park', 'Los Robles Trail'],
+      heroChips: [
+        { label: 'Park', value: 'Conejo Creek', caption: 'Premier' },
+        { label: 'Trail', value: 'Los Robles', caption: 'Scenic' },
+        { label: 'Space', value: 'Open Space', caption: 'Protected' },
+      ],
+      longDescription: [
+        'Thousand Oaks lives up to its name with a commitment to preserving beautiful oak-studded open spaces. For dog owners, it is a dream location. The [Conejo Creek Dog Park](https://www.crpd.org/park/conejo-creek-dog-park/) is one of the region’s finest, offering expansive separate areas for large and small dogs, agility equipment, and a vibrant community scene. It serves as the social heart for the city’s canine population.',
+        'But the real draw is the trail system. Managed by the Conejo Open Space Conservation Agency (COSCA), miles of trails like Los Robles and Wildwood Park (in designated zones) welcome leashed dogs. You can hike from valley floors to ridge lines with panoramic views. The city’s rigorous preservation of nature means you and your dog are never far from a wild escape, all within a safe, well-maintained suburban setting.',
+      ],
+      faqs: thousandOaksCaFaqs,
+    },
+  },
+  {
+    slug: 'temple-city',
+    city: 'Temple City',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A quiet, well-maintained community with the pet-friendly Live Oak Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Quiet Community',
+      heroHeading: 'Indoor Dog Park In Temple City',
+      heroDescription: 'Enjoy peaceful walks in Live Oak Park and the tree-lined neighborhoods of the City of Camellias.',
+      heroPill: 'City Parks',
+      heroFootnotes: ['Live Oak Park', 'Temple City Park'],
+      heroChips: [
+        { label: 'Park', value: 'Live Oak', caption: 'Leashed' },
+        { label: 'City', value: 'Walkable', caption: 'Clean' },
+        { label: 'Nearby', value: 'Arcadia', caption: 'Off-leash' },
+      ],
+      longDescription: [
+        'Temple City, known as the "City of Camellias," offers a tranquil, residential environment that is perfect for relaxed dog ownership. While the city focuses on traditional parks like [Live Oak Park](https://www.ci.temple-city.ca.us/Facilities/Facility/Details/Live-Oak-Park-2), where leashed dogs are welcome to stroll the paths and enjoy the greenery, the streets themselves are a major asset. Broad, well-paved, and lined with mature trees, they offer safe and pleasant routes for daily walks.',
+        'For off-leash play, residents are conveniently located near facilities in neighboring Arcadia. Temple City’s charm lies in its stability and safety, providing a stress-free environment where you can enjoy simple, quality time with your pet without the hustle and bustle of denser urban centers.',
+      ],
+      faqs: templeCityCaFaqs,
+    },
+  },
+  {
+    slug: 'temecula',
+    city: 'Temecula',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A wine country destination with dog-friendly vineyards and the Redhawk Community Dog Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Wine Country',
+      heroHeading: 'Indoor Dog Park In Temecula',
+      heroDescription: 'Tour dog-friendly wineries and let your pup run free at Redhawk Community Park.',
+      heroPill: 'Vineyards & Parks',
+      heroFootnotes: ['Redhawk Park', 'Wine Country'],
+      heroChips: [
+        { label: 'Wine', value: 'Vineyards', caption: 'Patios' },
+        { label: 'Park', value: 'Redhawk', caption: 'Off-leash' },
+        { label: 'Place', value: 'Old Town', caption: 'Walkable' },
+      ],
+      longDescription: [
+        'Temecula is a unique destination that blends premier suburban living with a world-class wine region—and it’s surprisingly dog-friendly. Many of the beautiful wineries along Rancho California Road welcome well-behaved, leashed dogs on their scenic patios, allowing you to enjoy a tasting while your pup relaxes by your side. It’s a lifestyle that few other cities can offer.',
+        'For residents, the city provides excellent amenities like the [Redhawk Community Park](https://temeculaca.gov/Facilities/Facility/Details/Redhawk-Community-Park-33), featuring a popular dog run with separate sections. Birdsall Sports Park is another great option. Historic Old Town Temecula is also pet-welcoming, with wooden boardwalks and patio dining. Whether you’re hiking the Santa Rosa Plateau or sipping a Cab at a vineyard, Temecula ensures your dog is part of the adventure.',
+      ],
+      faqs: temeculaCaFaqs,
+    },
+  },
+  {
+    slug: 'tarzana',
+    city: 'Tarzana',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'An upscale valley neighborhood near Caballero Canyon hiking and Sepulveda Basin.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Trails & Views',
+      heroHeading: 'Indoor Dog Park In Tarzana',
+      heroDescription: 'Hike the ridge lines of Caballero Canyon or visit the nearby world-class Sepulveda Basin Dog Park.',
+      heroPill: 'Canyon Hikes',
+      heroFootnotes: ['Caballero Canyon', 'Sepulveda Basin'],
+      heroChips: [
+        { label: 'Hike', value: 'Caballero', caption: 'Views' },
+        { label: 'Park', value: 'Sepulveda', caption: 'Nearby' },
+        { label: 'Area', value: 'Mulholland', caption: 'Gateway' },
+      ],
+      longDescription: [
+        'Tarzana, named after the jungle hero Tarzan, stays true to its adventurous roots with excellent access to nature. The southern edge of the neighborhood borders the Santa Monica Mountains, offering trailheads like [Caballero Canyon](https://mrca.ca.gov/parks/park-listing/caballero-canyon/), a local favorite for dog walkers seeking a workout and sweeping valley views. The gentle grade makes it accessible for active dogs and owners.',
+        'While Tarzana is quieter and more residential, it sits just minutes from the Sepulveda Basin Recreation Area, giving residents easy access to one of LA’s best off-leash parks. The neighborhood’s wide, hillside streets are also perfect for challenging leashed walks. Tarzana offers a sophisticated, semi-rural feel that provides plenty of room for dogs to thrive.',
+      ],
+      faqs: tarzanaCaFaqs,
+    },
+  },
+  {
+    slug: 'sutter-creek',
+    city: 'Sutter Creek',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A historic Gold Rush town with dog-friendly wine tasting and scenic foothill trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Gold Country',
+      heroHeading: 'Indoor Dog Park In Sutter Creek',
+      heroDescription: 'Stroll the historic boardwalks of Main Street and explore dog-friendly Amador County wineries.',
+      heroPill: 'History & Wine',
+      heroFootnotes: ['Minnie Provis Park', 'Main Street'],
+      heroChips: [
+        { label: 'Town', value: 'Historic', caption: 'Walkable' },
+        { label: 'Wine', value: 'Tasting', caption: 'Patios' },
+        { label: 'Park', value: 'Minnie Provis', caption: 'Creekside' },
+      ],
+      longDescription: [
+        'Sutter Creek is widely considered the "Jewel of the Mother Lode," and its welcoming, small-town atmosphere extends to four-legged visitors. The historic Main Street, with its covered boardwalks, is a delightful place for a leashed walk, and many tasting rooms and shops set out water bowls for thirsty pups. You can enjoy a glass of Amador Zinfandel on a patio with your dog by your side.',
+        '[Minnie Provis Park](https://www.suttercreek.org/) offers a green escape right near the creek for a relaxing stroll. Just outside town, the rolling foothills provide numerous hiking opportunities, such as the trails at Kennedy Tailing Wheels Park in nearby Jackson. Sutter Creek offers a slower pace of life where you and your dog can enjoy history, nature, and community together.',
+      ],
+      faqs: sutterCreekCaFaqs,
+    },
+  },
+  {
+    slug: 'sun-valley',
+    city: 'Sun Valley',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A diverse community with access to rugged Verdugo Mountain trails and local parks.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Urban Edge',
+      heroHeading: 'Indoor Dog Park In Sun Valley',
+      heroDescription: 'Access the rugged trails of La Tuna Canyon and the local green space of Sun Valley Regional Park.',
+      heroPill: 'Rugged Trails',
+      heroFootnotes: ['La Tuna Canyon', 'Regional Park'],
+      heroChips: [
+        { label: 'Trail', value: 'La Tuna', caption: 'Wild' },
+        { label: 'Park', value: 'Regional', caption: 'Local' },
+        { label: 'Space', value: 'Large Lots', caption: 'Roomy' },
+      ],
+      longDescription: [
+        'Sun Valley offers a unique mix of industrial, residential, and rural zones, often providing larger lots that are great for dogs. The real treasure for dog owners, however, is the access to the Verdugo Mountains. Trails like [La Tuna Canyon](https://mrca.ca.gov/parks/park-listing/la-tuna-canyon-park/) offer a rugged, wilderness experience right at the city’s edge, perfect for energetic dogs and hikers seeking solitude and views.',
+        'Locally, [Sun Valley Regional Park](https://parks.lacounty.gov/sun-valley-recreation-center/) provides community green space for recreation. The neighborhood’s central location also allows for quick trips to the dog parks in Burbank or the trails of the Angeles National Forest. Sun Valley is an unpretentious, practical community where dogs often have plenty of yard space and easy access to wilder terrain.',
+      ],
+      faqs: sunValleyCaFaqs,
+    },
+  },
+  {
+    slug: 'studio-city',
+    city: 'Studio City',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A trendy, hillside neighborhood famous for the dog-friendly Fryman Canyon Loop.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Hiking & Dining',
+      heroHeading: 'Indoor Dog Park In Studio City',
+      heroDescription: 'Join the locals on the Fryman Canyon Loop and enjoy pet-friendly patio dining on Ventura Blvd.',
+      heroPill: 'Cips & Sips',
+      heroFootnotes: ['Fryman Canyon', 'Ventura Blvd'],
+      heroChips: [
+        { label: 'Hike', value: 'Fryman', caption: 'Popular' },
+        { label: 'Dining', value: 'Ventura', caption: 'Patios' },
+        { label: 'Park', value: 'Woodbridge', caption: 'Local' },
+      ],
+      longDescription: [
+        'Studio City is synonymous with the LA lifestyle, and that includes a love for dogs. The neighborhood’s premier outdoor destination is [Fryman Canyon Park](https://mrca.ca.gov/parks/park-listing/wilacre-park/), home to the "Rainforest Trail" loop. It’s a social hotspot where you’ll find locals and celebrities alike hiking with their leashed dogs, enjoying shaded paths and canyon views.',
+        'After the hike, Studio City’s culture shines on Ventura Boulevard, where countless cafes and restaurants offer dog-friendly patios. Woodbridge Park provides a smaller, quieter green space for a quick game of fetch. With its mix of hillside nature and urban sophistication, Studio City is one of the most vibrant places to be a dog owner in Los Angeles.',
+      ],
+      faqs: studioCityCaFaqs,
+    },
+  },
+  {
+    slug: 'spring-valley',
+    city: 'Spring Valley',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A spacious community featuring Lamar County Park and Sweetwater Reservoir trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'County Parks',
+      heroHeading: 'Indoor Dog Park In Spring Valley',
+      heroDescription: 'Play off-leash at Lamar County Park and walk the scenic perimeter of Sweetwater Reservoir.',
+      heroPill: 'Wide Spaces',
+      heroFootnotes: ['Lamar Park', 'Sweetwater'],
+      heroChips: [
+        { label: 'Park', value: 'Lamar', caption: 'Off-leash' },
+        { label: 'Trail', value: 'Sweetwater', caption: 'Scenic' },
+        { label: 'Vibe', value: 'Relaxed', caption: 'Open' },
+      ],
+      longDescription: [
+        'Spring Valley offers a relaxed, semi-rural atmosphere with plenty of room to breathe. The community is home to a fantastic asset for pet owners: [Lamar County Park](https://www.fdnweb.com/lamarpark/). This park features a well-regarded off-leash dog area with shade and separate sections, making it a regular destination for locals.',
+        'For those who prefer a long walk, the trails near the [Sweetwater Reservoir](https://www.sweetwater.org/) provide scenic views and a peaceful environment for leashed hiking. The terrain in Spring Valley is varied and interesting, offering good exercise options without the crowds of coastal cities. It’s a grounded, friendly community where dogs can enjoy large backyards and excellent local parks.',
+      ],
+      faqs: springValleyCaFaqs,
+    },
+  },
+  {
+    slug: 'el-segundo',
+    city: 'El Segundo',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A charming beach city with a dedicated dog park and scenic coastal walks along the South Bay.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Beach City',
+      heroHeading: 'Indoor Dog Park In El Segundo',
+      heroDescription: 'Enjoy off-leash play at El Segundo Dog Park and take your pup for a scenic walk along the beach.',
+      heroPill: 'Coastal Living',
+      heroFootnotes: ['El Segundo Dog Park', 'Main Street'],
+      heroChips: [
+        { label: 'Park', value: 'Dog Park', caption: 'Off-leash' },
+        { label: 'Beach', value: 'Coastal Walk', caption: 'Leashed' },
+        { label: 'Dining', value: 'Main St', caption: 'Patios' },
+      ],
+      longDescription: [
+        'El Segundo is a compact, walkable beach city in the South Bay that punches well above its weight in dog-friendliness. The city\'s dedicated [El Segundo Dog Park](https://www.elsegundorecparks.org/) is a well-maintained facility with separate fenced areas for large and small dogs, shade trees for hot days, water fountains, and comfortable benches for owners. It\'s a true community gathering spot for local pup parents.',
+        'Beyond the park, El Segundo Beach offers beautiful on-leash walks with ocean breezes and stunning sunsets. The revitalized Main Street and the creative spaces of Smoky Hollow are bustling with pet-friendly restaurant patios, making it easy to grab a bite with your furry companion after a walk. This combination of a great dog park, beach access, and a vibrant downtown makes El Segundo an ideal South Bay home for dog lovers.',
+      ],
+      faqs: elSegundoCaFaqs,
+    },
+  },
+  {
+    slug: 'oak-park',
+    city: 'Oak Park',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A safe, quiet suburb in the Conejo Valley with its own dog park and access to world-class trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Conejo Valley',
+      heroHeading: 'Indoor Dog Park In Oak Park',
+      heroDescription: 'Let your dog play at Oak Canyon Dog Park and explore miles of scenic Conejo Valley open space trails.',
+      heroPill: 'Trails & Community',
+      heroFootnotes: ['Oak Canyon Dog Park', 'COSCA Trails'],
+      heroChips: [
+        { label: 'Park', value: 'Oak Canyon', caption: 'Off-leash' },
+        { label: 'Trails', value: 'COSCA', caption: 'Scenic' },
+        { label: 'Vibe', value: 'Suburban', caption: 'Safe' },
+      ],
+      longDescription: [
+        'Oak Park is a tight-knit, family-oriented community nestled in the Conejo Valley that offers a fantastic quality of life for dog owners. The [Oak Canyon Dog Park](https://www.rsrpd.org/), located behind Oak Canyon Community Park, is the neighborhood\'s canine hub, providing separate fenced areas for large and small dogs, water fountains, and a friendly atmosphere. It closes on Friday mornings for upkeep, keeping the facilities in top shape.',
+        'What truly sets Oak Park apart is its proximity to the extensive Conejo Open Space Conservation Agency (COSCA) trail system. Miles of scenic paths through oak-studded hillsides are accessible right from the community, perfect for leashed hikes with your dog. And the world-class Conejo Creek Dog Park in nearby Thousand Oaks is just a short drive away for even more off-leash fun.',
+      ],
+      faqs: oakParkCaFaqs,
+    },
+  },
+  {
+    slug: 'pinole',
+    city: 'Pinole',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A Bay Area gem with a great dog park and the stunning Point Pinole Regional Shoreline.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Bay Shoreline',
+      heroHeading: 'Indoor Dog Park In Pinole',
+      heroDescription: 'Explore Point Pinole Regional Shoreline with your dog and play at Pinole Valley Dog Park.',
+      heroPill: 'Bay Views',
+      heroFootnotes: ['Point Pinole', 'Dog Park'],
+      heroChips: [
+        { label: 'Shore', value: 'Pt. Pinole', caption: 'Off-leash' },
+        { label: 'Park', value: 'Valley', caption: 'Fenced' },
+        { label: 'Views', value: 'Bay', caption: 'Scenic' },
+      ],
+      longDescription: [
+        'Pinole offers a refreshing, under-the-radar Bay Area lifestyle that\'s particularly appealing for dog owners. The [Pinole Valley Dog Park](https://www.pinole.gov/) on Pinole Valley Rd. is a well-equipped, fenced facility with separate areas for large and small dogs, shade, water, and benches—a perfect spot for daily social play.',
+        'The real crown jewel, however, is [Point Pinole Regional Shoreline](https://www.ebparks.org/parks/point-pinole). This stunning park juts out into San Pablo Bay and features eucalyptus groves, secluded beaches, and expansive trails with panoramic water views. Dogs can even be off-leash in undeveloped sections. It\'s a wild, beautiful escape that feels miles from the city. Combined with proximity to the famous Point Isabel Dog Park in Richmond, Pinole is a top-tier choice for Bay Area dog owners.',
+      ],
+      faqs: pinoleCaFaqs,
+    },
+  },
+  {
+    slug: 'pleasant-grove',
+    city: 'Pleasant Grove',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A quiet, rural Sacramento-area community with spacious lots and nearby trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Rural Living',
+      heroHeading: 'Indoor Dog Park In Pleasant Grove',
+      heroDescription: 'Enjoy the spacious, rural lifestyle of Pleasant Grove with easy access to Sacramento\'s dog parks and trails.',
+      heroPill: 'Open Spaces',
+      heroFootnotes: ['Rural Community', 'Sacramento Nearby'],
+      heroChips: [
+        { label: 'Space', value: 'Large Lots', caption: 'Rural' },
+        { label: 'Nearby', value: 'Sacramento', caption: 'Parks' },
+        { label: 'Trail', value: 'River Pkwy', caption: 'Close' },
+      ],
+      longDescription: [
+        'Pleasant Grove is a small, peaceful, unincorporated community north of Sacramento that offers a distinctly rural lifestyle—ideal for dogs who love open space. The larger lots and agricultural character mean many dogs enjoy spacious yards far from the noise and density of the city.',
+        'While Pleasant Grove itself lacks a dedicated public dog park, it benefits from its proximity to the greater Sacramento area\'s excellent pet amenities. The [American River Parkway](https://arpf.org/) is a short drive south, offering over 30 miles of multi-use trails along the river where leashed dogs are welcome. Dog parks in nearby Elk Grove, Roseville, and Sacramento provide plenty of off-leash options. Pleasant Grove is perfect for owners who value quiet country living with easy access to urban dog-friendly infrastructure.',
+      ],
+      faqs: pleasantGroveCaFaqs,
+    },
+  },
+  {
+    slug: 'pomona',
+    city: 'Pomona',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A vibrant city with Phillips Ranch Park and access to Bonelli Regional Park trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Parks & Trails',
+      heroHeading: 'Indoor Dog Park In Pomona',
+      heroDescription: 'Play at Phillips Ranch Park and hike the scenic trails around Puddingstone Reservoir at Bonelli Park.',
+      heroPill: 'Active Community',
+      heroFootnotes: ['Phillips Ranch', 'Bonelli Park'],
+      heroChips: [
+        { label: 'Park', value: 'Phillips', caption: 'Play Area' },
+        { label: 'Trail', value: 'Bonelli', caption: '9.5 mi' },
+        { label: 'Trail', value: 'Thompson', caption: 'Creek' },
+      ],
+      longDescription: [
+        'Pomona is a dynamic, diverse city that offers more outdoor amenities for dogs than many realize. [Phillips Ranch Park](https://www.ci.pomona.ca.us/) is a standout, with sprawling grassy areas, designated sections for large and small dogs, agility obstacles, and clean water stations. It\'s a well-maintained oasis that serves as a social hub for the city\'s pet community.',
+        'The real adventure lies just beyond city limits at [Frank G. Bonelli Regional Park](https://parks.lacounty.gov/bonelli-regional-park/), where the 9.5-mile Bonelli Trail loops around the scenic Puddingstone Reservoir. Leashed dogs are welcome on the trails, offering a wonderful mix of foothill views and lakeside strolls. The Thompson Creek Trail within the city offers a lush, green option for shorter walks. Pomona\'s blend of neighborhood parks and regional trails creates a rich environment for active dog ownership.',
+      ],
+      faqs: pomonaCaFaqs,
+    },
+  },
+  {
+    slug: 'rancho-santa-fe',
+    city: 'Rancho Santa Fe',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'An exclusive, equestrian-friendly community with scenic trails and nearby lagoon hikes.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Estate Living',
+      heroHeading: 'Indoor Dog Park In Rancho Santa Fe',
+      heroDescription: 'Explore the scenic trails of Lake Hodges and San Elijo Lagoon with your canine companion.',
+      heroPill: 'Trails & Nature',
+      heroFootnotes: ['Lake Hodges', 'San Elijo'],
+      heroChips: [
+        { label: 'Trail', value: 'Hodges', caption: 'Scenic' },
+        { label: 'Nature', value: 'Lagoon', caption: 'Wetlan' },
+        { label: 'Vibe', value: 'Estate', caption: 'Quiet' },
+      ],
+      longDescription: [
+        'Rancho Santa Fe is one of Southern California\'s most prestigious communities, and its love for animals is woven into the fabric of everyday life. With its equestrian heritage, the area features wide, scenic trails perfect for leashed walks with your dog. The [Lusardi Creek Loop](https://www.sandiegocounty.gov/) and [Del Dios Gorge Trail](https://www.sandiegocounty.gov/) offer moderate hikes with beautiful foothill scenery, while the Lake Hodges Trail provides a flat, picturesque path along the water.',
+        'Nearby, the San Elijo Lagoon Ecological Reserve welcomes leashed dogs on trails like the Rios Trail, offering a unique wetland experience. While the community itself doesn\'t have a large public dog park, residents are a short drive from excellent facilities in Carlsbad (Poinsettia Dog Park) and Poway. Rancho Santa Fe\'s expansive properties, quiet roads, and access to nature create a premium, idyllic lifestyle for dogs and their owners.',
+      ],
+      faqs: ranchoSantaFeCaFaqs,
+    },
+  },
+  {
+    slug: 'redondo-beach',
+    city: 'Redondo Beach',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A South Bay beach city with a fantastic three-acre dog park and coastal neighborhood charm.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'South Bay',
+      heroHeading: 'Indoor Dog Park In Redondo Beach',
+      heroDescription: 'Run free at the spacious Redondo Beach Dog Park and enjoy pet-friendly neighborhood walks.',
+      heroPill: 'Beach Community',
+      heroFootnotes: ['RB Dog Park', 'Dominguez Park'],
+      heroChips: [
+        { label: 'Park', value: 'Dominguez', caption: '3 acres' },
+        { label: 'Walk', value: 'Riviera', caption: 'Neighborhoods' },
+        { label: 'Vibe', value: 'Coastal', caption: 'Relaxed' },
+      ],
+      longDescription: [
+        'Redondo Beach is a beloved South Bay community offering a laid-back, coastal lifestyle. While dogs are not permitted on the beach or pier, the city more than compensates with its excellent [Redondo Beach Dog Park](https://www.rbdogpark.com/) at Dominguez Park. This three-acre, fenced facility features separate areas for large and small dogs, watering stations, and benches, and it\'s open daily from dawn to dusk (closed Wednesday mornings for maintenance).',
+        'Beyond the dog park, the hilly Riviera Village and North Redondo neighborhoods provide wonderful routes for leashed walks. Many local cafes and restaurants offer pet-friendly patios. For off-leash beach days, Rosie\'s Dog Beach in Long Beach and Huntington Dog Beach are popular road-trip destinations. Redondo Beach offers the best of both worlds: the energy of a beach town with excellent dedicated dog amenities.',
+      ],
+      faqs: redondoBeachCaFaqs,
+    },
+  },
+  {
+    slug: 'san-dimas',
+    city: 'San Dimas',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A foothill community with a dedicated dog park and trails around Bonelli Park\'s Puddingstone Reservoir.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Foothill Country',
+      heroHeading: 'Indoor Dog Park In San Dimas',
+      heroDescription: 'Explore the trails around Puddingstone Reservoir and let your dog play at San Dimas Dog Park.',
+      heroPill: 'Trails & Lakes',
+      heroFootnotes: ['Bonelli Park', 'Horsethief Canyon'],
+      heroChips: [
+        { label: 'Trail', value: 'Bonelli', caption: '9.5 mi' },
+        { label: 'Park', value: 'Dog Park', caption: 'Off-leash' },
+        { label: 'Lake', value: 'Puddingstone', caption: 'Scenic' },
+      ],
+      longDescription: [
+        'San Dimas is a charming foothill city that offers a wonderful mix of suburban comfort and outdoor adventure for dog owners. The [San Dimas Dog Park](https://www.sandimasca.gov/) at Horsethief Canyon Park provides a dedicated off-leash space with separate areas for large and small dogs, water fountains, benches, and picnic areas—a clean, spacious spot for daily social play.',
+        'The city\'s greatest asset is its adjacency to [Frank G. Bonelli Regional Park](https://parks.lacounty.gov/bonelli-regional-park/). The 9.5-mile Bonelli Trail circles the beautiful Puddingstone Reservoir through rolling foothills, offering diverse terrain and scenic lake views for leashed hikes. The Walnut Creek Trail provides an additional option for a longer adventure. San Dimas perfectly blends a quiet, small-town feel with world-class trail access.',
+      ],
+      faqs: sanDimasCaFaqs,
+    },
+  },
+  {
+    slug: 'san-leandro',
+    city: 'San Leandro',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A Bay Area city featuring the expansive Marina Dog Park and scenic San Francisco Bay shoreline trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Bay Trail',
+      heroHeading: 'Indoor Dog Park In San Leandro',
+      heroDescription: 'Play at the Marina Dog Park and walk the scenic Bay Trail shoreline with your dog.',
+      heroPill: 'Waterfront Fun',
+      heroFootnotes: ['Marina Dog Park', 'Bay Trail'],
+      heroChips: [
+        { label: 'Park', value: 'Marina', caption: '58K sqft' },
+        { label: 'Trail', value: 'Bay Trail', caption: 'Scenic' },
+        { label: 'Shore', value: 'Oyster Bay', caption: 'Wildlife' },
+      ],
+      longDescription: [
+        'San Leandro is a welcoming East Bay city that puts its waterfront to excellent use for dog owners. The [Marina Dog Park](https://www.sanleandro.org/) within Marina Park is a standout facility at 58,000 square feet, featuring separate fenced areas for small and large dogs, shaded picnic benches, water faucets, and waste stations. It\'s one of the largest and best-equipped dog parks in the East Bay.',
+        'Beyond the dog park, on-leash walks along the [Marina Park shoreline](https://www.sanleandro.org/) offer refreshing breezes and stunning views of the San Francisco Bay. The Heron Bay Trail connects to the larger San Francisco Bay Trail system, and the Oyster Bay Regional Shoreline provides miles of peaceful paths for birdwatching and nature walks. San Leandro\'s combination of a premier dog park and expansive waterfront trails makes it a top choice for Bay Area dog owners.',
+      ],
+      faqs: sanLeandroCaFaqs,
+    },
+  },
+  {
+    slug: 'san-ramon',
+    city: 'San Ramon',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A top-rated suburb with four dog parks, the Iron Horse Trail, and Bishop Ranch Preserve.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Four Dog Parks',
+      heroHeading: 'Indoor Dog Park In San Ramon',
+      heroDescription: 'Choose from four off-leash dog parks and walk the 32-mile Iron Horse Trail.',
+      heroPill: 'Best For Dogs',
+      heroFootnotes: ['Bark and Ride', 'Iron Horse Trail'],
+      heroChips: [
+        { label: 'Parks', value: '4 Parks', caption: 'Off-leash' },
+        { label: 'Trail', value: 'Iron Horse', caption: '32 mi' },
+        { label: 'Nature', value: 'Bishop Ranch', caption: '444 ac' },
+      ],
+      longDescription: [
+        'San Ramon stands out as one of the most dog-friendly cities in the East Bay, boasting an impressive four dedicated off-leash dog parks. [Del Mar Dog Park](https://www.sanramon.ca.gov/) offers over an acre of fenced space with separate areas for different dog sizes. The uniquely named [Bark and Ride](https://www.dogtrekker.com/) is a creative 4.5-acre park built into a park-and-ride lot, complete with fountains and shade. Memorial Park Dog Run and Tassajara Ridge Dog Park round out the options.',
+        'For trail enthusiasts, the [Iron Horse Regional Trail](https://www.ebparks.org/trails/interpark/iron-horse) runs a 4.5-mile section through San Ramon as part of its 32-mile route, welcoming leashed dogs. Bishop Ranch Regional Preserve adds 444 acres of quiet trails for those seeking a wilder outing. The combination of abundant parks, a world-class trail, and a safe suburban environment makes San Ramon one of the premier communities for dog ownership in the region.',
+      ],
+      faqs: sanRamonCaFaqs,
+    },
+  },
+  {
+    slug: 'santa-clara',
+    city: 'Santa Clara',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A Silicon Valley city with multiple off-leash parks and the beautiful Central Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Silicon Valley',
+      heroHeading: 'Indoor Dog Park In Santa Clara',
+      heroDescription: 'Walk through beautiful Central Park and let your dog run free at Raymond G. Gamma Dog Park.',
+      heroPill: 'Tech & Parks',
+      heroFootnotes: ['Gamma Dog Park', 'Central Park'],
+      heroChips: [
+        { label: 'Park', value: 'Gamma', caption: 'Off-leash' },
+        { label: 'Park', value: 'Central', caption: 'Trails' },
+        { label: 'Off-leash', value: 'Marsalli', caption: 'Option' },
+      ],
+      longDescription: [
+        'Santa Clara, in the heart of Silicon Valley, offers an impressive array of dog-friendly amenities for its tech-savvy residents. [Raymond G. Gamma Dog Park](https://www.santaclaraca.gov/) is the premier off-leash destination, featuring separate areas for large and small dogs, synthetic turf for all-weather play, water fountains, and lighting for evening sessions. Larry J. Marsalli Park and Everett N. "Eddie" Souza Park also provide designated off-leash areas.',
+        'For on-leash adventures, [Central Park](https://www.santaclaraca.gov/) is a gem. Its paved trails wind through shaded areas, past a picturesque duck pond, a rose garden, and expansive open lawns perfect for a relaxing stroll with your dog. The larger Santa Clara County trail system—including iconic parks like Almaden Quicksilver and Santa Teresa—is easily accessible for weekend hiking adventures. Santa Clara seamlessly blends urban convenience with excellent pet infrastructure.',
+      ],
+      faqs: santaClaraCaFaqs,
+    },
+  },
+  {
+    slug: 'scotts-valley',
+    city: 'Scotts Valley',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A mountain community with a fun Bark Park and access to breathtaking redwood forest trails.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Redwood Country',
+      heroHeading: 'Indoor Dog Park In Scotts Valley',
+      heroDescription: 'Play at Scotts Valley Bark Park and hike through redwood groves on the Lodato Trail.',
+      heroPill: 'Redwood Hikes',
+      heroFootnotes: ['Bark Park', 'Lodato Trail'],
+      heroChips: [
+        { label: 'Park', value: 'Bark Park', caption: 'Play Pool' },
+        { label: 'Trail', value: 'Lodato', caption: 'Redwoods' },
+        { label: 'Nature', value: 'Glenwood', caption: 'Groves' },
+      ],
+      longDescription: [
+        'Scotts Valley is a small mountain community in the Santa Cruz Mountains that offers a truly unique lifestyle for dog owners: living amongst towering redwoods. The [Scotts Valley Bark Park](https://www.scottsvalley.org/) at the Skypark Complex is a beloved local spot with separate areas for small and large dogs, toys, water dishes, and even a play pool for water-loving pups.',
+        'For trail lovers, the [Lodato Trail](https://www.scottsvalley.org/) is a stunning 1.2-mile path through a forest of second-growth redwoods, perfect for a peaceful leashed walk in the shade. The Glenwood Open Space Preserve offers additional loops through diverse habitats including redwood groves. Nearby, Henry Cowell Redwoods State Park allows leashed dogs on its 6-mile Pipeline Trail along the San Lorenzo River. Scotts Valley is a paradise for those who want to share the magic of the redwoods with their canine companions.',
+      ],
+      faqs: scottsValleyCaFaqs,
+    },
+  },
+  {
+    slug: 'simi-valley',
+    city: 'Simi Valley',
+    state: 'CA',
+    featuredImage: '/images/states/california/hero.webp',
+    summary: 'A spacious valley city featuring Simi Dog Park and the historic trails of Corriganville Park.',
+    parks: [],
+    customContent: {
+      heroEyebrow: 'Valley Adventure',
+      heroHeading: 'Indoor Dog Park In Simi Valley',
+      heroDescription: 'Hike the historic trails of Corriganville Park and play at the spacious Simi Dog Park.',
+      heroPill: 'Historic Trails',
+      heroFootnotes: ['Corriganville', 'Simi Dog Park'],
+      heroChips: [
+        { label: 'Trail', value: 'Corriganville', caption: 'Movie Ranch' },
+        { label: 'Park', value: 'Simi Dog', caption: 'Off-leash' },
+        { label: 'Hike', value: 'Rocky Peak', caption: 'Mountain' },
+      ],
+      longDescription: [
+        'Simi Valley is a wide, sun-drenched community surrounded by dramatic mountain scenery, offering a fantastic environment for active dog owners. The [Simi Dog Park](https://www.simivalley.org/) at 2251 Lost Canyons Drive is a spacious, well-maintained facility with separate fenced areas for large and small dogs, water stations, and picnic tables. It\'s open from 7 AM to dusk daily.',
+        'The city\'s unique attraction is [Corriganville Park](https://www.rsrpd.org/), a former Hollywood movie ranch where leashed dogs can explore trails winding through sandstone rock formations, past remnants of old movie sets. The Loop Trail and Interpretive Trail offer easy-to-moderate hikes with rich history and wildlife. For more ambitious outings, the Rocky Peak Trail provides challenging mountain terrain. Simi Valley delivers a rare combination of suburban safety, spacious parks, and genuinely exciting trail adventures.',
+      ],
+      faqs: simiValleyCaFaqs,
+    },
+  },
+  {
+    slug: 'andover-nj',
+    city: 'Andover',
+    state: 'NJ',
+    summary: 'Discover dog-friendly Andover, NJ, featuring the scenic Kittatinny Valley State Park and the Sussex Branch Trail for outdoor enthusiasts and their pups.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Andover, NJ',
+      heroDescription: 'Explore the scenic trails and state parks of Andover.',
+      longDescription: [
+        "Andover is a haven for nature lovers and their four-legged companions. The crown jewel is Kittatinny Valley State Park, offering miles of tails through forests and along glacial lakes. The Sussex Branch Trail provides a relatively flat, shaded path perfect for longer walks with leashed dogs.",
+        "Andover, New Jersey, is a picturesque town in Sussex County that offers an abundance of outdoor recreational opportunities for dog owners. The township is characterized by its rolling hills, pristine lakes, and extensive trail systems. At the heart of Andover's dog-friendly appeal is Kittatinny Valley State Park, which spans over 5,000 acres. This park is a paradise for leashed dogs, featuring a variety of trails that wind through diverse habitats, including limestone outcroppings and quiet forests. Another highlight is the Sussex Branch Trail, a multi-use path that follows a former railroad corridor, providing a smooth and scenic route for walking, running, or cycling with your pup. For those who enjoy water activities, several lakes in the area offer opportunities for leashed dogs to accompany their owners near the shore. Andover's commitment to preserving its natural beauty makes it a top destination for those seeking a tranquil and active lifestyle with their dogs in Northern New Jersey.",
+      ],
+      faqs: andoverNjFaqs,
+    },
+  },
+  {
+    slug: 'asbury-park-nj',
+    city: 'Asbury Park',
+    state: 'NJ',
+    summary: 'Experience the vibrant, dog-friendly atmosphere of Asbury Park, NJ, featuring the famous 8th Avenue Dog Beach and numerous pet-welcoming establishments.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Asbury Park, NJ',
+      heroDescription: 'Enjoy the beach and vibrant culture of Asbury Park with your pup.',
+      longDescription: [
+        "Asbury Park is legendary for its inclusive vibe, especially for dog owners. The 8th Avenue Dog Beach is a major draw, allowing off-leash play during the off-season and restricted hours in summer. The boardwalk and many downtown cafes welcome leashed pups.",
+        "Asbury Park, New Jersey, is one of the most dog-friendly destinations on the Jersey Shore. Known for its rich musical history and iconic boardwalk, the city also prides itself on being a haven for pets. The highlight for many is the Asbury Park Dog Beach, located at the 8th Avenue entrance. During the off-season (October 1st to May 15th), dogs are permitted on the beach at any time. In the summer months, dogs are allowed off-leash from 6:00 PM to 8:30 AM. Beyond the sand, the Asbury Park Boardwalk is a fantastic place for a leashed stroll, offering stunning ocean views. Many of the city's restaurants and bars, such as Wonder Bar with its famous \"Yappy Hour,\" specifically cater to dog owners, providing outdoor seating and water bowls. The downtown area along Cookman Avenue is also highly walkable and features several pet-friendly shops. Whether you're splashing in the waves or enjoying a craft beer with your pup by your side, Asbury Park offers a unique and energetic coastal experience for you and your dog.",
+      ],
+      faqs: asburyParkNjFaqs,
+    },
+  },
+  {
+    slug: 'audubon-nj',
+    city: 'Audubon',
+    state: 'NJ',
+    summary: 'Explore the charming streets and local parks of Audubon, NJ, with easy access to dog-friendly spots like Haddon Lake Park nearby.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Audubon, NJ',
+      heroDescription: 'Walk the tree-lined streets and nearby lake parks of Audubon.',
+      longDescription: [
+        "Audubon is a cozy borough in Camden County that offers a peaceful environment for dog walking. While residential streets are lined with trees, the nearby Haddon Lake Park provides a beautiful backdrop for leashed walks along the water.",
+        "Audubon, New Jersey, is a small, tight-knit community in Camden County perfectly suited for dog owners who value a quiet, suburban feel. The borough's walkable neighborhoods make for pleasant daily strolls with your leashed companion. One of the primary draws for local dog owners is the proximity to Haddon Lake Park, which borders Audubon. This expansive county park features a scenic lake, paved walking paths, and plenty of green space where dogs are welcome on a leash. It's an ideal spot for morning walks or weekend outings. Additionally, the area surrounding Audubon has seen a rise in pet-friendly amenities, from local groomers to veterinary clinics. While Audubon itself is primarily residential, its central location in South Jersey means that more extensive dog parks, such as Timber Creek Dog Park in nearby Blackwood, are just a short drive away. This combination of local charm and regional accessibility makes Audubon a great place for dog lovers to call home.",
+      ],
+      faqs: audubonNjFaqs,
+    },
+  },
+  {
+    slug: 'barnegat-light-nj',
+    city: 'Barnegat Light',
+    state: 'NJ',
+    summary: 'Enjoy the tranquil beauty of Barnegat Light, NJ, featuring a dedicated dog park and leash-friendly access to the island\'s stunning natural landscapes.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Barnegat Light, NJ',
+      heroDescription: 'Experience the quiet side of Long Beach Island with your dog.',
+      longDescription: [
+        "Barnegat Light, at the northern tip of Long Beach Island, is a quiet escape for dog owners. The Barnegat Light Dog Park offers a safe off-leash area, while the town's quiet streets and bayfront views are perfect for leashed exploration.",
+        "Barnegat Light, New Jersey, located on the northern end of Long Beach Island, offers a slower pace of life that is perfect for dogs and their families. Known for the historic \"Old Barney\" lighthouse, the town is also surprisingly well-equipped for pets. The Barnegat Light Dog Park, located near the municipal boat ramp, provides a fenced-in area where dogs can play off-leash. For those who prefer a scenic walk, the Barnegat Lighthouse State Park allows leashed dogs on its paved paths and along the inlet, offering panoramic views of the ocean and bay. While dogs are generally restricted from the borough's beaches during the busy summer season, the off-season provides ample opportunity for long walks on the sand. The town's quiet residential area is also very walkable, with many residents and visitors alike seen out with their dogs. Barnegat Light's natural beauty and pet-friendly amenities make it a hidden gem for dog owners on the Jersey Shore.",
+      ],
+      faqs: barnegatLightNjFaqs,
+    },
+  },
+  {
+    slug: 'bedminster-nj',
+    city: 'Bedminster',
+    state: 'NJ',
+    summary: 'Discover the historic charm and expansive trails of Bedminster, NJ, featuring the River Road Dog Park for off-leash play.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bedminster, NJ',
+      heroDescription: 'Explore the rolling hills and trail systems of Bedminster.',
+      longDescription: [
+        "Bedminster is characterized by its rolling hills and equestrian history. The River Road Dog Park provides a dedicated half-acre for off-leash fun, while the town's extensive trail network is perfect for leashed exploration with your pup.",
+        "Bedminster, New Jersey, located in Somerset County, is a community that deeply values its open spaces and natural beauty, making it a fantastic environment for dog owners. The township is known for its sprawling estates and well-maintained trail systems. The River Road Dog Park is a highlight for local pets, offering a fenced, half-acre area where dogs can socialize and exercise safely off-leash. For those who prefer longer walks, the Bedminster Hike & Bikeway offers a scenic route through the town, connecting residential areas with local parks. Bedminster is also home to several large-scale parks, such as Burnt Mills Park, where leashed dogs are welcome to explore the grassy fields and wooded edges. The town's rural character, combined with its commitment to recreational facilities, ensures that dog owners have plenty of options for staying active with their pets. Whether you're a local or just visiting, Bedminster's pet-friendly atmosphere is sure to impress.",
+      ],
+      faqs: bedminsterNjFaqs,
+    },
+  },
+  {
+    slug: 'belle-mead-nj',
+    city: 'Belle Mead',
+    state: 'NJ',
+    summary: 'Explore the pastoral beauty of Belle Mead, NJ, offering quiet residential streets and nearby access to expansive county parks for you and your dog.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Belle Mead, NJ',
+      heroDescription: 'Enjoy the peaceful countryside and nearby parks of Belle Mead.',
+      longDescription: [
+        "Belle Mead is a peaceful community in Montgomery Township. While primarily residential, it offers a serene setting for leashed walks and is just a short drive from some of Somerset County's best dog-friendly parks.",
+        "Belle Mead, New Jersey, is a charming unincorporated community within Montgomery Township that provides a tranquil backdrop for dog owners. The area is defined by its agricultural heritage and modern residential neighborhoods, offering plenty of quiet streets and cul-de-sacs for daily walks. One of the major benefits of living in or visiting Belle Mead is its proximity to the Somerset County park system. Nearby Skillman Park, for instance, offers a designated leash-free dog area, making it a popular destination for local pet owners. Additionally, the Sourland Mountain Preserve is just a short drive away, providing rugged hiking trails where leashed dogs can challenge themselves alongside their owners. Belle Mead's location also provides easy access to local veterinary clinics and pet supply stores, ensuring that your pup's needs are always met. For those seeking a blend of suburban comfort and outdoor adventure, Belle Mead is an excellent base for a dog-friendly lifestyle in Central Jersey.",
+      ],
+      faqs: belleMeadNjFaqs,
+    },
+  },
+  {
+    slug: 'belford-nj',
+    city: 'Belford',
+    state: 'NJ',
+    summary: 'Enjoy the coastal charm of Belford, NJ, a maritime community with scenic bayfront walks and easy access to Middletown\'s premium dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Belford, NJ',
+      heroDescription: 'Experience the bayfront beauty and trails of Belford.',
+      longDescription: [
+        "Belford, part of Middletown Township, offers a relaxed atmosphere with beautiful views of the Raritan Bay. Dog owners can enjoy leashed walks along the waterfront or visit the nearby Middletown Dog Park for off-leash play.",
+        "Belford, New Jersey, is a historic fishing village located within Middletown Township that offers a unique coastal environment for dog owners. The community is known for its ferry terminal and stunning views of the New York City skyline across the Raritan Bay. For dog owners, the waterfront area provides a scenic location for leashed strolls, especially during the sunset hours. Belford is also conveniently located near several of Middletown's top-tier recreational facilities. The Middletown Dog Park, for example, is a short drive away and offers two separate fenced areas with agility equipment, water fountains, and plenty of space for off-leash socialization. Additionally, the Henry Hudson Trail passes nearby, offering miles of paved, shaded paths that are perfect for longer walks or runs with your pet. Belford's blend of maritime tradition and modern amenities makes it an appealing spot for those who want to enjoy the outdoors with their furry companions.",
+      ],
+      faqs: belfordNjFaqs,
+    },
+  },
+  {
+    slug: 'belmar-nj',
+    city: 'Belmar',
+    state: 'NJ',
+    summary: 'Experience the quintessential Jersey Shore lifestyle in Belmar, NJ, featuring seasonal beach access and a welcoming, pet-friendly boardwalk.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Belmar, NJ',
+      heroDescription: 'Enjoy the surf and boardwalk of Belmar with your pet.',
+      longDescription: [
+        "Belmar is a vibrant beach town that becomes especially dog-friendly during the off-season. While summer months have restrictions, the boardwalk and local parks like Maclearie Park offer year-round opportunities for leashed fun.",
+        "Belmar, New Jersey, is a premier destination for those who love the beach and their dogs. This coastal borough is famous for its clean beaches and lively downtown area. During the off-season, typically from October 1st to April 30th, dogs are permitted on the Belmar beach and boardwalk, allowing for miles of invigorating walks by the surf. Throughout the year, Maclearie Park on Route 35 offers a lovely green space along the Shark River where leashed dogs can enjoy the breeze and watching the boats. The town's main street (Ocean Avenue) and the downtown area are filled with shops and cafes that often welcome pets at their outdoor tables. Belmar also hosts several community events throughout the year that are pet-inclusive, such as the annual St. Patrick's Day Parade. For dog owners living at or visiting the shore, Belmar provides a perfect mix of oceanic beauty and community warmth.",
+      ],
+      faqs: belmarNjFaqs,
+    },
+  },
+  {
+    slug: 'berlin-nj',
+    city: 'Berlin',
+    state: 'NJ',
+    summary: 'Discover the community spirit and natural beauty of Berlin, NJ, with access to local trails and nearby regional dog parks like Timber Creek.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Berlin, NJ',
+      heroDescription: 'Explore the historic charm and nearby state forests of Berlin.',
+      longDescription: [
+        "Berlin is a historic borough in Camden County that offers a peaceful residential setting. With local gems like Berlin Park and proximity to major regional off-leash areas, it's a great spot for dog owners to explore.",
+        "Berlin, New Jersey, is a historic and community-focused borough that offers an excellent quality of life for dog owners. The town is characterized by its charming downtown and well-preserved natural areas. Berlin Park is a local favorite, providing trails and open spaces where leashed dogs can enjoy the outdoors. For those seeking more intensive off-leash activities, the legendary Timber Creek Dog Park in Blackwood is only a short drive away, offering 9 acres of fenced woods and even a dog-friendly pond. Berlin's central location in South Jersey also means it's close to the Wharton State Forest, providing endless miles of trails for adventurous pups and their owners. The town itself is very walkable, and the local business community is generally welcoming to pets. Whether you're exploring the local history or venturing into the nearby Pine Barrens, Berlin provides a fantastic starting point for any dog-friendly outing.",
+      ],
+      faqs: berlinNjFaqs,
+    },
+  },
+  {
+    slug: 'berlin-township-nj',
+    city: 'Berlin Township',
+    state: 'NJ',
+    summary: 'Enjoy the suburban convenience and nearby nature preserves of Berlin Township, NJ, an ideal location for active dog owners in South Jersey.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Berlin Township, NJ',
+      heroDescription: 'Discover the parks and nature trails of Berlin Township.',
+      longDescription: [
+        "Berlin Township is a growing community that offers plenty of space for you and your dog to roam. From residential sidewalks to nearby nature trails, there's always a new spot to discover with your leashed companion.",
+        "Berlin Township, New Jersey, is a vibrant and family-friendly community in Camden County that offers a wealth of opportunities for dog owners. The township is known for its mix of modern residential developments and preserved open spaces. Active dog owners will appreciate the proximity to the Camden County park system, which includes several dog-friendly locations within an easy drive. The township's flat terrain and well-maintained sidewalks make it perfect for daily leashed walks with your pup. For those looking for a bit more adventure, the nearby Long-A-Coming Historical Trail offers a glimpse into the area's past while providing a great path for a stroll. Additionally, the township is home to numerous pet-related businesses, from grooming salons to well-stocked pet stores. Berlin Township's welcoming atmosphere and commitment to community health make it a wonderful place for dogs and their families to thrive in Southern New Jersey.",
+      ],
+      faqs: berlinTownshipNjFaqs,
+    },
+  },
+  {
+    slug: 'bethlehem-nj',
+    city: 'Bethlehem',
+    state: 'NJ',
+    summary: 'Explore the rugged beauty and expansive trails of Bethlehem, NJ, a Hunterdon County gem perfect for adventurous dogs and their owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bethlehem, NJ',
+      heroDescription: 'Enjoy the rural landscapes and hiking trails of Bethlehem.',
+      longDescription: [
+        "Bethlehem Township is a scenic community in Hunterdon County that offers a rural feel with plenty of room to roam. Its hilly landscape and proximity to state parks make it a paradise for active, leashed dogs.",
+        "Bethlehem, New Jersey, located in the northern reaches of Hunterdon County, is a destination for those who love the great outdoors. The township is characterized by its rolling hills, limestone valleys, and vast tracts of preserved land. For dog owners, Bethlehem offers an unparalleled environment for exploration. The township is home to several parks and nature preserves where leashed dogs are welcome to join their owners on the trails. Nearby, the Musconetcong River provides a beautiful backdrop for walks along its banks. Bethlehem's rural character means that many residents enjoy large properties, but the community also values its public spaces. The township's quiet, winding roads are also popular for leashed strolls, offering stunning views of the surrounding countryside. If you're looking for a place where your dog can truly connect with nature, Bethlehem's rugged and beautiful landscape is the ideal choice.",
+      ],
+      faqs: bethlehemNjFaqs,
+    },
+  },
+  {
+    slug: 'blairstown-nj',
+    city: 'Blairstown',
+    state: 'NJ',
+    summary: 'Discover the historic charm and scenic wonders of Blairstown, NJ, featuring the Paulinskill Valley Trail for endless dog-friendly adventures.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Blairstown, NJ',
+      heroDescription: 'Walk the historic streets and valley trails of Blairstown.',
+      longDescription: [
+        "Blairstown is a picturesque town in Warren County with a rich history and stunning natural surroundings. The Paulinskill Valley Trail is a major draw for dog walkers, offering miles of shaded, relatively flat terrain.",
+        "Blairstown, New Jersey, is a historic and scenic community in Warren County that offers a wealth of dog-friendly activities. Nestled in the foothills of the Kittatinny Mountains, the town is a dream for those who enjoy hiking and biking with their pets. The centerpiece of Blairstown's outdoor appeal is the Paulinskill Valley Trail, a 27-mile long multi-use path that passes right through the heart of town. This trail is perfect for leashed dogs, providing a smooth and scenic route through woods and wetlands. Blairstown's charming Main Street is also very walkable and features several businesses that are welcoming to furry visitors. For more rugged adventures, the Appalachian Trail is just a short drive away, offering challenging terrain for the most athletic of pups. Blairstown's combination of small-town charm and vast natural beauty makes it an ideal destination for dog owners seeking an active and peaceful lifestyle.",
+      ],
+      faqs: blairstownNjFaqs,
+    },
+  },
+  {
+    slug: 'bloomsbury-nj',
+    city: 'Bloomsbury',
+    state: 'NJ',
+    summary: 'Enjoy the quiet, rural character of Bloomsbury, NJ, a quaint borough offering peaceful streets and nearby access to the Musconetcong River.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bloomsbury, NJ',
+      heroDescription: 'Experience the quiet riverside charm of Bloomsbury.',
+      longDescription: [
+        "Bloomsbury is a small borough nestled along the Musconetcong River. It provides a serene environment for leashed walks through its historic streets and easy access to the natural beauty of the surrounding Hunterdon County.",
+        "Bloomsbury, New Jersey, is a tiny but charming borough in Hunterdon County that offers a peaceful retreat for dog owners. The community is defined by its historic architecture and its location along the banks of the Musconetcong River. For residents and visitors, the borough's quiet residential streets are perfect for leisurely leashed walks. The proximity to the river provides a beautiful natural setting, with several areas nearby where leashed dogs can enjoy the sights and sounds of the water. Bloomsbury's central location also makes it easy to explore the wider region, including the many parks and preserves that dot the Hunterdon and Warren County landscape. Whether you're a local resident out for a morning stroll or a visitor exploring the area's rural charms, Bloomsbury offers a welcoming and low-key environment for you and your four-legged friend.",
+      ],
+      faqs: bloomsburyNjFaqs,
+    },
+  },
+  {
+    slug: 'bound-brook-nj',
+    city: 'Bound Brook',
+    state: 'NJ',
+    summary: 'Explore the historic streets and riverside parks of Bound Brook, NJ, with easy access to the Delaware and Raritan Canal for scenic dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bound Brook, NJ',
+      heroDescription: 'Walk the historic canal trails and riverside parks of Bound Brook.',
+      longDescription: [
+        "Bound Brook is a historic borough in Somerset County with a rejuvenated downtown and lovely riverside parks. The nearby D&R Canal State Park offers miles of shaded trails that are a favorite for local dog owners.",
+        "Bound Brook, New Jersey, is a community with a rich history and a bright future, offering plenty of options for dog owners. The borough is located along the Raritan River, which provides a scenic backdrop for several of its parks. Codrington Park is a local hub for recreation and is a great spot for a leashed walk. However, the real draw for many dog owners is the proximity to the Delaware and Raritan (D&R) Canal State Park. This extensive park system features miles of well-maintained trails along the historic canal, providing a peaceful and shaded environment for walking or running with your pup. Bound Brook's downtown area has also seen significant redevelopment, making it more walkable and inviting for residents and their pets. With its mix of historic charm and natural beauty, Bound Brook is an excellent place for those who want to enjoy the benefits of an active, dog-friendly lifestyle in Central Jersey.",
+      ],
+      faqs: boundBrookNjFaqs,
+    },
+  },
+  {
+    slug: 'bradley-beach-nj',
+    city: 'Bradley Beach',
+    state: 'NJ',
+    summary: 'Relax in the family-friendly atmosphere of Bradley Beach, NJ, featuring seasonal beach access for dogs and a charming, walkable maritime district.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bradley Beach, NJ',
+      heroDescription: 'Enjoy the quiet seaside life and boardwalk of Bradley Beach.',
+      longDescription: [
+        "Bradley Beach is a quiet seaside community that welcomes dogs during the off-season. Its beautifully maintained boardwalk and local parks like Riley Park offer year-round opportunities for leashed exploration.",
+        "Bradley Beach, New Jersey, is a hidden gem on the Jersey Shore that prides itself on its community atmosphere and pet-friendly policies. This small borough offers a more relaxed alternative to some of the busier shore towns. During the off-season (October 1st to May 15th), leashed dogs are welcome on the boardwalk and the beach, providing a wonderful opportunity for oceanic exercise. Year-round, Riley Park in the center of town is a lovely spot for a quick stroll or to simply enjoy some fresh air with your pup. The town's Main Street is lined with interesting shops and restaurants, many of which are accommodating to pet owners. Bradley Beach's quiet residential streets are also perfect for daily walks. Whether you're enjoying a winter sunset on the sand or a spring walk through the park, Bradley Beach offers a delightful and inclusive environment for dogs and their owners.",
+      ],
+      faqs: bradleyBeachNjFaqs,
+    },
+  },
+  {
+    slug: 'brick-nj',
+    city: 'Brick',
+    state: 'NJ',
+    summary: 'Discover the diverse parks and extensive bayfront areas of Brick, NJ, including the popular Angela Hibbard Dog Park for off-leash fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brick, NJ',
+      heroDescription: 'Explore the bayfront parks and dog runs of Brick.',
+      longDescription: [
+        "Brick Township is one of the largest communities in Ocean County, offering an abundance of parks and natural areas for dog owners. The Angela Hibbard Dog Park is a local favorite for off-leash play.",
+        "Brick, New Jersey, is a sprawling township with a deep connection to the water and the outdoors, making it a fantastic place for dog owners. The community is home to a wide variety of parks that cater to all levels of activity. The Angela Hibbard Dog Park is a standout facility, providing separate fenced areas for small and large dogs to socialize and exercise off-leash in a safe environment. For those who prefer a longer, leashed walk, the trails at Windward Beach Park offer beautiful views of the Metedeconk River. Brick is also located near the Mantoloking Bridge County Park, which provides a great spot for a scenic stroll along the bay. The township's commitment to recreation ensures that there are plenty of green spaces and trails for dogs to explore. With its blend of waterfront charm and extensive park system, Brick is a top choice for dog lovers on the Jersey Shore.",
+      ],
+      faqs: brickNjFaqs,
+    },
+  },
+  {
+    slug: 'bridgeton-nj',
+    city: 'Bridgeton',
+    state: 'NJ',
+    summary: 'Explore the historic landscapes and extensive trails of Bridgeton, NJ, featuring the massive Bridgeton City Park for endless dog-friendly exploration.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bridgeton, NJ',
+      heroDescription: 'Explore the massive city parks and historic trails of Bridgeton.',
+      longDescription: [
+        "Bridgeton, New Jersey, is a historic city in Cumberland County that boasts one of the most impressive park systems in the state. At the heart of the community is Bridgeton City Park, a sprawling 1,100-acre recreational area that is a paradise for dog owners. The park features an extensive network of trails that wind through woods and around serene lakes, providing a variety of environments for leashed walks. For off-leash fun, the Little Creek Dog Park within the city limits offers separate fenced areas for small and large dogs, complete with agility equipment and water stations. Bridgeton's historic district is also very walkable, featuring tree-lined streets and beautiful architecture. The city's commitment to preserving its natural and historic assets ensures that there are always plenty of places for you and your dog to enjoy. Whether you're hiking the trails or visiting a local pet-friendly spot, Bridgeton offers a wealth of opportunities for an active and engaged life with your pup.",
+      ],
+      faqs: bridgetonNjFaqs,
+    },
+  },
+  {
+    slug: 'bronx-ny',
+    city: 'Bronx',
+    state: 'NY',
+    summary: 'Discover the urban oases of the Bronx, NY, featuring massive parks like Van Cortlandt and Pelham Bay with dedicated dog runs for off-leash play.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Bronx, NY',
+      heroDescription: 'Explore the massive urban parks and dog runs of the Bronx.',
+      longDescription: [
+        "The Bronx, New York, often called the \"Borough of Parks,\" is an incredible place for dogs and their owners. It is home to some of the largest urban parks in the country, including Pelham Bay Park and Van Cortlandt Park. These massive green spaces offer miles of trails where leashed dogs can explore diverse habitats, from salt marshes to mature forests. For off-leash socialization, the Bronx features dozens of well-maintained dog runs, such as the Williamsbridge Oval Dog Park and the Woodlawn Dog Run, which offer separate sections for large and small dogs. Beyond the parks, many of the Bronx's neighborhoods are incredibly walkable and feature pet-friendly cafes and shops. The borough's rich cultural heritage and vibrant community life make it a dynamic place to explore with your pup. Whether you're hiking through the North Woods or enjoying a sunset walk along the Grand Concourse, the Bronx provides a wealth of dog-friendly adventures in the heart of New York City.",
+      ],
+      faqs: bronxNyFaqs,
+    },
+  },
+  {
+    slug: 'brooklawn-nj',
+    city: 'Brooklawn',
+    state: 'NJ',
+    summary: 'Enjoy the scenic riverfront and community-focused atmosphere of Brooklawn, NJ, featuring the popular Brooklawn Dog Park for local pets.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Brooklawn, NJ',
+      heroDescription: 'Experience the riverfront beauty and dedicated dog parks of Brooklawn.',
+      longDescription: [
+        "Brooklawn, New Jersey, is a small but vibrant borough in Camden County that offers a high quality of life for dog owners. The community is defined by its prime location on the Delaware River and its commitment to local recreation. The Brooklawn Dog Park is a central hub for pet owners, providing a well-fenced area where dogs of all sizes can play and socialize safely off-leash. For those who prefer a more scenic route, the waterfront walkway offers stunning views and a refreshing breeze for leashed walks. Brooklawn's neighborhoods are compact and highly walkable, making daily exercise easy for you and your pup. The borough's central location also provides easy access to larger county parks and regional pet services. Brooklawn's combination of riverfront charm and dedicated pet-friendly facilities makes it a wonderful place for dogs and their families to enjoy the outdoors.",
+      ],
+      faqs: brooklawnNjFaqs,
+    },
+  },
+  {
+    slug: 'cape-may-court-house-nj',
+    city: 'Cape May Court House',
+    state: 'NJ',
+    summary: 'Discover the natural beauty of Cape May Court House, NJ, offering expansive county parks and proximity to some of the Jersey Shore\'s best dog beaches.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cape May Court House, NJ',
+      heroDescription: 'Explore the county parks and nearby dog beaches of Cape May Court House.',
+      longDescription: [
+        "Cape May Court House, New Jersey, is a scenic and historic community that serves as the administrative heart of Cape May County. For dog owners, it offers a fantastic blend of woodland exploration and coastal fun. The Cape May County Park (Central) is a major draw, featuring walking paths, picnic areas, and a quiet atmosphere where leashed dogs are welcome. The area is also close to several of the region's top dog destinations, including the Cape May Dog Park and the seasonal dog-friendly beaches of Cape May and Wildwood. For a more rugged experience, the nearby Higbee Beach Wildlife Management Area allows leashed dogs during the off-season, offering miles of undeveloped shoreline. The town itself is very walkable and home to numerous veterinary clinics and pet supply stores. Cape May Court House's central location and natural beauty make it an ideal home base for exploring the very best of Southern New Jersey with your furry companion.",
+      ],
+      faqs: capeMayCourtHouseNjFaqs,
+    },
+  },
+  {
+    slug: 'cedar-grove-nj',
+    city: 'Cedar Grove',
+    state: 'NJ',
+    summary: 'Explore the wooded hills and quiet neighborhoods of Cedar Grove, NJ, with easy access to the expansive dog-friendly trails of Essex County.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cedar Grove, NJ',
+      heroDescription: 'Enjoy the wooded trails and quiet hills of Cedar Grove.',
+      longDescription: [
+        "Cedar Grove, New Jersey, is a charming and verdant community in Essex County that provides a wonderful setting for dog owners. The township is characterized by its hilly terrain and abundant tree-lined streets. For those who enjoy hiking, the nearby Mills Reservation offers stunning overviews and miles of wooded trails where leashed dogs are welcome. Within the township, Cedar Grove Park provides a lovely green space for recreational strolls and community gatherings. The township is also part of the broader Essex County park system, giving residents easy access to larger off-leash facilities like the Brookdale Dog Park in nearby Montclair. Cedar Grove's neighborhoods are safe and highly walkable, making it easy to incorporate daily exercise into your pup's routine. Its combination of suburban tranquility and regional accessibility makes Cedar Grove an ideal location for dog lovers in Northern New Jersey.",
+      ],
+      faqs: cedarGroveNjFaqs,
+    },
+  },
+  {
+    slug: 'cinnaminson-nj',
+    city: 'Cinnaminson',
+    state: 'NJ',
+    summary: 'Enjoy the tree-lined streets and well-maintained parks of Cinnaminson, NJ, a family-friendly community with great spots for leashed walks and play.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cinnaminson, NJ',
+      heroDescription: 'Walk the tree-lined streets and scenic parks of Cinnaminson.',
+      longDescription: [
+        "Cinnaminson, New Jersey, is a picturesque and established community in Burlington County that offers a high quality of life for both people and their pets. The township is known for its quiet, tree-shaded streets and beautifully maintained neighborhoods, which provide an ideal environment for daily leashed walks. Wood Park is a central hub for the community and a favorite spot for dog owners, offering walking paths and plenty of green space. For those who enjoy the water, the nearby riverfront areas provide a refreshing backdrop for a stroll. Cinnaminson's strategic location also means it's just a short drive from more expansive recreational areas, such as the Swede Run Fields Dog Park in Moorestown, which offers dedicated off-leash areas. The township's focus on family and community ensures that local parks and businesses are generally welcoming to furry companions. Whether you're exploring the local parks or enjoying the quiet charm of its neighborhoods, Cinnaminson is a wonderful place for a dog-friendly lifestyle.",
+      ],
+      faqs: cinnaminsonNjFaqs,
+    },
+  },
+  {
+    slug: 'clementon-nj',
+    city: 'Clementon',
+    state: 'NJ',
+    summary: 'Discover the local parks and active community of Clementon, NJ, featuring the unique Palmer Doggie Depot for off-leash fun and socialization.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Clementon, NJ',
+      heroDescription: 'socialize your pup at the Palmer Doggie Depot in Clementon.',
+      longDescription: [
+        "Clementon, New Jersey, is a small and historic borough in Camden County that offers a surprising number of dog-friendly amenities. The community is perhaps best known for its long-running amusement park, but for dog owners, the real attraction is the Palmer Doggie Depot. This community-run dog park provides a safe and well-maintained area where dogs of all sizes can play and exercise off-leash. Beyond the dog park, Clementon Lake and the surrounding green spaces offer peaceful locations for leashed walks. The borough's walkable layout makes it easy to get around with your pup on a daily basis. Clementon is also located near several larger Camden County parks, providing even more options for outdoor adventure. The town's inclusive atmosphere and dedicated pet-friendly spaces make it an appealing location for dog lovers in Southern New Jersey.",
+      ],
+      faqs: clementonNjFaqs,
+    },
+  },
+  {
+    slug: 'clifton-park-ny',
+    city: 'Clifton Park',
+    state: 'NY',
+    summary: 'Explore the expansive trail systems and dedicated dog-friendly facilities of Clifton Park, NY, a premier destination for active dogs and their owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Clifton Park, NY',
+      heroDescription: 'Explore the riverside trails and dog parks of Clifton Park.',
+      longDescription: [
+        "Clifton Park, New York, is a thriving suburban community that prioritizes outdoor recreation, making it a dream for dog owners. The town is home to an impressive array of parks and nature preserves. The Scentral Bark Dog Park is a highlight, offering separate fenced sections for large and small dogs, as well as play equipment and water stations. For those who prefer hiking, the Vischer Ferry Nature & Historic Preserve provides over 600 acres of trails along the Mohawk River, where leashed dogs can enjoy the natural scenery. Within the town, numerous neighborhood parks and multi-use trails make daily walks convenient and enjoyable. Clifton Park also has a very active community of pet owners, with many local shops and restaurants offering dog-friendly accommodations. Whether you're splashing in a pond or socializing at the dog park, Clifton Park provides a comprehensive and welcoming environment for an active life with your furry companion.",
+      ],
+      faqs: cliftonParkNyFaqs,
+    },
+  },
+  {
+    slug: 'cranbury-nj',
+    city: 'Cranbury',
+    state: 'NJ',
+    summary: 'Discover the historic beauty and peaceful trails of Cranbury, NJ, a charming village with a dedicated off-leash area at Heritage Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Cranbury, NJ',
+      heroDescription: 'Walk the historic streets and village parks of Cranbury.',
+      longDescription: [
+        "Cranbury, New Jersey, is one of the state's most picturesque and historic towns, providing a delightful environment for dog owners. The village center is renowned for its 18th and 19th-century architecture and is highly walkable for leashed pups and their owners. Heritage Park is the township's primary destination for pet owners, featuring a dedicated area where dogs can play off-leash and socialize. The park also includes a paved walking loop and open fields that are perfect for a quiet, leashed stroll. Cranbury's rural surroundings mean that many residential areas are quiet and scenic, offering peaceful daily walks. The township's proximity to larger county parks, such as Thompson Park, further expands the recreational options for local dog owners. Cranbury's commitment to preserving its heritage and open spaces ensures a serene and welcoming atmosphere for dogs and their families.",
+      ],
+      faqs: cranburyNjFaqs,
+    },
+  },
+  {
+    slug: 'denville-nj',
+    city: 'Denville',
+    state: 'NJ',
+    summary: 'Experience the lakeside charm and vibrant community of Denville, NJ, offering numerous parks and easy access to the scenic trails of Morris County.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Denville, NJ',
+      heroDescription: 'Explore the lakeside parks and mountain trails of Denville.',
+      longDescription: [
+        "Denville, New Jersey, is a dynamic and welcoming community that offers a fantastic lifestyle for dog owners. Known for its numerous lakes and bustling downtown area, Denville provides a mix of natural beauty and suburban convenience. Muriel Hepner Park is a local favorite, featuring a walking path around a lake where leashed dogs can enjoy the scenery. For more extensive hiking, the nearby Tourne County Park offers miles of trails and panoramic views where leashed dogs are welcome. Denville's downtown along Broadway is very walkable and features many shops and restaurants with outdoor seating that accommodate pets. The community also hosts varios eventsThroughout the year that are dog-friendly, fostering a strong sense of community among local pet owners. With its blend of natural assets and a pet-welcoming atmosphere, Denville is an ideal spot for those who want to stay active with their furry friends in Central Morris County.",
+      ],
+      faqs: denvilleNjFaqs,
+    },
+  },
+  {
+    slug: 'dover-nj',
+    city: 'Dover',
+    state: 'NJ',
+    summary: 'Discover the historic streets and urban parks of Dover, NJ, with easy access to the scenic Rockaway River and nearby regional nature preserves.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Dover, NJ',
+      heroDescription: 'Explore the riverside paths and historic parks of Dover.',
+      longDescription: [
+        "Dover, New Jersey, is a historic and culturally diverse community in Morris County that offers a unique setting for dog owners. The town's layout is pedestrian-friendly, making it easy to enjoy daily walks through its historic residential areas. Local parks like Hurd Park and Crescent Field provide public green spaces where leashed dogs are welcome to explore. For those who enjoy the water, the paths along the Rockaway River offer a scenic route through the town. Dover's location in the heart of Morris County also means that more expansive recreational areas, such as the Hedden Park in Randolph or the many trails in Mine Hill, are just a short drive away. Dover's blend of urban accessibility and proximity to natural preserves ensures that dog owners have plenty of variety in their daily exercise routines. Whether you're exploring the local history or heading out for a hike, Dover provides a solid base for a dog-friendly lifestyle.",
+      ],
+      faqs: doverNjFaqs,
+    },
+  },
+  {
+    slug: 'dumont-nj',
+    city: 'Dumont',
+    state: 'NJ',
+    summary: 'Enjoy the friendly neighborhoods and local parks of Dumont, NJ, featuring dedicated spaces like Gina\'s Field for dog-friendly recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Dumont, NJ',
+      heroDescription: 'Walk the friendly neighborhood streets and parks of Dumont.',
+      longDescription: [
+        "Dumont, New Jersey, is a family-oriented borough in Bergen County that provides a welcoming environment for both people and their pets. The community is characterized by its quiet streets and well-maintained local parks. Gina's Field is a highlight for local dog owners, offering a dedicated space where dogs can enjoy some outdoor time. For those seeking more extensive trails and off-leash play, Dumont is conveniently located near several major Bergen County recreational areas, such as the Van Saun County Park and the Overpeck County Park, which both feature dedicated dog runs. Dumont's neighborhoods are safe and highly walkable, making daily strolls with your leashed pup a breeze. The borough's commitment to community facilities and its pet-friendly atmosphere make it an ideal location for those who want to enjoy suburban life with their furry friends in Northern New Jersey.",
+      ],
+      faqs: dumontNjFaqs,
+    },
+  },
+  {
+    slug: 'east-orange-nj',
+    city: 'East Orange',
+    state: 'NJ',
+    summary: 'Explore the urban parks and nearby nature reserves of East Orange, NJ, with quick access to the expansive South Mountain Reservation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in East Orange, NJ',
+      heroDescription: 'Discover the urban parks and mountain trails near East Orange.',
+      longDescription: [
+        "East Orange, New Jersey, is a vibrant city in Essex County that offers surprising access to nature for dog owners. While the city itself is urban and dense, its well-maintained sidewalks and neighborhood parks provide daily walking opportunities. The real draw for dog owners is the city's proximity to the South Mountain Reservation, one of the largest nature preserves in the county. This 2,110-acre park features over 19 miles of trails, a dog park area, and diverse habitats from forests to waterfalls. Within the city, parks like Soverel Park provide green spaces for quick outings with your leashed pup. East Orange's central location in Essex County also provides easy access to other major parks and dog-friendly facilities in the region.",
+      ],
+      faqs: eastOrangeNjFaqs,
+    },
+  },
+  {
+    slug: 'eatontown-nj',
+    city: 'Eatontown',
+    state: 'NJ',
+    summary: 'Enjoy the suburban comfort and nearby off-leash dog areas of Eatontown, NJ, a Monmouth County community perfect for daily dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Eatontown, NJ',
+      heroDescription: 'Walk the parks and trails of Eatontown with your pup.',
+      longDescription: [
+        "Eatontown, New Jersey, is a well-situated borough in Monmouth County that offers a comfortable suburban lifestyle for dog owners. The community features several local parks, including Wampum Park, which provides green space for leashed walks and recreation. The borough's flat terrain and well-maintained residential streets make daily walks easy and enjoyable. Eatontown is also conveniently close to the Wolf Hill Off-Leash Dog Area in Oceanport, a large and popular fenced facility where dogs can play freely. For those who enjoy longer outings, the nearby Huber Woods Park and Hartshorne Woods Park offer miles of scenic trails through forests and along ridgelines.",
+      ],
+      faqs: eatontownNjFaqs,
+    },
+  },
+  {
+    slug: 'edgewater-nj',
+    city: 'Edgewater',
+    state: 'NJ',
+    summary: 'Discover the waterfront charm of Edgewater, NJ, offering stunning Hudson River views and nearby Bergen County dog parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Edgewater, NJ',
+      heroDescription: 'Enjoy waterfront walks with Manhattan skyline views in Edgewater.',
+      longDescription: [
+        "Edgewater, New Jersey, is a scenic borough perched along the Hudson River in Bergen County that provides a unique and visually stunning environment for dog owners. The borough's waterfront promenade is a highlight, offering miles of paved walkways with breathtaking views of the Manhattan skyline, perfect for daily leashed walks. For off-leash socialization, the Overpeck County Park in nearby Leonia features one of the best dog parks in Bergen County. Edgewater's compact layout and pedestrian-friendly design make it easy to explore on foot. The local dining scene along River Road includes many restaurants with pet-friendly outdoor seating.",
+      ],
+      faqs: edgewaterNjFaqs,
+    },
+  },
+  {
+    slug: 'egg-harbor-township-nj',
+    city: 'Egg Harbor Township',
+    state: 'NJ',
+    summary: 'Explore the suburban parks and dedicated dog facilities of Egg Harbor Township, NJ, featuring the Tony Canale Dog Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Egg Harbor Township, NJ',
+      heroDescription: 'Play at the Tony Canale Dog Park and explore the trails of EHT.',
+      longDescription: [
+        "Egg Harbor Township, New Jersey, is a large and growing community in Atlantic County that caters well to dog owners. The township's standout amenity is the Tony Canale Dog Park at Bargaintown Park, a well-maintained facility with separate fenced areas for large and small dogs, benches, and water fountains. Beyond the dog park, the township boasts an extensive network of community parks and the Atlantic County Bikeway, a paved trail that runs through the area and is ideal for leashed walks, runs, or bike rides with your pup. EHT's suburban layout provides plenty of safe, walkable neighborhoods for daily exercise.",
+      ],
+      faqs: eggHarborTownshipNjFaqs,
+    },
+  },
+  {
+    slug: 'elizabeth-nj',
+    city: 'Elizabeth',
+    state: 'NJ',
+    summary: 'Discover the urban parks and waterfront trails of Elizabeth, NJ, including the scenic Elizabeth River Trail for leashed walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elizabeth, NJ',
+      heroDescription: 'Walk the river trails and explore the parks of Elizabeth.',
+      longDescription: [
+        "Elizabeth, New Jersey, is one of the state's most historic and diverse cities, and it offers a range of options for dog owners. The Elizabeth River Trail provides a scenic paved pathway along the waterfront, ideal for daily leashed walks and jogging with your pup. Warinanco Park, shared with Roselle, is a major destination featuring a dog run area, walking paths around the lake, and extensive green fields. Phil Rizzuto Park and other neighborhood green spaces provide additional options for quick outings. Elizabeth's urban grid layout and well-maintained sidewalks make it highly walkable.",
+      ],
+      faqs: elizabethNjFaqs,
+    },
+  },
+  {
+    slug: 'elmwood-park-nj',
+    city: 'Elmwood Park',
+    state: 'NJ',
+    summary: 'Enjoy the parks and Saddle River trails of Elmwood Park, NJ, a Bergen County community ideal for daily dog walking.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Elmwood Park, NJ',
+      heroDescription: 'Walk the Saddle River trails and neighborhood parks of Elmwood Park.',
+      longDescription: [
+        "Elmwood Park, New Jersey, is a family-friendly borough in Bergen County that provides a pleasant setting for dog owners. The borough's greatest asset for pet owners is its proximity to the Saddle River County Park, which runs along its western border. This extensive park features miles of paved paths perfect for leashed walks, jogging, and cycling alongside your dog. Within the borough, several neighborhood parks provide local green space for quick daily outings. Elmwood Park's residential streets are quiet and safe for walking.",
+      ],
+      faqs: elmwoodParkNjFaqs,
+    },
+  },
+  {
+    slug: 'emerson-nj',
+    city: 'Emerson',
+    state: 'NJ',
+    summary: 'Experience the quiet suburban charm of Emerson, NJ, with easy access to Bergen County trails and nature preserves.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Emerson, NJ',
+      heroDescription: 'Enjoy the quiet streets and nearby nature trails of Emerson.',
+      longDescription: [
+        "Emerson, New Jersey, is a quiet and well-kept borough in Bergen County that provides an excellent quality of life for dog owners. The community is known for its safe, tree-lined streets and friendly atmosphere, making daily leashed walks a pleasure. Veterans Park is a local hub for recreation and is a great spot for a quick stroll. For more extensive outings, the Oradell Reservoir area is nearby, offering walking paths with scenic water views. Emerson is also conveniently located near several major Bergen County parks, including Overpeck County Park and its excellent dog run.",
+      ],
+      faqs: emersonNjFaqs,
+    },
+  },
+  {
+    slug: 'englewood-nj',
+    city: 'Englewood',
+    state: 'NJ',
+    summary: 'Discover the Palisades cliffs and nature trails of Englewood, NJ, offering a unique blend of urban convenience and natural beauty for dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Englewood, NJ',
+      heroDescription: 'Hike the Palisades and explore the nature centers of Englewood.',
+      longDescription: [
+        "Englewood, New Jersey, is a dynamic city in Bergen County that offers a remarkable blend of urban amenities and natural landscapes for dog owners. The Flat Rock Brook Nature Center, a 150-acre preserve within the city, features miles of trails where leashed dogs can explore diverse ecosystems. For the more adventurous, the Palisades Interstate Park is just minutes away, offering dramatic cliff-top trails with views of the Hudson River. Downtown Englewood along Palisade Avenue is very walkable and home to many pet-friendly restaurants and shops.",
+      ],
+      faqs: englewoodNjFaqs,
+    },
+  },
+  {
+    slug: 'fair-haven-nj',
+    city: 'Fair Haven',
+    state: 'NJ',
+    summary: 'Enjoy the riverfront beauty and charming village atmosphere of Fair Haven, NJ, a Monmouth County gem for dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fair Haven, NJ',
+      heroDescription: 'Walk the riverfront and village parks of Fair Haven.',
+      longDescription: [
+        "Fair Haven, New Jersey, is a picturesque borough in Monmouth County that provides a delightful environment for dog owners. The community's prime location along the Navesink River offers stunning waterfront views and scenic walking paths. Fair Haven Fields is a popular destination for local residents, providing open green space for leashed walks and community activities. McCarter Park adds another option for outdoor recreation. The borough's charming village center is highly walkable and features a welcoming atmosphere.",
+      ],
+      faqs: fairHavenNjFaqs,
+    },
+  },
+  {
+    slug: 'fanwood-nj',
+    city: 'Fanwood',
+    state: 'NJ',
+    summary: 'Explore the tree-lined streets and nearby nature reserves of Fanwood, NJ, a quiet Union County borough perfect for dog walking.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fanwood, NJ',
+      heroDescription: 'Walk the quiet streets and parks of Fanwood with your pup.',
+      longDescription: [
+        "Fanwood, New Jersey, is one of the smallest boroughs in Union County, but it offers a charming and walkable environment that is ideal for dog owners. The community is characterized by its beautiful tree-lined streets and well-maintained parks. LaGrande Park is a central gathering spot perfect for a leashed walk or a rest on the green. For more extensive outings, the Watchung Reservation is a short drive away and offers extensive trails and nature exploration. Echo Lake Park, also nearby, provides a scenic setting for leashed walks around its lake.",
+      ],
+      faqs: fanwoodNjFaqs,
+    },
+  },
+  {
+    slug: 'flemington-nj',
+    city: 'Flemington',
+    state: 'NJ',
+    summary: 'Discover the historic charm and county parks of Flemington, NJ, featuring the Hunterdon County Dog Park for off-leash fun.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Flemington, NJ',
+      heroDescription: 'Explore the historic downtown and county parks of Flemington.',
+      longDescription: [
+        "Flemington, New Jersey, is the charming county seat of Hunterdon County that offers a fantastic mix of history, culture, and outdoor recreation for dog owners. The town's historic downtown along Main Street is highly walkable and features many shops and restaurants that welcome pets. The Hunterdon County Dog Park, located near the Arboretum, is a premier off-leash destination with separate areas for large and small dogs, water stations, and agility equipment. The Hunterdon County Arboretum itself offers lovely walking trails through landscaped gardens and natural areas.",
+      ],
+      faqs: flemingtonNjFaqs,
+    },
+  },
+  {
+    slug: 'florence-nj',
+    city: 'Florence',
+    state: 'NJ',
+    summary: 'Enjoy the Delaware River scenery and community parks of Florence, NJ, a Burlington County township ideal for leashed dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Florence, NJ',
+      heroDescription: 'Walk the riverfront and community parks of Florence.',
+      longDescription: [
+        "Florence, New Jersey, is a sprawling township in Burlington County that offers a relaxed and scenic setting for dog owners. The township's prime location along the Delaware River provides beautiful waterfront areas perfect for leashed walks. Florence Township Community Park is a central hub for recreation, featuring walking paths, sports fields, and green spaces where dogs are welcome on a leash. The township's residential neighborhoods are quiet and suburban, ideal for daily walks.",
+      ],
+      faqs: florenceNjFaqs,
+    },
+  },
+  {
+    slug: 'forked-river-nj',
+    city: 'Forked River',
+    state: 'NJ',
+    summary: 'Discover the natural beauty and bayfront charm of Forked River, NJ, a Lacey Township community with access to wildlife refuges and waterfront trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Forked River, NJ',
+      heroDescription: 'Explore the bayfront and nature trails around Forked River.',
+      longDescription: [
+        "Forked River, New Jersey, is a charming community within Lacey Township in Ocean County that offers a nature-lover's paradise for dog owners. The area is surrounded by pine forests and marshlands, providing a unique coastal environment. Local parks and the trails within Lacey Township offer scenic paths for leashed walks through diverse habitats. The nearby Edwin B. Forsythe National Wildlife Refuge provides opportunities to observe local wildlife while walking your leashed pup along its trails.",
+      ],
+      faqs: forkedRiverNjFaqs,
+    },
+  },
+  {
+    slug: 'fort-lee-nj',
+    city: 'Fort Lee',
+    state: 'NJ',
+    summary: 'Discover the Palisades cliffs and waterfront parks of Fort Lee, NJ, offering dramatic Hudson River views and off-leash dog runs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Fort Lee, NJ',
+      heroDescription: 'Walk the Palisades cliffs and enjoy Hudson River views in Fort Lee.',
+      longDescription: [
+        "Fort Lee, New Jersey, is a vibrant borough perched atop the Palisades cliffs in Bergen County, offering some of the most dramatic scenery for dog owners in the metropolitan area. The Palisades Interstate Park provides miles of cliff-top trails with breathtaking views of the Hudson River and the George Washington Bridge. Constitution Park features a dedicated dog run where dogs can play off-leash in a fenced area. The borough's compact layout and well-maintained sidewalks make it easy to navigate on foot with your pup. Fort Lee's diverse dining scene includes many pet-friendly restaurants with outdoor patios.",
+      ],
+      faqs: fortLeeNjFaqs,
+    },
+  },
+  {
+    slug: 'freehold-nj',
+    city: 'Freehold',
+    state: 'NJ',
+    summary: 'Explore the historic streets and county trails of Freehold, NJ, featuring nearby off-leash dog parks and scenic walking paths.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Freehold, NJ',
+      heroDescription: 'Walk the historic downtown and county trails of Freehold.',
+      longDescription: [
+        "Freehold, New Jersey, is a historic borough in the heart of Monmouth County that offers a charming and dog-friendly environment. The downtown area along Main Street and East Main Street is lined with shops, restaurants, and cafes, many of which welcome pets at their outdoor tables. The Michael J. Tighe Park Dog Park in nearby Freehold Township provides a premier fenced off-leash facility with separate areas for large and small dogs. Turkey Swamp Park, also nearby, offers over 2,000 acres of trails and open space for leashed adventures. Freehold's blend of small-town character and access to Monmouth County's extensive park system makes it a wonderful choice for dog owners.",
+      ],
+      faqs: freeholdNjFaqs,
+    },
+  },
+  {
+    slug: 'garfield-nj',
+    city: 'Garfield',
+    state: 'NJ',
+    summary: 'Enjoy the riverfront walks and dedicated dog park of Garfield, NJ, a Bergen County city with convenient access to regional trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Garfield, NJ',
+      heroDescription: 'Play at the Garfield Dog Park and walk the Passaic River.',
+      longDescription: [
+        "Garfield, New Jersey, is a diverse and welcoming city in Bergen County that offers solid amenities for dog owners. The city features a dedicated dog park that provides a fenced off-leash area where dogs can socialize and exercise safely. The Passaic River, which forms the city's southern border, is accompanied by walking paths that offer scenic leashed strolls. Dahnert Park is another popular destination for outdoor recreation. Garfield's central location within Bergen County means that larger parks and trail systems are just a short drive away, providing even more options for active dog owners.",
+      ],
+      faqs: garfieldNjFaqs,
+    },
+  },
+  {
+    slug: 'glen-rock-nj',
+    city: 'Glen Rock',
+    state: 'NJ',
+    summary: 'Experience the tree-lined streets and Saddle River trails of Glen Rock, NJ, a quintessential Bergen County community for dog lovers.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Glen Rock, NJ',
+      heroDescription: 'Walk the Saddle River trails and charming streets of Glen Rock.',
+      longDescription: [
+        "Glen Rock, New Jersey, is a highly sought-after borough in Bergen County known for its charming residential neighborhoods and excellent community amenities. For dog owners, the borough's tree-lined streets provide beautiful daily walking routes. The Saddle River County Park pathway runs through Glen Rock, offering miles of paved trail ideal for leashed walks, jogging, and cycling with your pup. Local parks like Crestwood, Byrd, and Maple Avenue provide additional green spaces. Glen Rock's compact size and pedestrian-friendly layout make it one of the most walkable communities in Bergen County.",
+      ],
+      faqs: glenRockNjFaqs,
+    },
+  },
+  {
+    slug: 'gloucester-city-nj',
+    city: 'Gloucester City',
+    state: 'NJ',
+    summary: 'Enjoy the Delaware River waterfront and community parks of Gloucester City, NJ, with nearby access to the Timber Creek Dog Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Gloucester City, NJ',
+      heroDescription: 'Walk the Delaware River waterfront and parks of Gloucester City.',
+      longDescription: [
+        "Gloucester City, New Jersey, is a historic borough in Camden County situated along the Delaware River. The community offers a scenic waterfront that provides beautiful walking paths for leashed dogs. Johnson Park is a local green space that serves as a community gathering point and provides a pleasant setting for quick outings. For off-leash fun, the Timber Creek Dog Park in nearby Blackwood is one of the region's most popular facilities, with 9 acres of fenced woods and a pond. Gloucester City's walkable neighborhoods and proximity to regional parks make it a great place for dog-friendly living in South Jersey.",
+      ],
+      faqs: gloucesterCityNjFaqs,
+    },
+  },
+  {
+    slug: 'guttenberg-nj',
+    city: 'Guttenberg',
+    state: 'NJ',
+    summary: 'Discover the Hudson River waterfront and compact walkability of Guttenberg, NJ, offering stunning views and nearby off-leash parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Guttenberg, NJ',
+      heroDescription: 'Walk the Hudson River waterfront in the densely walkable Guttenberg.',
+      longDescription: [
+        "Guttenberg, New Jersey, holds the distinction of being one of the most densely populated municipalities in the country, but it compensates with a stunning waterfront along the Hudson River. For dog owners, the waterfront boulevard is the main attraction, offering a paved walking path with breathtaking views of the Manhattan skyline. Despite its small size, the community is very dog-friendly, and many residents can be seen walking their pets along the river at all hours. For off-leash play, Braddock Park in nearby North Bergen and the dog parks in West New York are within easy reach.",
+      ],
+      faqs: guttenbergNjFaqs,
+    },
+  },
+  {
+    slug: 'hackettstown-nj',
+    city: 'Hackettstown',
+    state: 'NJ',
+    summary: 'Explore the mountain trails and charming downtown of Hackettstown, NJ, with access to Allamuchy Mountain State Park for adventurous dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hackettstown, NJ',
+      heroDescription: 'Hike the mountain trails and explore downtown Hackettstown.',
+      longDescription: [
+        "Hackettstown, New Jersey, is a charming community in Warren County that provides excellent access to outdoor recreation for dog owners. The town's proximity to Allamuchy Mountain State Park is its greatest asset, offering extensive wooded trails where leashed dogs can enjoy challenging hikes through diverse terrain. The downtown area along Main Street is walkable and features local shops and eateries. Hackettstown's parks and green spaces provide additional options for daily leashed walks. The town's location in the rolling hills of Warren County ensures a scenic and refreshing environment for both you and your furry companion.",
+      ],
+      faqs: hackettstownNjFaqs,
+    },
+  },
+  {
+    slug: 'haddonfield-nj',
+    city: 'Haddonfield',
+    state: 'NJ',
+    summary: 'Walk the historic Kings Highway and beautiful parks of Haddonfield, NJ, one of South Jersey\'s most charming and dog-friendly boroughs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Haddonfield, NJ',
+      heroDescription: 'Stroll Kings Highway and the shaded parks of Haddonfield.',
+      longDescription: [
+        "Haddonfield, New Jersey, is one of the most charming and historic boroughs in Camden County, and it is also one of the most dog-friendly. The Kings Highway shopping district is a highlight for pet owners, with its wide sidewalks, shade trees, and many shops that welcome leashed dogs. The borough's parks, including Elizabeth Haddon Park, provide green spaces for leisurely walks. Haddonfield's residential neighborhoods are exceptional for daily strolls, featuring beautiful colonial-era homes and mature trees. While there is no dedicated fenced dog park within the borough, the welcoming nature of the community and the sheer walkability make Haddonfield a top destination for dog lovers in South Jersey.",
+      ],
+      faqs: haddonfieldNjFaqs,
+    },
+  },
+  {
+    slug: 'hamburg-nj',
+    city: 'Hamburg',
+    state: 'NJ',
+    summary: 'Discover the rugged natural beauty of Hamburg, NJ, offering the Appalachian Trail and Wallkill River wildlife areas for adventurous dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hamburg, NJ',
+      heroDescription: 'Hike the Appalachian Trail and explore the wildlife refuges near Hamburg.',
+      longDescription: [
+        "Hamburg, New Jersey, is a small borough in Sussex County nestled among some of the most stunning natural landscapes in the state. For adventurous dog owners, Hamburg is a gateway to incredible outdoor recreation. The Appalachian Trail is accessible nearby, providing challenging terrain for athletic dogs and their owners. The Wallkill River National Wildlife Refuge offers trails through wetlands and meadows where leashed dogs can enjoy the sights and sounds of nature. The borough itself is quiet and walkable, providing a peaceful setting for daily exercise. Hamburg's rugged natural beauty and proximity to premier hiking destinations make it an exceptional choice for outdoor-loving dog owners.",
+      ],
+      faqs: hamburgNjFaqs,
+    },
+  },
+  {
+    slug: 'hammonton-nj',
+    city: 'Hammonton',
+    state: 'NJ',
+    summary: 'Explore the Pine Barrens trails and charming downtown of Hammonton, NJ, the Blueberry Capital of the World and a great spot for dog adventures.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hammonton, NJ',
+      heroDescription: 'Walk the Pine Barrens trails and downtown of Hammonton.',
+      longDescription: [
+        "Hammonton, New Jersey, known as the Blueberry Capital of the World, is a charming town in Atlantic County that offers a unique blend of agricultural heritage and outdoor recreation. For dog owners, the town's proximity to the Wharton State Forest is the primary draw, providing access to the Batona Trail and numerous other paths through the iconic Pine Barrens. Downtown Hammonton along Bellevue Avenue is very walkable and features a growing collection of restaurants and shops. The town's flat terrain makes for easy daily walks through its residential neighborhoods. Hammonton's combination of natural beauty, small-town charm, and regional accessibility makes it an appealing location for dogs and their owners.",
+      ],
+      faqs: hammontonNjFaqs,
+    },
+  },
+  {
+    slug: 'harrison-nj',
+    city: 'Harrison',
+    state: 'NJ',
+    summary: 'Enjoy the redeveloped waterfront and parks of Harrison, NJ, a Hudson County community with scenic Passaic River walks for dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Harrison, NJ',
+      heroDescription: 'Walk the Passaic River waterfront and new parks of Harrison.',
+      longDescription: [
+        "Harrison, New Jersey, has undergone a dramatic transformation in recent years, and its redeveloped waterfront along the Passaic River offers exciting new opportunities for dog owners. The riverfront walkway provides a scenic paved path ideal for leashed walks with views of the Newark skyline. The parks near Red Bull Arena are modern and well-maintained, providing green space in the heart of the redevelopment. Harrison's compact layout makes it easy to get around on foot with your pup. The town's proximity to Newark and Jersey City means that larger parks and off-leash facilities are easily accessible for more extensive outings.",
+      ],
+      faqs: harrisonNjFaqs,
+    },
+  },
+  {
+    slug: 'harrington-park-nj',
+    city: 'Harrington Park',
+    state: 'NJ',
+    summary: 'Experience the quiet residential charm of Harrington Park, NJ, with tree-lined streets and easy access to Bergen County parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Harrington Park, NJ',
+      heroDescription: 'Walk the tree-lined streets and nearby trails of Harrington Park.',
+      longDescription: [
+        "Harrington Park, New Jersey, is a quiet and beautiful residential borough in Bergen County that offers a peaceful setting for dog owners. The community is characterized by its winding, tree-lined streets and well-kept homes, providing a serene environment for daily leashed walks. Local parks offer green space for recreation and relaxation. The nearby Tenafly Nature Center provides miles of trails where leashed dogs can explore a 55-acre nature preserve. For off-leash socialization, Overpeck County Park is a short drive away and features an excellent dog run. Harrington Park's suburban tranquility and regional accessibility make it an ideal home for dog-loving families.",
+      ],
+      faqs: harringtonParkNjFaqs,
+    },
+  },
+  {
+    slug: 'hawthorne-nj',
+    city: 'Hawthorne',
+    state: 'NJ',
+    summary: 'Enjoy the Goffle Brook trails and neighborhood parks of Hawthorne, NJ, a Passaic County borough ideal for leashed dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hawthorne, NJ',
+      heroDescription: 'Walk the Goffle Brook trails and parks of Hawthorne.',
+      longDescription: [
+        "Hawthorne, New Jersey, is a friendly and well-established borough in Passaic County that offers a comfortable lifestyle for dog owners. The community's greatest natural asset is its proximity to the Goffle Brook pathway, which provides a scenic trail for leashed walks through a wooded corridor. Several neighborhood parks provide local green space for quick outings and community gatherings. Hawthorne's residential streets are compact and walkable, making daily exercise with your pup a breeze. The borough's central Passaic County location ensures easy access to larger county parks and regional pet services.",
+      ],
+      faqs: hawthorneNjFaqs,
+    },
+  },
+  {
+    slug: 'highland-park-nj',
+    city: 'Highland Park',
+    state: 'NJ',
+    summary: 'Discover the Raritan River walkways and walkable downtown of Highland Park, NJ, a Middlesex County gem for active dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Highland Park, NJ',
+      heroDescription: 'Walk the Raritan River promenade and downtown Highland Park.',
+      longDescription: [
+        "Highland Park, New Jersey, is a vibrant and walkable borough in Middlesex County that provides a fantastic lifestyle for dog owners. The community is situated along the Raritan River, which offers a scenic promenade for daily leashed walks. Donaldson Park is a major recreational hub, featuring a dog run, walking paths, sports fields, and river access. The downtown area along Raritan Avenue is lined with local shops and restaurants, many of which are pet-friendly. Highland Park's compact size and progressive community spirit make it one of the most dog-friendly smaller towns in Central New Jersey.",
+      ],
+      faqs: highlandParkNjFaqs,
+    },
+  },
+  {
+    slug: 'hopewell-nj',
+    city: 'Hopewell',
+    state: 'NJ',
+    summary: 'Explore the historic village streets and mountain preserves of Hopewell, NJ, featuring Baldpate Mountain for scenic dog-friendly hikes.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Hopewell, NJ',
+      heroDescription: 'Hike Baldpate Mountain and explore historic Hopewell.',
+      longDescription: [
+        "Hopewell, New Jersey, is a charming and historic borough in Mercer County that offers a wonderful blend of village life and natural beauty. The borough's main street is lined with unique shops and eateries, and the entire village center is highly walkable for leashed pups. The real draw for dog owners is the surrounding Hopewell Township, which is home to the Ted Stiles Preserve at Baldpate Mountain, offering miles of trails with stunning views of the Delaware River Valley. The D&R Canal State Park is also nearby, providing flat, shaded towpath trails perfect for running or walking. Hopewell's combination of historic charm and premier natural areas makes it a standout destination for dog owners.",
+      ],
+      faqs: hopewellNjFaqs,
+    },
+  },
+  {
+    slug: 'irvington-nj',
+    city: 'Irvington',
+    state: 'NJ',
+    summary: 'Explore the parks and nearby nature reserves of Irvington, NJ, with access to Essex County trails and the South Mountain Reservation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Irvington, NJ',
+      heroDescription: 'Walk the parks and nearby trails of Irvington.',
+      longDescription: [
+        "Irvington, New Jersey, is a diverse township in Essex County that offers several options for dog owners seeking outdoor recreation. Irvington Park is the community's largest green space, providing walking paths, mature shade trees, and open fields for leashed outings. The township's proximity to Branch Brook Park in Newark, famous for its cherry blossoms, expands the options for scenic walks. For more rugged adventures, the South Mountain Reservation is just a short drive away, offering over 19 miles of trails and a dedicated dog park area. Irvington's well-maintained sidewalks and urban grid make daily neighborhood walks convenient and accessible.",
+      ],
+      faqs: irvingtonNjFaqs,
+    },
+  },
+  {
+    slug: 'iselin-nj',
+    city: 'Iselin',
+    state: 'NJ',
+    summary: 'Discover the Middlesex Greenway and township parks of Iselin, NJ, a Woodbridge Township community ideal for active dog owners.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Iselin, NJ',
+      heroDescription: 'Walk the Middlesex Greenway and parks of Iselin.',
+      longDescription: [
+        "Iselin, a vibrant section of Woodbridge Township in Middlesex County, New Jersey, offers excellent recreational opportunities for dog owners. The Middlesex Greenway is a highlight, providing a paved multi-use trail that runs through the area and is perfect for leashed walks, jogging, and cycling with your pup. Merrill Park offers expansive green space with walking paths and playgrounds. Woodbridge Township's commitment to parks and recreation means that facilities are well-maintained and accessible. Iselin's suburban character and central Middlesex County location make it a convenient base for dog owners who enjoy both local walks and regional park excursions.",
+      ],
+      faqs: iselinNjFaqs,
+    },
+  },
+  {
+    slug: 'keansburg-nj',
+    city: 'Keansburg',
+    state: 'NJ',
+    summary: 'Enjoy the boardwalk and bayfront scenery of Keansburg, NJ, a Monmouth County shore town with dog-friendly off-season walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Keansburg, NJ',
+      heroDescription: 'Walk the boardwalk and bayfront of Keansburg with your pup.',
+      longDescription: [
+        "Keansburg, New Jersey, is a charming bayshore community in Monmouth County that offers a unique coastal experience for dog owners. The Keansburg boardwalk and beach area are popular destinations for leashed walks, particularly during the off-season when the crowds thin out and dogs are more readily welcome. The bayfront provides beautiful views of Raritan Bay and Sandy Hook. Nearby Bayshore Waterfront Park offers additional trails and open space. Keansburg's compact size and flat terrain make it easy to explore the entire town on foot with your pup. The community's affordable, laid-back atmosphere is a welcome change from the busier shore towns.",
+      ],
+      faqs: keansburgNjFaqs,
+    },
+  },
+  {
+    slug: 'kenilworth-nj',
+    city: 'Kenilworth',
+    state: 'NJ',
+    summary: 'Walk the parks and nearby reservations of Kenilworth, NJ, a compact Union County borough with great access to regional trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Kenilworth, NJ',
+      heroDescription: 'Explore the parks and trails near Kenilworth.',
+      longDescription: [
+        "Kenilworth, New Jersey, is a compact and friendly borough in Union County that offers convenient access to some of the area's best parks and trails for dog owners. Black Brook Park is a local favorite for daily leashed walks. The borough's proximity to the Watchung Reservation, with its extensive trail network through forests and ridgelines, provides excellent opportunities for more adventurous outings. Lenape Park and Nomahegan Park are also nearby, offering scenic settings along streams and around ponds. Kenilworth's small size and residential character make it very walkable for daily dog exercise.",
+      ],
+      faqs: kenilworthNjFaqs,
+    },
+  },
+  {
+    slug: 'keyport-nj',
+    city: 'Keyport',
+    state: 'NJ',
+    summary: 'Discover the scenic waterfront promenade and walkable downtown of Keyport, NJ, a Monmouth County gem for dog-loving strollers.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Keyport, NJ',
+      heroDescription: 'Stroll the waterfront promenade and downtown Keyport.',
+      longDescription: [
+        "Keyport, New Jersey, is a charming borough in Monmouth County that offers one of the most scenic waterfronts in the Bayshore region. The Keyport Waterfront Promenade is the highlight for dog owners, providing a paved path along the Raritan Bay with beautiful views and refreshing breezes, ideal for daily leashed walks. The walkable downtown along Broad Street features shops and restaurants, many with pet-friendly outdoor seating. The Henry Hudson Trail, a major rail-trail that passes through the area, provides extended walking and cycling opportunities. Keyport's small-town charm and waterfront beauty make it a hidden gem for dog owners.",
+      ],
+      faqs: keyportNjFaqs,
+    },
+  },
+  {
+    slug: 'kinnelon-nj',
+    city: 'Kinnelon',
+    state: 'NJ',
+    summary: 'Explore the mountain trails and reservoirs of Kinnelon, NJ, a Morris County community surrounded by natural beauty for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Kinnelon, NJ',
+      heroDescription: 'Hike the mountain trails and reservoirs of Kinnelon.',
+      longDescription: [
+        "Kinnelon, New Jersey, is a scenic borough in Morris County known for its mountainous terrain, pristine reservoirs, and abundant natural beauty. For active dog owners, Kinnelon is a paradise. Silas Condict County Park offers challenging trails through wooded hillsides, perfect for leashed hikes. The area's numerous reservoirs provide serene walking backdrops. The borough's large lots and rural character mean that neighborhoods are quiet and ideal for peaceful daily walks. Kinnelon's commitment to preserving its natural landscape ensures that dog owners will always have access to stunning outdoor environments just steps from their front doors.",
+      ],
+      faqs: kinnelonNjFaqs,
+    },
+  },
+  {
+    slug: 'lake-hiawatha-nj',
+    city: 'Lake Hiawatha',
+    state: 'NJ',
+    summary: 'Enjoy the lakefront setting and township parks of Lake Hiawatha, NJ, part of Parsippany-Troy Hills with dog-friendly trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lake Hiawatha, NJ',
+      heroDescription: 'Walk the lakefront and township parks of Lake Hiawatha.',
+      longDescription: [
+        "Lake Hiawatha, a community within Parsippany-Troy Hills Township in Morris County, New Jersey, offers a pleasant lakeside setting for dog owners. The lakefront area provides a scenic backdrop for daily leashed walks. As part of Parsippany, residents and visitors have access to the township's extensive park system, including numerous community parks and trails. The broader Morris County park system offers even more options, with facilities like the Tourne County Park providing challenging hiking trails with panoramic views. Lake Hiawatha's suburban convenience and natural beauty make it a comfortable and enjoyable place for dog-friendly living.",
+      ],
+      faqs: lakeHiawathaNjFaqs,
+    },
+  },
+  {
+    slug: 'lakehurst-nj',
+    city: 'Lakehurst',
+    state: 'NJ',
+    summary: 'Discover the quiet charm and Pine Barrens access of Lakehurst, NJ, a small Ocean County community near extensive nature trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lakehurst, NJ',
+      heroDescription: 'Walk the quiet streets and nearby Pine Barrens trails from Lakehurst.',
+      longDescription: [
+        "Lakehurst, New Jersey, is a small and historic borough in Ocean County that offers a peaceful setting for dog owners. Known for its connection to aviation history, the borough is compact and very walkable, with quiet residential streets ideal for daily leashed walks. The real draw for outdoor-loving dog owners is the proximity to the Pine Barrens, including the Brendan T. Byrne State Forest, which offers miles of wooded trails through unique pine and oak forests. Local parks provide green space for quick outings. Lakehurst's small-town atmosphere and access to one of New Jersey's most remarkable natural landscapes make it a unique and appealing location for dog owners.",
+      ],
+      faqs: lakehurstNjFaqs,
+    },
+  },
+  {
+    slug: 'lambertville-nj',
+    city: 'Lambertville',
+    state: 'NJ',
+    summary: 'Walk the D&R Canal towpath and explore the artsy downtown of Lambertville, NJ, one of the state\'s most dog-friendly towns.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lambertville, NJ',
+      heroDescription: 'Stroll the D&R Canal towpath and artsy downtown Lambertville.',
+      longDescription: [
+        "Lambertville, New Jersey, is widely regarded as one of the most dog-friendly towns in the state. This picturesque city along the Delaware River in Hunterdon County is a haven for dog owners. The D&R Canal State Park towpath runs right through town, providing miles of flat, shaded trail perfect for leashed walks and runs. The downtown area is a vibrant mix of galleries, antique shops, and restaurants, many of which welcome leashed dogs at outdoor seating. The pedestrian bridge to New Hope, PA, offers a fun cross-state walk. Lambertville's artistic spirit, natural beauty, and welcoming attitude toward pets make it a must-visit destination for dog lovers.",
+      ],
+      faqs: lambertvilleNjFaqs,
+    },
+  },
+  {
+    slug: 'lavallette-nj',
+    city: 'Lavallette',
+    state: 'NJ',
+    summary: 'Enjoy off-season beach walks and boardwalk strolls in Lavallette, NJ, a quiet Ocean County shore town with Jersey Shore charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lavallette, NJ',
+      heroDescription: 'Walk the beach and boardwalk in charming Lavallette.',
+      longDescription: [
+        "Lavallette, New Jersey, is a classic and quiet Jersey Shore community in Ocean County that offers a wonderful seasonal experience for dog owners. During the off-season, the beach and boardwalk become a dog walker's paradise, with wide open sand and refreshing ocean breezes for leashed strolls. The borough's compact barrier island layout makes it very walkable year-round. Local parks provide green space for daily outings. The nearby Island Beach State Park offers miles of trails through coastal dunes and maritime forests where leashed dogs are welcome. Lavallette's laid-back charm and beach access make it a delightful destination for dogs and their owners.",
+      ],
+      faqs: lavalletteNjFaqs,
+    },
+  },
+  {
+    slug: 'lawnside-nj',
+    city: 'Lawnside',
+    state: 'NJ',
+    summary: 'Explore the historic community and nearby dog parks of Lawnside, NJ, with access to the Timber Creek Dog Park in Camden County.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lawnside, NJ',
+      heroDescription: 'Walk the historic streets and nearby parks of Lawnside.',
+      longDescription: [
+        "Lawnside, New Jersey, is a historically significant borough in Camden County with a welcoming community spirit for dog owners. The borough's local parks and tree-lined streets provide pleasant options for daily leashed walks. Lawnside's rich history is reflected in landmarks like the Peter Mott House, and walking through the community offers a sense of heritage. For off-leash adventures, the Timber Creek Dog Park in nearby Blackwood is one of the best in South Jersey, offering 9 acres of fenced play space with a pond. Camden County's broader park system adds further recreational options for dog owners.",
+      ],
+      faqs: lawnsideNjFaqs,
+    },
+  },
+  {
+    slug: 'lincoln-park-nj',
+    city: 'Lincoln Park',
+    state: 'NJ',
+    summary: 'Enjoy the Pequannock River trails and community parks of Lincoln Park, NJ, a Morris County borough with scenic dog-walking routes.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lincoln Park, NJ',
+      heroDescription: 'Walk the Pequannock River trails and parks of Lincoln Park.',
+      longDescription: [
+        "Lincoln Park, New Jersey, is a welcoming borough in Morris County that offers access to scenic trails and community parks for dog owners. The Pequannock River, which runs along the borough, provides a natural corridor with walking paths and scenic views. Community parks within the borough offer green space for quick daily outings. Lincoln Park's residential streets are quiet and well-suited for daily dog walks. The broader Morris County park system is easily accessible, providing additional trails and facilities for longer excursions. Lincoln Park's combination of natural beauty and suburban convenience makes it a solid choice for dog-friendly living.",
+      ],
+      faqs: lincolnParkNjFaqs,
+    },
+  },
+  {
+    slug: 'lodi-nj',
+    city: 'Lodi',
+    state: 'NJ',
+    summary: 'Walk the neighborhood parks and nearby Saddle River trails of Lodi, NJ, a Bergen County borough with convenient pet amenities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Lodi, NJ',
+      heroDescription: 'Explore the parks and river trails of Lodi.',
+      longDescription: [
+        "Lodi, New Jersey, is a diverse and compact borough in Bergen County that provides a convenient setting for dog owners. Memorial Park is a central recreational hub offering green space for leashed walks. The borough's proximity to the Saddle River County Park means that miles of paved pathway are easily accessible for longer walks, jogging, and cycling with your pup. Lodi's residential streets are flat and walkable, making daily exercise simple and pleasant. Bergen County's extensive pet services and well-maintained park system ensure that dog owners in Lodi have everything they need close at hand.",
+      ],
+      faqs: lodiNjFaqs,
+    },
+  },
+  {
+    slug: 'madison-nj',
+    city: 'Madison',
+    state: 'NJ',
+    summary: 'Discover the Dodge Field Dog Park and charming downtown of Madison, NJ, a Morris County borough with excellent trails and pet-friendly culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Madison, NJ',
+      heroDescription: 'Play at Dodge Field and walk downtown Madison with your pup.',
+      longDescription: [
+        "Madison, New Jersey, is one of the most dog-friendly boroughs in Morris County, offering a dedicated off-leash dog park and a vibrant, walkable downtown. The Dodge Field Dog Park is a popular fenced facility where dogs can socialize and play safely. Downtown Madison along Main Street is a delight for pet owners, with charming shops, cafes, and restaurants that often welcome leashed dogs. The nearby Loantaka Brook Reservation provides miles of paved and unpaved trails through forests and meadows. The Great Swamp National Wildlife Refuge is also within easy reach for more adventurous outings. Madison's blend of community spirit and access to nature makes it a top-tier destination for dog lovers.",
+      ],
+      faqs: madisonNjFaqs,
+    },
+  },
+  {
+    slug: 'mahwah-nj',
+    city: 'Mahwah',
+    state: 'NJ',
+    summary: 'Explore the Ramapo Valley trails and county parks of Mahwah, NJ, a Bergen County township surrounded by natural beauty for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mahwah, NJ',
+      heroDescription: 'Hike the Ramapo Valley trails and explore the parks of Mahwah.',
+      longDescription: [
+        "Mahwah, New Jersey, is a spacious township in Bergen County that serves as a gateway to some of the most spectacular hiking in the New York metropolitan area. The Ramapo Valley County Reservation offers over 3,000 acres of trails winding through forests, along streams, and past scenic waterfalls, making it a premier destination for leashed dog hikes. Darlington County Park provides designated dog-friendly areas and swimming options. Campgaw Mountain County Reservation adds more trails and seasonal activities. Mahwah's suburban neighborhoods are quiet and well-suited for daily walks, while the township's commitment to preserving its natural landscape ensures endless outdoor possibilities for active dog owners.",
+      ],
+      faqs: mahwahNjFaqs,
+    },
+  },
+  {
+    slug: 'manasquan-nj',
+    city: 'Manasquan',
+    state: 'NJ',
+    summary: 'Walk the beach and inlet trails of Manasquan, NJ, a Monmouth County shore town with the Manasquan Reservoir for scenic dog outings.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Manasquan, NJ',
+      heroDescription: 'Walk the beach and Manasquan Reservoir trails with your pup.',
+      longDescription: [
+        "Manasquan, New Jersey, is a charming coastal borough in Monmouth County that offers a wonderful blend of beach living and outdoor recreation for dog owners. The Manasquan Inlet and beach area are popular for off-season leashed walks, with beautiful ocean views and fresh sea air. The Manasquan Reservoir, located nearby, features a 5-mile perimeter trail that is one of the most popular walking paths in the county for dog owners. The borough's quiet residential streets and proximity to the coast make daily exercise enjoyable year-round. Manasquan's laid-back beach town charm and access to premier natural areas make it an outstanding destination for dogs and their owners.",
+      ],
+      faqs: manasquanNjFaqs,
+    },
+  },
+  {
+    slug: 'manville-nj',
+    city: 'Manville',
+    state: 'NJ',
+    summary: 'Enjoy the Raritan River waterfront and community parks of Manville, NJ, a Somerset County borough with scenic walking paths.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Manville, NJ',
+      heroDescription: 'Walk the Raritan River waterfront and parks of Manville.',
+      longDescription: [
+        "Manville, New Jersey, is a small and friendly borough in Somerset County situated along the Raritan River. For dog owners, the river provides a scenic backdrop for daily leashed walks along the waterfront areas. Dukes Parkway Park offers green space and walking paths in a revitalized natural setting. The borough's flat terrain and compact layout make it easy to navigate on foot with your pup. Somerset County's extensive park system is also easily accessible, providing additional trails and recreational facilities for longer outings. Manville's affordable, close-knit community atmosphere and riverfront setting make it a pleasant place for dog-friendly living.",
+      ],
+      faqs: manvilleNjFaqs,
+    },
+  },
+  {
+    slug: 'maplewood-nj',
+    city: 'Maplewood',
+    state: 'NJ',
+    summary: 'Discover the DeHart Park Dog Run and South Mountain trails of Maplewood, NJ, one of Essex County\'s most vibrant dog-friendly communities.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Maplewood, NJ',
+      heroDescription: 'Play at the DeHart Dog Run and hike South Mountain in Maplewood.',
+      longDescription: [
+        "Maplewood, New Jersey, is one of the most vibrant and dog-friendly communities in Essex County. The DeHart Park Dog Run provides a dedicated fenced off-leash area where dogs can socialize and play. Maplewood's greatest natural asset is its direct access to the South Mountain Reservation, which offers over 19 miles of trails through forests, along ridgelines, and past waterfalls, including the popular Hemlock Falls trail. The Maplewood Village center is a thriving, walkable neighborhood with independent shops, restaurants, and cafes, many of which welcome leashed dogs. The tree-lined residential streets are beautiful for daily walks. Maplewood's combination of urban culture and natural beauty makes it an exceptional place for dogs and their owners.",
+      ],
+      faqs: maplewoodNjFaqs,
+    },
+  },
+  {
+    slug: 'margate-city-nj',
+    city: 'Margate City',
+    state: 'NJ',
+    summary: 'Walk the beaches and quiet streets of Margate City, NJ, home to Lucy the Elephant and offering a relaxed shore experience for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Margate City, NJ',
+      heroDescription: 'Stroll the beach and visit Lucy the Elephant in Margate City.',
+      longDescription: [
+        "Margate City, New Jersey, is a relaxed and upscale shore community in Atlantic County, famous for being home to Lucy the Elephant, a beloved National Historic Landmark. For dog owners, Margate offers a pleasant coastal experience, with beaches that welcome leashed dogs during the off-season and flat, quiet streets ideal for daily walks. The city's compact layout makes it very walkable. The area near Lucy the Elephant is a popular stop for a leashed stroll. While there is no dedicated fenced dog park within Margate, the overall relaxed and welcoming atmosphere, combined with the beach access and pleasant residential streets, makes it a charming destination for dog-loving beachgoers.",
+      ],
+      faqs: margateCityNjFaqs,
+    },
+  },
+  {
+    slug: 'matawan-nj',
+    city: 'Matawan',
+    state: 'NJ',
+    summary: 'Explore the Henry Hudson Trail and Lake Lefferts of Matawan, NJ, a walkable Monmouth County borough with dog-friendly paths.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Matawan, NJ',
+      heroDescription: 'Walk the Henry Hudson Trail and Lake Lefferts areas of Matawan.',
+      longDescription: [
+        "Matawan, New Jersey, is a charming borough in Monmouth County that offers a walkable downtown and excellent access to trails for dog owners. The Lake Lefferts area provides a scenic setting for leashed walks around the lake. The Henry Hudson Trail, a major rail-trail in the county, passes nearby and offers miles of paved pathway for walking, running, and cycling with your pup. Main Street in downtown Matawan has undergone revitalization, with shops and restaurants that contribute to a vibrant pedestrian atmosphere. Matawan's central Monmouth County location provides easy access to numerous county parks and beaches, making it a versatile home base for dog owners.",
+      ],
+      faqs: matawanNjFaqs,
+    },
+  },
+  {
+    slug: 'maywood-nj',
+    city: 'Maywood',
+    state: 'NJ',
+    summary: 'Walk the Saddle River pathway and community parks of Maywood, NJ, a friendly Bergen County borough for daily dog outings.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Maywood, NJ',
+      heroDescription: 'Walk the Saddle River pathway and parks of Maywood.',
+      longDescription: [
+        "Maywood, New Jersey, is a small and friendly borough in Bergen County that provides a comfortable and accessible environment for dog owners. The community's proximity to the Saddle River County Park is its most notable feature, offering miles of paved pathway along the river for leashed walks, jogging, and cycling. Memorial Park and other local green spaces provide convenient spots for quick daily outings. Maywood's residential streets are quiet and well-maintained, perfect for neighborhood strolls with your pup. The borough's compact size and central Bergen County location ensure that pet services, veterinarians, and larger parks are always within easy reach.",
+      ],
+      faqs: maywoodNjFaqs,
+    },
+  },
+  {
+    slug: 'medford-nj',
+    city: 'Medford',
+    state: 'NJ',
+    summary: 'Discover the Pine Barrens forests and cranberry bogs of Medford, NJ, a Burlington County township with unique natural landscapes for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Medford, NJ',
+      heroDescription: 'Hike the Pine Barrens trails and explore the nature of Medford.',
+      longDescription: [
+        "Medford, New Jersey, is a picturesque township in Burlington County that offers a unique natural environment for dog owners. The area is characterized by its pine forests, cranberry bogs, and winding streams, providing a landscape unlike anywhere else in the state. The Medford Wildlife Management Area and nearby trails offer opportunities for leashed hikes through this distinctive terrain. The Brendan T. Byrne State Forest is also accessible for extended outings. Medford Village provides a charming center with local shops and eateries. The township's commitment to preserving its natural character means that dog owners will find an abundance of green space and trails to enjoy with their furry companions.",
+      ],
+      faqs: medfordNjFaqs,
+    },
+  },
+  {
+    slug: 'mendham-nj',
+    city: 'Mendham',
+    state: 'NJ',
+    summary: 'Explore the rolling hills, horse country, and Patriots Path of Mendham, NJ, a scenic Morris County community for outdoor dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mendham, NJ',
+      heroDescription: 'Walk Patriots Path and the countryside of Mendham.',
+      longDescription: [
+        "Mendham, New Jersey, is a scenic and prestigious community in Morris County known for its rolling hills, horse farms, and beautiful countryside. For dog owners, the area is a paradise of trails and open space. Patriots Path, a major multi-use trail system, runs through the area, providing miles of paved and natural surface trails for leashed walks and hikes. The Scherman Hoffman Wildlife Sanctuary, managed by the New Jersey Audubon Society, offers nature trails through diverse habitats. Mendham's rural character means that neighborhoods are spacious and quiet, ideal for leisurely daily walks. The combination of premier trails and a tranquil setting makes Mendham an exceptional community for dog owners who value nature and outdoor activity.",
+      ],
+      faqs: mendhamNjFaqs,
+    },
+  },
+  {
+    slug: 'metuchen-nj',
+    city: 'Metuchen',
+    state: 'NJ',
+    summary: 'Walk the vibrant downtown and tree-lined streets of Metuchen, NJ, one of Middlesex County\'s most walkable and pet-friendly boroughs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Metuchen, NJ',
+      heroDescription: 'Explore the walkable downtown and parks of Metuchen.',
+      longDescription: [
+        "Metuchen, New Jersey, proudly calls itself the 'Brainy Borough,' and it is equally well-known for its vibrant, walkable downtown and welcoming community spirit. For dog owners, Metuchen is a delight. The downtown area along Main Street is bustling with independent shops, restaurants, and cafes, many of which welcome leashed dogs at outdoor tables. The borough's tree-lined residential streets are among the most pleasant for daily walks in Middlesex County. Roosevelt Park and other nearby green spaces offer additional options for leashed outings. Metuchen's strong sense of community, excellent walkability, and central New Jersey location make it a top-tier choice for pet-friendly living.",
+      ],
+      faqs: metuchenNjFaqs,
+    },
+  },
+  {
+    slug: 'middlesex-nj',
+    city: 'Middlesex',
+    state: 'NJ',
+    summary: 'Enjoy the Middlesex Greenway trail and community parks of Middlesex Borough, NJ, a convenient Central Jersey location for dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Middlesex, NJ',
+      heroDescription: 'Walk the Middlesex Greenway and local parks of Middlesex Borough.',
+      longDescription: [
+        "Middlesex, New Jersey, is a friendly borough in Middlesex County that offers convenient access to trails and parks for dog owners. The Middlesex Greenway, a paved rail-trail, runs through the area and provides a scenic and well-maintained path for leashed walks, jogging, and cycling with your pup. Mountain View Park and other community green spaces offer additional options for quick daily outings. The borough's residential streets are flat and walkable, making daily exercise with your dog simple and enjoyable. Middlesex's central New Jersey location and proximity to county parks and trails make it a practical and pleasant choice for dog-friendly living.",
+      ],
+      faqs: middlesexNjFaqs,
+    },
+  },
+  {
+    slug: 'midland-park-nj',
+    city: 'Midland Park',
+    state: 'NJ',
+    summary: 'Walk the quiet streets and nearby Saddle River trails of Midland Park, NJ, a residential Bergen County borough for peaceful dog outings.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Midland Park, NJ',
+      heroDescription: 'Walk the streets and Saddle River trails near Midland Park.',
+      longDescription: [
+        "Midland Park, New Jersey, is a quiet and well-kept residential borough in Bergen County that offers a peaceful setting for dog owners. The community's tree-lined streets and compact layout make it ideal for daily leashed walks through the neighborhood. The nearby Saddle River County Park provides a paved pathway along the river for longer walks, jogging, and cycling. Local parks within the borough offer green space for quick outings. Midland Park's proximity to the broader Bergen County park system means that additional trails and dog-friendly facilities are always within reach. The borough's friendly, small-town atmosphere makes it a comfortable home base for dog-loving families.",
+      ],
+      faqs: midlandParkNjFaqs,
+    },
+  },
+  {
+    slug: 'milford-nj',
+    city: 'Milford',
+    state: 'NJ',
+    summary: 'Explore the Delaware River waterfront and D&R Canal towpath of Milford, NJ, a charming Hunterdon County village for scenic dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Milford, NJ',
+      heroDescription: 'Walk the Delaware River and D&R Canal towpath in Milford.',
+      longDescription: [
+        "Milford, New Jersey, is a tiny and picturesque borough along the Delaware River in Hunterdon County. Despite its small size, Milford offers outstanding scenic walking for dog owners. The Delaware River waterfront provides beautiful views and a tranquil setting for leashed strolls. The D&R Canal State Park towpath is accessible nearby, offering miles of flat, shaded trail that is one of the premier walking destinations in the state. The borough's historic streets and charming architecture add to the appeal of daily walks. Milford's peaceful riverside setting and access to premier trails make it a hidden gem for dog owners who appreciate natural beauty and quiet small-town living.",
+      ],
+      faqs: milfordNjFaqs,
+    },
+  },
+  {
+    slug: 'millville-nj',
+    city: 'Millville',
+    state: 'NJ',
+    summary: 'Discover the Maurice River trails and natural areas of Millville, NJ, a Cumberland County city with diverse outdoor experiences for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Millville, NJ',
+      heroDescription: 'Walk the Maurice River trails and explore nature near Millville.',
+      longDescription: [
+        "Millville, New Jersey, is a city in Cumberland County that offers diverse outdoor experiences for dog owners. The Maurice River, a designated National Scenic and Recreational River, provides a stunning backdrop for leashed walks along its banks. Union Lake and the surrounding wildlife management area offer additional trails and natural areas. The city's parks provide green space for daily outings, and the flat terrain makes walking accessible for dogs of all ages and abilities. Millville's location in the natural richness of Cumberland County, with its proximity to forests, wetlands, and waterways, ensures that outdoor-loving dog owners will never run out of new places to explore.",
+      ],
+      faqs: millvilleNjFaqs,
+    },
+  },
+  {
+    slug: 'montague-nj',
+    city: 'Montague',
+    state: 'NJ',
+    summary: 'Hike the High Point trails and Delaware Water Gap areas of Montague, NJ, the northernmost township in NJ with stunning scenery for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Montague, NJ',
+      heroDescription: 'Hike High Point and the Delaware Water Gap from Montague.',
+      longDescription: [
+        "Montague, New Jersey, is a rural township at the very northern tip of the state, offering some of the most dramatic scenery in New Jersey and outstanding outdoor recreation for dog owners. The township borders both the Delaware River and the state of New York, providing access to the Delaware Water Gap National Recreation Area and its extensive trail system. Stokes State Forest, which encompasses part of the township, offers miles of rugged trails through forests and along ridgelines, perfect for adventurous leashed hikes. High Point State Park is also nearby, featuring the highest point in New Jersey and panoramic views. Montague's remote and wild character makes it a destination for dog owners who crave true outdoor adventure.",
+      ],
+      faqs: montagueNjFaqs,
+    },
+  },
+  {
+    slug: 'mullica-hill-nj',
+    city: 'Mullica Hill',
+    state: 'NJ',
+    summary: 'Walk the antique-lined streets and countryside of Mullica Hill, NJ, a charming Gloucester County village with rural dog-walking appeal.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Mullica Hill, NJ',
+      heroDescription: 'Stroll historic Main Street and rural Mullica Hill.',
+      longDescription: [
+        "Mullica Hill, New Jersey, is a charming village within Harrison Township in Gloucester County, known for its antique shops and quaint small-town atmosphere. For dog owners, the village offers a delightful walking experience. Historic Main Street is lined with antique stores, cafes, and boutiques, and the wide sidewalks make it easy to stroll with a leashed pup. The surrounding countryside provides rural roads and paths for more extended walks through farmland and woodlands. Harrison Township parks offer green space and recreational facilities. Mullica Hill's blend of historic charm, rural beauty, and welcoming community makes it a unique and enjoyable destination for dog owners in South Jersey.",
+      ],
+      faqs: mullicaHillNjFaqs,
+    },
+  },
+  {
+    slug: 'nanuet-ny',
+    city: 'Nanuet',
+    state: 'NY',
+    summary: 'Explore the parks and trails of Nanuet, NY, a Rockland County hamlet with Rockland Lake and Clausland Mountain access for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Nanuet, NY',
+      heroDescription: 'Walk the parks and trails of Rockland County from Nanuet.',
+      longDescription: [
+        "Nanuet, New York, is a suburban hamlet in the Town of Clarkstown in Rockland County that offers convenient access to parks and trails for dog owners. Rockland Lake State Park, located nearby, features paved paths around the lake and through scenic grounds. Clausland Mountain County Park provides more rugged hiking trails with Hudson River views. The hamlet's residential neighborhoods are quiet and well-maintained, ideal for daily leashed walks. Nanuet's central Rockland County location ensures easy access to shopping, dining, and pet services. The combination of suburban convenience and proximity to outstanding natural areas makes Nanuet a comfortable and enjoyable home for dog owners.",
+      ],
+      faqs: nanuetNyFaqs,
+    },
+  },
+  {
+    slug: 'netcong-nj',
+    city: 'Netcong',
+    state: 'NJ',
+    summary: 'Walk the Musconetcong River trails and quiet streets of Netcong, NJ, a small Morris County borough near Allamuchy State Park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Netcong, NJ',
+      heroDescription: 'Walk the Musconetcong River trails and explore Netcong.',
+      longDescription: [
+        "Netcong, New Jersey, is a small and charming borough in Morris County situated along the Musconetcong River. For dog owners, the river corridor provides a scenic backdrop for daily leashed walks. Nearby Allamuchy Mountain State Park offers an extensive network of trails through forests and along streams, providing excellent hiking for leashed dogs. The borough's compact size means that most amenities are within walking distance. The quiet residential streets are pleasant for neighborhood strolls. Netcong's affordable character and proximity to state parks make it an appealing option for dog owners who value outdoor recreation in a small-town setting.",
+      ],
+      faqs: netcongNjFaqs,
+    },
+  },
+  {
+    slug: 'new-brunswick-nj',
+    city: 'New Brunswick',
+    state: 'NJ',
+    summary: 'Walk the Raritan River waterfront and D&R Canal towpath of New Brunswick, NJ, a vibrant Middlesex County city with urban dog-friendly options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Brunswick, NJ',
+      heroDescription: 'Walk the Raritan River and D&R Canal towpath in New Brunswick.',
+      longDescription: [
+        "New Brunswick, New Jersey, is a vibrant city in Middlesex County that combines urban energy with excellent waterfront recreation for dog owners. Boyd Park along the Raritan River features a dog run and scenic walking paths. The D&R Canal towpath provides miles of flat, shaded trail for leashed walks, jogging, and cycling. The Rutgers University campus areas offer wide, tree-lined paths through beautiful grounds. Downtown New Brunswick along George Street is bustling with restaurants, theaters, and shops, many of which welcome leashed dogs at outdoor seating. Buccleuch Park adds additional green space. New Brunswick's cultural vibrancy and waterfront access make it an exciting place for dog-friendly living.",
+      ],
+      faqs: newBrunswickNjFaqs,
+    },
+  },
+  {
+    slug: 'new-milford-nj',
+    city: 'New Milford',
+    state: 'NJ',
+    summary: 'Walk the Saddle River pathway and neighborhood parks of New Milford, NJ, a compact Bergen County borough for daily dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in New Milford, NJ',
+      heroDescription: 'Walk the Saddle River pathway and parks of New Milford.',
+      longDescription: [
+        "New Milford, New Jersey, is a compact and friendly borough in Bergen County that offers a comfortable setting for dog owners. The community's proximity to the Saddle River County Park provides access to a paved pathway along the river for leashed walks, jogging, and cycling. Borough parks offer green space for quick daily outings. New Milford's residential streets are quiet and well-maintained with good sidewalks, making neighborhood walks enjoyable. The borough's central Bergen County location ensures that pet services, veterinarians, and larger county parks are easily accessible. New Milford's suburban convenience and trail access make it a practical and pleasant choice for dog owners.",
+      ],
+      faqs: newMilfordNjFaqs,
+    },
+  },
+  {
+    slug: 'north-arlington-nj',
+    city: 'North Arlington',
+    state: 'NJ',
+    summary: 'Explore the community parks and Meadowlands access of North Arlington, NJ, a Bergen County borough with urban and nature walking options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Arlington, NJ',
+      heroDescription: 'Walk the parks and Meadowlands area from North Arlington.',
+      longDescription: [
+        "North Arlington, New Jersey, is a small borough in Bergen County that provides a mix of urban convenience and surprising access to natural areas for dog owners. Community parks within the borough offer green space for daily leashed walks. The nearby Meadowlands area, including the DeKorte Park nature trails, provides a unique setting for wildlife viewing and leashed walks along boardwalks through marshlands. North Arlington's compact layout makes it very walkable, and the residential streets are suitable for neighborhood strolls with your pup. The borough's proximity to the Meadowlands ecosystem and Bergen County trails makes it a distinctive option for dog owners who enjoy diverse outdoor experiences.",
+      ],
+      faqs: northArlingtonNjFaqs,
+    },
+  },
+  {
+    slug: 'north-bergen-nj',
+    city: 'North Bergen',
+    state: 'NJ',
+    summary: 'Walk the Palisades cliffs and Hudson River views of North Bergen, NJ, a Hudson County township with scenic trails for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Bergen, NJ',
+      heroDescription: 'Walk the Palisades and Hudson River waterfront in North Bergen.',
+      longDescription: [
+        "North Bergen, New Jersey, is a Hudson County township perched atop the Palisades cliffs, offering stunning views of the Manhattan skyline and the Hudson River. For dog owners, the township provides several outstanding outdoor options. James J. Braddock North Hudson County Park features expansive green spaces, walking paths, and playgrounds. The Palisades cliffs offer dramatic walking routes with breathtaking views. The Hudson River Waterfront Walkway is also accessible for scenic leashed walks along the river. The township's diverse neighborhoods are well-connected by sidewalks and public transit. North Bergen's combination of dramatic natural scenery, urban parks, and skyline views makes it a uniquely rewarding place for dog-friendly living.",
+      ],
+      faqs: northBergenNjFaqs,
+    },
+  },
+  {
+    slug: 'north-plainfield-nj',
+    city: 'North Plainfield',
+    state: 'NJ',
+    summary: 'Walk the Green Brook trails and community parks of North Plainfield, NJ, a Somerset County borough near the Watchung Reservation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in North Plainfield, NJ',
+      heroDescription: 'Walk the Green Brook trails and parks of North Plainfield.',
+      longDescription: [
+        "North Plainfield, New Jersey, is a borough in Somerset County that offers a pleasant mix of community parks and nearby natural areas for dog owners. The Green Brook corridor provides a scenic setting for leashed walks. Local borough parks offer green space for quick daily outings. The nearby Watchung Reservation, one of the largest parks in Union County, features extensive trails through forests and along ridges. North Plainfield's residential streets are flat and walkable, making daily dog walking simple and accessible. The borough's central location provides easy access to pet services and larger parks. North Plainfield's blend of community convenience and recreational access makes it a practical choice for dog owners.",
+      ],
+      faqs: northPlainfieldNjFaqs,
+    },
+  },
+  {
+    slug: 'nutley-nj',
+    city: 'Nutley',
+    state: 'NJ',
+    summary: 'Play at the Monsignor Owens Dog Park and walk the Third River Greenway of Nutley, NJ, a walkable Essex County township.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Nutley, NJ',
+      heroDescription: 'Play at the dog park and walk the Third River Greenway in Nutley.',
+      longDescription: [
+        "Nutley, New Jersey, is a vibrant and walkable township in Essex County that is well-regarded for its dog-friendly amenities. The Monsignor Owens Park Dog Park provides a fenced off-leash area where dogs can play and socialize. The Third River Greenway offers a picturesque walking trail through the heart of the township alongside the Third River. The Kingsland Manor historic site provides scenic grounds for leashed walks. Nutley's residential streets are tree-lined and well-maintained, with good sidewalks throughout. The downtown area along Franklin Avenue features local shops and eateries, contributing to a vibrant pedestrian atmosphere. Nutley's strong sense of community and excellent walkability make it a top choice for dog owners in Essex County.",
+      ],
+      faqs: nutleyNjFaqs,
+    },
+  },
+  {
+    slug: 'oakland-nj',
+    city: 'Oakland',
+    state: 'NJ',
+    summary: 'Hike the Ramapo Valley trails and explore the natural beauty of Oakland, NJ, a Bergen County borough with premier hiking for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Oakland, NJ',
+      heroDescription: 'Hike the Ramapo Valley trails from Oakland.',
+      longDescription: [
+        "Oakland, New Jersey, is a Bergen County borough that offers premier access to some of the best hiking in the New York metropolitan area. The Ramapo Valley County Reservation, accessible from Oakland, provides over 3,000 acres of trails through forests, along streams, and around scenic lakes. The nearby Ramapo Mountain State Forest adds even more trail options for adventurous leashed hikes. Bischoff's Confectionery, a beloved local landmark, is near scenic walking areas. Oakland's residential neighborhoods are quiet and surrounded by natural beauty. The borough's combination of outstanding trail access and suburban tranquility makes it a dream destination for dog owners who love hiking and the outdoors.",
+      ],
+      faqs: oaklandNjFaqs,
+    },
+  },
+  {
+    slug: 'ocean-gate-nj',
+    city: 'Ocean Gate',
+    state: 'NJ',
+    summary: 'Walk the quiet bayfront streets of Ocean Gate, NJ, a tiny Ocean County borough on Barnegat Bay for peaceful dog outings.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ocean Gate, NJ',
+      heroDescription: 'Walk the bayfront and quiet streets of Ocean Gate.',
+      longDescription: [
+        "Ocean Gate, New Jersey, is one of the smallest boroughs in Ocean County, nestled on the shores of Barnegat Bay. For dog owners, this tiny community offers a uniquely peaceful and relaxed environment. The bayfront area provides beautiful water views and a tranquil setting for leashed walks. The borough's quiet residential streets see very little traffic, making them ideal for leisurely strolls with your pup. During the off-season, the bay beaches are available for leashed walking. While Ocean Gate lacks formal dog parks, its tiny size and bayfront setting create a naturally dog-friendly atmosphere. The nearby Island Beach State Park also offers beach walking for leashed dogs during certain seasons.",
+      ],
+      faqs: oceanGateNjFaqs,
+    },
+  },
+  {
+    slug: 'old-bridge-nj',
+    city: 'Old Bridge',
+    state: 'NJ',
+    summary: 'Explore the Cheesequake State Park trails and community parks of Old Bridge, NJ, a spacious Middlesex County township for active dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Old Bridge, NJ',
+      heroDescription: 'Hike Cheesequake State Park and explore Old Bridge parks.',
+      longDescription: [
+        "Old Bridge, New Jersey, is a large and diverse township in Middlesex County that offers excellent outdoor recreation for dog owners. Cheesequake State Park, located within the township, is a natural gem featuring trails through a unique ecological transition zone where northern and southern plant species meet, including freshwater and saltwater marshes. The Lombardi Field dog park provides a fenced off-leash area for play. Township parks and trails are scattered throughout the community, providing diverse options for daily walks. The Raritan Bay waterfront offers scenic views. Old Bridge's spacious layout and access to both state parks and community facilities make it a versatile and rewarding home for dog-loving families.",
+      ],
+      faqs: oldBridgeNjFaqs,
+    },
+  },
+  {
+    slug: 'palmyra-nj',
+    city: 'Palmyra',
+    state: 'NJ',
+    summary: 'Walk the Palmyra Cove Nature Park trails along the Delaware River in Palmyra, NJ, a Burlington County borough with natural beauty.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Palmyra, NJ',
+      heroDescription: 'Walk the trails of Palmyra Cove Nature Park.',
+      longDescription: [
+        "Palmyra, New Jersey, is a small borough in Burlington County that punches well above its weight for dog owners thanks to the outstanding Palmyra Cove Nature Park. This 250-acre park features trails through tidal wetlands, forests, and along the Delaware River, providing a diverse and scenic leashed walking experience. The park is considered one of the best nature walks in the region. The borough's residential streets are compact and walkable, offering convenient options for quick daily outings. The Delaware River waterfront adds additional scenic walking opportunities. Palmyra's access to a premier nature park and its Delaware River setting make it a surprisingly excellent destination for dog-loving nature enthusiasts.",
+      ],
+      faqs: palmyraNjFaqs,
+    },
+  },
+  {
+    slug: 'park-ridge-nj',
+    city: 'Park Ridge',
+    state: 'NJ',
+    summary: 'Walk the Saddle River trails and quiet neighborhoods of Park Ridge, NJ, a Bergen County borough with family-friendly dog walking.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Park Ridge, NJ',
+      heroDescription: 'Walk the Saddle River trails and neighborhoods of Park Ridge.',
+      longDescription: [
+        "Park Ridge, New Jersey, is a quiet and well-maintained borough in northern Bergen County that provides a comfortable environment for dog owners. The community's proximity to the Saddle River County Park offers access to paved pathways along the river for leashed walks, jogging, and cycling. Local parks within the borough provide green space for daily outings. Park Ridge's residential streets are peaceful and tree-lined, ideal for neighborhood strolls. The borough's location near the New York border provides easy access to additional parks in both New Jersey and New York. Park Ridge's small-town character and trail access make it a pleasant and practical choice for dog-owning families.",
+      ],
+      faqs: parkRidgeNjFaqs,
+    },
+  },
+  {
+    slug: 'peapack-gladstone-nj',
+    city: 'Peapack-Gladstone',
+    state: 'NJ',
+    summary: 'Explore the horse country trails and rolling hills of Peapack-Gladstone, NJ, a prestigious Somerset County borough for outdoor dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Peapack-Gladstone, NJ',
+      heroDescription: 'Walk the trails and countryside of Peapack-Gladstone.',
+      longDescription: [
+        "Peapack-Gladstone, New Jersey, is a prestigious borough in Somerset County known for its rolling hills, horse farms, and the headquarters of the United States Golf Association. For dog owners, the area offers a stunningly beautiful landscape for outdoor recreation. The Somerset County trail system provides well-maintained paths through meadows and forests. The North Branch of the Raritan River flows through the area, adding scenic water features to walking routes. The borough's spacious lots and rural character mean that neighborhoods are quiet and perfect for leisurely leashed walks. Peapack-Gladstone's combination of equestrian elegance and natural beauty makes it one of the most scenic communities in New Jersey for dog owners.",
+      ],
+      faqs: peapackGladstoneNjFaqs,
+    },
+  },
+  {
+    slug: 'pennington-nj',
+    city: 'Pennington',
+    state: 'NJ',
+    summary: 'Walk the charming downtown and Baldpate Mountain trails of Pennington, NJ, a Mercer County borough with nature preserves nearby.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pennington, NJ',
+      heroDescription: 'Walk downtown Pennington and hike Baldpate Mountain.',
+      longDescription: [
+        "Pennington, New Jersey, is a charming borough in Mercer County known for its walkable downtown, historic architecture, and proximity to outstanding nature preserves. For dog owners, the downtown area along Main Street offers a pleasant pedestrian experience with local shops and cafes. The Baldpate Mountain preserve, managed by Mercer County, provides trails with panoramic views of the Delaware River Valley and is one of the premier hiking destinations in the county. The Rosedale Park nature area adds more walking options. Pennington's residential neighborhoods are tree-lined and peaceful. The D&R Canal towpath is also within easy reach for flat, scenic leashed walks. Pennington's blend of small-town charm and nature access makes it exceptional for dog lovers.",
+      ],
+      faqs: penningtonNjFaqs,
+    },
+  },
+  {
+    slug: 'pequannock-nj',
+    city: 'Pequannock',
+    state: 'NJ',
+    summary: 'Walk the Pequannock River trails and community parks of Pequannock, NJ, a Morris County township with scenic greenways for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pequannock, NJ',
+      heroDescription: 'Walk the Pequannock River trails and parks of Pequannock.',
+      longDescription: [
+        "Pequannock, New Jersey, is a residential township in Morris County that offers a pleasant and green environment for dog owners. The Pequannock River flows through the area, providing a scenic corridor for leashed walks and nature observation. Community parks are well-maintained and offer green space for daily outings. The township's residential streets are quiet and tree-lined, providing comfortable neighborhood walking. Morris County's extensive trail system, including connections to the Patriots Path network, is accessible from Pequannock for longer outings. The township's balance of suburban convenience and natural greenery makes it a comfortable and enjoyable place for dog-friendly family living.",
+      ],
+      faqs: pequannockNjFaqs,
+    },
+  },
+  {
+    slug: 'perth-amboy-nj',
+    city: 'Perth Amboy',
+    state: 'NJ',
+    summary: 'Walk the Raritan Bay waterfront and historic parks of Perth Amboy, NJ, a Middlesex County city with diverse dog-friendly areas.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Perth Amboy, NJ',
+      heroDescription: 'Walk the Raritan Bay waterfront and parks of Perth Amboy.',
+      longDescription: [
+        "Perth Amboy, New Jersey, is a historic city at the confluence of the Raritan River and Arthur Kill in Middlesex County. For dog owners, the revitalized waterfront is the main attraction. Waterfront Park provides scenic walking paths with views of the Raritan Bay, Staten Island, and the Outerbridge Crossing. Bayview Park adds additional waterfront green space. The city's historic downtown features colonial-era architecture and a growing restaurant scene. Perth Amboy's diverse and welcoming community makes leashed dog walking through its various neighborhoods an interesting cultural experience. The city's waterfront renaissance and bayfront access make it an increasingly attractive option for dog owners seeking affordable, scenic urban living.",
+      ],
+      faqs: perthAmboyNjFaqs,
+    },
+  },
+  {
+    slug: 'phillipsburg-nj',
+    city: 'Phillipsburg',
+    state: 'NJ',
+    summary: 'Walk the Delaware River waterfront and canal paths of Phillipsburg, NJ, a Warren County town at the western edge of NJ for scenic dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Phillipsburg, NJ',
+      heroDescription: 'Walk the Delaware River waterfront and trails from Phillipsburg.',
+      longDescription: [
+        "Phillipsburg, New Jersey, is a historic town at the western edge of the state in Warren County, situated at the confluence of the Delaware and Musconetcong Rivers. For dog owners, the Delaware River waterfront provides scenic walking paths with views of the Easton, Pennsylvania skyline across the river. The Delaware & Lehigh Trail is accessible from the area, offering miles of paved trail for leashed walks. The town's historic downtown features Victorian architecture and a revitalizing commercial district. Nearby Warren County parks offer additional trails and green space. Phillipsburg's river town character, historic charm, and access to regional trail systems make it an appealing and affordable destination for dog owners.",
+      ],
+      faqs: phillipsburgNjFaqs,
+    },
+  },
+  {
+    slug: 'pitman-nj',
+    city: 'Pitman',
+    state: 'NJ',
+    summary: 'Walk the Alcyon Lake trails and charming downtown of Pitman, NJ, a Gloucester County borough with small-town character for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Pitman, NJ',
+      heroDescription: 'Walk Alcyon Lake and the downtown streets of Pitman.',
+      longDescription: [
+        "Pitman, New Jersey, is a charming and vibrant borough in Gloucester County, originally founded as a Methodist camp meeting community. For dog owners, the borough offers a delightful small-town experience. Alcyon Lake Park is the centerpiece, with a scenic trail around the lake that is popular for daily leashed walks. The downtown area along Broadway is walkable and lively, with local shops, restaurants, and a historic theater. Pitman's residential streets are tree-lined and pleasant for neighborhood strolls. The nearby Gloucester County trail system provides additional hiking options. Pitman's unique character, community spirit, and walkable downtown make it a wonderfully charming place for dog-friendly living in South Jersey.",
+      ],
+      faqs: pitmanNjFaqs,
+    },
+  },
+  {
+    slug: 'point-pleasant-nj',
+    city: 'Point Pleasant',
+    state: 'NJ',
+    summary: 'Walk the boardwalk, canal paths, and Manasquan Reservoir trails of Point Pleasant, NJ, a popular Ocean County shore destination for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Point Pleasant, NJ',
+      heroDescription: 'Walk the boardwalk and Manasquan Reservoir trails from Point Pleasant.',
+      longDescription: [
+        "Point Pleasant, New Jersey, is a popular shore destination in Ocean County that offers a wonderful variety of outdoor experiences for dog owners. The Manasquan Reservoir, located nearby, features a 5-mile perimeter trail that is one of the best dog-walking destinations in the region. The Point Pleasant Canal provides scenic waterfront walking. During the off-season, the beach and boardwalk areas welcome leashed dogs. The borough's residential streets are quiet and walkable year-round. Point Pleasant's blend of coastal charm, excellent trail access, and community spirit makes it an outstanding place for dogs and their owners, whether you're a year-round resident or a seasonal visitor.",
+      ],
+      faqs: pointPleasantNjFaqs,
+    },
+  },
+  {
+    slug: 'ringwood-nj',
+    city: 'Ringwood',
+    state: 'NJ',
+    summary: 'Hike the Ringwood State Park trails and Skylands Manor grounds of Ringwood, NJ, a Passaic County borough with premier hiking for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ringwood, NJ',
+      heroDescription: 'Hike the state park trails and Skylands Manor grounds in Ringwood.',
+      longDescription: [
+        "Ringwood, New Jersey, is a scenic borough in Passaic County that offers some of the finest hiking in northern New Jersey for dog owners. Ringwood State Park encompasses over 4,000 acres of forests, lakes, and historic sites. The Skylands Manor and its botanical gardens provide a stunningly beautiful setting for leashed walks. The park's trail system connects to the Ramapo Mountain State Forest, creating an extensive network for all-day adventures. Shepherd Lake offers lakeside walking opportunities. Ringwood's residential neighborhoods are nestled among the hills and forests, providing a naturally beautiful setting for daily walks. The borough's unmatched access to premier state park trails makes it a destination for adventurous dog owners.",
+      ],
+      faqs: ringwoodNjFaqs,
+    },
+  },
+  {
+    slug: 'roebling-nj',
+    city: 'Roebling',
+    state: 'NJ',
+    summary: 'Walk the historic village streets and Delaware River waterfront of Roebling, NJ, a unique Florence Township community for quiet dog outings.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Roebling, NJ',
+      heroDescription: 'Walk the historic streets and river waterfront of Roebling.',
+      longDescription: [
+        "Roebling, New Jersey, is a unique and historic village within Florence Township in Burlington County. Founded by the Roebling family of Brooklyn Bridge fame, the village features a distinctive planned community layout with worker housing from the early 20th century. For dog owners, the historic streets provide a fascinating backdrop for daily leashed walks. The nearby Delaware River waterfront offers scenic walking opportunities. The D&R Canal towpath is also accessible for longer leashed walks and rides. Florence Township parks provide additional green space. Roebling's unique industrial heritage and quiet village atmosphere make it a distinctive and interesting place for dog owners who appreciate history and character in their community.",
+      ],
+      faqs: roeblingNjFaqs,
+    },
+  },
+  {
+    slug: 'roselle-park-nj',
+    city: 'Roselle Park',
+    state: 'NJ',
+    summary: 'Walk the friendly, tree-lined streets and community parks of Roselle Park, NJ, a small Union County borough with local charm.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Roselle Park, NJ',
+      heroDescription: 'Walk the tree-lined streets and parks of Roselle Park.',
+      longDescription: [
+        "Roselle Park, New Jersey, is a small, closely-knit borough in Union County that offers a friendly environment for dog owners. The community's tree-lined residential streets are perfect for daily leashed walks with your pup. Local parks provide green space for recreation. While the borough itself is compact, it is surrounded by larger county parks like Warinanco Park, which offers extensive walking trails and scenic beauty just a short distance away. Roselle Park's convenient location and welcoming neighborhood atmosphere make it a comfortable home base for dog owners looking for a quiet suburban lifestyle near urban amenities.",
+      ],
+      faqs: roselleParkNjFaqs,
+    },
+  },
+  {
+    slug: 'rutherford-nj',
+    city: 'Rutherford',
+    state: 'NJ',
+    summary: "Stroll the 'Borough of Trees' in Rutherford, NJ, known for its beautiful canopy and dog-friendly residential avenues.",
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Rutherford, NJ',
+      heroDescription: 'Walk the tree-lined avenues of the Borough of Trees, Rutherford.',
+      longDescription: [
+        "Rutherford, New Jersey, famously known as the 'Borough of Trees,' is a picturesque community in Bergen County that is a delight for dog walking. The borough's streets are lined with a dense canopy of mature trees, creating a shaded and scenic environment for leashed strolls. Memorial Park offers green space and recreational facilities. The residential neighborhoods feature beautiful historic homes and well-maintained sidewalks. While Rutherford is known for its quiet charm, it is also close to the Meadowlands and riverside parks for more extensive outdoor activities. The borough's commitment to its urban forest makes every walk a pleasant experience for dogs and their owners.",
+      ],
+      faqs: rutherfordNjFaqs,
+    },
+  },
+  {
+    slug: 'saddle-brook-nj',
+    city: 'Saddle Brook',
+    state: 'NJ',
+    summary: 'Walk the Saddle River County Park trail through Saddle Brook, NJ, a Bergen County township with premier paved path access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Saddle Brook, NJ',
+      heroDescription: 'Walk the Saddle River County Park trail in Saddle Brook.',
+      longDescription: [
+        "Saddle Brook, New Jersey, is a township in Bergen County that offers exceptional access to one of the region's best recreational assets. The Saddle River County Park runs directly through the community, providing a long, paved multi-use path that follows the river. This trail is a favorite for dog owners, offering miles of safe, scenic walking, running, and cycling away from traffic. The township's residential neighborhoods are also conducive to daily walks. Saddle Brook's central location and direct connection to the county park system make it a highly desirable location for active dog owners who value convenient access to long walking routes.",
+      ],
+      faqs: saddleBrookNjFaqs,
+    },
+  },
+  {
+    slug: 'sayreville-nj',
+    city: 'Sayreville',
+    state: 'NJ',
+    summary: 'Explore the Raritan River waterfront and Kennedy Park in Sayreville, NJ, a Middlesex County borough with extensive green space.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Sayreville, NJ',
+      heroDescription: 'Walk the Raritan River waterfront and parks of Sayreville.',
+      longDescription: [
+        "Sayreville, New Jersey, is a borough in Middlesex County located along the Raritan River, offering diverse outdoor opportunities for dog owners. Kennedy Park is a major local asset, featuring a lake, walking paths, and open green space for leashed outings. The Julian Capik Nature Preserve provides miles of trails through woods and around lakes, offering a more rugged nature experience. The waterfront area offers scenic views of the river. Sayreville's mix of suburban neighborhoods and substantial natural areas provides plenty of variety for daily exercise. The borough's commitment to maintaining its parks and open spaces ensures a high quality of life for resident dogs.",
+      ],
+      faqs: sayrevilleNjFaqs,
+    },
+  },
+  {
+    slug: 'scotch-plains-nj',
+    city: 'Scotch Plains',
+    state: 'NJ',
+    summary: 'Hike the Watchung Reservation and enjoy the parks of Scotch Plains, NJ, a Union County township with premier outdoor access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Scotch Plains, NJ',
+      heroDescription: 'Hike the Watchung Reservation from Scotch Plains.',
+      longDescription: [
+        "Scotch Plains, New Jersey, is a spacious township in Union County that offers some of the best outdoor recreation in the area. A significant portion of the Watchung Reservation, the largest park in the county, is located here. The reservation features miles of hiking trails, stables, and the Trailside Nature & Science Center, making it a paradise for leashed dog hikes. Ash Brook Reservation provides additional wooded trails. The township's residential areas are characterized by large lots and quiet streets, perfect for neighborhood walks. Scotch Plains offers an ideal balance of suburban comfort and direct access to extensive natural lands for active dogs and their owners.",
+      ],
+      faqs: scotchPlainsNjFaqs,
+    },
+  },
+  {
+    slug: 'seaside-heights-nj',
+    city: 'Seaside Heights',
+    state: 'NJ',
+    summary: 'Walk the famous boardwalk and beach of Seaside Heights, NJ, a classic shore town that welcomes dogs in the off-season.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Seaside Heights, NJ',
+      heroDescription: 'Walk the boardwalk and beach in Seaside Heights.',
+      longDescription: [
+        "Seaside Heights, New Jersey, is a world-famous beach resort borough in Ocean County known for its boardwalk and vibrant atmosphere. For dog owners, the off-season is the time to shine. During cooler months, leashed dogs are often welcomed on the boardwalk and designated beach areas, allowing for long, scenic walks by the ocean. The town feels much quieter during these times, offering a peaceful coastal experience. While summer restrictions apply, the opportunity to enjoy the seaside environment with your pup during the rest of the year makes enticing destination for dog lovers who enjoy the shore lifestyle without the crowds.",
+      ],
+      faqs: seasideHeightsNjFaqs,
+    },
+  },
+  {
+    slug: 'secaucus-nj',
+    city: 'Secaucus',
+    state: 'NJ',
+    summary: 'Explore the diverse parks and Hackensack River greenway of Secaucus, NJ, a Hudson County town with surprising nature access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Secaucus, NJ',
+      heroDescription: 'Walk the greenways and parks of Secaucus.',
+      longDescription: [
+        "Secaucus, New Jersey, is a unique town in Hudson County located within the New Jersey Meadowlands. Despite its urban proximity, it is one of the greenest towns in the area. The Secaucus Greenway provides a scenic walking path along the Hackensack River and through restored wetlands. Mill Creek Point Park offers stunning skyline views and nature trails. The town features a dog run at the sheer duck pond area. Secaucus offers a surprising amount of open space and trails for dog owners, providing a nature-filled escape just minutes from Manhattan. Its commitment to environmental restoration has created a thriving habitat for wildlife and a great place for walking dogs.",
+      ],
+      faqs: secaucusNjFaqs,
+    },
+  },
+  {
+    slug: 'somers-point-nj',
+    city: 'Somers Point',
+    state: 'NJ',
+    summary: 'Walk the bayfront historic district and Kennedy Park in Somers Point, NJ, a gateway to Ocean City with scenic dog walks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Somers Point, NJ',
+      heroDescription: 'Walk the bayfront and Kennedy Park in Somers Point.',
+      longDescription: [
+        "Somers Point, New Jersey, is a historic city in Atlantic County situated on the Great Egg Harbor Bay. It serves as the gateway to Ocean City and offers excellent waterfront walking for dog owners. Kennedy Park provides a scenic bluff overlooking the bay, perfect for picnics and leashed strolls. The Route 52 Causeway features a separated multi-use path that offers spectacular views of the bay and wetlands, popular for walking and running with dogs. The historic bayfront district offers a charming setting for walks. Somers Point's combination of history, waterfront views, and trail access makes it a top destination for dog owners in the region.",
+      ],
+      faqs: somersPointNjFaqs,
+    },
+  },
+  {
+    slug: 'south-amboy-nj',
+    city: 'South Amboy',
+    state: 'NJ',
+    summary: 'Enjoy the Raritan Bay Waterfront Park and beach views of South Amboy, NJ, a Middlesex County city with scenic coastal walking.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Amboy, NJ',
+      heroDescription: 'Walk the Raritan Bay Waterfront Park in South Amboy.',
+      longDescription: [
+        "South Amboy, New Jersey, is a coastal city in Middlesex County located on the Raritan Bay. The crown jewel for dog owners is the Raritan Bay Waterfront Park, which features a paved promenade, walking trails, and open fields with panoramic views of the bay. It is a fantastic spot for daily leashed exercise and enjoying the sea breeze. The city's downtown area is undergoing revitalization and offers walkable streets. South Amboy's convenient location and access to premier waterfront recreation make it an attractive and affordable option for dog owners who love the water.",
+      ],
+      faqs: southAmboyNjFaqs,
+    },
+  },
+  {
+    slug: 'south-orange-nj',
+    city: 'South Orange',
+    state: 'NJ',
+    summary: 'Hike the South Mountain Reservation and enjoy the vibrant village of South Orange, NJ, an Essex County community rich in culture and nature.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Orange, NJ',
+      heroDescription: 'Hike South Mountain and walk the village of South Orange.',
+      longDescription: [
+        "South Orange, New Jersey, is a vibrant and diverse village in Essex County known for its beautiful architecture and gas-lit streets. For dog owners, it offers premier access to the South Mountain Reservation, which borders the village. This massive park features miles of hiking trails, waterfalls, and scenic overlooks. Flood's Hill in meadowland park is a popular spot for sledding in winter and walking year-round. The downtown village center is bustling with activity and is very pedestrian-friendly. South Orange's unique blend of urban sophistication, historic charm, and immediate access to wilderness trails makes it one of the most desirable communities for dog owners in the state.",
+      ],
+      faqs: southOrangeNjFaqs,
+    },
+  },
+  {
+    slug: 'south-plainfield-nj',
+    city: 'South Plainfield',
+    state: 'NJ',
+    summary: 'Walk the Spring Lake Park trails and community spaces of South Plainfield, NJ, a Middlesex County borough with ample green space.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South Plainfield, NJ',
+      heroDescription: 'Walk Spring Lake Park and the trails of South Plainfield.',
+      longDescription: [
+        "South Plainfield, New Jersey, is a borough in Middlesex County that offers excellent suburban recreation for dog owners. Spring Lake Park is the community's centerpiece, featuring paved walking paths around a scenic lake, open groves, and recreational facilities. It is a popular destination for daily leashed walks. The borough's residential streets are quiet and safe for neighborhood strolls. South Plainfield's central location provides easy access to other county parks and amenities. The availability of a large, high-quality local park like Spring Lake makes daily exercise with a dog convenient and enjoyable for residents.",
+      ],
+      faqs: southPlainfieldNjFaqs,
+    },
+  },
+  {
+    slug: 'south-river-nj',
+    city: 'South River',
+    state: 'NJ',
+    summary: 'Explore the quiet parks and community atmosphere of South River, NJ, a Middlesex County borough with local dog-walking spots.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in South River, NJ',
+      heroDescription: 'Walk the parks and neighborhoods of South River.',
+      longDescription: [
+        "South River, New Jersey, is a quiet and tight-knit borough in Middlesex County. For dog owners, it offers a peaceful residential setting. Grekoski Park and other local green spaces provide areas for daily leashed walks and outdoor activity. The borough's streets are compact and walkable, allowing for easy neighborhood loops. While South River is small, its location near East Brunswick and other larger towns ensures that extensive trail systems and larger parks are just a short drive away. South River provides a simple, affordable, and comfortable small-town environment for dog-owning families.",
+      ],
+      faqs: southRiverNjFaqs,
+    },
+  },
+  {
+    slug: 'spring-lake-nj',
+    city: 'Spring Lake',
+    state: 'NJ',
+    summary: 'Walk the non-commercial boardwalk and Divine Park of Spring Lake, NJ, an elegant Monmouth County coastal town.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Spring Lake, NJ',
+      heroDescription: 'Stroll the boardwalk and Divine Park in Spring Lake.',
+      longDescription: [
+        "Spring Lake, New Jersey, is often called the 'Irish Riviera' and is known for its elegant Victorian homes and pristine, non-commercial boardwalk. For dog owners, it is a uniquely beautiful place to walk. During the off-season, the boardwalk is open to leashed dogs, offering a peaceful oceanfront stroll without the noise of arcades or rides. Divine Park, surrounding the spring-fed lake for which the town is named, offers shaded walking paths and scenic bridges. The town's wide, tree-lined streets are perfect for admiring the architecture on a daily walk. Spring Lake's tranquil and upscale atmosphere makes it a premier destination for a relaxing day out with a dog.",
+      ],
+      faqs: springLakeNjFaqs,
+    },
+  },
+  {
+    slug: 'stanhope-nj',
+    city: 'Stanhope',
+    state: 'NJ',
+    summary: 'Hike the trails of Lake Musconetcong and nearby state parks from Stanhope, NJ, a scenic Sussex County borough.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Stanhope, NJ',
+      heroDescription: 'Hike the trails around Stanhope and Lake Musconetcong.',
+      longDescription: [
+        "Stanhope, New Jersey, is a small borough in Sussex County often referred to as a 'small town with a big heart.' Situated near Lake Musconetcong and Hopatcong State Park, it offers abundant outdoor access for dog owners. The Morris Canal Greenway passes through the area, offering a historic and scenic walking route. Nearby state parks provide extensive hiking trails through rugged terrain. Stanhope's residential streets are quiet and hilly, offering good exercise right out the front door. The borough's location at the gateway to New Jersey's skylands region makes it an excellent base for dog owners who enjoy lake living and hiking.",
+      ],
+      faqs: stanhopeNjFaqs,
+    },
+  },
+  {
+    slug: 'suffern-ny',
+    city: 'Suffern',
+    state: 'NY',
+    summary: 'Explore the Ramapo Mountains and Harriman State Park from Suffern, NY, a Rockland County village at the gateway to nature.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Suffern, NY',
+      heroDescription: 'Hike the Ramapo Mountains and walkable Suffern.',
+      longDescription: [
+        "Suffern, New York, is a village in Rockland County that serves as a gateway to the Ramapo Mountains. For dog owners, it offers unparalleled access to wilderness hiking. Harriman State Park and the Kakiat County Park are just minutes away, providing endless miles of trails for adventurous leashed hikes. The village downtown is walkable and features a variety of shops and restaurants. The Suffern-Bear Mountain Trail trailhead is located nearby. Suffern's blend of a walkable village center and immediate access to vast state parklands makes it a dream location for active dog owners and hikers.",
+      ],
+      faqs: suffernNyFaqs,
+    },
+  },
+  {
+    slug: 'summit-nj',
+    city: 'Summit',
+    state: 'NJ',
+    summary: 'Enjoy the Watchung Reservation and Reeves-Reed Arboretum in Summit, NJ, a prestigious Union County city with top-tier parks.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Summit, NJ',
+      heroDescription: 'Hike the Watchung Reservation and explore Summit.',
+      longDescription: [
+        "Summit, New Jersey, is a prestigious city in Union County known for its excellent schools, vibrant downtown, and green spaces. For dog owners, it offers access to the Watchung Reservation, the county's largest park, with miles of hiking trails and nature paths. The Reeves-Reed Arboretum offers beautiful grounds for walking (check specific dog rules). Briant Park connects to a greenway system. Summit's downtown is lively and walkable, and the residential streets feature beautiful homes and sidewalks. Summit's combination of urban sophistication, community amenities, and direct access to major nature reservations makes it a top choice for dog owners seeking a high quality of life.",
+      ],
+      faqs: summitNjFaqs,
+    },
+  },
+  {
+    slug: 'teaneck-nj',
+    city: 'Teaneck',
+    state: 'NJ',
+    summary: 'Walk the Overpeck County Park and extensive greenways of Teaneck, NJ, a diverse Bergen County township with a dedicated dog park.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Teaneck, NJ',
+      heroDescription: 'Play at the dog park and walk Overpeck Park in Teaneck.',
+      longDescription: [
+        "Teaneck, New Jersey, is a diverse and historic township in Bergen County with an impressive park system. The Teaneck Dog Park in Windsor Park provides a dedicated fenced area for off-leash play. Overpeck County Park, which borders the township, offers miles of paved walking paths with water views, sprawling lawns, and recreational facilities. The Teaneck Creek Conservancy creates a unique eco-art wetland environment with walking trails. Teaneck's residential neighborhoods are tree-lined and excellent for daily walks. The township's commitment to parks and recreation ensures that dog owners have a wide variety of high-quality options for exercise and socialization.",
+      ],
+      faqs: teaneckNjFaqs,
+    },
+  },
+  {
+    slug: 'tenafly-nj',
+    city: 'Tenafly',
+    state: 'NJ',
+    summary: 'Explore the Tenafly Nature Center and Palisades trails of Tenafly, NJ, a scenic Bergen County borough with a dog run.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Tenafly, NJ',
+      heroDescription: 'Hike the nature center trails and use the dog run in Tenafly.',
+      longDescription: [
+        "Tenafly, New Jersey, is a scenic borough in Bergen County situated atop the Palisades. It offers a dog run for off-leash play and socialization. The Tenafly Nature Center is a gem, offering miles of trails through unlimited forests (check current dog regulations for specific trails). The nearby Palisades Interstate Park provides rugged hiking with spectacular views of the Hudson River and New York City. Tenafly's residential streets are quiet and upscale, perfect for peaceful daily walks. The borough's blend of top-tier nature preserves, dedicated dog facilities, and beautiful neighborhoods makes it an exceptional community for dog owners.",
+      ],
+      faqs: tenaflyNjFaqs,
+    },
+  },
+  {
+    slug: 'toms-river-nj',
+    city: 'Toms River',
+    state: 'NJ',
+    summary: 'Walk the Cattus Island Park trails and bayfront areas of Toms River, NJ, a large Ocean County township with diverse nature access.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Toms River, NJ',
+      heroDescription: 'Hike Cattus Island and explore the parks of Toms River.',
+      longDescription: [
+        "Toms River, New Jersey, is a large township in Ocean County and the county seat, offering extensive outdoor recreation. Cattus Island County Park is a highlight, featuring miles of trails through maritime forests and salt marshes with views of Barnegat Bay (dogs must be leashed). The township has numerous community parks and sports complexes that offer walking paths. The downtown area has been revitalized with riverfront dining and walking areas. Toms River's size means residents have access to a wide variety of shopping and pet services. The township's coastal location and substantial county parks make it a versatile home for active dog owners.",
+      ],
+      faqs: tomsRiverNjFaqs,
+    },
+  },
+  {
+    slug: 'totowa-nj',
+    city: 'Totowa',
+    state: 'NJ',
+    summary: 'Hike the Garret Mountain Reservation and enjoy the parks of Totowa, NJ, a Passaic County borough with skyline views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Totowa, NJ',
+      heroDescription: 'Hike Garret Mountain and explore Totowa parks.',
+      longDescription: [
+        "Totowa, New Jersey, is a borough in Passaic County that offers premier access to the Garret Mountain Reservation. This major county park features hiking trails, equestrian paths, and refreshing green space with panoramic views of the New York City skyline. The Dey Hill Road area offers access to the park's trail system. Local borough parks provide additional space for daily outings. Totowa's residential neighborhoods are well-maintained and walkable. The borough's convenient location near major highways and its direct access to a flagship county park make it a practical and enjoyable choice for dog owners in the area.",
+      ],
+      faqs: totowaNjFaqs,
+    },
+  },
+  {
+    slug: 'union-beach-nj',
+    city: 'Union Beach',
+    state: 'NJ',
+    summary: 'Walk the quiet bayfront promenade and beaches of Union Beach, NJ, a Monmouth County borough with scenic Raritan Bay views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Union Beach, NJ',
+      heroDescription: 'Walk the bayfront promenade in Union Beach.',
+      longDescription: [
+        "Union Beach, New Jersey, is a quiet borough in Monmouth County located on the Raritan Bay. For dog owners, the bayfront promenade is the main attraction, offering a long, flat, paved path with expansive views of the water and the New York City skyline in the distance. The beach area is often quiet and suitable for leashed walks, especially in the off-season. The borough's small-town atmosphere creates a relaxed environment for living. Union Beach offers a peaceful coastal experience that is less crowded than the oceanfront towns, making it a hidden gem for dog owners who appreciate a quiet walk by the water.",
+      ],
+      faqs: unionBeachNjFaqs,
+    },
+  },
+  {
+    slug: 'union-city-nj',
+    city: 'Union City',
+    state: 'NJ',
+    summary: 'Visit Washington Park and enjoy skyline views in Union City, NJ, a dense Hudson County city with key green spaces.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Union City, NJ',
+      heroDescription: 'Walk in Washington Park and enjoy skyline views from Union City.',
+      longDescription: [
+        "Union City, New Jersey, is one of the most densely populated cities in the country, but it still offers valuable green space for dog owners. Washington Park, located on the border with Jersey City, helps provide a large urban oasis with walking paths, sports fields, and dog-friendly areas. The city offers spectacular views of the Manhattan skyline from the Palisades cliffs. While dense, the city is very walkable, and many residents enjoy the urban energy. Access to the Hudson-Bergen Light Rail and nearby waterfront walkways expands the range of walking options. Union City creates a vibrant urban environment where dog ownership is supported by key community parks.",
+      ],
+      faqs: unionCityNjFaqs,
+    },
+  },
+  {
+    slug: 'ventnor-city-nj',
+    city: 'Ventnor City',
+    state: 'NJ',
+    summary: 'Walk the boardwalk and quiet beaches of Ventnor City, NJ, a residential shore community near Atlantic City.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Ventnor City, NJ',
+      heroDescription: 'Stroll the boardwalk and beaches of Ventnor City.',
+      longDescription: [
+        "Ventnor City, New Jersey, is a shore community in Atlantic County on Absecon Island, just down the beach from Atlantic City. It offers a quieter, more residential vibe that is perfect for dog owners. The boardwalk continues through Ventnor, providing a classic seaside walking experience (check seasonal dog rules). The beaches are wide and welcoming for leashed walks during the off-season. Ventnor's residential streets feature beautiful homes and are less congested than its neighbor. The city's relaxed atmosphere and direct beach access make it a wonderful place for year-round coastal living with a dog by your side.",
+      ],
+      faqs: ventnorCityNjFaqs,
+    },
+  },
+  {
+    slug: 'waldwick-nj',
+    city: 'Waldwick',
+    state: 'NJ',
+    summary: 'Walk the bike path and borough parks of Waldwick, NJ, a Bergen County community with access to Saddle River trails.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Waldwick, NJ',
+      heroDescription: 'Walk the bike path and parks of Waldwick.',
+      longDescription: [
+        "Waldwick, New Jersey, is a borough in Bergen County that offers excellent recreational access for dog owners. A paved bike path runs through the borough, often connecting to the nearby Saddle River County Park system, providing miles of safe walking and running routes. Borough Park offers fields and green space for local activities. The residential neighborhoods are quiet and family-oriented, ideal for daily walks. Waldwick's central location in the county puts it close to numerous other parks and pet services. The presence of the bike path corridor is a major asset for residents who want a dedicated space for exercising their dogs.",
+      ],
+      faqs: waldwickNjFaqs,
+    },
+  },
+  {
+    slug: 'wanaque-nj',
+    city: 'Wanaque',
+    state: 'NJ',
+    summary: 'Hike the rugged trails and enjoy the reservoir views of Wanaque, NJ, a Passaic County borough surrounded by forests.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wanaque, NJ',
+      heroDescription: 'Hike the forests and view the reservoir in Wanaque.',
+      longDescription: [
+        "Wanaque, New Jersey, is a borough in Passaic County dominated by the Wanaque Reservoir and the surrounding highlands. For dog owners, it offers a rugged and scenic natural environment. The nearby Norvin Green State Forest and Ramapo Mountain State Forest provide challenging hiking trails with panoramic views, perfect for active dogs and owners. Back Beach Park is a local favorite. The borough's landscape is hilly and wooded, providing a sense of seclusion and connection to nature. Wanaque is an ideal home for those who want to live on the edge of the wilderness while still having suburban conveniences nearby.",
+      ],
+      faqs: wanaqueNjFaqs,
+    },
+  },
+  {
+    slug: 'washington-nj',
+    city: 'Washington',
+    state: 'NJ',
+    summary: 'Explore the Morris Canal Greenway and rural parks of Washington Township, NJ, a scenic Warren County community.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Washington, NJ',
+      heroDescription: 'Hike the Morris Canal Greenway and parks of Washington.',
+      longDescription: [
+        "Washington, New Jersey (Warren County), is a borough and township area that offers a rural and historic setting for dog owners. The Morris Canal Greenway is a highlight, offering a flat, historic towpath that is being restored for hiking and walking. Roaring Rock Park offers wooded trails and a natural setting. The area's open spaces and farmland provide a quiet, country atmosphere for daily life. The downtown borough area adds a touch of small-town charm. Washington's access to regional trails and its peaceful rural character make it a lovely destination for dog owners seeking a slower pace of life and plenty of open space.",
+      ],
+      faqs: washingtonNjFaqs,
+    },
+  },
+  {
+    slug: 'wayne-nj',
+    city: 'Wayne',
+    state: 'NJ',
+    summary: 'Hike High Mountain Park Preserve and explore the many parks of Wayne, NJ, a large Passaic County township with diverse recreation.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wayne, NJ',
+      heroDescription: 'Hike High Mountain and explore the parks of Wayne.',
+      longDescription: [
+        "Wayne, New Jersey, is a large and diverse township in Passaic County with an extensive park system. High Mountain Park Preserve is a premier destination, creating a massive natural area with hiking trails and stunning 360-degree views of New York City and New Jersey. Terhune Memorial Park and roaming trails near Packanack Lake offer additional options. The township has numerous community parks and recreational fields. Wayne's size means it offers every amenity a dog owner could need, from pet stores to veterinary specialists. The combination of suburban convenience and access to a major wilderness preserve like High Mountain makes Wayne exceptional for dog owners.",
+      ],
+      faqs: wayneNjFaqs,
+    },
+  },
+  {
+    slug: 'westfield-nj',
+    city: 'Westfield',
+    state: 'NJ',
+    summary: 'Walk the beautiful parks and vibrant downtown of Westfield, NJ, a premier Union County town with a strong dog-walking culture.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Westfield, NJ',
+      heroDescription: 'Walk Tamaques Park and the downtown streets of Westfield.',
+      longDescription: [
+        "Westfield, New Jersey, is a premier town in Union County known for its vibrant downtown and beautiful residential neighborhoods. For dog owners, it is a fantastic place to live. Tamaques Park is one of the most popular parks in the county, featuring a paved loop that is a social hub for dog walkers. Mindowaskin Park, located near the town center, offers a picturesque setting with a lake. The downtown area is highly walkable and pet-friendly, with many shops placing water bowls out for visiting pups. Westfield's tree-lined streets and strong community spirit make daily walks a pleasure, while nearby county parks offer further adventures.",
+      ],
+      faqs: westfieldNjFaqs,
+    },
+  },
+  {
+    slug: 'west-new-york-nj',
+    city: 'West New York',
+    state: 'NJ',
+    summary: 'Walk the Hudson River Waterfront Walkway in West New York, NJ, a Hudson County town with spectacular skyline views.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in West New York, NJ',
+      heroDescription: 'Walk the waterfront walkway with skyline views in West New York.',
+      longDescription: [
+        "West New York, New Jersey, is a densely populated town in Hudson County situated on the Palisades. Its greatest asset for dog owners is the Hudson River Waterfront Walkway, which runs along the river's edge, offering miles of paved path with breathtaking views of midtown Manhattan. This walkway is perfect for daily exercise and socialization. Patricia M. McEldowney Field provides local green space. Despite its urban density, the town's access to the waterfront and the walkable nature of the street grid make it a viable and exciting place for dog owners who enjoy city living with world-class views.",
+      ],
+      faqs: westNewYorkNjFaqs,
+    },
+  },
+  {
+    slug: 'wildwood-nj',
+    city: 'Wildwood',
+    state: 'NJ',
+    summary: 'Play at the famous dog beach and walk the boardwalk of Wildwood, NJ, a Cape May County resort town known for its dog friendliness.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wildwood, NJ',
+      heroDescription: 'Play at the giant dog beach and walk the boardwalk in Wildwood.',
+      longDescription: [
+        "Wildwood, New Jersey, is a famous resort city in Cape May County that has embraced dog owners with enthusiasm. The Wildwood Dog Park & Beach is a standout main attraction, featuring a huge fenced dog park right on the beach with a 25-foot fire hydrant sculpture. It is one of the largest and most popular dog beaches in the world. The boardwalk allows dogs during specific off-season times and for special events. The city's fun, retro atmosphere extends to its pet-friendly attitude. Wildwood represents the ultimate beach vacation destination for dogs, offering designated sand and surf areas that are unmatched in the region.",
+      ],
+      faqs: wildwoodNjFaqs,
+    },
+  },
+  {
+    slug: 'woodbridge-nj',
+    city: 'Woodbridge',
+    state: 'NJ',
+    summary: 'Explore the waterfront parks and dog runs of Woodbridge, NJ, a large Middlesex County township with diverse recreational options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Woodbridge, NJ',
+      heroDescription: 'Walk the waterfront parks and use the dog runs in Woodbridge.',
+      longDescription: [
+        "Woodbridge, New Jersey, is a large and historic township in Middlesex County. For dog owners, it offers a variety of parks and dedicated facilities. Alvin P. Williams Memorial Park in Sewaren features a beautiful waterfront walkway along the Arthur Kill. William Warren Park offers sports fields and walking paths. The township maintains dog parks for off-leash play (check local locations like the one in Sewaren or nearby). Woodbridge's central location and extensive park system ensure that residents have plenty of options for exercise, from waterfront strolls to wooded walks. It is a practical and well-serviced community for pet owners.",
+      ],
+      faqs: woodbridgeNjFaqs,
+    },
+  },
+  {
+    slug: 'wrightstown-nj',
+    city: 'Wrightstown',
+    state: 'NJ',
+    summary: 'Explore the rural roads and Pine Barrens vicinity of Wrightstown, NJ, a Burlington County borough near Joint Base McGuire-Dix-Lakehurst.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Wrightstown, NJ',
+      heroDescription: 'Walk the rural areas and Pine Barrens near Wrightstown.',
+      longDescription: [
+        "Wrightstown, New Jersey, is a small borough in Burlington County located adjacent to Joint Base McGuire-Dix-Lakehurst. It offers a quiet, rural setting for dog owners. The surrounding area is characterized by the Pine Barrens landscape, with flat sandy roads and forests. While the borough itself is small, it provides easy access to the vast Brendan T. Byrne State Forest and other wildlife management areas, which offer endless opportunities for hiking and exploring with a dog. Wrightstown provides a peaceful and country-like atmosphere for dog owners who prefer open space and tranquility over urban parks.",
+      ],
+      faqs: wrightstownNjFaqs,
     },
   },
 ];
