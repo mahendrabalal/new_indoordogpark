@@ -19,6 +19,7 @@ import SearchAutocomplete from '@/components/SearchAutocomplete';
 import SeoContentSection from '@/components/SeoContentSection';
 import PopularCitiesSection from '@/components/PopularCitiesSection';
 import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -432,7 +433,8 @@ export default function HomePageClient({
           </section>
         )}
 
-
+        {/* Adsterra Banner Ad - After Hero */}
+        {!showSearchLayout && <AdsterraBanner />}
 
         {/* Popular Cities Section - After Hero */}
         {!showSearchLayout && <PopularCitiesSection />}

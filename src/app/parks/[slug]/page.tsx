@@ -13,6 +13,7 @@ import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, gen
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 type ParkPageProps = {
   params: Promise<{
@@ -253,6 +254,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
             </div>
           </div>
         </section>
+
+        {/* Adsterra Banner Ad - After Hero */}
+        <AdsterraBanner />
 
         <div className="container park-detail-container">
           <div className="premium-content-grid">

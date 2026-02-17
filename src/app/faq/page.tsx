@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import FAQSection from '@/components/FAQSection';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 const parkCount = 360;
 
@@ -35,6 +36,9 @@ export default function FAQPage() {
           <p className="mt-4 text-lg text-slate-200">We captured the most frequent questions about safety, pricing, reviews, and listing policies.</p>
         </div>
       </section>
+
+      {/* Adsterra Banner Ad - After Hero */}
+      <AdsterraBanner />
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-5xl px-4">

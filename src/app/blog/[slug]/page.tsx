@@ -11,6 +11,7 @@ import BlogSubscribe from '@/components/blog/BlogSubscribe';
 import BlogCard from '@/components/blog/BlogCard';
 import { getCachedPosts, getCachedPostBySlug } from '@/lib/sanity-api';
 import { extractHeadingsFromHtml, addIdsToHeadings } from '@/lib/extract-headings';
+import AdsterraBanner from '@/components/AdsterraBanner';
 import { getRelatedParks, extractMentionedCities } from '@/lib/related-content';
 import { getAllStaticParks, getCitySlugByName } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
@@ -313,6 +314,9 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                   </div>
                 )}
               </header>
+
+              {/* Adsterra Banner Ad - After Hero Image */}
+              <AdsterraBanner />
 
               {/* Article Content */}
               <div

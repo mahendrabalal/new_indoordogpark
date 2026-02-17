@@ -11,6 +11,7 @@ import { USStateAbbr } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
 import CitiesPageStyles from './CitiesPageStyles';
 import CityDirectory from '@/components/CityDirectory';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 export const revalidate = 3600; // hourly
 
@@ -67,6 +68,9 @@ export default async function CitiesPage() {
                         </p>
                     </div>
                 </section>
+
+                {/* Adsterra Banner Ad - After Hero */}
+                <AdsterraBanner />
 
                 {/* Featured Cities Row */}
                 <section className="state-section">

@@ -9,6 +9,7 @@ import FAQSection from '@/components/FAQSection';
 import StatePageStyles from './StatePageStyles';
 import { SITE_URL, createMetaDescription, createSEOTitle, generateBreadcrumbSchema } from '@/lib/metadata';
 import { getStateContentBySlug } from '@/lib/state-page-data';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 type StatePageProps = {
   params: Promise<{
@@ -215,6 +216,9 @@ export default async function StatePage({ params }: StatePageProps) {
             </div>
           </div>
         </section>
+
+        {/* Adsterra Banner Ad - After Hero */}
+        <AdsterraBanner />
 
         {(customContent?.insightCards || customContent?.planningCards) && (
           <section className="state-section">

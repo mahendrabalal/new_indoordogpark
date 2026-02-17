@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+import AdsterraBanner from '@/components/AdsterraBanner';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Indoor Dog Park Support & Feedback',
@@ -39,6 +40,9 @@ export default function ContactPage() {
             <p>At IndoorDogPark, we&rsquo;re committed to providing you with the most comprehensive directory of indoor dog parks and play areas. Whether you&rsquo;re a dog owner looking for the perfect spot, a business owner wanting to list your facility, or have questions about our platform, we&rsquo;re here to help. Our team typically responds within 24 hours. For the fastest response, please use the contact form below or email us directly.</p>
           </div>
         </section>
+
+        {/* Adsterra Banner Ad - After Hero */}
+        <AdsterraBanner />
 
         {/* Main Contact Section */}
         <section className="contact-main">
