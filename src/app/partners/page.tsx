@@ -79,7 +79,7 @@ export default function PartnersPage() {
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
             <div className="space-y-6 lg:w-1/2">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-violet-200">Partners program</p>
-              <h1 className="text-4xl font-bold leading-tight md:text-5xl">Grow your park with California&rsquo;s most trusted dog community</h1>
+              <h1 className="text-4xl font-bold leading-tight md:text-5xl">Grow your park with the most trusted dog community</h1>
               <p className="text-lg text-slate-200">
                 IndoorDogPark connects motivated pet parents with safe, well-run facilities. Tap into an audience that is actively searching, planning,
                 and ready to visit today.
@@ -122,7 +122,7 @@ export default function PartnersPage() {
             <p className="mt-4 text-lg text-slate-600">We combine editorial storytelling, conversion-optimized listings, and hands-on support to help you fill every play session.</p>
             <div className="mt-6 space-y-4 text-slate-700">
               <p>
-                IndoorDogPark.org serves as California&apos;s most comprehensive directory for indoor dog facilities, attracting thousands of pet owners each month who are actively searching for safe, climate-controlled spaces for their dogs. Unlike generic business directories, we focus exclusively on indoor dog parks, training facilities, and daycare centers, ensuring your business reaches an audience with genuine intent to visit.
+                IndoorDogPark.org serves as the most comprehensive directory for indoor dog facilities, attracting thousands of pet owners each month who are actively searching for safe, climate-controlled spaces for their dogs. Unlike generic business directories, we focus exclusively on indoor dog parks, training facilities, and daycare centers, ensuring your business reaches an audience with genuine intent to visit.
               </p>
               <p>
                 Our platform combines search engine optimization, user reviews, detailed amenities information, and local market insights to help dog owners discover facilities that match their specific needs. By partnering with us, you gain access to a dedicated audience of committed pet parents who value quality, safety, and exceptional service for their dogs.
@@ -186,11 +186,10 @@ export default function PartnersPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
             {partnerTiers.map((tier, index) => (
-              <div key={tier.name} className={`flex flex-col rounded-3xl border-2 p-6 shadow-lg shadow-slate-900/5 ${
-                index === 1 
-                  ? 'border-violet-600 bg-gradient-to-br from-violet-50 to-purple-50' 
-                  : 'border-slate-200 bg-slate-50/70'
-              }`}>
+              <div key={tier.name} className={`flex flex-col rounded-3xl border-2 p-6 shadow-lg shadow-slate-900/5 ${index === 1
+                ? 'border-violet-600 bg-gradient-to-br from-violet-50 to-purple-50'
+                : 'border-slate-200 bg-slate-50/70'
+                }`}>
                 {index === 1 && (
                   <div className="mb-4">
                     <span className="inline-block bg-gradient-to-r from-violet-600 to-purple-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -211,13 +210,12 @@ export default function PartnersPage() {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  href={index === 0 ? "/list-your-park" : "/list-your-park?plan=premium"} 
-                  className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold ${
-                    index === 1 
-                      ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:from-violet-700 hover:to-purple-700' 
-                      : 'bg-slate-900 text-white hover:bg-slate-800'
-                  }`}
+                <Link
+                  href={index === 0 ? "/list-your-park" : "/list-your-park?plan=premium"}
+                  className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold ${index === 1
+                    ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:from-violet-700 hover:to-purple-700'
+                    : 'bg-slate-900 text-white hover:bg-slate-800'
+                    }`}
                 >
                   {index === 0 ? 'Get Started Free' : 'Choose Premium'}
                 </Link>

@@ -12,7 +12,18 @@ export const metadata: Metadata = {
   title: 'Browse Dog Parks by State | Indoor Dog Park',
   description: 'Explore dog park and dog-friendly listings by state. Start with the best-covered states and drill down into city directories.',
   alternates: {
-    canonical: `${SITE_URL}/states`,
+    canonical: '/states',
+  },
+  openGraph: {
+    title: 'Browse Dog Parks by State | Indoor Dog Park',
+    description: 'Explore dog park and dog-friendly listings by state.',
+    url: `${SITE_URL}/states`,
+    type: 'website',
+    images: ['/images/hero/hero.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

@@ -146,7 +146,7 @@ function LoginForm() {
             </Link>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-                California indoor network
+                Nationwide indoor network
               </p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight lg:text-5xl">
                 Plan safe indoor play sessions with confidence

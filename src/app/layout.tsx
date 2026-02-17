@@ -23,11 +23,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org'),
   title: {
-    default: 'Best Indoor Dog Parks in California | Indoor Dog Park',
+    default: 'Indoor Dog Parks Near You | Find the Best Indoor Dog Parks',
     template: '%s | Indoor Dog Park'
   },
   description:
-    'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+    'Find year-round indoor dog parks across the United States. Search by city, state, or zip to discover safe, climate-controlled play spaces for your dog.',
   applicationName: 'Indoor Dog Park',
   keywords: [
     'indoor dog park',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'pet services',
     'canine activities',
     'off-leash dog areas',
-    'California dog parks',
+    'US dog parks',
     'dog-friendly spaces'
   ],
   authors: [{ name: 'Indoor Dog Park Team', url: 'https://www.indoordogpark.org' }],
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.indoordogpark.org',
-    title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
+    title: 'Indoor Dog Parks Near You | Find the Best Indoor Dog Parks',
     description:
-      'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+      'Find year-round indoor dog parks across the United States. Search by city, state, or zip to discover safe, climate-controlled play spaces for your dog.',
     siteName: 'Indoor Dog Park',
     images: [
       {
@@ -84,9 +84,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Indoor Dog Parks in California | Indoor Dog Park',
+    title: 'Indoor Dog Parks Near You | Find the Best Indoor Dog Parks',
     description:
-      'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+      'Find year-round indoor dog parks across the United States. Search by city, state, or zip to discover safe, climate-controlled play spaces for your dog.',
     images: ['/images/hero/hero.webp'],
     site: '@indoordogpark',
     creator: '@indoordogpark',
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
@@ -142,7 +142,7 @@ export default function RootLayout({
     name: 'Indoor Dog Park',
     url: 'https://www.indoordogpark.org',
     logo: 'https://www.indoordogpark.org/images/logo/logo-512.png',
-    description: 'California\'s premier directory for indoor dog parks, play areas, and dog-friendly facilities.',
+    description: 'The premier US directory for indoor dog parks, play areas, and dog-friendly facilities.',
     ...(socialMediaLinks.length > 0 && { sameAs: socialMediaLinks }),
     contactPoint: {
       '@type': 'ContactPoint',
@@ -157,7 +157,7 @@ export default function RootLayout({
     '@type': 'WebSite',
     name: 'Indoor Dog Park',
     url: 'https://www.indoordogpark.org',
-    description: 'Find the best indoor dog parks and facilities across California',
+    description: 'Find the best indoor dog parks and facilities across the United States',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -199,7 +199,7 @@ export default function RootLayout({
         <link rel="preload" href="/images/logo/logo.png" as="image" type="image/png" />
 
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico.svg" type="image/svg+xml" />
+
         <link rel="alternate icon" href="/icons/icon-192x192.png" type="image/png" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

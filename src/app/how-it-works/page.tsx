@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     description: 'Learn about our rigorous 12-point safety check and how we review indoor dog parks for cleanliness, staff training, and vaccination policies.',
     url: 'https://www.indoordogpark.org/how-it-works',
     type: 'website',
+    images: ['/images/hero/hero.webp'],
   },
 };
 

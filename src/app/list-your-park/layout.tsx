@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'List Your Dog Park | Indoor Dog Park Directory',
-  description: 'Add your indoor dog park, dog daycare, or dog-friendly establishment to California\'s most trusted directory. Free and featured listing options available.',
+  description: 'Add your indoor dog park, dog daycare, or dog-friendly establishment to the most trusted US directory. Free and featured listing options available.',
   keywords: [
     'list dog park',
     'add dog park',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'List Your Dog Park | Indoor Dog Park Directory',
-    description: 'Add your indoor dog park, dog daycare, or dog-friendly establishment to California\'s most trusted directory.',
+    description: 'Add your indoor dog park, dog daycare, or dog-friendly establishment to the most trusted US directory.',
     url: 'https://www.indoordogpark.org/list-your-park',
     type: 'website',
   },

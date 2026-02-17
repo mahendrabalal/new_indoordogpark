@@ -308,7 +308,7 @@ export default function ListPropertyPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">List Your Dog Park</h1>
-            <p className="text-lg text-gray-600">Share your park with dog lovers across California</p>
+            <p className="text-lg text-gray-600">Share your park with dog lovers across the country</p>
           </div>
 
           {/* Owner Newsletter Signup - Lead Magnet */}

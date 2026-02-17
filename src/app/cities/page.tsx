@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Top Dog-Friendly Cities | Indoor Dog Park Directory',
     description: 'Explore the best cities for indoor dog parks and dog-friendly amenities. Find verified listings in Chicago, Austin, NYC, and more.',
     alternates: {
-        canonical: `${SITE_URL}/cities`,
+        canonical: '/cities',
     },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: [
     'about indoor dog park',
     'dog park directory',
-    'indoor dog parks california',
+    'indoor dog parks',
     'dog friendly places',
     'canine recreation',
     'pet wellness',

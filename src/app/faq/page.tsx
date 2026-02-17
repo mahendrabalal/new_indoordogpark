@@ -4,7 +4,7 @@ import PageLayout from '@/components/PageLayout';
 import FAQSection from '@/components/FAQSection';
 import AdsterraBanner from '@/components/AdsterraBanner';
 
-const parkCount = 360;
+const parkCount = 500;
 
 const faqStats = [
   { value: '72 hrs', label: 'Average listing verification time' },
@@ -20,9 +20,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'IndoorDogPark FAQs',
-    description: 'Answers to common questions about IndoorDogPark, listings, safety standards, and community guidelines.',
+    description: 'Get answers about listing requirements, safety standards, and how our directory works.',
     url: 'https://www.indoordogpark.org/faq',
     type: 'website',
+    images: ['/images/hero/hero.webp'],
   },
 };
 
@@ -53,7 +54,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <FAQSection cityName="California" parkCount={parkCount} />
+      <FAQSection cityName="the United States" parkCount={parkCount} />
 
       <section className="bg-slate-900 py-16 text-white">
         <div className="mx-auto flex max-w-4xl flex-col gap-6 text-center">

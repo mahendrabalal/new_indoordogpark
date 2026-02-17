@@ -3,8 +3,10 @@
 import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
 
 function UnsubscribeContent() {
     const searchParams = useSearchParams();

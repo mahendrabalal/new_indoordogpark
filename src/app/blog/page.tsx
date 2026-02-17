@@ -162,7 +162,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   const getPageDescription = () => {
     if (searchTerm) return `Showing ${posts.length} results for "${searchTerm}"`;
     if (categorySlug || tagSlug) return `${pagination.total} articles found`;
-    return 'Tips, guides, and stories about California dog parks';
+    return 'Tips, guides, and stories about indoor dog parks';
   };
 
   if (!hasPosts) {
@@ -457,7 +457,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-12 text-center">
                 <h3 className="text-lg font-semibold text-gray-900">You&apos;re all caught up.</h3>
                 <p className="mt-2 text-gray-600">
-                  Adjust your filters or search to surface more California dog park stories.
+                  Adjust your filters or search to surface more indoor dog park stories.
                 </p>
                 {activeFilters && (
                   <Link
@@ -592,7 +592,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   return {
     title,
     description,
-    keywords: 'indoor dog parks, dog training, pet care, dog-friendly facilities, California dog parks, dog park guides, pet tips',
+    keywords: 'indoor dog parks, dog training, pet care, dog-friendly facilities, US dog parks, dog park guides, pet tips',
     alternates: {
       canonical: canonicalUrl,
     },
