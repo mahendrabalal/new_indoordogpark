@@ -21,6 +21,8 @@ export default function robots(): MetadataRoute.Robots {
           '/webhook/', // Webhook endpoints
           '/private/',
           '/_next/static/media/', // Internal Next.js files
+          '/login',   // Auth pages — block to save crawl budget
+          '/signup',  // Auth pages — block to save crawl budget
         ],
         // Be polite to smaller bots/scrapers without slowing down Google/Bing (they ignore crawlDelay anyway)
         crawlDelay: 1,
@@ -58,6 +60,8 @@ export default function robots(): MetadataRoute.Robots {
           '/studio/',
           '/webhook/',
           '/private/',
+          '/login',
+          '/signup',
         ],
         crawlDelay: 0,
       },
@@ -94,6 +98,8 @@ export default function robots(): MetadataRoute.Robots {
           '/studio/',
           '/webhook/',
           '/private/',
+          '/login',
+          '/signup',
         ],
         crawlDelay: 0,
       },
