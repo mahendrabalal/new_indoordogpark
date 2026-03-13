@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import AdsterraBanner from '@/components/AdsterraBanner';
+
 
 export const metadata: Metadata = {
   title: 'About Us | Indoor Dog Park Directory & Reviews',
@@ -58,8 +58,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Adsterra Banner Ad - After Hero */}
-        <AdsterraBanner />
+
 
         {/* Meet the Team Section */}
         <section className="about-modern-section" style={{ padding: '40px 20px' }}>

@@ -13,7 +13,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
 import StructuredData from '@/components/blog/StructuredData';
 import NewsletterForm from '@/components/NewsletterForm';
-import AdsterraBanner from '@/components/AdsterraBanner';
+
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
@@ -372,8 +372,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
           </section>
         )}
 
-        {/* Adsterra Banner Ad - After Hero/Featured */}
-        <AdsterraBanner />
+
 
         {/* Browse by categories Section */}
         <section className="border-b border-gray-200 bg-white py-8">

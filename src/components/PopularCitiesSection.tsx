@@ -12,13 +12,13 @@ const popularCities: PopularCity[] = [
     {
         name: 'Austin',
         slug: 'austin',
-        image: '/images/cities/austin-tx/hero.png',
+        image: '/images/cities/austin-tx/hero.webp',
         parkCount: 15
     },
     {
         name: 'Phoenix',
         slug: 'phoenix',
-        image: '/images/cities/Phoenix/hero.webp',
+        image: '/images/cities/phoenix/hero.webp',
         parkCount: 12
     },
     {

@@ -271,6 +271,9 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date()
   const cityPages: MetadataRoute.Sitemap = []
 
+  // Logic must match src/app/cities/[slug]/page.tsx
+  const MIN_CITY_LISTINGS_FOR_INDEXING = 3
+
   try {
     // Add city pages (includes both static cities and priority cities)
     // Calculate lastModified based on most recent park update in each city
@@ -282,9 +285,23 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
         // Get city content to find parks in this city
         const cityContent = await getCityContentBySlug(slug)
 
+        if (!cityContent) {
+          continue
+        }
+
+        // Apply indexing logic:
+        // Index if totalParks >= 3 OR totalReviews >= 200
+        // (Matches src/app/cities/[slug]/page.tsx:shouldIndexCity)
+        const shouldIndex = cityContent.stats.totalParks >= MIN_CITY_LISTINGS_FOR_INDEXING || cityContent.stats.totalReviews >= 200
+
+        if (!shouldIndex) {
+          // console.log(`[sitemap-cities] Skipping thin city: ${slug} (${cityContent.stats.totalParks} parks, ${cityContent.stats.totalReviews} reviews)`)
+          continue
+        }
+
         // Get the most recent lastUpdated date from parks in this city
         let cityLastModified = currentDate
-        if (cityContent && cityContent.cityParks.length > 0) {
+        if (cityContent.cityParks.length > 0) {
           const parkDates = cityContent.cityParks
             .map((park) => (park.lastUpdated ? new Date(park.lastUpdated) : null))
             .filter((date): date is Date => date !== null && !isNaN(date.getTime()))

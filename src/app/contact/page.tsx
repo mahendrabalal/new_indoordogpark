@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import AdsterraBanner from '@/components/AdsterraBanner';
+
 
 export const metadata: Metadata = {
   title: 'Contact Us | Indoor Dog Park Support & Feedback',
@@ -41,8 +41,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Adsterra Banner Ad - After Hero */}
-        <AdsterraBanner />
+
 
         {/* Main Contact Section */}
         <section className="contact-main">

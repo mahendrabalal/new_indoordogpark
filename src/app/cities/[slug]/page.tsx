@@ -21,7 +21,7 @@ import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 import CityParkComparison from '@/components/CityParkComparison';
-import AdsterraBanner from '@/components/AdsterraBanner';
+
 
 interface CityPageProps {
   params: Promise<{
@@ -671,8 +671,7 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
-        {/* Adsterra Banner Ad - After Hero */}
-        <AdsterraBanner />
+
 
         <CityPremiumSpotlight city={city.name} state={city.state} />
 

@@ -171,14 +171,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Grow by Mediavine - Top placement for verification reliability */}
-        <script
-          data-grow-initializer=""
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: `!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTo2NWU3MDY3YS0wNzI0LTQ0NjktYTZmYS1iYzU0YWYzNWYzOTg=");var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();`,
-          }}
-        />
+
         <meta name="p:domain_verify" content="0563fd1fc3dbf5ddf80e6b177ae94816" />
 
         {/* Preconnect to most critical domains only (limit to 4 to avoid warnings) */}
@@ -221,12 +214,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688786543603411"
-          crossOrigin="anonymous"
-        />
 
       </head>
       <body className={inter.className}>

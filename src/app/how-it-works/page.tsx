@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import OptimizedImage from '@/components/OptimizedImage';
 import AmazonProduct from '@/components/AmazonProduct';
-import AdsterraBanner from '@/components/AdsterraBanner';
+
 
 const safetyChecklist = [
   {
@@ -88,8 +88,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Adsterra Banner Ad - After Hero */}
-      <AdsterraBanner />
+
 
       {/* Safety Standards Section */}
       <section className="bg-white py-20">

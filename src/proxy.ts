@@ -10,7 +10,7 @@ function applyNoIndexHeader(response: NextResponse) {
   return response;
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   // Redirect non-www to www for SEO (301 permanent redirect)
   // Industry best practice: Consolidate link equity and prevent duplicate content
   const hostname = request.headers.get('host') || '';
