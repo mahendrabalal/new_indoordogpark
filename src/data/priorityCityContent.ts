@@ -8440,7 +8440,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'phoenix',
     city: 'Phoenix',
     state: 'AZ',
-    featuredImage: '/images/cities/Phoenix/hero.webp',
+    featuredImage: '/images/cities/phoenix/hero.webp',
     summary:
       'Peak search volume in summer—pair landing page with heat alerts and membership waitlist CTAs.',
     parks: [],
