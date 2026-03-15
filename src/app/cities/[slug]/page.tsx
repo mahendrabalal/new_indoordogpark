@@ -9,6 +9,7 @@ import FAQSection from '@/components/FAQSection';
 import CityStats from '@/components/CityStats';
 import ScrollToButton from '@/components/ScrollToButton';
 import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
+import { getStateName } from '@/lib/state';
 import { getCityContentBySlug } from '@/lib/parks-data';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
@@ -79,15 +80,13 @@ function getLocalBusinessSchemaType(businessType: string): 'SportsActivityLocati
 }
 
 function getCityH1(cityName: string, state: string, indoorCount: number) {
-  if (state === 'CA' || state === 'California') {
-    return `Indoor Dog Park In ${cityName}`;
-  }
+  const fullState = getStateName(state) || state;
   if (indoorCount > 0) {
     return indoorCount === 1
-      ? `Indoor Dog Park in ${cityName}, ${state}`
-      : `Indoor Dog Parks in ${cityName}, ${state}`;
+      ? `Indoor Dog Park in ${cityName}, ${fullState}`
+      : `Indoor Dog Parks in ${cityName}, ${fullState}`;
   }
-  return `Dog Parks in ${cityName}, ${state}`;
+  return `Dog Parks in ${cityName}, ${fullState}`;
 }
 
 function buildUniqueHeroDescription(params: {
@@ -124,12 +123,11 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const canonicalSlug = city.slug;
   // Use an absolute title here to avoid the root `template` appending another suffix.
   // This keeps the final rendered <title> closer to the intended 55–65 char range.
+  const fullState = getStateName(city.state) || city.state;
   const cityTitle = createSEOTitle(
-    city.state === 'CA' || city.state === 'California'
-      ? `Indoor Dog Park In ${city.name} | Map & Reviews | Indoor Dog Park`
-      : (indoorCount > 0
-        ? `Indoor Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`
-        : `Dog Parks in ${city.name}, ${city.state} | Map & Reviews | Indoor Dog Park`),
+    indoorCount > 0
+      ? `Indoor Dog Parks in ${city.name}, ${fullState} | Map & Reviews | Indoor Dog Park`
+      : `Dog Parks in ${city.name}, ${fullState} | Map & Reviews | Indoor Dog Park`
   );
   const pageDescription = createMetaDescription(
     indoorCount > 0
@@ -351,12 +349,13 @@ export default async function CityPage({ params }: CityPageProps) {
     containsPlace: structuredPlaces,
   };
 
+  const fullState = getStateName(city.state) || city.state;
   const itemListStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': `${absoluteCanonicalUrl}#itemlist`,
-    name: city.state === 'CA' || city.state === 'California' ? `Indoor Dog Park In ${city.name}` : `Dog Parks in ${city.name}`,
-    description: `Top-rated dog parks and facilities in ${city.name}, ${city.state}`,
+    name: indoorCount > 0 ? `Indoor Dog Parks in ${city.name}` : `Dog Parks in ${city.name}`,
+    description: `Top-rated dog parks and facilities in ${city.name}, ${fullState}`,
     numberOfItems: topParks.length,
     itemListElement: topParks.map((park, index) => {
       const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
@@ -463,7 +462,7 @@ export default async function CityPage({ params }: CityPageProps) {
   // Generate breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory', url: '/' },
+    { name: 'Dog Parks Directory', url: '/' },
     { name: city.name },
   ]);
 
@@ -576,7 +575,7 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="hero-breadcrumbs">
                 <Link href="/">Home</Link>
                 <i className="bi bi-chevron-right" />
-                <span>{city.state === 'CA' ? 'California Dog Parks' : 'Dog Parks Directory'}</span>
+                <span>Dog Parks Directory</span>
                 <i className="bi bi-chevron-right" />
                 <strong>{city.name}</strong>
               </div>
@@ -1008,7 +1007,7 @@ export default async function CityPage({ params }: CityPageProps) {
                 <div className="resource-icon">
                   <i className="bi bi-globe" />
                 </div>
-                <h3>California overview</h3>
+                <h3>Nationwide directory</h3>
                 <p>See every city we cover plus statewide insights.</p>
                 <i className="bi bi-arrow-up-right" />
               </Link>

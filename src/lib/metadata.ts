@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { DogPark } from '@/types/dog-park';
+import { getStateName } from '@/lib/state';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
@@ -129,10 +130,9 @@ export function generateParkMetadata(park: DogPark): Metadata {
   const canonicalPath = `/parks/${park.slug || park.id}`;
   const canonical = `${SITE_URL}${canonicalPath}`;
 
-  // Generate unique keywords for this park
   const uniqueKeywords = generateUniqueParkKeywords(park);
   const stateAbbr = park.state || 'CA';
-  const stateName = park.state === 'NY' ? 'New York' : park.state === 'CA' ? 'California' : park.state || 'California';
+  const stateName = getStateName(park.state) || park.state || 'California';
 
   // Create full title with unique keywords instead of generic "Indoor Dog Park"
   // Format: "Park Name | Business Type in City, State | Unique Keywords"
@@ -204,7 +204,7 @@ export function generateParkMetadata(park: DogPark): Metadata {
     keywords: [
       park.name,
       park.city,
-      park.state === 'NY' ? 'New York dog parks' : 'California dog parks',
+      `${stateName} dog parks`,
       'indoor dog park',
       park.businessType,
       `${park.city} dog park`,
@@ -607,7 +607,7 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
     '@type': 'CollectionPage',
     '@id': `${canonical}#webpage`,
     name: 'Indoor Dog Parks Directory',
-    description: 'Find year-round indoor dog parks across California. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+    description: 'Find year-round indoor dog parks across the US. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
     url: canonical,
     mainEntity: {
       '@type': 'ItemList',

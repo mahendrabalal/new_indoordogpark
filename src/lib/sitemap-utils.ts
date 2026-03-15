@@ -10,6 +10,7 @@ import {
 } from './parks-data'
 import { supabaseAdminClient } from './supabase-admin'
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
+import { getAllStateSlugs, getStateContentBySlug } from './state-page-data'
 
 /**
  * Shared utilities for sitemap generation
@@ -335,6 +336,58 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   return cityPages
+}
+
+/**
+ * Gets states sitemap data
+ */
+export async function getStatesSitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = SITE_URL
+  const currentDate = new Date()
+  const statePages: MetadataRoute.Sitemap = []
+
+  try {
+    const stateSlugs = await getAllStateSlugs()
+    console.log(`[sitemap-states] Processing ${stateSlugs.length} states`)
+
+    for (const slug of stateSlugs) {
+      try {
+        const stateContent = await getStateContentBySlug(slug)
+
+        if (!stateContent || !stateContent.indexable) {
+          continue
+        }
+
+        let stateLastModified = currentDate
+        if (stateContent.cities && stateContent.cities.length > 0) {
+          // You could derive the most recent park update across all cities here,
+          // but currentDate is safe for now given weekly change frequency.
+          stateLastModified = currentDate
+        }
+
+        statePages.push({
+          url: `${baseUrl}/states/${stateContent.canonicalSlug}`,
+          lastModified: stateLastModified,
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        })
+      } catch (stateError) {
+        console.warn(`[sitemap-states] Failed to process state ${slug}:`, {
+          error: stateError instanceof Error ? stateError.message : String(stateError),
+        })
+      }
+    }
+
+    console.log(`[sitemap-states] Successfully added ${statePages.length} state pages to sitemap`)
+  } catch (error) {
+    console.error('[sitemap-states] CRITICAL: Error building state sitemap entries:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    })
+    return []
+  }
+
+  return statePages
 }
 
 /**
