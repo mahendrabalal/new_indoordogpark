@@ -54,6 +54,21 @@ export interface ParkSubmissionForm {
     daycare?: boolean;
     training?: boolean;
     socializing?: boolean;
+    cafe?: boolean;
+    bar?: boolean;
+    wifi?: boolean;
+    climateControl?: boolean;
+    misters?: boolean;
+    foodAllowed?: boolean;
+  };
+
+  // Step 4.5: Rules & Requirements
+  rules?: {
+    vaccinationsRequired?: boolean;
+    spayNeuterRequired?: boolean;
+    temperamentTestRequired?: boolean;
+    privateBookingAvailable?: boolean;
+    staffSupervised?: boolean;
   };
 
   // Step 5: Pricing & Photos

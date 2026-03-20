@@ -127,6 +127,11 @@ export default function FeaturedParks() {
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-stretch">
             {/* Spotlight Hero Card */}
             <article className="spotlight-card relative overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] border border-white/10 group h-full min-h-[420px] flex flex-col">
+              {spotlightPark.slug && (
+                <Link href={`/parks/${spotlightPark.slug}`} className="absolute inset-0 z-10">
+                  <span className="sr-only">View {spotlightPark.name} details</span>
+                </Link>
+              )}
               {spotlightPark.photos && spotlightPark.photos.length > 0 ? (
                 <>
                   <Image
@@ -170,7 +175,7 @@ export default function FeaturedParks() {
                     {spotlightPark.slug && (
                       <Link
                         href={`/parks/${spotlightPark.slug}`}
-                        className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-black text-slate-950 transition-all hover:bg-slate-100 active:scale-95 shadow-lg"
+                        className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-black text-slate-950 transition-all hover:bg-slate-100 active:scale-95 shadow-lg relative z-20"
                       >
                         Profile <i className="bi bi-arrow-right" />
                       </Link>
@@ -180,7 +185,7 @@ export default function FeaturedParks() {
                         href={spotlightPark.website}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/20 active:scale-95"
+                        className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/20 active:scale-95 relative z-20"
                       >
                         Website <i className="bi bi-box-arrow-up-right" />
                       </a>
@@ -226,6 +231,9 @@ export default function FeaturedParks() {
                   key={park.id}
                   className="group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white border border-slate-100 transition-all duration-300 hover:shadow-xl hover:border-purple-100 hover:-translate-y-1"
                 >
+                  <Link href={`/parks/${park.slug || park.id}`} className="absolute inset-0 z-10">
+                    <span className="sr-only">View {park.name} details</span>
+                  </Link>
                   <div className="relative h-48 overflow-hidden">
                     {park.photos && park.photos.length > 0 ? (
                       <Image
@@ -261,7 +269,7 @@ export default function FeaturedParks() {
                       </div>
                       <Link
                         href={`/parks/${park.slug || park.id}`}
-                        className="flex items-center gap-1 text-xs font-black text-slate-900 transition-colors hover:text-purple-600"
+                        className="flex items-center gap-1 text-xs font-black text-slate-900 transition-colors hover:text-purple-600 relative z-20"
                       >
                         Details <i className="bi bi-arrow-right" />
                       </Link>

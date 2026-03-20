@@ -301,8 +301,7 @@ export default function HomePageClient({
                   height={40}
                   priority
                   fetchPriority="high"
-                  style={{ objectFit: 'contain', height: 'auto' }}
-                  unoptimized
+                  style={{ objectFit: 'contain' }}
                 />
               </a>
 

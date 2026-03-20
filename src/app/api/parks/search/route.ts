@@ -306,13 +306,14 @@ export async function GET(request: Request) {
       }
     }
 
-    // 6. Amenities filter
+    // 6. Amenities and Rules filter
     if (params.amenities && params.amenities.length > 0) {
       filteredParks = filteredParks.filter(park => {
-        if (!park.amenities) return false;
-        return params.amenities!.every(amenity =>
-          park.amenities && park.amenities[amenity as keyof typeof park.amenities] === true
-        );
+        return params.amenities!.every(amenity => {
+          const hasAmenity = park.amenities && park.amenities[amenity as keyof typeof park.amenities] === true;
+          const hasRule = park.rules && park.rules[amenity as keyof typeof park.rules] === true;
+          return hasAmenity || hasRule;
+        });
       });
     }
 

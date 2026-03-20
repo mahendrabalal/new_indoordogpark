@@ -31,7 +31,21 @@ export interface Amenities {
   daycare?: boolean;
   training?: boolean;
   socializing?: boolean;
+  cafe?: boolean;
+  bar?: boolean;
+  wifi?: boolean;
+  climateControl?: boolean;
+  misters?: boolean;
+  foodAllowed?: boolean;
   [key: string]: boolean | undefined;
+}
+
+export interface ParkRules {
+  vaccinationsRequired?: boolean;
+  spayNeuterRequired?: boolean;
+  temperamentTestRequired?: boolean;
+  privateBookingAvailable?: boolean;
+  staffSupervised?: boolean;
 }
 
 export interface MediaAsset {
@@ -111,6 +125,7 @@ export interface DogPark {
 
   // Amenities & Features
   amenities?: Amenities;
+  rules?: ParkRules;
   indoorOutdoor?: 'indoor' | 'outdoor' | 'both';
   sizeCategory?: 'small' | 'medium' | 'large';
   surfaceType?: string;

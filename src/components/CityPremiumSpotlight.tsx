@@ -103,7 +103,12 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
       }
     >
       {premiumParks.map((park) => (
-        <article key={park.id} className="city-premium-card">
+        <article key={park.id} className="city-premium-card relative group transition-all hover:-translate-y-1 hover:shadow-xl">
+          {park.slug && (
+            <Link href={`/parks/${park.slug}`} className="absolute inset-0 z-10">
+              <span className="sr-only">View {park.name} details</span>
+            </Link>
+          )}
           <div className="city-premium-media">
             {park.photos && park.photos.length > 0 ? (
               <Image
@@ -137,7 +142,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
             </p>
           </div>
 
-          <div className="city-premium-card-actions">
+          <div className="city-premium-card-actions relative z-20">
             {park.slug && (
               <Link href={`/parks/${park.slug}`} className="city-premium-primary">
                 View profile

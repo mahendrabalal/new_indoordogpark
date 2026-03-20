@@ -103,6 +103,10 @@ export default function RecentlyAddedParks() {
                             key={park.id}
                             className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm transition-all hover:shadow-xl hover:border-emerald-200 hover:-translate-y-1"
                         >
+                            <Link href={`/parks/${park.slug || park.id}`} className="absolute inset-0 z-10">
+                                <span className="sr-only">View {park.name} details</span>
+                            </Link>
+
                             {/* Image */}
                             <div className="relative h-40 overflow-hidden bg-gradient-to-br from-emerald-100 to-blue-100">
                                 {park.photos && park.photos.length > 0 ? (
@@ -112,7 +116,6 @@ export default function RecentlyAddedParks() {
                                         fill
                                         className="object-cover transition duration-500 group-hover:scale-110"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                                        unoptimized={true}
                                     />
                                 ) : (
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -149,11 +152,13 @@ export default function RecentlyAddedParks() {
                                             {park.businessType}
                                         </p>
                                     </div>
-                                    <FavoriteButton
-                                        parkId={park.id}
-                                        parkSlug={park.slug}
-                                        className="favorite-btn-minimal"
-                                    />
+                                    <div className="relative z-20">
+                                        <FavoriteButton
+                                            parkId={park.id}
+                                            parkSlug={park.slug}
+                                            className="favorite-btn-minimal"
+                                        />
+                                    </div>
                                 </div>
 
                                 <p className="text-sm text-slate-600 leading-relaxed line-clamp-2 mb-3">
@@ -168,7 +173,7 @@ export default function RecentlyAddedParks() {
                                         </span>
                                         <Link
                                             href={`/parks/${park.slug || park.id}`}
-                                            className="font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
+                                            className="font-semibold text-emerald-600 hover:text-emerald-700 transition-colors relative z-20"
                                         >
                                             View details →
                                         </Link>

@@ -99,6 +99,41 @@ export default function SearchFilters({
           </select>
         </div>
 
+        {/* Features Filter */}
+        <div className="search-filter-group md:col-span-2 lg:col-span-3 mt-2 border-t border-gray-100 pt-4">
+          <label className="search-filter-label mb-3">Popular Options</label>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { id: 'cafe', label: '☕ Cafe on Site' },
+              { id: 'bar', label: '🍺 Bar on Site' },
+              { id: 'climateControl', label: '❄️ Air Conditioned' },
+              { id: 'privateBookingAvailable', label: '🗓️ Private Booking' },
+              { id: 'vaccinationsRequired', label: '💉 Vaccines Required' },
+            ].map((feature) => {
+              const isActive = filters.amenities?.includes(feature.id);
+              return (
+                <button
+                  key={feature.id}
+                  onClick={() => {
+                    const current = filters.amenities || [];
+                    const newAmenities = isActive 
+                      ? current.filter(a => a !== feature.id)
+                      : [...current, feature.id];
+                    onFiltersChange({ amenities: newAmenities.length > 0 ? newAmenities : undefined });
+                  }}
+                  className={`px-4 py-2 rounded-full text-sm transition-all border ${
+                    isActive
+                      ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
+                      : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }`}
+                >
+                  {feature.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Results Count */}
         <div className="search-filter-results">
           <span className="search-filter-results-count">

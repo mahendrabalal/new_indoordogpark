@@ -390,6 +390,59 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </section>
               )}
 
+              {park.rules && (
+                <section className="premium-content-section park-rules-section">
+                  <h2 className="premium-section-title">Rules & Requirements</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
+                    {park.rules.vaccinationsRequired !== undefined && (
+                      <div className="characteristic-item flex items-center gap-3">
+                        <i className={`bi ${park.rules.vaccinationsRequired ? 'bi-shield-check text-green-600' : 'bi-shield-dash text-gray-500'} text-2xl`}></i>
+                        <div>
+                          <strong className="block text-gray-900">Vaccinations</strong>
+                          <span className="text-sm text-gray-600">{park.rules.vaccinationsRequired ? 'Required (Proof Needed)' : 'Not Strictly Required'}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.rules.spayNeuterRequired !== undefined && (
+                      <div className="characteristic-item flex items-center gap-3">
+                        <i className={`bi ${park.rules.spayNeuterRequired ? 'bi-check-circle-fill text-green-600' : 'bi-x-circle text-gray-500'} text-2xl`}></i>
+                        <div>
+                          <strong className="block text-gray-900">Spay/Neuter</strong>
+                          <span className="text-sm text-gray-600">{park.rules.spayNeuterRequired ? 'Required' : 'Not Required'}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.rules.temperamentTestRequired !== undefined && (
+                      <div className="characteristic-item flex items-center gap-3">
+                        <i className={`bi ${park.rules.temperamentTestRequired ? 'bi-clipboard-check-fill text-green-600' : 'bi-clipboard text-gray-500'} text-2xl`}></i>
+                        <div>
+                          <strong className="block text-gray-900">Temperament Test</strong>
+                          <span className="text-sm text-gray-600">{park.rules.temperamentTestRequired ? 'Required Before Entry' : 'No Evaluation Required'}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.rules.privateBookingAvailable !== undefined && (
+                      <div className="characteristic-item flex items-center gap-3">
+                        <i className={`bi ${park.rules.privateBookingAvailable ? 'bi-calendar-check-fill text-purple-600' : 'bi-calendar-minus text-gray-500'} text-2xl`}></i>
+                        <div>
+                          <strong className="block text-gray-900">Private Booking</strong>
+                          <span className="text-sm text-gray-600">{park.rules.privateBookingAvailable ? 'Available (Solo Time)' : 'Group Play Only'}</span>
+                        </div>
+                      </div>
+                    )}
+                    {park.rules.staffSupervised !== undefined && (
+                      <div className="characteristic-item flex items-center gap-3">
+                        <i className={`bi ${park.rules.staffSupervised ? 'bi-person-badge-fill text-blue-600' : 'bi-person-bounding-box text-orange-500'} text-2xl`}></i>
+                        <div>
+                          <strong className="block text-gray-900">Supervision</strong>
+                          <span className="text-sm text-gray-600">{park.rules.staffSupervised ? 'Staff Monitored (Park Rangers)' : 'Owner Supervised Only'}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </section>
+              )}
+
 
               <section className="premium-content-section directions-section">
                 <div className="flex justify-between items-center mb-6">

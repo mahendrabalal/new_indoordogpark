@@ -84,8 +84,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
               width={140}
               height={40}
               priority
-              unoptimized
-              style={{ objectFit: 'contain', height: 'auto' }}
+              style={{ objectFit: 'contain' }}
             />
           </Link>
         </div>
