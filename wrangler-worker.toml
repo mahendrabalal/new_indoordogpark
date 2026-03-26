@@ -1,9 +1,0 @@
-name = "indoordogpark-worker"
-main = ".open-next/worker.js"
-compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"]
-account_id = "2817aa2dbd311ba6d437f2be203f101a"
-
-[assets]
-directory = ".open-next/assets"
-binding = "ASSETS"
