@@ -203,7 +203,7 @@ function portableTextToHtml(blocks: SanityPortableBlock[] = []): string {
       try {
         if (block.asset.url) {
           imageUrl = block.asset.url + (block.asset.url.includes('?') ? '&' : '?') + 'w=800';
-        } else if (block.asset._id) {
+        } else if (block.asset._id || block.asset._ref) {
           imageUrl = urlForImage(block).width(800).url();
         }
       } catch (e) {
