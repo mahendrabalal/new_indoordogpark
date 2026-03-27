@@ -8,6 +8,7 @@ import { LazyStyles } from '@/components/LazyStyles'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -188,6 +189,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Preload critical resources for faster initial render */}
+        {/* Hero image is the Largest Contentful Paint (LCP) element - preload is critical */}
+        <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" />
         {/* Logo is used in header and search layout - preload for better LCP */}
         <link rel="preload" href="/images/logo/logo.png" as="image" type="image/png" />
 
@@ -198,12 +201,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
 
-        {/* Google AdSense Verification */}
-        <script
-          async
+        {/* Google AdSense Verification - lazy load to prevent render blocking */}
+        <Script
+          id="adsense"
+          strategy="lazyOnload"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205755972349086"
           crossOrigin="anonymous"
-        ></script>
+        />
 
         {/* Structured Data */}
         <script
