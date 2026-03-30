@@ -418,7 +418,8 @@ export async function getBlogSitemap(): Promise<MetadataRoute.Sitemap> {
       })
     }
 
-    // Fetch categories from Sanity
+    // Fetch categories from Sanity (DISABLED FOR ADSENSE COMPLIANCE)
+    /*
     const categories = await getCachedCategories()
     console.log(`[sitemap-blog] Processing ${categories.length} categories`)
 
@@ -445,12 +446,13 @@ export async function getBlogSitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.5,
       })
     }
+    */
 
     console.log(
-      `[sitemap-blog] Successfully added ${blogPages.length + categoryPages.length + tagPages.length} blog pages to sitemap:
+      `[sitemap-blog] Successfully added ${blogPages.length} blog pages to sitemap:
       - Blog posts: ${blogPages.length}
-      - Categories: ${categoryPages.length}
-      - Tags: ${tagPages.length}`,
+      - Categories: 0 (Disabled)
+      - Tags: 0 (Disabled)`,
     )
   } catch (error) {
     console.error('[sitemap-blog] CRITICAL: Error fetching blog data for sitemap:', {
@@ -460,6 +462,6 @@ export async function getBlogSitemap(): Promise<MetadataRoute.Sitemap> {
     return []
   }
 
-  return [...blogPages, ...categoryPages, ...tagPages]
+  return [...blogPages]
 }
 
