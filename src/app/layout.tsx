@@ -8,6 +8,7 @@ import { LazyStyles } from '@/components/LazyStyles'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import CookieBanner from '@/components/CookieBanner'
 import Script from 'next/script'
 
 const inter = Inter({
@@ -232,6 +233,7 @@ export default function RootLayout({
           <GoogleAnalytics />
           <CoreWebVitals />
           <LazyStyles />
+          <CookieBanner />
           <AuthProvider>
             <FavoritesProvider>
               <ToastProvider>
