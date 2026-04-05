@@ -33,7 +33,7 @@ export default function Map({ parks, onParkClick }: MapProps) {
     const initializeMap = async () => {
       // Load Leaflet CSS on demand
       const { loadLeafletStyles } = await import('@/components/LazyStyles')
-      loadLeafletStyles()
+      await loadLeafletStyles()
 
       const L = (await import('leaflet')).default;
 
@@ -62,6 +62,17 @@ export default function Map({ parks, onParkClick }: MapProps) {
         new CustomTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap contributors'
         }).addTo(mapInstanceRef.current);
+        
+        // Add a ResizeObserver to handle container size changes
+        const resizeObserver = new ResizeObserver(() => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+          }
+        });
+        resizeObserver.observe(mapRef.current);
+        
+        // Store observer on the map instance so we can disconnect it
+        mapInstanceRef.current._resizeObserver = resizeObserver;
       }
 
       // Clear existing markers
@@ -183,6 +194,9 @@ export default function Map({ parks, onParkClick }: MapProps) {
 
     return () => {
       delete window.handleParkClick;
+      if (mapInstanceRef.current && mapInstanceRef.current._resizeObserver) {
+        mapInstanceRef.current._resizeObserver.disconnect();
+      }
     };
   }, [parks, onParkClick]);
 

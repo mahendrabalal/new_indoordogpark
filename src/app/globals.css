@@ -5391,9 +5391,9 @@ mark {
 /* Airbnb Grid Layout for Search Results */
 .parks-grid-search {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px 16px;
-  padding: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 12px;
+  padding: 16px;
   /* Increased padding for better separation from map */
 }
 
@@ -5427,33 +5427,33 @@ mark {
 .park-card-standard {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: #1e293b;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .park-card-premium {
   background: #fdfaf5;
-  border: 2px solid rgba(255, 87, 34, 0.4);
-  border-radius: 16px;
-  padding: 16px;
+  border: 1px solid rgba(255, 87, 34, 0.4);
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   color: #1e293b;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(255, 87, 34, 0.08);
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.08);
 }
 
 .park-card-premium-link:hover .park-card-standard {

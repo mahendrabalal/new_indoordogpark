@@ -45,23 +45,27 @@ export function LazyStyles() {
 }
 
 // Load Leaflet CSS only when map component is used
-export function loadLeafletStyles() {
-  if (typeof window === 'undefined') return
+export function loadLeafletStyles(): Promise<void> | void {
+  if (typeof window === 'undefined') return Promise.resolve()
   
   const leafletStylesheetId = 'leaflet-stylesheet'
   if (document.getElementById(leafletStylesheetId)) {
-    return // Already loaded
+    return Promise.resolve() // Already loaded
   }
 
-  const link = document.createElement('link')
-  link.id = leafletStylesheetId
-  link.rel = 'stylesheet'
-  link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
-  link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='
-  link.crossOrigin = 'anonymous'
-  link.media = 'all'
-  
-  document.head.appendChild(link)
+  return new Promise((resolve) => {
+    const link = document.createElement('link')
+    link.id = leafletStylesheetId
+    link.rel = 'stylesheet'
+    link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
+    link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='
+    link.crossOrigin = 'anonymous'
+    link.media = 'all'
+    link.onload = () => resolve()
+    link.onerror = () => resolve() // resolve anyway to not break initialization
+    
+    document.head.appendChild(link)
+  })
 }
 
 

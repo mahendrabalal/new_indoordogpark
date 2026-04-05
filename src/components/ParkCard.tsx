@@ -93,7 +93,7 @@ function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
         </div>
 
         <p className="park-premium-description">
-          {park.description || `${park.name} is a top-rated ${park.businessType || 'dog facility'} in ${park.city}.`}
+          {(park.description && park.description.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')) || `${park.name} is a top-rated ${park.businessType || 'dog facility'} in ${park.city}.`}
         </p>
       </div>
     </Link>

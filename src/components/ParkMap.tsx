@@ -25,7 +25,7 @@ export default function ParkMap({ park }: ParkMapProps) {
     const initializeMap = async () => {
       // Load Leaflet CSS on demand
       const { loadLeafletStyles } = await import('@/components/LazyStyles');
-      loadLeafletStyles();
+      await loadLeafletStyles();
 
       const L = (await import('leaflet')).default;
 
