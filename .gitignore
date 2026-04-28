@@ -16,6 +16,12 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
+.env.local.*
+.env.*.bak
+.env*.bak
+.env*.backup
+.env*.old
 
 # IDEs
 .vscode/

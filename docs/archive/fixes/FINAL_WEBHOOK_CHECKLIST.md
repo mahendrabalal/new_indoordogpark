@@ -24,7 +24,7 @@ You should see:
 Make sure your `.env.local` has the webhook secret from Stripe CLI:
 
 ```env
-STRIPE_WEBHOOK_SECRET=whsec_9f44c5c8838f1286cb3aad5f15f5f120e7c4f9f90abd6cf99e1c840ba34c4f3b
+STRIPE_WEBHOOK_SECRET=whsec_your_stripe_webhook_secret
 ```
 
 **Important:** If you restarted `stripe listen`, you'll get a NEW secret. Update `.env.local` with the new one and restart your dev server.

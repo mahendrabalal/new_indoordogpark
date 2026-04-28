@@ -9,7 +9,7 @@ Your Stripe CLI is now forwarding webhooks. You need to update your environment 
 Add or update this line in your `.env.local` file:
 
 ```env
-STRIPE_WEBHOOK_SECRET=whsec_9f44c5c8838f1286cb3aad5f15f5f120e7c4f9f90abd6cf99e1c840ba34c4f3b
+STRIPE_WEBHOOK_SECRET=whsec_your_stripe_webhook_secret
 ```
 
 **Important:** This is the webhook secret from your `stripe listen` command. It's different from the one in your Stripe Dashboard.
