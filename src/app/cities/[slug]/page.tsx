@@ -204,14 +204,6 @@ export default async function CityPage({ params }: CityPageProps) {
     permanentRedirect(`/cities/${cityContent.city.slug}`);
   }
 
-  // Return 404 for completely empty cities (0 parks).
-  // A clean 404 is better than a thin noindex page — Google deindexes 404s
-  // faster and it doesn't waste crawl budget on pages with no content.
-  // Cities with 1–2 parks keep their noindex tag and render normally.
-  if (cityContent.cityParks.length === 0) {
-    notFound();
-  }
-
   const { city, cityParks, parksByType, stats, customContent, nearbyCities } = cityContent;
 
   const featuredImage = city.featuredImage;
