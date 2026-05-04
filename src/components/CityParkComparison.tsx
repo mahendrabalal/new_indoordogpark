@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
+import { getParkUrl } from '@/lib/routing';
 
 interface CityParkComparisonProps {
     parks: DogPark[];
@@ -60,7 +61,7 @@ const CityParkComparison: React.FC<CityParkComparisonProps> = ({ parks, cityName
                         {topParks.map((park) => (
                             <tr key={park.id} style={{ borderBottom: '1px solid #f8fafc', transition: 'background 0.2s' }} className="comparison-row">
                                 <td style={{ padding: '20px 12px' }}>
-                                    <Link href={`/parks/${park.slug || park.id}`} style={{ fontWeight: 700, color: '#0f172a', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
+                                    <Link href={getParkUrl(park)} style={{ fontWeight: 700, color: '#0f172a', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
                                         {park.name}
                                         <i className="bi bi-arrow-up-right" style={{ fontSize: '0.75rem', color: '#6366f1' }} />
                                     </Link>

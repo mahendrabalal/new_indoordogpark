@@ -98,20 +98,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     notFound();
   }
 
-  // If this is a dog training facility, redirect to the new semantic route
-  if (isDogTrainingFacility(park)) {
-    permanentRedirect(`/dog-training/${park.slug || park.id}`);
-  }
-
-  // If this is a dog friendly establishment, redirect to the new semantic route
-  if (isDogFriendlyEstablishment(park)) {
-    permanentRedirect(`/dog-friendly/${park.slug || park.id}`);
-  }
-
   // Redirect to canonical slug if different (301 permanent redirect for SEO)
   const canonicalSlug = park.slug || park.id;
   if (canonicalSlug !== slug) {
-    permanentRedirect(`/parks/${canonicalSlug}`);
+    permanentRedirect(`/dog-friendly/${canonicalSlug}`);
   }
 
   const allParks = await getAllStaticParks();
@@ -188,7 +178,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   return (
     <>
       {/* LocalBusiness structured data for rich snippets */}
-      <ParkDetailSchema park={park} url={`/parks/${park.slug || park.id}`} />
+      <ParkDetailSchema park={park} url={`/dog-friendly/${park.slug || park.id}`} />
 
       <script
         type="application/ld+json"

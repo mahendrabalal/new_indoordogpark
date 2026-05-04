@@ -11,6 +11,7 @@ import ScrollToButton from '@/components/ScrollToButton';
 import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { getStateName } from '@/lib/state';
 import { getCityContentBySlug } from '@/lib/parks-data';
+import { getParkUrl } from '@/lib/routing';
 import { buildDefaultFAQs } from '@/lib/faq-data';
 import CityPageStyles from './CityPageStyles';
 import CityMapClient from '@/components/CityMapClient';
@@ -264,7 +265,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const structuredPlaces = cityParks.slice(0, 10).map((park) => {
     const schemaType = getLocalBusinessSchemaType(park.businessType);
-    const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
+    const parkUrl = `${SITE_URL}${getParkUrl(park)}`;
     const place: Record<string, unknown> = {
       '@type': schemaType,
       '@id': parkUrl,
@@ -350,7 +351,7 @@ export default async function CityPage({ params }: CityPageProps) {
     description: `Top-rated dog parks and facilities in ${city.name}, ${fullState}`,
     numberOfItems: topParks.length,
     itemListElement: topParks.map((park, index) => {
-      const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
+      const parkUrl = `${SITE_URL}${getParkUrl(park)}`;
       const shortDescription = park.description
         ? park.description.slice(0, 200).replace(/\s+\S*$/, '') + '...'
         : `${park.businessType} in ${park.city}`;

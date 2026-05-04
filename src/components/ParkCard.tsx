@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
 import SearchHighlight from '@/components/SearchHighlight';
 import { getParkStatus } from '@/lib/park-hours';
+import { getParkUrl } from '@/lib/routing';
 import { useEffect, useState, memo } from 'react';
 
 import OptimizedImage from '@/components/OptimizedImage';
@@ -39,7 +40,7 @@ function ParkCardComponent({ park, searchTerm }: ParkCardProps) {
   }
 
   return (
-    <Link href={`/parks/${park.slug || park.id}`} className="park-card-premium-link">
+    <Link href={getParkUrl(park)} className="park-card-premium-link">
       <div className={`${park.listingType === 'featured' ? 'park-card-premium' : 'park-card-standard'} ${showImage ? 'has-image' : ''}`}>
         {showImage && (
           <div className="park-premium-image-wrapper">

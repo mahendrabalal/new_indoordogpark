@@ -11,6 +11,7 @@ import {
 import { supabaseAdminClient } from './supabase-admin'
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
 import { getAllStateSlugs, getStateContentBySlug } from './state-page-data'
+import { getParkUrl } from './routing'
 
 /**
  * Shared utilities for sitemap generation
@@ -229,7 +230,7 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
         continue
       }
 
-      const parkUrl = `${baseUrl}/parks/${slug}`
+      const parkUrl = `${baseUrl}${getParkUrl(park)}`
 
       // Skip if we've already added this URL (deduplicate)
       if (seenUrls.has(parkUrl)) {

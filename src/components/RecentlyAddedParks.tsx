@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getParkUrl } from '@/lib/routing';
 import Image from 'next/image';
 import FavoriteButton from '@/components/FavoriteButton';
 import type { ParkSubmission } from '@/types/park-submission';
@@ -115,7 +116,7 @@ export default function RecentlyAddedParks() {
                             key={park.id}
                             className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm transition-all hover:shadow-xl hover:border-emerald-200 hover:-translate-y-1"
                         >
-                            <Link href={`/parks/${park.slug || park.id}`} className="absolute inset-0 z-10">
+                            <Link href={getParkUrl(park)} className="absolute inset-0 z-10">
                                 <span className="sr-only">View {park.name} details</span>
                             </Link>
 
@@ -184,7 +185,7 @@ export default function RecentlyAddedParks() {
                                             {park.city}, {park.state}
                                         </span>
                                         <Link
-                                            href={`/parks/${park.slug || park.id}`}
+                                            href={getParkUrl(park)}
                                             className="font-semibold text-emerald-600 hover:text-emerald-700 transition-colors relative z-20"
                                         >
                                             View details →

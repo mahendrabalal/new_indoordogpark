@@ -193,6 +193,47 @@ export async function POST(request: NextRequest) {
                     recipients = [{ email: subscriber.email, id: subscriber.id }];
                 }
             }
+        } else if (segment === 'single') {
+            const { singleEmailAddress, singleEmailType } = data;
+            if (!singleEmailAddress) {
+                return NextResponse.json({ error: 'Email address is required for single subscriber' }, { status: 400 });
+            }
+
+            const email = singleEmailAddress.toLowerCase().trim();
+            const adminClient = supabaseAdminClient;
+
+            // Check if subscriber exists
+            const { data: existingSubscriber } = await adminClient
+                .from('subscribers')
+                .select('id, email, status')
+                .eq('email', email)
+                .single();
+
+            if (existingSubscriber) {
+                if (existingSubscriber.status === 'unsubscribed') {
+                    return NextResponse.json({ error: 'Cannot send to an unsubscribed email address' }, { status: 400 });
+                }
+                recipients = [{ email: existingSubscriber.email, id: existingSubscriber.id }];
+            } else {
+                // Insert new subscriber
+                const { data: newSubscriber, error: insertError } = await adminClient
+                    .from('subscribers')
+                    .insert({
+                        email: email,
+                        type: singleEmailType || 'consumer',
+                        source: 'manual_crm',
+                        status: 'active'
+                    })
+                    .select('id, email')
+                    .single();
+
+                if (insertError || !newSubscriber) {
+                    console.error('Failed to insert new subscriber:', insertError);
+                    return NextResponse.json({ error: 'Failed to add subscriber to database' }, { status: 500 });
+                }
+
+                recipients = [{ email: newSubscriber.email, id: newSubscriber.id }];
+            }
         } else {
             const adminClient = supabaseAdminClient;
 

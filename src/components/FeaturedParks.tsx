@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getParkUrl } from '@/lib/routing';
 
 import type { ParkSubmission } from '@/types/park-submission';
 
@@ -128,7 +129,7 @@ export default function FeaturedParks() {
             {/* Spotlight Hero Card */}
             <article className="spotlight-card relative overflow-hidden rounded-[2rem] bg-slate-950 text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] border border-white/10 group h-full min-h-[420px] flex flex-col">
               {spotlightPark.slug && (
-                <Link href={`/parks/${spotlightPark.slug}`} className="absolute inset-0 z-10">
+                <Link href={getParkUrl(spotlightPark)} className="absolute inset-0 z-10">
                   <span className="sr-only">View {spotlightPark.name} details</span>
                 </Link>
               )}
@@ -174,7 +175,7 @@ export default function FeaturedParks() {
                   <div className="flex flex-wrap gap-3 pt-3">
                     {spotlightPark.slug && (
                       <Link
-                        href={`/parks/${spotlightPark.slug}`}
+                        href={getParkUrl(spotlightPark)}
                         className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-black text-slate-950 transition-all hover:bg-slate-100 active:scale-95 shadow-lg relative z-20"
                       >
                         Profile <i className="bi bi-arrow-right" />
@@ -231,7 +232,7 @@ export default function FeaturedParks() {
                   key={park.id}
                   className="group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white border border-slate-100 transition-all duration-300 hover:shadow-xl hover:border-purple-100 hover:-translate-y-1"
                 >
-                  <Link href={`/parks/${park.slug || park.id}`} className="absolute inset-0 z-10">
+                  <Link href={getParkUrl(park)} className="absolute inset-0 z-10">
                     <span className="sr-only">View {park.name} details</span>
                   </Link>
                   <div className="relative h-48 overflow-hidden">
@@ -268,7 +269,7 @@ export default function FeaturedParks() {
                         <span className="text-xs font-bold text-slate-800">{park.city}, {park.state}</span>
                       </div>
                       <Link
-                        href={`/parks/${park.slug || park.id}`}
+                        href={getParkUrl(park)}
                         className="flex items-center gap-1 text-xs font-black text-slate-900 transition-colors hover:text-purple-600 relative z-20"
                       >
                         Details <i className="bi bi-arrow-right" />

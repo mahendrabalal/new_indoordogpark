@@ -146,7 +146,7 @@ export default function Map({ parks, onParkClick }: MapProps) {
                 </div>
                 
                 <a 
-                  href="/parks/${park.slug || park.id}" 
+                  href="${park.businessType?.toLowerCase().includes('training') || park.businessType?.toLowerCase().includes('trainer') ? '/dog-training/' : '/parks/'}${park.slug || park.id}" 
                   style="
                     display: inline-flex;
                     align-items: center;

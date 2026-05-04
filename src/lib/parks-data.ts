@@ -56,6 +56,9 @@ const STATIC_PARK_FILES = [
 ];
 
 function getStaticDataBaseUrl() {
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:3000/data';
+  }
   // Point to dedicated static data Pages project
   return 'https://new-indoordogpark-data.pages.dev';
 }

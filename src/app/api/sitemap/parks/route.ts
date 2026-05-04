@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { supabaseAdminClient } from '@/lib/supabase-admin'
 import { SITE_URL } from '@/lib/metadata'
 import { MetadataRoute } from 'next'
+import { getParkUrl } from '@/lib/routing'
 
 // Simplified segment configs for build troubleshooting
 export const dynamic = 'force-dynamic'
@@ -60,7 +61,7 @@ export async function GET() {
         continue
       }
 
-      const parkUrl = `${baseUrl}/parks/${slug}`
+      const parkUrl = `${baseUrl}${getParkUrl(park)}`
 
       // Skip duplicates
       if (seenUrls.has(parkUrl)) {

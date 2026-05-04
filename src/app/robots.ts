@@ -32,6 +32,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/',
           '/parks/',
+          '/dog-training/',
+          '/dog-friendly/',
           '/cities/',
           '/states/',
           '/blog/',

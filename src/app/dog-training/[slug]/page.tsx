@@ -13,7 +13,8 @@ import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, gen
 import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
-import { isDogTrainingFacility, isDogFriendlyEstablishment, getParkUrl } from '@/lib/routing';
+import { getParkUrl } from '@/lib/routing';
+import { isDogTrainingFacility } from '@/lib/routing';
 
 
 type ParkPageProps = {
@@ -98,20 +99,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     notFound();
   }
 
-  // If this is a dog training facility, redirect to the new semantic route
-  if (isDogTrainingFacility(park)) {
-    permanentRedirect(`/dog-training/${park.slug || park.id}`);
-  }
-
-  // If this is a dog friendly establishment, redirect to the new semantic route
-  if (isDogFriendlyEstablishment(park)) {
-    permanentRedirect(`/dog-friendly/${park.slug || park.id}`);
-  }
-
   // Redirect to canonical slug if different (301 permanent redirect for SEO)
   const canonicalSlug = park.slug || park.id;
   if (canonicalSlug !== slug) {
-    permanentRedirect(`/parks/${canonicalSlug}`);
+    permanentRedirect(`/dog-training/${canonicalSlug}`);
   }
 
   const allParks = await getAllStaticParks();
@@ -134,6 +125,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const citySlug = (await getCitySlugByName(park.city, park.state)) || park.city.toLowerCase().replace(/\s+/g, '-');
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
+    { name: 'Dog Training Facilities', url: '/training-facilities' },
     { name: park.city, url: `/cities/${citySlug}` },
     { name: park.name },
   ]);
@@ -188,7 +180,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   return (
     <>
       {/* LocalBusiness structured data for rich snippets */}
-      <ParkDetailSchema park={park} url={`/parks/${park.slug || park.id}`} />
+      <ParkDetailSchema park={park} url={`/dog-training/${park.slug || park.id}`} />
 
       <script
         type="application/ld+json"
@@ -231,6 +223,8 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
             <div className="premium-hero-content">
               <div className="breadcrumbs-white">
                 <Link href="/">Home</Link>
+                <i className="bi bi-chevron-right"></i>
+                <Link href="/training-facilities">Dog Training</Link>
                 <i className="bi bi-chevron-right"></i>
                 <Link href={`/cities/${citySlug}`}>
                   {park.city}

@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DogPark } from '@/types/dog-park';
+import { getParkUrl } from '@/lib/routing';
 import { fetchParks } from '@/lib/api';
 import { useSearch } from '@/hooks/useSearch';
 import { useAutocomplete, AutocompleteSuggestion } from '@/hooks/useAutocomplete';
@@ -641,7 +642,7 @@ export default function HomePageClient({
               <Map
                 parks={filteredParks}
                 onParkClick={(park) => {
-                  window.location.href = `/parks/${park.slug || park.id}`;
+                  window.location.href = getParkUrl(park);
                 }}
               />
             </div>

@@ -51,6 +51,8 @@ export default function MarketingPage() {
     const [ctaUrl, setCtaUrl] = useState('');
     const [segment, setSegment] = useState('all');
     const [testEmail, setTestEmail] = useState('');
+    const [singleEmailAddress, setSingleEmailAddress] = useState('');
+    const [singleEmailType, setSingleEmailType] = useState('consumer');
 
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');
@@ -179,12 +181,14 @@ export default function MarketingPage() {
                 headline,
                 bodyContent,
                 ctaText,
-                ctaUrl
+                ctaUrl,
+                singleEmailAddress: segment === 'single' ? singleEmailAddress : undefined,
+                singleEmailType: segment === 'single' ? singleEmailType : undefined
             }
         };
 
         if (!isTest) {
-            const recipientCount = activeTab === 'outreach' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers));
+            const recipientCount = activeTab === 'outreach' ? 1 : (segment === 'single' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers)));
             const confirmMsg = `Are you sure you want to broadcast this to ${recipientCount} recipients?`;
             if (!window.confirm(confirmMsg)) {
                 setStatus('idle');
@@ -289,7 +293,34 @@ export default function MarketingPage() {
                                     <option value="all">All Subscribers ({subscribers.total})</option>
                                     <option value="owners">Park Owners Only ({subscribers.owners})</option>
                                     <option value="consumers">Consumers Only ({subscribers.consumers})</option>
+                                    <option value="single">Single Subscriber (Manual Entry)</option>
                                 </select>
+                            </div>
+                        )}
+
+                        {activeTab !== 'outreach' && segment === 'single' && (
+                            <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Email Address</label>
+                                    <input
+                                        type="email"
+                                        value={singleEmailAddress}
+                                        onChange={e => setSingleEmailAddress(e.target.value)}
+                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                        placeholder="customer@example.com"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Customer Type</label>
+                                    <select
+                                        value={singleEmailType}
+                                        onChange={e => setSingleEmailType(e.target.value)}
+                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                    >
+                                        <option value="consumer">Consumer</option>
+                                        <option value="owner">Park Owner</option>
+                                    </select>
+                                </div>
                             </div>
                         )}
 
@@ -473,7 +504,7 @@ export default function MarketingPage() {
                     <div className="bg-indigo-50 p-6 rounded-xl border border-indigo-100 shadow-sm">
                         <h3 className="text-lg font-medium text-indigo-900 mb-2">Broadcast Campaign</h3>
                         <p className="text-sm text-indigo-700 mb-4">
-                            This will send emails to <strong>{activeTab === 'outreach' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers))}</strong> recipients.
+                            This will send emails to <strong>{activeTab === 'outreach' ? 1 : (segment === 'single' ? 1 : (segment === 'all' ? subscribers.total : (segment === 'owners' ? subscribers.owners : subscribers.consumers)))}</strong> recipients.
                         </p>
                         <button
                             onClick={() => handleSend(false)}

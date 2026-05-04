@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ParkSubmission } from '@/types/park-submission';
+import { getParkUrl } from '@/lib/routing';
 
 interface CityPremiumSpotlightProps {
   city: string;
@@ -105,7 +106,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
       {premiumParks.map((park) => (
         <article key={park.id} className="city-premium-card relative group transition-all hover:-translate-y-1 hover:shadow-xl">
           {park.slug && (
-            <Link href={`/parks/${park.slug}`} className="absolute inset-0 z-10">
+            <Link href={getParkUrl(park)} className="absolute inset-0 z-10">
               <span className="sr-only">View {park.name} details</span>
             </Link>
           )}
@@ -144,7 +145,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
 
           <div className="city-premium-card-actions relative z-20">
             {park.slug && (
-              <Link href={`/parks/${park.slug}`} className="city-premium-primary">
+              <Link href={getParkUrl(park)} className="city-premium-primary">
                 View profile
                 <i className="bi bi-arrow-right" />
               </Link>
