@@ -604,7 +604,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
 
   // Final fallback: render a lightweight "coming soon" city page instead of 404.
   // This improves UX for users landing on `/cities/<slug>` links we haven't verified yet.
-  // These pages are still set to noindex by `shouldIndexCity()` in the city page when there are 0 listings.
+  // These pages stay noindex when there are 0 listings (see `shouldIndexCity` on the city route).
   const slugParts = normalizedSlug.split('-').filter(Boolean);
   const lastPart = slugParts[slugParts.length - 1] || '';
   const inferredState = lastPart.length === 2 ? lastPart.toUpperCase() : 'CA';
@@ -821,7 +821,8 @@ export function extractLocationFromSlug(slug: string): { city: string; state: st
   return null;
 }
 
-const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
+/** Minimum aggregated listings for a `/cities/[slug]` to exist in slug lists / sitemap. Matches indexability (see city page metadata). */
+const MIN_CITY_LISTINGS_FOR_INDEXING = 1;
 
 export async function getAllCitySlugs(): Promise<string[]> {
   const staticParks = await loadStaticParks();
@@ -834,7 +835,7 @@ export async function getAllCitySlugs(): Promise<string[]> {
       .map((city) => city.slug),
   );
 
-  // Always include priority city pages (content-led, may have < MIN listings)
+  // Always include priority city pages (content-led; may be noindex until they have verified listings)
   for (const city of priorityCityContent) {
     slugs.add(city.slug);
   }

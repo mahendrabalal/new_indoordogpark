@@ -89,3 +89,17 @@ contact@bigcreekboarding.com, PLAY@CanineACE.com, clientservices@devotiontodogs.
 
 ================================================================================
 Note: Some parks share the same email address (South Park Doggie locations)
+
+================================================================================
+Outreach — manual / verified contacts (for bulk email; not from JSON export)
+================================================================================
+1. Anvil K9 Dog Training LLC
+   Contact: Jake Mumford (Owner)
+   Email: jmumford@gmail.com
+   Phone: (423) 290-7584
+   City: Chattanooga, TN
+   Type: Dog Training
+   Notes: Listing correction inquiry; canonical NAP on file
+
+Outreach emails (comma-separated):
+jmumford@gmail.com

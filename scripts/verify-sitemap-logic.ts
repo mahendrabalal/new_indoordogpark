@@ -36,7 +36,7 @@ async function verifySitemapLogic() {
             if (!cityContent) continue;
 
             const { totalParks, totalReviews } = cityContent.stats;
-            const shouldIndex = totalParks >= 3 || totalReviews >= 200;
+            const shouldIndex = totalParks >= 1;
 
             console.log(`City: ${slug} | Parks: ${totalParks} | Reviews: ${totalReviews} | Indexable: ${shouldIndex ? 'YES' : 'NO'}`);
 
@@ -47,7 +47,7 @@ async function verifySitemapLogic() {
 
     console.log('--- End Verification ---');
     console.log('The logic implemented in sitemap-utils.ts matches the conditions above:');
-    console.log('const shouldIndex = cityContent.stats.totalParks >= 3 || cityContent.stats.totalReviews >= 200;');
+    console.log('const shouldIndex = cityContent.stats.totalParks >= 1');
 }
 
 verifySitemapLogic().catch(console.error);

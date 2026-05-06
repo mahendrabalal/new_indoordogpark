@@ -273,9 +273,6 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date()
   const cityPages: MetadataRoute.Sitemap = []
 
-  // Logic must match src/app/cities/[slug]/page.tsx
-  const MIN_CITY_LISTINGS_FOR_INDEXING = 3
-
   try {
     // Add city pages (includes both static cities and priority cities)
     // Calculate lastModified based on most recent park update in each city
@@ -291,10 +288,8 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
           continue
         }
 
-        // Apply indexing logic:
-        // Index if totalParks >= 3 OR totalReviews >= 200
-        // (Matches src/app/cities/[slug]/page.tsx:shouldIndexCity)
-        const shouldIndex = cityContent.stats.totalParks >= MIN_CITY_LISTINGS_FOR_INDEXING || cityContent.stats.totalReviews >= 200
+        // Must match src/app/cities/[slug]/page.tsx:shouldIndexCity (index when ≥1 listing)
+        const shouldIndex = cityContent.stats.totalParks >= 1
 
         if (!shouldIndex) {
           // console.log(`[sitemap-cities] Skipping thin city: ${slug} (${cityContent.stats.totalParks} parks, ${cityContent.stats.totalReviews} reviews)`)

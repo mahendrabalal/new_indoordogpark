@@ -34,11 +34,9 @@ interface CityPageProps {
 // Render on-demand to avoid prebuilding thousands of city pages
 export const dynamic = 'force-dynamic';
 
-const MIN_CITY_LISTINGS_FOR_INDEXING = 3;
-
-function shouldIndexCity(totalParks: number, totalReviews: number) {
-  // Avoid thin-city indexation, but allow “single great listing” cities with strong review depth.
-  return totalParks >= MIN_CITY_LISTINGS_FOR_INDEXING || totalReviews >= 200;
+/** Index city pages once we have at least one verified listing (directory has real value). Cities with zero listings stay noindex — including synthetic “coming soon” fallbacks. */
+function shouldIndexCity(totalParks: number) {
+  return totalParks >= 1;
 }
 
 function formatAmenityName(key: string): string {
@@ -119,7 +117,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const { city, stats } = cityContent;
   const parksByType = cityContent.parksByType;
   const indoorCount = parksByType['Indoor Dog Park']?.length || 0;
-  const shouldIndex = shouldIndexCity(stats.totalParks, stats.totalReviews);
+  const shouldIndex = shouldIndexCity(stats.totalParks);
   // Use canonical slug (city.slug) not params.slug for SEO
   const canonicalSlug = city.slug;
   // Use an absolute title here to avoid the root `template` appending another suffix.

@@ -27,6 +27,8 @@ export async function GET() {
       try {
         // Get city content to find parks in this city
         const cityContent = await getCityContentBySlug(slug)
+        // Omit zero-listing pages (matches city route robots + lib/sitemap-utils getCitiesSitemap)
+        if (!cityContent || cityContent.stats.totalParks < 1) continue
 
         // Get the most recent lastUpdated date from parks in this city
         let cityLastModified = currentDate
