@@ -15576,7 +15576,7 @@
     "id": "ChIJZU7DBDbOyIARxyK4ENcr9X4",
     "name": "Barx Parx",
     "businessType": "Dog Park",
-    "description": "In Las Vegas, Barx Parx has become synonymous with dependable off-leash freedom, blending neighborhood charm with pro-grade amenities. Located in Las Vegas, NV, the park is tucked near 8868 S Eastern Ave Suite #115, Las Vegas, NV 89123 and easy to reach for commuters and weekend adventurers alike. Guests rave about its 4.5-star average across 294 reviews, pointing to spotless grounds, intuitive traffic flow, and staff who remember every pup's quirks. The campus layers mature trees with long sight lines so guardians can relax while still keeping eyes on the action. Morning, afternoon, and twilight blocks are thoughtfully staggered to keep crowds light and vibes relaxed. Access runs on complimentary access for the community, with flexible passes that welcome both spontaneous drop-ins and devoted regulars.\n\nExpansive turf runs, agility challenges, and shaded rest nooks stretch across the property so dogs can sprint, sniff, and reset without ever feeling crowded. Barx Parx curates small-group play dates, confidence-building agility rotations, and gentle introductions for new rescues. Weekly enrichment labs, pop-up adoption drives, and local vendor markets keep Las Vegas's canine calendar fresh. Certified behavior teams circulate through each yard, coaching leash manners and offering quick progress reports. Health-forward protocols guide every visit at Barx Parx, from double-gated entries to staff-monitored hydration breaks. Check https://barxparx.com/ for day passes, vaccination policies, and community spotlights.",
+    "description": "Barx Parx is a modern indoor dog park and social club created for dogs and their owners to enjoy a safe, clean, and fun environment together. The climate-controlled facility allows dogs to play off-leash year-round while owners relax and socialize with fellow pet lovers. In addition to the indoor park, Barx Parx offers doggy daycare, kennel-free boarding, grooming, training classes, self-wash stations, retail products, and event spaces. Their focus on positive reinforcement and stress-free care helps dogs stay happy, active, and mentally stimulated.\n\nWhat makes Barx Parx unique is its strong commitment to community, safety, and canine well-being. The experienced staff is trained in dog behavior, communication, first aid, and CPR to ensure every dog receives proper attention and care. Barx Parx also supports local rescues and adoption efforts through the Barx Parx Foundation. Recognized with multiple Las Vegas awards, the facility has become a trusted destination for responsible pet owners and their furry companions.",
     "slug": "barx-parx",
     "address": "8868 S Eastern Ave Suite #115",
     "street": "8868 S Eastern Ave Suite #115",
@@ -15593,9 +15593,11 @@
     "rating": 4.5,
     "reviewCount": 294,
     "pricing": {
-      "isFree": true,
-      "pricingType": "free",
-      "pricingSource": "unknown"
+      "isFree": false,
+      "pricingType": "membership",
+      "dropInFee": 50,
+      "monthlyRate": 37.95,
+      "pricingDetails": "Barx Parx offers flexible membership plans designed for dog owners who want unlimited access to indoor play areas and exclusive community benefits. Memberships start at $37.95 per month with a one-time $50 enrollment fee and include unlimited dog park visits, behavior assessment, daycare or boarding trial, members-only events, local business discounts, 24/7 webcam access, and 10% off additional dog memberships within the same household.\n\nThe most popular membership costs $50.95 per month plus the one-time enrollment fee and provides enhanced benefits such as discounted or free access to special events, 25% off additional dog memberships, and 10% off extra services. Another plan is available for $44.95 per month and includes unlimited park visits, exclusive events, 24/7 webcam access, 15% off additional dog memberships, and 5% off additional services. These memberships are designed to provide convenience, savings, and a premium social experience for both dogs and their owners."
     },
     "placeTypes": [
       "dog_park",

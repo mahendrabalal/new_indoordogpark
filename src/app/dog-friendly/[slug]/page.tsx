@@ -320,8 +320,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                           )}
                         </div>
                         {park.pricing.pricingDetails && (
-                          <div className="pricing-details-text mt-4">
-                            <p>{park.pricing.pricingDetails}</p>
+                          <div className="pricing-details-text mt-4 space-y-4">
+                            {park.pricing.pricingDetails.split(/\n\s*\n/).map((paragraph, idx) => (
+                              <p key={idx}>{renderMarkdownText(paragraph)}</p>
+                            ))}
                           </div>
                         )}
                         {park.pricing.pricingUrl && (
