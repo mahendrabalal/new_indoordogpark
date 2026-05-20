@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { WPCategory, WPTag } from '@/types/wordpress';
+import BlogSidebarNewsletter from '@/components/blog/BlogSidebarNewsletter';
 
 interface BlogSidebarProps {
   categories: WPCategory[];
@@ -146,25 +147,9 @@ export default function BlogSidebar({
         <p className="mt-2 text-sm text-white/80">
           Twice a month we share new play space launches, seasonal checklists, and expert interviews.
         </p>
-        <form action="/api/newsletter" method="POST" className="mt-6 space-y-3">
-          <label htmlFor="sidebar-newsletter" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="sidebar-newsletter"
-            type="email"
-            name="email"
-            placeholder="you@example.com"
-            className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-2 text-sm text-white placeholder:text-white/70 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/60"
-            required
-          />
-          <button
-            type="submit"
-            className="w-full rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-purple-600 transition hover:bg-purple-50"
-          >
-            Subscribe
-          </button>
-        </form>
+        <div className="mt-6">
+          <BlogSidebarNewsletter />
+        </div>
         <p className="mt-3 text-xs text-white/80">No spam. Unsubscribe anytime.</p>
       </section>
     </div>

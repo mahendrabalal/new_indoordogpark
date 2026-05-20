@@ -155,9 +155,19 @@ export default function ListPropertyPage() {
         break;
 
       case 2:
-        // Step 2: Details - optional email validation
+        // Step 2: Details - optional validation
         if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
           stepErrors.email = 'Invalid email format';
+        }
+        if (formData.phone && formData.phone.length < 10) {
+          stepErrors.phone = 'Phone number must be at least 10 characters';
+        }
+        if (formData.website) {
+          try {
+            new URL(formData.website);
+          } catch {
+            stepErrors.website = 'Invalid website URL. Make sure it includes http:// or https://';
+          }
         }
         break;
 

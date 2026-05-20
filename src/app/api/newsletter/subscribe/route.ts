@@ -47,9 +47,30 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Parse request body
-        const body = await req.json() as SubscribeRequest;
-        const { email, type, source, parkName, location } = body;
+        // Parse request body (support both JSON fetch and plain HTML form posts)
+        const contentType = req.headers.get('content-type') || '';
+        let email: string | undefined;
+        let type: 'owner' | 'consumer' | undefined;
+        let source: string | undefined;
+        let parkName: string | undefined;
+        let location: string | undefined;
+
+        if (contentType.includes('application/json')) {
+            const body = await req.json() as SubscribeRequest;
+            email = body.email;
+            type = body.type;
+            source = body.source;
+            parkName = body.parkName;
+            location = body.location;
+        } else {
+            const form = await req.formData();
+            email = typeof form.get('email') === 'string' ? String(form.get('email')) : undefined;
+            const rawType = typeof form.get('type') === 'string' ? String(form.get('type')) : 'consumer';
+            type = rawType === 'owner' ? 'owner' : 'consumer';
+            source = typeof form.get('source') === 'string' ? String(form.get('source')) : undefined;
+            parkName = typeof form.get('parkName') === 'string' ? String(form.get('parkName')) : undefined;
+            location = typeof form.get('location') === 'string' ? String(form.get('location')) : undefined;
+        }
 
         // Validate inputs
         if (!email || !type) {

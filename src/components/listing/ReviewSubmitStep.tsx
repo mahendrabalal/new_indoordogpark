@@ -352,9 +352,13 @@ export default function ReviewSubmitStep({ formData, onSubmit, isSubmitting, err
 
       {/* Submit Button */}
       <div className="pt-6 border-t">
-        {errors.submit && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-sm text-red-800">{errors.submit}</p>
+        {Object.keys(errors).length > 0 && (
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg space-y-1">
+            {Object.entries(errors).map(([key, value]) => (
+              <p key={key} className="text-sm text-red-800">
+                {key === 'submit' ? value : `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`}
+              </p>
+            ))}
           </div>
         )}
 

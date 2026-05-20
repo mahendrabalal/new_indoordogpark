@@ -181,6 +181,7 @@ export default function PlanSelectionStep({ onSelectPlan, isLoggedIn = false }: 
             <Link
               href="/login?redirect=/list-your-park"
               className="text-purple-600 hover:text-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded font-medium"
+              rel="nofollow"
             >
               Sign in
             </Link>

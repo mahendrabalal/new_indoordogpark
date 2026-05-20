@@ -206,6 +206,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
               href={`/login?redirect=${encodeURIComponent(pathname || '/')}`}
               className="write-review-btn"
               style={{ textDecoration: 'none' }}
+              rel="nofollow"
             >
               <i className="bi bi-box-arrow-in-right"></i> Log in to Review
             </Link>
@@ -301,11 +302,11 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
               'Be the first to share your experience!'
             ) : (
               <span>
-                <Link href={`/login?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold">
+                <Link href={`/login?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold" rel="nofollow">
                   Log in
                 </Link>
                 {' '}or{' '}
-                <Link href={`/signup?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold">
+                <Link href={`/signup?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold" rel="nofollow">
                   Sign up
                 </Link>
                 {' '}to be the first to share your experience!

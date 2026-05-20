@@ -184,6 +184,7 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
               <a
                 href="/login?redirect=/list-your-park?step=2"
                 className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
+                rel="nofollow"
               >
                 Sign In to Upload
               </a>
