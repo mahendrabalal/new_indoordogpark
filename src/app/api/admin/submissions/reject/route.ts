@@ -4,6 +4,8 @@ import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export const dynamic = 'force-dynamic';
 
+const STORAGE_BUCKET = process.env.SUPABASE_PHOTOS_BUCKET || 'park-submissions';
+
 export async function POST(request: NextRequest) {
   try {
     const { user, error: authError } = await getUserFromRequest(request);
@@ -36,12 +38,59 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update submission status to rejected
+    // Fetch submission to get photos
+    const { data: submission, error: fetchError } = await supabaseAdminClient
+      .from('park_submissions')
+      .select('photos')
+      .eq('id', submissionId)
+      .maybeSingle();
+
+    if (fetchError) {
+      console.error('Failed to load submission before reject:', fetchError);
+      return NextResponse.json({ error: 'Failed to load submission' }, { status: 500 });
+    }
+
+    if (submission) {
+      const photos = Array.isArray(submission.photos) ? submission.photos : [];
+      const storagePaths = photos
+        .map((photo: any) => {
+          if (!photo || typeof photo !== 'object') return null;
+          return photo.storagePath || photo.storage_path || null;
+        })
+        .filter((value: any): value is string => typeof value === 'string' && value.length > 0);
+
+      const fileUrls = photos
+        .map((photo: any) => {
+          if (!photo || typeof photo !== 'object') return null;
+          return photo.url || null;
+        })
+        .filter((value: any): value is string => typeof value === 'string' && value.length > 0);
+
+      if (storagePaths.length > 0) {
+        const { error: removeError } = await supabaseAdminClient.storage.from(STORAGE_BUCKET).remove(storagePaths);
+        if (removeError) {
+          console.error('Failed to remove submission photos:', removeError);
+        }
+      }
+
+      if (fileUrls.length > 0) {
+        const { error: dbImageError } = await supabaseAdminClient
+          .from('submission_images')
+          .delete()
+          .in('file_url', fileUrls);
+        if (dbImageError) {
+          console.error('Failed to delete from submission_images:', dbImageError);
+        }
+      }
+    }
+
+    // Update submission status to rejected and clear photos
     const { error: updateError } = await supabaseAdminClient
       .from('park_submissions')
       .update({
         status: 'rejected',
         rejection_reason: reason,
+        photos: [], // Clear photos array to prevent broken links
       })
       .eq('id', submissionId);
 
