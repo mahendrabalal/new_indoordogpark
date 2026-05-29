@@ -20,6 +20,7 @@ import SearchAutocomplete from '@/components/SearchAutocomplete';
 import SeoContentSection from '@/components/SeoContentSection';
 import PopularCitiesSection from '@/components/PopularCitiesSection';
 import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
+import FeaturedParks from '@/components/FeaturedParks';
 
 
 const Map = dynamic(() => import('@/components/Map'), {
@@ -434,6 +435,9 @@ export default function HomePageClient({
         )}
 
 
+
+        {/* Premium Listings Section - Just under Hero */}
+        {!showSearchLayout && <FeaturedParks />}
 
         {/* Popular Cities Section - After Hero */}
         {!showSearchLayout && <PopularCitiesSection />}
