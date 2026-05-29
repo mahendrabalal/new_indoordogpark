@@ -13,11 +13,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.o
 const siteName = 'Indoor Dog Park';
 const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/hero.webp`;
 
-export async function generateMetadata(): Promise<Metadata> {
+type TrainingFacilitiesPageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: TrainingFacilitiesPageProps): Promise<Metadata> {
   const title = 'Dog Training Facilities | Indoor Training Centers Near Me';
   const description =
     'Find indoor dog training facilities and agility centers. Discover professional training spaces with climate-controlled environments for year-round training.';
   const canonicalUrl = '/training-facilities';
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const isFiltered = Object.keys(resolvedSearchParams).length > 0;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -52,10 +60,10 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: '@indoordogpark',
     },
     robots: {
-      index: true,
+      index: !isFiltered,
       follow: true,
       googleBot: {
-        index: true,
+        index: !isFiltered,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',

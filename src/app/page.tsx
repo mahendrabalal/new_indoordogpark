@@ -84,23 +84,10 @@ export async function generateMetadata({
 function hasActiveSearchParams(
   searchParams: Record<string, string | string[] | undefined> = {}
 ) {
-  const query = getParamValue(searchParams.q).trim();
-  if (query) {
-    return true;
-  }
-
-  const type = getParamValue(searchParams.type).trim();
-  if (type && type !== 'all') {
-    return true;
-  }
-
-  if (getParamValue(searchParams.minRating).trim()) return true;
-  if (getParamValue(searchParams.priceRange).trim()) return true;
-  if (getParamValue(searchParams.city).trim()) return true;
-  if (getParamValue(searchParams.sortBy).trim()) return true;
-  if (getParamValue(searchParams.listingType).trim()) return true;
-
-  return false;
+  // If there are any keys in searchParams at all, consider it filtered
+  // This safely catches all filters like amenities, radius, q, type, minRating, etc.
+  // without needing to maintain an exhaustive list.
+  return Object.keys(searchParams).length > 0;
 }
 
 export const revalidate = 3600; // Refresh server-rendered home data hourly

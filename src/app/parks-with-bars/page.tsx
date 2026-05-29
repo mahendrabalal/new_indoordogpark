@@ -13,11 +13,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.o
 const siteName = 'Indoor Dog Park';
 const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/hero.webp`;
 
-export async function generateMetadata(): Promise<Metadata> {
+type ParksWithBarsPageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: ParksWithBarsPageProps): Promise<Metadata> {
   const title = 'Indoor Dog Parks with Bars | Dog-Friendly Bars & Play Spaces';
   const description =
     'Discover indoor dog parks with bars and restaurants. Find climate-controlled play spaces where you can enjoy drinks while your dog plays. Search by city or location.';
   const canonicalUrl = '/parks-with-bars';
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const isFiltered = Object.keys(resolvedSearchParams).length > 0;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -52,10 +60,10 @@ export async function generateMetadata(): Promise<Metadata> {
       creator: '@indoordogpark',
     },
     robots: {
-      index: true,
+      index: !isFiltered,
       follow: true,
       googleBot: {
-        index: true,
+        index: !isFiltered,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
