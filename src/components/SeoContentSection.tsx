@@ -27,6 +27,7 @@ interface SeoContentSectionProps {
   faqs?: SeoFaq[];
   links?: SeoLink[];
   className?: string;
+  children?: React.ReactNode;
 }
 
 export default function SeoContentSection({
@@ -37,6 +38,7 @@ export default function SeoContentSection({
   faqs = [],
   links = [],
   className = '',
+  children,
 }: SeoContentSectionProps) {
   const headingId = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
@@ -125,6 +127,12 @@ export default function SeoContentSection({
                 </Link>
               ))}
             </div>
+          </div>
+        )}
+
+        {children && (
+          <div className="mt-12">
+            {children}
           </div>
         )}
       </div>

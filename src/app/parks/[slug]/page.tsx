@@ -138,9 +138,33 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
     { name: park.name },
   ]);
 
+  let fallbackDescription = `${park.name} is a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
+  
+  const features = [];
+  if (park.indoorOutdoor === 'indoor') features.push('indoor play areas');
+  if (park.indoorOutdoor === 'outdoor') features.push('outdoor play areas');
+  if (park.indoorOutdoor === 'both') features.push('both indoor and outdoor play areas');
+  
+  if (park.amenities) {
+    const amenitiesList = Object.entries(park.amenities)
+      .filter(([, value]) => value === true)
+      .map(([key]) => formatAmenityName(key).toLowerCase());
+    
+    if (amenitiesList.length > 0) {
+      features.push(`amenities such as ${amenitiesList.slice(0, 3).join(', ')}`);
+    }
+  }
+
+  if (features.length > 0) {
+    fallbackDescription += ` It features ${features.join(' and ')}.`;
+  }
+
+  if (park.rating && park.rating > 0) {
+    fallbackDescription += ` The facility has a ${park.rating}-star rating from ${park.reviewCount} reviews.`;
+  }
+
   const descriptionText =
-    park.description?.trim() ||
-    `Learn more about ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
+    park.description?.trim() || fallbackDescription;
   const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
   // Use custom FAQs if available, otherwise build comprehensive default FAQs
   const faqItems = park.faqs && park.faqs.length > 0 ? park.faqs : buildParkFAQs(park);

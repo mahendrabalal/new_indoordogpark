@@ -93,9 +93,6 @@ export const metadata: Metadata = {
     site: '@indoordogpark',
     creator: '@indoordogpark',
   },
-  alternates: {
-    canonical: 'https://www.indoordogpark.org',
-  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     // Add verification codes through environment variables:

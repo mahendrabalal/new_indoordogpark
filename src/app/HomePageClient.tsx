@@ -693,30 +693,70 @@ export default function HomePageClient({
                 ]
               }
             ]}
-            faqs={[
-              {
-                question: 'Are indoor dog parks good for shy or small dogs?',
-                answer: 'Absolutely! Many indoor facilities offer dedicated areas specifically for small, senior, or timid dogs. This allows them to socialize at their own pace without being overwhelmed by larger, high-energy dogs.'
-              },
-              {
-                question: 'What should I bring for my first visit?',
-                answer: 'For your first visit, you should bring your dog\'s current vaccination records (Rabies, Distemper, and Bordetella are standard). Most parks provide water, waste bags, and seating, but it\'s always good to check individual park rules on our directory links.'
-              },
-              {
-                question: 'Is there always staff on site?',
-                answer: 'While policies vary, most premium indoor dog parks have "Dog Proctors" or staff members who monitor the play areas to ensure all dogs are playing safely and politely.'
-              }
-            ]}
             className="border-t border-gray-100 mt-12"
           />
+        )}
+
+        {/* Tools and Help Center Section */}
+        {!showSearchLayout && (
+          <section className="bg-white py-16 border-t border-gray-100">
+            <div className="container mx-auto px-4 max-w-7xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                
+                {/* Left side: Safety Checker */}
+                <div>
+                  <p className="text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Pup Care Diagnostics</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">On-Site Ambient Check</h2>
+                  <SafetyCheckerFooter />
+                </div>
+
+                {/* Right side: Help Center / FAQs */}
+                <div>
+                  <p className="text-sm font-bold tracking-widest text-orange-500 uppercase mb-2">Help Center</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Frequently asked questions</h2>
+                  <p className="text-slate-500 mb-8 font-medium">Everything you need to know about safety protocols and premium network listings.</p>
+                  
+                  <div className="space-y-4">
+                    {[
+                      {
+                        question: 'Are indoor dog parks good for shy or small dogs?',
+                        answer: 'Absolutely! Many indoor facilities offer dedicated areas specifically for small, senior, or timid dogs. This allows them to socialize at their own pace without being overwhelmed by larger, high-energy dogs.'
+                      },
+                      {
+                        question: 'What should I bring for my first visit?',
+                        answer: 'For your first visit, you should bring your dog\'s current vaccination records (Rabies, Distemper, and Bordetella are standard). Most parks provide water, waste bags, and seating, but it\'s always good to check individual park rules on our directory links.'
+                      },
+                      {
+                        question: 'Is there always staff on-site?',
+                        answer: 'While policies vary, most premium indoor dog parks have "Dog Proctors" or staff members who monitor the play areas to ensure all dogs are playing safely and politely.'
+                      }
+                    ].map((faq) => (
+                      <details
+                        key={faq.question}
+                        className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        <summary className="cursor-pointer list-none font-bold text-gray-900 flex items-start justify-between gap-4">
+                          <span>{faq.question}</span>
+                          <span className="mt-1 text-gray-400 group-open:rotate-180 transition-transform" aria-hidden="true">
+                            <i className="bi bi-chevron-down"></i>
+                          </span>
+                        </summary>
+                        <div className="mt-4 text-gray-600 leading-relaxed font-medium">
+                          <p>{faq.answer}</p>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
         )}
 
         {/* Cities Section (only show when not searching) - Moved to bottom */}
         {!showSearchLayout && <CitiesSection />}
       </main>
-
-      {/* Safety Checker - Above Footer */}
-      <SafetyCheckerFooter />
 
       {/* Footer */}
       <Footer />

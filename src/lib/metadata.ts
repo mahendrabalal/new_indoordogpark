@@ -139,9 +139,33 @@ export function generateParkMetadata(park: DogPark): Metadata {
   const fullTitleWithTemplate = `${park.name} | ${park.businessType} in ${park.city}, ${stateAbbr} | ${uniqueKeywords}`;
   const title = createSEOTitle(fullTitleWithTemplate, 60);
 
+  let fallbackDescription = `${park.name} is a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
+  
+  const features = [];
+  if (park.indoorOutdoor === 'indoor') features.push('indoor play areas');
+  if (park.indoorOutdoor === 'outdoor') features.push('outdoor play areas');
+  if (park.indoorOutdoor === 'both') features.push('both indoor and outdoor play areas');
+  
+  if (park.amenities) {
+    const amenitiesList = Object.entries(park.amenities)
+      .filter(([, value]) => value === true)
+      .map(([key]) => key.replace(/([A-Z])/g, ' $1').toLowerCase().trim());
+    
+    if (amenitiesList.length > 0) {
+      features.push(`amenities such as ${amenitiesList.slice(0, 3).join(', ')}`);
+    }
+  }
+
+  if (features.length > 0) {
+    fallbackDescription += ` It features ${features.join(' and ')}.`;
+  }
+
+  if (park.rating && park.rating > 0) {
+    fallbackDescription += ` The facility has a ${park.rating}-star rating from ${park.reviewCount} reviews.`;
+  }
+
   const description = createMetaDescription(
-    park.description ||
-    `Discover ${park.name}, a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`
+    park.description || fallbackDescription
   );
 
   const representativeImage =

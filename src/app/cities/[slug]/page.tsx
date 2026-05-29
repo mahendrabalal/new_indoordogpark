@@ -34,9 +34,9 @@ interface CityPageProps {
 // Render on-demand to avoid prebuilding thousands of city pages
 export const dynamic = 'force-dynamic';
 
-/** Index city pages once we have at least one verified listing (directory has real value). Cities with zero listings stay noindex — including synthetic “coming soon” fallbacks. */
+/** Index city pages once we have at least two verified listings (directory has real value). Cities with fewer than two listings stay noindex — including synthetic “coming soon” fallbacks. */
 function shouldIndexCity(totalParks: number) {
-  return totalParks >= 1;
+  return totalParks >= 2;
 }
 
 function formatAmenityName(key: string): string {
