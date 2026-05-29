@@ -273,9 +273,9 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 {/* Meta Information */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
                   {post.author && (
-                    <div className="flex items-center gap-2">
+                    <Link href={`/blog/author/${post.author.slug}`} className="flex items-center gap-2 hover:text-green-600 transition-colors group">
                       {post.author.avatar_urls && post.author.avatar_urls['96'] && (
-                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200 group-hover:ring-2 group-hover:ring-green-300 transition-all">
                           <Image
                             src={post.author.avatar_urls['96']}
                             alt={post.author.name}
@@ -284,8 +284,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                           />
                         </div>
                       )}
-                      <span className="font-medium text-gray-900">{post.author.name}</span>
-                    </div>
+                      <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">{post.author.name}</span>
+                    </Link>
                   )}
                   <span>|</span>
                   <time dateTime={post.date}>
@@ -403,21 +403,26 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               <div>
                 {post.author && (
                   <div className="flex gap-4">
-                    {post.author.avatar_urls && post.author.avatar_urls['96'] && (
-                      <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 flex-shrink-0">
-                        <Image
-                          src={post.author.avatar_urls['96']}
-                          alt={post.author.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
+                    <Link href={`/blog/author/${post.author.slug}`} className="flex-shrink-0">
+                      {post.author.avatar_urls && post.author.avatar_urls['96'] && (
+                        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 hover:ring-2 hover:ring-green-300 transition-all">
+                          <Image
+                            src={post.author.avatar_urls['96']}
+                            alt={post.author.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+                    </Link>
                     <div>
-                      <p className="text-base font-bold text-gray-900 mb-1">About {post.author.name}</p>
+                      <Link href={`/blog/author/${post.author.slug}`} className="text-base font-bold text-gray-900 mb-1 hover:text-green-600 transition-colors block">About {post.author.name}</Link>
                       {post.author.description && (
                         <p className="text-sm text-gray-600 leading-relaxed">{post.author.description}</p>
                       )}
+                      <Link href={`/blog/author/${post.author.slug}`} className="inline-flex items-center gap-1 text-sm text-green-600 hover:text-green-700 font-medium mt-2 transition-colors">
+                        View all articles →
+                      </Link>
                     </div>
                   </div>
                 )}
