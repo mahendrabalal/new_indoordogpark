@@ -282,5 +282,71 @@ export const queries = {
       slug
     }
   }`,
+
+  // Fetch a single author by slug with full profile info
+  authorBySlug: `*[_type == "author" && slug.current == $slug][0] {
+    _id,
+    name,
+    slug,
+    bio,
+    image {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    "postCount": count(*[_type == "post" && references(^._id) && !(_id in path("drafts.**"))])
+  }`,
+
+  // Posts by author slug
+  postsByAuthor: `*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    "content": body,
+    publishedAt,
+    _updatedAt,
+    mainImage {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions
+        }
+      },
+      alt,
+      caption
+    },
+    author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    categories[]->{
+      _id,
+      title,
+      slug,
+      description
+    },
+    tags[]->{
+      _id,
+      title,
+      slug
+    }
+  }`,
+
+  // Count posts by author slug
+  postCountByAuthor: `count(*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))])`,
 };
 

@@ -619,3 +619,117 @@ export async function getCachedTags() {
   )();
 }
 
+// ──────────────────────────────────────────────
+// Author API
+// ──────────────────────────────────────────────
+
+interface SanityAuthorFull {
+  _id: string;
+  name: string;
+  slug: SanitySlug;
+  bio?: string;
+  image?: SanityImage;
+  postCount?: number;
+}
+
+export interface AuthorProfile {
+  id: string;
+  name: string;
+  slug: string;
+  bio: string;
+  avatarUrl: string;
+  postCount: number;
+}
+
+function sanityAuthorToProfile(a: SanityAuthorFull): AuthorProfile {
+  let avatarUrl = '';
+  try {
+    if (a.image) {
+      avatarUrl = urlForImage(a.image).width(200).height(200).url();
+    }
+  } catch {
+    avatarUrl = a.image?.asset?.url || '';
+  }
+  return {
+    id: a._id,
+    name: a.name,
+    slug: a.slug?.current || a.name.toLowerCase().replace(/\s+/g, '-'),
+    bio: a.bio || '',
+    avatarUrl,
+    postCount: a.postCount || 0,
+  };
+}
+
+export async function fetchAuthorBySlug(slug: string): Promise<AuthorProfile | null> {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return null;
+  try {
+    const author = await sanityClient.fetch<SanityAuthorFull | null>(
+      queries.authorBySlug,
+      { slug }
+    );
+    if (!author) return null;
+    return sanityAuthorToProfile(author);
+  } catch (error) {
+    console.error('Error fetching author by slug:', error);
+    return null;
+  }
+}
+
+export async function getCachedAuthorBySlug(slug: string): Promise<AuthorProfile | null> {
+  return unstable_cache(
+    async () => fetchAuthorBySlug(slug),
+    [`blog-author-${slug}`],
+    {
+      revalidate: 300,
+      tags: ['blog-authors', `blog-author-${slug}`],
+    }
+  )();
+}
+
+export async function fetchPostsByAuthor(
+  authorSlug: string,
+  page = 1,
+  perPage = 12
+): Promise<BlogListResponse> {
+  const emptyResponse = { posts: [], total: 0, totalPages: 0, page, perPage };
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return emptyResponse;
+  try {
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    const [sanityPosts, totalCount] = await Promise.all([
+      sanityClient.fetch<SanityPost[]>(queries.postsByAuthor, {
+        authorSlug,
+        start,
+        end,
+      }),
+      sanityClient.fetch<number>(queries.postCountByAuthor, { authorSlug }),
+    ]);
+
+    return {
+      posts: sanityPosts.map(sanityPostToBlogPost),
+      total: totalCount,
+      totalPages: Math.ceil(totalCount / perPage),
+      page,
+      perPage,
+    };
+  } catch (error) {
+    console.error('Error fetching posts by author:', error);
+    return emptyResponse;
+  }
+}
+
+export async function getCachedPostsByAuthor(
+  authorSlug: string,
+  page = 1,
+  perPage = 12
+): Promise<BlogListResponse> {
+  return unstable_cache(
+    async () => fetchPostsByAuthor(authorSlug, page, perPage),
+    [`blog-author-posts-${authorSlug}-${page}-${perPage}`],
+    {
+      revalidate: 300,
+      tags: ['blog-posts', `blog-author-${authorSlug}`],
+    }
+  )();
+}
