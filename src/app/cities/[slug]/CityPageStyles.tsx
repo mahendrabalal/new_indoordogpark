@@ -170,6 +170,49 @@ export default function CityPageStyles() {
           max-width: 70ch;
         }
 
+        .rich-description-h2 {
+          font-size: 24px;
+          color: #1e293b;
+          font-weight: 800;
+          margin: 32px 0 8px;
+          letter-spacing: -0.01em;
+        }
+
+        .rich-description-h3 {
+          font-size: 20px;
+          color: #334155;
+          font-weight: 700;
+          margin: 24px 0 8px;
+        }
+
+        .rich-description-blockquote {
+          margin: 16px 0;
+          padding: 16px 24px;
+          border-left: 4px solid #FF5722;
+          background: #fff7ed;
+          border-radius: 0 12px 12px 0;
+          font-style: italic;
+          color: #9a3412;
+          font-size: 17px;
+          line-height: 1.6;
+        }
+
+        .rich-description-list {
+          margin: 8px 0;
+          padding-left: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          color: #4b5563;
+          font-size: 16px;
+          line-height: 1.75;
+          list-style-type: disc;
+        }
+
+        .rich-description-list li::marker {
+          color: #FF5722;
+        }
+
         .rich-link {
           color: #FF5722;
           text-decoration: none;

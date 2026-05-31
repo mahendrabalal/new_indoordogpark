@@ -1570,55 +1570,6 @@
     "amenities": {}
   },
   {
-    "id": "ChIJy_IXHZGPM4gRi5csZSgZr9E",
-    "name": "Stay and Play Indoor Dog Park, LLC",
-    "businessType": "Indoor Dog Park",
-    "description": "Stay and Play Indoor Dog Park, LLC is a premier pet facility in New Castle that consistently earns praise from pet owners. With a 4.9-star rating from 8 reviews, This facility stands out for being professional and reliable and safe environment and great for socialization. Pet owners appreciate the attention to detail and the genuine care shown to every furry visitor. For more information, call (878) 232-1980. Visit their website for additional details.",
-    "slug": "stay-and-play-indoor-dog-park-llc",
-    "address": "2656 Ellwood Rd #104",
-    "street": "2656 Ellwood Rd #104",
-    "city": "Cleveland",
-    "state": "OH",
-    "zipCode": "16101",
-    "full_address": "2656 Ellwood Rd #104, New Castle, PA 16101, USA",
-    "latitude": 40.9640911,
-    "longitude": -80.3095056,
-    "googlePlaceId": "ChIJy_IXHZGPM4gRi5csZSgZr9E",
-    "phone": "(878) 232-1980",
-    "website": "https://stayandplayindoordogpark.com/",
-    "rating": 4.9,
-    "reviewCount": 8,
-    "userRatingsTotal": 8,
-    "pricing": {
-      "pricingSource": "unknown",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "dataQuality": "verified",
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "10:00 AM – 7:00 PM",
-      "Wednesday": "10:00 AM – 7:00 PM",
-      "Thursday": "10:00 AM – 7:00 PM",
-      "Friday": "10:00 AM – 6:00 PM",
-      "Saturday": "10:00 AM – 4:00 PM",
-      "Sunday": "Closed"
-    },
-    "faqs": [],
-    "amenities": {},
-    "photo": null,
-    "photos": [
-      {
-        "url": null,
-        "type": "photo",
-        "source": "website"
-      }
-    ]
-  },
-  {
     "id": "ChIJfbgXWhjyMIgRHMvUeGYm2tY",
     "name": "SATOO Reptiles and Aquatics",
     "businessType": "Indoor Dog Park",

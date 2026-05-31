@@ -8451,10 +8451,6 @@ export const priorityCityContent: PriorityCityConfig[] = [
         'Peak search volume hits each summer, so Phoenix indoor dog parks lean on heat alerts, mist tunnels, and membership waitlists that open when temps soar.',
       heroPill: 'Heat alert waitlists',
       heroFootnotes: ['Arcadia · Downtown · East Valley'],
-      heroChips: [
-        { label: 'Heat index triggers', value: 'Push alerts at 95°F' },
-        { label: 'Cooling perks', value: 'Ice treats + towel service' },
-      ],
       insightIntro:
         'Climate control is non-negotiable. Operators invest in redundancy: generators, mist corridors, and chilled turf so dogs sprint safely even at 110°F.',
       insightCards: [

@@ -80,8 +80,8 @@ export default async function CitiesPage() {
                             <p>These cities feature our most detailed content, curated photos, and verified local insights.</p>
                         </div>
                         <div className="cities-grid">
-                            {featuredCities.map(city => (
-                                <CityCard key={city.slug} city={city} />
+                            {featuredCities.map((city, index) => (
+                                <CityCard key={city.slug} city={city} priority={index < 6} />
                             ))}
                         </div>
                     </div>

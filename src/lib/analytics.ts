@@ -157,6 +157,26 @@ export function trackError(error: Error, context?: Record<string, unknown>) {
   });
 }
 
+/**
+ * Track FAQ Helpful votes
+ */
+export function trackFaqHelpful(question: string, cityName: string) {
+  trackEvent('faq_helpful_vote', {
+    faq_question: question,
+    city: cityName,
+  });
+}
+
+/**
+ * Track FAQ Shares
+ */
+export function trackFaqShare(question: string, cityName: string) {
+  trackEvent('faq_share', {
+    faq_question: question,
+    city: cityName,
+  });
+}
+
 
 
 

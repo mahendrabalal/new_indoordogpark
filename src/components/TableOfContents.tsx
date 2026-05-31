@@ -20,32 +20,36 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
   const sectionRefs = useRef<Map<string, IntersectionObserverEntry>>(new Map());
   const isScrollingRef = useRef<boolean>(false);
 
-  // Hide TOC when footer becomes visible to avoid overlap.
+  // Hide TOC when footer comes near to avoid overlap.
   useEffect(() => {
-    // TOC is hidden on mobile/tablet already; only apply this behavior on desktop.
-    const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
-    if (!isDesktop()) return;
+    const checkFooterOverlap = () => {
+      const isDesktop = window.matchMedia('(min-width: 1025px)').matches;
+      if (!isDesktop) return;
 
-    const footer = document.querySelector('footer.footer-new') ?? document.querySelector('footer');
-    if (!footer) return;
+      const footer = document.querySelector('footer.footer-new') || document.querySelector('footer');
+      const toc = document.querySelector('.table-of-contents') as HTMLElement;
+      if (!footer || !toc) return;
 
-    const footerObserver = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setIsFooterVisible(Boolean(entry?.isIntersecting));
-      },
-      {
-        root: null,
-        // Trigger a bit early so the footer is never covered.
-        rootMargin: '0px 0px -20% 0px',
-        threshold: 0.01,
-      },
-    );
+      const footerRect = footer.getBoundingClientRect();
+      // TOC is fixed at top: 120px. Calculate its real layout bottom, ignoring CSS transforms.
+      const tocBottom = 120 + toc.offsetHeight;
 
-    footerObserver.observe(footer);
+      // Add a 40px buffer before they touch
+      if (footerRect.top <= tocBottom + 40) {
+        setIsFooterVisible(true);
+      } else {
+        setIsFooterVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkFooterOverlap, { passive: true });
+    window.addEventListener('resize', checkFooterOverlap, { passive: true });
+    // Run once after a short delay to ensure DOM is fully laid out
+    setTimeout(checkFooterOverlap, 100);
 
     return () => {
-      footerObserver.disconnect();
+      window.removeEventListener('scroll', checkFooterOverlap);
+      window.removeEventListener('resize', checkFooterOverlap);
     };
   }, []);
 

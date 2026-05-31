@@ -6,8 +6,10 @@ import ParkDirectoryGrid from '@/components/ParkDirectoryGrid';
 import TableOfContents from '@/components/TableOfContents';
 import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
-import CityStats from '@/components/CityStats';
+
 import ScrollToButton from '@/components/ScrollToButton';
+import NewsletterForm from '@/components/NewsletterForm';
+import RelatedGuides from '@/components/RelatedGuides';
 import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { getStateName } from '@/lib/state';
 import { getCityContentBySlug } from '@/lib/parks-data';
@@ -34,9 +36,9 @@ interface CityPageProps {
 // Render on-demand to avoid prebuilding thousands of city pages
 export const dynamic = 'force-dynamic';
 
-/** Index city pages once we have at least two verified listings (directory has real value). Cities with fewer than two listings stay noindex — including synthetic “coming soon” fallbacks. */
+/** Index city pages once we have at least three verified listings (directory has real value). Cities with fewer than three listings stay noindex — including synthetic "coming soon" fallbacks. Three listings ensures the page has enough substantive content for AdSense compliance. */
 function shouldIndexCity(totalParks: number) {
-  return totalParks >= 2;
+  return totalParks >= 3;
 }
 
 function formatAmenityName(key: string): string {
@@ -238,10 +240,9 @@ export default async function CityPage({ params }: CityPageProps) {
       topRatedPark: topRatedPark ? { name: topRatedPark.name, rating: topRatedPark.rating } : undefined,
       topAmenities,
     });
-  const heroFootnotes = customContent?.heroFootnotes || [
-    'Data refreshed weekly',
-    'Live availability coming soon',
-  ];
+  // Only show footnotes when there is custom content — generic footnotes signal
+  // machine-generated pages to search engines and harm AdSense compliance.
+  const heroFootnotes = customContent?.heroFootnotes || [];
 
   const heroImageAlt = customContent?.heroImageAlt || `${city.name} dog park landscape`;
 
@@ -494,7 +495,10 @@ export default async function CityPage({ params }: CityPageProps) {
     },
   ];
 
-  const planningCards = customContent?.planningCards || defaultPlanningCards;
+  // Only show planning cards when they are custom-authored for this city.
+  // The default planning cards are identical across every city page, which Google
+  // detects as duplicate/low-value content and uses as grounds for AdSense rejection.
+  const planningCards = customContent?.planningCards || null;
 
   const defaultOwnerCta: SupportCTA = {
     kicker: 'Partner with us',
@@ -509,18 +513,16 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
-    { id: 'city-insights', title: 'Quick Facts', level: 1 },
     { id: 'city-comparison', title: 'Top Comparisons', level: 1 },
     { id: 'park-collections', title: 'Park Collections', level: 1 },
     { id: 'neighborhood-clusters', title: 'Neighborhoods', level: 1 },
     { id: 'park-types-guide', title: 'Park Type Guide', level: 1 },
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
-    { id: 'planning-essentials', title: 'Planning Essentials', level: 1 },
-    { id: 'expert-tips', title: 'Expert Advice', level: 1 },
     { id: 'park-directory', title: 'Full Directory', level: 1 },
     { id: 'owner-cta', title: 'Owner & Franchise', level: 1 },
+    { id: 'related-guides', title: 'Expert Guides', level: 1 },
     { id: 'faq-section', title: 'FAQs', level: 1 },
-    { id: 'related-resources', title: 'More Resources', level: 1 },
+
   ];
 
   return (
@@ -573,56 +575,65 @@ export default async function CityPage({ params }: CityPageProps) {
               <p className="hero-eyebrow">{heroEyebrow}</p>
               <h1>{heroHeading}</h1>
 
-              {customContent?.heroChips && customContent.heroChips.length > 0 && (
-                <div className="hero-chip-row">
-                  {customContent.heroChips.map((chip, idx) => (
-                    <div key={idx} className="hero-chip">
-                      <span className="chip-label">{chip.label}</span>
-                      <span className="chip-value">{chip.value}</span>
-                      {chip.caption && <span className="chip-caption">{chip.caption}</span>}
-                    </div>
-                  ))}
-                </div>
-              )}
+
 
 
               <p className="hero-description">{heroDescriptionCopy}</p>
 
               {customContent?.longDescription && customContent.longDescription.length > 0 && (
                 <div className="city-rich-description">
-                  {customContent.longDescription.map((para, idx) => (
-                    <p key={idx} className="rich-description-paragraph">
-                      {para.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
+                  {customContent.longDescription.map((para, idx) => {
+                    const parseInline = (text: string) => {
+                      return text.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
                         if (!part) return null;
-
-                        // Handle Links
+                        
                         const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
                         if (linkMatch) {
-                          const [, text, href] = linkMatch;
+                          const [, linkText, href] = linkMatch;
                           const isExternal = href.startsWith('http');
                           return (
-                            <Link
-                              key={i}
-                              href={href}
-                              target={isExternal ? "_blank" : undefined}
-                              rel={isExternal ? "noopener noreferrer" : undefined}
-                              className="rich-link"
-                            >
-                              {text}
+                            <Link key={i} href={href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="rich-link">
+                              {linkText}
                             </Link>
                           );
                         }
-
-                        // Handle Bold
+                        
                         const boldMatch = part.match(/\*\*(.*?)\*\*/);
                         if (boldMatch) {
                           return <strong key={i}>{boldMatch[1]}</strong>;
                         }
-
+                        
                         return part;
-                      })}
-                    </p>
-                  ))}
+                      });
+                    };
+
+                    // Handle Markdown block types
+                    if (para.startsWith('### ')) {
+                      return <h3 key={idx} className="rich-description-h3">{parseInline(para.slice(4))}</h3>;
+                    }
+                    if (para.startsWith('## ')) {
+                      return <h2 key={idx} className="rich-description-h2">{parseInline(para.slice(3))}</h2>;
+                    }
+                    if (para.startsWith('> ')) {
+                      return <blockquote key={idx} className="rich-description-blockquote">{parseInline(para.slice(2))}</blockquote>;
+                    }
+                    if (para.trim().startsWith('- ') || para.trim().startsWith('* ')) {
+                      const listItems = para.split('\n').filter(line => line.trim().startsWith('- ') || line.trim().startsWith('* '));
+                      return (
+                        <ul key={idx} className="rich-description-list">
+                          {listItems.map((item, i) => (
+                            <li key={i}>{parseInline(item.replace(/^[-*]\s/, ''))}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+
+                    return (
+                      <p key={idx} className="rich-description-paragraph">
+                        {parseInline(para)}
+                      </p>
+                    );
+                  })}
                 </div>
               )}
 
@@ -673,19 +684,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
         <CityPremiumSpotlight city={city.name} state={city.state} />
 
-        <section id="city-insights" className="city-insights-section">
-          <div className="section-shell">
-            {cityParks.length > 0 && (
-              <CityStats
-                parks={cityParks}
-                cityName={city.name}
-                insightCards={customContent?.insightCards || undefined}
-                topAmenities={topAmenities}
-                insightIntro={customContent?.insightIntro}
-              />
-            )}
-          </div>
-        </section>
+
 
         <section id="city-comparison" className="city-comparison-section">
           <div className="section-shell">
@@ -821,59 +820,43 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
-        <section id="planning-essentials" className="planning-essentials-section">
+
+
+        <section id="newsletter-optin" className="newsletter-optin-section" style={{ padding: '60px 0' }}>
           <div className="section-shell">
-            <div className="section-heading">
-              <span className="section-eyebrow">Visit toolkit</span>
-              <h2>Plan the perfect dog outing in {city.name}</h2>
-              <p>Borrow best practices from local trainers, rangers, and experienced pet parents.</p>
-            </div>
-
-            <div className="planning-grid">
-              {planningCards.map((card) => (
-                <article key={card.title} className="planning-card">
-                  <div className="planning-icon">
-                    <i className={`bi ${card.icon}`} />
-                  </div>
-                  <h3>{card.title}</h3>
-                  <ul>
-                    {card.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {customContent?.expertTips && customContent.expertTips.length > 0 && (
-          <section id="expert-tips" className="expert-tips-section" style={{ padding: '80px 0' }}>
-            <div className="section-shell">
-              <div style={{ padding: 48, background: '#f8fafc', borderRadius: 24, border: '1px solid #e2e8f0' }}>
-                <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                  <div style={{ width: 64, height: 64, borderRadius: 16, background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '1.5rem', flexShrink: 0 }}>
-                    <i className="bi bi-lightbulb" />
-                  </div>
-                  <div style={{ flex: 1, minWidth: '300px' }}>
-                    <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Expert Advice</span>
-                    <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', marginTop: 8 }}>Internal Tips for {city.name} Dog Owners</h2>
-                    <p style={{ color: '#64748b', marginTop: 12, lineHeight: 1.6 }}>Our team and local community members shared these specific insights to help you navigate {city.name} like a pro.</p>
-
-                    <ul style={{ marginTop: 32, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, listStyle: 'none', padding: 0 }}>
-                      {customContent.expertTips.map((tip, idx) => (
-                        <li key={idx} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                          <i className="bi bi-check2-circle" style={{ color: '#10b981', fontSize: '1.25rem', marginTop: 2 }} />
-                          <span style={{ color: '#334155', fontWeight: 500, lineHeight: 1.5 }}>{tip}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <div style={{ 
+              position: 'relative',
+              padding: '64px 48px', 
+              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)', 
+              borderRadius: '32px', 
+              boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.5)', 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              gap: '48px', 
+              alignItems: 'center',
+              overflow: 'hidden'
+            }}>
+              {/* Decorative background elements for depth */}
+              <div style={{ position: 'absolute', top: '-30%', left: '-10%', width: '60%', height: '160%', background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '70%', height: '150%', background: 'radial-gradient(circle, rgba(255,87,34,0.15) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+              
+              <div style={{ flex: '1 1 300px', position: 'relative', zIndex: 10 }}>
+                <span style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(255,87,34,0.1)', border: '1px solid rgba(255,87,34,0.2)', borderRadius: '999px', fontSize: '0.875rem', fontWeight: 700, color: '#FF5722', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>Stay Updated</span>
+                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', margin: '0', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
+                  Join the {city.name} pack
+                </h2>
+                <p style={{ color: '#94a3b8', marginTop: '16px', lineHeight: 1.6, fontSize: '1.125rem', maxWidth: '480px' }}>
+                  Get the latest {city.name} dog park news, local events, and exclusive updates delivered straight to your inbox. Join thousands of other local pet parents.
+                </p>
+              </div>
+              <div style={{ flex: '1 1 380px', minWidth: '300px', position: 'relative', zIndex: 10 }}>
+                <div style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '24px', padding: '32px', boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)' }}>
+                  <NewsletterForm type="consumer" source={`city_pillar_${city.slug}`} variant="dark" />
                 </div>
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         <section id="owner-cta" className="owner-cta-section">
           <div className="section-shell">
@@ -974,6 +957,8 @@ export default async function CityPage({ params }: CityPageProps) {
           )
         }
 
+        <RelatedGuides citySlug={city.slug} count={3} />
+
         <section id="faq-section" className="city-faq-section">
           <div className="section-shell">
             <FAQSection
@@ -985,53 +970,7 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
-        <section id="related-resources" className="related-resources-section">
-          <div className="section-shell">
-            <div className="section-heading">
-              <span className="section-eyebrow">Keep exploring</span>
-              <h2>More ways to plan</h2>
-              <p>Browse statewide guides, submit a listing, or connect with our team.</p>
-            </div>
 
-            <div className="resources-grid">
-              <Link href="/" className="resource-card">
-                <div className="resource-icon">
-                  <i className="bi bi-globe" />
-                </div>
-                <h3>Nationwide directory</h3>
-                <p>See every city we cover plus statewide insights.</p>
-                <i className="bi bi-arrow-up-right" />
-              </Link>
-
-              <Link href="/contact" className="resource-card">
-                <div className="resource-icon">
-                  <i className="bi bi-chat-dots" />
-                </div>
-                <h3>Ask the team</h3>
-                <p>Need custom data or media assets? We&rsquo;re here.</p>
-                <i className="bi bi-arrow-up-right" />
-              </Link>
-
-              <Link href="/list-your-park" className="resource-card">
-                <div className="resource-icon">
-                  <i className="bi bi-megaphone" />
-                </div>
-                <h3>Feature your park</h3>
-                <p>Upgrade to a featured listing and reach active pet parents.</p>
-                <i className="bi bi-arrow-up-right" />
-              </Link>
-
-              <Link href="/blog" className="resource-card">
-                <div className="resource-icon">
-                  <i className="bi bi-journal-text" />
-                </div>
-                <h3>Latest guides</h3>
-                <p>Training tips, travel itineraries, and product spotlights.</p>
-                <i className="bi bi-arrow-up-right" />
-              </Link>
-            </div>
-          </div>
-        </section>
       </main >
 
       <Footer />

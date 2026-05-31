@@ -48321,57 +48321,6 @@
     "faqs": []
   },
   {
-    "id": "ChIJy_IXHZGPM4gRi5csZSgZr9E",
-    "name": "Stay and Play Indoor Dog Park, LLC",
-    "businessType": "Dog Park",
-    "description": "Stay and Play Indoor Dog Park, LLC has become a favorite among New Castle residents. The facility excels in dogs love it here and safe environment, making it a trusted choice for dog owners who want the best for their pets. For more information, call (878) 232-1980.",
-    "slug": "stay-and-play-indoor-dog-park-llc",
-    "address": "2656 Ellwood Rd #104",
-    "street": "2656 Ellwood Rd #104",
-    "city": "New Castle",
-    "state": "TX",
-    "zipCode": "16101",
-    "full_address": "2656 Ellwood Rd #104, New Castle, PA 16101, USA",
-    "latitude": 40.9640911,
-    "longitude": -80.3095056,
-    "googlePlaceId": "ChIJy_IXHZGPM4gRi5csZSgZr9E",
-    "phone": "(878) 232-1980",
-    "website": "https://stayandplayindoordogpark.com/",
-    "photos": null,
-    "rating": 4.9,
-    "reviewCount": 8,
-    "openingHours": {
-      "Monday": "Closed",
-      "Tuesday": "10:00 AM – 7:00 PM",
-      "Wednesday": "10:00 AM – 7:00 PM",
-      "Thursday": "10:00 AM – 7:00 PM",
-      "Friday": "10:00 AM – 6:00 PM",
-      "Saturday": "10:00 AM – 4:00 PM",
-      "Sunday": "Closed"
-    },
-    "amenities": {
-      "Onsite services": true,
-      "Indoor facilities": true,
-      "Professional staff": true,
-      "Climate controlled": true,
-      "Wheelchair accessible entrance": true,
-      "Parking available": true,
-      "Easy access": true
-    },
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": []
-  },
-  {
     "id": "ChIJKXjCUwCXb4YRNDrtHg318pA",
     "name": "The Broken Sprocket",
     "businessType": "Dog Park",
