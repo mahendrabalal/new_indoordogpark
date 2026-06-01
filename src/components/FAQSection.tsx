@@ -223,7 +223,7 @@ export default function FAQSection({ cityName, parkCount, faqs, supportCard }: F
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .faq-section {
           padding: 60px 20px;
           background: #ffffff;
