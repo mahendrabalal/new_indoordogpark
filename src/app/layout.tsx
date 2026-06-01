@@ -189,8 +189,6 @@ export default function RootLayout({
         {/* Preload critical resources for faster initial render */}
         {/* Hero image is the Largest Contentful Paint (LCP) element - preload is critical */}
         <link rel="preload" href="/images/hero/hero.webp" as="image" type="image/webp" fetchPriority="high" />
-        {/* Logo is used in header and search layout - preload for better LCP */}
-        <link rel="preload" href="/images/logo/logo.png" as="image" type="image/png" />
 
         <link rel="manifest" href="/manifest.json" />
 
@@ -199,13 +197,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
 
-        {/* Google AdSense Verification - use next/script to prevent hydration mismatch */}
-        <Script
-          id="adsense"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205755972349086"
-          crossOrigin="anonymous"
-        />
+
 
         {/* Structured Data */}
         <script
@@ -226,6 +218,13 @@ export default function RootLayout({
 
       </head>
       <body className={inter.className}>
+        {/* Google AdSense - placed in body to avoid data-nscript attribute warning in head */}
+        <Script
+          id="adsense"
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205755972349086"
+          crossOrigin="anonymous"
+        />
         <ErrorBoundary level="page">
           <GoogleAnalytics />
           <CoreWebVitals />
