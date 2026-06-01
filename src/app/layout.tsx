@@ -199,12 +199,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7c3aed" />
 
-        {/* Google AdSense Verification */}
-        <script
-          async
+        {/* Google AdSense Verification - use next/script to prevent hydration mismatch */}
+        <Script
+          id="adsense"
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205755972349086"
           crossOrigin="anonymous"
-        ></script>
+        />
 
         {/* Structured Data */}
         <script
