@@ -724,10 +724,10 @@ body {
 }
 
 .logo img {
-  /* Industry standard: Header logos typically 36-40px height on desktop */
-  height: 36px;
+  /* Increased for better visibility: desktop logo 44px height */
+  height: 44px;
   width: auto;
-  max-width: 140px;
+  max-width: 160px;
   display: block;
   object-fit: contain;
 }
@@ -888,9 +888,9 @@ body {
   }
 
   .logo img {
-    /* Industry standard: Tablet logos 32-34px height */
-    height: 32px;
-    max-width: 120px;
+    /* Increased for better visibility: tablet logo 40px height */
+    height: 40px;
+    max-width: 150px;
   }
 
   .header-link-primary {
@@ -908,9 +908,9 @@ body {
   }
 
   .logo img {
-    /* Industry standard: Mobile logos 28-30px height */
-    height: 28px;
-    max-width: 100px;
+    /* Increased for better visibility: mobile logo 36px height */
+    height: 36px;
+    max-width: 130px;
   }
 
   .menu-toggle {

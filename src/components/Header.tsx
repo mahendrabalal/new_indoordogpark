@@ -81,8 +81,8 @@ export default function Header({ variant = 'default' }: HeaderProps) {
             <Image
               src="/images/logo/logo.png"
               alt="Indoor Dog Park logo"
-              width={140}
-              height={40}
+              width={160}
+              height={44}
               priority
               style={{ objectFit: 'contain' }}
             />
