@@ -110,6 +110,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
               <div className={`header-dropdown ${openDropdown === 'discover' ? 'open' : ''}`}>
                 <Link href="/parks-with-bars" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Parks with Bars</Link>
                 <Link href="/training-facilities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Training Facilities</Link>
+                <Link href="/off-leash-dog-park" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Off-Leash Parks</Link>
                 <Link href="/how-it-works" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>How It Works</Link>
               </div>
             </div>
@@ -184,6 +185,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <Link href="/" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Browse Parks</Link>
         <Link href="/parks-with-bars" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Parks with Bars</Link>
         <Link href="/training-facilities" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Training Facilities</Link>
+        <Link href="/off-leash-dog-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Off-Leash Parks</Link>
         <Link href="/how-it-works" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>How It Works</Link>
         <Link href="/blog" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Blog & Guides</Link>
         <Link href="/about" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>About</Link>

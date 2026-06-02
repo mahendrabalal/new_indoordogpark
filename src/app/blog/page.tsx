@@ -54,6 +54,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
     const qs = new URLSearchParams();
     if (page > 1) qs.set('page', String(page));
     if (perPage !== 12) qs.set('perPage', String(perPage));
+    if (searchTerm) qs.set('search', searchTerm);
     const suffix = qs.toString() ? `?${qs.toString()}` : '';
     permanentRedirect(`/blog/category/${encoded}${suffix}`);
   }
@@ -63,6 +64,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
     const qs = new URLSearchParams();
     if (page > 1) qs.set('page', String(page));
     if (perPage !== 12) qs.set('perPage', String(perPage));
+    if (searchTerm) qs.set('search', searchTerm);
     const suffix = qs.toString() ? `?${qs.toString()}` : '';
     permanentRedirect(`/blog/tag/${encoded}${suffix}`);
   }
@@ -187,27 +189,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 <p className="mt-3 text-gray-600">
                   Try adjusting your filters, searching a different topic, or resetting back to all stories.
                 </p>
-                <form action="/blog" method="GET" className="mt-6">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <label htmlFor="empty-state-search" className="sr-only">
-                      Search blog
-                    </label>
-                    <input
-                      id="empty-state-search"
-                      type="search"
-                      name="search"
-                      defaultValue={searchTerm || ''}
-                      placeholder="Search indoor dog park guides..."
-                      className="w-full rounded-full border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                    />
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/30 transition hover:bg-purple-500"
-                    >
-                      Search
-                    </button>
-                  </div>
-                </form>
+
                 {activeFilters && (
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
                     <Link
@@ -379,28 +361,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
           <div className="container mx-auto px-4">
             <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
-              <form action="/blog" method="GET" className="relative w-full md:w-auto">
-                {categorySlug && <input type="hidden" name="category" value={categorySlug} />}
-                {tagSlug && <input type="hidden" name="tag" value={tagSlug} />}
-                <label htmlFor="category-search" className="sr-only">
-                  Search blogs
-                </label>
-                <input
-                  id="category-search"
-                  type="search"
-                  name="search"
-                  defaultValue={searchTerm || ''}
-                  placeholder="Search blogs"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 pr-10 text-sm text-gray-900 placeholder:text-gray-500 focus:border-[#FF5722] focus:outline-none focus:ring-2 focus:ring-[#FF5722]/20 md:w-64"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#FF5722]"
-                  aria-label="Search"
-                >
-                  <i className="bi bi-search text-lg"></i>
-                </button>
-              </form>
+
             </div>
             <div className="flex flex-wrap gap-3">
               <Link

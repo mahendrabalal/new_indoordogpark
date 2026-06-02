@@ -122,6 +122,12 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/off-leash-dog-park`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/list-your-park`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,

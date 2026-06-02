@@ -148,7 +148,7 @@ export const queries = {
 
   // Get count of posts by search
   postCountBySearch: `count(*[_type == "post" && !(_id in path("drafts.**")) && 
-    (title match $searchTerm || excerpt match $searchTerm || pt::text(body) match $searchTerm)
+    (title match $searchTerm || excerpt match $searchTerm)
   ])`,
 
   // Fetch all categories
@@ -170,7 +170,7 @@ export const queries = {
 
   // Search posts
   searchPosts: `*[_type == "post" && !(_id in path("drafts.**")) && 
-    (title match $searchTerm || excerpt match $searchTerm || pt::text(body) match $searchTerm)
+    (title match $searchTerm || excerpt match $searchTerm)
   ] | order(publishedAt desc) [$start...$end] {
     _id,
     title,

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { WPCategory, WPTag } from '@/types/wordpress';
 import BlogSidebarNewsletter from '@/components/blog/BlogSidebarNewsletter';
 
@@ -28,38 +29,7 @@ export default function BlogSidebar({
 
   return (
     <div className={`flex flex-col gap-6 ${className}`}>
-      {/* Search */}
-      <section className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple-600">Discover</p>
-        <h3 className="mt-2 text-lg font-semibold text-gray-900">Search the journal</h3>
-        <p className="mt-1 text-sm text-gray-500">
-          Explore research-backed guides, park spotlights, and planning tips.
-        </p>
-        <form action="/blog" method="GET" className="mt-5">
-          <label htmlFor="sidebar-search" className="sr-only">
-            Search blog
-          </label>
-          {activeCategory && <input type="hidden" name="category" value={activeCategory} />}
-          {activeTag && <input type="hidden" name="tag" value={activeTag} />}
-          <div className="relative">
-            <input
-              id="sidebar-search"
-              type="search"
-              name="search"
-              placeholder="Search articles..."
-              defaultValue={defaultSearchValue}
-              className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-purple-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple-200"
-            />
-            <button
-              type="submit"
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-2xl bg-purple-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-purple-500"
-              aria-label="Submit blog search"
-            >
-              Search
-            </button>
-          </div>
-        </form>
-      </section>
+
 
       {/* Categories */}
       {topCategories.length > 0 && (
