@@ -67,7 +67,7 @@ export class EmailService {
   }
 
   static async sendContactNotification(submission: ContactSubmission): Promise<{ success: boolean; error?: string }> {
-    const adminEmail = process.env.ADMIN_EMAIL || 'contact@indoordogpark.org';
+    const adminEmail = process.env.ADMIN_EMAIL || 'media@indoordogpark.org';
 
     const emailParams: EmailParams = {
       to: adminEmail,
@@ -99,13 +99,8 @@ export class EmailService {
           </style>
         </head>
         <body>
-          <div class="container">
-            <div class="header">
-              <h1>Thank You for Contacting Us!</h1>
-              <p>We've received your message and will get back to you soon.</p>
-            </div>
-            <div class="content">
-              <h2>Your Message Details:</h2>
+          <span class="text-slate-900 font-semibold text-[15px] mr-4">media@indoordogpark.org</span>
+          <p>If you wish to reply, you can email directly to this address.</p>Your Message Details:</h2>
               <div class="field">
                 <div class="label">Name:</div>
                 <div>${submission.name}</div>
