@@ -556,10 +556,12 @@ body {
 
 .header-scrolled .menu-toggle {
   color: #374151;
+  text-shadow: none;
 }
 
 .header-scrolled .menu-toggle:hover {
   color: #FF5722;
+  background: rgba(255, 87, 34, 0.08);
 }
 
 
@@ -801,8 +803,9 @@ body {
 .menu-toggle {
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: #666;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   display: none;
   padding: 8px;
@@ -815,8 +818,8 @@ body {
 }
 
 .menu-toggle:hover {
-  color: #FF5722;
-  background: rgba(255, 87, 34, 0.1);
+  color: #FFB74D;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .menu-toggle:active {
@@ -911,10 +914,10 @@ body {
   }
 
   .menu-toggle {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: 6px;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .mobile-menu.open {
@@ -948,10 +951,12 @@ body {
 
 .header.header-light .menu-toggle {
   color: #374151;
+  text-shadow: none;
 }
 
 .header.header-light .menu-toggle:hover {
   color: #FF5722;
+  background: rgba(255, 87, 34, 0.08);
 }
 
 /* ========== HERO SECTION ========== */
