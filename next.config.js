@@ -304,12 +304,6 @@ const nextConfig = {
   // Redirects for SEO
   async redirects() {
     return [
-      // Ezoic ads.txt redirect
-      {
-        source: '/ads.txt',
-        destination: 'https://srv.adstxtmanager.com/19390/indoordogpark.org',
-        permanent: true,
-      },
       // Redirect trailing slashes (except root) for consistency
       {
         source: '/:path+/',
