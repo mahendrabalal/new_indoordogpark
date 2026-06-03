@@ -173,13 +173,13 @@ export default function RootLayout({
 
         <meta name="p:domain_verify" content="0563fd1fc3dbf5ddf80e6b177ae94816" />
 
-        {/* Google AdSense - properly integrated using next/script */}
+        {/* Google AdSense - properly integrated using next/script with lazyOnload to prevent Next.js hydration errors from Auto Ads */}
         <Script
           id="google-adsense"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688786543603411"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         {/* Preconnect to most critical domains only (limit to 4 to avoid warnings) */}
