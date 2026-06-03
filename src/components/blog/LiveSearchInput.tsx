@@ -8,11 +8,13 @@ export default function LiveSearchInput({
   defaultValue = '',
   placeholder = 'Search...',
   className = '',
+  'aria-label': ariaLabel,
 }: {
   id: string;
   defaultValue?: string;
   placeholder?: string;
   className?: string;
+  'aria-label'?: string;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -69,6 +71,7 @@ export default function LiveSearchInput({
       onChange={(e) => setTerm(e.target.value)}
       placeholder={placeholder}
       className={className}
+      aria-label={ariaLabel}
     />
   );
 }

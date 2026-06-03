@@ -304,7 +304,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
               </section>
 
-              {park.pricing && (
+              {park.pricing && (park.pricing.isFree || park.pricing.hourlyRate || park.pricing.dailyRate || park.pricing.monthlyRate || park.pricing.dropInFee || park.pricing.priceRange || park.pricing.pricingDetails || park.pricing.pricingUrl || park.pricing.pricingType) && (
                 <section className="premium-content-section pricing-section">
                   <h2 className="premium-section-title">Pricing Information</h2>
                   <div className="pricing-info">
@@ -376,7 +376,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </section>
               )}
 
-              {park.amenities && (
+              {park.amenities && Object.entries(park.amenities).filter(([, value]) => value === true).length > 0 && (
                 <section className="premium-content-section">
                   <h2 className="premium-section-title">Amenities & Features</h2>
                   <div className="amenities-grid-premium">

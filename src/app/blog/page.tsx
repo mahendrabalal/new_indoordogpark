@@ -11,6 +11,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 // import { BlogPageSkeleton } from '@/components/blog/BlogSkeleton';
 // import ErrorBoundary from '@/components/blog/ErrorBoundary';
 import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
+import LiveSearchInput from '@/components/blog/LiveSearchInput';
 import StructuredData from '@/components/blog/StructuredData';
 import NewsletterForm from '@/components/NewsletterForm';
 
@@ -241,6 +242,59 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
       <ReadingProgress />
       <Header variant="light" />
       <div className="min-h-screen bg-white" id="main-content" role="main">
+
+
+
+
+        {/* Browse by categories Section */}
+        <section className="border-b border-gray-200 bg-white py-8">
+          <div className="container mx-auto px-4">
+            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
+              <div className="relative w-full md:max-w-xs">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <LiveSearchInput
+                  id="blog-search"
+                  defaultValue={searchTerm || ''}
+                  placeholder="Search articles..."
+                  aria-label="Search articles"
+                  className="block w-full rounded-full border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={buildFilterHref({ category: '', tag: '', search: '' })}
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
+                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                  }`}
+              >
+                All
+              </Link>
+              {categoryChips.map((category) => {
+                const isActive = category.slug === categorySlug;
+                return (
+                  <Link
+                    key={category.id}
+                    href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
+                    className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
+                      ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                      }`}
+                  >
+                    {category.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* The Latest and Top Reads Section */}
         {featuredPost && !hasActiveFilters && (
           <section className="border-b border-gray-200 bg-white py-12">
@@ -353,44 +407,6 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
             </div>
           </section>
         )}
-
-
-
-        {/* Browse by categories Section */}
-        <section className="border-b border-gray-200 bg-white py-8">
-          <div className="container mx-auto px-4">
-            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
-
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={buildFilterHref({ category: '', tag: '', search: '' })}
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
-                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                  }`}
-              >
-                All
-              </Link>
-              {categoryChips.map((category) => {
-                const isActive = category.slug === categorySlug;
-                return (
-                  <Link
-                    key={category.id}
-                    href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
-                    className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
-                      ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                      }`}
-                  >
-                    {category.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
 
         {/* Blog Post Grid */}
         <section className="bg-white py-12">
