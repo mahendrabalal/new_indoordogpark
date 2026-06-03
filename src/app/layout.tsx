@@ -9,7 +9,6 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import CookieBanner from '@/components/CookieBanner'
-import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -218,13 +217,6 @@ export default function RootLayout({
 
       </head>
       <body className={inter.className}>
-        {/* Google AdSense - placed in body to avoid data-nscript attribute warning in head */}
-        <Script
-          id="adsense"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205755972349086"
-          crossOrigin="anonymous"
-        />
         <ErrorBoundary level="page">
           <GoogleAnalytics />
           <CoreWebVitals />
