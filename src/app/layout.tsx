@@ -168,7 +168,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
 
         <meta name="p:domain_verify" content="0563fd1fc3dbf5ddf80e6b177ae94816" />
@@ -226,7 +226,7 @@ export default function RootLayout({
 
 
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <ErrorBoundary level="page">
           <GoogleAnalytics />
           <CoreWebVitals />
