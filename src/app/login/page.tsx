@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { safeLocalStorage } from '@/lib/storage';
 
 const heroPatternStyle: CSSProperties = {
   backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)',
@@ -78,8 +79,8 @@ function LoginForm() {
   const router = useRouter();
 
   useEffect(() => {
-    const savedRemember = localStorage.getItem('indoorDogPark:rememberMe') === 'true';
-    const savedEmail = localStorage.getItem('indoorDogPark:rememberedEmail') ?? '';
+    const savedRemember = safeLocalStorage.getItem('indoorDogPark:rememberMe') === 'true';
+    const savedEmail = safeLocalStorage.getItem('indoorDogPark:rememberedEmail') ?? '';
 
     if (savedRemember && savedEmail) {
       setEmail(savedEmail);
@@ -89,15 +90,15 @@ function LoginForm() {
 
   useEffect(() => {
     if (rememberMe) {
-      localStorage.setItem('indoorDogPark:rememberMe', 'true');
+      safeLocalStorage.setItem('indoorDogPark:rememberMe', 'true');
       if (email) {
-        localStorage.setItem('indoorDogPark:rememberedEmail', email);
+        safeLocalStorage.setItem('indoorDogPark:rememberedEmail', email);
       }
       return;
     }
 
-    localStorage.setItem('indoorDogPark:rememberMe', 'false');
-    localStorage.removeItem('indoorDogPark:rememberedEmail');
+    safeLocalStorage.setItem('indoorDogPark:rememberMe', 'false');
+    safeLocalStorage.removeItem('indoorDogPark:rememberedEmail');
   }, [rememberMe, email]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {

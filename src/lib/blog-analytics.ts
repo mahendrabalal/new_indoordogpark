@@ -1,5 +1,6 @@
 // Performance monitoring and analytics for the blog
 import React from 'react';
+import { safeLocalStorage } from './storage';
 
 interface PerformanceMetrics {
   pageLoadTime: number;
@@ -178,7 +179,7 @@ export class BlogAnalytics {
   private getUserId(): string | undefined {
     // Get user ID from authentication context or localStorage
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('blog_user_id') || undefined;
+      return safeLocalStorage.getItem('blog_user_id') || undefined;
     }
     return undefined;
   }

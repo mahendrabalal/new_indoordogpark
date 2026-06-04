@@ -9,7 +9,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import CookieBanner from '@/components/CookieBanner'
-import Script from 'next/script'
+import AdSense from '@/components/AdSense'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -173,14 +173,8 @@ export default function RootLayout({
 
         <meta name="p:domain_verify" content="0563fd1fc3dbf5ddf80e6b177ae94816" />
 
-        {/* Google AdSense - properly integrated using next/script with lazyOnload to prevent Next.js hydration errors from Auto Ads */}
-        <Script
-          id="google-adsense"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8688786543603411"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        {/* Google AdSense - safely loaded dynamic script to prevent Next.js hydration exceptions */}
+        <AdSense />
 
         {/* Preconnect to most critical domains only (limit to 4 to avoid warnings) */}
         {/* Google Fonts - highest priority for font loading */}

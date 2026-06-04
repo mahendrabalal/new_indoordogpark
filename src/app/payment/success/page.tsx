@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import { safeSessionStorage } from '@/lib/storage';
 
 function PaymentSuccessContent() {
   const searchParams = useSearchParams();
@@ -21,9 +22,9 @@ function PaymentSuccessContent() {
 
     // Store success state for dashboard if user is not authenticated
     if (!loading && !user && sessionIdParam) {
-      sessionStorage.setItem('paymentSuccess', 'true');
-      sessionStorage.setItem('successMessage', 'Payment successful! Your featured listing is now active.');
-      sessionStorage.setItem('sessionId', sessionIdParam);
+      safeSessionStorage.setItem('paymentSuccess', 'true');
+      safeSessionStorage.setItem('successMessage', 'Payment successful! Your featured listing is now active.');
+      safeSessionStorage.setItem('sessionId', sessionIdParam);
     }
   }, [searchParams, user, loading]);
 

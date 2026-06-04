@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { safeLocalStorage } from '@/lib/storage';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Check if user has already made a choice
-    const cookieConsent = localStorage.getItem('cookieConsent');
+    const cookieConsent = safeLocalStorage.getItem('cookieConsent');
     if (!cookieConsent) {
       // Small delay to prevent initial mount jank
       const timer = setTimeout(() => {
@@ -19,12 +20,12 @@ export default function CookieBanner() {
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    safeLocalStorage.setItem('cookieConsent', 'accepted');
     setIsVisible(false);
   };
 
   const declineCookies = () => {
-    localStorage.setItem('cookieConsent', 'declined');
+    safeLocalStorage.setItem('cookieConsent', 'declined');
     setIsVisible(false);
   };
 

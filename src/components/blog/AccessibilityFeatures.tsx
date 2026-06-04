@@ -4,6 +4,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { safeLocalStorage } from '@/lib/storage';
 
 // Skip link component for keyboard navigation
 export function SkipLinks() {
@@ -291,7 +292,7 @@ export function ColorSchemeToggle() {
 
   useEffect(() => {
     // Check for saved preference or system preference
-    const saved = localStorage.getItem('color-scheme');
+    const saved = safeLocalStorage.getItem('color-scheme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     const shouldBeDark = saved === 'dark' || (!saved && systemPrefersDark);
@@ -302,7 +303,7 @@ export function ColorSchemeToggle() {
   const toggleColorScheme = () => {
     const newScheme = !isDark ? 'dark' : 'light';
     setIsDark(!isDark);
-    localStorage.setItem('color-scheme', newScheme);
+    safeLocalStorage.setItem('color-scheme', newScheme);
     document.documentElement.setAttribute('data-color-scheme', newScheme);
   };
 
@@ -330,7 +331,7 @@ export function FontSizeControls() {
   const [fontSize, setFontSize] = useState('medium');
 
   useEffect(() => {
-    const saved = localStorage.getItem('font-size');
+    const saved = safeLocalStorage.getItem('font-size');
     if (saved) {
       setFontSize(saved);
       document.documentElement.setAttribute('data-font-size', saved);
@@ -339,7 +340,7 @@ export function FontSizeControls() {
 
   const changeFontSize = (size: 'small' | 'medium' | 'large') => {
     setFontSize(size);
-    localStorage.setItem('font-size', size);
+    safeLocalStorage.setItem('font-size', size);
     document.documentElement.setAttribute('data-font-size', size);
   };
 

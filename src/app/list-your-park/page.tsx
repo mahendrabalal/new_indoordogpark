@@ -7,6 +7,7 @@ import type { ParkSubmissionForm } from '@/types/park-submission';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SeoContentSection from '@/components/SeoContentSection';
+import { safeLocalStorage } from '@/lib/storage';
 // Step components
 import PlanSelectionStep from '@/components/listing/PlanSelectionStep';
 import BasicInfoStep from '@/components/listing/BasicInfoStep';
@@ -32,7 +33,7 @@ export default function ListPropertyPage() {
   const [formData, setFormData] = useState<ParkSubmissionForm>(() => {
     // Load from localStorage if available
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('parkSubmissionDraft');
+      const saved = safeLocalStorage.getItem('parkSubmissionDraft');
       if (saved) {
         try {
           return JSON.parse(saved);
@@ -67,7 +68,7 @@ export default function ListPropertyPage() {
       // Case 2: Only step in URL (e.g., from photo upload sign-in redirect)
       // Restore plan from localStorage
       if (stepParam) {
-        const savedPlan = localStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
+        const savedPlan = safeLocalStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
         if (savedPlan === 'free' || savedPlan === 'featured') {
           setSelectedPlan(savedPlan);
           const savedStep = parseInt(stepParam, 10);
@@ -79,8 +80,8 @@ export default function ListPropertyPage() {
       }
 
       // Case 3: Check if there's a saved draft and plan from a previous session
-      const savedPlan = localStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
-      const savedDraft = localStorage.getItem('parkSubmissionDraft');
+      const savedPlan = safeLocalStorage.getItem('selectedListingPlan') as 'free' | 'featured' | null;
+      const savedDraft = safeLocalStorage.getItem('parkSubmissionDraft');
       if (savedPlan && savedDraft) {
         // User has an existing draft - restore their session
         setSelectedPlan(savedPlan);
@@ -91,7 +92,7 @@ export default function ListPropertyPage() {
 
       // Case 4: Fresh visit with no saved data - start at plan selection
       try {
-        localStorage.removeItem('selectedListingPlan');
+        safeLocalStorage.removeItem('selectedListingPlan');
       } catch (error) {
         console.warn('Failed to clear localStorage on page load:', error);
       }
@@ -103,7 +104,7 @@ export default function ListPropertyPage() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
-        localStorage.setItem('parkSubmissionDraft', JSON.stringify(formData));
+        safeLocalStorage.setItem('parkSubmissionDraft', JSON.stringify(formData));
       } catch (error) {
         console.warn('Failed to save draft to localStorage:', error);
       }
@@ -114,7 +115,7 @@ export default function ListPropertyPage() {
   useEffect(() => {
     if (typeof window !== 'undefined' && selectedPlan) {
       try {
-        localStorage.setItem('selectedListingPlan', selectedPlan);
+        safeLocalStorage.setItem('selectedListingPlan', selectedPlan);
       } catch (error) {
         console.warn('Failed to save selected plan to localStorage:', error);
       }
@@ -125,7 +126,7 @@ export default function ListPropertyPage() {
     setSelectedPlan(plan);
     // Clear any old draft when starting fresh
     try {
-      localStorage.removeItem('parkSubmissionDraft');
+      safeLocalStorage.removeItem('parkSubmissionDraft');
     } catch (error) {
       console.warn('Failed to clear localStorage draft:', error);
     }
@@ -193,7 +194,7 @@ export default function ListPropertyPage() {
       setCurrentStep(0);
       setSelectedPlan(null);
       try {
-        localStorage.removeItem('selectedListingPlan');
+        safeLocalStorage.removeItem('selectedListingPlan');
       } catch (error) {
         console.warn('Failed to remove selected plan from localStorage:', error);
       }
@@ -274,8 +275,8 @@ export default function ListPropertyPage() {
 
       // Clear draft and plan from localStorage with error handling
       try {
-        localStorage.removeItem('parkSubmissionDraft');
-        localStorage.removeItem('selectedListingPlan');
+        safeLocalStorage.removeItem('parkSubmissionDraft');
+        safeLocalStorage.removeItem('selectedListingPlan');
       } catch (error) {
         console.warn('Failed to clear localStorage after submission:', error);
         // Non-critical error, continue with redirect

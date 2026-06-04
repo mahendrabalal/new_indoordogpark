@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
 import Link from 'next/link';
+import { safeSessionStorage } from '@/lib/storage';
 
 function DashboardContent() {
   const router = useRouter();
@@ -22,12 +23,12 @@ function DashboardContent() {
 
       if (hasSuccessParams) {
         // Store success state in sessionStorage to preserve after login
-        sessionStorage.setItem('paymentSuccess', 'true');
-        sessionStorage.setItem('successMessage', searchParams.get('success') === 'true'
+        safeSessionStorage.setItem('paymentSuccess', 'true');
+        safeSessionStorage.setItem('successMessage', searchParams.get('success') === 'true'
           ? 'Payment successful! Your featured listing is now active.'
           : 'Your listing has been submitted successfully! It will be reviewed by our team.'
         );
-        sessionStorage.setItem('sessionId', searchParams.get('session_id') || '');
+        safeSessionStorage.setItem('sessionId', searchParams.get('session_id') || '');
       }
 
       router.push('/login?redirect=/dashboard');
@@ -46,18 +47,18 @@ function DashboardContent() {
 
   // Check for success state from sessionStorage (preserved during login redirect)
   useEffect(() => {
-    if (user && sessionStorage.getItem('paymentSuccess') === 'true') {
-      const storedMessage = sessionStorage.getItem('successMessage');
-      const sessionId = sessionStorage.getItem('sessionId');
+    if (user && safeSessionStorage.getItem('paymentSuccess') === 'true') {
+      const storedMessage = safeSessionStorage.getItem('successMessage');
+      const sessionId = safeSessionStorage.getItem('sessionId');
 
       if (storedMessage) {
         setSuccessMessage(storedMessage);
       }
 
       // Clean up sessionStorage after retrieving the data
-      sessionStorage.removeItem('paymentSuccess');
-      sessionStorage.removeItem('successMessage');
-      sessionStorage.removeItem('sessionId');
+      safeSessionStorage.removeItem('paymentSuccess');
+      safeSessionStorage.removeItem('successMessage');
+      safeSessionStorage.removeItem('sessionId');
 
       // Optionally, you could verify the session with Stripe here using the sessionId
       if (sessionId) {
