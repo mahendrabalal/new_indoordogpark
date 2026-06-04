@@ -96,13 +96,16 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   };
 
   render() {
-    if (this.state.hasError && this.state.error && this.state.errorInfo) {
+    if (this.state.hasError && this.state.error) {
       const FallbackComponent = this.props.fallback || ErrorFallback;
+      // errorInfo may not be available yet (getDerivedStateFromError fires before componentDidCatch),
+      // provide a safe default to prevent re-rendering children during the gap.
+      const errorInfo = this.state.errorInfo || { componentStack: '' } as React.ErrorInfo;
 
       return (
         <FallbackComponent
           error={this.state.error}
-          errorInfo={this.state.errorInfo}
+          errorInfo={errorInfo}
           resetError={this.handleRetry}
         />
       );
