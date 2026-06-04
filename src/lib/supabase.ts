@@ -2,6 +2,7 @@
 
 import { createBrowserClient } from '@supabase/ssr';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { safeLocalStorage } from './storage';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -31,10 +32,23 @@ export function getSupabaseBrowserClient() {
   }
 
   if (!client) {
+    const customSafeStorage = {
+      getItem(key: string): string | null {
+        return safeLocalStorage.getItem(key);
+      },
+      setItem(key: string, value: string): void {
+        safeLocalStorage.setItem(key, value);
+      },
+      removeItem(key: string): void {
+        safeLocalStorage.removeItem(key);
+      }
+    };
+
     client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
       auth: {
         persistSession: true,
         autoRefreshToken: true,
+        storage: customSafeStorage,
       },
     });
   }
