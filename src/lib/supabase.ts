@@ -45,6 +45,42 @@ export function getSupabaseBrowserClient() {
     };
 
     client = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        get(name: string) {
+          try {
+            if (typeof document === 'undefined') return '';
+            const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+            return match ? decodeURIComponent(match[3]) : '';
+          } catch (e) {
+            console.warn(`[supabase] Failed to read cookie ${name}:`, e);
+            return '';
+          }
+        },
+        set(name: string, value: string, options: any) {
+          try {
+            if (typeof document === 'undefined') return;
+            let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+            if (options) {
+              if (options.path) cookieString += `; path=${options.path}`;
+              if (options.domain) cookieString += `; domain=${options.domain}`;
+              if (options.maxAge) cookieString += `; max-age=${options.maxAge}`;
+              if (options.secure) cookieString += `; secure`;
+              if (options.sameSite) cookieString += `; samesite=${options.sameSite}`;
+            }
+            document.cookie = cookieString;
+          } catch (e) {
+            console.warn(`[supabase] Failed to set cookie ${name}:`, e);
+          }
+        },
+        remove(name: string, options: any) {
+          try {
+            if (typeof document === 'undefined') return;
+            document.cookie = `${encodeURIComponent(name)}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+          } catch (e) {
+            console.warn(`[supabase] Failed to remove cookie ${name}:`, e);
+          }
+        }
+      },
       auth: {
         persistSession: true,
         autoRefreshToken: true,

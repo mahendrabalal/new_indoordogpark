@@ -38,7 +38,6 @@ export default function ErrorFallback({
         <i className="bi bi-exclamation-triangle-fill" style={{ color: '#dc2626' }}></i>
       </div>
 
-      {/* Error Title */}
       <h2 style={{
         color: '#1f2937',
         marginBottom: '12px',
@@ -49,6 +48,20 @@ export default function ErrorFallback({
           : 'This section couldn\'t load properly'
         }
       </h2>
+
+      {/* TEMPORARY: Display error message in production for iframe debugging */}
+      <div style={{
+        backgroundColor: '#fee2e2',
+        color: '#991b1b',
+        padding: '12px',
+        borderRadius: '8px',
+        marginBottom: '20px',
+        fontSize: '14px',
+        textAlign: 'left',
+        wordBreak: 'break-all'
+      }}>
+        <strong>{error?.name || 'Error'}:</strong> {error?.message || 'Unknown error occurred'}
+      </div>
 
       {/* Error Message */}
       <p style={{
