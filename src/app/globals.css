@@ -865,7 +865,7 @@ body {
   border-bottom: none;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1150px) {
   .header-center {
     display: none;
   }

@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import OptimizedImage from '@/components/OptimizedImage';
-import AmazonProduct from '@/components/AmazonProduct';
 
 
 const safetyChecklist = [
@@ -118,7 +117,7 @@ export default function HowItWorksPage() {
                       <i className={`bi ${item.icon} text-violet-600 shrink-0 mt-0.5`} />
                       <div>
                         <span className="block font-semibold text-slate-900 text-sm">{item.title}</span>
-                        <span className="text-xs text-slate-500">{item.description}</span>
+                        <span className="text-sm text-slate-600">{item.description}</span>
                       </div>
                     </div>
                   ))}
@@ -180,24 +179,7 @@ export default function HowItWorksPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-              <div className="flex -space-x-3">
-                <div className="h-10 w-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-400">
-                  <i className="bi bi-person-fill"></i>
-                </div>
-                <div className="h-10 w-10 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-slate-500">
-                  <i className="bi bi-person-fill"></i>
-                </div>
-                <div className="h-10 w-10 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center text-slate-600">
-                  <i className="bi bi-person-fill"></i>
-                </div>
-              </div>
-              <p className="text-slate-700 font-medium">
-                Helping over <span className="text-violet-700 font-bold">12,000+ dog owners</span> search for indoor dog parks here every month.
-              </p>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -248,56 +230,50 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Recommended Gear Section */}
-      <section className="bg-white py-20 border-t border-slate-100">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Recommended Gear for Dog Owners</h2>
-            <p className="text-lg text-slate-600">
-              Essential tools for training and park visits, hand-picked by our team.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <AmazonProduct
-              title="Raisingwell Dog Treat Pouch with Magnetic Closure"
-              imageUrl="https://m.media-amazon.com/images/I/91Aw0aRTPGL._AC_SX679_.jpg"
-              url="https://www.amazon.com/dp/B0DSVTQ9TY?tag=mahendrabalal-20"
-              price="$13.29"
-              benefits={[
-                "Magnetic closure for quick access to treats",
-                "Built-in poop bag dispenser",
-                "includes clicker for training",
-                "4 ways to wear (zipper, shoulder strap, waist belt, etc.)"
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* FAQ / Trust Signals */}
       <section className="bg-slate-50 py-20 border-t border-slate-200">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-12">Common questions from our community</h2>
-          <div className="grid gap-6 text-left">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-2">Why do you require vaccination proof for listings?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                According to the <a href="https://www.avma.org/" target="_blank" rel="noopener noreferrer" className="text-violet-600 hover:underline">American Veterinary Medical Association (AVMA)</a>, communal dog environments are high-risk zones for disease transmission. We simply do not list venues that fail to mandate basic health protections.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-2">Does &quot;Indoor&quot; mean climate-controlled?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Usually, yes. However, we specifically tag listings as &quot;Climate Controlled&quot; only if they have HVAC systems. Some converted warehouse spaces may be covered but not heated/cooled, so we review this detail explicitly.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="font-bold text-slate-900 text-lg mb-2">How do I report a safety concern?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Community vigilance is our second layer of defense. If you visit a Verified park and find standards slipping (e.g., dirty floors, inattentive staff), please <Link href="/contact" className="text-violet-600 hover:underline">contact our trust & safety team</Link> immediately.
-              </p>
-            </div>
+          <div className="grid gap-6 text-left max-w-3xl mx-auto">
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <summary className="font-bold text-slate-900 text-lg cursor-pointer list-none flex justify-between items-center [&::-webkit-details-marker]:hidden">
+                Why do you require vaccination proof for listings?
+                <span className="text-slate-400 group-open:rotate-180 transition-transform">
+                  <i className="bi bi-chevron-down"></i>
+                </span>
+              </summary>
+              <div className="mt-4 text-slate-600 leading-relaxed">
+                <p>
+                  According to the <a href="https://www.avma.org/" target="_blank" rel="noopener noreferrer" className="text-violet-600 hover:underline">American Veterinary Medical Association (AVMA)</a>, communal dog environments are high-risk zones for disease transmission. We simply do not list venues that fail to mandate basic health protections.
+                </p>
+              </div>
+            </details>
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <summary className="font-bold text-slate-900 text-lg cursor-pointer list-none flex justify-between items-center [&::-webkit-details-marker]:hidden">
+                Does &quot;Indoor&quot; mean climate-controlled?
+                <span className="text-slate-400 group-open:rotate-180 transition-transform">
+                  <i className="bi bi-chevron-down"></i>
+                </span>
+              </summary>
+              <div className="mt-4 text-slate-600 leading-relaxed">
+                <p>
+                  Usually, yes. However, we specifically tag listings as &quot;Climate Controlled&quot; only if they have HVAC systems. Some converted warehouse spaces may be covered but not heated/cooled, so we review this detail explicitly.
+                </p>
+              </div>
+            </details>
+            <details className="group bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+              <summary className="font-bold text-slate-900 text-lg cursor-pointer list-none flex justify-between items-center [&::-webkit-details-marker]:hidden">
+                How do I report a safety concern?
+                <span className="text-slate-400 group-open:rotate-180 transition-transform">
+                  <i className="bi bi-chevron-down"></i>
+                </span>
+              </summary>
+              <div className="mt-4 text-slate-600 leading-relaxed">
+                <p>
+                  Community vigilance is our second layer of defense. If you visit a Verified park and find standards slipping (e.g., dirty floors, inattentive staff), please <Link href="/contact" className="text-violet-600 hover:underline">contact our trust & safety team</Link> immediately.
+                </p>
+              </div>
+            </details>
           </div>
         </div>
       </section>

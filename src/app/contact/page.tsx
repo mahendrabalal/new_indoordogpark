@@ -213,45 +213,101 @@ export default function ContactPage() {
             <h2>Frequently Asked Questions</h2>
 
             <div className="faq-grid">
-              <div className="faq-item">
-                <h3>What should I do if I find incorrect information about a park?</h3>
-                <p>Please use the contact form above and select &ldquo;Report an Issue&rdquo; as your category. Include details about which park and what information needs to be corrected.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">What should I do if I find incorrect information about a park?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Please use the contact form above and select &ldquo;Report an Issue&rdquo; as your category. Include details about which park and what information needs to be corrected.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>How can I list my dog park on IndoorDogPark?</h3>
-                <p>Select &ldquo;List a Park&rdquo; from the category dropdown in the contact form, or visit our dedicated <a href="/list-your-park">listing page</a> for more information about the process.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">How can I list my dog park on IndoorDogPark?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Select &ldquo;List a Park&rdquo; from the category dropdown in the contact form, or visit our dedicated <a href="/list-your-park">listing page</a> for more information about the process.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>How long does it take to get a response?</h3>
-                <p>We typically respond to inquiries within 24 business hours. Please mark your message as urgent if you need a faster response.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">How long does it take to get a response?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>We typically respond to inquiries within 24 business hours. Please mark your message as urgent if you need a faster response.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>Do you offer partnership opportunities?</h3>
-                <p>Yes! We&rsquo;re always interested in partnerships. Please select &ldquo;Partnership&rdquo; in the contact form to discuss potential collaboration opportunities.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">Do you offer partnership opportunities?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Yes! We&rsquo;re always interested in partnerships. Please select &ldquo;Partnership&rdquo; in the contact form to discuss potential collaboration opportunities.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>I&rsquo;m having technical issues. How can I get help?</h3>
-                <p>Select &ldquo;Technical Support&rdquo; in the contact form and describe the issue in detail. Our support team will help troubleshoot as quickly as possible.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">I&rsquo;m having technical issues. How can I get help?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Select &ldquo;Technical Support&rdquo; in the contact form and describe the issue in detail. Our support team will help troubleshoot as quickly as possible.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>Can I provide feedback or suggestions?</h3>
-                <p>We&rsquo;d love to hear your ideas! Select &ldquo;Feedback&rdquo; in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">Can I provide feedback or suggestions?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>We&rsquo;d love to hear your ideas! Select &ldquo;Feedback&rdquo; in the contact form to share your thoughts on how we can improve IndoorDogPark.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>Can I request a park to be added if it&rsquo;s not in the directory?</h3>
-                <p>Absolutely! Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;General Inquiry&rdquo; to request that we add a park to our directory.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">Can I request a park to be added if it&rsquo;s not in the directory?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Absolutely! Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;General Inquiry&rdquo; to request that we add a park to our directory.</p>
+                </div>
+              </details>
 
-              <div className="faq-item">
-                <h3>How do I update information about my listed park?</h3>
-                <p>Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;Report an Issue&rdquo; to request updates. Include the park name and the information that needs to be changed.</p>
-              </div>
+              <details className="faq-item group">
+                <summary className="font-semibold text-[#2c3e50] text-lg cursor-pointer list-none flex justify-between items-start [&::-webkit-details-marker]:hidden">
+                  <span className="pr-4">How do I update information about my listed park?</span>
+                  <span className="text-gray-400 group-open:rotate-180 transition-transform mt-1 flex-shrink-0">
+                    <i className="bi bi-chevron-down"></i>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[#5a6c7d] leading-relaxed">
+                  <p>Use the contact form and select &ldquo;List a Park&rdquo; or &ldquo;Report an Issue&rdquo; to request updates. Include the park name and the information that needs to be changed.</p>
+                </div>
+              </details>
             </div>
           </div>
         </section>

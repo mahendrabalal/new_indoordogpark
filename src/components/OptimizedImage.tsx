@@ -88,7 +88,7 @@ function OptimizedImageComponent({
     const imageSrc = useFallback ? fallbackSrc : src;
 
     return (
-      <div className={`relative ${className}`} style={{ ...style, width: fill ? '100%' : width, height: fill ? '100%' : height }}>
+      <div className={fill ? `relative w-full h-full ${className}` : ''} style={fill ? style : { display: 'contents' }}>
         <Image
           src={imageSrc}
           alt={alt}
@@ -99,7 +99,7 @@ function OptimizedImageComponent({
           fetchPriority={fetchPriority}
           sizes={sizes}
           quality={quality}
-          className={`${className}`}
+          className={className}
           onError={handleError}
           onLoad={handleLoad}
           placeholder="blur"
@@ -107,6 +107,7 @@ function OptimizedImageComponent({
           unoptimized={isUnoptimizedLocalImage || unoptimized}
           {...(fill ? {} : { width: width || 400, height: height || 300 })}
           {...props}
+          style={!fill ? style : undefined}
         />
       </div>
     );
