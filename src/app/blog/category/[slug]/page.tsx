@@ -8,6 +8,8 @@ import { WPCategory, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
+export const dynamic = 'force-dynamic';
+
 interface CategoryPageProps {
   params: Promise<{
     slug: string;
@@ -153,8 +155,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     permanentRedirect(`/blog/category/${encodeURIComponent(category.slug)}${suffix}`);
   }
 
-  const page = parseInt(resolvedSearchParams.page || '1');
-  const perPage = parseInt(resolvedSearchParams.perPage || '12');
+  const page = Math.max(1, Number.parseInt(resolvedSearchParams.page || '1', 10) || 1);
+  const perPage = Math.max(1, Number.parseInt(resolvedSearchParams.perPage || '12', 10) || 12);
 
   // Fetch posts server-side (best practice)
   const blogData = await getCachedPosts({
@@ -230,7 +232,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             <nav aria-label="Breadcrumb" className="text-sm mb-4">
               <ol className="flex items-center space-x-2">
                 <li>
-                  <Link href="/blog" className="hover:text-purple-200">Blog</Link>
+                  <Link href="/blog" prefetch={false} className="hover:text-purple-200">Blog</Link>
                 </li>
                 <li aria-hidden="true" className="text-purple-300">/</li>
                 <li className="text-purple-200" aria-current="page">
@@ -256,7 +258,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               <p className="text-gray-600 mb-4">
                 No articles have been published in the &quot;{category.name}&quot; category yet.
               </p>
-              <Link href="/blog" className="text-purple-600 hover:text-purple-700">
+              <Link href="/blog" prefetch={false} className="text-purple-600 hover:text-purple-700">
                 ← Browse all articles
               </Link>
             </div>
@@ -289,6 +291,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                   </Link>
                   <Link
                     href="/blog"
+                    prefetch={false}
                     className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
                   >
                     <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>

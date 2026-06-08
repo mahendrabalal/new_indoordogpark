@@ -138,7 +138,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
             </div>
 
             <Link href="/about" className="header-nav-link">About</Link>
-            <Link href="/blog" className="header-nav-link">Blog</Link>
+            <Link href="/blog" prefetch={false} className="header-nav-link">Blog</Link>
           </nav>
         </div>
 
@@ -187,7 +187,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <Link href="/training-facilities" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Training Facilities</Link>
         <Link href="/off-leash-dog-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Off-Leash Parks</Link>
         <Link href="/how-it-works" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>How It Works</Link>
-        <Link href="/blog" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Blog & Guides</Link>
+        <Link href="/blog" prefetch={false} className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Blog & Guides</Link>
         <Link href="/about" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>About</Link>
         <Link href="/contact" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Contact us</Link>
         <Link href="/list-your-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>List your park</Link>

@@ -346,7 +346,7 @@ export default function HomePageClient({
               </form>
 
               <div className="search-header-actions">
-                <Link href="/blog" className="header-link-compact">Blog</Link>
+                <Link href="/blog" prefetch={false} className="header-link-compact">Blog</Link>
                 <Link href="/contact" className="header-link-compact">Contact</Link>
                 <Link href="/list-your-park" className="header-btn-compact">List your park</Link>
               </div>

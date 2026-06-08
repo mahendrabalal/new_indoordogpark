@@ -60,7 +60,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
       <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="container mx-auto px-4 py-16">
           <nav className="text-sm mb-4">
-            <Link href="/blog" className="hover:text-purple-200">Blog</Link>
+            <Link href="/blog" prefetch={false} className="hover:text-purple-200">Blog</Link>
             <span className="mx-2">/</span>
             <span>{category.name}</span>
           </nav>
@@ -97,7 +97,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
           <div className="bg-white rounded-lg shadow-md p-8 text-center">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Error</h3>
             <p className="text-gray-600 mb-4">{error}</p>
-            <Link href="/blog" className="text-purple-600 hover:text-purple-700">
+            <Link href="/blog" prefetch={false} className="text-purple-600 hover:text-purple-700">
               ← Back to all articles
             </Link>
           </div>
@@ -107,7 +107,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
             <p className="text-gray-600 mb-4">
               No articles have been published in the &quot;{category.name}&quot; category yet.
             </p>
-            <Link href="/blog" className="text-purple-600 hover:text-purple-700">
+            <Link href="/blog" prefetch={false} className="text-purple-600 hover:text-purple-700">
               ← Browse all articles
             </Link>
           </div>
@@ -162,6 +162,7 @@ export default function CategoryBlogPage({ category, page, perPage, relatedCateg
                 </Link>
                 <Link
                   href="/blog"
+                  prefetch={false}
                   className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow"
                 >
                   <h4 className="font-semibold text-gray-900 mb-2">All Blog Articles</h4>

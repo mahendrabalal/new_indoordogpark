@@ -348,7 +348,7 @@ export default async function ParksWithBarsPage() {
               <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Training Facilities</h3>
               <p className="text-gray-600">Find indoor dog training facilities and agility centers to build skills.</p>
             </Link>
-            <Link href="/blog" className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-all group">
+            <Link href="/blog" prefetch={false} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-all group">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
                 <i className="bi bi-journal-text text-purple-600 group-hover:text-white transition-colors"></i>
               </div>

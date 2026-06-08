@@ -230,7 +230,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 Home
               </Link>
               <span>/</span>
-              <Link href="/blog" className="hover:text-green-600 transition-colors">
+              <Link href="/blog" prefetch={false} className="hover:text-green-600 transition-colors">
                 Blog
               </Link>
               {post.categories[0] && (

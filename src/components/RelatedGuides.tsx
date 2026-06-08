@@ -68,7 +68,7 @@ export default async function RelatedGuides({ citySlug, count = 3 }: RelatedGuid
         </div>
         
         <div style={{ marginTop: '40px', textAlign: 'center' }}>
-           <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontWeight: 600, color: '#6366f1', textDecoration: 'none', padding: '12px 24px', borderRadius: '999px', background: '#e0e7ff', transition: 'background 0.2s' }} className="hover:bg-indigo-200">
+           <Link href="/blog" prefetch={false} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontWeight: 600, color: '#6366f1', textDecoration: 'none', padding: '12px 24px', borderRadius: '999px', background: '#e0e7ff', transition: 'background 0.2s' }} className="hover:bg-indigo-200">
              View all guides <i className="bi bi-arrow-right"></i>
            </Link>
         </div>

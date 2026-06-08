@@ -166,6 +166,9 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const descriptionText =
     park.description?.trim() || fallbackDescription;
   const descriptionParagraphs = descriptionText.split(/\n\s*\n/).filter(Boolean);
+  const openingHourEntries = Object.entries(park.openingHours ?? {}).filter(
+    ([, hours]) => typeof hours === 'string' && hours.trim().length > 0,
+  );
   // Use custom FAQs if available, otherwise build comprehensive default FAQs
   const faqItems = park.faqs && park.faqs.length > 0 ? park.faqs : buildParkFAQs(park);
 
@@ -509,10 +512,18 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <h2 className="premium-section-title">Frequently Asked Questions</h2>
                 <div className="faq-list">
                   {faqItems.map((faq) => (
-                    <div key={faq.question} className="premium-faq-item">
-                      <h4>{faq.question}</h4>
-                      <p>{faq.answer}</p>
-                    </div>
+                    <details key={faq.question} className="group premium-faq-item border-b border-gray-200 last:border-0">
+                      <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <h4 className="text-lg font-semibold text-slate-900">{faq.question}</h4>
+                        <span className="relative flex h-6 w-6 flex-shrink-0 items-center justify-center text-slate-900">
+                          <i className="bi bi-plus-lg absolute transition-opacity duration-200 group-open:opacity-0"></i>
+                          <i className="bi bi-dash-lg absolute opacity-0 transition-opacity duration-200 group-open:opacity-100"></i>
+                        </span>
+                      </summary>
+                      <div className="pb-5 pr-8 text-slate-600 leading-relaxed">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </details>
                   ))}
                 </div>
               </section>
@@ -561,7 +572,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                     })}
                   </div>
                   <div className="mt-6 text-center">
-                    <Link href="/blog" className="text-purple-600 hover:text-purple-700 font-medium">
+                    <Link href="/blog" prefetch={false} className="text-purple-600 hover:text-purple-700 font-medium">
                       View All Articles →
                     </Link>
                   </div>
@@ -611,21 +622,19 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
               </div>
 
-              {park.openingHours && (
+              {openingHourEntries.length > 0 && (
                 <div className="sidebar-card-premium">
                   <h3>Business Hours</h3>
                   <ul className="hours-list-premium">
-                    {Object.entries(park.openingHours)
-                      .filter(([, hours]) => hours && typeof hours === 'string')
-                      .map(([day, hours]) => {
-                        const isToday = new Date().toLocaleDateString('en-US', { weekday: 'long' }) === day;
-                        return (
-                          <li key={day} className={isToday ? 'today' : ''}>
-                            <span className="day">{day}</span>
-                            <span className="time">{hours as string}</span>
-                          </li>
-                        );
-                      })}
+                    {openingHourEntries.map(([day, hours]) => {
+                      const isToday = new Date().toLocaleDateString('en-US', { weekday: 'long' }) === day;
+                      return (
+                        <li key={day} className={isToday ? 'today' : ''}>
+                          <span className="day">{day}</span>
+                          <span className="time">{hours}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                   {park.hoursNote && (
                     <p className="mt-4 text-xs italic text-gray-500">

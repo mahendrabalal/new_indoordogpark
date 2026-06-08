@@ -16,6 +16,7 @@ export default function BlogNotFound() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/blog"
+                prefetch={false}
                 className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors font-medium"
               >
                 Browse all articles
@@ -37,6 +38,7 @@ export default function BlogNotFound() {
             </p>
             <Link
               href="/blog"
+              prefetch={false}
               className="inline-flex items-center text-purple-600 hover:text-purple-700"
             >
               Search articles →

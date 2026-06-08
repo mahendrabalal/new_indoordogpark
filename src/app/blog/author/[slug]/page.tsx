@@ -160,7 +160,7 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
               <ol className="flex items-center gap-2 text-green-200">
                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li aria-hidden="true">/</li>
-                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/blog" prefetch={false} className="hover:text-white transition-colors">Blog</Link></li>
                 <li aria-hidden="true">/</li>
                 <li className="text-white font-medium" aria-current="page">{author.name}</li>
               </ol>
@@ -217,7 +217,7 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
               </svg>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">No articles yet</h2>
               <p className="text-gray-500 mb-6">{author.name} hasn&apos;t published any articles yet.</p>
-              <Link href="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium">
+              <Link href="/blog" prefetch={false} className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium">
                 ← Browse all articles
               </Link>
             </div>
@@ -252,6 +252,7 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
               <div className="mt-12 pt-8 border-t border-gray-200 text-center">
                 <Link
                   href="/blog"
+                  prefetch={false}
                   className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors"
                 >
                   ← Back to all articles

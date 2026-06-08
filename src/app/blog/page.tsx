@@ -22,6 +22,7 @@ import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity
 // Pages are statically generated and cached for performance
 // Revalidate via webhook when new posts are published in Sanity
 export const revalidate = 60; // Revalidate every 1 minute for faster updates
+export const dynamic = 'force-dynamic';
 
 // Define the BlogPage component props
 interface BlogPageProps {
@@ -42,8 +43,8 @@ const getFeaturedImage = (post: BlogPost) =>
 // Blog page with search params
 async function BlogPageContent({ searchParams }: BlogPageProps) {
   const resolvedSearchParams = await searchParams;
-  const page = parseInt(resolvedSearchParams.page || '1');
-  const perPage = parseInt(resolvedSearchParams.perPage || '12');
+  const page = Math.max(1, Number.parseInt(resolvedSearchParams.page || '1', 10) || 1);
+  const perPage = Math.max(1, Number.parseInt(resolvedSearchParams.perPage || '12', 10) || 12);
   const searchTerm = resolvedSearchParams.search;
   const categorySlug = resolvedSearchParams.category;
   const tagSlug = resolvedSearchParams.tag;
@@ -128,13 +129,22 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   const categoryChips = categories.slice(0, 7);
 
   const buildFilterHref = (overrides: Partial<{ search?: string; category?: string; tag?: string }>) => {
-    const params = new URLSearchParams();
     const merged = {
       search: searchTerm,
       category: categorySlug,
       tag: tagSlug,
       ...overrides,
     };
+
+    if (!merged.search && merged.category && !merged.tag) {
+      return `/blog/category/${encodeURIComponent(merged.category)}`;
+    }
+
+    if (!merged.search && merged.tag && !merged.category) {
+      return `/blog/tag/${encodeURIComponent(merged.tag)}`;
+    }
+
+    const params = new URLSearchParams();
 
     // Remove empty values to clear filters
     Object.entries(merged).forEach(([key, value]) => {
@@ -168,6 +178,58 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
     return 'Tips, guides, and stories about indoor dog parks';
   };
 
+  const renderBrowseControls = (searchInputId: string) => (
+    <section className="border-b border-gray-200 bg-white py-8">
+      <div className="container mx-auto px-4">
+        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
+          <div className="relative w-full md:max-w-xs">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <LiveSearchInput
+              id={searchInputId}
+              defaultValue={searchTerm || ''}
+              placeholder="Search articles..."
+              aria-label="Search articles"
+              className="block w-full rounded-full border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href={buildFilterHref({ category: '', tag: '', search: '' })}
+            prefetch={false}
+            className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
+              ? 'border-[#FF5722] bg-[#FF5722] text-white'
+              : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+              }`}
+          >
+            All
+          </Link>
+          {categoryChips.map((category) => {
+            const isActive = category.slug === categorySlug;
+            return (
+              <Link
+                key={category.id}
+                href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
+                prefetch={false}
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
+                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                  }`}
+              >
+                {category.name}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+
   if (!hasPosts) {
     return (
       <>
@@ -182,19 +244,21 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               <p className="mt-3 text-lg text-gray-600">{getPageDescription()}</p>
             </div>
           </section>
+          {renderBrowseControls('blog-search-empty')}
           <section className="container mx-auto px-4 py-12 lg:py-16">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="rounded-3xl border border-dashed border-purple-200 bg-white p-10 text-center shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-purple-600">No results</p>
                 <h2 className="mt-4 text-2xl font-semibold text-gray-900">We couldn’t find articles that match.</h2>
                 <p className="mt-3 text-gray-600">
-                  Try adjusting your filters, searching a different topic, or resetting back to all stories.
+                  Try a shorter phrase, check the spelling, pick a category above, or reset back to all stories.
                 </p>
 
                 {activeFilters && (
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
                     <Link
                       href="/blog"
+                      prefetch={false}
                       className="inline-flex items-center gap-2 rounded-full border border-purple-200 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-50"
                     >
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -225,15 +289,16 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
     );
   }
 
-  // Get top reads (3 most recent posts after featured)
-  const topReads = posts.slice(1, 4);
   // Check if filters are active
   const hasActiveFilters = Boolean(categorySlug || tagSlug || searchTerm);
+  const showEditorialHighlights = page === 1 && !hasActiveFilters;
+  // Get top reads (3 most recent posts after featured)
+  const topReads = showEditorialHighlights ? posts.slice(1, 4) : [];
 
   // Determine grid posts:
-  // - When "All" is selected (no filters): show all posts in grid
-  // - When a category/filter is active: show only filtered posts (no "The Latest" section)
-  const gridPosts = posts;
+  // - Page 1 uses editorial highlights for the first four posts.
+  // - Page 2+ and filtered views render only the paginated archive list.
+  const gridPosts = showEditorialHighlights ? posts.slice(4) : posts;
 
   return (
     <>
@@ -247,56 +312,10 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
 
 
         {/* Browse by categories Section */}
-        <section className="border-b border-gray-200 bg-white py-8">
-          <div className="container mx-auto px-4">
-            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
-              <div className="relative w-full md:max-w-xs">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <LiveSearchInput
-                  id="blog-search"
-                  defaultValue={searchTerm || ''}
-                  placeholder="Search articles..."
-                  aria-label="Search articles"
-                  className="block w-full rounded-full border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
-                />
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={buildFilterHref({ category: '', tag: '', search: '' })}
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
-                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                  }`}
-              >
-                All
-              </Link>
-              {categoryChips.map((category) => {
-                const isActive = category.slug === categorySlug;
-                return (
-                  <Link
-                    key={category.id}
-                    href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
-                    className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
-                      ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
-                      }`}
-                  >
-                    {category.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {renderBrowseControls('blog-search')}
 
         {/* The Latest and Top Reads Section */}
-        {featuredPost && !hasActiveFilters && (
+        {featuredPost && showEditorialHighlights && (
           <section className="border-b border-gray-200 bg-white py-12">
             <div className="container mx-auto px-4">
               <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
@@ -438,6 +457,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 {activeFilters && (
                   <Link
                     href="/blog"
+                    prefetch={false}
                     className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
                   >
                     Clear filters

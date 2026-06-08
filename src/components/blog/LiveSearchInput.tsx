@@ -21,17 +21,21 @@ export default function LiveSearchInput({
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
   const [term, setTerm] = useState(defaultValue);
+  const searchParamsString = searchParams.toString();
+  const currentSearchTerm = searchParams.get('search') ?? '';
+  const latestSearchParamsString = useRef(searchParamsString);
+  const userEditedRef = useRef(false);
   
   // Update local state if URL changes externally (e.g. back button)
   useEffect(() => {
-    const searchParam = searchParams.get('search');
-    if (searchParam !== null && searchParam !== term) {
-      setTerm(searchParam);
-    } else if (searchParam === null && term !== '') {
-      setTerm('');
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+    setTerm((currentTerm) => (
+      currentTerm === currentSearchTerm ? currentTerm : currentSearchTerm
+    ));
+  }, [currentSearchTerm]);
+
+  useEffect(() => {
+    latestSearchParamsString.current = searchParamsString;
+  }, [searchParamsString]);
 
   const initialRender = useRef(true);
 
@@ -41,8 +45,12 @@ export default function LiveSearchInput({
       return;
     }
 
+    if (!userEditedRef.current) {
+      return;
+    }
+
     const handler = setTimeout(() => {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams(latestSearchParamsString.current);
       if (term) {
         params.set('search', term);
       } else {
@@ -52,15 +60,27 @@ export default function LiveSearchInput({
       // reset to page 1 on search
       params.delete('page');
 
+      const queryString = params.toString();
+      const nextUrl = queryString ? `${pathname}?${queryString}` : pathname;
+      const currentUrl = latestSearchParamsString.current
+        ? `${pathname}?${latestSearchParamsString.current}`
+        : pathname;
+
+      if (nextUrl === currentUrl) {
+        userEditedRef.current = false;
+        return;
+      }
+
       startTransition(() => {
-        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+        userEditedRef.current = false;
+        router.replace(nextUrl, { scroll: false });
       });
     }, 400);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [term, pathname, router, searchParams]);
+  }, [term, pathname, router]);
 
   return (
     <input
@@ -68,7 +88,10 @@ export default function LiveSearchInput({
       type="search"
       name="search"
       value={term}
-      onChange={(e) => setTerm(e.target.value)}
+      onChange={(e) => {
+        userEditedRef.current = true;
+        setTerm(e.target.value);
+      }}
       placeholder={placeholder}
       className={className}
       aria-label={ariaLabel}

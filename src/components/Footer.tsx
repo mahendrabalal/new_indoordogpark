@@ -22,7 +22,7 @@ export default function Footer() {
               <li><Link href="/">Browse parks</Link></li>
               <li><Link href="/how-it-works">How it works</Link></li>
 
-              <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/blog" prefetch={false}>Blog</Link></li>
             </ul>
           </div>
 

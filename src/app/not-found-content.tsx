@@ -63,6 +63,7 @@ export default function NotFoundContent() {
               </Link>
               <Link
                 href="/blog"
+                prefetch={false}
                 className="inline-flex items-center justify-center rounded-full border-2 border-purple-600 bg-white px-8 py-3 text-lg font-semibold text-purple-600 transition hover:bg-purple-50"
               >
                 Browse Blog
@@ -226,6 +227,7 @@ export default function NotFoundContent() {
                 </Link>
                 <Link
                   href="/blog"
+                  prefetch={false}
                   className="rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-700 transition hover:border-purple-500 hover:text-purple-600"
                 >
                   Dog Park Tips

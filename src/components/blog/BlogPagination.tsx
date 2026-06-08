@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { WPPaginationInfo } from '@/types/wordpress';
 
 interface BlogPaginationProps {
@@ -68,16 +67,16 @@ export default function BlogPagination({
               {showEllipsis && (
                 <span className="px-2 text-sm text-gray-500">...</span>
               )}
-              <Link
+              <a
                 href={getPageUrl(pageNum)}
-                className={`relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition ${
+                className={`relative inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition ${
                   pageNum === currentPage
                     ? 'bg-[#667eea] text-white shadow-sm'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
               >
                 {pageNum}
-              </Link>
+              </a>
             </div>
           );
         })}

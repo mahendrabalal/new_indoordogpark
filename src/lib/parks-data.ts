@@ -226,7 +226,9 @@ function dedupeParks(parks: DogPark[]): DogPark[] {
 }
 
 async function loadStaticParks(): Promise<DogPark[]> {
-  if (parksCache) {
+  const shouldCache = process.env.NODE_ENV !== 'development';
+
+  if (shouldCache && parksCache) {
     return parksCache;
   }
 
@@ -253,7 +255,9 @@ async function loadStaticParks(): Promise<DogPark[]> {
   const normalized = allParks.map(normalizePark);
   const deduped = dedupeParks(normalized);
   deduped.sort((a, b) => a.name.localeCompare(b.name));
-  parksCache = deduped;
+  if (shouldCache) {
+    parksCache = deduped;
+  }
   return deduped;
 }
 
