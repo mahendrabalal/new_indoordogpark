@@ -12,6 +12,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 // import ErrorBoundary from '@/components/blog/ErrorBoundary';
 import { LiveRegion, ReadingProgress } from '@/components/blog/AccessibilityFeatures';
 import LiveSearchInput from '@/components/blog/LiveSearchInput';
+import type { BlogSearchSuggestion } from '@/components/blog/LiveSearchInput';
 import StructuredData from '@/components/blog/StructuredData';
 import NewsletterForm from '@/components/NewsletterForm';
 
@@ -127,6 +128,26 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   const hasPosts = posts.length > 0;
   const featuredPost = hasPosts ? posts[0] : null;
   const categoryChips = categories.slice(0, 7);
+  const searchSuggestions: BlogSearchSuggestion[] = [
+    ...categories.map((category) => ({
+      label: category.name,
+      href: `/blog/category/${encodeURIComponent(category.slug)}`,
+      type: 'Topic',
+      description: category.description || `${category.count} articles`,
+    })),
+    ...tags.map((tag) => ({
+      label: tag.name,
+      href: `/blog/tag/${encodeURIComponent(tag.slug)}`,
+      type: 'Tag',
+      description: `${tag.count} articles`,
+    })),
+    ...posts.slice(0, 6).map((post) => ({
+      label: post.title,
+      href: `/blog/${post.slug}`,
+      type: 'Article',
+      description: post.excerpt.replace(/<[^>]+>/g, '').slice(0, 90),
+    })),
+  ];
 
   const buildFilterHref = (overrides: Partial<{ search?: string; category?: string; tag?: string }>) => {
     const merged = {
@@ -194,6 +215,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               defaultValue={searchTerm || ''}
               placeholder="Search articles..."
               aria-label="Search articles"
+              suggestions={searchSuggestions}
               className="block w-full rounded-full border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
             />
           </div>
@@ -236,20 +258,15 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
         <LiveRegion />
         <ReadingProgress />
         <Header variant="light" />
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white" id="main-content" role="main">
-          <section className="border-b border-gray-100 bg-gradient-to-b from-purple-50 via-white to-white">
-            <div className="container mx-auto px-4 py-16 text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-purple-500">Indoor dog park intel</p>
-              <h1 className="mt-4 text-4xl font-bold text-gray-900 md:text-5xl">{getPageTitle()}</h1>
-              <p className="mt-3 text-lg text-gray-600">{getPageDescription()}</p>
-            </div>
-          </section>
+        <div className="min-h-screen bg-white" id="main-content" role="main">
           {renderBrowseControls('blog-search-empty')}
           <section className="container mx-auto px-4 py-12 lg:py-16">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="rounded-3xl border border-dashed border-purple-200 bg-white p-10 text-center shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-purple-600">No results</p>
-                <h2 className="mt-4 text-2xl font-semibold text-gray-900">We couldn’t find articles that match.</h2>
+                <h1 className="mt-4 text-3xl font-bold text-gray-900">{getPageTitle()}</h1>
+                <p className="mt-2 text-gray-500">{getPageDescription()}</p>
+                <h2 className="mt-6 text-2xl font-semibold text-gray-900">We couldn’t find articles that match.</h2>
                 <p className="mt-3 text-gray-600">
                   Try a shorter phrase, check the spelling, pick a category above, or reset back to all stories.
                 </p>

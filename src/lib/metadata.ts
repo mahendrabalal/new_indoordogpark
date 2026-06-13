@@ -313,16 +313,6 @@ export function generateParkSchema(park: DogPark) {
       addressCountry: 'US',
     },
     // Industry standard properties following Google's guidelines
-    category: park.businessType,
-    ...(businessFunction && {
-      businessFunction: {
-        '@type': 'BusinessFunction',
-        name: businessFunction,
-      }
-    }),
-    serviceType: park.businessType === 'Dog Park' || park.businessType === 'Indoor Dog Park'
-      ? 'Dog Recreation Services'
-      : 'Pet Care Services',
     keywords: [
       'dog park',
       'pet care',
@@ -568,13 +558,6 @@ export function generateReviewSchemas(
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
-    // Include business function to match main schema
-    ...(businessFunction && {
-      businessFunction: {
-        '@type': 'BusinessFunction',
-        name: businessFunction,
-      }
-    }),
   };
 
   // Generate Review schemas for each review

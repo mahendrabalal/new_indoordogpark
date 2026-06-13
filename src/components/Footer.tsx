@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Social Media Links */}
-        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_PINTEREST || process.env.NEXT_PUBLIC_SOCIAL_DIGG) && (
+        {(process.env.NEXT_PUBLIC_SOCIAL_TWITTER || process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || process.env.NEXT_PUBLIC_SOCIAL_PINTEREST) && (
           <div className="footer-social">
             {process.env.NEXT_PUBLIC_SOCIAL_TWITTER && (
               <a
@@ -123,19 +123,7 @@ export default function Footer() {
                 <i className="bi bi-youtube"></i>
               </a>
             )}
-            {process.env.NEXT_PUBLIC_SOCIAL_DIGG && (
-              <a
-                href={process.env.NEXT_PUBLIC_SOCIAL_DIGG}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Digg"
-                title="Follow us on Digg"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" className="bi" viewBox="0 0 512 512">
-                  <path d="M81.7 172.3l-81.7 0 0 174.4 132.7 0 0-250.7-51 0 0 76.3zm0 133.4l-30.8 0 0-92.3 30.8 0 0 92.3zM378.9 172.3l0 174.4 81.8 0 0 28.5-81.8 0 0 40.8 133.1 0 0-243.7-133.1 0zm81.8 133.4l-30.8 0 0-92.3 30.8 0 0 92.3zm-235.6 41l82.1 0 0 28.5-82.1 0 0 40.8 133.3 0 0-243.7-133.3 0 0 174.4zm51.2-133.3l30.8 0 0 92.3-30.8 0 0-92.3zM153.3 96l51.3 0 0 51-51.3 0 0-51zm0 76.3l51.3 0 0 174.4-51.3 0 0-174.4z" />
-                </svg>
-              </a>
-            )}
+
           </div>
         )}
 

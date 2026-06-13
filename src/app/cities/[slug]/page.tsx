@@ -4,12 +4,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParkDirectoryGrid from '@/components/ParkDirectoryGrid';
 import TableOfContents from '@/components/TableOfContents';
-import ParkTypeGuide from '@/components/ParkTypeGuide';
 import FAQSection from '@/components/FAQSection';
 
 import ScrollToButton from '@/components/ScrollToButton';
 import NewsletterForm from '@/components/NewsletterForm';
-import RelatedGuides from '@/components/RelatedGuides';
+import CityBestForBadges from '@/components/CityBestForBadges';
+import CityPricingSummary from '@/components/CityPricingSummary';
+import { getWeatherContext } from '@/lib/weather-context';
 import { createMetaDescription, createSEOTitle, generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 import { getStateName } from '@/lib/state';
 import { getCityContentBySlug } from '@/lib/parks-data';
@@ -24,7 +25,6 @@ import { PlanningCard, SupportCTA } from '@/types/city-content';
 import { FAQItem } from '@/types/faq';
 import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
-import CityParkComparison from '@/components/CityParkComparison';
 
 
 interface CityPageProps {
@@ -98,13 +98,16 @@ function buildUniqueHeroDescription(params: {
   indoorCount: number;
   topRatedPark?: { name: string; rating: number };
   topAmenities: Array<{ label: string; share: number }>;
+  slug: string;
 }) {
-  const { cityName, state, totalParks, indoorCount } = params;
+  const { cityName, state, totalParks, indoorCount, slug } = params;
+
+  const weatherContext = getWeatherContext(slug);
 
   const inventoryLine =
     indoorCount > 0
-      ? `Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
-      : `Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
+      ? `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
+      : `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
 
   return inventoryLine;
 }
@@ -239,6 +242,7 @@ export default async function CityPage({ params }: CityPageProps) {
       indoorCount,
       topRatedPark: topRatedPark ? { name: topRatedPark.name, rating: topRatedPark.rating } : undefined,
       topAmenities,
+      slug: city.slug,
     });
   // Only show footnotes when there is custom content — generic footnotes signal
   // machine-generated pages to search engines and harm AdSense compliance.
@@ -260,6 +264,7 @@ export default async function CityPage({ params }: CityPageProps) {
       indoorCount,
       topRatedPark: topRatedPark ? { name: topRatedPark.name, rating: topRatedPark.rating } : undefined,
       topAmenities,
+      slug: city.slug,
     });
 
   const structuredPlaces = cityParks.slice(0, 10).map((park) => {
@@ -471,7 +476,7 @@ export default async function CityPage({ params }: CityPageProps) {
       title: 'Essentials checklist',
       items: [
         'Leash + harness for entry/exit control',
-        'Collapsible water bowl and fresh water',
+        'Collapsible water bowl (even if they have water fountains)',
         'Plenty of waste bags and high-value treats',
       ],
     },
@@ -480,7 +485,7 @@ export default async function CityPage({ params }: CityPageProps) {
       title: 'Local regulations',
       items: [
         'Keep proof of vaccinations or city license handy',
-        'Voice control required in most off-leash zones',
+        'Voice control required in any off-leash dog park',
         'Limit three dogs per handler in public parks',
       ],
     },
@@ -513,16 +518,10 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
-    { id: 'city-comparison', title: 'Top Comparisons', level: 1 },
     { id: 'park-collections', title: 'Park Collections', level: 1 },
-    { id: 'neighborhood-clusters', title: 'Neighborhoods', level: 1 },
-    { id: 'park-types-guide', title: 'Park Type Guide', level: 1 },
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
     { id: 'park-directory', title: 'Full Directory', level: 1 },
-    { id: 'owner-cta', title: 'Owner & Franchise', level: 1 },
-    { id: 'related-guides', title: 'Expert Guides', level: 1 },
     { id: 'faq-section', title: 'FAQs', level: 1 },
-
   ];
 
   return (
@@ -686,59 +685,34 @@ export default async function CityPage({ params }: CityPageProps) {
 
 
 
-        <section id="city-comparison" className="city-comparison-section">
-          <div className="section-shell">
-            <CityParkComparison parks={cityParks} cityName={city.name} />
-          </div>
-        </section>
-
-        <section id="park-collections" className="park-collections-section">
-          <div className="section-shell">
-            <div className="section-heading">
-              <span className="section-eyebrow">Curated collections</span>
-              <h2>Choose the vibe that fits your next outing</h2>
-              <p>Segmented park groupings built from live data so you can jump straight to the experiences that matter most.</p>
-            </div>
-
-            {parkCategories.length === 0 && (
-              <div className="collection-empty" style={{ padding: '40px', textAlign: 'center', background: '#f8fafc', borderRadius: '16px', marginBottom: '40px' }}>
-                <i className="bi bi-inbox" style={{ fontSize: '2rem', color: '#94a3b8', marginBottom: '1rem', display: 'block' }} />
-                <p style={{ color: '#64748b', margin: 0 }}>We haven&rsquo;t catalogued parks in this city yet. Check back soon!</p>
+        {customContent?.neighborhoods && customContent.neighborhoods.length > 0 && (
+          <section id="park-collections" className="park-collections-section">
+            <div className="section-shell">
+              <div className="section-heading">
+                <span className="section-eyebrow">Local Districts</span>
+                <h2>Where to play in {city.name}</h2>
+                <p>The best dog-friendly spots and parks, organized by neighborhood.</p>
               </div>
-            )}
-
-            <div className="park-type-guide-wrapper">
-              <ParkTypeGuide parksByType={parksByType} />
-            </div>
-
-            {customContent?.neighborhoods && customContent.neighborhoods.length > 0 && (
-              <div id="neighborhood-clusters" style={{ marginTop: 80, paddingTop: 80, borderTop: '1px solid #f1f5f9' }}>
-                <div className="section-heading">
-                  <span className="section-eyebrow">Local Districts</span>
-                  <h2>Where to play in {city.name}</h2>
-                  <p>Semantic clusters of dog-friendly highlights broken down by neighborhood.</p>
-                </div>
-                <div className="collection-grid" style={{ marginTop: 40 }}>
-                  {customContent.neighborhoods.map((n) => (
-                    <article key={n.slug} className="collection-card" style={{ border: '1px solid #f1f5f9', background: '#f8fafc' }}>
-                      <div className="collection-card-head">
-                        <span className="collection-pill">{cityParks.filter(p => (p.address?.toLowerCase().includes(n.name.toLowerCase()) || p.street?.toLowerCase().includes(n.name.toLowerCase()))).length} spots found</span>
-                        <h3>{n.name}</h3>
-                      </div>
-                      <p>{n.description}</p>
-                      <div className="collection-card-footer">
-                        <ScrollToButton className="hero-cta text-link" targetId="park-directory">
-                          Browse directory
-                          <i className="bi bi-arrow-right" />
-                        </ScrollToButton>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+              <div className="collection-grid" style={{ marginTop: 40 }}>
+                {customContent.neighborhoods.map((n) => (
+                  <article key={n.slug} className="collection-card" style={{ border: '1px solid #f1f5f9', background: '#f8fafc' }}>
+                    <div className="collection-card-head">
+                      <span className="collection-pill">{cityParks.filter(p => (p.address?.toLowerCase().includes(n.name.toLowerCase()) || p.street?.toLowerCase().includes(n.name.toLowerCase()))).length} spots found</span>
+                      <h3>{n.name}</h3>
+                    </div>
+                    <p>{n.description}</p>
+                    <div className="collection-card-footer">
+                      <ScrollToButton className="hero-cta text-link" targetId="park-directory">
+                        Browse directory
+                        <i className="bi bi-arrow-right" />
+                      </ScrollToButton>
+                    </div>
+                  </article>
+                ))}
               </div>
-            )}
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
         <section id="map-and-neighborhoods" className="map-experience-section">
           <div className="section-shell">
@@ -858,29 +832,6 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
 
-        <section id="owner-cta" className="owner-cta-section">
-          <div className="section-shell">
-            {ownerCta.kicker && <span className="section-eyebrow">{ownerCta.kicker}</span>}
-            <h2>{ownerCta.title}</h2>
-            <p>{ownerCta.description}</p>
-            <div className="hero-cta-row" style={{ marginTop: 24 }}>
-              <Link href={ownerCta.primary.href} className="hero-cta primary">
-                {ownerCta.primary.label}
-              </Link>
-              {ownerCta.secondary && (
-                <Link href={ownerCta.secondary.href} className="hero-cta ghost">
-                  {ownerCta.secondary.label}
-                </Link>
-              )}
-            </div>
-            {ownerCta.footnote && (
-              <p className="hero-description" style={{ marginTop: 16 }}>
-                {ownerCta.footnote}
-              </p>
-            )}
-          </div>
-        </section>
-
         <section id="park-directory" className="park-directory-section">
           <div className="section-shell">
             <div className="section-heading">
@@ -888,6 +839,9 @@ export default async function CityPage({ params }: CityPageProps) {
               <h2>All dog parks in {city.name}</h2>
               <p>Filter-ready cards with ratings, amenities, and quick actions. Use the chips to jump between sections.</p>
             </div>
+
+            <CityBestForBadges cityName={city.name} topAmenities={topAmenities} />
+            <CityPricingSummary cityName={city.name} />
 
             <div className="category-chip-row">
               {parkCategories.map(([type]) => {
@@ -947,7 +901,7 @@ export default async function CityPage({ params }: CityPageProps) {
               <div className="section-shell">
                 <div className="section-heading">
                   <span className="section-eyebrow">Explore the region</span>
-                  <h2>Dog parks near {city.name}</h2>
+                  <h2>Cities near {city.name}</h2>
                   <p>Worth the drive? Check out top-rated indoor parks in neighboring cities.</p>
                 </div>
 
@@ -956,8 +910,6 @@ export default async function CityPage({ params }: CityPageProps) {
             </section>
           )
         }
-
-        <RelatedGuides citySlug={city.slug} count={3} />
 
         <section id="faq-section" className="city-faq-section">
           <div className="section-shell">

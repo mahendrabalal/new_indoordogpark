@@ -175,7 +175,6 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 height: 720,
               },
               uploadDate: post.date,
-              publicationDate: post.date,
               contentUrl: video.url,
               embedUrl: `https://www.youtube.com/embed/${video.id}`,
               duration: undefined, // Would need to fetch from YouTube API for exact duration
@@ -301,17 +300,25 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Hero Image */}
                 {featuredImage && (
-                  <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden bg-gray-100">
-                    <Image
-                      src={featuredImage}
-                      alt={post.featuredImage?.alt_text || post.title}
-                      fill
-                      className="object-cover"
-                      priority
-                      sizes="(max-width: 768px) 100vw, 896px"
-                      unoptimized={true}
-                    />
-                  </div>
+                  <figure className="mb-8">
+                    <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-100">
+                      <Image
+                        src={featuredImage}
+                        alt={post.featuredImage?.alt_text || post.title}
+                        fill
+                        className="object-cover"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 896px"
+                        unoptimized={true}
+                      />
+                    </div>
+                    {post.featuredImage?.caption?.rendered && (
+                      <figcaption 
+                        className="mt-3 text-sm text-gray-500 text-center italic [&>p]:m-0"
+                        dangerouslySetInnerHTML={{ __html: post.featuredImage.caption.rendered }}
+                      />
+                    )}
+                  </figure>
                 )}
               </header>
 

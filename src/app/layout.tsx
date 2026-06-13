@@ -10,6 +10,8 @@ import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import CookieBanner from '@/components/CookieBanner'
 import AdSense from '@/components/AdSense'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -125,14 +127,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   // Structured data for Organization
-  // Social media links can be configured via environment variables:
-  // NEXT_PUBLIC_SOCIAL_FACEBOOK, NEXT_PUBLIC_SOCIAL_TWITTER, NEXT_PUBLIC_SOCIAL_INSTAGRAM, etc.
+  // Social media links can be configured via environment variables, falling back to default profiles
   const socialMediaLinks = [
-    process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK,
-    process.env.NEXT_PUBLIC_SOCIAL_TWITTER,
-    process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM,
-    process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN,
-    process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE,
+    process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK || 'https://facebook.com/indoordogpark',
+    process.env.NEXT_PUBLIC_SOCIAL_TWITTER || 'https://twitter.com/indoordogpark',
+    process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || 'https://instagram.com/indoordogpark',
+    process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN || 'https://linkedin.com/company/indoor-dog-park',
+    process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE || 'https://youtube.com/@indoordogpark',
   ].filter((url): url is string => Boolean(url) && typeof url === 'string')
 
   const organizationSchema = {
@@ -224,6 +225,8 @@ export default function RootLayout({
         <ErrorBoundary level="page">
           <GoogleAnalytics />
           <CoreWebVitals />
+          <Analytics />
+          <SpeedInsights />
           <LazyStyles />
           <CookieBanner />
           <AuthProvider>

@@ -33,7 +33,6 @@ export default function ParkDetailSchema({ park, url }: ParkDetailSchemaProps) {
         longitude: park.longitude,
       },
     }),
-    category: park.businessType,
     ...(park.photo && {
       image: [
         park.photo,
