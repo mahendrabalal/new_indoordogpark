@@ -34,12 +34,11 @@ export default function AdSense() {
     //   'accepted'  → user clicked "Accept All"
     //   'declined'  → user clicked "Essential Only"
     //   null        → user has not yet made a choice (treat as accepted to allow ads
-    //                 in jurisdictions where opt-in is not required; EU users will
-    //                 see the banner before any meaningful browsing occurs)
     const consent = localStorage.getItem('cookieConsent');
-    if (consent === 'declined') return;
+    // Only inject AdSense if explicitly accepted, to protect Core Web Vitals on first load
+    if (consent !== 'accepted') return;
 
-    // If already accepted (or no choice made yet), inject immediately
+    // Inject immediately if accepted
     injectAdSenseScript();
 
     // Listen for the user accepting cookies after the page has loaded

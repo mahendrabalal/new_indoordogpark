@@ -705,7 +705,7 @@ export default function HomePageClient({
                 
                 {/* Left side: Safety Checker */}
                 <div>
-                  <p className="text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Pup Care Diagnostics</p>
+                  <p className="text-sm font-bold tracking-widest text-slate-600 uppercase mb-2">Pup Care Diagnostics</p>
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">On-Site Ambient Check</h2>
                   <SafetyCheckerFooter />
                 </div>
@@ -714,7 +714,7 @@ export default function HomePageClient({
                 <div>
                   <p className="text-sm font-bold tracking-widest text-orange-500 uppercase mb-2">Help Center</p>
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">Frequently asked questions</h2>
-                  <p className="text-slate-500 mb-8 font-medium">Everything you need to know about safety protocols and premium network listings.</p>
+                  <p className="text-slate-600 mb-8 font-medium">Everything you need to know about safety protocols and premium network listings.</p>
                   
                   <div className="space-y-4">
                     {[

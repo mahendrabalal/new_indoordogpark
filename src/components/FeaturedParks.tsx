@@ -139,7 +139,7 @@ export default function FeaturedParks() {
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">Premium Partner Network</span>
           </div>
           <h2 id="premium-featured-heading" className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
-            Elevating the <span className="font-serif italic text-slate-500 font-normal pr-2">Standard</span> of Play.
+            Elevating the <span className="font-serif italic text-slate-600 font-normal pr-2">Standard</span> of Play.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Join an elite network of climate-controlled facilities with concierge visibility, prioritized placements, and performance insights.
@@ -198,12 +198,12 @@ export default function FeaturedParks() {
                   <div className="flex flex-col flex-1 p-6">
                     <div className="mb-3">
                       <p className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-1.5">{park.businessType}</p>
-                      <h4 className="text-xl font-black leading-tight tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
+                      <h3 className="text-xl font-black leading-tight tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
                         {park.name}
-                      </h4>
+                      </h3>
                     </div>
 
-                    <p className="text-slate-500 font-medium leading-relaxed text-sm line-clamp-3 mb-6">
+                    <p className="text-slate-600 font-medium leading-relaxed text-sm line-clamp-3 mb-6">
                       {park.description}
                     </p>
 

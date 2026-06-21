@@ -832,13 +832,15 @@ body {
   padding: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out, visibility 0.3s ease-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  visibility: hidden;
 }
 
 .mobile-menu.open {
   max-height: 500px;
   padding: 15px 20px;
+  visibility: visible;
 }
 
 .mobile-menu-item {
@@ -976,11 +978,6 @@ body {
   color: #f9fafb;
   overflow: visible;
   z-index: 1;
-  /* Prevent layout shift by setting min-height */
-  min-height: 500px;
-  /* Optimize background image loading */
-  content-visibility: auto;
-  contain-intrinsic-size: 500px;
   /* Use image-set for responsive images if supported */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;

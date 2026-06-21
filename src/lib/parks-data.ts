@@ -237,7 +237,7 @@ async function loadStaticParks(): Promise<DogPark[]> {
     STATIC_PARK_FILES.map(async (file) => {
       const url = `${baseUrl.replace(/\/$/, '')}/${file}`;
       try {
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(url, { next: { revalidate: 3600 } });
         if (!res.ok) {
           console.warn(`[parks-data] Failed to fetch ${url}: ${res.status}`);
           return [];
