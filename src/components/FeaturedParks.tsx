@@ -71,7 +71,7 @@ export default function FeaturedParks() {
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">Premium Partner Network</span>
             </div>
             <h2 id="premium-featured-heading-loading" className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] opacity-50">
-              Elevating the <span className="font-serif italic text-slate-500 font-normal pr-2">Standard</span> of Play.
+              Elevating the <span className="font-serif italic text-slate-600 font-normal pr-2">Standard</span> of Play.
             </h2>
             <p className="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed opacity-50">
               Join an elite network of climate-controlled facilities with concierge visibility, prioritized placements, and performance insights.
@@ -85,45 +85,11 @@ export default function FeaturedParks() {
               </div>
             </div>
           </div>
-
-          <div className="mb-16">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="flex flex-col overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.03)] h-full animate-pulse"
-                >
-                  <div className="relative h-56 bg-slate-200"></div>
-                  <div className="flex flex-col flex-1 p-6">
-                    <div className="mb-3">
-                      <div className="h-3 w-20 bg-slate-200 rounded mb-2"></div>
-                      <div className="h-6 w-3/4 bg-slate-200 rounded"></div>
-                    </div>
-                    <div className="space-y-2 mb-6">
-                      <div className="h-4 w-full bg-slate-100 rounded"></div>
-                      <div className="h-4 w-5/6 bg-slate-100 rounded"></div>
-                      <div className="h-4 w-4/6 bg-slate-100 rounded"></div>
-                    </div>
-                    <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div className="h-4 w-24 bg-slate-200 rounded"></div>
-                      <div className="h-8 w-8 rounded-full bg-slate-200"></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Omit skeleton grid to prevent massive layout collapse if 0 parks */}
         </div>
       </section>
     );
   }
-
-  if (!featuredParks || featuredParks.length === 0) {
-    return null;
-  }
-
-  const spotlightPark = featuredParks[0];
-  const otherFeatured = featuredParks.slice(1, 4);
 
   return (
     <section className="featured-parks-premium-new py-24 bg-slate-50 relative overflow-hidden" aria-labelledby="premium-featured-heading">
@@ -161,7 +127,7 @@ export default function FeaturedParks() {
         </div>
 
         {/* Premium Parks Grid (4 Columns) */}
-        {featuredParks.length > 0 && (
+        {featuredParks && featuredParks.length > 0 && (
           <div className="mb-16">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {featuredParks.slice(0, 4).map((park) => (

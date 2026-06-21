@@ -25,6 +25,15 @@ body {
   padding-top: 70px;
 }
 
+/* Pre-reserve space for Bootstrap Icons BEFORE the external CSS loads to prevent CLS */
+i[class^="bi-"], i[class*=" bi-"] {
+  display: inline-block;
+  min-width: 1em;
+  min-height: 1em;
+  line-height: 1;
+  vertical-align: -0.125em;
+}
+
 /* Prevent layout shift from icon fonts loading */
 .bi::before,
 [class^="bi-"]::before,

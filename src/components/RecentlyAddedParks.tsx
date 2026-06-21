@@ -180,7 +180,7 @@ export default function RecentlyAddedParks() {
 
                                 <div className="mt-auto pt-3 border-t border-slate-100">
                                     <div className="flex items-center justify-between text-xs">
-                                        <span className="flex items-center gap-1 text-slate-500">
+                                        <span className="flex items-center gap-1 text-slate-600">
                                             <i className="bi bi-geo-alt" />
                                             {park.city}, {park.state}
                                         </span>
