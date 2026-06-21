@@ -13,6 +13,7 @@ import * as React from 'react';
 
 interface ParkOutreachEmailProps {
     parkName: string;
+    parkSlug: string;
     parkCity?: string;
     parkState?: string;
     personalizedNote?: string;
@@ -22,6 +23,7 @@ interface ParkOutreachEmailProps {
 
 export const ParkOutreachEmail = ({
     parkName,
+    parkSlug,
     parkCity,
     parkState,
     personalizedNote,
@@ -38,16 +40,20 @@ export const ParkOutreachEmail = ({
                 <Container style={container}>
                     <Section style={header}>
                         <Heading style={headerTitle}>IndoorDogPark.org</Heading>
-                        <Text style={headerSubtitle}>California&apos;s Premier Indoor Dog Park Directory</Text>
+                        <Text style={headerSubtitle}>America&apos;s Premier Indoor Dog Park Directory</Text>
                     </Section>
 
                     <Section style={content}>
                         <Heading as="h2" style={greeting}>
-                            Hello {parkName}{location ? ' Team' : ''}!
+                            Hi {parkName}{location ? ' Team' : ''},
                         </Heading>
 
                         <Text style={paragraph}>
-                            We&apos;re reaching out because {parkName}{location} is already featured in our comprehensive directory of indoor dog parks. We&apos;d love to help you get more visibility and connect with more dog owners in your area.
+                            We came across <strong>{parkName}</strong>{location} while building out our 2026 directory and wanted to reach out personally. Your facility is now listed on IndoorDogPark.org — one of the fastest-growing directories for dog owners searching for indoor play spaces across the US.
+                        </Text>
+
+                        <Text style={paragraph}>
+                            Your listing is completely <strong>free</strong> — no sign-up or payment needed.
                         </Text>
 
                         {personalizedNote && (
@@ -56,52 +62,33 @@ export const ParkOutreachEmail = ({
                             </Section>
                         )}
 
-                        <Heading as="h3" style={subHeading}>
-                            Why Partner With Us?
-                        </Heading>
-                        <ul style={list}>
-                            <li style={listItem}>
-                                <strong>Increased Visibility:</strong> Featured listings appear at the top of search results and on our homepage
-                            </li>
-                            <li style={listItem}>
-                                <strong>More Customers:</strong> We help thousands of dog owners find the perfect indoor park every month
-                            </li>
-                            <li style={listItem}>
-                                <strong>Professional Listing:</strong> Enhanced profiles with multiple photos, detailed amenities, and verified information
-                            </li>
-                            <li style={listItem}>
-                                <strong>Analytics Dashboard:</strong> Track views, clicks, and inquiries from your listing
-                            </li>
-                            <li style={listItem}>
-                                <strong>Affordable Pricing:</strong> Starting at just $9.99/month for featured placement
-                            </li>
-                        </ul>
-
-                        <Section style={benefitsContainer}>
-                            <Heading as="h3" style={benefitsTitle}>
-                                Featured Listing Benefits:
-                            </Heading>
-                            <ul style={benefitsList}>
-                                <li style={listItem}>✅ Priority placement in search results</li>
-                                <li style={listItem}>✅ Featured badge on your listing</li>
-                                <li style={listItem}>✅ Homepage visibility</li>
-                                <li style={listItem}>✅ Highlighted on interactive map</li>
-                                <li style={listItem}>✅ Enhanced listing with more photos</li>
-                            </ul>
-                        </Section>
-
                         <Section style={ctaContainer}>
-                            <Link href={`${baseUrl}/list-your-park`} style={button}>
-                                Upgrade to Featured Listing
+                            <Link href={`${baseUrl}/parks/${parkSlug}`} style={button}>
+                                View Your Free Listing →
                             </Link>
                         </Section>
 
                         <Text style={paragraph}>
-                            Our featured listing at just $9.99/month includes all these benefits to help grow your business.
+                            We also created a free <strong>&quot;Listed on IndoorDogPark.org&quot;</strong> badge you can add to your website. It&apos;s a small trust signal that tells your customers you&apos;re part of a verified directory — similar to a TripAdvisor or Yelp sticker in a restaurant window.
                         </Text>
 
+                        <Heading as="h3" style={subHeading}>
+                            How to get your free badge:
+                        </Heading>
+                        <ul style={list}>
+                            <li style={listItem}>
+                                1. Click the button above to view your listing.
+                            </li>
+                            <li style={listItem}>
+                                2. On the right side of the page, click <strong>&quot;Get Your Free Badge&quot;</strong>.
+                            </li>
+                            <li style={listItem}>
+                                3. Copy the HTML snippet and paste it anywhere on your site — footer, sidebar, or &quot;About&quot; page.
+                            </li>
+                        </ul>
+
                         <Text style={paragraph}>
-                            If you have any questions or would like to discuss partnership opportunities, please don&apos;t hesitate to reach out. We&apos;re here to help your business grow!
+                            It takes under a minute and costs nothing. If your info on our site needs any updates (hours, photos, amenities), just reply to this email and we&apos;ll fix it right away.
                         </Text>
 
                         <Section style={footer}>
@@ -109,15 +96,11 @@ export const ParkOutreachEmail = ({
                                 Best regards,<br />
                                 <strong>The IndoorDogPark.org Team</strong><br />
                                 <Link href="mailto:media@indoordogpark.org" style={link}>media@indoordogpark.org</Link><br />
-                                <Link href={baseUrl} style={link}>indoordogpark.org</Link><br />
-                                <span style={address}>123 Pet Friendly Way, Sacramento, CA 95814</span>
+                                <Link href={baseUrl} style={link}>indoordogpark.org</Link>
                             </Text>
                         </Section>
 
                         <Section style={unsubscribe}>
-                            <Text style={unsubscribeText}>
-                                <strong>P.S.</strong> We&apos;re currently offering a special promotion: First month 50% off for new featured listings. Use code <strong>FIRST50</strong> at checkout.
-                            </Text>
                             <Text style={unsubscribeText}>
                                 You&apos;re receiving this because {parkName} is listed in our directory. If you&apos;d prefer not to receive these emails, please <Link href={`${baseUrl}/unsubscribe?email=${encodeURIComponent(parkEmail || '')}`} style={link}>unsubscribe here</Link>.
                             </Text>

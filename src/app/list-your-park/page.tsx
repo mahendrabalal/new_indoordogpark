@@ -314,7 +314,7 @@ export default function ListPropertyPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header variant="light" />
-      <main className="flex-1 bg-gradient-to-br from-purple-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 bg-gradient-to-br from-purple-50 to-blue-50 pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">

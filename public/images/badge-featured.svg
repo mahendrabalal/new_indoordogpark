@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" width="260" height="300">
+  <defs>
+
+    <!-- Gold border gradient -->
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFF5B0"/>
+      <stop offset="25%"  stop-color="#F0C030"/>
+      <stop offset="55%"  stop-color="#C8880A"/>
+      <stop offset="80%"  stop-color="#F0C030"/>
+      <stop offset="100%" stop-color="#9A6200"/>
+    </linearGradient>
+
+    <!-- Navy inner face -->
+    <linearGradient id="navyFace" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#1E3460"/>
+      <stop offset="100%" stop-color="#0B1D3A"/>
+    </linearGradient>
+
+    <!-- Gold text / accent gradient -->
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFF5A0"/>
+      <stop offset="50%"  stop-color="#F0C030"/>
+      <stop offset="100%" stop-color="#B87A00"/>
+    </linearGradient>
+
+    <!-- Gold star gradient -->
+    <linearGradient id="goldStar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFE980"/>
+      <stop offset="100%" stop-color="#C88800"/>
+    </linearGradient>
+
+    <!-- Green ribbon gradient -->
+    <linearGradient id="greenRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#166534"/>
+      <stop offset="45%"  stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+
+    <!-- Drop shadow for whole badge -->
+    <filter id="badgeShadow" x="-15%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.40"/>
+    </filter>
+
+    <!-- Subtle inner glow on text -->
+    <filter id="textGlow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Star glow -->
+    <filter id="starGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Clip for inner face -->
+    <clipPath id="innerClip">
+      <path d="M130,24 L230,62 L230,170 Q230,238 130,282 Q30,238 30,170 L30,62 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- ======================================================= -->
+  <!-- SHIELD OUTER BORDER (gold) + shadow                     -->
+  <!-- ======================================================= -->
+  <path
+    d="M130,8 L248,52 L248,172 Q248,248 130,295 Q12,248 12,172 L12,52 Z"
+    fill="url(#goldBorder)"
+    filter="url(#badgeShadow)"
+  />
+
+  <!-- Thin highlight bevel on top-left edge -->
+  <path
+    d="M130,10 L244,54"
+    fill="none" stroke="#FFFBE0" stroke-width="2" stroke-linecap="round" opacity="0.55"
+  />
+
+  <!-- ======================================================= -->
+  <!-- SHIELD INNER FACE (navy)                                -->
+  <!-- ======================================================= -->
+  <path
+    d="M130,24 L230,62 L230,170 Q230,238 130,282 Q30,238 30,170 L30,62 Z"
+    fill="url(#navyFace)"
+  />
+
+  <!-- Subtle radial sheen overlay on inner face -->
+  <radialGradient id="sheen" cx="40%" cy="25%" r="60%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <path
+    d="M130,24 L230,62 L230,170 Q230,238 130,282 Q30,238 30,170 L30,62 Z"
+    fill="url(#sheen)"
+  />
+
+  <!-- Inner gold border ring (1 px inset) -->
+  <path
+    d="M130,26 L227,64 L227,170 Q227,235 130,279 Q33,235 33,170 L33,64 Z"
+    fill="none" stroke="url(#goldBorder)" stroke-width="1.5" opacity="0.7"
+  />
+
+  <!-- ======================================================= -->
+  <!-- DECORATIVE TOP ACCENT — thin horizontal bar             -->
+  <!-- ======================================================= -->
+  <rect x="80" y="58" width="100" height="1.5" rx="1" fill="url(#goldText)" opacity="0.5"/>
+
+  <!-- ======================================================= -->
+  <!-- STAR (5-point) WITH PAW INSIDE                          -->
+  <!-- ======================================================= -->
+  <!-- Star shadow ring -->
+  <circle cx="130" cy="94" r="28" fill="#0B1D3A" opacity="0.5"/>
+  <circle cx="130" cy="94" r="25" fill="#142850" opacity="0.8"/>
+
+  <!-- 5-point star -->
+  <polygon
+    points="130,68 136.5,87 157,87 141,99 147.5,118 130,107 112.5,118 119,99 103,87 123.5,87"
+    fill="url(#goldStar)"
+    filter="url(#starGlow)"
+  />
+
+  <!-- Paw print inside star (white) -->
+  <g transform="translate(118,82) scale(0.22)" fill="#ffffff" opacity="0.92">
+    <!-- central pad -->
+    <ellipse cx="52" cy="72" rx="22" ry="26"/>
+    <!-- top left toe -->
+    <ellipse cx="22" cy="44" rx="13" ry="17" transform="rotate(-15,22,44)"/>
+    <!-- top right toe -->
+    <ellipse cx="82" cy="44" rx="13" ry="17" transform="rotate(15,82,44)"/>
+    <!-- bottom left toe -->
+    <ellipse cx="12" cy="64" rx="11" ry="14" transform="rotate(-35,12,64)"/>
+    <!-- bottom right toe -->
+    <ellipse cx="92" cy="64" rx="11" ry="14" transform="rotate(35,92,64)"/>
+  </g>
+
+  <!-- ======================================================= -->
+  <!-- "FEATURED ON" label                                     -->
+  <!-- ======================================================= -->
+  <text
+    x="130" y="134"
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="10"
+    font-weight="700"
+    letter-spacing="4"
+    fill="#F0C030"
+    text-anchor="middle"
+    opacity="0.9"
+  >FEATURED ON</text>
+
+  <!-- Divider line below label -->
+  <rect x="74" y="139" width="112" height="1" rx="0.5" fill="url(#goldText)" opacity="0.45"/>
+
+  <!-- ======================================================= -->
+  <!-- SITE NAME: IndoorDogPark                                -->
+  <!-- ======================================================= -->
+  <text
+    x="130" y="167"
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="22"
+    font-weight="900"
+    letter-spacing="0"
+    fill="url(#goldText)"
+    text-anchor="middle"
+    filter="url(#textGlow)"
+  >IndoorDogPark</text>
+
+  <!-- .ORG on its own line, slightly smaller -->
+  <text
+    x="130" y="186"
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="14"
+    font-weight="700"
+    letter-spacing="4"
+    fill="url(#goldText)"
+    text-anchor="middle"
+    opacity="0.95"
+  >.ORG</text>
+
+  <!-- Divider line below site name -->
+  <rect x="74" y="192" width="112" height="1" rx="0.5" fill="url(#goldText)" opacity="0.45"/>
+
+  <!-- ======================================================= -->
+  <!-- "PREMIER DIRECTORY" subtitle                            -->
+  <!-- ======================================================= -->
+  <text
+    x="130" y="208"
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="8.5"
+    font-weight="400"
+    letter-spacing="3"
+    fill="#93C5FD"
+    text-anchor="middle"
+    opacity="0.88"
+  >PREMIER DIRECTORY</text>
+
+  <!-- ======================================================= -->
+  <!-- GREEN RIBBON BANNER — 2026                              -->
+  <!-- ======================================================= -->
+  <!-- Left tail -->
+  <path d="M74,218 L68,240 L84,232 L74,218 Z" fill="#15803d"/>
+  <!-- Right tail -->
+  <path d="M186,218 L192,240 L176,232 L186,218 Z" fill="#15803d"/>
+  <!-- Main ribbon band -->
+  <rect x="74" y="215" width="112" height="26" rx="5" fill="url(#greenRibbon)"/>
+  <!-- Top shine stripe -->
+  <rect x="74" y="215" width="112" height="11" rx="5" fill="#ffffff" opacity="0.10"/>
+  <!-- 2026 text -->
+  <text
+    x="130" y="233"
+    font-family="'Georgia', 'Times New Roman', serif"
+    font-size="14"
+    font-weight="900"
+    letter-spacing="4"
+    fill="#ffffff"
+    text-anchor="middle"
+  >2026</text>
+
+  <!-- ======================================================= -->
+  <!-- BOTTOM TIP DIAMOND                                      -->
+  <!-- ======================================================= -->
+  <polygon points="130,290 137,284 130,278 123,284" fill="url(#goldBorder)" opacity="0.8"/>
+
+</svg>

@@ -29,9 +29,9 @@ export async function generateMetadata({
   searchParams,
 }: HomePageProps): Promise<Metadata> {
   const resolvedSearchParams = await searchParams;
-  const title = 'Indoor Parks for Dogs Near Me | Find Indoor Dog Parks';
+  const title = 'Indoor Dog Parks Near Me | Find 500+ Dog Parks & Play Areas';
   const description =
-    'Find indoor parks for dogs near you. Search 500+ climate-controlled indoor dog parks across the US. Bars, training facilities & more. Search by city or zip code.';
+    'Find the best indoor dog parks near you. Search our directory of 500+ climate-controlled dog parks, dog bars, and play areas across the US. View reviews, hours, and pricing.';
 
   const isFiltered = hasActiveSearchParams(resolvedSearchParams);
 

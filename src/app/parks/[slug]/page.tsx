@@ -8,6 +8,7 @@ import ReviewSection from '@/components/ReviewSection';
 import ParkDetailSchema from '@/components/ParkDetailSchema';
 import ParkStatusBadge from '@/components/ParkStatusBadge';
 import ParkMapClient from '@/components/ParkMapClient';
+import BadgeEmbedButton from '@/components/BadgeEmbedButton';
 import { extractLocationFromSlug, getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
 import { generateBreadcrumbSchema, generateParkMetadata, generateParkSchema, generateReviewSchemas, generateWebPageSchema } from '@/lib/metadata';
 import { buildParkFAQs } from '@/lib/park-faq-data';
@@ -659,6 +660,16 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <Link href={`/cities/${citySlug}`} className="btn-primary-outline w-full py-3 rounded-lg font-bold text-center block">
                   View All Parks in {park.city}
                 </Link>
+              </div>
+
+              {/* Business Owner Card */}
+              <div className="sidebar-card-premium bg-amber-50 border-amber-100">
+                <h3 className="text-amber-900 flex items-center gap-2">
+                  <i className="bi bi-award-fill text-amber-500"></i> Is this your business?
+                </h3>
+                <p className="text-sm text-gray-600 mb-1">Your listing is <strong>free</strong>. Add our badge to your website — it&apos;s a trust signal for your customers, like a TripAdvisor sticker.</p>
+                <p className="text-xs text-gray-400 mb-4">No account or payment required.</p>
+                <BadgeEmbedButton parkSlug={park.slug || park.id} parkName={park.name} />
               </div>
             </aside>
           </div>

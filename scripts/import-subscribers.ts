@@ -52,6 +52,7 @@ async function importSubscribers() {
             const email = park.email!.toLowerCase().trim();
             const metadata = {
                 parkName: park.name,
+                parkSlug: park.slug || park.id || park.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
                 location: `${park.city || ''}, ${park.state || ''}`.replace(/^, |, $/g, '')
             };
 

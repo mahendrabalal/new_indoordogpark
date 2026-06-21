@@ -60,18 +60,56 @@ export default function FeaturedParks() {
 
   if (isLoading) {
     return (
-      <section className="py-16 bg-white" style={{ minHeight: '600px' }}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-6 mb-8 animate-pulse">
-            <div className="h-4 w-32 rounded-full bg-slate-100" />
-            <div className="h-10 w-2/3 rounded-xl bg-slate-100" />
-            <div className="h-5 w-1/2 rounded-lg bg-slate-50" />
+      <section className="featured-parks-premium-new py-24 bg-slate-50 relative overflow-hidden" aria-labelledby="premium-featured-heading-loading">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-indigo-50 rounded-full blur-[100px] opacity-70 pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center justify-center gap-2 mb-4 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm opacity-50">
+              <i className="bi bi-star-fill text-amber-400 text-xs" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">Premium Partner Network</span>
+            </div>
+            <h2 id="premium-featured-heading-loading" className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] opacity-50">
+              Elevating the <span className="font-serif italic text-slate-500 font-normal pr-2">Standard</span> of Play.
+            </h2>
+            <p className="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed opacity-50">
+              Join an elite network of climate-controlled facilities with concierge visibility, prioritized placements, and performance insights.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 opacity-50">
+              <div className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-sm font-bold text-white">
+                List your park — $9.99/mo
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-8 py-4 text-sm font-bold text-slate-700">
+                Learn about visibility
+              </div>
+            </div>
           </div>
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="h-[400px] rounded-[2rem] bg-slate-100" />
-            <div className="grid gap-4 sm:grid-cols-2">
+
+          <div className="mb-16">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-32 rounded-2xl bg-slate-50 border border-slate-100" />
+                <div
+                  key={i}
+                  className="flex flex-col overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.03)] h-full animate-pulse"
+                >
+                  <div className="relative h-56 bg-slate-200"></div>
+                  <div className="flex flex-col flex-1 p-6">
+                    <div className="mb-3">
+                      <div className="h-3 w-20 bg-slate-200 rounded mb-2"></div>
+                      <div className="h-6 w-3/4 bg-slate-200 rounded"></div>
+                    </div>
+                    <div className="space-y-2 mb-6">
+                      <div className="h-4 w-full bg-slate-100 rounded"></div>
+                      <div className="h-4 w-5/6 bg-slate-100 rounded"></div>
+                      <div className="h-4 w-4/6 bg-slate-100 rounded"></div>
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                      <div className="h-4 w-24 bg-slate-200 rounded"></div>
+                      <div className="h-8 w-8 rounded-full bg-slate-200"></div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

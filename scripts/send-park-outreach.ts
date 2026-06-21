@@ -20,6 +20,7 @@ const path = require('path');
 interface ParkData {
   id: string;
   name: string;
+  slug?: string;
   email?: string;
   city?: string;
   state?: string;
@@ -81,6 +82,7 @@ async function sendOutreachEmail(
     try {
       const emailData = {
         parkName: park.name,
+        parkSlug: park.slug || park.id,
         parkEmail: park.email,
         parkCity: park.city,
         parkState: park.state,
@@ -118,6 +120,7 @@ async function sendOutreachEmail(
       },
       body: JSON.stringify({
         parkName: park.name,
+        parkSlug: park.slug || park.id,
         parkEmail: park.email,
         parkCity: park.city,
         parkState: park.state,

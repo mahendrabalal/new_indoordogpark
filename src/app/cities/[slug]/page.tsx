@@ -130,8 +130,8 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const fullState = getStateName(city.state) || city.state;
   const cityTitle = createSEOTitle(
     indoorCount > 0
-      ? `Indoor Dog Parks in ${city.name}, ${fullState} | Map & Reviews | Indoor Dog Park`
-      : `Dog Parks in ${city.name}, ${fullState} | Map & Reviews | Indoor Dog Park`
+      ? `Indoor Dog Parks in ${city.name}, ${fullState} | Map & Reviews`
+      : `Dog Parks in ${city.name}, ${fullState} | Map & Reviews`
   );
   const pageDescription = createMetaDescription(
     indoorCount > 0

@@ -98,52 +98,56 @@ export async function POST(request: NextRequest) {
         } else if (template === 'outreach') {
             const { parkId, personalizedNote } = data;
 
-            const adminClient = supabaseAdminClient;
+            if (segment !== 'bulk-outreach') {
+                const adminClient = supabaseAdminClient;
 
-            // Try park_submissions first
-            const { data: initialPark, error: parkError } = await adminClient
-                .from('park_submissions')
-                .select('*')
-                .eq('id', parkId)
-                .single();
-
-            let park = initialPark;
-
-            // If not found, try subscribers
-            if (parkError || !park) {
-                const { data: subscriber, error: subscriberError } = await adminClient
-                    .from('subscribers')
+                // Try park_submissions first
+                const { data: initialPark, error: parkError } = await adminClient
+                    .from('park_submissions')
                     .select('*')
                     .eq('id', parkId)
                     .single();
 
-                if (subscriberError || !subscriber) {
-                    return NextResponse.json({ error: 'Park not found' }, { status: 404 });
+                let park = initialPark;
+
+                // If not found, try subscribers
+                if (parkError || !park) {
+                    const { data: subscriber, error: subscriberError } = await adminClient
+                        .from('subscribers')
+                        .select('*')
+                        .eq('id', parkId)
+                        .single();
+
+                    if (subscriberError || !subscriber) {
+                        return NextResponse.json({ error: 'Park not found' }, { status: 404 });
+                    }
+
+                    // Map subscriber format to park format for the email template
+                    const metadata = subscriber.metadata as SubscriberMetadata | null;
+                    park = {
+                        id: subscriber.id,
+                        name: metadata?.parkName || subscriber.email,
+                        slug: (metadata as any)?.parkSlug,
+                        city: metadata?.location?.split(',')[0]?.trim() || '',
+                        state: metadata?.location?.split(',')[1]?.trim() || '',
+                        email: subscriber.email,
+                    };
                 }
 
-                // Map subscriber format to park format for the email template
-                const metadata = subscriber.metadata as SubscriberMetadata | null;
-                park = {
-                    id: subscriber.id,
-                    name: metadata?.parkName || subscriber.email,
-                    city: metadata?.location?.split(',')[0]?.trim() || '',
-                    state: metadata?.location?.split(',')[1]?.trim() || '',
-                    email: subscriber.email,
-                };
+                subject = `Partner with IndoorDogPark.org - Increase Visibility for ${park.name}`;
+
+                const emailComponent = React.createElement(ParkOutreachEmail, {
+                    parkName: park.name,
+                    parkCity: park.city,
+                    parkState: park.state,
+                    parkEmail: park.email,
+                    parkSlug: park.slug || park.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+                    personalizedNote: personalizedNote,
+                    baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://indoordogpark.org',
+                });
+
+                emailHtml = await render(emailComponent);
             }
-
-            subject = `Partner with IndoorDogPark.org - Increase Visibility for ${park.name}`;
-
-            const emailComponent = React.createElement(ParkOutreachEmail, {
-                parkName: park.name,
-                parkCity: park.city,
-                parkState: park.state,
-                parkEmail: park.email,
-                personalizedNote: personalizedNote,
-                baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://indoordogpark.org',
-            });
-
-            emailHtml = await render(emailComponent);
 
         } else if (template === 'marketing' || template === 'generic') {
             const { headline, bodyContent, ctaText, ctaUrl, imageUrl } = data;
@@ -191,6 +195,34 @@ export async function POST(request: NextRequest) {
 
                 if (subscriber && subscriber.email) {
                     recipients = [{ email: subscriber.email, id: subscriber.id }];
+                }
+            }
+        } else if (segment === 'bulk-outreach') {
+            const adminClient = supabaseAdminClient;
+            
+            // 1. Fetch all owners
+            const { data: subscriberParks } = await adminClient
+                .from('subscribers')
+                .select('*')
+                .eq('type', 'owner')
+                .not('email', 'is', null);
+
+            // 2. Fetch logs to exclude already sent
+            const { data: campaignLogs } = await adminClient
+                .from('email_campaign_logs')
+                .select('recipient_email')
+                .eq('campaign_name', 'badge_outreach');
+                
+            const badgeSentEmails = new Set((campaignLogs || []).map((log: any) => log.recipient_email.toLowerCase()));
+
+            recipients = (subscriberParks || []).filter((park: any) => !badgeSentEmails.has(park.email.toLowerCase()));
+            
+            if (testEmail) {
+                recipients = recipients.slice(0, 1);
+                if (recipients.length > 0) {
+                    recipients[0].email = testEmail;
+                } else {
+                    recipients = [{ email: testEmail, id: 'test-id' }];
                 }
             }
         } else if (segment === 'single') {
@@ -261,14 +293,35 @@ export async function POST(request: NextRequest) {
 
         for (const recipient of recipients) {
             try {
-                const personalizedHtml = emailHtml
+                let currentHtml = emailHtml;
+                let currentSubject = subject;
+
+                if (template === 'outreach' && segment === 'bulk-outreach') {
+                    const metadata = (recipient as any).metadata as SubscriberMetadata | null;
+                    const parkName = metadata?.parkName || 'Indoor Dog Park';
+                    const parkSlug = (metadata as any)?.parkSlug || parkName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                    
+                    currentSubject = `Partner with IndoorDogPark.org - Increase Visibility for ${parkName}`;
+                    const emailComponent = React.createElement(ParkOutreachEmail, {
+                        parkName: parkName,
+                        parkCity: metadata?.location?.split(',')[0]?.trim() || '',
+                        parkState: metadata?.location?.split(',')[1]?.trim() || '',
+                        parkEmail: recipient.email,
+                        parkSlug: parkSlug,
+                        personalizedNote: data.personalizedNote,
+                        baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://indoordogpark.org',
+                    });
+                    currentHtml = await render(emailComponent);
+                }
+
+                const personalizedHtml = currentHtml
                     .replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email))
                     .replace(/%7B%7Bemail%7D%7D/g, encodeURIComponent(recipient.email));
 
                 const { error: sendError } = await resend.emails.send({
                     from: 'IndoorDogPark <newsletter@indoordogpark.org>',
                     to: recipient.email,
-                    subject: subject,
+                    subject: currentSubject,
                     html: personalizedHtml,
                     replyTo: 'media@indoordogpark.org',
                 });
@@ -282,43 +335,26 @@ export async function POST(request: NextRequest) {
 
                     // Prepare admin client for updates
                     const adminClient = supabaseAdminClient;
-
-                    // Record outreach tracking if it's an outreach template and from park_submissions
-                    if (template === 'outreach' && segment === 'specific-park' && recipient.id) {
-                        try {
-                            await adminClient
-                                .from('park_submissions')
-                                .update({
-                                    last_outreach_sent_at: new Date().toISOString(),
-                                    outreach_status: 'sent'
-                                })
-                                .eq('id', recipient.id);
-
-                            // Also try to update subscribers table if they exist there too
-                            await adminClient
-                                .from('subscribers')
-                                .update({
-                                    last_outreach_sent_at: new Date().toISOString(),
-                                    outreach_status: 'sent'
-                                })
-                                .eq('email', recipient.email.toLowerCase().trim());
-                        } catch (updateError) {
-                            console.error('Failed to update outreach tracking:', updateError);
-                        }
+                    
+                    let campaignName = 'generic_broadcast';
+                    if (template === 'outreach') {
+                        campaignName = 'badge_outreach';
+                    } else if (template === 'blog') {
+                        campaignName = `blog_broadcast::${data.slug || 'unknown'}`;
+                    } else if (template === 'generic' || template === 'marketing') {
+                        campaignName = `generic_broadcast::${(data.subject || data.headline || 'Untitled').substring(0, 100)}`;
                     }
-                    // Record tracking for general subscribers (broadcasts)
-                    else if (recipient.email) {
-                        try {
-                            await adminClient
-                                .from('subscribers')
-                                .update({
-                                    last_outreach_sent_at: new Date().toISOString(),
-                                    outreach_status: 'sent'
-                                })
-                                .eq('email', recipient.email.toLowerCase().trim());
-                        } catch (updateError) {
-                            console.error('Failed to update subscriber tracking:', updateError);
-                        }
+
+                    // Insert into email_campaign_logs
+                    try {
+                        await adminClient
+                            .from('email_campaign_logs')
+                            .insert({
+                                recipient_email: recipient.email.toLowerCase().trim(),
+                                campaign_name: campaignName
+                            });
+                    } catch (updateError) {
+                        console.error('Failed to update campaign logs:', updateError);
                     }
                 }
             } catch (e) {

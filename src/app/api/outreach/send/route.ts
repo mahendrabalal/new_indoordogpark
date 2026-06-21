@@ -49,12 +49,12 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { parkName, parkEmail, parkCity, parkState, parkWebsite, personalizedNote, testMode } = body;
+    const { parkName, parkSlug, parkEmail, parkCity, parkState, parkWebsite, personalizedNote, testMode } = body;
 
     // Validation
-    if (!parkName || !parkEmail) {
+    if (!parkName || !parkSlug || !parkEmail) {
       return NextResponse.json(
-        { success: false, error: 'parkName and parkEmail are required' },
+        { success: false, error: 'parkName, parkSlug, and parkEmail are required' },
         { status: 400 }
       );
     }
@@ -70,6 +70,7 @@ export async function POST(request: NextRequest) {
 
     const parkData: ParkOutreachData = {
       parkName,
+      parkSlug,
       parkEmail,
       parkCity,
       parkState,

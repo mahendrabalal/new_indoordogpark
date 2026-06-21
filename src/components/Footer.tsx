@@ -3,7 +3,10 @@ import NewsletterForm from '@/components/NewsletterForm';
 
 export default function Footer() {
   return (
-    <footer className="footer-new">
+    <footer className="footer-new footer-premium">
+      {/* Decorative gradient line at top */}
+      <div className="footer-premium-topline" aria-hidden="true" />
+      
       <div className="footer-container">
         <div className="footer-grid">
           {/* IndoorDogPark Column */}
@@ -44,11 +47,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Subscribe Column */}
-          <div className="footer-column col-span-full md:col-span-2 lg:col-span-1">
-            <h4 className="footer-heading">Join the Pack</h4>
-            <p className="mb-4 text-sm text-white/70">Get the latest indoor dog park news and updates.</p>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+          {/* Subscribe Column - Premium */}
+          <div className="footer-column footer-column--subscribe col-span-full lg:col-span-2">
+            <div className="footer-subscribe-header">
+              <h4 className="footer-heading footer-heading--premium">Join the Pack</h4>
+              <p className="footer-subscribe-subtitle">Get the latest indoor dog park news, exclusive offers, and updates delivered to your inbox.</p>
+            </div>
+            <div className="newsletter-premium-card">
               <NewsletterForm type="consumer" source="footer" variant="dark" />
             </div>
           </div>

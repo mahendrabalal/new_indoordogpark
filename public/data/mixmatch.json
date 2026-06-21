@@ -718,7 +718,7 @@
     "website": "https://www.beatthebomb.com/locations/brooklyn",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 14108,
     "userRatingsTotal": 14108,
     "pricing": {
@@ -1716,7 +1716,7 @@
     "website": "http://www.dapperdogtraining.com/",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 3,
     "userRatingsTotal": 3,
     "pricing": {
@@ -2016,7 +2016,7 @@
     "website": "https://dogeplanet.com/",
     "photos": null,
     "photo": null,
-    "rating": 0.0,
+    "rating": 0,
     "reviewCount": 0,
     "userRatingsTotal": 0,
     "pricing": {
@@ -2296,7 +2296,8 @@
       "parking": true,
       "daycare": true,
       "grooming": true
-    }
+    },
+    "email": "neilg@dogtopia.com"
   },
   {
     "id": "mixmatch_dream-come-true-k9",
@@ -2765,7 +2766,7 @@
     "website": "https://www.fureverfresh.com/",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 7,
     "userRatingsTotal": 7,
     "pricing": {
@@ -2848,7 +2849,7 @@
     "website": "https://harmonydogtraining.com/",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 4,
     "userRatingsTotal": 4,
     "pricing": {
@@ -6367,7 +6368,7 @@
     "website": "http://tamedpaws.com/",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 21,
     "userRatingsTotal": 21,
     "pricing": {
@@ -6592,7 +6593,7 @@
     "website": "http://thenessnyc.com/",
     "photos": null,
     "photo": null,
-    "rating": 5.0,
+    "rating": 5,
     "reviewCount": 95,
     "userRatingsTotal": 95,
     "pricing": {

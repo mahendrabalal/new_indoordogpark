@@ -1,0 +1,119 @@
+Input domain name,Email address,Domain name,Organization,Headcount,Country,State,City,Postal code,Street,Confidence score,Type,Number of sources,Pattern,First name,Last name,Department,Job title,Position raw,Twitter handle,LinkedIn URL,Phone number,Company type,Industry
+alertk-9.com,info@alertk-9.com,alertk-9.com,Alert K9,1-10,US,CA,Brentwood,,,78,generic,3,,,,Support,,,,,,,Ranching
+bigcreekboarding.com,contact@bigcreekboarding.com,bigcreekboarding.com,Big Creek Boarding,11-50,US,CA,,,,82,generic,3,,,,Support,,,,,,,Individual and Family Services
+canineace.com,play@canineace.com,canineace.com,Canine ACE,,,,,,,10,generic,0,,,,,,,,,,,
+canineace.com,info@canineace.com,canineace.com,Canine ACE,,,,,,,10,generic,0,,,,Support,,,,,,,
+caninepurpose.com,elise@caninepurpose.com,caninepurpose.com,Canine Purpose,,US,CA,Rocklin,95677,5909 Pacific Street,84,personal,1,{first},,,,,,,,,,
+caninepurpose.com,info@caninepurpose.com,caninepurpose.com,Canine Purpose,,US,CA,Rocklin,95677,5909 Pacific Street,10,generic,0,{first},,,Support,,,,,,,
+devotiontodogs.net,clientservices@devotiontodogs.net,devotiontodogs.net,Devotion to Dogs,11-50,US,CA,El Cajon,,,81,generic,5,,,,Support,,,,,,privately held,Pet Services
+rover.com,marilyn.keys@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Marilyn,Keys,HR,Senior Human Resources Business Partner,Sr. Human Resources Business Partner,,https://www.linkedin.com/in/marilynkeys,,privately held,Consumer Services
+rover.com,hilary.curlow@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Hilary,Curlow,Management,Director of Program Management,"Director of Program Management, Operations Strategy & Transformation",,https://www.linkedin.com/in/hilary-zak,,privately held,Consumer Services
+rover.com,steve.hwang@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Steve,Lee,Finance,"Senior Director, Finance","Sr. Director,  Finance",,https://www.linkedin.com/in/steve-lee-finance,,privately held,Consumer Services
+rover.com,peggy.marvin@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Peggy,Marvin,Sales,HR Business Partner,"Director, Human Resources Business Partner",,https://www.linkedin.com/in/peggy-marvin-b89b5628,,privately held,Consumer Services
+rover.com,jennifer.capasso@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Jennifer,Capasso,Executive,Vice President of Product,"VP, Product",,https://www.linkedin.com/in/jennifer-capasso-2509863,,privately held,Consumer Services
+rover.com,david.howenstine@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},David,Howenstine,Legal,Legal Director,"Senior Director, Legal",,https://www.linkedin.com/in/david-howenstine-813a4930,,privately held,Consumer Services
+rover.com,laura.budd@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,1,{first}.{last},Laura,Budd,Management,Director of Global Policy,Director of Global T&S Policy,,https://www.linkedin.com/in/laura-budd-89680976,,privately held,Consumer Services
+rover.com,kristin.sandberg@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,99,personal,5,{first}.{last},Kristin,Sandberg,Writing & communication,Director of Communications,Director of Corporate Communications,,https://www.linkedin.com/in/kristin-sandberg-07b1472b,,privately held,Consumer Services
+rover.com,megan@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,98,personal,2,{first}.{last},Megan,Teepe,Executive,Senior Vice President,Chief Growth Officer,"",https://www.linkedin.com/in/megan-teepe-017605a,"",privately held,Consumer Services
+rover.com,aaron@rover.com,rover.com,Rover.com,501-1000,US,WA,Seattle,,,98,personal,3,{first}.{last},Aaron,Easterly,Executive,Chairman,Executive Chair & Co-Founder,"",https://www.linkedin.com/in/aaron-easterly-b0745913,"",privately held,Consumer Services
+ddsdogtraining.com,bill@ddsdogtraining.com,ddsdogtraining.com,DD's Dog Training,,US,CA,Lodi,95240,19681 Brandt Rd,99,personal,4,{first},,,,,,,,,,
+ddsdogtraining.com,dd@ddsdogtraining.com,ddsdogtraining.com,DD's Dog Training,,US,CA,Lodi,95240,19681 Brandt Rd,98,personal,0,{first},,,,,,,,,,
+ddsdogtraining.com,info@ddsdogtraining.com,ddsdogtraining.com,DD's Dog Training,,US,CA,Lodi,95240,19681 Brandt Rd,80,generic,1,{first},,,Support,,,,,,,
+fureverfun.com,play@fureverfun.com,fureverfun.com,FUReverFUN,,US,CA,San Francisco,94103,366 10th St,75,generic,1,,,,,,,,,,,
+fonsdogtraining.com,contact@fonsdogtraining.com,fonsdogtraining.com,Fonsdogtraining,,US,CA,San Diego,92109,5050 Santa Fe St,86,generic,10,,,,Support,,,,,,,
+forwagsnwiggles.com,playtime@forwagsnwiggles.com,forwagsnwiggles.com,For Wags N Wiggles,,,,,,,75,generic,1,,,,,,,,,,,
+golandogs.com,golan@golandogs.com,golandogs.com,Golan Dogs,,US,CA,Poway,16899,16899 St,94,personal,6,{last},,,,,,,,,,
+gooddoghappy.dog,woof@gooddoghappy.dog,gooddoghappy.dog,Good Dog Happy Dog,1-10,US,CA,San Francisco,,,94,generic,2,,,,,,,,,,privately held,Professional Training and Coaching
+lak9s.com,dave@lak9s.com,lak9s.com,LAK9s,1-10,US,CA,Los Angeles,,,99,personal,6,{first},Dave,Aguilera,Executive,Owner,Business Owner,,https://www.linkedin.com/in/dave-aguilera-5a9813256,,,
+lak9s.com,colleen@lak9s.com,lak9s.com,LAK9s,1-10,US,CA,Los Angeles,,,84,personal,1,{first},,,,,,,,,,
+lak9s.com,contact@lak9s.com,lak9s.com,LAK9s,1-10,US,CA,Los Angeles,,,81,generic,5,{first},,,Support,,,,,,,
+lak9s.com,info@lak9s.com,lak9s.com,LAK9s,1-10,US,CA,Los Angeles,,,80,generic,3,{first},,,Support,,,,,,,
+lak9s.com,dayclub@lak9s.com,lak9s.com,LAK9s,1-10,US,CA,Los Angeles,,,75,generic,1,{first},,,,,,,,,,
+londonridgepetresort.com,reservations@londonridgepetresort.com,londonridgepetresort.com,London Ridge Pet Resort,,,,,,,75,generic,1,,,,Writing & communication,,,,,,,
+mank9.com,laurie@mank9.com,mank9.com,Man K-9,,US,CA,San Diego,,,84,personal,1,{first},,,,,,,,,,
+mank9.com,contact@mank9.com,mank9.com,Man K-9,,US,CA,San Diego,,,82,generic,10,{first},,,Support,,,,,,,
+oriondogtraining.com,dieuwke@oriondogtraining.com,oriondogtraining.com,Orion Dog Training,,US,CA,San Jose,,,10,personal,0,,,,,,,,,,,
+sniffspot.com,merlin@sniffspot.com,sniffspot.com,Sniffspot,1-10,US,WA,Seattle,,,99,personal,2,{first},Merlin,Noble,Operations & logistics,Operations Manager,Operations and Customer Care Manager,"",https://www.linkedin.com/in/merlin-noble-0368712b7,"",privately held,Pet Services
+sniffspot.com,michael@sniffspot.com,sniffspot.com,Sniffspot,1-10,US,WA,Seattle,,,98,personal,1,{first},Michael,Wijaya,IT / Engineering,Senior Software Engineer,Senior Software Engineer,,https://www.linkedin.com/in/michael-wijaya-b13977111,,privately held,Pet Services
+sniffspot.com,support@sniffspot.com,sniffspot.com,Sniffspot,1-10,US,WA,Seattle,,,95,generic,7,{first},,,Support,,,,,,privately held,Pet Services
+sniffspot.com,press@sniffspot.com,sniffspot.com,Sniffspot,1-10,US,WA,Seattle,,,88,generic,1,{first},,,Writing & communication,,,,,,privately held,Pet Services
+sniffspot.com,david@sniffspot.com,sniffspot.com,Sniffspot,1-10,US,WA,Seattle,,,77,personal,7,{first},David,Adams,Executive,Founder,Founder,"","","",privately held,Pet Services
+pawsnplay.dog,terra@pawsnplay.dog,pawsnplay.dog,Paws N' Play,,US,CA,Sacramento,95819,5493 Carlson Dr,99,personal,5,{first},Terra,Ruiz,Executive,Founder,Founder,"",https://www.linkedin.com/in/terranicholson/,+1 916 535 1722,,
+pawtopia.com,colleen@pawtopia.com,pawtopia.com,Pawtopia,1-10,US,OH,Zanesville,,,99,personal,2,{first},Colleen,Riley,Executive,Founder,Founder,"",https://www.linkedin.com/in/colleen-demling-riley-cpdt-ka-cbcc-ka-cdbc-545b4947,+1 858 281 3803,,
+pawtopia.com,info@pawtopia.com,pawtopia.com,Pawtopia,1-10,US,OH,Zanesville,,,94,generic,5,{first},,,Support,,,,,,,
+sf-dog-connect.com,info@sf-dog-connect.com,sf-dog-connect.com,SF Dog Connect,1-10,US,CA,San Francisco,,,63,generic,0,,,,Support,,,,,,self owned,Professional Training and Coaching
+sddt4u.com,tori@sddt4u.com,sddt4u.com,San Diego Dog Training,,US,CA,San Diego,92104,3951 Texas St,94,personal,1,{first},,,,,,,,,,
+sddt4u.com,admin@sddt4u.com,sddt4u.com,San Diego Dog Training,,US,CA,San Diego,92104,3951 Texas St,89,generic,5,{first},,,IT / Engineering,,,,,,,
+sandiegopetboarding.com,info@sandiegopetboarding.com,sandiegopetboarding.com,San Diego Pet Boarding,,,,,,,99,generic,1,,,,Support,,,,,,,
+timetopet.com,jim@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,99,personal,0,{first},Jim,Muse,Management,Director of Product Management,Director of Product Management,,https://www.linkedin.com/in/james-muse,,privately held,Software Development
+timetopet.com,dan@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,98,personal,1,{first},Dan,Buzaid,Management,Director of Growth,Director of Growth,,https://www.linkedin.com/in/dan-buzaid-839a8131,,privately held,Software Development
+timetopet.com,katie@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,97,personal,1,{first},Katie,G,Support,Director of Customer Experience,Director of Customer Experience,,https://www.linkedin.com/in/katie-g-39a1bb185,,privately held,Software Development
+timetopet.com,cooper@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,99,personal,1,{first},Cooper,Labinger,IT / Engineering,Staff Software Engineer,Staff Software Engineer,,https://www.linkedin.com/in/cooper-labinger-86436886,,privately held,Software Development
+timetopet.com,mlobel@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,96,personal,1,{first},Michael,Lobel,IT / Engineering,Senior React Native Developer,Senior React Native Engineer,,https://www.linkedin.com/in/mglobel,,privately held,Software Development
+timetopet.com,support@timetopet.com,timetopet.com,Time To Pet,11-50,US,TX,Austin,,,95,generic,18,{first},,,Support,,,,,,privately held,Software Development
+pocketsuite.io,revell@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,94,personal,5,{first},Revell,Horsey,Executive,CFO,"CFO, Director of Strategy and Partnerships",,https://www.linkedin.com/in/revell-horsey-54b6249,,privately held,Software Development
+pocketsuite.io,chinwe@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,92,personal,1,{first},Chinwe,Onyeagoro,Executive,CEO,Chief Executive Officer,,https://www.linkedin.com/in/chinweonyeagoro,,privately held,Software Development
+pocketsuite.io,max@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,94,personal,1,{first},Max,Lambert,IT / Engineering,Senior Software Engineer,Senior Software Engineer,,https://www.linkedin.com/in/max-lambert-040b49,,privately held,Software Development
+pocketsuite.io,matthew@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,94,personal,1,{first},Matthew,Rodriguez,IT / Engineering,Senior Software Engineer,Senior Software Engineer,,https://www.linkedin.com/in/matthew-rodriguez-805a5397,,privately held,Software Development
+pocketsuite.io,madison@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,93,personal,1,{first},Madison,Chiulli,Support,Business Development Representative,Business Development Representative,,https://www.linkedin.com/in/madison-chiulli-65205b172,,privately held,Software Development
+pocketsuite.io,cameron@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,93,personal,1,{first},Cameron,Jones,IT / Engineering,Lead Software Engineer,Lead Software Engineer,,https://www.linkedin.com/in/cameron-jones-b6192957,,privately held,Software Development
+pocketsuite.io,mohammad@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,92,personal,1,{first},Mohammad,Amanzadeh,IT / Engineering,Senior Software Engineer,Machine Learning Engineer (formally Sr. Software Engineer),,https://www.linkedin.com/in/mohammad-amanzadeh-56017b43,,privately held,Software Development
+pocketsuite.io,rocco@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,91,personal,1,{first},Rocco,Cabrera,Education,Corporate Trainer,Corporate Trainer and Account Manager,,https://www.linkedin.com/in/rocco-cabrera-529147224,,privately held,Software Development
+pocketsuite.io,liam@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,91,personal,1,{first},Liam,Hahn,IT / Engineering,Product Manager,Product Manager,,https://www.linkedin.com/in/liamhahn,,privately held,Software Development
+pocketsuite.io,camille.cabalu@pocketsuite.io,pocketsuite.io,PocketSuite,11-50,US,CA,San Francisco,,,82,personal,1,{first},Camille,Cabalu,Operations & logistics,Payment Operations Specialist,Payment Operations Specialist - Tier 2,,https://www.linkedin.com/in/camille-audrey-cabalu-1b7783236,,privately held,Software Development
+southbaydogs.com,kim@southbaydogs.com,southbaydogs.com,South Bay Dogs,,US,CA,Long Beach,90805,6925 N. Paramount Blvd,86,personal,5,{first},,,,,,,,,,
+tefanisodogcare.com,woof@tefanisodogcare.com,tefanisodogcare.com,,,US,CA,San Francisco,94103,"",78,generic,3,,,,,,,,,,,
+animaldenpetresort.com,info@animaldenpetresort.com,animaldenpetresort.com,Animal Den Pet Resort,,US,TN,Nashville,37203,"",99,generic,9,,,,Support,,,,,,,Consumer Services
+animaldenpetresort.com,jobs@animaldenpetresort.com,animaldenpetresort.com,Animal Den Pet Resort,,US,TN,Nashville,37203,"",88,generic,1,,,,HR,,,,,,,Consumer Services
+zoomroom.com,jaredm@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,99,personal,1,{first},Jared,Mease,Executive,Franchise Owner,Franchise Owner,"",https://www.linkedin.com/in/jared-mease-2b14b33a,"",,
+zoomroom.com,lisa.lewis@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,98,personal,0,{first},Lisa,Lewis,Executive,Owner,Business Owner,,https://www.linkedin.com/in/lisadlewis,,,
+zoomroom.com,heather@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,98,personal,14,{first},Kadija,Ruppen,Support,Customer Service Representative,Kundendienstmitarbeiter,"",https://www.linkedin.com/in/kadija-ruppen-967046295,"",,
+zoomroom.com,brooklyn.mcintire@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,99,personal,0,{first},Brooklyn,Mcintire,,,,,,,,
+zoomroom.com,andrew@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,99,personal,0,{first},Andrew,Shoats,,"","","","","",,
+zoomroom.com,tualatin@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,97,personal,0,{first},,,,,,,,,,
+zoomroom.com,customerservice@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,97,generic,0,{first},,,Support,,,,,,,
+zoomroom.com,melissa@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,97,personal,2,{first},,,,,,,,,,
+zoomroom.com,bucktown@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,97,generic,0,{first},,,,,,,,,,
+zoomroom.com,hardinvalley@zoomroom.com,zoomroom.com,Zoom Room,,US,CA,Culver City,90230,11836 Teale St,97,generic,1,{first},,,,,,,,,,
+24hourdogdaycare.com,info@24hourdogdaycare.com,24hourdogdaycare.com,24 Hour Dog Daycare,11-50,US,CA,San Diego,,,80,generic,5,,,,Support,,,,,,,
+k9lrng.com,laura@k9lrng.com,k9lrng.com,K9lrng,,US,CA,Carlsbad,92011,2261 Cosmos Ct,66,personal,1,{first},Laura,Christiansen,Education,Trainer,Trainer,"","","",,
+clubk9.com,info@clubk9.com,clubk9.com,Club K9,11-50,US,CA,Castro Valley,,,99,generic,3,,,,Support,,,,,,privately held,Consumer Services
+dogdayssandiego.com,info@dogdayssandiego.com,dogdayssandiego.com,Dog Days San Diego,,US,CA,San Diego,,,81,generic,5,{first},,,Support,,,,,,,Individual and Family Services
+dogdayssandiego.com,jobs@dogdayssandiego.com,dogdayssandiego.com,Dog Days San Diego,,US,CA,San Diego,,,75,generic,1,{first},,,HR,,,,,,,Individual and Family Services
+resort4dogs.com,info@resort4dogs.com,resort4dogs.com,"Dog Resort, Inc",,US,CA,Hollywood,91605,11911 Vose St,99,generic,6,,,,Support,,,,,,,
+dogwoodsresort.com,reservations@dogwoodsresort.com,dogwoodsresort.com,Dog Woods Resort,,US,CA,,,,78,generic,5,,,,Writing & communication,,,,,,,
+dogtopia.com,carolyn.greig@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,99,personal,1,{first}.{last},Carolyn,Greig,Executive,Owner,Business Owner,,https://www.linkedin.com/in/carolyn-greig-86313b160,,privately held,Pet Services
+dogtopia.com,jason.wible@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,99,personal,1,{first}.{last},Jason,Wible,Executive,Franchise Owner,Multi-Unit Franchise Owner / Operator,,https://www.linkedin.com/in/jason-wible-63108a17,,privately held,Pet Services
+dogtopia.com,janet.hoffman@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,97,personal,1,{first}.{last},Janet,Hoffman,Executive,Franchise Owner,Franchise Owner at Dogtopia Regina East,,https://www.linkedin.com/in/janet-hoffman-aa3b0150,,privately held,Pet Services
+dogtopia.com,sandrad@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,97,personal,1,{first}.{last},Sandra,Delisle,Management,Director of PPRM,PPRM DIRECTOR,,https://www.linkedin.com/in/sandra-delisle-23229115a,,privately held,Pet Services
+dogtopia.com,nathan.tran@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,1,{first}.{last},Nathan,Tran,Executive,Franchise Owner,Dogotpia Franchise Owner,,https://www.linkedin.com/in/nathanhieutran,,privately held,Pet Services
+dogtopia.com,gabriel.giesick@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,1,{first}.{last},Gabriel,Giesick,Executive,Owner,Business Owner,,https://www.linkedin.com/in/gabriel-j-giesick-b33361181,,privately held,Pet Services
+dogtopia.com,julie.barnes@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,1,{first}.{last},Julie,Barnes,Executive,Owner,Owner Dogtopia Milwaukee East Side,,https://www.linkedin.com/in/julie-a-barnes,,privately held,Pet Services
+dogtopia.com,ben.delay@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,1,{first}.{last},Ben,Delay,Executive,Franchise Owner,Franchise Owner,,https://www.linkedin.com/in/ben-delay-9321853b,,privately held,Pet Services
+dogtopia.com,ally.gordillo@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,1,{first}.{last},Ally,Gordillo,Executive,Owner,Business Owner,,https://www.linkedin.com/in/ally-gordillo-b21537b4,,privately held,Pet Services
+dogtopia.com,neilg@dogtopia.com,dogtopia.com,Dogtopia,51-200,US,AZ,Phoenix,,,94,personal,7,{first}.{last},Neil,Gill,Executive,CEO,CEO and President,"",https://www.linkedin.com/in/neil-gill-139bb921,"",privately held,Pet Services
+dominantdogs.com,leonard@dominantdogs.com,dominantdogs.com,Dominant Dogs,11-50,US,CA,Murrieta,,,99,personal,1,{first},Leonard,Ludovico,,Specialist,Specialist,"","","",,Ranching
+embarkaderosocialclub.com,info@embarkaderosocialclub.com,embarkaderosocialclub.com,EMBARKADERO SOCIAL CLUB LLC,1-10,US,CA,San Francisco,,,80,generic,5,{first},,,Support,,,,,,,
+embarkaderosocialclub.com,luis@embarkaderosocialclub.com,embarkaderosocialclub.com,EMBARKADERO SOCIAL CLUB LLC,1-10,US,CA,San Francisco,,,67,personal,3,{first},Luis,Lozada,,"","","","","",,
+funpawcare.com,la@funpawcare.com,funpawcare.com,Fun Paw Care,1-10,US,CA,Los Angeles,,,86,personal,10,,,,,,,,,,self owned,Veterinary Services
+heavenlypetresort.com,westcovina@heavenlypetresort.com,heavenlypetresort.com,Heavenly Pet Resort,1-10,US,CA,West Covina,,,76,generic,3,{first},,,,,,,,,,Business Supplies and Equipment
+heavenlypetresort.com,templecity@heavenlypetresort.com,heavenlypetresort.com,Heavenly Pet Resort,1-10,US,CA,West Covina,,,75,generic,2,{first},,,,,,,,,,Business Supplies and Equipment
+heavenlypetresort.com,upland@heavenlypetresort.com,heavenlypetresort.com,Heavenly Pet Resort,1-10,US,CA,West Covina,,,75,generic,2,{first},,,,,,,,,,Business Supplies and Equipment
+k9development.com,trainer@k9development.com,k9development.com,K9 Development,1-10,US,VA,Chesapeake,,,75,generic,2,{first},,,,,,,,,,Professional Training and Coaching
+k9-logic.com,chris@k9-logic.com,k9-logic.com,K9 Logic,,US,CA,Glendale,,,94,personal,2,{first},Chris,Nguyen,,"","","","","",,
+laschoolfordogs.com,staff@laschoolfordogs.com,laschoolfordogs.com,L.A. School for Dogs,1-10,US,CA,Westlake Village,,,78,generic,5,{first},,,,,,,,,privately held,Professional Training and Coaching
+laschoolfordogs.com,admin@laschoolfordogs.com,laschoolfordogs.com,L.A. School for Dogs,1-10,US,CA,Westlake Village,,,77,generic,2,{first},,,IT / Engineering,,,,,,privately held,Professional Training and Coaching
+ohhellodog.com,hello@ohhellodog.com,ohhellodog.com,Oh Hello Dog,,US,CA,Los Angeles,,,80,generic,5,,,,Support,,,,,,,
+parkapup.com,info@parkapup.com,parkapup.com,Park-A-Pup,11-50,US,CA,Novato,,,54,generic,3,{first},,,Support,,,,,,self owned,Veterinary Services
+pawspetresorts.com,infolf@pawspetresorts.com,pawspetresorts.com,Paws Pet Resorts,1-10,US,CA,San Clemente,,,10,generic,1,,,,Support,,,,,,,
+petcamp.com,susan@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,92,personal,1,{first},Susan,Froio,Executive,Crew Chief,Crew Chief,,https://www.linkedin.com/in/susan-froio-71b616175,,privately held,Pet Services
+petcamp.com,mark@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,94,personal,5,{first},Mark,Klaiman,Education,Senior Counselor,Senior Counselor,,https://www.linkedin.com/in/markklaiman,,privately held,Pet Services
+petcamp.com,michelle@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,93,personal,2,{first},Michelle,Barrera,Management,Operations Manager,Operations Manager,,https://www.linkedin.com/in/michelle-barrera-3ab134117,,privately held,Pet Services
+petcamp.com,havingfun@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,85,personal,10,{first},,,,,,,,,privately held,Pet Services
+petcamp.com,jobs@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,79,generic,5,{first},,,HR,,,,,,privately held,Pet Services
+petcamp.com,having@petcamp.com,petcamp.com,Pet Camp,11-50,US,CA,San Francisco,,,76,generic,2,{first},,,,,,,,,privately held,Pet Services
+prestigek9.com,spencer@prestigek9.com,prestigek9.com,Prestige K9,1-10,US,CO,Denver,,,69,personal,5,{first},Spencer,Bowman,Education,Trainer,Trainer,"","",+1 425 344 0372,self employed,Consumer Services
+prestigek9.com,info@prestigek9.com,prestigek9.com,Prestige K9,1-10,US,CO,Denver,,,51,generic,2,{first},,,Support,,,,,,self employed,Consumer Services
+puppyisland.com,hi@puppyisland.com,puppyisland.com,Puppy Island,,US,CA,San Fernando,91203,5210 San Fernando RD,79,generic,3,,,,,,,,,,,
+rileysdoggiedaycare.com,info@rileysdoggiedaycare.com,rileysdoggiedaycare.com,By Riley's Doggie Daycare,,,,,,,82,generic,4,,,,Support,,,,,,,
+thebarkparkresort.com,info@thebarkparkresort.com,thebarkparkresort.com,The Bark Park Pet Resort & Daycare,,US,CA,Sacramento,95817,"",84,generic,0,,,,Support,,,,,,,

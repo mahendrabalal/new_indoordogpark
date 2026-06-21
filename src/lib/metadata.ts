@@ -134,9 +134,9 @@ export function generateParkMetadata(park: DogPark): Metadata {
   const stateAbbr = park.state || 'CA';
   const stateName = getStateName(park.state) || park.state || 'California';
 
-  // Create full title with unique keywords instead of generic "Indoor Dog Park"
-  // Format: "Park Name | Business Type in City, State | Unique Keywords"
-  const fullTitleWithTemplate = `${park.name} | ${park.businessType} in ${park.city}, ${stateAbbr} | ${uniqueKeywords}`;
+  // Create highly clickable title optimized for brand + directory intent
+  // Format: "Park Name Reviews & Pricing | City Business Type"
+  const fullTitleWithTemplate = `${park.name} Reviews & Pricing | ${park.city} ${park.businessType}`;
   const title = createSEOTitle(fullTitleWithTemplate, 60);
 
   let fallbackDescription = `${park.name} is a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;

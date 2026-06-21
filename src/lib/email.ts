@@ -30,6 +30,7 @@ export interface EmailOptions {
 
 export interface ParkOutreachData {
   parkName: string;
+  parkSlug: string;
   parkEmail: string;
   parkCity?: string;
   parkState?: string;
