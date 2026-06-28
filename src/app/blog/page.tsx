@@ -200,13 +200,12 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   };
 
   const renderBrowseControls = (searchInputId: string) => (
-    <section className="border-b border-gray-200 bg-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <h2 className="text-2xl font-bold text-gray-900">Browse by categories</h2>
-          <div className="relative w-full md:max-w-xs">
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+    <section className="bg-white py-8">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mb-5">
+          <div className="relative w-full">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+              <svg className="h-6 w-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
               </svg>
             </div>
@@ -216,17 +215,18 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               placeholder="Search articles..."
               aria-label="Search articles"
               suggestions={searchSuggestions}
-              className="block w-full rounded-full border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
+              className="block w-full rounded-full border border-gray-300 bg-gray-50 py-3 pl-12 pr-6 text-base text-gray-900 shadow-sm transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
             />
           </div>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-sm font-medium text-gray-500 mr-1">Categories:</span>
           <Link
             href={buildFilterHref({ category: '', tag: '', search: '' })}
             prefetch={false}
-            className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
+            className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition ${!categorySlug && !tagSlug && !searchTerm
               ? 'border-[#FF5722] bg-[#FF5722] text-white'
-              : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+              : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
               }`}
           >
             All
@@ -238,9 +238,9 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 key={category.id}
                 href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
                 prefetch={false}
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
+                className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition ${isActive
                   ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-[#FF5722] hover:text-[#FF5722]'
+                  : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
                   }`}
               >
                 {category.name}
@@ -255,11 +255,12 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   if (!hasPosts) {
     return (
       <>
+        <StructuredData type="Blog" data={posts} />
         <LiveRegion />
         <ReadingProgress />
         <Header variant="light" />
         <div className="min-h-screen bg-white" id="main-content" role="main">
-          {renderBrowseControls('blog-search-empty')}
+          {renderBrowseControls('blog-search')}
           <section className="container mx-auto px-4 py-12 lg:py-16">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="rounded-3xl border border-dashed border-purple-200 bg-white p-10 text-center shadow-sm">

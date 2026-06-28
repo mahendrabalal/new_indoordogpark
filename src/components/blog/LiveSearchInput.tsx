@@ -35,12 +35,24 @@ export default function LiveSearchInput({
   const searchParamsString = searchParams.toString();
   const currentSearchTerm = searchParams.get('search') ?? '';
   const latestSearchParamsString = useRef(searchParamsString);
+  const typingTimeoutRef = useRef<number | null>(null);
+  const lastPushedSearchTerm = useRef(currentSearchTerm);
 
-  // Update local state if URL changes externally (e.g. back button)
+  // Clear timeout on unmount
   useEffect(() => {
-    setTerm((currentTerm) => (
-      currentTerm === currentSearchTerm ? currentTerm : currentSearchTerm
-    ));
+    return () => {
+      if (typingTimeoutRef.current) {
+        window.clearTimeout(typingTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Update local state if URL changes externally (e.g. back button or clear filters)
+  useEffect(() => {
+    if (currentSearchTerm !== lastPushedSearchTerm.current) {
+      setTerm(currentSearchTerm);
+      lastPushedSearchTerm.current = currentSearchTerm;
+    }
   }, [currentSearchTerm]);
 
   useEffect(() => {
@@ -79,7 +91,7 @@ export default function LiveSearchInput({
     ];
   }, [normalizedTerm, suggestions, trimmedTerm]);
 
-  const commitSearch = (value: string) => {
+  const commitSearch = (value: string, keepOpen = false) => {
     const nextTerm = value.trim();
     const params = new URLSearchParams(latestSearchParamsString.current);
     if (nextTerm) {
@@ -97,12 +109,16 @@ export default function LiveSearchInput({
       ? `${pathname}?${latestSearchParamsString.current}`
       : pathname;
 
-    setIsOpen(false);
-    setActiveIndex(-1);
+    if (!keepOpen) {
+      setIsOpen(false);
+      setActiveIndex(-1);
+    }
 
     if (nextUrl === currentUrl) {
       return;
     }
+
+    lastPushedSearchTerm.current = nextTerm;
 
     startTransition(() => {
       router.push(nextUrl, { scroll: false });
@@ -133,9 +149,18 @@ export default function LiveSearchInput({
         name="search"
         value={term}
         onChange={(e) => {
-          setTerm(e.target.value);
+          const newValue = e.target.value;
+          setTerm(newValue);
           setIsOpen(true);
           setActiveIndex(-1);
+
+          if (typingTimeoutRef.current) {
+            window.clearTimeout(typingTimeoutRef.current);
+          }
+
+          typingTimeoutRef.current = window.setTimeout(() => {
+            commitSearch(newValue, true);
+          }, 400); // 400ms debounce
         }}
         onFocus={() => setIsOpen(true)}
         onBlur={() => {
