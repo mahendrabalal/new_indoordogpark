@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { safeLocalStorage } from '@/lib/storage';
 
 const AD_CLIENT_ID = 'ca-pub-8688786543603411';
 
@@ -34,7 +35,7 @@ export default function AdSense() {
     //   'accepted'  → user clicked "Accept All"
     //   'declined'  → user clicked "Essential Only"
     //   null        → user has not yet made a choice (treat as accepted to allow ads
-    const consent = localStorage.getItem('cookieConsent');
+    const consent = safeLocalStorage.getItem('cookieConsent');
     // Only inject AdSense if explicitly accepted, to protect Core Web Vitals on first load
     if (consent !== 'accepted') return;
 
