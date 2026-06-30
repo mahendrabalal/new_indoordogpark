@@ -252,7 +252,7 @@ export function generateParkMetadata(park: DogPark): Metadata {
           url: representativeImage,
           width: 1200,
           height: 630,
-          alt: `${park.name} in ${park.city}, ${stateName}`,
+          alt: `${park.name} - ${park.businessType} in ${park.city}, ${stateName}`,
         },
       ],
     },
@@ -261,6 +261,14 @@ export function generateParkMetadata(park: DogPark): Metadata {
       title, // Use truncated title for Twitter too
       description,
       images: [representativeImage],
+    },
+    other: {
+      'geo.region': `US-${stateAbbr}`,
+      'geo.placename': park.city,
+      ...(park.latitude && park.longitude ? {
+        'geo.position': `${park.latitude};${park.longitude}`,
+        'ICBM': `${park.latitude}, ${park.longitude}`
+      } : {})
     },
   };
 }

@@ -7,6 +7,7 @@ import { DashboardView } from '@/components/admin/marketing/DashboardView';
 import { AudiencesView } from '@/components/admin/marketing/AudiencesView';
 import { CampaignHistoryView } from '@/components/admin/marketing/CampaignHistoryView';
 import { CampaignBuilderView } from '@/components/admin/marketing/CampaignBuilderView';
+import { SocialShareView } from '@/components/admin/marketing/SocialShareView';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,7 @@ interface SubscriberMetadata {
 }
 
 export default function MarketingPage() {
-    const [activeView, setActiveView] = useState<'dashboard' | 'audiences' | 'history' | 'builder'>('dashboard');
+    const [activeView, setActiveView] = useState<'dashboard' | 'audiences' | 'history' | 'builder' | 'social'>('dashboard');
     
     // Shared Data
     const [subscribers, setSubscribers] = useState<{ total: number; owners: number; consumers: number }>({ total: 0, owners: 0, consumers: 0 });
@@ -112,6 +113,7 @@ export default function MarketingPage() {
                 {activeView === 'audiences' && <AudiencesView parks={approvedParks} />}
                 {activeView === 'builder' && <CampaignBuilderView subscribers={subscribers} recentPosts={recentPosts} approvedParks={approvedParks} onSend={handleSend} />}
                 {activeView === 'history' && <CampaignHistoryView />}
+                {activeView === 'social' && <SocialShareView recentPosts={recentPosts} />}
             </main>
         </div>
     );

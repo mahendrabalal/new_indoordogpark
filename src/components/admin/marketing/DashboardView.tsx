@@ -6,7 +6,7 @@ interface Stats {
 
 interface Props {
     stats: Stats;
-    onNavigate: (view: 'audiences' | 'builder' | 'history') => void;
+    onNavigate: (view: 'audiences' | 'builder' | 'history' | 'social') => void;
 }
 
 export function DashboardView({ stats, onNavigate }: Props) {
@@ -40,19 +40,35 @@ export function DashboardView({ stats, onNavigate }: Props) {
                 </div>
             </div>
 
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl border border-indigo-100 flex flex-col md:flex-row items-center justify-between">
-                <div>
-                    <h3 className="text-xl font-bold text-indigo-900">Ready to engage your audience?</h3>
-                    <p className="text-indigo-700 mt-2 max-w-lg">
-                        Create a new campaign to send badge offers, blog broadcasts, or custom announcements to your targeted lists.
-                    </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl border border-indigo-100 flex flex-col">
+                    <div>
+                        <h3 className="text-xl font-bold text-indigo-900">📧 Email Broadcast</h3>
+                        <p className="text-indigo-700 mt-2">
+                            Send blog broadcasts, badge offers, or custom announcements to your subscriber list.
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => onNavigate('builder')}
+                        className="mt-6 w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                    >
+                        Create Email Campaign
+                    </button>
                 </div>
-                <button
-                    onClick={() => onNavigate('builder')}
-                    className="mt-6 md:mt-0 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-                >
-                    Create New Campaign
-                </button>
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-100 flex flex-col">
+                    <div>
+                        <h3 className="text-xl font-bold text-blue-900">🌐 Social Share</h3>
+                        <p className="text-blue-700 mt-2">
+                            Share blog posts to Facebook, Twitter, and Pinterest with a single click.
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => onNavigate('social')}
+                        className="mt-6 w-full px-6 py-3 bg-[#1877F2] text-white font-medium rounded-lg shadow-sm hover:bg-[#166FE5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    >
+                        Share to Social Media
+                    </button>
+                </div>
             </div>
         </div>
     );

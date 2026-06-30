@@ -51,14 +51,21 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
     const [headline, setHeadline] = useState('');
     const [bodyContent, setBodyContent] = useState('');
 
+    // Single Partner fields
+    const [partnerEmail, setPartnerEmail] = useState('');
+    const [partnerName, setPartnerName] = useState('');
+    const [partnerDetails, setPartnerDetails] = useState('');
+
     // Step 3: Send status
     const [isSending, setIsSending] = useState(false);
-    const [result, setResult] = useState<{success: boolean, message: string} | null>(null);
+    const [result, setResult] = useState<any | null>(null);
     const [showConfirm, setShowConfirm] = useState(false);
 
     const handleNext = () => {
         if (step === 1 && audienceType === 'pending_owners') {
             setTemplateType('badge_outreach');
+        } else if (step === 1 && audienceType === 'single_partner') {
+            setTemplateType('generic');
         } else if (step === 1) {
             setTemplateType('generic');
         }
@@ -74,8 +81,19 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
 
         const payload = {
             template: templateType === 'badge_outreach' ? 'outreach' : (templateType === 'blog' ? 'blog' : 'generic'),
-            segment: templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : 'all'),
-            data: templateType === 'blog' ? { slug: selectedSlug } : templateType === 'badge_outreach' ? { personalizedNote: bodyContent } : { subject, headline, bodyContent }
+            segment: audienceType === 'single_partner' ? 'single' : (templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : 'all')),
+            data: templateType === 'blog' 
+                ? { slug: selectedSlug } 
+                : templateType === 'badge_outreach' 
+                    ? { personalizedNote: bodyContent } 
+                    : { 
+                        subject, 
+                        headline, 
+                        bodyContent,
+                        singleEmailAddress: audienceType === 'single_partner' ? partnerEmail : undefined,
+                        singleEmailType: 'owner',
+                        metadata: audienceType === 'single_partner' ? { isPartner: true, partnerName, partnerDetails } : undefined
+                    },
         };
 
         const response = await onSend(payload);
@@ -87,8 +105,8 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-2xl font-bold text-gray-900">Campaign Builder</h2>
-                <p className="text-gray-500 mt-1">Create and launch a new marketing campaign.</p>
+                <h2 className="text-2xl font-bold text-gray-900">Email Broadcast</h2>
+                <p className="text-gray-500 mt-1">Send email campaigns to your subscribers.</p>
             </div>
 
             {/* Progress Bar */}
@@ -117,6 +135,11 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 <input type="radio" name="audience" className="sr-only" checked={audienceType === 'consumers'} onChange={() => setAudienceType('consumers')} />
                                 <div className="font-semibold text-gray-900">Consumers ({subscribers.consumers})</div>
                                 <div className="text-sm text-gray-500 mt-1">Users looking for dog parks.</div>
+                            </label>
+                            <label className={`block border p-4 rounded-lg cursor-pointer transition-colors ${audienceType === 'single_partner' ? 'border-indigo-500 ring-1 ring-indigo-500 bg-indigo-50' : 'hover:bg-gray-50'}`}>
+                                <input type="radio" name="audience" className="sr-only" checked={audienceType === 'single_partner'} onChange={() => setAudienceType('single_partner')} />
+                                <div className="font-semibold text-gray-900">Single Partner (B2B Outreach)</div>
+                                <div className="text-sm text-gray-500 mt-1">Send a direct pitch to a new partner and save their details.</div>
                             </label>
                         </div>
                     </div>
@@ -189,10 +212,23 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                         <strong>Warning:</strong> This blog post has already been broadcast before. Sending it again will send duplicates to your audience.
                                     </div>
                                 )}
+                                
+                                <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-700 flex items-center gap-2">
+                                    <span>💡</span>
+                                    <span>Want to share to social media too? Use the <strong>Social Share</strong> tab in the sidebar.</span>
+                                </div>
                             </div>
                         )}
                         {templateType === 'generic' && (
                             <div className="space-y-3 mt-4">
+                                {audienceType === 'single_partner' && (
+                                    <div className="space-y-3 mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                        <h4 className="font-medium text-gray-900 mb-2">Partner Details</h4>
+                                        <input type="email" placeholder="Partner Email (e.g. contact@sparkysteps.com)" value={partnerEmail} onChange={e => setPartnerEmail(e.target.value)} className="w-full border p-2 rounded-md bg-white" />
+                                        <input type="text" placeholder="Partner/Business Name (e.g. Sparky Steps)" value={partnerName} onChange={e => setPartnerName(e.target.value)} className="w-full border p-2 rounded-md bg-white" />
+                                        <textarea placeholder="Business Details (e.g. Chicago dog walkers, good for future B2B...)" value={partnerDetails} onChange={e => setPartnerDetails(e.target.value)} rows={2} className="w-full border p-2 rounded-md bg-white" />
+                                    </div>
+                                )}
                                 <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} className="w-full border p-2 rounded-md" />
                                 <input type="text" placeholder="Headline" value={headline} onChange={e => setHeadline(e.target.value)} className="w-full border p-2 rounded-md" />
                                 <textarea placeholder="Content (Markdown)" value={bodyContent} onChange={e => setBodyContent(e.target.value)} rows={4} className="w-full border p-2 rounded-md" />
@@ -213,12 +249,17 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                             <p><strong>Audience:</strong> <span className="capitalize">{audienceType.replace('_', ' ')}</span></p>
                             <p><strong>Template:</strong> <span className="capitalize">{templateType.replace('_', ' ')}</span></p>
                             {templateType === 'blog' && selectedSlug && (
-                                <p><strong>Blog Post:</strong> {recentPosts.find(p => p.slug === selectedSlug)?.title || selectedSlug}</p>
+                                <>
+                                    <p><strong>Blog Post:</strong> {recentPosts.find(p => p.slug === selectedSlug)?.title || selectedSlug}</p>
+                                </>
                             )}
                             {templateType === 'generic' && subject && (
                                 <p><strong>Subject:</strong> {subject}</p>
                             )}
-                            <p><strong>Total Recipients:</strong> {audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers)}</p>
+                            <p><strong>Total Recipients:</strong> {audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers))}</p>
+                            {audienceType === 'single_partner' && (
+                                <p><strong>Sending to:</strong> {partnerEmail} ({partnerName})</p>
+                            )}
                         </div>
                         {result?.success === false && (
                             <div className="p-4 bg-red-50 text-red-800 rounded-lg border border-red-200">
@@ -241,8 +282,10 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 {result.message}
                             </p>
                         )}
-                        <div>
-                            <button onClick={() => { setStep(1); setAudienceType('pending_owners'); setResult(null); }} className="mt-4 px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">Start another campaign</button>
+
+                        <div className="flex justify-center space-x-4 mt-4">
+                            <button onClick={() => { setStep(1); setAudienceType('pending_owners'); setResult(null); setSubject(''); setHeadline(''); setBodyContent(''); }} className="px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">Start New Campaign</button>
+                            <button onClick={() => { setStep(2); setResult(null); }} className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">Back to Editing</button>
                         </div>
                     </div>
                 )}
@@ -260,7 +303,8 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         {step < 3 ? (
                             <button 
                                 onClick={handleNext} 
-                                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                                disabled={step === 2 && audienceType === 'single_partner' && !partnerEmail}
+                                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
                             >
                                 Next Step
                             </button>
@@ -286,7 +330,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         </div>
                         <h3 className="text-xl font-bold text-center text-gray-900 mb-2">Ready to Broadcast?</h3>
                         <p className="text-center text-gray-500 mb-6">
-                            You are about to send the <strong className="text-gray-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg">{audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers)}</strong> recipients. This action cannot be undone.
+                            You are about to send the <strong className="text-gray-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg">{audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers))}</strong> recipient(s). This action cannot be undone.
                         </p>
                         <div className="flex justify-center space-x-3">
                             <button 

@@ -83,6 +83,8 @@ export async function POST(request: NextRequest) {
                 return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
             }
 
+
+
             subject = `New Post: ${post.title}`;
 
             const emailComponent = React.createElement(BlogPostEmail, {
@@ -226,7 +228,7 @@ export async function POST(request: NextRequest) {
                 }
             }
         } else if (segment === 'single') {
-            const { singleEmailAddress, singleEmailType } = data;
+            const { singleEmailAddress, singleEmailType, metadata } = data;
             if (!singleEmailAddress) {
                 return NextResponse.json({ error: 'Email address is required for single subscriber' }, { status: 400 });
             }
@@ -237,7 +239,7 @@ export async function POST(request: NextRequest) {
             // Check if subscriber exists
             const { data: existingSubscriber } = await adminClient
                 .from('subscribers')
-                .select('id, email, status')
+                .select('id, email, status, metadata')
                 .eq('email', email)
                 .single();
 
@@ -245,17 +247,32 @@ export async function POST(request: NextRequest) {
                 if (existingSubscriber.status === 'unsubscribed') {
                     return NextResponse.json({ error: 'Cannot send to an unsubscribed email address' }, { status: 400 });
                 }
+                
+                // Update metadata if provided
+                if (metadata) {
+                    await adminClient
+                        .from('subscribers')
+                        .update({ metadata: { ...((existingSubscriber.metadata as object) || {}), ...metadata } })
+                        .eq('id', existingSubscriber.id);
+                }
+                
                 recipients = [{ email: existingSubscriber.email, id: existingSubscriber.id }];
             } else {
                 // Insert new subscriber
+                const insertData: any = {
+                    email: email,
+                    type: singleEmailType || 'consumer',
+                    source: 'manual_crm',
+                    status: 'active'
+                };
+                
+                if (metadata) {
+                    insertData.metadata = metadata;
+                }
+                
                 const { data: newSubscriber, error: insertError } = await adminClient
                     .from('subscribers')
-                    .insert({
-                        email: email,
-                        type: singleEmailType || 'consumer',
-                        source: 'manual_crm',
-                        status: 'active'
-                    })
+                    .insert(insertData)
                     .select('id, email')
                     .single();
 
@@ -332,8 +349,10 @@ export async function POST(request: NextRequest) {
                 } else if (!testEmail) {
                     successCount++;
                     details.push({ email: recipient.email, status: 'success' });
+                }
 
-                    // Prepare admin client for updates
+                // Prepare admin client for updates
+                if (!testEmail || sendError) {
                     const adminClient = supabaseAdminClient;
                     
                     let campaignName = 'generic_broadcast';
@@ -351,7 +370,10 @@ export async function POST(request: NextRequest) {
                             .from('email_campaign_logs')
                             .insert({
                                 recipient_email: recipient.email.toLowerCase().trim(),
-                                campaign_name: campaignName
+                                campaign_name: campaignName,
+                                status: sendError ? 'draft' : 'sent',
+                                subject: currentSubject,
+                                body_content: data.bodyContent || data.personalizedNote || '',
                             });
                     } catch (updateError) {
                         console.error('Failed to update campaign logs:', updateError);
@@ -361,15 +383,32 @@ export async function POST(request: NextRequest) {
                 const error = e as Error;
                 failCount++;
                 details.push({ email: recipient.email, status: 'failed', error: error.message });
+                
+                if (!testEmail) {
+                    try {
+                        const adminClient = supabaseAdminClient;
+                        let campaignName = template === 'outreach' ? 'badge_outreach' : 'generic_broadcast';
+                        await adminClient
+                            .from('email_campaign_logs')
+                            .insert({
+                                recipient_email: recipient.email.toLowerCase().trim(),
+                                campaign_name: campaignName,
+                                status: 'draft',
+                                subject: subject || '',
+                                body_content: data.bodyContent || data.personalizedNote || '',
+                            });
+                    } catch (err) {}
+                }
             }
             await new Promise(r => setTimeout(r, 1000));
         }
 
         return NextResponse.json({
-            success: true,
+            success: successCount > 0,
             message: `Sent to ${successCount} recipients. Failed: ${failCount}`,
             total: recipients.length,
-            details: details
+            sent: successCount,
+            details: details,
         });
 
     } catch (error) {

@@ -1,8 +1,8 @@
-import { ChartBarIcon, UsersIcon, EnvelopeIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
+import { ChartBarIcon, UsersIcon, EnvelopeIcon, PlusCircleIcon, ShareIcon } from '@heroicons/react/24/outline';
 
 interface Props {
-    activeView: 'dashboard' | 'audiences' | 'history' | 'builder';
-    setActiveView: (view: 'dashboard' | 'audiences' | 'history' | 'builder') => void;
+    activeView: 'dashboard' | 'audiences' | 'history' | 'builder' | 'social';
+    setActiveView: (view: 'dashboard' | 'audiences' | 'history' | 'builder' | 'social') => void;
 }
 
 export function MarketingSidebar({ activeView, setActiveView }: Props) {
@@ -11,6 +11,7 @@ export function MarketingSidebar({ activeView, setActiveView }: Props) {
         { name: 'Audiences', view: 'audiences', icon: UsersIcon },
         { name: 'Campaign History', view: 'history', icon: EnvelopeIcon },
         { name: 'New Campaign', view: 'builder', icon: PlusCircleIcon },
+        { name: 'Social Share', view: 'social', icon: ShareIcon },
     ];
 
     return (

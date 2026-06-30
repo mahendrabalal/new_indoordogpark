@@ -1,0 +1,117 @@
+--- src/components/admin/marketing/CampaignBuilderView.tsx
++++ src/components/admin/marketing/CampaignBuilderView.tsx
+@@ -23,6 +23,7 @@
+     const [step, setStep] = useState(1);
+     
+     // Step 1: Audience
+     const [audienceType, setAudienceType] = useState('pending_owners');
+     const pendingOwnersCount = approvedParks.filter(p => !p.outreach_status || p.outreach_status === 'pending').length;
+ 
+@@ -48,6 +49,11 @@
+     const [subject, setSubject] = useState('');
+     const [headline, setHeadline] = useState('');
+     const [bodyContent, setBodyContent] = useState('');
++    
++    // Single Partner fields
++    const [partnerEmail, setPartnerEmail] = useState('');
++    const [partnerName, setPartnerName] = useState('');
++    const [partnerDetails, setPartnerDetails] = useState('');
+ 
+     // Step 3: Send status
+     const [isSending, setIsSending] = useState(false);
+@@ -58,7 +64,9 @@
+ 
+     const handleNext = () => {
+         if (step === 1 && audienceType === 'pending_owners') {
+             setTemplateType('badge_outreach');
++        } else if (step === 1 && audienceType === 'single_partner') {
++            setTemplateType('generic');
+         } else if (step === 1) {
+             setTemplateType('generic');
+         }
+@@ -73,9 +81,20 @@
+ 
+         const payload = {
+             template: templateType === 'badge_outreach' ? 'outreach' : (templateType === 'blog' ? 'blog' : 'generic'),
+-            segment: templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : 'all'),
+-            data: templateType === 'blog' ? { slug: selectedSlug } : templateType === 'badge_outreach' ? { personalizedNote: bodyContent } : { subject, headline, bodyContent },
++            segment: audienceType === 'single_partner' ? 'single' : (templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : 'all')),
++            data: templateType === 'blog' 
++                ? { slug: selectedSlug } 
++                : templateType === 'badge_outreach' 
++                    ? { personalizedNote: bodyContent } 
++                    : { 
++                        subject, 
++                        headline, 
++                        bodyContent,
++                        singleEmailAddress: audienceType === 'single_partner' ? partnerEmail : undefined,
++                        singleEmailType: 'owner', // Store as owner but with partner metadata
++                        metadata: audienceType === 'single_partner' ? { isPartner: true, partnerName, partnerDetails } : undefined
++                    },
+         };
+ 
+         const response = await onSend(payload);
+@@ -118,6 +137,11 @@
+                                 <div className="font-semibold text-gray-900">Consumers ({subscribers.consumers})</div>
+                                 <div className="text-sm text-gray-500 mt-1">Users looking for dog parks.</div>
+                             </label>
++                            <label className={`block border p-4 rounded-lg cursor-pointer transition-colors ${audienceType === 'single_partner' ? 'border-indigo-500 ring-1 ring-indigo-500 bg-indigo-50' : 'hover:bg-gray-50'}`}>
++                                <input type="radio" name="audience" className="sr-only" checked={audienceType === 'single_partner'} onChange={() => setAudienceType('single_partner')} />
++                                <div className="font-semibold text-gray-900">Single Partner (B2B Outreach)</div>
++                                <div className="text-sm text-gray-500 mt-1">Send a direct pitch to a new partner and save their details.</div>
++                            </label>
+                         </div>
+                     </div>
+                 )}
+@@ -126,7 +150,7 @@
+                     <div className="space-y-6 animate-in fade-in">
+                         <h3 className="text-lg font-medium">2. Select a Template</h3>
+                         <div className="grid gap-4">
+-                            {audienceType === 'pending_owners' && (
++                            {audienceType === 'pending_owners' || audienceType === 'single_partner' ? null : ''}
++                            {audienceType === 'pending_owners' && (
+                                 <label className={`block border p-4 rounded-lg cursor-pointer transition-colors ${templateType === 'badge_outreach' ? 'border-indigo-500 ring-1 ring-indigo-500 bg-indigo-50' : 'hover:bg-gray-50'}`}>
+                                     <input type="radio" name="template" className="sr-only" checked={templateType === 'badge_outreach'} onChange={() => setTemplateType('badge_outreach')} />
+@@ -196,6 +220,11 @@
+                         )}
+                         {templateType === 'generic' && (
+                             <div className="space-y-3 mt-4">
++                                {audienceType === 'single_partner' && (
++                                    <div className="space-y-3 mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
++                                        <h4 className="font-medium text-gray-900 mb-2">Partner Details</h4>
++                                        <input type="email" placeholder="Partner Email (e.g. contact@sparkysteps.com)" value={partnerEmail} onChange={e => setPartnerEmail(e.target.value)} className="w-full border p-2 rounded-md" />
++                                        <input type="text" placeholder="Partner/Business Name (e.g. Sparky Steps)" value={partnerName} onChange={e => setPartnerName(e.target.value)} className="w-full border p-2 rounded-md" />
++                                        <textarea placeholder="Business Details (e.g. Chicago dog walkers, good for future B2B...)" value={partnerDetails} onChange={e => setPartnerDetails(e.target.value)} rows={2} className="w-full border p-2 rounded-md" />
++                                    </div>
++                                )}
+                                 <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} className="w-full border p-2 rounded-md" />
+                                 <input type="text" placeholder="Headline" value={headline} onChange={e => setHeadline(e.target.value)} className="w-full border p-2 rounded-md" />
+                                 <textarea placeholder="Content (Markdown)" value={bodyContent} onChange={e => setBodyContent(e.target.value)} rows={4} className="w-full border p-2 rounded-md" />
+@@ -224,6 +253,9 @@
+                             )}
+                             {templateType === 'generic' && subject && (
+                                 <p><strong>Subject:</strong> {subject}</p>
+                             )}
+-                            <p><strong>Total Recipients:</strong> {audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers)}</p>
++                            <p><strong>Total Recipients:</strong> {audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers))}</p>
++                            {audienceType === 'single_partner' && (
++                                <p><strong>Sending to:</strong> {partnerEmail} ({partnerName})</p>
++                            )}
+                         </div>
+                         {result?.success === false && (
+@@ -270,7 +302,7 @@
+                             <button 
+                                 onClick={handleNext} 
+-                                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
++                                disabled={step === 1 && audienceType === 'single_partner' && !partnerEmail}
++                                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
+                             >
+                                 Next Step
+                             </button>
+@@ -293,7 +325,7 @@
+                         <h3 className="text-xl font-bold text-center text-gray-900 mb-2">Ready to Broadcast?</h3>
+                         <p className="text-center text-gray-500 mb-6">
+-                            You are about to send the <strong className="text-gray-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg">{audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers)}</strong> recipients. This action cannot be undone.
++                            You are about to send the <strong className="text-gray-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg">{audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers))}</strong> recipient(s). This action cannot be undone.
+                         </p>
+                         <div className="flex justify-center space-x-3">

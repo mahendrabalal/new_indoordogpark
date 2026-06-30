@@ -85,8 +85,11 @@ export async function GET(request: NextRequest) {
             campaign_detail: string | null;
             date: string;
             total_sent: number;
+            total_drafts: number;
             first_sent: string;
             last_sent: string;
+            last_subject: string | null;
+            last_body: string | null;
         }>();
 
         for (const log of (data || [])) {
@@ -101,15 +104,26 @@ export async function GET(request: NextRequest) {
                     campaign_detail: parsed.detail,
                     date,
                     total_sent: 0,
+                    total_drafts: 0,
                     first_sent: log.sent_at,
                     last_sent: log.sent_at,
+                    last_subject: log.subject || null,
+                    last_body: log.body_content || null,
                 });
             }
 
             const entry = campaignMap.get(key)!;
-            entry.total_sent++;
+            if (log.status === 'draft' || log.status === 'failed') {
+                entry.total_drafts++;
+            } else {
+                entry.total_sent++;
+            }
             if (log.sent_at < entry.first_sent) entry.first_sent = log.sent_at;
-            if (log.sent_at > entry.last_sent) entry.last_sent = log.sent_at;
+            if (log.sent_at > entry.last_sent) {
+                entry.last_sent = log.sent_at;
+                if (log.subject) entry.last_subject = log.subject;
+                if (log.body_content) entry.last_body = log.body_content;
+            }
         }
 
         const campaigns = Array.from(campaignMap.values())
