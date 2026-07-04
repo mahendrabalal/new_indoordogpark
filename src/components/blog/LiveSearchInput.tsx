@@ -28,7 +28,7 @@ export default function LiveSearchInput({
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
+  const [isNavigating, setIsNavigating] = useState(false);
   const [term, setTerm] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -48,12 +48,14 @@ export default function LiveSearchInput({
   }, []);
 
   // Update local state if URL changes externally (e.g. back button or clear filters)
+  // Also clear navigating state once URL params match our push
   useEffect(() => {
+    setIsNavigating(false);
     if (currentSearchTerm !== lastPushedSearchTerm.current) {
       setTerm(currentSearchTerm);
       lastPushedSearchTerm.current = currentSearchTerm;
     }
-  }, [currentSearchTerm]);
+  }, [currentSearchTerm, searchParamsString]);
 
   useEffect(() => {
     latestSearchParamsString.current = searchParamsString;
@@ -114,15 +116,14 @@ export default function LiveSearchInput({
       setActiveIndex(-1);
     }
 
-    if (nextUrl === currentUrl) {
+    if (nextUrl === currentUrl || nextTerm === lastPushedSearchTerm.current) {
       return;
     }
 
     lastPushedSearchTerm.current = nextTerm;
 
-    startTransition(() => {
-      router.push(nextUrl, { scroll: false });
-    });
+    setIsNavigating(true);
+    router.push(nextUrl, { scroll: false });
   };
 
   const selectSuggestion = (suggestion: BlogSearchSuggestion) => {
@@ -130,9 +131,8 @@ export default function LiveSearchInput({
     setActiveIndex(-1);
 
     if (suggestion.href) {
-      startTransition(() => {
-        router.push(suggestion.href, { scroll: false });
-      });
+      setIsNavigating(true);
+      router.push(suggestion.href, { scroll: false });
       return;
     }
 
@@ -246,8 +246,8 @@ export default function LiveSearchInput({
           </div>
         </div>
       )}
-      {isPending && (
-        <span className="absolute right-4 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#FF5722]" aria-hidden="true" />
+      {isNavigating && (
+        <span className="absolute right-10 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#FF5722]" aria-hidden="true" />
       )}
     </>
   );

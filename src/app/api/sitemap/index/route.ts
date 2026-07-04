@@ -36,6 +36,10 @@ export async function GET() {
     <loc>${escapeXML(`${baseUrl}/sitemap-blog.xml`)}</loc>
     <lastmod>${currentDate.toISOString()}</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>${escapeXML(`${baseUrl}/sitemap-images.xml`)}</loc>
+    <lastmod>${currentDate.toISOString()}</lastmod>
+  </sitemap>
 </sitemapindex>`
 
   return new NextResponse(xml, {

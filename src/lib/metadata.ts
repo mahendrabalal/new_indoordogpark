@@ -482,7 +482,13 @@ export function generateBlogPostSchema(post: {
   slug: string;
   date: string;
   modified?: string;
-  author?: { name: string };
+  author?: { 
+    name: string;
+    slug?: string;
+    role?: string;
+    avatar?: string;
+    socialLinks?: string[];
+  };
   image?: string;
 }) {
   const canonical = `${SITE_URL}/blog/${post.slug}`;
@@ -498,6 +504,10 @@ export function generateBlogPostSchema(post: {
     author: {
       '@type': 'Person',
       name: post.author?.name || 'Indoor Dog Park Team',
+      ...(post.author?.slug && { url: `${SITE_URL}/blog/author/${post.author.slug}` }),
+      ...(post.author?.role && { jobTitle: post.author.role }),
+      ...(post.author?.avatar && { image: post.author.avatar }),
+      ...(post.author?.socialLinks && post.author.socialLinks.length > 0 && { sameAs: post.author.socialLinks }),
     },
     publisher: {
       '@type': 'Organization',
@@ -566,6 +576,8 @@ export function generateReviewSchemas(
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
+    ...((park.photo || park.photos?.[0]?.url) ? { image: park.photo || park.photos?.[0]?.url } : {}),
+    ...(park.phone ? { telephone: park.phone } : {}),
   };
 
   // Generate Review schemas for each review

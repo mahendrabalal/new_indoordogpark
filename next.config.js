@@ -294,6 +294,10 @@ const nextConfig = {
         source: '/sitemap-blog.xml',
         destination: '/api/sitemap/blog',
       },
+      {
+        source: '/sitemap-images.xml',
+        destination: '/api/sitemap/images',
+      },
     ];
   },
   // Redirects for SEO

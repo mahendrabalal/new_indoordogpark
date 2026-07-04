@@ -15,6 +15,8 @@ import { buildParkFAQs } from '@/lib/park-faq-data';
 import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
 import { isDogTrainingFacility, isDogFriendlyEstablishment, getParkUrl } from '@/lib/routing';
+import { getNearbyCities } from '@/lib/cityData';
+import NearbyCitiesWidget from '@/components/NearbyCitiesWidget';
 
 
 type ParkPageProps = {
@@ -116,9 +118,22 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   }
 
   const allParks = await getAllStaticParks();
-  const nearbyParks = allParks
+  let nearbyParks = allParks
     .filter((p) => p.id !== park.id && p.city === park.city)
     .slice(0, 4);
+
+  let nearbyScope = park.city;
+  if (nearbyParks.length < 4) {
+    const stateParks = allParks
+      .filter((p) => p.id !== park.id && p.state === park.state && !nearbyParks.find(np => np.id === p.id))
+      .slice(0, 4 - nearbyParks.length);
+    nearbyParks = [...nearbyParks, ...stateParks];
+    if (stateParks.length > 0) {
+      nearbyScope = getStateName(park.state);
+    }
+  }
+
+  const nearbyCities = getNearbyCities(allParks, park.city, park.state);
 
   // Fetch approved reviews for structured data
   const reviews = await getParkReviews(park.id);
@@ -676,13 +691,13 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
           {nearbyParks.length > 0 && (
             <section className="nearby-parks-section mt-12 pt-12 border-t border-gray-100">
-              <div className="nearby-parks-header flex justify-between items-end mb-8">
+              <div className="nearby-parks-header flex flex-col sm:flex-row sm:justify-between sm:items-end mb-8 gap-4">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">Other Dog Parks in {park.city}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">Similar Dog Parks in {nearbyScope}</h2>
                   <p className="text-gray-600 mt-2">Explore more dog-friendly locations near {park.name}.</p>
                 </div>
-                <Link href={`/cities/${citySlug}`} className="text-orange-600 font-bold hover:underline">
-                  View all parks in {park.city} →
+                <Link href={`/states/${getStateAbbr(park.state).toLowerCase()}`} className="text-orange-600 font-bold hover:underline whitespace-nowrap">
+                  View all parks in {getStateAbbr(park.state)} →
                 </Link>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -700,6 +715,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 ))}
               </div>
             </section>
+          )}
+
+          {nearbyCities && nearbyCities.length > 0 && (
+            <NearbyCitiesWidget currentCity={park.city} currentState={stateName} nearbyCities={nearbyCities} />
           )}
         </div>
       </main >

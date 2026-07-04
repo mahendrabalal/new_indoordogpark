@@ -22,6 +22,7 @@ export async function GET() {
     { loc: `${baseUrl}/sitemap-cities.xml`, lastmod: currentDate },
     { loc: `${baseUrl}/sitemap-states.xml`, lastmod: currentDate },
     { loc: `${baseUrl}/sitemap-blog.xml`, lastmod: currentDate },
+    { loc: `${baseUrl}/sitemap-images.xml`, lastmod: currentDate },
   ])
 
   return new NextResponse(xml, {

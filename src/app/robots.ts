@@ -52,6 +52,7 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/static/', // Allow static assets for crawling
           '/_next/image/', // Allow Next.js image optimization
           '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
+          '/sitemap-images.xml', // Allow image sitemap
         ],
         disallow: [
           '/admin/',
