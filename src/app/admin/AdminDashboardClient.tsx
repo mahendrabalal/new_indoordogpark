@@ -6,8 +6,10 @@ import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
 
 type DashboardFilter = 'all' | 'pending' | 'approved' | 'rejected';
+type ContactFilter = 'all' | 'new' | 'read' | 'replied' | 'archived';
 type ActionType = 'approve' | 'reject' | 'delete';
-type DashboardTab = 'submissions' | 'reviews';
+type ContactActionType = 'read' | 'replied' | 'archived' | 'delete';
+type DashboardTab = 'submissions' | 'reviews' | 'contact';
 
 interface Review {
   id: string;
@@ -21,6 +23,20 @@ interface Review {
   status: 'pending' | 'approved' | 'rejected';
   created_at: string;
   updated_at?: string;
+}
+
+interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  category?: string;
+  status: 'new' | 'read' | 'replied' | 'archived';
+  adminNotes?: string;
+  createdAt: string;
+  updatedAt?: string;
 }
 
 interface DashboardMeta {
@@ -42,6 +58,29 @@ const STATUS_LABELS: Record<DashboardFilter, string> = {
   pending: 'Pending',
   approved: 'Approved',
   rejected: 'Rejected',
+};
+
+const CONTACT_STATUS_LABELS: Record<ContactFilter, string> = {
+  all: 'All',
+  new: 'New',
+  read: 'Read',
+  replied: 'Replied',
+  archived: 'Archived',
+};
+
+const CONTACT_STATUS_BADGE_STYLES: Record<ContactSubmission['status'], string> = {
+  new: 'bg-blue-100 text-blue-800 ring-1 ring-blue-200',
+  read: 'bg-gray-100 text-gray-800 ring-1 ring-gray-200',
+  replied: 'bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200',
+  archived: 'bg-slate-100 text-slate-600 ring-1 ring-slate-200',
+};
+
+const CATEGORY_BADGE_STYLES: Record<string, string> = {
+  general: 'bg-gray-100 text-gray-700',
+  partnership: 'bg-purple-100 text-purple-700',
+  support: 'bg-orange-100 text-orange-700',
+  feedback: 'bg-teal-100 text-teal-700',
+  press: 'bg-pink-100 text-pink-700',
 };
 
 const STATUS_BADGE_STYLES: Record<'pending' | 'approved' | 'rejected', string> = {
@@ -66,10 +105,14 @@ export default function AdminDashboardClient() {
   const [activeTab, setActiveTab] = useState<DashboardTab>('submissions');
   const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
   const [filter, setFilter] = useState<DashboardFilter>('pending');
+  const [contactFilter, setContactFilter] = useState<ContactFilter>('new');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState<typeof PAGE_SIZE_OPTIONS[number]>(PAGE_SIZE_OPTIONS[0]);
   const [submissions, setSubmissions] = useState<ParkSubmission[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [contactSubmissions, setContactSubmissions] = useState<ContactSubmission[]>([]);
+  const [deleteContactTarget, setDeleteContactTarget] = useState<ContactSubmission | null>(null);
+  const [contactActionState, setContactActionState] = useState<{ id: string | null; type: ContactActionType | null }>({ id: null, type: null });
   const [meta, setMeta] = useState<DashboardMeta>({
     total: 0,
     page: 1,
@@ -285,18 +328,146 @@ export default function AdminDashboardClient() {
     [buildAuthHeaders, filter, page, pageSize, showToast, user]
   );
 
+  const fetchContactSubmissions = useCallback(
+    async (signal?: AbortSignal) => {
+      if (!user) {
+        return;
+      }
+
+      try {
+        setIsLoading(true);
+        setError('');
+
+        const headers = await buildAuthHeaders();
+        const params = new URLSearchParams({
+          status: contactFilter,
+          page: String(page),
+          pageSize: String(pageSize),
+        });
+
+        const response = await fetch(`/api/admin/contact-submissions?${params.toString()}`, {
+          headers,
+          signal,
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to fetch contact submissions');
+        }
+
+        if (data.meta) {
+          const safeTotalPages = Math.max(1, Number(data.meta.totalPages) || 1);
+          if (page > safeTotalPages) {
+            setPage(safeTotalPages);
+            return;
+          }
+          setMeta({
+            total: Number(data.meta.total) || 0,
+            page: Number(data.meta.page) || page,
+            pageSize: Number(data.meta.pageSize) || pageSize,
+            totalPages: safeTotalPages,
+          });
+        }
+
+        setContactSubmissions(data.contactSubmissions || []);
+      } catch (err) {
+        if (signal?.aborted) {
+          return;
+        }
+        const message = err instanceof Error ? err.message : 'Failed to fetch contact submissions';
+        setError(message);
+        showToast({
+          type: 'error',
+          title: 'Unable to load contact messages',
+          message,
+        });
+      } finally {
+        if (!signal?.aborted) {
+          setIsLoading(false);
+        }
+      }
+    },
+    [buildAuthHeaders, contactFilter, page, pageSize, showToast, user]
+  );
+
+  const executeContactAction = useCallback(
+    async (config: { submissionId: string; type: ContactActionType }) => {
+      try {
+        setContactActionState({ id: config.submissionId, type: config.type });
+
+        const headers = await buildAuthHeaders({ json: true });
+
+        if (config.type === 'delete') {
+          const response = await fetch(`/api/admin/contact-submissions/${config.submissionId}`, {
+            method: 'DELETE',
+            headers,
+          });
+
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error || 'Failed to delete contact submission');
+          }
+
+          showToast({
+            type: 'success',
+            title: 'Contact message deleted',
+            message: 'The message has been permanently removed.',
+          });
+        } else {
+          const response = await fetch(`/api/admin/contact-submissions/${config.submissionId}`, {
+            method: 'PATCH',
+            headers,
+            body: JSON.stringify({ status: config.type }),
+          });
+
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error || `Failed to update contact submission`);
+          }
+
+          const labels: Record<string, string> = {
+            read: 'marked as read',
+            replied: 'marked as replied',
+            archived: 'archived',
+          };
+
+          showToast({
+            type: 'success',
+            title: `Message ${labels[config.type] || 'updated'}`,
+          });
+        }
+
+        await fetchContactSubmissions();
+      } catch (err) {
+        const message = err instanceof Error ? err.message : 'Action failed';
+        showToast({
+          type: 'error',
+          title: 'Action failed',
+          message,
+        });
+      } finally {
+        setContactActionState({ id: null, type: null });
+        setDeleteContactTarget(null);
+      }
+    },
+    [buildAuthHeaders, fetchContactSubmissions, showToast]
+  );
+
   useEffect(() => {
     const controller = new AbortController();
     if (activeTab === 'submissions') {
       fetchSubmissions(controller.signal);
-    } else {
+    } else if (activeTab === 'reviews') {
       fetchReviews(controller.signal);
+    } else {
+      fetchContactSubmissions(controller.signal);
     }
 
     return () => {
       controller.abort();
     };
-  }, [activeTab, filter, page, pageSize, fetchSubmissions, fetchReviews]);
+  }, [activeTab, filter, contactFilter, page, pageSize, fetchSubmissions, fetchReviews, fetchContactSubmissions]);
 
   const resetActionState = useCallback(() => {
     setActionState({ id: null, type: null });
@@ -431,6 +602,11 @@ export default function AdminDashboardClient() {
     setPage(1);
   }, []);
 
+  const handleContactFilterChange = useCallback((nextFilter: ContactFilter) => {
+    setContactFilter(nextFilter);
+    setPage(1);
+  }, []);
+
   const handlePageSizeChange = useCallback((value: number) => {
     setPageSize(value as typeof PAGE_SIZE_OPTIONS[number]);
     setPage(1);
@@ -442,15 +618,22 @@ export default function AdminDashboardClient() {
     [actionState.id, actionState.type]
   );
 
+  const isContactActionLoading = useCallback(
+    (submissionId: string, type: ContactActionType) =>
+      contactActionState.id === submissionId && contactActionState.type === type,
+    [contactActionState.id, contactActionState.type]
+  );
+
   const paginationSummary = useMemo(() => {
+    const tabLabel = activeTab === 'submissions' ? 'submissions' : activeTab === 'reviews' ? 'reviews' : 'messages';
     if (meta.total === 0) {
-      return `No ${activeTab === 'submissions' ? 'submissions' : 'reviews'} to display`;
+      return `No ${tabLabel} to display`;
     }
-    const items = activeTab === 'submissions' ? submissions : reviews;
+    const items = activeTab === 'submissions' ? submissions : activeTab === 'reviews' ? reviews : contactSubmissions;
     const start = (page - 1) * meta.pageSize + 1;
     const end = start + items.length - 1;
     return `Showing ${start}-${end} of ${meta.total}`;
-  }, [activeTab, meta.pageSize, meta.total, page, submissions, reviews]);
+  }, [activeTab, meta.pageSize, meta.total, page, submissions, reviews, contactSubmissions]);
 
   // Show loading state while checking authorization
   if (loading || isAuthorized === null) {
@@ -495,7 +678,9 @@ export default function AdminDashboardClient() {
           <p className="text-lg text-gray-600">
             {activeTab === 'submissions' 
               ? 'Review and manage park submissions with confidence.' 
-              : 'Review and manage user reviews with confidence.'}
+              : activeTab === 'reviews'
+              ? 'Review and manage user reviews with confidence.'
+              : 'View and respond to contact form inquiries.'}
           </p>
         </header>
 
@@ -530,26 +715,58 @@ export default function AdminDashboardClient() {
             >
               Reviews
             </button>
+            <button
+              onClick={() => {
+                setActiveTab('contact');
+                setPage(1);
+                setContactFilter('new');
+              }}
+              className={`whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium transition-colors ${
+                activeTab === 'contact'
+                  ? 'border-purple-600 text-purple-600'
+                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+              }`}
+            >
+              Contact Messages
+            </button>
           </nav>
         </div>
 
         <section className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-2">
-            {(Object.keys(STATUS_LABELS) as DashboardFilter[]).map((status) => {
-              const isActive = filter === status;
-              return (
-                <button
-                  key={status}
-                  type="button"
-                  onClick={() => handleFilterChange(status)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
-                    isActive ? 'bg-purple-600 text-white shadow-sm' : 'bg-white text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  {STATUS_LABELS[status]}
-                </button>
-              );
-            })}
+            {activeTab === 'contact' ? (
+              (Object.keys(CONTACT_STATUS_LABELS) as ContactFilter[]).map((status) => {
+                const isActive = contactFilter === status;
+                return (
+                  <button
+                    key={status}
+                    type="button"
+                    onClick={() => handleContactFilterChange(status)}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
+                      isActive ? 'bg-purple-600 text-white shadow-sm' : 'bg-white text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    {CONTACT_STATUS_LABELS[status]}
+                  </button>
+                );
+              })
+            ) : (
+              (Object.keys(STATUS_LABELS) as DashboardFilter[]).map((status) => {
+                const isActive = filter === status;
+                return (
+                  <button
+                    key={status}
+                    type="button"
+                    onClick={() => handleFilterChange(status)}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
+                      isActive ? 'bg-purple-600 text-white shadow-sm' : 'bg-white text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    {STATUS_LABELS[status]}
+                  </button>
+                );
+              })
+            )}
           </div>
 
           <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
@@ -580,7 +797,7 @@ export default function AdminDashboardClient() {
               <p className="text-sm font-medium">{error}</p>
               <button
                 type="button"
-                onClick={() => activeTab === 'submissions' ? fetchSubmissions() : fetchReviews()}
+                onClick={() => activeTab === 'submissions' ? fetchSubmissions() : activeTab === 'reviews' ? fetchReviews() : fetchContactSubmissions()}
                 className="rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
               >
                 Retry
@@ -594,9 +811,139 @@ export default function AdminDashboardClient() {
             <div className="rounded-xl border border-dashed border-purple-200 bg-white/60 p-12 text-center shadow-inner">
               <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-purple-600" />
               <p className="mt-4 text-sm font-medium text-gray-600">
-                Fetching the latest {activeTab === 'submissions' ? 'submissions' : 'reviews'}…
+                Fetching the latest {activeTab === 'submissions' ? 'submissions' : activeTab === 'reviews' ? 'reviews' : 'contact messages'}…
               </p>
             </div>
+          ) : activeTab === 'contact' ? (
+            contactSubmissions.length === 0 ? (
+              <div className="rounded-xl border border-gray-200 bg-white p-12 text-center shadow-sm">
+                <h2 className="text-xl font-semibold text-gray-900">No contact messages</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  We didn&apos;t find any {contactFilter === 'all' ? '' : `${contactFilter} `}messages for now. Try a different filter or
+                  adjust the pagination.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {contactSubmissions.map((contact) => {
+                  const categoryStyle = CATEGORY_BADGE_STYLES[contact.category || 'general'] || CATEGORY_BADGE_STYLES.general;
+                  return (
+                    <article
+                      key={contact.id}
+                      className="rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                    >
+                      <div className="p-6">
+                        <header className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                          <div>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <h3 className="text-2xl font-bold text-gray-900">{contact.name}</h3>
+                              <span
+                                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase ${CONTACT_STATUS_BADGE_STYLES[contact.status]}`}
+                              >
+                                {contact.status}
+                              </span>
+                              {contact.category && (
+                                <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium capitalize ${categoryStyle}`}>
+                                  {contact.category}
+                                </span>
+                              )}
+                            </div>
+                            <p className="mt-2 text-lg font-medium text-gray-700">{contact.subject}</p>
+                          </div>
+                          <dl className="grid min-w-[220px] grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600">
+                            <div>
+                              <dt className="font-semibold text-gray-700">Received</dt>
+                              <dd>{new Date(contact.createdAt).toLocaleString()}</dd>
+                            </div>
+                            <div>
+                              <dt className="font-semibold text-gray-700">Email</dt>
+                              <dd className="truncate">
+                                <a href={`mailto:${contact.email}`} className="text-purple-600 hover:text-purple-700">
+                                  {contact.email}
+                                </a>
+                              </dd>
+                            </div>
+                            <div>
+                              <dt className="font-semibold text-gray-700">Phone</dt>
+                              <dd>{contact.phone || 'N/A'}</dd>
+                            </div>
+                            {contact.updatedAt && (
+                              <div>
+                                <dt className="font-semibold text-gray-700">Updated</dt>
+                                <dd>{new Date(contact.updatedAt).toLocaleString()}</dd>
+                              </div>
+                            )}
+                          </dl>
+                        </header>
+
+                        <section className="mb-4">
+                          <p className="font-semibold text-gray-800 mb-2">Message</p>
+                          <p className="text-sm leading-relaxed text-gray-600 whitespace-pre-wrap">
+                            {contact.message}
+                          </p>
+                        </section>
+
+                        {contact.adminNotes && (
+                          <div className="mb-4 rounded-lg border border-purple-100 bg-purple-50 p-3">
+                            <p className="text-xs font-semibold text-purple-800">Admin Notes</p>
+                            <p className="mt-1 text-sm text-purple-700">{contact.adminNotes}</p>
+                          </div>
+                        )}
+
+                        <footer className="mt-6 border-t border-gray-100 pt-4">
+                          <div className="flex flex-col gap-3 sm:flex-row">
+                            <a
+                              href={`mailto:${contact.email}?subject=Re: ${encodeURIComponent(contact.subject)}`}
+                              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                            >
+                              Reply via Email
+                            </a>
+                            {contact.status === 'new' && (
+                              <button
+                                type="button"
+                                onClick={() => executeContactAction({ submissionId: contact.id, type: 'read' })}
+                                disabled={isContactActionLoading(contact.id, 'read')}
+                                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-500 disabled:cursor-not-allowed disabled:bg-gray-300"
+                              >
+                                {isContactActionLoading(contact.id, 'read') ? 'Updating…' : 'Mark as Read'}
+                              </button>
+                            )}
+                            {(contact.status === 'new' || contact.status === 'read') && (
+                              <button
+                                type="button"
+                                onClick={() => executeContactAction({ submissionId: contact.id, type: 'replied' })}
+                                disabled={isContactActionLoading(contact.id, 'replied')}
+                                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-gray-300"
+                              >
+                                {isContactActionLoading(contact.id, 'replied') ? 'Updating…' : 'Mark as Replied'}
+                              </button>
+                            )}
+                            {contact.status !== 'archived' && (
+                              <button
+                                type="button"
+                                onClick={() => executeContactAction({ submissionId: contact.id, type: 'archived' })}
+                                disabled={isContactActionLoading(contact.id, 'archived')}
+                                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-slate-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-500 disabled:cursor-not-allowed disabled:bg-gray-300"
+                              >
+                                {isContactActionLoading(contact.id, 'archived') ? 'Archiving…' : 'Archive'}
+                              </button>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() => setDeleteContactTarget(contact)}
+                              disabled={isContactActionLoading(contact.id, 'delete')}
+                              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+                            >
+                              {isContactActionLoading(contact.id, 'delete') ? 'Deleting…' : 'Delete'}
+                            </button>
+                          </div>
+                        </footer>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            )
           ) : activeTab === 'submissions' ? (
             submissions.length === 0 ? (
             <div className="rounded-xl border border-gray-200 bg-white p-12 text-center shadow-sm">
@@ -1077,6 +1424,44 @@ export default function AdminDashboardClient() {
                 className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 {isActionLoading(rejectReviewTarget.id, 'reject') ? 'Rejecting…' : 'Reject review'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete contact submission confirmation */}
+      {deleteContactTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6">
+          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+            <h3 className="text-xl font-semibold text-gray-900">Delete contact message</h3>
+            <p className="mt-3 text-sm text-gray-600">
+              Are you sure you want to permanently delete the message from{' '}
+              <span className="font-semibold">{deleteContactTarget.name}</span>?
+            </p>
+            <p className="mt-2 text-sm text-rose-600">
+              This action cannot be undone.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setDeleteContactTarget(null)}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  executeContactAction({
+                    submissionId: deleteContactTarget.id,
+                    type: 'delete',
+                  })
+                }
+                disabled={isContactActionLoading(deleteContactTarget.id, 'delete')}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+              >
+                {isContactActionLoading(deleteContactTarget.id, 'delete') ? 'Deleting…' : 'Delete permanently'}
               </button>
             </div>
           </div>

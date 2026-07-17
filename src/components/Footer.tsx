@@ -28,6 +28,7 @@ export default function Footer() {
               <li><Link href="/how-it-works">How it works</Link></li>
 
               <li><Link href="/blog" prefetch={false}>Blog</Link></li>
+              <li><Link href="/tools">Tools</Link></li>
               <li><Link href="/reports">Research Reports</Link></li>
             </ul>
           </div>

@@ -5,7 +5,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ReviewSection from '@/components/ReviewSection';
-import ParkDetailSchema from '@/components/ParkDetailSchema';
+
 import ParkStatusBadge from '@/components/ParkStatusBadge';
 import ParkMapClient from '@/components/ParkMapClient';
 import { extractLocationFromSlug, getAllStaticParks, getCitySlugByName, getParkBySlug } from '@/lib/parks-data';
@@ -182,8 +182,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   return (
     <>
-      {/* LocalBusiness structured data for rich snippets */}
-      <ParkDetailSchema park={park} url={`/dog-training/${park.slug || park.id}`} />
+
 
       <script
         type="application/ld+json"

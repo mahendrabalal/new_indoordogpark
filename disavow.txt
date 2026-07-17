@@ -1,0 +1,5 @@
+# Toxic PBN and spam anchor text links
+domain:atomizelink.icu
+
+# Scraper domain with unnatural identical anchor velocity
+domain:hn.today

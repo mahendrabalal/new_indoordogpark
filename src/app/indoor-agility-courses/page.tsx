@@ -15,19 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.o
 const siteName = 'Indoor Dog Park';
 const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/agility-courses.webp`;
 
-type IndoorAgilityCoursesPageProps = {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export async function generateMetadata({
-  searchParams,
-}: IndoorAgilityCoursesPageProps): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Dog Agility Courses | Training & Enrichment Parks';
   const description =
     'Find the best indoor dog agility courses near you. Discover climate-controlled facilities with professional agility equipment, obstacles, and training programs.';
   const canonicalUrl = '/indoor-agility-courses';
-  const resolvedSearchParams = searchParams ? await searchParams : {};
-  const isFiltered = Object.keys(resolvedSearchParams).length > 0;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -62,10 +54,10 @@ export async function generateMetadata({
       creator: '@indoordogpark',
     },
     robots: {
-      index: !isFiltered,
+      index: true,
       follow: true,
       googleBot: {
-        index: !isFiltered,
+        index: true,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import EmailService from '@/lib/email-service';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,6 +42,24 @@ export async function POST(request: Request) {
       );
     }
 
+    // Persist submission to database
+    const { error: dbError } = await supabaseAdminClient
+      .from('contact_submissions')
+      .insert({
+        name: payload.name!.trim(),
+        email: payload.email!.trim(),
+        phone: payload.phone?.trim() || null,
+        subject: payload.subject!.trim(),
+        message: payload.message!.trim(),
+        category: payload.category?.trim() || 'general',
+        status: 'new',
+      });
+
+    if (dbError) {
+      console.error('[contact] Failed to save to database:', dbError);
+      // Continue with email notifications even if DB insert fails
+    }
+
     // Send notification to admin
     const notificationResult = await EmailService.sendContactNotification(payload as ContactPayload);
 
@@ -62,6 +81,7 @@ export async function POST(request: Request) {
       email: payload.email,
       subject: payload.subject,
       category: payload.category,
+      savedToDb: !dbError,
       adminNotified: notificationResult.success,
       userNotified: confirmationResult.success,
     });

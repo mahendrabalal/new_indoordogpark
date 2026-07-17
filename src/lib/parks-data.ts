@@ -244,9 +244,9 @@ async function loadStaticParks(): Promise<DogPark[]> {
         } else {
           const baseUrl = getStaticDataBaseUrl();
           const url = `${baseUrl.replace(/\/$/, '')}/${file}`;
-          // Next.js has a 2MB limit for the fetch cache. Disable cache for large files to avoid warnings.
-          const isLargeFile = ['texas.json', 'newjersey.json', 'tennessee.json', 'northcarolina.json'].includes(file);
-          const fetchOptions: RequestInit = isLargeFile ? { cache: 'no-store' } : { next: { revalidate: 3600 } };
+          // Next.js has a 2MB limit for the fetch cache. We accept the build warning for large files
+          // because using `cache: 'no-store'` opts the entire route into dynamic rendering, breaking static generation.
+          const fetchOptions: RequestInit = { next: { revalidate: 3600 } };
           
           const res = await fetch(url, fetchOptions);
           if (!res.ok) {

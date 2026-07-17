@@ -15,19 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.o
 const siteName = 'Indoor Dog Park';
 const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/small-dog-areas.webp`;
 
-type SmallDogAreasPageProps = {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-};
-
-export async function generateMetadata({
-  searchParams,
-}: SmallDogAreasPageProps): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Parks with Small Dog Areas | Safe Play Spaces';
   const description =
     'Discover indoor dog parks featuring dedicated small dog areas. Find safe, climate-controlled environments where petite pups can play freely without larger dogs.';
   const canonicalUrl = '/small-dog-areas';
-  const resolvedSearchParams = searchParams ? await searchParams : {};
-  const isFiltered = Object.keys(resolvedSearchParams).length > 0;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -62,10 +54,10 @@ export async function generateMetadata({
       creator: '@indoordogpark',
     },
     robots: {
-      index: !isFiltered,
+      index: true,
       follow: true,
       googleBot: {
-        index: !isFiltered,
+        index: true,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
