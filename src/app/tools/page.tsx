@@ -50,6 +50,22 @@ const tools = [
     tag: 'Essential',
   },
   {
+    title: 'Dog Park Etiquette Quiz',
+    description: 'Take our 5-minute interactive quiz to test your dog park knowledge and earn your "Certified Good Human" badge!',
+    href: '/tools/dog-park-etiquette-quiz',
+    icon: 'bi-patch-check-fill',
+    color: 'from-rose-500 to-pink-600',
+    tag: 'Viral',
+  },
+  {
+    title: 'The "Tire Out Your Dog" Space Estimator',
+    description: 'Living in an apartment? Find out exactly how much open square footage your dog needs to safely play fetch or sprint.',
+    href: '/tools/dog-space-estimator',
+    icon: 'bi-rulers',
+    color: 'from-slate-700 to-slate-900',
+    tag: 'Popular',
+  },
+  {
     title: 'Weather Safety & Walk Calculator',
     description: 'Is it too hot or cold to walk your dog today? Enter your local temperature and dog\'s details to find out if it\'s safe to head outside.',
     href: '/tools/weather-safety-calculator',

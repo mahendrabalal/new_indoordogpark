@@ -67,12 +67,20 @@ export async function GET(request: NextRequest) {
 
         for (const item of queueItems) {
             try {
+                const isOutreach = item.campaign_name.includes('outreach');
+                const fromEmail = isOutreach 
+                    ? 'Mahendra Balal | Indoor Dog Park <partnerships@indoordogpark.org>' 
+                    : 'IndoorDogPark <newsletter@indoordogpark.org>';
+                const replyToEmail = isOutreach 
+                    ? 'partnerships@indoordogpark.org' 
+                    : 'hello@indoordogpark.org';
+
                 const { error: sendError } = await resend.emails.send({
-                    from: 'IndoorDogPark <newsletter@indoordogpark.org>',
+                    from: fromEmail,
                     to: item.recipient_email,
                     subject: item.subject,
                     html: item.html_content,
-                    replyTo: 'media@indoordogpark.org',
+                    replyTo: replyToEmail,
                 });
 
                 if (sendError) {

@@ -353,12 +353,20 @@ export async function POST(request: NextRequest) {
                     .replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email))
                     .replace(/%7B%7Bemail%7D%7D/g, encodeURIComponent(recipient.email));
 
+                const isOutreach = template === 'outreach';
+                const fromEmail = isOutreach 
+                    ? 'Mahendra Balal | Indoor Dog Park <partnerships@indoordogpark.org>' 
+                    : 'IndoorDogPark <newsletter@indoordogpark.org>';
+                const replyToEmail = isOutreach 
+                    ? 'partnerships@indoordogpark.org' 
+                    : 'hello@indoordogpark.org';
+
                 const { error: sendError } = await resend.emails.send({
-                    from: 'IndoorDogPark <newsletter@indoordogpark.org>',
+                    from: fromEmail,
                     to: recipient.email,
                     subject: currentSubject,
                     html: personalizedHtml,
-                    replyTo: 'media@indoordogpark.org',
+                    replyTo: replyToEmail,
                 });
 
                 if (sendError) {
