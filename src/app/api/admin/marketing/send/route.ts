@@ -355,8 +355,8 @@ export async function POST(request: NextRequest) {
 
                 const isOutreach = template === 'outreach' || segment === 'single';
                 const fromEmail = isOutreach 
-                    ? 'Mahendra Balal | Indoor Dog Park <partnerships@indoordogpark.org>' 
-                    : 'IndoorDogPark <newsletter@indoordogpark.org>';
+                    ? 'Mahendra Balal | Indoor Dog Park <media@indoordogpark.org>' 
+                    : 'IndoorDogPark <media@indoordogpark.org>';
                 const replyToEmail = 'media@indoordogpark.org';
 
                 const { error: sendError } = await resend.emails.send({
