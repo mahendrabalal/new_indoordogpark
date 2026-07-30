@@ -71,9 +71,7 @@ export async function GET(request: NextRequest) {
                 const fromEmail = isOutreach 
                     ? 'Mahendra Balal | Indoor Dog Park <partnerships@indoordogpark.org>' 
                     : 'IndoorDogPark <newsletter@indoordogpark.org>';
-                const replyToEmail = isOutreach 
-                    ? 'partnerships@indoordogpark.org' 
-                    : 'hello@indoordogpark.org';
+                const replyToEmail = 'media@indoordogpark.org';
 
                 const { error: sendError } = await resend.emails.send({
                     from: fromEmail,
