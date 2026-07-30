@@ -353,7 +353,7 @@ export async function POST(request: NextRequest) {
                     .replace(/\{\{email\}\}/g, encodeURIComponent(recipient.email))
                     .replace(/%7B%7Bemail%7D%7D/g, encodeURIComponent(recipient.email));
 
-                const isOutreach = template === 'outreach';
+                const isOutreach = template === 'outreach' || segment === 'single';
                 const fromEmail = isOutreach 
                     ? 'Mahendra Balal | Indoor Dog Park <partnerships@indoordogpark.org>' 
                     : 'IndoorDogPark <newsletter@indoordogpark.org>';
