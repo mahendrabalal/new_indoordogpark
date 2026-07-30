@@ -9686,10 +9686,10 @@ export const priorityCityContent: PriorityCityConfig[] = [
     },
   },
   {
-    slug: 'charlotte-nc',
+    slug: 'charlotte-north-carolina',
     city: 'Charlotte',
     state: 'NC',
-    featuredImage: '/images/cities/charlotte/hero.webp',
+    featuredImage: '/images/cities/charlotte/hero.jpg',
     summary: 'The "Queen City" offers a royal selection of urban dog parks and expansive greenways.',
     parks: [],
     customContent: {
@@ -17858,7 +17858,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
     slug: 'wilson-nc',
     city: 'Wilson',
     state: 'NC',
-    featuredImage: '/images/cities/charlotte/hero.webp',
+    featuredImage: '/images/cities/charlotte/hero.jpg',
     summary:
       'Home of the Whirligigs and a fantastic dog park on Lawndale Drive. Wilson combines art, history, and recreation.',
     parks: [],

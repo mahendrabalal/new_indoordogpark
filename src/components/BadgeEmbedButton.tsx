@@ -49,10 +49,10 @@ export default function BadgeEmbedButton({ parkSlug, parkName }: BadgeEmbedButto
               <div className="sm:flex sm:items-start">
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
                   <h3 className="text-lg font-semibold leading-6 text-gray-900" id="modal-title">
-                    Your Free Directory Badge
+                    Claim Your Featured Listing
                   </h3>
                   <div className="mt-2 text-sm text-gray-500 mb-4">
-                    Add this badge to your website footer, sidebar, or &quot;About&quot; page. It works like a TripAdvisor or Yelp sticker — a quick trust signal that tells customers you&apos;re part of a verified directory. Copy the HTML below and paste it anywhere on your site.
+                    Add this badge to your website footer, sidebar, or &quot;About&quot; page. Once our system detects the badge on your site, your park will automatically be upgraded to a <strong>Featured Listing</strong> at the top of our search results. Copy the HTML below and paste it anywhere on your site.
                   </div>
                   
                   <div className="flex justify-center items-center my-6 bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-xl border border-slate-700 shadow-inner">

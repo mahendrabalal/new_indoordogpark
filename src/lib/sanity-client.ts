@@ -79,6 +79,31 @@ export const queries = {
         }
       }
     },
+    lastUpdated,
+    factCheckedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    reviewedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
     categories[]->{
       _id,
       title,
@@ -113,6 +138,31 @@ export const queries = {
       caption
     },
     author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    lastUpdated,
+    factCheckedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    reviewedBy->{
       _id,
       name,
       slug,
@@ -187,6 +237,9 @@ export const queries = {
     author->{
       name
     },
+    lastUpdated,
+    factCheckedBy->{ name },
+    reviewedBy->{ name },
     categories[]->{
       title,
       slug
@@ -214,6 +267,31 @@ export const queries = {
       caption
     },
     author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    lastUpdated,
+    factCheckedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    reviewedBy->{
       _id,
       name,
       slug,
@@ -259,6 +337,31 @@ export const queries = {
       caption
     },
     author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    lastUpdated,
+    factCheckedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    reviewedBy->{
       _id,
       name,
       slug,
@@ -322,6 +425,31 @@ export const queries = {
       caption
     },
     author->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    lastUpdated,
+    factCheckedBy->{
+      _id,
+      name,
+      slug,
+      bio,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
+    reviewedBy->{
       _id,
       name,
       slug,

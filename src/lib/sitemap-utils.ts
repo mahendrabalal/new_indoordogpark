@@ -176,6 +176,42 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly' as const,
       priority: 0.2,
     },
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/tools/chocolate-toxicity-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-exercise-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/weather-safety-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-socialization-cost-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-park-packing-list-generator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
   ]
 }
 /**
@@ -294,8 +330,8 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
           continue
         }
 
-        // Must match src/app/cities/[slug]/page.tsx:shouldIndexCity (index when ≥1 listing)
-        const shouldIndex = cityContent.stats.totalParks >= 1
+        // Must match src/app/cities/[slug]/page.tsx:shouldIndexCity (index when >= 3 listings)
+        const shouldIndex = cityContent.stats.totalParks >= 3
 
         if (!shouldIndex) {
           // console.log(`[sitemap-cities] Skipping thin city: ${slug} (${cityContent.stats.totalParks} parks, ${cityContent.stats.totalReviews} reviews)`)

@@ -118,7 +118,7 @@ export default function FeaturedParks() {
               List your park — $9.99/mo
             </Link>
             <Link
-              href="/list-your-park"
+              href="/partners"
               className="inline-flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-8 py-4 text-sm font-bold text-slate-700 transition-all hover:border-slate-400 hover:text-slate-900 hover:-translate-y-1"
             >
               Learn about visibility

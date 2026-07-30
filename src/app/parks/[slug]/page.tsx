@@ -148,8 +148,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
   // Generate breadcrumb schema
   const citySlug = (await getCitySlugByName(park.city, park.state)) || park.city.toLowerCase().replace(/\s+/g, '-');
+  const stateSlug = stateName ? stateName.toLowerCase().replace(/\s+/g, '-') : '';
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
+    ...(stateName ? [{ name: stateName, url: `/states/${stateSlug}` }] : []),
     { name: park.city, url: `/cities/${citySlug}` },
     { name: park.name },
   ]);
@@ -274,6 +276,14 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               <div className="breadcrumbs-white">
                 <Link href="/">Home</Link>
                 <i className="bi bi-chevron-right"></i>
+                {stateName && (
+                  <>
+                    <Link href={`/states/${stateSlug}`}>
+                      {stateName}
+                    </Link>
+                    <i className="bi bi-chevron-right"></i>
+                  </>
+                )}
                 <Link href={`/cities/${citySlug}`}>
                   {park.city}
                 </Link>
@@ -397,16 +407,103 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               {park.amenities && Object.entries(park.amenities).filter(([, value]) => value === true).length > 0 && (
                 <section className="premium-content-section">
                   <h2 className="premium-section-title">Amenities & Features</h2>
-                  <div className="amenities-grid-premium">
-                    {Object.entries(park.amenities)
+                  {(() => {
+                    const activeAmenities = Object.entries(park.amenities!)
                       .filter(([, value]) => value === true)
-                      .map(([key]) => (
-                        <div key={key} className="amenity-item-premium">
-                          <i className="bi bi-check-circle-fill"></i>
-                          <span>{formatAmenityName(key)}</span>
-                        </div>
-                      ))}
-                  </div>
+                      .map(([key]) => key);
+
+                    const categories: Record<string, { icon: string; keys: string[] }> = {
+                      'For the Dogs': {
+                        icon: 'bi-hearts',
+                        keys: ['smallDogArea', 'largeDogArea', 'agilityCourse', 'swimming', 'socializing'],
+                      },
+                      'Facilities': {
+                        icon: 'bi-building',
+                        keys: ['parking', 'restrooms', 'handicapAccess', 'lighting', 'fencing', 'shade', 'seating', 'climateControl', 'misters'],
+                      },
+                      'Services': {
+                        icon: 'bi-stars',
+                        keys: ['dogWashStation', 'grooming', 'daycare', 'training', 'waterFountains', 'cafe', 'bar', 'wifi', 'foodAllowed'],
+                      },
+                    };
+
+                    const grouped = Object.entries(categories)
+                      .map(([label, { icon, keys }]) => ({
+                        label,
+                        icon,
+                        items: activeAmenities.filter((k) => keys.includes(k)),
+                      }))
+                      .filter((g) => g.items.length > 0);
+
+                    // If amenities don't fit any category, show them flat
+                    const categorizedKeys = Object.values(categories).flatMap((c) => c.keys);
+                    const uncategorized = activeAmenities.filter((k) => !categorizedKeys.includes(k));
+
+                    const AMENITY_LINKS: Record<string, string> = {
+                      agilityCourse: '/indoor-agility-courses',
+                      bar: '/parks-with-bars',
+                      smallDogArea: '/small-dog-areas',
+                      training: '/dog-training',
+                      daycare: '/dog-friendly', // or similar
+                    };
+
+                    return (
+                      <div className="amenities-grouped">
+                        {grouped.map((group) => (
+                          <div key={group.label} className="amenity-group">
+                            <h3 className="amenity-group-title">
+                              <i className={`bi ${group.icon}`}></i> {group.label}
+                            </h3>
+                            <div className="amenities-grid-premium">
+                              {group.items.map((key) => {
+                                const href = AMENITY_LINKS[key];
+                                if (href) {
+                                  return (
+                                    <Link href={href} key={key} className="amenity-item-premium hover:text-emerald-700 transition-colors group">
+                                      <i className="bi bi-check-circle-fill group-hover:scale-110 transition-transform"></i>
+                                      <span className="underline decoration-emerald-200 underline-offset-4">{formatAmenityName(key)}</span>
+                                    </Link>
+                                  );
+                                }
+                                return (
+                                  <div key={key} className="amenity-item-premium">
+                                    <i className="bi bi-check-circle-fill"></i>
+                                    <span>{formatAmenityName(key)}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                        {uncategorized.length > 0 && (
+                          <div className="amenity-group">
+                            <h3 className="amenity-group-title">
+                              <i className="bi bi-plus-circle"></i> Other
+                            </h3>
+                            <div className="amenities-grid-premium">
+                              {uncategorized.map((key) => {
+                                const href = AMENITY_LINKS[key];
+                                if (href) {
+                                  return (
+                                    <Link href={href} key={key} className="amenity-item-premium hover:text-emerald-700 transition-colors group">
+                                      <i className="bi bi-check-circle-fill group-hover:scale-110 transition-transform"></i>
+                                      <span className="underline decoration-emerald-200 underline-offset-4">{formatAmenityName(key)}</span>
+                                    </Link>
+                                  );
+                                }
+                                return (
+                                  <div key={key} className="amenity-item-premium">
+                                    <i className="bi bi-check-circle-fill"></i>
+                                    <span>{formatAmenityName(key)}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </section>
               )}
 
@@ -500,7 +597,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
 
               <section className="premium-content-section directions-section">
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-2">
                   <h2 className="premium-section-title mb-0">Location Map</h2>
                   {park.latitude && park.longitude && (
                     <a
@@ -514,7 +611,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   )}
                 </div>
                 {park.latitude && park.longitude && (
-                  <div className="mb-6 rounded-xl overflow-hidden shadow-inner border border-gray-100 h-[400px]">
+                  <div className="rounded-lg overflow-hidden border border-gray-100 h-[350px]">
                     <ParkMapClient park={park} />
                   </div>
                 )}
@@ -528,14 +625,14 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 <div className="faq-list">
                   {faqItems.map((faq) => (
                     <details key={faq.question} className="group premium-faq-item border-b border-gray-200 last:border-0">
-                      <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                        <h4 className="text-lg font-semibold text-slate-900">{faq.question}</h4>
+                      <summary className="flex items-center justify-between gap-4 py-2 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <h4 className="text-sm font-semibold text-slate-900">{faq.question}</h4>
                         <span className="relative flex h-6 w-6 flex-shrink-0 items-center justify-center text-slate-900">
                           <i className="bi bi-plus-lg absolute transition-opacity duration-200 group-open:opacity-0"></i>
                           <i className="bi bi-dash-lg absolute opacity-0 transition-opacity duration-200 group-open:opacity-100"></i>
                         </span>
                       </summary>
-                      <div className="pb-5 pr-8 text-slate-600 leading-relaxed">
+                      <div className="pb-2 pr-8 text-slate-600 text-sm leading-relaxed">
                         <p>{faq.answer}</p>
                       </div>
                     </details>
@@ -552,8 +649,8 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <p className="section-intro">
                     Discover helpful guides and articles about dog parks in {park.city} and {park.businessType.toLowerCase()}s.
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                    {relatedBlogPosts.map((post) => {
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+                    {relatedBlogPosts.slice(0, 2).map((post) => {
                       const featuredImage =
                         post.featuredImage?.media_details?.sizes?.large?.source_url ||
                         post.featuredImage?.media_details?.sizes?.medium?.source_url ||
@@ -563,7 +660,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                         <Link
                           key={post.id}
                           href={`/blog/${post.slug}`}
-                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-purple-300 transition-all flex flex-col"
+                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-orange-300 transition-all flex flex-col"
                         >
                           {featuredImage && (
                             <div className="relative w-full aspect-[4/3] overflow-hidden">
@@ -578,7 +675,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                             </div>
                           )}
                           <div className="p-5 flex-1">
-                            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 hover:text-purple-600 leading-tight">
+                            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 hover:text-orange-600 leading-tight">
                               {post.title}
                             </h3>
                           </div>
@@ -587,7 +684,7 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                     })}
                   </div>
                   <div className="mt-6 text-center">
-                    <Link href="/blog" prefetch={false} className="text-purple-600 hover:text-purple-700 font-medium">
+                    <Link href="/blog" prefetch={false} className="text-orange-600 hover:text-orange-700 font-medium">
                       View All Articles →
                     </Link>
                   </div>
@@ -659,37 +756,19 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                 </div>
               )}
 
-              <div className="sidebar-card-premium">
-                <h3>Need a Quote?</h3>
-                <p className="text-sm text-gray-600 mb-6">Compare prices and get the best deal for your pet&apos;s needs.</p>
-                <div className="sidebar-ctas">
-                  <button className="btn-primary w-full py-3 rounded-lg font-bold">Get Free Estimate</button>
-                </div>
-              </div>
-
-              {/* City Link Card */}
-              <div className="sidebar-card-premium">
-                <h3>Explore {park.city}</h3>
-                <p className="text-sm text-gray-600 mb-4">Discover more dog parks and resources in {park.city}.</p>
-                <Link href={`/cities/${citySlug}`} className="btn-primary-outline w-full py-3 rounded-lg font-bold text-center block">
-                  View All Parks in {park.city}
-                </Link>
-              </div>
-
-              {/* Business Owner Card */}
+              {/* Combined Business Owner Card */}
               <div className="sidebar-card-premium bg-amber-50 border-amber-100">
                 <h3 className="text-amber-900 flex items-center gap-2">
-                  <i className="bi bi-award-fill text-amber-500"></i> Is this your business?
+                  <i className="bi bi-award-fill text-amber-500"></i> Get Featured for Free
                 </h3>
-                <p className="text-sm text-gray-600 mb-1">Your listing is <strong>free</strong>. Add our badge to your website — it&apos;s a trust signal for your customers, like a TripAdvisor sticker.</p>
-                <p className="text-xs text-gray-400 mb-4">No account or payment required.</p>
+                <p className="text-sm text-gray-600 mb-3">Add our badge to your website and we will upgrade your park to a <strong>Featured Listing</strong>—giving you 3x more views from local dog owners.</p>
                 <BadgeEmbedButton parkSlug={park.slug || park.id} parkName={park.name} />
               </div>
             </aside>
           </div>
 
           {nearbyParks.length > 0 && (
-            <section className="nearby-parks-section mt-12 pt-12 border-t border-gray-100">
+            <section className="nearby-parks-section mt-8 pt-6 border-t border-gray-100">
               <div className="nearby-parks-header flex flex-col sm:flex-row sm:justify-between sm:items-end mb-8 gap-4">
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">Similar Dog Parks in {nearbyScope}</h2>

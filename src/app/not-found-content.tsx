@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 export default function NotFoundContent() {
   return (
     <>
-      <Header />
+      <Header variant="light" />
       <main className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
         <div className="container mx-auto px-4 py-16">
           <div className="mx-auto max-w-2xl text-center">

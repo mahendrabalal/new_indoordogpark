@@ -53,6 +53,12 @@ export const postType = defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'lastUpdated',
+      type: 'datetime',
+      title: 'Last Significant Update',
+      description: 'Optional: Manually set this when making a major update. This will show a "Last Updated" date on the blog post and update the SEO schema. Do not use for minor typo fixes.',
+    }),
+    defineField({
       name: 'tags',
       type: 'array',
       of: [defineArrayMember({type: 'reference', to: {type: 'tag'}})],

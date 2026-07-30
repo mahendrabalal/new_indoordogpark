@@ -32,7 +32,7 @@ export default async function StatesIndexPage() {
   const states = getAllStates(parks);
 
   // Keep this page lightweight: link to state hubs, but emphasize indexable ones.
-  const indexable = states.filter((s) => s.totalCities >= 5 && s.totalParks >= 5);
+  const indexableStates = states.filter((s) => s.totalCities >= 5 && s.totalParks >= 5);
 
   return (
     <>
@@ -62,7 +62,7 @@ export default async function StatesIndexPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {indexable.map((state) => (
+            {indexableStates.map((state) => (
               <Link
                 key={state.slug}
                 href={`/states/${state.slug}`}

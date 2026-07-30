@@ -100,8 +100,11 @@ interface SanityPost {
   content?: SanityPortableBlock[];
   publishedAt: string;
   _updatedAt: string;
+  lastUpdated?: string;
   mainImage?: SanityImage;
   author?: SanityAuthor;
+  reviewedBy?: SanityAuthor;
+  factCheckedBy?: SanityAuthor;
   categories?: SanityCategory[];
   tags?: SanityTag[];
 }
@@ -283,6 +286,23 @@ function sanitizeNumericId(idValue: string | undefined, fallback = 1): number {
   return Number.isNaN(digits) ? fallback : digits;
 }
 
+function sanityAuthorToWPAuthor(author?: SanityAuthor) {
+  if (!author) return undefined;
+  return {
+    id: sanitizeNumericId(author._id),
+    name: author.name,
+    slug: author.slug?.current || author.name.toLowerCase().replace(/\s+/g, '-'),
+    description: author.bio || '',
+    url: '',
+    link: `/blog/author/${author.slug?.current || author.name.toLowerCase().replace(/\s+/g, '-')}`,
+    avatar_urls: {
+      '96': author.image ? urlForImage(author.image).width(96).height(96).url() : '',
+      '48': author.image ? urlForImage(author.image).width(48).height(48).url() : '',
+      '24': author.image ? urlForImage(author.image).width(24).height(24).url() : '',
+    },
+  };
+}
+
 function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
   const featuredImage: WPMedia | undefined = sanityPost.mainImage?.asset
     ? (() => {
@@ -384,30 +404,19 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
     excerpt: sanityPost.excerpt || '',
     content: portableTextToHtml(sanityPost.content || []),
     date: sanityPost.publishedAt,
-    modified: sanityPost._updatedAt,
-    author: sanityPost.author
-      ? {
-        id: sanitizeNumericId(sanityPost.author._id),
-        name: sanityPost.author.name,
-        slug: sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-'),
-        description: sanityPost.author.bio || '',
-        url: '',
-        link: `/blog/author/${sanityPost.author.slug?.current || sanityPost.author.name.toLowerCase().replace(/\s+/g, '-')}`,
-        avatar_urls: {
-          '96': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(96).height(96).url() : '',
-          '48': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(48).height(48).url() : '',
-          '24': sanityPost.author.image ? urlForImage(sanityPost.author.image).width(24).height(24).url() : '',
-        },
-      }
-      : {
-        id: 1,
-        name: 'California Dog Parks Team',
-        slug: 'california-dog-parks-team',
-        description: 'Dedicated to helping dog owners find the best parks in California',
-        url: '',
-        link: '/blog/author/california-dog-parks-team',
-        avatar_urls: { '96': '', '48': '', '24': '' },
-      },
+    modified: sanityPost.lastUpdated || sanityPost._updatedAt,
+    lastUpdated: sanityPost.lastUpdated,
+    author: sanityAuthorToWPAuthor(sanityPost.author) || {
+      id: 1,
+      name: 'California Dog Parks Team',
+      slug: 'california-dog-parks-team',
+      description: 'Dedicated to helping dog owners find the best parks in California',
+      url: '',
+      link: '/blog/author/california-dog-parks-team',
+      avatar_urls: { '96': '', '48': '', '24': '' },
+    },
+    factCheckedBy: sanityAuthorToWPAuthor(sanityPost.factCheckedBy),
+    reviewedBy: sanityAuthorToWPAuthor(sanityPost.reviewedBy),
     categories: (sanityPost.categories || []).map((cat, index: number) => ({
       id: sanitizeNumericId(cat._id, index + 1),
       name: cat.title,

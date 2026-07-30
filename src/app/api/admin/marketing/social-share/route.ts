@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
 import { postToFacebookPage } from '@/lib/facebook';
 import { fetchPostBySlug } from '@/lib/sanity-api';
+import { postToPinterest } from '@/lib/pinterest';
 
 export const dynamic = 'force-dynamic';
 
@@ -51,9 +52,17 @@ export async function POST(request: NextRequest) {
             }
         }
 
-        // Future: Add Twitter, Pinterest sharing here
-        // if (platform === 'twitter' || platform === 'all') { ... }
-        // if (platform === 'pinterest' || platform === 'all') { ... }
+        if (platform === 'pinterest' || platform === 'all') {
+            try {
+                const pinResult = await postToPinterest(post.title, post.slug);
+                results.pinterest = pinResult;
+            } catch (err) {
+                results.pinterest = {
+                    success: false,
+                    error: err instanceof Error ? err.message : 'Unknown error',
+                };
+            }
+        }
 
         const anySuccess = Object.values(results).some((r: any) => r.success);
 

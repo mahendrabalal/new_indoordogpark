@@ -14,6 +14,7 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   env: {
     NEXT_PUBLIC_SOCIAL_INSTAGRAM: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM || 'https://www.instagram.com/indoordogpark2025/',
   },
@@ -271,35 +272,7 @@ const nextConfig = {
       },
     ];
   },
-  // Rewrites for sitemap API routes (map .xml URLs to API routes)
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap-static.xml',
-        destination: '/api/sitemap/static',
-      },
-      {
-        source: '/sitemap-parks.xml',
-        destination: '/api/sitemap/parks',
-      },
-      {
-        source: '/sitemap-cities.xml',
-        destination: '/api/sitemap/cities',
-      },
-      {
-        source: '/sitemap-states.xml',
-        destination: '/api/sitemap/states',
-      },
-      {
-        source: '/sitemap-blog.xml',
-        destination: '/api/sitemap/blog',
-      },
-      {
-        source: '/sitemap-images.xml',
-        destination: '/api/sitemap/images',
-      },
-    ];
-  },
+
   // Redirects for SEO
   async redirects() {
     return [

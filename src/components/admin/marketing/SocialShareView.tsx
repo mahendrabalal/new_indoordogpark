@@ -25,7 +25,7 @@ export function SocialShareView({ recentPosts }: Props) {
 
     const selectedPost = recentPosts.find(p => p.slug === selectedSlug);
 
-    const handleShare = async (platform: 'facebook' | 'all') => {
+    const handleShare = async (platform: 'facebook' | 'twitter' | 'pinterest' | 'all') => {
         if (!selectedSlug) return;
         setIsSharing(true);
         setShareResults([]);
@@ -54,7 +54,19 @@ export function SocialShareView({ recentPosts }: Props) {
                     postId: json.results.facebook.postId,
                 });
             }
-            // Future: Twitter, Pinterest results
+            if (platform === 'all') {
+                handleShareTwitter();
+            }
+            if (json.results?.pinterest) {
+                results.push({
+                    platform: 'Pinterest',
+                    success: json.results.pinterest.success,
+                    message: json.results.pinterest.success
+                        ? 'Pinned to Pinterest!'
+                        : json.results.pinterest.error || 'Failed to pin',
+                    postId: json.results.pinterest.postId,
+                });
+            }
             setShareResults(results);
 
             // Add to local history
@@ -73,6 +85,41 @@ export function SocialShareView({ recentPosts }: Props) {
         }
     };
 
+    const handleShareTwitter = () => {
+        if (!selectedSlug || !selectedPost) {
+            setShareResults([{
+                platform: 'X (Twitter)',
+                success: false,
+                message: 'Select a blog post first.',
+            }]);
+            return;
+        }
+
+        const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.indoordogpark.org';
+        const postUrl = `${siteUrl}/blog/${selectedSlug}`;
+        
+        // Strip HTML and keep it brief
+        const text = `🐾 New Blog Post!\n\n${selectedPost.title}\n\n`;
+        
+        const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(postUrl)}`;
+        
+        // Open X sharing window
+        window.open(intentUrl, '_blank', 'width=600,height=400,noopener,noreferrer');
+        
+        // Add optimistic success to results and history
+        setShareResults(prev => [{
+            platform: 'X (Twitter)',
+            success: true,
+            message: 'Opened X (Twitter) sharing window!',
+        }, ...prev]);
+
+        setShareHistory(prev => [{
+            slug: selectedSlug,
+            title: selectedPost.title,
+            platforms: ['X (Twitter)'],
+            timestamp: new Date().toISOString(),
+        }, ...prev]);
+    };
     return (
         <div className="space-y-6">
             <div>
@@ -148,24 +195,33 @@ export function SocialShareView({ recentPosts }: Props) {
                                     <span className="font-medium">{isSharing ? 'Posting...' : 'Share to Facebook Page'}</span>
                                 </button>
 
-                                {/* Twitter - Coming Soon */}
+                                {/* Twitter */}
                                 <button
-                                    disabled
-                                    className="w-full flex items-center gap-3 px-4 py-3 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed"
+                                    onClick={handleShareTwitter}
+                                    className="w-full flex items-center gap-3 px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
                                 >
                                     <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                                     <span className="font-medium">Share to X (Twitter)</span>
-                                    <span className="ml-auto text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">Coming Soon</span>
                                 </button>
 
-                                {/* Pinterest - Coming Soon */}
+                                {/* Pinterest */}
                                 <button
-                                    disabled
-                                    className="w-full flex items-center gap-3 px-4 py-3 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed"
+                                    onClick={() => handleShare('pinterest')}
+                                    disabled={isSharing}
+                                    className="w-full flex items-center gap-3 px-4 py-3 bg-[#E60023] text-white rounded-lg hover:bg-[#ad081b] disabled:opacity-50 transition-colors shadow-sm"
                                 >
                                     <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-                                    <span className="font-medium">Share to Pinterest</span>
-                                    <span className="ml-auto text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">Coming Soon</span>
+                                    <span className="font-medium">{isSharing ? 'Posting...' : 'Share to Pinterest'}</span>
+                                </button>
+
+                                {/* Share to All */}
+                                <button
+                                    onClick={() => handleShare('all')}
+                                    disabled={isSharing}
+                                    className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors shadow-sm font-semibold"
+                                >
+                                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    <span>{isSharing ? 'Sharing to All...' : 'Share to All Social Platforms'}</span>
                                 </button>
                             </div>
                         )}

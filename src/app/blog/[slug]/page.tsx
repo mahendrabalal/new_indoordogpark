@@ -153,6 +153,9 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const videos = extractYouTubeVideos(post.content);
 
+  const reviewer = post.factCheckedBy || post.reviewedBy;
+  const reviewerRole = post.factCheckedBy ? 'Fact-checked by' : 'Reviewed by';
+
   return (
     <>
       <StructuredData type="BlogPosting" data={post} />
@@ -270,38 +273,77 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
 
                 {/* Meta Information */}
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
-                  {post.author && (
-                    <Link href={`/blog/author/${post.author.slug}`} className="flex items-center gap-2 hover:text-green-600 transition-colors group">
-                      {post.author.avatar_urls && post.author.avatar_urls['96'] && (
-                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200 group-hover:ring-2 group-hover:ring-green-300 transition-all">
-                          <Image
-                            src={post.author.avatar_urls['96']}
-                            alt={post.author.name}
-                            fill
-                            className="object-cover"
-                          />
+                <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-3 md:gap-4 text-sm text-gray-600 mb-6">
+                  <div className="flex flex-wrap items-center gap-4">
+                    {post.author && (
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-500">Written by</span>
+                        <Link href={`/blog/author/${post.author.slug}`} className="flex items-center gap-2 hover:text-green-600 transition-colors group">
+                          {post.author.avatar_urls && post.author.avatar_urls['96'] && (
+                            <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200 group-hover:ring-2 group-hover:ring-green-300 transition-all">
+                              <Image
+                                src={post.author.avatar_urls['96']}
+                                alt={post.author.name}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          )}
+                          <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">{post.author.name}</span>
+                        </Link>
+                      </div>
+                    )}
+                    {reviewer && (
+                      <>
+                        <span className="hidden md:inline text-gray-300">|</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-gray-500">{reviewerRole}</span>
+                          <Link href={`/blog/author/${reviewer.slug}`} className="flex items-center gap-2 hover:text-green-600 transition-colors group">
+                            {reviewer.avatar_urls && reviewer.avatar_urls['96'] && (
+                              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gray-200 group-hover:ring-2 group-hover:ring-green-300 transition-all">
+                                <Image
+                                  src={reviewer.avatar_urls['96']}
+                                  alt={reviewer.name}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
+                            )}
+                            <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">{reviewer.name}</span>
+                          </Link>
                         </div>
+                      </>
+                    )}
+                  </div>
+                  
+                  <div className="flex items-center gap-3 md:gap-4 text-gray-500 w-full md:w-auto md:border-l md:border-gray-300 md:pl-4">
+                    <div className="flex items-center gap-1">
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric',
+                        })}
+                      </time>
+                      {post.lastUpdated && post.lastUpdated !== post.date && (
+                        <span className="italic whitespace-nowrap">
+                          (Updated: {new Date(post.lastUpdated).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          })})
+                        </span>
                       )}
-                      <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">{post.author.name}</span>
-                    </Link>
-                  )}
-                  <span>|</span>
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      month: 'long',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </time>
-                  <span>|</span>
-                  <span>{readingTime} min read</span>
+                    </div>
+                    <span className="text-gray-300">|</span>
+                    <span>{readingTime} min read</span>
+                  </div>
                 </div>
 
                 {/* Hero Image */}
                 {featuredImage && (
                   <figure className="mb-8">
-                    <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-100">
+                    <div className="group relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-100">
                       <Image
                         src={featuredImage}
                         alt={post.featuredImage?.alt_text || post.title}
@@ -310,7 +352,73 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                         priority
                         sizes="(max-width: 768px) 100vw, 896px"
                         unoptimized={true}
+                        data-pin-nopin="true"
                       />
+                      
+                      {/* Hover Share Overlay */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between p-4 z-10 pointer-events-none">
+                        {/* Top Left: Pinterest Save */}
+                        <div className="pointer-events-auto">
+                          <a
+                            href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}&media=${encodeURIComponent(featuredImage)}&description=${encodeURIComponent(post.title)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 bg-[#E60023] hover:bg-[#ad081b] text-white px-3 py-1.5 rounded-full font-semibold text-sm transition-colors"
+                            aria-label="Save to Pinterest"
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345l-.288 1.148c-.05.204-.185.263-.385.163-1.442-.71-2.34-2.943-2.34-4.739 0-3.856 2.802-7.399 8.082-7.399 4.236 0 7.522 3.018 7.522 7.042 0 4.208-2.651 7.599-6.331 7.599-1.238 0-2.403-.642-2.801-1.4l-.764 2.911c-.276 1.047-1.024 2.355-1.528 3.155 1.196.368 2.455.567 3.768.567 6.621 0 11.988-5.367 11.988-11.987C24 5.367 18.638 0 12.017 0z"/>
+                            </svg>
+                            Save
+                          </a>
+                        </div>
+                        
+                        {/* Top Right: General Share Icons */}
+                        <div className="flex flex-col gap-2 pointer-events-auto">
+                          <a
+                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#2c2c2c] hover:bg-black text-white p-2 rounded-md transition-colors flex items-center justify-center shadow-sm"
+                            aria-label="Share on LinkedIn"
+                          >
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                          </a>
+                          <a
+                            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#2c2c2c] hover:bg-black text-white p-2 rounded-md transition-colors flex items-center justify-center shadow-sm"
+                            aria-label="Share on X (Twitter)"
+                          >
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                          </a>
+                          <a
+                            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#2c2c2c] hover:bg-black text-white p-2 rounded-md transition-colors flex items-center justify-center shadow-sm"
+                            aria-label="Share on Facebook"
+                          >
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                          </a>
+                          <a
+                            href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
+                            className="bg-[#2c2c2c] hover:bg-black text-white p-2 rounded-md transition-colors flex items-center justify-center shadow-sm"
+                            aria-label="Share via Email"
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                     {post.featuredImage?.caption?.rendered && (
                       <figcaption 
@@ -407,7 +515,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
               {/* Author Info */}
-              <div>
+              <div className="space-y-6">
                 {post.author && (
                   <div className="flex gap-4">
                     <Link href={`/blog/author/${post.author.slug}`} className="flex-shrink-0">
@@ -429,6 +537,33 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                       )}
                       <Link href={`/blog/author/${post.author.slug}`} className="inline-flex items-center gap-1 text-sm text-green-600 hover:text-green-700 font-medium mt-2 transition-colors">
                         View all articles →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+                
+                {reviewer && (
+                  <div className="flex gap-4 pt-6 border-t border-gray-100">
+                    <Link href={`/blog/author/${reviewer.slug}`} className="flex-shrink-0">
+                      {reviewer.avatar_urls && reviewer.avatar_urls['96'] && (
+                        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 hover:ring-2 hover:ring-green-300 transition-all">
+                          <Image
+                            src={reviewer.avatar_urls['96']}
+                            alt={reviewer.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+                    </Link>
+                    <div>
+                      <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">{reviewerRole}</div>
+                      <Link href={`/blog/author/${reviewer.slug}`} className="text-base font-bold text-gray-900 mb-1 hover:text-green-600 transition-colors block">{reviewer.name}</Link>
+                      {reviewer.description && (
+                        <p className="text-sm text-gray-600 leading-relaxed">{reviewer.description}</p>
+                      )}
+                      <Link href={`/blog/author/${reviewer.slug}`} className="inline-flex items-center gap-1 text-sm text-green-600 hover:text-green-700 font-medium mt-2 transition-colors">
+                        View profile →
                       </Link>
                     </div>
                   </div>

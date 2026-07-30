@@ -36,6 +36,8 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
     // Extract clean description
     const cleanDescription = post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
 
+    const reviewer = post.factCheckedBy || post.reviewedBy;
+
     // Note: YouTube videos are extracted in the page component and added as separate VideoObject schemas
 
     const structuredData: Record<string, unknown> = {
@@ -52,7 +54,7 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         }
       ] : [],
       datePublished: post.date,
-      dateModified: post.modified,
+      dateModified: post.lastUpdated || post.modified,
       author: {
         '@type': 'Person',
         name: authorName,
@@ -66,6 +68,21 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
           description: post.author.description,
         }),
       },
+      ...(reviewer && {
+        reviewedBy: {
+          '@type': 'Person',
+          name: reviewer.name,
+          ...(reviewer.avatar_urls?.['96'] && {
+            image: {
+              '@type': 'ImageObject',
+              url: reviewer.avatar_urls['96'],
+            },
+          }),
+          ...(reviewer.description && {
+            description: reviewer.description,
+          }),
+        }
+      }),
       publisher: {
         '@type': 'Organization',
         name: 'Indoor Dog Park',

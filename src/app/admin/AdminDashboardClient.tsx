@@ -126,6 +126,7 @@ export default function AdminDashboardClient() {
   const [deleteTarget, setDeleteTarget] = useState<ParkSubmission | null>(null);
   const [approveReviewTarget, setApproveReviewTarget] = useState<Review | null>(null);
   const [rejectReviewTarget, setRejectReviewTarget] = useState<Review | null>(null);
+  const [deleteReviewTarget, setDeleteReviewTarget] = useState<Review | null>(null);
   const [rejectionReason, setRejectionReason] = useState('');
   const [actionState, setActionState] = useState<{ id: string | null; type: ActionType | null }>({
     id: null,
@@ -474,20 +475,31 @@ export default function AdminDashboardClient() {
   }, []);
 
   const executeReviewAction = useCallback(
-    async (config: { reviewId: string; type: 'approve' | 'reject' }) => {
+    async (config: { reviewId: string; type: 'approve' | 'reject' | 'delete' }) => {
       try {
         setActionState({ id: config.reviewId, type: config.type });
 
-        const headers = await buildAuthHeaders({ json: true });
-        const endpoint = config.type === 'approve' 
-          ? '/api/admin/reviews/approve' 
-          : '/api/admin/reviews/reject';
+        const isDelete = config.type === 'delete';
+        const headers = await buildAuthHeaders(isDelete ? undefined : { json: true });
+        
+        let endpoint: string;
+        let method: 'POST' | 'DELETE' = 'POST';
 
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({ reviewId: config.reviewId }),
-        });
+        if (config.type === 'approve') {
+          endpoint = '/api/admin/reviews/approve';
+        } else if (config.type === 'reject') {
+          endpoint = '/api/admin/reviews/reject';
+        } else {
+          endpoint = `/api/admin/reviews/${config.reviewId}`;
+          method = 'DELETE';
+        }
+
+        const requestInit: RequestInit = { method, headers };
+        if (!isDelete) {
+          requestInit.body = JSON.stringify({ reviewId: config.reviewId });
+        }
+
+        const response = await fetch(endpoint, requestInit);
 
         const data = await response.json();
 
@@ -495,9 +507,10 @@ export default function AdminDashboardClient() {
           throw new Error(data.error || `Failed to ${config.type} review`);
         }
 
+        const actionText = config.type === 'approve' ? 'approved' : config.type === 'reject' ? 'rejected' : 'deleted';
         showToast({
           type: 'success',
-          title: `Review ${config.type === 'approve' ? 'approved' : 'rejected'} successfully`,
+          title: `Review ${actionText} successfully`,
         });
 
         // Refresh reviews
@@ -513,6 +526,7 @@ export default function AdminDashboardClient() {
         resetActionState();
         setApproveReviewTarget(null);
         setRejectReviewTarget(null);
+        setDeleteReviewTarget(null);
       }
     },
     [buildAuthHeaders, fetchReviews, resetActionState, showToast]
@@ -1173,26 +1187,34 @@ export default function AdminDashboardClient() {
 
                         <footer className="mt-6 border-t border-gray-100 pt-4">
                           <div className="flex flex-col gap-3 sm:flex-row">
-                            {isPending && (
-                              <>
-                                <button
-                                  type="button"
-                                  onClick={() => setApproveReviewTarget(review)}
-                                  disabled={isActionLoading(review.id, 'approve')}
-                                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:bg-gray-300"
-                                >
-                                  {isActionLoading(review.id, 'approve') ? 'Approving…' : 'Approve'}
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => setRejectReviewTarget(review)}
-                                  disabled={isActionLoading(review.id, 'reject')}
-                                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 disabled:cursor-not-allowed disabled:bg-gray-300"
-                                >
-                                  {isActionLoading(review.id, 'reject') ? 'Rejecting…' : 'Reject'}
-                                </button>
-                              </>
+                            {review.status !== 'approved' && (
+                              <button
+                                type="button"
+                                onClick={() => setApproveReviewTarget(review)}
+                                disabled={isActionLoading(review.id, 'approve')}
+                                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                              >
+                                {isActionLoading(review.id, 'approve') ? 'Approving…' : 'Approve'}
+                              </button>
                             )}
+                            {review.status !== 'rejected' && (
+                              <button
+                                type="button"
+                                onClick={() => setRejectReviewTarget(review)}
+                                disabled={isActionLoading(review.id, 'reject')}
+                                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                              >
+                                {isActionLoading(review.id, 'reject') ? 'Rejecting…' : 'Reject (Hide)'}
+                              </button>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() => setDeleteReviewTarget(review)}
+                              disabled={isActionLoading(review.id, 'delete')}
+                              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 disabled:cursor-not-allowed disabled:bg-gray-300"
+                            >
+                              {isActionLoading(review.id, 'delete') ? 'Deleting…' : 'Delete'}
+                            </button>
                           </div>
                         </footer>
                       </div>
@@ -1397,7 +1419,7 @@ export default function AdminDashboardClient() {
           <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
             <h3 className="text-xl font-semibold text-gray-900">Reject review</h3>
             <p className="mt-3 text-sm text-gray-600">
-              Are you sure you want to reject this review? The reviewer will be able to see that their review was not approved.
+              Are you sure you want to reject this review? This will hide it from the public directory. The reviewer will be able to see that their review was not approved.
             </p>
             {rejectReviewTarget.title && (
               <p className="mt-2 text-sm font-medium text-gray-800">
@@ -1421,9 +1443,46 @@ export default function AdminDashboardClient() {
                   })
                 }
                 disabled={isActionLoading(rejectReviewTarget.id, 'reject')}
-                className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 {isActionLoading(rejectReviewTarget.id, 'reject') ? 'Rejecting…' : 'Reject review'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete review confirmation */}
+      {deleteReviewTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6">
+          <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl">
+            <h3 className="text-xl font-semibold text-gray-900">Delete review</h3>
+            <p className="mt-3 text-sm text-gray-600">
+              Are you sure you want to permanently delete this review?
+            </p>
+            <p className="mt-2 text-sm text-rose-600">
+              This action cannot be undone.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => setDeleteReviewTarget(null)}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  executeReviewAction({
+                    reviewId: deleteReviewTarget.id,
+                    type: 'delete',
+                  })
+                }
+                disabled={isActionLoading(deleteReviewTarget.id, 'delete')}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-rose-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+              >
+                {isActionLoading(deleteReviewTarget.id, 'delete') ? 'Deleting…' : 'Delete permanently'}
               </button>
             </div>
           </div>

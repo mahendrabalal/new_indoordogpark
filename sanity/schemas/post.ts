@@ -76,6 +76,26 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
+      name: 'lastUpdated',
+      title: 'Last Updated',
+      type: 'datetime',
+      description: 'When the post was last updated or fact-checked.',
+    }),
+    defineField({
+      name: 'reviewedBy',
+      title: 'Reviewed By',
+      type: 'reference',
+      to: [{ type: 'author' }],
+      description: 'Expert or editor who reviewed this content.',
+    }),
+    defineField({
+      name: 'factCheckedBy',
+      title: 'Fact Checked By',
+      type: 'reference',
+      to: [{ type: 'author' }],
+      description: 'Expert or editor who fact-checked this content.',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',

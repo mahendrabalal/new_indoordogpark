@@ -72,5 +72,22 @@ export const blockContentType = defineType({
         }
       ]
     }),
+    defineArrayMember({
+      type: 'object',
+      name: 'htmlBlock',
+      title: 'HTML Block',
+      fields: [
+        {
+          name: 'html',
+          type: 'text',
+          title: 'HTML Content',
+        },
+      ],
+      preview: {
+        select: {
+          title: 'html',
+        },
+      },
+    }),
   ],
 })

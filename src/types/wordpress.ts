@@ -158,7 +158,10 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   modified: string;
+  lastUpdated?: string;
   author?: WPAuthor;
+  factCheckedBy?: WPAuthor;
+  reviewedBy?: WPAuthor;
   categories: WPCategory[];
   tags: WPTag[];
   featuredImage?: WPMedia;

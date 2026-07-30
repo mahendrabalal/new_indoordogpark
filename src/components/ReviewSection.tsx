@@ -180,6 +180,8 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
     return 'Anonymous';
   };
 
+  const displayReviews = userReview ? [userReview, ...reviews] : reviews;
+
   return (
     <section className="reviews-section">
       <div className="reviews-header">
@@ -295,7 +297,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         <div className="loading-reviews">
           <i className="bi bi-hourglass-split"></i> Loading reviews...
         </div>
-      ) : reviews.length === 0 ? (
+      ) : displayReviews.length === 0 ? (
         <div className="no-reviews">
           <p>
             No reviews yet. {user ? (
@@ -316,11 +318,17 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         </div>
       ) : (
         <div className="reviews-list">
-          {reviews.map((review) => (
+          {displayReviews.map((review) => (
             <div key={review.id} className="review-card">
               <div className="review-header">
                 <div className="reviewer-info">
                   <span className="reviewer-name">{getUserDisplayName(review)}</span>
+                  {review.status === 'pending' && (
+                    <span className="pending-badge" style={{ fontSize: '0.75rem', backgroundColor: '#fff3cd', color: '#856404', padding: '2px 8px', borderRadius: '12px', marginLeft: '8px', fontWeight: 500 }}>Pending</span>
+                  )}
+                  {review.status === 'rejected' && (
+                    <span className="rejected-badge" style={{ fontSize: '0.75rem', backgroundColor: '#f8d7da', color: '#721c24', padding: '2px 8px', borderRadius: '12px', marginLeft: '8px', fontWeight: 500 }}>Rejected</span>
+                  )}
                   <div className="review-rating">
                     {renderStars(review.rating)}
                   </div>
@@ -331,7 +339,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
               {review.content && <p className="review-comment">{review.content}</p>}
               <div className="review-actions">
                 <span className="helpful-count">{review.helpful_count} people found this helpful</span>
-                {user && (
+                {user && review.status === 'approved' && (
                   <div className="helpful-buttons">
                     <button
                       className="helpful-btn"

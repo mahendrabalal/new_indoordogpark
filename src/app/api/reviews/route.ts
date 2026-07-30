@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
+import { supabaseAdminClient } from '@/lib/supabase-admin';
 
 export async function GET(request: NextRequest) {
   try {
@@ -27,7 +28,7 @@ export async function GET(request: NextRequest) {
           .eq('park_id', parkId)
           .eq('user_id', user.id)
           .single();
-        userReview = review;
+        userReview = review ? { ...review, user: { email: user.email, user_metadata: user.user_metadata } } : null;
       }
     }
 
@@ -52,7 +53,33 @@ export async function GET(request: NextRequest) {
     }
 
     // Ensure reviews is an array and has valid data
-    const validReviews = Array.isArray(reviews) ? reviews : [];
+    let validReviews = Array.isArray(reviews) ? reviews : [];
+
+    // Fetch user details for all valid reviews
+    if (validReviews.length > 0) {
+      const userIds = [...new Set(validReviews.map(r => r.user_id).filter(Boolean))];
+      
+      const usersData: Record<string, any> = {};
+      
+      await Promise.all(userIds.map(async (uid) => {
+        try {
+          const { data: userData } = await supabaseAdminClient.auth.admin.getUserById(uid);
+          if (userData?.user) {
+            usersData[uid] = {
+              email: userData.user.email,
+              user_metadata: userData.user.user_metadata,
+            };
+          }
+        } catch (err) {
+          console.error(`Failed to fetch user ${uid}`, err);
+        }
+      }));
+
+      validReviews = validReviews.map(r => ({
+        ...r,
+        user: r.user_id ? usersData[r.user_id] || null : null
+      }));
+    }
 
     // Calculate average rating from all approved reviews (including user's if approved)
     const allReviewsForAvg = userReview && (userReview as { status?: string }).status === 'approved'

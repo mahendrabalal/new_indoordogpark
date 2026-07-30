@@ -12,7 +12,7 @@ import ParkCard from '@/components/ParkCard';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
 const editorialAuthorSlug = 'article';
-const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/indoor.-dog-park training-facilities.webp`;
+const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/hero/indoor-dog-training-facilities.webp`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'The Ultimate Guide to Indoor Dog Training Facilities | IndoorDogPark';
@@ -133,7 +133,7 @@ export default async function TrainingFacilitiesPage() {
             
             <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg mb-10">
               <Image
-                src="/images/hero/indoor.-dog-park training-facilities.webp"
+                src="/images/hero/indoor-dog-training-facilities.webp"
                 alt="Indoor dog training facilities"
                 fill
                 className="object-cover"
@@ -273,7 +273,7 @@ export default async function TrainingFacilitiesPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 group-hover:text-violet-700 transition-colors">Puppy Obedience Training Costs</h3>
-                  <p className="text-sm text-slate-500 mt-1">Complete 2025 cost guide for puppy obedience training - what to expect and how to budget.</p>
+                  <p className="text-sm text-slate-500 mt-1">Complete 2026 cost guide for puppy obedience training - what to expect and how to budget.</p>
                 </div>
               </Link>
               <Link href="/?type=Agility+%26+Training+Parks" className="group p-6 bg-white border border-slate-200 rounded-xl hover:border-violet-400 hover:shadow-md transition-all flex items-start">
