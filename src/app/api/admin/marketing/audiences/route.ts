@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
         const { data: campaignLogs } = await supabaseAdminClient
             .from('email_campaign_logs')
             .select('recipient_email')
-            .eq('campaign_name', 'badge_outreach');
+            .eq('status', 'delivered');
 
         const badgeSentEmails = new Set((campaignLogs || []).map((log: any) => log.recipient_email.toLowerCase()));
 
