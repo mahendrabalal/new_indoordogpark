@@ -12,6 +12,7 @@ interface CampaignSummary {
     last_sent: string;
     last_subject: string | null;
     last_body: string | null;
+    last_recipient_email?: string | null;
 }
 
 interface CampaignDetail {
@@ -149,6 +150,16 @@ export function CampaignHistoryView() {
                                                                 <span className="font-medium">{campaign.campaign_detail}</span>
                                                             </span>
                                                         )}
+                                                    </div>
+                                                )}
+
+                                                {/* Show email address if it was a single send */}
+                                                {campaign.total_sent === 1 && campaign.last_recipient_email && (
+                                                    <div className="text-sm text-gray-700 mt-0.5 truncate max-w-md">
+                                                        <span className="flex items-center gap-1.5">
+                                                            <span className="text-gray-400">To:</span>
+                                                            <span className="font-medium text-indigo-600">{campaign.last_recipient_email}</span>
+                                                        </span>
                                                     </div>
                                                 )}
 

@@ -109,6 +109,7 @@ export async function GET(request: NextRequest) {
                     last_sent: log.sent_at,
                     last_subject: log.subject || null,
                     last_body: log.body_content || null,
+                    last_recipient_email: log.recipient_email || null,
                 });
             }
 
@@ -123,6 +124,7 @@ export async function GET(request: NextRequest) {
                 entry.last_sent = log.sent_at;
                 if (log.subject) entry.last_subject = log.subject;
                 if (log.body_content) entry.last_body = log.body_content;
+                if (log.recipient_email) entry.last_recipient_email = log.recipient_email;
             }
         }
 
