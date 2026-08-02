@@ -72,6 +72,8 @@ export async function GET(request: NextRequest) {
       category: sub.category,
       status: sub.status,
       adminNotes: sub.admin_notes,
+      replyMessage: sub.reply_message,
+      repliedAt: sub.replied_at,
       createdAt: sub.created_at,
       updatedAt: sub.updated_at,
     })) || [];

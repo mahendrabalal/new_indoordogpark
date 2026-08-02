@@ -532,8 +532,8 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       if (stateConfig?.featuredImage) {
         featuredImage = stateConfig.featuredImage;
       } else {
-        // Ultimate fallback to the city path even if it might 404
-        featuredImage = `/images/cities/${city.slug}/hero.webp`;
+        // Ultimate fallback: undefined triggers the CSS `.no-image` text-only layout
+        featuredImage = undefined;
       }
     }
 
@@ -589,8 +589,8 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       if (stateConfig?.featuredImage) {
         featuredImage = stateConfig.featuredImage;
       } else {
-        // Ultimate Fallback
-        featuredImage = `/images/cities/${priorityConfig.slug}/hero.webp`;
+        // Ultimate Fallback: undefined triggers the CSS `.no-image` text-only layout
+        featuredImage = undefined;
       }
     }
 
@@ -634,7 +634,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     parkCount: 0,
     avgRating: 0,
     totalReviews: 0,
-    featuredImage: `/images/cities/${normalizedSlug}/hero.webp`,
+    featuredImage: undefined,
     latitude: undefined,
     longitude: undefined,
   };

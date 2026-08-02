@@ -13,7 +13,7 @@ interface ParkContact {
 }
 
 interface Props {
-    subscribers: { total: number; owners: number; consumers: number };
+    subscribers: { total: number; owners: number; consumers: number; partners: number };
     recentPosts: BlogPost[];
     approvedParks: ParkContact[];
     onSend: (payload: any) => Promise<{ success: boolean; message: string; details?: any[] }>;
@@ -70,7 +70,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
 
         const payload = {
             template: templateType === 'badge_outreach' ? 'outreach' : (templateType === 'blog' ? 'blog' : 'generic'),
-            segment: audienceType === 'single_partner' ? 'single' : (templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : 'all')),
+            segment: audienceType === 'single_partner' ? 'single' : (templateType === 'badge_outreach' ? 'bulk-outreach' : (audienceType === 'consumers' ? 'consumers' : (audienceType === 'partners' ? 'partners' : 'all'))),
             data: templateType === 'blog' 
                 ? { slug: selectedSlug } 
                 : templateType === 'badge_outreach' 
@@ -151,6 +151,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 <option value="pending_owners">Pending Park Owners ({pendingOwnersCount})</option>
                                 <option value="all">All Subscribers ({subscribers.total})</option>
                                 <option value="consumers">Consumers ({subscribers.consumers})</option>
+                                <option value="partners">Partners/B2B ({subscribers.partners})</option>
                                 <option value="single_partner">Single Partner (B2B)</option>
                             </select>
                         </div>
@@ -344,7 +345,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         </div>
                         <h3 className="text-xl font-bold text-center text-slate-900 mb-2">Ready to Broadcast?</h3>
                         <p className="text-center text-slate-600 mb-6">
-                            You are about to send the <strong className="text-slate-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg font-bold px-1">{audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : subscribers.consumers))}</strong> recipient(s). This action cannot be undone.
+                            You are about to send the <strong className="text-slate-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg font-bold px-1">{audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : (audienceType === 'consumers' ? subscribers.consumers : subscribers.partners)))}</strong> recipient(s). This action cannot be undone.
                         </p>
                         <div className="flex flex-col gap-3">
                             <button 

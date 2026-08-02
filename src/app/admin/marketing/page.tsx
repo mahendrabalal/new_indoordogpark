@@ -20,7 +20,7 @@ export default function MarketingPage() {
     const [activeView, setActiveView] = useState<'dashboard' | 'audiences' | 'history' | 'builder' | 'social'>('dashboard');
     
     // Shared Data
-    const [subscribers, setSubscribers] = useState<{ total: number; owners: number; consumers: number }>({ total: 0, owners: 0, consumers: 0 });
+    const [subscribers, setSubscribers] = useState<{ total: number; owners: number; consumers: number; partners: number }>({ total: 0, owners: 0, consumers: 0, partners: 0 });
     const [recentPosts, setRecentPosts] = useState<any[]>([]);
     const [approvedParks, setApprovedParks] = useState<any[]>([]);
 
@@ -38,7 +38,8 @@ export default function MarketingPage() {
                 setSubscribers({
                     total: data.total,
                     owners: data.owners,
-                    consumers: data.consumers
+                    consumers: data.consumers,
+                    partners: data.partners
                 });
             }
         } catch (e) {

@@ -102,6 +102,8 @@ export async function GET(request: NextRequest) {
       updatedAt: sub.updated_at,
       approvedAt: sub.approved_at,
       approvedBy: sub.approved_by,
+      replyMessage: sub.reply_message,
+      repliedAt: sub.replied_at,
     })) || [];
 
     const total = count ?? 0;

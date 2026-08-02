@@ -58,6 +58,25 @@ export async function POST(request: Request) {
     if (dbError) {
       console.error('[contact] Failed to save to database:', dbError);
       // Continue with email notifications even if DB insert fails
+    } else {
+      // Auto-subscribe the user to the marketing audience
+      const type = payload.category === 'Submit a Park' ? 'owner' 
+                 : payload.category === 'Partnership' ? 'partner' 
+                 : 'consumer';
+                 
+      const { error: subscriberError } = await supabaseAdminClient
+        .from('subscribers')
+        .upsert({
+          email: payload.email!.trim().toLowerCase(),
+          type,
+          source: 'contact_form',
+          status: 'active',
+          metadata: { name: payload.name!.trim(), category: payload.category }
+        }, { onConflict: 'email' });
+
+      if (subscriberError) {
+          console.error('[contact] Failed to save to subscribers:', subscriberError);
+      }
     }
 
     // Send notification to admin

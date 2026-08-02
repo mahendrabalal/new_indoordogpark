@@ -24,15 +24,17 @@ export async function GET() {
         const { count: total, error: e1 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active');
         const { count: owners, error: e2 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'owner');
         const { count: consumers, error: e3 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'consumer');
+        const { count: partners, error: e4 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'partner');
 
-        if (e1 || e2 || e3) {
-            console.error('Stats fetch error:', e1, e2, e3);
+        if (e1 || e2 || e3 || e4) {
+            console.error('Stats fetch error:', e1, e2, e3, e4);
         }
 
         return NextResponse.json({
             total: total || 0,
             owners: owners || 0,
-            consumers: consumers || 0
+            consumers: consumers || 0,
+            partners: partners || 0
         });
 
     } catch (error) {

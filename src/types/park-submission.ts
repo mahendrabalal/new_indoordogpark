@@ -110,6 +110,8 @@ export interface ParkSubmission extends ParkSubmissionForm {
   listingType: ListingType;
   status: SubmissionStatus;
   rejectionReason?: string;
+  replyMessage?: string;
+  repliedAt?: string;
 
   // Subscription (for featured listings)
   stripeSubscriptionId?: string;

@@ -293,6 +293,8 @@ export async function POST(request: NextRequest) {
                 query = query.eq('type', 'owner');
             } else if (segment === 'consumers') {
                 query = query.eq('type', 'consumer');
+            } else if (segment === 'partners') {
+                query = query.eq('type', 'partner');
             }
 
             const { data: subscribers, error } = await query;

@@ -11181,8 +11181,23 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroHeading: 'Indoor Dog Park In Fresno',
       heroDescription: 'Discover the Central Valley’s best dog parks and trails, right at the doorstep of the Sierras.',
       longDescription: [
-        "Fresno, the agricultural powerhouse of the Central Valley, offers a surprisingly robust landscape for dog owners, serving as a gateway to the Sierra Nevada mountains. The city's dog culture is practical and community-focused, adapted to the region's hot summers and mild winters. Residents often flock to the San Joaquin River Parkway for cooler, shaded walks, utilizing trails like the Lewis S. Eaton Trail. While Fresno lacks a multitude of public indoor dog parks, the Dr. James W. Thornton Dog Park at the Valley Animal Center fills this gap with a top-tier membership facility that includes a wading pool and agility courses—critical amenities during triple-digit heatwaves. The community here is active, with frequent meetups at dog-friendly breweries like House of Pendragon, where pets are welcomed into the family atmosphere.",
+        "Fresno, the agricultural powerhouse of the Central Valley, offers a surprisingly robust landscape for dog owners, serving as a gateway to the Sierra Nevada mountains. The city's dog culture is practical and community-focused, adapted to the region's hot summers and mild winters. If you're struggling with the summer weather, check out our guide on the [Top 5 Best Indoor Dog Parks In Fresno to Beat the Central Valley Heat](/blog/top-5-best-indoor-dog-parks-in-fresno-beat-the-central-valley-heat). Residents often flock to the San Joaquin River Parkway for cooler, shaded walks, utilizing trails like the Lewis S. Eaton Trail. While Fresno lacks a multitude of public indoor dog parks, the Dr. James W. Thornton Dog Park at the Valley Animal Center fills this gap with a top-tier membership facility that includes a wading pool and agility courses—critical amenities during triple-digit heatwaves. Whether you're visiting or looking to relocate, exploring the wider [Dog Parks in California](/states/california) scene offers unmatched variety for you and your canine companion.",
         "Woodward Park, the city's largest regional park, hosts the popular Woodward Dog Park, offering spacious, fenced runs for large and small dogs amidst mature trees. Another key location is Basin AH1 Dog Park, a seasonal retention basin that transforms into a lush, grassy play area perfect for retrieval games. [Fresno Parks](https://www.fresno.gov/parks) has made strides in ensuring these spaces are accessible, though owners must be vigilant about heat safety. Roeding Park’s Puppy Love Dog Park provides another central option near the zoo with separate enclosures. For those seeking training or climate-controlled activity, local academies like Ohana K9 offer indoor solutions. Fresno’s blend of urban parks and proximity to wilder adventures like Shaver Lake ensures that whether you need a quick evening run or a weekend mountain escape, the resources are there for a fulfilling canine life."
+      ],
+    },
+  },
+  {
+    slug: 'freshno',
+    city: 'Freshno',
+    state: 'CA',
+    featuredImage: '/images/cities/fresno-ca/hero.webp',
+    summary: 'Central Valley hub serving as a gateway to Yosemite, with expansive parks and heat-smart options.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Freshno',
+      heroDescription: 'Discover the Central Valley’s best dog parks and trails, right at the doorstep of the Sierras.',
+      longDescription: [
+        "Freshno, the agricultural powerhouse of the Central Valley, offers a surprisingly robust landscape for dog owners, serving as a gateway to the Sierra Nevada mountains. The city's dog culture is practical and community-focused, adapted to the region's hot summers and mild winters. If you're struggling with the summer weather, check out our guide on the [Top 5 Best Indoor Dog Parks In Fresno to Beat the Central Valley Heat](/blog/top-5-best-indoor-dog-parks-in-fresno-beat-the-central-valley-heat). Residents often flock to the San Joaquin River Parkway for cooler, shaded walks, utilizing trails like the Lewis S. Eaton Trail. While Freshno lacks a multitude of public indoor dog parks, the Dr. James W. Thornton Dog Park at the Valley Animal Center fills this gap with a top-tier membership facility that includes a wading pool and agility courses—critical amenities during triple-digit heatwaves. Whether you're visiting or looking to relocate, exploring the wider [Dog Parks in California](/states/california) scene offers unmatched variety for you and your canine companion.",
       ],
     },
   },

@@ -4,12 +4,20 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmission } from '@/types/park-submission';
+import RichTextEditor from '@/components/RichTextEditor';
 
 type DashboardFilter = 'all' | 'pending' | 'approved' | 'rejected';
 type ContactFilter = 'all' | 'new' | 'read' | 'replied' | 'archived';
 type ActionType = 'approve' | 'reject' | 'delete';
 type ContactActionType = 'read' | 'replied' | 'archived' | 'delete';
 type DashboardTab = 'submissions' | 'reviews' | 'contact';
+
+export interface ReplyTarget {
+  id: string;
+  name: string;
+  email: string;
+  type: 'contact' | 'submission';
+}
 
 interface Review {
   id: string;
@@ -35,6 +43,8 @@ interface ContactSubmission {
   category?: string;
   status: 'new' | 'read' | 'replied' | 'archived';
   adminNotes?: string;
+  replyMessage?: string;
+  repliedAt?: string;
   createdAt: string;
   updatedAt?: string;
 }
@@ -112,6 +122,9 @@ export default function AdminDashboardClient() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [contactSubmissions, setContactSubmissions] = useState<ContactSubmission[]>([]);
   const [deleteContactTarget, setDeleteContactTarget] = useState<ContactSubmission | null>(null);
+  const [replyTarget, setReplyTarget] = useState<ReplyTarget | null>(null);
+  const [replyMessage, setReplyMessage] = useState('');
+  const [isReplying, setIsReplying] = useState(false);
   const [contactActionState, setContactActionState] = useState<{ id: string | null; type: ContactActionType | null }>({ id: null, type: null });
   const [meta, setMeta] = useState<DashboardMeta>({
     total: 0,
@@ -453,6 +466,56 @@ export default function AdminDashboardClient() {
       }
     },
     [buildAuthHeaders, fetchContactSubmissions, showToast]
+  );
+
+  const executeReplyAction = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!replyTarget || !replyMessage.trim()) return;
+
+      try {
+        setIsReplying(true);
+        const headers = await buildAuthHeaders({ json: true });
+
+        const endpoint = replyTarget.type === 'contact' 
+          ? `/api/admin/contact-submissions/${replyTarget.id}/reply`
+          : `/api/admin/submissions/${replyTarget.id}/reply`;
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ replyMessage }),
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to send reply');
+        }
+
+        showToast({
+          type: 'success',
+          title: 'Reply sent successfully',
+        });
+
+        if (replyTarget.type === 'contact') {
+          await fetchContactSubmissions();
+        } else {
+          await fetchSubmissions();
+        }
+        setReplyTarget(null);
+        setReplyMessage('');
+      } catch (err) {
+        const message = err instanceof Error ? err.message : 'Action failed';
+        showToast({
+          type: 'error',
+          title: 'Failed to send reply',
+          message,
+        });
+      } finally {
+        setIsReplying(false);
+      }
+    },
+    [replyTarget, replyMessage, buildAuthHeaders, fetchContactSubmissions, showToast]
   );
 
   useEffect(() => {
@@ -904,14 +967,33 @@ export default function AdminDashboardClient() {
                           </div>
                         )}
 
+                        {contact.replyMessage && (
+                          <div className="mb-4 rounded-lg border border-emerald-100 bg-emerald-50 p-3">
+                            <div className="flex justify-between items-start">
+                              <p className="text-xs font-semibold text-emerald-800">Reply Sent</p>
+                              {contact.repliedAt && (
+                                <p className="text-xs text-emerald-600">{new Date(contact.repliedAt).toLocaleString()}</p>
+                              )}
+                            </div>
+                            <div 
+                              className="mt-2 text-sm text-emerald-700 prose prose-sm max-w-none prose-p:my-1 prose-img:max-h-64 prose-img:w-auto prose-img:object-contain prose-img:rounded-md max-h-96 overflow-y-auto" 
+                              dangerouslySetInnerHTML={{ __html: contact.replyMessage }} 
+                            />
+                          </div>
+                        )}
+
                         <footer className="mt-6 border-t border-gray-100 pt-4">
                           <div className="flex flex-col gap-3 sm:flex-row">
-                            <a
-                              href={`mailto:${contact.email}?subject=Re: ${encodeURIComponent(contact.subject)}`}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setReplyTarget({ id: contact.id, name: contact.name, email: contact.email, type: 'contact' });
+                                setReplyMessage('');
+                              }}
                               className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
                             >
                               Reply via Email
-                            </a>
+                            </button>
                             {contact.status === 'new' && (
                               <button
                                 type="button"
@@ -1074,8 +1156,35 @@ export default function AdminDashboardClient() {
                         </div>
                       </section>
 
+                      {submission.replyMessage && (
+                        <div className="mt-4 rounded-lg border border-emerald-100 bg-emerald-50 p-3">
+                          <div className="flex justify-between items-start">
+                            <p className="text-xs font-semibold text-emerald-800">Reply Sent</p>
+                            {submission.repliedAt && (
+                              <p className="text-xs text-emerald-600">{new Date(submission.repliedAt).toLocaleString()}</p>
+                            )}
+                          </div>
+                          <div 
+                            className="mt-2 text-sm text-emerald-700 prose prose-sm max-w-none prose-p:my-1 prose-img:max-h-64 prose-img:w-auto prose-img:object-contain prose-img:rounded-md max-h-96 overflow-y-auto" 
+                            dangerouslySetInnerHTML={{ __html: submission.replyMessage }} 
+                          />
+                        </div>
+                      )}
+
                       <footer className="mt-6 border-t border-gray-100 pt-4">
                         <div className="flex flex-col gap-3 sm:flex-row">
+                          {submission.email && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setReplyTarget({ id: submission.id, name: submission.name, email: submission.email!, type: 'submission' });
+                                setReplyMessage('');
+                              }}
+                              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                            >
+                              Reply via Email
+                            </button>
+                          )}
                           {isPending && (
                             <>
                               <button
@@ -1523,6 +1632,53 @@ export default function AdminDashboardClient() {
                 {isContactActionLoading(deleteContactTarget.id, 'delete') ? 'Deleting…' : 'Delete permanently'}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reply contact submission modal */}
+      {replyTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6">
+          <div className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl max-h-[90vh] overflow-y-auto">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Reply to {replyTarget.name}</h3>
+            <p className="text-sm text-gray-500 mb-4">
+              Sending to: <span className="font-semibold text-gray-700">{replyTarget.email}</span>
+            </p>
+            
+            <form onSubmit={executeReplyAction} className="flex flex-col gap-4">
+              <div>
+                <label htmlFor="replyMessage" className="block text-sm font-medium text-gray-700 mb-1">
+                  Message
+                </label>
+                <div className="border rounded-lg overflow-hidden">
+                  <RichTextEditor 
+                    value={replyMessage} 
+                    onChange={setReplyMessage} 
+                    placeholder="Type your reply here..." 
+                  />
+                </div>
+              </div>
+
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row justify-end">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setReplyTarget(null);
+                    setReplyMessage('');
+                  }}
+                  className="inline-flex items-center justify-center rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isReplying || !replyMessage.trim()}
+                  className="inline-flex items-center justify-center rounded-lg bg-purple-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 disabled:cursor-not-allowed disabled:bg-gray-300"
+                >
+                  {isReplying ? 'Sending…' : 'Send Reply'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

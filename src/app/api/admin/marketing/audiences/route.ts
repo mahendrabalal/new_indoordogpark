@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
         const { data: submissions } = await supabaseAdminClient
             .from('park_submissions')
-            .select('id, name, city, state, email')
+            .select('id, name, city, state, email, replied_at')
             .eq('status', 'approved')
             .not('email', 'is', null);
 
@@ -57,7 +57,7 @@ export async function GET(request: NextRequest) {
 
         mergedParks = mergedParks.map(park => ({
             ...park,
-            outreach_status: badgeSentEmails.has(park.email.toLowerCase()) ? 'sent' : 'pending'
+            outreach_status: badgeSentEmails.has(park.email.toLowerCase()) || park.replied_at ? 'sent' : 'pending'
         })).sort((a, b) => a.name.localeCompare(b.name));
 
         return NextResponse.json(mergedParks);

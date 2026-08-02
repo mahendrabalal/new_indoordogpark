@@ -90,6 +90,7 @@ export async function GET(request: NextRequest) {
             last_sent: string;
             last_subject: string | null;
             last_body: string | null;
+            last_recipient_email: string | null;
         }>();
 
         for (const log of (data || [])) {

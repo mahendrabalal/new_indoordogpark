@@ -34,6 +34,22 @@ const tools = [
     tag: 'Most Popular',
   },
   {
+    title: 'Dog BMI & Healthy Weight Checker',
+    description: 'Use the veterinary Body Condition Score (BCS) method to find out if your dog is at a healthy weight and calculate their ideal target weight.',
+    href: '/tools/dog-bmi-calculator',
+    icon: 'bi-speedometer2',
+    color: 'from-orange-500 to-red-500',
+    tag: 'New',
+  },
+  {
+    title: 'Daily Dog Calorie & Portion Calculator',
+    description: 'Find out exactly how many calories and cups of food your dog needs per day to stay at a healthy weight using veterinary RER formulas.',
+    href: '/tools/dog-calorie-calculator',
+    icon: 'bi-calculator-fill',
+    color: 'from-emerald-500 to-teal-600',
+    tag: 'New',
+  },
+  {
     title: 'Chocolate Toxicity Calculator',
     description: 'My dog ate chocolate — is it dangerous? Enter the type, amount, and your dog\'s weight to instantly assess the risk level and get emergency contacts.',
     href: '/tools/chocolate-toxicity-calculator',
