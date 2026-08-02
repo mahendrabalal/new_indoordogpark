@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import RichTextEditor from '@/components/RichTextEditor';
 
 interface BlogPost {
     title: string;
@@ -53,9 +54,25 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
     const [headline, setHeadline] = useState('');
     const [bodyContent, setBodyContent] = useState('');
 
-    const [partnerEmail, setPartnerEmail] = useState('');
-    const [partnerName, setPartnerName] = useState('');
-    const [partnerDetails, setPartnerDetails] = useState('');
+    useEffect(() => {
+        const savedSubject = localStorage.getItem('campaign_draft_subject');
+        const savedHeadline = localStorage.getItem('campaign_draft_headline');
+        const savedBody = localStorage.getItem('campaign_draft_body');
+        if (savedSubject) setSubject(savedSubject);
+        if (savedHeadline) setHeadline(savedHeadline);
+        if (savedBody) setBodyContent(savedBody);
+    }, []);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            localStorage.setItem('campaign_draft_subject', subject);
+            localStorage.setItem('campaign_draft_headline', headline);
+            localStorage.setItem('campaign_draft_body', bodyContent);
+        }, 1000);
+        return () => clearTimeout(timeout);
+    }, [subject, headline, bodyContent]);
+
+    const [customPartners, setCustomPartners] = useState([{ email: '', name: '', notes: '' }]);
 
     const [isSending, setIsSending] = useState(false);
     const [result, setResult] = useState<any | null>(null);
@@ -79,9 +96,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         subject, 
                         headline, 
                         bodyContent,
-                        singleEmailAddress: audienceType === 'single_partner' ? partnerEmail : undefined,
-                        singleEmailType: 'owner',
-                        metadata: audienceType === 'single_partner' ? { isPartner: true, partnerName, partnerDetails } : undefined
+                        customPartners: audienceType === 'single_partner' ? customPartners : undefined,
                     },
         };
 
@@ -99,9 +114,11 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
         setSubject('');
         setHeadline('');
         setBodyContent('');
-        setPartnerEmail('');
-        setPartnerName('');
-        setPartnerDetails('');
+        setCustomPartners([{ email: '', name: '', notes: '' }]);
+        
+        localStorage.removeItem('campaign_draft_subject');
+        localStorage.removeItem('campaign_draft_headline');
+        localStorage.removeItem('campaign_draft_body');
     };
 
     if (isSuccess) {
@@ -152,7 +169,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 <option value="all">All Subscribers ({subscribers.total})</option>
                                 <option value="consumers">Consumers ({subscribers.consumers})</option>
                                 <option value="partners">Partners/B2B ({subscribers.partners})</option>
-                                <option value="single_partner">Single Partner (B2B)</option>
+                                <option value="single_partner">Custom Partners (B2B)</option>
                             </select>
                         </div>
 
@@ -174,31 +191,63 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
 
                         {/* Contextual Settings based on selections */}
                         
-                        {/* 1. Single Partner Settings */}
+                        {/* 1. Custom Partners Settings */}
                         {audienceType === 'single_partner' && (
-                            <div className="p-4 bg-indigo-50 border border-indigo-100 rounded-lg space-y-3 animate-in slide-in-from-top-2">
-                                <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-800">Partner Details</h4>
-                                <input 
-                                    type="email" 
-                                    placeholder="Email Address" 
-                                    value={partnerEmail} 
-                                    onChange={e => setPartnerEmail(e.target.value)} 
-                                    className="w-full text-sm border-0 rounded p-2 shadow-sm" 
-                                />
-                                <input 
-                                    type="text" 
-                                    placeholder="Business Name" 
-                                    value={partnerName} 
-                                    onChange={e => setPartnerName(e.target.value)} 
-                                    className="w-full text-sm border-0 rounded p-2 shadow-sm" 
-                                />
-                                <textarea 
-                                    placeholder="Internal Notes (e.g. met at expo)" 
-                                    value={partnerDetails} 
-                                    onChange={e => setPartnerDetails(e.target.value)} 
-                                    rows={2} 
-                                    className="w-full text-sm border-0 rounded p-2 shadow-sm resize-none" 
-                                />
+                            <div className="space-y-4 animate-in slide-in-from-top-2">
+                                {customPartners.map((partner, idx) => (
+                                    <div key={idx} className="p-4 bg-indigo-50 border border-indigo-100 rounded-lg space-y-3 relative shadow-sm">
+                                        <div className="flex justify-between items-center">
+                                            <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-800">Partner {idx + 1}</h4>
+                                            {customPartners.length > 1 && (
+                                                <button 
+                                                    onClick={() => setCustomPartners(prev => prev.filter((_, i) => i !== idx))}
+                                                    className="text-rose-500 hover:text-rose-700 text-xs font-bold flex items-center gap-1"
+                                                >
+                                                    <i className="bi bi-x-circle"></i> Remove
+                                                </button>
+                                            )}
+                                        </div>
+                                        <input 
+                                            type="email" 
+                                            placeholder="Email Address" 
+                                            value={partner.email} 
+                                            onChange={e => {
+                                                const updated = [...customPartners];
+                                                updated[idx].email = e.target.value;
+                                                setCustomPartners(updated);
+                                            }} 
+                                            className="w-full text-sm border-0 rounded p-2 shadow-sm" 
+                                        />
+                                        <input 
+                                            type="text" 
+                                            placeholder="Business Name" 
+                                            value={partner.name} 
+                                            onChange={e => {
+                                                const updated = [...customPartners];
+                                                updated[idx].name = e.target.value;
+                                                setCustomPartners(updated);
+                                            }} 
+                                            className="w-full text-sm border-0 rounded p-2 shadow-sm" 
+                                        />
+                                        <textarea 
+                                            placeholder="Internal Notes (e.g. met at expo)" 
+                                            value={partner.notes} 
+                                            onChange={e => {
+                                                const updated = [...customPartners];
+                                                updated[idx].notes = e.target.value;
+                                                setCustomPartners(updated);
+                                            }} 
+                                            rows={2} 
+                                            className="w-full text-sm border-0 rounded p-2 shadow-sm resize-none" 
+                                        />
+                                    </div>
+                                ))}
+                                <button 
+                                    onClick={() => setCustomPartners(prev => [...prev, { email: '', name: '', notes: '' }])}
+                                    className="w-full py-2 bg-indigo-100 text-indigo-700 font-semibold rounded-lg hover:bg-indigo-200 transition-colors text-sm border border-indigo-200"
+                                >
+                                    + Add Another Partner
+                                </button>
                             </div>
                         )}
 
@@ -239,7 +288,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
 
                 <button 
                     onClick={() => setShowConfirm(true)}
-                    disabled={isSending || (audienceType === 'single_partner' && !partnerEmail) || (templateType === 'blog' && !selectedSlug)}
+                    disabled={isSending || (audienceType === 'single_partner' && (!customPartners[0] || !customPartners[0].email)) || (templateType === 'blog' && !selectedSlug)}
                     className="w-full py-3.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                     <i className="bi bi-send-fill"></i>
@@ -290,12 +339,15 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                             </div>
 
                             {/* Body */}
-                            <textarea 
-                                placeholder="Write your email content in Markdown..." 
-                                value={bodyContent} 
-                                onChange={e => setBodyContent(e.target.value)} 
-                                className="flex-1 w-full p-6 text-slate-700 outline-none resize-none bg-transparent"
-                            />
+                            <div className="flex-1 w-full bg-white relative">
+                                <div className="absolute inset-0 overflow-y-auto">
+                                    <RichTextEditor 
+                                        value={bodyContent} 
+                                        onChange={setBodyContent} 
+                                        placeholder="Write your email content..." 
+                                    />
+                                </div>
+                            </div>
                         </>
                     ) : templateType === 'badge_outreach' ? (
                         <div className="p-8 flex-1 flex flex-col bg-slate-50/50">
@@ -310,13 +362,13 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Personalized Intro (Optional)</label>
-                                    <textarea 
-                                        placeholder="E.g., Hi team, I saw you just opened in Chicago..." 
-                                        value={bodyContent} 
-                                        onChange={e => setBodyContent(e.target.value)} 
-                                        rows={8}
-                                        className="w-full p-4 border border-slate-200 rounded-xl outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none shadow-sm"
-                                    />
+                                    <div className="h-64 mt-2 relative border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                                        <RichTextEditor 
+                                            value={bodyContent} 
+                                            onChange={setBodyContent} 
+                                            placeholder="E.g., Hi team, I saw you just opened in Chicago..." 
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -345,7 +397,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         </div>
                         <h3 className="text-xl font-bold text-center text-slate-900 mb-2">Ready to Broadcast?</h3>
                         <p className="text-center text-slate-600 mb-6">
-                            You are about to send the <strong className="text-slate-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg font-bold px-1">{audienceType === 'single_partner' ? '1' : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : (audienceType === 'consumers' ? subscribers.consumers : subscribers.partners)))}</strong> recipient(s). This action cannot be undone.
+                            You are about to send the <strong className="text-slate-800 capitalize">{templateType.replace('_', ' ')}</strong> campaign to <strong className="text-indigo-600 text-lg font-bold px-1">{audienceType === 'single_partner' ? customPartners.filter(p => p.email).length : (audienceType === 'pending_owners' ? pendingOwnersCount : (audienceType === 'all' ? subscribers.total : (audienceType === 'consumers' ? subscribers.consumers : subscribers.partners)))}</strong> recipient(s). This action cannot be undone.
                         </p>
                         <div className="flex flex-col gap-3">
                             <button 

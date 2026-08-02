@@ -10,13 +10,12 @@ import {
     Preview,
     Section,
     Text,
-    Markdown,
 } from '@react-email/components';
 import * as React from 'react';
 
 interface MarketingEmailProps {
     headline: string;
-    bodyContent: string; // Markdown supported
+    bodyContent: string; // HTML supported
     ctaText?: string;
     ctaUrl?: string;
     imageUrl?: string;
@@ -57,16 +56,10 @@ export const MarketingEmail = ({
                             {headline}
                         </Heading>
 
-                        <div style={markdownContainer}>
-                            <Markdown
-                                markdownCustomStyles={{
-                                    p: { ...paragraph },
-                                    li: { ...listItem },
-                                }}
-                            >
-                                {bodyContent}
-                            </Markdown>
-                        </div>
+                        <div 
+                            style={htmlContainer} 
+                            dangerouslySetInnerHTML={{ __html: bodyContent }} 
+                        />
 
                         {ctaText && ctaUrl && (
                             <Section style={ctaContainer}>
@@ -154,7 +147,7 @@ const title = {
     lineHeight: '1.3',
 };
 
-const markdownContainer = {
+const htmlContainer = {
     color: '#4b5563',
     fontSize: '16px',
     lineHeight: '1.8',

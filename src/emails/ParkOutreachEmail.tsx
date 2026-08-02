@@ -58,7 +58,7 @@ export const ParkOutreachEmail = ({
 
                         {personalizedNote && (
                             <Section style={noteContainer}>
-                                <Text style={noteText}>{personalizedNote}</Text>
+                                <div style={noteText} dangerouslySetInnerHTML={{ __html: personalizedNote }} />
                             </Section>
                         )}
 

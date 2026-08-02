@@ -229,60 +229,61 @@ export async function POST(request: NextRequest) {
                 }
             }
         } else if (segment === 'single') {
-            const { singleEmailAddress, singleEmailType, metadata } = data;
-            if (!singleEmailAddress) {
-                return NextResponse.json({ error: 'Email address is required for single subscriber' }, { status: 400 });
+            const { customPartners } = data;
+            if (!customPartners || !Array.isArray(customPartners) || customPartners.length === 0) {
+                return NextResponse.json({ error: 'At least one partner is required' }, { status: 400 });
             }
 
-            const email = singleEmailAddress.toLowerCase().trim();
             const adminClient = supabaseAdminClient;
-
-            // Check if subscriber exists
-            const { data: existingSubscriber } = await adminClient
-                .from('subscribers')
-                .select('id, email, status, metadata')
-                .eq('email', email)
-                .single();
-
-            if (existingSubscriber) {
-                if (existingSubscriber.status === 'unsubscribed') {
-                    return NextResponse.json({ error: 'Cannot send to an unsubscribed email address' }, { status: 400 });
-                }
+            
+            for (const partner of customPartners) {
+                const email = partner.email?.toLowerCase().trim();
+                if (!email) continue;
                 
-                // Update metadata if provided
-                if (metadata) {
+                const metadata = { isPartner: true, partnerName: partner.name, partnerDetails: partner.notes };
+
+                // Check if subscriber exists
+                const { data: existingSubscriber } = await adminClient
+                    .from('subscribers')
+                    .select('id, email, status, metadata')
+                    .eq('email', email)
+                    .single();
+
+                if (existingSubscriber) {
+                    if (existingSubscriber.status === 'unsubscribed') {
+                        continue; // skip unsubscribed
+                    }
+                    
+                    // Update metadata
                     await adminClient
                         .from('subscribers')
                         .update({ metadata: { ...((existingSubscriber.metadata as object) || {}), ...metadata } })
                         .eq('id', existingSubscriber.id);
-                }
-                
-                recipients = [{ email: existingSubscriber.email, id: existingSubscriber.id }];
-            } else {
-                // Insert new subscriber
-                const insertData: any = {
-                    email: email,
-                    type: singleEmailType || 'consumer',
-                    source: 'manual_crm',
-                    status: 'active'
-                };
-                
-                if (metadata) {
-                    insertData.metadata = metadata;
-                }
-                
-                const { data: newSubscriber, error: insertError } = await adminClient
-                    .from('subscribers')
-                    .insert(insertData)
-                    .select('id, email')
-                    .single();
+                    
+                    recipients.push({ email: existingSubscriber.email, id: existingSubscriber.id });
+                } else {
+                    // Insert new subscriber
+                    const insertData: any = {
+                        email: email,
+                        type: 'owner',
+                        source: 'manual_crm',
+                        status: 'active',
+                        metadata: metadata
+                    };
+                    
+                    const { data: newSubscriber, error: insertError } = await adminClient
+                        .from('subscribers')
+                        .insert(insertData)
+                        .select('id, email')
+                        .single();
 
-                if (insertError || !newSubscriber) {
-                    console.error('Failed to insert new subscriber:', insertError);
-                    return NextResponse.json({ error: 'Failed to add subscriber to database' }, { status: 500 });
-                }
+                    if (insertError || !newSubscriber) {
+                        console.error('Failed to insert new subscriber:', insertError);
+                        continue;
+                    }
 
-                recipients = [{ email: newSubscriber.email, id: newSubscriber.id }];
+                    recipients.push({ email: newSubscriber.email, id: newSubscriber.id });
+                }
             }
         } else {
             const adminClient = supabaseAdminClient;
