@@ -104,7 +104,7 @@
   {
     "id": "ChIJBeByMTKxt4kRJm_ci_dxa5g",
     "name": "Snouts & Stouts - Indoor Dog Park & Bar",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "snouts-stouts-indoor-dog-park-bar",
     "address": "2709 S Oakland St",
@@ -155,7 +155,7 @@
   {
     "id": "ChIJt3EusH-_uokREBAfxUYm518",
     "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Zoom Room Dog Training.  What makes this dog facility special is its great, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 932-5382. Visit their website at https://zoomroom.com/location/virginia-beach/ to learn more about their services and pricing.",
     "slug": "zoom-room-dog-training",
     "address": "1925 Landstown Centre Wy #200",
@@ -702,7 +702,7 @@
   {
     "id": "ChIJ__9ziIOUuokRFUB1nN0D110",
     "name": "Little Dog Adventures Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "little-dog-adventures-doggie-daycare",
     "address": "4433 Delco Rd",
@@ -1000,7 +1000,7 @@
   {
     "id": "ChIJ3QmeKyLruokRZVSeKiujIiU",
     "name": "K9 Resorts Luxury Pet Hotel Virginia Beach",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-resorts-luxury-pet-hotel-virginia-beach",
     "address": "550 First Colonial Rd",
@@ -1102,7 +1102,7 @@
   {
     "id": "ChIJoV0GiZDquokRb4YjiD0OsA4",
     "name": "Cosmo's Corner Doggie Day Care",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Cosmo's Corner Doggie Day Care.  What makes this dog facility special is its clean, spacious, excellent. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (757) 457-7834. Visit their website at http://www.cosmoscorneronline.com/ to learn more about their services and pricing.",
     "slug": "cosmo-s-corner-doggie-day-care",
     "address": "1136 Lynnhaven Pkwy",
@@ -1153,7 +1153,7 @@
   {
     "id": "ChIJgRFhvPDquokR4uwG12-O60I",
     "name": "Great Neck Doggie Day Care",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Great Neck Doggie Day Care has become a favorite among the area residents.  What makes this dog facility special is its clean. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (757) 416-5289. Visit their website at http://greatneckdoggiedaycare.com/ to learn more about their services and pricing.",
     "slug": "great-neck-doggie-day-care",
     "address": "2220 Laskin Rd",
@@ -1204,7 +1204,7 @@
   {
     "id": "ChIJiXnObj69uokRgrdm2Ar6EA0",
     "name": "Camp Bow Wow Virginia Beach",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-virginia-beach",
     "address": "1920 Centerville Turnpike Store #126",
@@ -1306,7 +1306,7 @@
   {
     "id": "ChIJM0XH-jq_uokRLk1nn2y7nQc",
     "name": "Sterling Meadows Kennel and Cattery",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sterling-meadows-kennel-and-cattery",
     "address": "3756 Indian River Rd",
@@ -1357,7 +1357,7 @@
   {
     "id": "ChIJvxZhzrrsuokRmCBRGcs6P4s",
     "name": "Fur'st Choice Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Fur'st Choice Doggie Daycare has become a favorite among the area residents.  What makes this dog facility special is its great, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 481-3858. Visit their website at https://furstchoicedoggydaycarevb.com/ to learn more about their services and pricing.",
     "slug": "fur-st-choice-doggie-daycare",
     "address": "2248 Ebb Tide Rd",
@@ -1612,7 +1612,7 @@
   {
     "id": "ChIJt9PCjWzAuokRhKh_t4YxkjI",
     "name": "Shipp's Corner Pet Spa & Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Shipp's Corner Pet Spa & Resort has become a favorite among the area residents.  What makes this dog facility special is its great, spacious, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 301-6941. Visit their website at https://sites.google.com/view/shippscornerpetspaandresort/home to learn more about their services and pricing.",
     "slug": "shipp-s-corner-pet-spa-resort",
     "address": "1515 Drakesmile Rd",
@@ -1663,7 +1663,7 @@
   {
     "id": "ChIJE8HJ5aPBuokRsm4ov59-Fd8",
     "name": "Hunt Club Boarding Kennel and Cattery",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "hunt-club-boarding-kennel-and-cattery",
     "address": "2400 London Bridge Rd",
@@ -1714,7 +1714,7 @@
   {
     "id": "ChIJV5shFb2QuokRJWrfTZGMeZU",
     "name": "Claudia's Dogs - Doggy Daycare & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "claudia-s-dogs-doggy-daycare-boarding",
     "address": "200 E Bay Ave",
@@ -1765,7 +1765,7 @@
   {
     "id": "ChIJsXjL6FzruokRFDvXJ3gid2I",
     "name": "PetSmart Doggie Day Camp",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "PetSmart Doggie Day Camp is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its great, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 425-0286. Visit their website at https://stores.petsmart.com/va/virginia-beach/virginia-beach-hilltop/petshotel-doggie-day-camp?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-doggie-day-camp",
     "address": "501 Hilltop Plaza",
@@ -1816,7 +1816,7 @@
   {
     "id": "ChIJbcSk_KeWuokR703w85nWTdQ",
     "name": "Care-A-Lot Pet Supply",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "Pet parents in the area rave about Care-A-Lot Pet Supply.  What makes this dog facility special is its spacious, excellent, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (757) 457-9431. Visit their website at https://www.carealotpets.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb-listing&utm_content=diamond-springs to learn more about their services and pricing.",
     "slug": "care-a-lot-pet-supply",
     "address": "1924 Diamond Springs Rd",
@@ -1969,7 +1969,7 @@
   {
     "id": "ChIJtUDy5rSZuokRw5mq6uzF65w",
     "name": "Happy Tails Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-tails-resort",
     "address": "846 W 45th St",
@@ -2020,7 +2020,7 @@
   {
     "id": "ChIJE8HJ5aPBuokRHjJexLFWfgU",
     "name": "Canine Obedience Training at Hunt Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "canine-obedience-training-at-hunt-club",
     "address": "501 Viking Dr #2912",
@@ -2071,7 +2071,7 @@
   {
     "id": "ChIJTXMCzEPruokRDXAoxxQa8_E",
     "name": "K9 Functional Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about K9 Functional Training.  What makes this dog facility special is its great, clean, excellent. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 925-8885. Visit their website at http://functionaldogtrainers.com/ to learn more about their services and pricing.",
     "slug": "k9-functional-training",
     "address": "1625 Dearborn Dr",
@@ -2122,7 +2122,7 @@
   {
     "id": "ChIJxROkl0DAuokR5Ef-u29E3iA",
     "name": "Playful Pups & Performance Training, Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "playful-pups-performance-training-inc",
     "address": "412 Investors Pl #103",
@@ -2173,7 +2173,7 @@
   {
     "id": "ChIJBwVEM5CQuokRLLPTgeDax30",
     "name": "Hampton Roads Obedience Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "hampton-roads-obedience-training-club",
     "address": "4452 Hinsdale St",
@@ -2224,7 +2224,7 @@
   {
     "id": "ChIJOw5lfVPBuokRmvqPmu_5Pfw",
     "name": "Dutch East Dogs Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Dutch East Dogs Training Center.  What makes this dog facility special is its great, spacious, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 426-1223. Visit their website at http://dutcheastdogs.com/ to learn more about their services and pricing.",
     "slug": "dutch-east-dogs-training-center",
     "address": "3161 New Bridge Rd",
@@ -2275,7 +2275,7 @@
   {
     "id": "ChIJdxCY6RGVuokRb3hXt2qNHL8",
     "name": "Lead K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Lead K9.  What makes this dog facility special is its attentive, knowledgeable, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (757) 328-7873. Visit their website at https://www.leadk9.com/ to learn more about their services and pricing.",
     "slug": "lead-k9",
     "address": "5592 Sajo Farm Rd",
@@ -2326,7 +2326,7 @@
   {
     "id": "ChIJedvad_F8MKgRybonXdIIACg",
     "name": "K9Aholics Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9aholics-dog-training",
     "address": "3422 Strathmore Ave",
@@ -2377,7 +2377,7 @@
   {
     "id": "ChIJ86Abw427uokR7taQLUAtdwo",
     "name": "Canine Training Unlimited",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Canine Training Unlimited.  What makes this dog facility special is its excellent. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 436-3973. Visit their website at https://www.caninetrainingunlimited.com/ to learn more about their services and pricing.",
     "slug": "canine-training-unlimited",
     "address": "873 Clearfield Ave",
@@ -2428,7 +2428,7 @@
   {
     "id": "ChIJ01QQsuWBuokRXqG-W6ffjYU",
     "name": "Off Leash K9 Training Hampton Roads",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-hampton-roads",
     "address": "1948 George Washington Memorial Hwy",
@@ -2479,7 +2479,7 @@
   {
     "id": "ChIJcfVrvx7HuokRe3slSWH4meM",
     "name": "Citizen K9 Dog Training And Agility",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Citizen K9 Dog Training And Agility.  What makes this dog facility special is its great, excellent, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 904-1633. Visit their website at http://www.citizenk9dogtraining.com/ to learn more about their services and pricing.",
     "slug": "citizen-k9-dog-training-and-agility",
     "address": "2400 Granby St",
@@ -2530,7 +2530,7 @@
   {
     "id": "ChIJJ5niJSvCuokRTaR7pyyNYVE",
     "name": "Freak On A Leash Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "freak-on-a-leash-dog-training",
     "address": "2536 Centerville Turnpike S",
@@ -2683,7 +2683,7 @@
   {
     "id": "ChIJ8UQpZZW3uokRJ-G6KvZWljQ",
     "name": "Dog Gone Good Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dog-gone-good-dog-training",
     "address": "5224 Blackwater Rd",
@@ -2726,7 +2726,7 @@
   {
     "id": "ChIJF4b3JBrruokROQsb0eobpRQ",
     "name": "Woof Gang Bakery & Grooming Virginia Beach",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Woof Gang Bakery & Grooming Virginia Beach.  What makes this dog facility special is its excellent, spacious, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 937-0282. Visit their website at https://woofgangbakery.com/pages/locations/virginia-beach?utm_source=google&utm_medium=gmb to learn more about their services and pricing.",
     "slug": "woof-gang-bakery-grooming-virginia-beach",
     "address": "741 First Colonial Rd Suite 103",
@@ -2777,7 +2777,7 @@
   {
     "id": "ChIJUZm3E_TBuokRQmCQqe8iur4",
     "name": "Muddy Buddy - Pet Wash & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "muddy-buddy-pet-wash-grooming",
     "address": "1485 General Booth Blvd",
@@ -2879,7 +2879,7 @@
   {
     "id": "ChIJP-gbsVvtuokRQsjF5li9UJw",
     "name": "Salon Versace Dog Wash & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "salon-versace-dog-wash-grooming",
     "address": "2865 Lynnhaven Dr a2",
@@ -2930,7 +2930,7 @@
   {
     "id": "ChIJ3-k0Ld-VuokRJjsbAyA8Hlg",
     "name": "JA-Pens Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "ja-pens-grooming-salon",
     "address": "5608 Virginia Beach Blvd",
@@ -3083,7 +3083,7 @@
   {
     "id": "ChIJ9cC7ZZGVuokRBV4qgvH2yBs",
     "name": "Doggie & Kitty Cat Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "doggie-kitty-cat-grooming-salon",
     "address": "4601 Haygood Rd",
@@ -3134,7 +3134,7 @@
   {
     "id": "ChIJYRRA6-GVuokRHLNPe3i2Z3g",
     "name": "Blue Dog Pet Grooming - Pleasure House",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "blue-dog-pet-grooming-pleasure-house",
     "address": "1517 Pleasure House Rd Suite AA",
@@ -3185,7 +3185,7 @@
   {
     "id": "ChIJeerru9i9uokR5XKanJpOVjw",
     "name": "Paws & Purrs Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Paws & Purrs Grooming.  What makes this dog facility special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (757) 424-2252. ",
     "slug": "paws-purrs-grooming",
     "address": "5300 Kemps River Dr #116",
@@ -3338,7 +3338,7 @@
   {
     "id": "ChIJ8WyfU7PruokRWpjr7QQPw9s",
     "name": "Great Neck Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "great-neck-pet-grooming",
     "address": "2304 Kenstock Dr #102",
@@ -3389,7 +3389,7 @@
   {
     "id": "ChIJRfo_6vDquokRvI0nnrSYjyQ",
     "name": "Town & Country Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "town-country-pet-grooming",
     "address": "2232 Virginia Beach Blvd #103",
@@ -3440,7 +3440,7 @@
   {
     "id": "ChIJIUNlYd-VuokRpmis3U1YEG0",
     "name": "Two Brothers Dog Wash",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Two Brothers Dog Wash.  What makes this dog facility special is its great, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 497-9274. Visit their website at http://www.twobrothersdogwash.com/ to learn more about their services and pricing.",
     "slug": "two-brothers-dog-wash",
     "address": "426 Newtown Rd",
@@ -3491,7 +3491,7 @@
   {
     "id": "ChIJeerru9i9uokR_WglGSEC1TM",
     "name": "Pet Supplies Plus Virginia Beach",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "Pet parents in the area rave about Pet Supplies Plus Virginia Beach.  What makes this pet store special is its attentive, knowledgeable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (757) 424-8448. Visit their website at https://www.petsuppliesplus.com/store/va/virginia-beach/8016-virginia-beach/8016 to learn more about their services and pricing.",
     "slug": "pet-supplies-plus-virginia-beach",
     "address": "5394 Kemps River Dr #101",
@@ -3542,7 +3542,7 @@
   {
     "id": "ChIJEV5DAybquokRqYTJm4jQ8jU",
     "name": "Clip Pets Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "clip-pets-grooming",
     "address": "301 25th St #6",
@@ -3593,7 +3593,7 @@
   {
     "id": "ChIJZQMFU_WXuokRkArzWqnclhQ",
     "name": "Queen of the Paws | Norfolk VA | Pet Groomer",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Queen of the Paws | Norfolk VA | Pet Groomer.  What makes this dog facility special is its excellent, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 698-1814. Visit their website at https://www.queenofthepaws.com/ to learn more about their services and pricing.",
     "slug": "queen-of-the-paws-norfolk-va-pet-groomer",
     "address": "4545 Robin Hood Rd",
@@ -3695,7 +3695,7 @@
   {
     "id": "ChIJz3w-PxXruokR5-g-FcRQoA4",
     "name": "Royal Cutz Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "royal-cutz-pet-spa",
     "address": "1952 Laskin Rd STE 501",
@@ -3789,7 +3789,7 @@
   {
     "id": "ChIJ45vmLWg9t4kRwuYcKtnKeT8",
     "name": "Canine Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "canine-resort",
     "address": "1274 Ebb Tide Dr",
@@ -3840,7 +3840,7 @@
   {
     "id": "ChIJfZqNQsKVuokRiBqAcsjRYNY",
     "name": "Crawford Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Crawford Kennels is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 230-9042. Visit their website at http://www.crawford_kennels.com/ to learn more about their services and pricing.",
     "slug": "crawford-kennels",
     "address": "136 Onondaga Rd",
@@ -4334,7 +4334,7 @@
   {
     "id": "ChIJEbxMzJKEuokRw1jjPjYm_UY",
     "name": "Ridgway Bark Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "ridgway-bark-park",
     "address": "85 E Mercury Blvd",
@@ -4436,7 +4436,7 @@
   {
     "id": "ChIJeSNT4h-XuokRQgkqNDfs0hc",
     "name": "K9 and Feline Daycare Services, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-and-feline-daycare-services-llc",
     "address": "3830 Nansemond Cir",
@@ -4793,7 +4793,7 @@
   {
     "id": "ChIJJYal3TuYuokRI0iKAS4KoNw",
     "name": "Dog & Cat Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "Pet parents in the area rave about Dog & Cat Hospital.  What makes this veterinary care special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (757) 622-1788. Visit their website at https://dogandcathospitalnorfolk.com/?utm_source=gmb&utm_medium=organic to learn more about their services and pricing.",
     "slug": "dog-cat-hospital",
     "address": "238 W 21st St",
@@ -4844,7 +4844,7 @@
   {
     "id": "ChIJE1FNyWSfuokRbn5SIZND58k",
     "name": "Churchland K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Churchland K9.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (757) 686-8207. Visit their website at http://www.churchlandk9.com/ to learn more about their services and pricing.",
     "slug": "churchland-k9",
     "address": "6029 High St W",
@@ -4895,7 +4895,7 @@
   {
     "id": "ChIJUdZznNy5uokRDm0BDqyxjy0",
     "name": "Blue Sky Farms, Home of K9 Country Inn",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "blue-sky-farms-home-of-k9-country-inn",
     "address": "1143 Long Ridge Rd",
@@ -4946,7 +4946,7 @@
   {
     "id": "ChIJwWfE0bKcuokRTuUMvIgJbzI",
     "name": "Merrimac Dog Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "merrimac-dog-training-club",
     "address": "15 Newsome Pl",
@@ -4997,7 +4997,7 @@
   {
     "id": "ChIJH09e-Lxj24ARlw5qNCdwcGQ",
     "name": "Shades Of Blu Dog Training INC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "shades-of-blu-dog-training-inc",
     "address": "3637 Mill Bridge Way",
@@ -5099,7 +5099,7 @@
   {
     "id": "ChIJEfBYX5iBsIkRP9iD_Yqqoyw",
     "name": "On Command Dog Training LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "on-command-dog-training-llc",
     "address": "892 J Clyde Morris Blvd",
@@ -5150,7 +5150,7 @@
   {
     "id": "ChIJZ86Kn5yXuokRyRL0SnVimlw",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training has become a favorite among the area residents.  What makes this dog facility special is its attentive, knowledgeable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (757) 459-6712. Visit their website at https://stores.petsmart.com/va/norfolk/norfolk/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "1275 N Military Hwy",
@@ -5201,7 +5201,7 @@
   {
     "id": "ChIJc1nWJgcLsIkRfcV2S02djVs",
     "name": "Dean's List K9 Training LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Dean's List K9 Training LLC.  What makes this dog facility special is its friendly, caring, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (757) 807-0227. Visit their website at http://www.deanslistk9training.com/ to learn more about their services and pricing.",
     "slug": "dean-s-list-k9-training-llc",
     "address": "3511 Bridge Rd",
@@ -5303,7 +5303,7 @@
   {
     "id": "ChIJQbYlwTuYuokRqXcWwZU4neo",
     "name": "Groomingdale's Pet Salon & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "groomingdale-s-pet-salon-spa",
     "address": "222 W 21st St suite g",
@@ -5354,7 +5354,7 @@
   {
     "id": "ChIJ-xQXbz2XuokRlRV6CHvoDzA",
     "name": "9 Tails Pet Grooming salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "9-tails-pet-grooming-salon",
     "address": "1616 Meadow Lake Dr",
@@ -5405,7 +5405,7 @@
   {
     "id": "ChIJ6VYJe9yQuokRYC_4zwzwjLg",
     "name": "JO'S PET SPA",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "jo-s-pet-spa",
     "address": "1541 E Bayview Blvd # B",
@@ -5456,7 +5456,7 @@
   {
     "id": "ChIJQyIVkzOXuokRbcJrozaHYLk",
     "name": "TM Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "tm-grooming",
     "address": "7920 Chesapeake Blvd suite b",
@@ -5507,7 +5507,7 @@
   {
     "id": "ChIJY5e3u9KWuokRxOT5rsgtHtk",
     "name": "Robin's Grooming Nest",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "robin-s-grooming-nest",
     "address": "2440 E Little Creek Rd",
@@ -5558,7 +5558,7 @@
   {
     "id": "ChIJq6qqqp6QuokROO6nNqxssz4",
     "name": "Go Grooming Gallery Spa and Training LLC.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "go-grooming-gallery-spa-and-training-llc",
     "address": "Elaine Ct",
@@ -5703,7 +5703,7 @@
   {
     "id": "ChIJ3xxX07u8uokRo4NhHlhALaI",
     "name": "Serenity Pet Spa and Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Serenity Pet Spa and Hotel.  What makes this dog facility special is its attentive, knowledgeable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (757) 410-3399. Visit their website at https://www.pets4serenity.com/ to learn more about their services and pricing.",
     "slug": "serenity-pet-spa-and-hotel",
     "address": "205 B Tintern Ct",
@@ -5746,7 +5746,7 @@
   {
     "id": "ChIJXTsNfLWKsIkRQclZd0CqvwE",
     "name": "Pet Resort At Greensprings",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pet-resort-at-greensprings",
     "address": "2878 Monticello Ave",
@@ -6198,7 +6198,7 @@
   {
     "id": "ChIJu28leQK0t4kRDhkv8e77C3M",
     "name": "Bark + Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "bark-boarding",
     "address": "5818 Seminary Rd C",
@@ -6402,7 +6402,7 @@
   {
     "id": "ChIJ4bmiooq1t4kRXjSZEEZSzVw",
     "name": "Dude’s Dog House & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Dude’s Dog House & Spa.  What makes this dog facility special is its spacious. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (703) 857-1400. Visit their website at https://dudesdoghouse.com/ to learn more about their services and pricing.",
     "slug": "dude-s-dog-house-spa",
     "address": "7257 US-29",
@@ -6504,7 +6504,7 @@
   {
     "id": "ChIJ7YpG_lSxt4kRXGwq_aqBOOw",
     "name": "WOOFS! Dog Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about WOOFS! Dog Training Center.  What makes this dog facility special is its clean, spacious. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (703) 526-0218. Visit their website at https://www.woofsdogtraining.com/ to learn more about their services and pricing.",
     "slug": "woofs-dog-training-center",
     "address": "4241a N Pershing Dr",
@@ -6760,7 +6760,7 @@
   {
     "id": "ChIJNW-Mx299ToYRRDgY9OZ7JpY",
     "name": "Arlington Dog Daycare and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Arlington Dog Daycare and Boarding.  What makes this dog facility special is its great, excellent, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (972) 204-5835. Visit their website at http://www.arlingtondogdaycare.com/ to learn more about their services and pricing.",
     "slug": "arlington-dog-daycare-and-boarding",
     "address": "107 W Randol Mill Rd",
@@ -6862,7 +6862,7 @@
   {
     "id": "ChIJp5WTohxLtokRtTToqfxY04Q",
     "name": "Pet Grand Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pet-grand-hotel",
     "address": "7732 US-29",
@@ -6913,7 +6913,7 @@
   {
     "id": "ChIJn7CbYCzMt4kRu_NOcItyKlE",
     "name": "Olde Towne Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "olde-towne-pet-resort",
     "address": "12230 Wilkins Ave",
@@ -6964,7 +6964,7 @@
   {
     "id": "ChIJm3VYgTtMtokRfHGFal-p_lQ",
     "name": "Montrose Pet Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "montrose-pet-hotel",
     "address": "3879 Pickett Road",
@@ -7015,7 +7015,7 @@
   {
     "id": "ChIJozPaMwF9ToYRphq7KwpDK8k",
     "name": "Pixee's Paws Pet Palace Dog Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pixee-s-paws-pet-palace-dog-boarding",
     "address": "112 W Randol Mill Rd STE 100",
@@ -7117,7 +7117,7 @@
   {
     "id": "ChIJZ3EdtDRLtokRAA_Am8vEQys",
     "name": "Unleashed Abilities: Coaching People, Training Dogs",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "unleashed-abilities-coaching-people-training-dogs",
     "address": "3724 Woodland Cir",
@@ -7168,7 +7168,7 @@
   {
     "id": "ChIJocJIeXdJtokR0NzDRV22XkU",
     "name": "Nova Pack Dog Training LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "nova-pack-dog-training-llc",
     "address": "7021 Ted Dr",
@@ -7219,7 +7219,7 @@
   {
     "id": "ChIJIc7zhMULtokRghwJn8nqYnk",
     "name": "Ridgeside K9 - Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "ridgeside-k9-dog-training",
     "address": "19971 Ridgeside Rd",
@@ -7270,7 +7270,7 @@
   {
     "id": "ChIJkVsueOCwt4kR-VZVsm3nJ0A",
     "name": "Wholistic Hound Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "wholistic-hound-academy",
     "address": "18 Roth St",
@@ -7525,7 +7525,7 @@
   {
     "id": "ChIJbXVk3Wfet4kR2l5LPVkXRBI",
     "name": "Off Leash K9 Training Maryland",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-maryland",
     "address": "8150 Lark Brown Rd",
@@ -7576,7 +7576,7 @@
   {
     "id": "ChIJkQPlvf-zt4kRe5gyUnxQzTU",
     "name": "Zoom Room Dog Training - Springfield",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "zoom-room-dog-training-springfield",
     "address": "6812 Bland St",
@@ -7729,7 +7729,7 @@
   {
     "id": "ChIJI2UjZn-2t4kRuPGnugjlSMI",
     "name": "Happy Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "happy-grooming",
     "address": "3301 Langston Blvd.",
@@ -7831,7 +7831,7 @@
   {
     "id": "ChIJF50Wjb21t4kRjzRvrlWPyOo",
     "name": "InStyle Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "InStyle Pet Grooming has become a favorite among the area residents.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (703) 300-9738. Visit their website at https://petq.net/explore/instyle-pet-grooming/ to learn more about their services and pricing.",
     "slug": "instyle-pet-grooming",
     "address": "6504 Williamsburg Blvd",
@@ -7882,7 +7882,7 @@
   {
     "id": "ChIJTRYUe8y1t4kRtJc1bfLpVLI",
     "name": "Woof Gang Bakery & Grooming Arlington",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Woof Gang Bakery & Grooming Arlington has become a favorite among the area residents.  What makes this pet store special is its clean, excellent. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (571) 312-5630. Visit their website at https://woofgangbakery.com/arlington to learn more about their services and pricing.",
     "slug": "woof-gang-bakery-grooming-arlington",
     "address": "4550 Lee Hwy",
@@ -7933,7 +7933,7 @@
   {
     "id": "ChIJG92kYC-xt4kR0-FVJ1C-IIA",
     "name": "The Groomery Ltd.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about The Groomery Ltd..  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (703) 299-0299. Visit their website at http://thegroomeryltd.com/ to learn more about their services and pricing.",
     "slug": "the-groomery-ltd",
     "address": "605 Franklin St",
@@ -8035,7 +8035,7 @@
   {
     "id": "ChIJ_2AvW9mwt4kRSdGNi6dJbw8",
     "name": "From Head to Tail Grooming Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "from-head-to-tail-grooming-spa",
     "address": "430 Hume Ave",
@@ -8137,7 +8137,7 @@
   {
     "id": "ChIJo-F4vTe1t4kRVyU5-sn5_cM",
     "name": "Peachy Pooches Dog Spa & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Peachy Pooches Dog Spa & Grooming.  What makes this dog facility special is its attentive, knowledgeable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (703) 712-8207. Visit their website at http://peachypooches.net/ to learn more about their services and pricing.",
     "slug": "peachy-pooches-dog-spa-grooming",
     "address": "6730 Curran St 1st Floor",
@@ -8188,7 +8188,7 @@
   {
     "id": "ChIJxQ6Q2mezt4kRdVir21Ht0As",
     "name": "Pawsh Dog Wash",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Pawsh Dog Wash.  What makes this dog facility special is its attentive, knowledgeable, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (703) 566-9044. Visit their website at http://www.pawshdw.com/ to learn more about their services and pricing.",
     "slug": "pawsh-dog-wash",
     "address": "4907 Brenman Park Dr",
@@ -8239,7 +8239,7 @@
   {
     "id": "ChIJ7RJwOt2xt4kR4QlIhM3sC3o",
     "name": "Paw Spa, LLC.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "paw-spa-llc",
     "address": "315 S Washington St",
@@ -8290,7 +8290,7 @@
   {
     "id": "ChIJS--eIW6zt4kRJ1y63X0dBjQ",
     "name": "Bessie's Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bessie-s-pet-grooming",
     "address": "7139 Columbia Pike",
@@ -8392,7 +8392,7 @@
   {
     "id": "ChIJqVjcEaOxt4kRqTCrE3K_e4M",
     "name": "Gia Styles Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Gia Styles Grooming.  What makes this dog facility special is its clean, spacious, excellent. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (703) 567-6839. Visit their website at https://www.giastylesgrooming.com/ to learn more about their services and pricing.",
     "slug": "gia-styles-grooming",
     "address": "3014 Colvin St",
@@ -8494,7 +8494,7 @@
   {
     "id": "ChIJG2q--JHmn0oRijdREkCVaS4",
     "name": "Giving Tree Pet Resort & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "giving-tree-pet-resort-grooming",
     "address": "1912 Association Dr",
@@ -8545,7 +8545,7 @@
   {
     "id": "ChIJZXu3awU5tokRFhw4b_H2sk8",
     "name": "Olde Towne Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "olde-towne-pet-resort",
     "address": "21460 Squire Ct",
@@ -8596,7 +8596,7 @@
   {
     "id": "ChIJUWLGo_VlToYRr-tgLdPzXvs",
     "name": "The Royal Pet Resort and Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-royal-pet-resort-and-spa",
     "address": "4611 W Sublett Rd",
@@ -8647,7 +8647,7 @@
   {
     "id": "ChIJNUIEHsd8ToYR8XA75sGp5tI",
     "name": "Pet Resort in The Gardens",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Pet Resort in The Gardens.  What makes this dog facility special is its spacious, excellent, clean. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (817) 635-5510. Visit their website at https://petresortinthegardens.com/?utm_source=gmb&utm_medium=organic to learn more about their services and pricing.",
     "slug": "pet-resort-in-the-gardens",
     "address": "2890 W Pioneer Pkwy",
@@ -8749,7 +8749,7 @@
   {
     "id": "ChIJn7CbYCzMt4kRu_NOcItyKlE",
     "name": "Olde Towne Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "olde-towne-pet-resort",
     "address": "12230 Wilkins Ave",
@@ -8800,7 +8800,7 @@
   {
     "id": "ChIJQXSKH2hLtokR1bphaintCj0",
     "name": "MVP Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "mvp-resort",
     "address": "8500 Lee Hwy",
@@ -9209,7 +9209,7 @@
   {
     "id": "ChIJsWJS-eOxt4kRMI-G4959zbw",
     "name": "Fort Barnard Dog Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "Fort Barnard Dog Park has become a favorite among the area residents.  What makes this dog facility special is its professional, reliable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (703) 228-6525. Visit their website at https://parks.arlingtonva.us/locations/fort-barnard-park/ to learn more about their services and pricing.",
     "slug": "fort-barnard-dog-park",
     "address": "2050 S Walter Reed Dr",
@@ -9660,7 +9660,7 @@
   {
     "id": "ChIJ38MavFKxt4kR6C8Qy26OsH8",
     "name": "Fort Barnard Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "Pet parents in the area rave about Fort Barnard Park.  What makes this dog facility special is its spacious. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (703) 228-6525. Visit their website at https://www.arlingtonva.us/Government/Departments/Parks-Recreation/Locations/Parks/Fort-Barnard-Park to learn more about their services and pricing.",
     "slug": "fort-barnard-park",
     "address": "2101 S Pollard St",
@@ -9966,7 +9966,7 @@
   {
     "id": "ChIJHRhdWQMUsYkR-e3iqy9AYNU",
     "name": "Four Paws Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "four-paws-pet-resort",
     "address": "1915 N Hamilton St",
@@ -10017,7 +10017,7 @@
   {
     "id": "ChIJc4JlnyFzsYkRUeH29EV8BnY",
     "name": "Four Paws Pet Resort VI",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "four-paws-pet-resort-vi",
     "address": "3510 Courthouse Rd",
@@ -10324,7 +10324,7 @@
   {
     "id": "ChIJ6bZh7rY_sYkR1SANsaZYKQU",
     "name": "Holiday Barn Pet Resorts",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "holiday-barn-pet-resorts",
     "address": "3800 Mountain Rd",
@@ -10528,7 +10528,7 @@
   {
     "id": "ChIJFwIJbQwNsYkREhLgNjiE9cA",
     "name": "K9 & Company Retreat",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-company-retreat",
     "address": "7821 Iron Bridge Rd",
@@ -10681,7 +10681,7 @@
   {
     "id": "ChIJV3gpD7xDY20RetC2AZZxFR8",
     "name": "Crate Escape Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "crate-escape-resort",
     "address": "3010 Hilliard Rd",
@@ -10784,7 +10784,7 @@
   {
     "id": "ChIJaSsp7QIWsYkRKRUh5nD3w3k",
     "name": "Apple Dog Daycare, Lodging, Grooming & Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "apple-dog-daycare-lodging-grooming-training",
     "address": "8818 Brook Rd",
@@ -10887,7 +10887,7 @@
   {
     "id": "ChIJ6bZh7rY_sYkR1SANsaZYKQU",
     "name": "Holiday Barn Pet Resorts",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "holiday-barn-pet-resorts",
     "address": "3800 Mountain Rd",
@@ -10989,7 +10989,7 @@
   {
     "id": "ChIJ38p5o8B4sYkRw5ZOVFi2mNs",
     "name": "Wagging Tails Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Wagging Tails Kennel.  What makes this dog facility special is its excellent, great, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (804) 639-9609. Visit their website at http://www.waggingtails-va.com/ to learn more about their services and pricing.",
     "slug": "wagging-tails-kennel",
     "address": "22320 Hull Street Rd N",
@@ -11142,7 +11142,7 @@
   {
     "id": "ChIJpY-OD8gVsYkRbWQNgyea1x0",
     "name": "Happy Camper Pet Lodge",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-camper-pet-lodge",
     "address": "7300 Impala Dr",
@@ -11193,7 +11193,7 @@
   {
     "id": "ChIJC8s4LTwRsYkROa3-BMmnIyM",
     "name": "Calm K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Calm K9 Training.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (804) 385-1756. Visit their website at http://www.calmk9training.com/ to learn more about their services and pricing.",
     "slug": "calm-k9-training",
     "address": "4 N 4th St #305",
@@ -11347,7 +11347,7 @@
   {
     "id": "ChIJueFNGmcTsYkRPBX5HyQAX20",
     "name": "Best Paw Forward K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Best Paw Forward K9 Training.  What makes this dog facility special is its professional, reliable, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (804) 683-1664. Visit their website at http://www.bestpawforwardk9training.com/ to learn more about their services and pricing.",
     "slug": "best-paw-forward-k9-training",
     "address": "3319 Idlewood Ave",
@@ -11449,7 +11449,7 @@
   {
     "id": "ChIJvTimWW2sQSsRlLVf5lzk9_Q",
     "name": "Dog Training Elite Richmond",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Dog Training Elite Richmond.  What makes this dog facility special is its excellent, great, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (804) 944-8500. Visit their website at https://dogtrainingelite.com/richmond to learn more about their services and pricing.",
     "slug": "dog-training-elite-richmond",
     "address": "8147 Staples Mill Rd",
@@ -11594,7 +11594,7 @@
   {
     "id": "ChIJq6r6hkdrsYkRwraCxo77GDU",
     "name": "Off Leash K9 Training, Richmond",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-richmond",
     "address": "10097 Patterson Park Rd #210",
@@ -11739,7 +11739,7 @@
   {
     "id": "ChIJgfNUkXTjsIkR_A0qQ5eJV7M",
     "name": "Dog Dudes K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dog-dudes-k9-training",
     "address": "3099 Sassafras Woods Ct",
@@ -11790,7 +11790,7 @@
   {
     "id": "ChIJf2Qtxl0_sYkRqYBHR20UMEY",
     "name": "Intelligent K9 Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Intelligent K9 Dog Training.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (804) 587-7300. Visit their website at https://www.intelligentk9training.com/ to learn more about their services and pricing.",
     "slug": "intelligent-k9-dog-training",
     "address": "2001 Lone Ridge Dr",
@@ -11841,7 +11841,7 @@
   {
     "id": "ChIJK-t7NZPvtYkRQXdwbjoFQgo",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "2580 S Pleasant Valley Rd",
@@ -11943,7 +11943,7 @@
   {
     "id": "ChIJo64Wy4PisIkRWNd5YAtVfGE",
     "name": "Breakthrough K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "breakthrough-k9-training",
     "address": "2535 Westwood Rd",
@@ -11994,7 +11994,7 @@
   {
     "id": "ChIJ3cMCxvETsYkR8oDOCJOVCEo",
     "name": "Dogma Grooming + Pet Needs",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "dogma-grooming-pet-needs",
     "address": "3501 W Cary St",
@@ -12147,7 +12147,7 @@
   {
     "id": "ChIJUTYyXX4XsYkRxT-pOIehaVc",
     "name": "Diamonds and Dutch Pet Bath & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Diamonds and Dutch Pet Bath & Spa.  What makes this dog facility special is its clean, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (804) 716-2424. Visit their website at https://diamondsanddutchpetbathandspa.com/ to learn more about their services and pricing.",
     "slug": "diamonds-and-dutch-pet-bath-spa",
     "address": "121 W Brookland Park Blvd",
@@ -12249,7 +12249,7 @@
   {
     "id": "ChIJJ5_7g7sSsYkRCqNnOAw362U",
     "name": "Good Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Good Dog Grooming.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (804) 647-2842. ",
     "slug": "good-dog-grooming",
     "address": "310 N Arch Rd",
@@ -12351,7 +12351,7 @@
   {
     "id": "ChIJZd5OYkcXsYkRytwFj891HRo",
     "name": "C.C. Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about C.C. Pet Spa.  What makes this dog facility special is its clean, excellent, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (804) 644-8000. Visit their website at http://www.ccpetspa.com/ to learn more about their services and pricing.",
     "slug": "c-c-pet-spa",
     "address": "3071 Mechanicsville Tpke",
@@ -12402,7 +12402,7 @@
   {
     "id": "ChIJNcry48hssYkRxLlEYHev8f0",
     "name": "Sitting Pretty Grooming and Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "sitting-pretty-grooming-and-training",
     "address": "9200 Stony Point Pkwy #155A",
@@ -12504,7 +12504,7 @@
   {
     "id": "ChIJ6xYSKv8TsYkRHlfE4QUlAhQ",
     "name": "The Barking Lot",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "the-barking-lot",
     "address": "606 N Belmont Ave",
@@ -12708,7 +12708,7 @@
   {
     "id": "ChIJEbsFyQZzsYkRmwoLsEHZeXA",
     "name": "Bows and Bones Pet Grooming, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bows-and-bones-pet-grooming-llc",
     "address": "2600 Buford Rd",
@@ -12810,7 +12810,7 @@
   {
     "id": "ChIJG36xBJwNsYkRn0uy7bHQ3jo",
     "name": "Affordable Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "affordable-grooming",
     "address": "6520 Iron Bridge Rd suite d",
@@ -12861,7 +12861,7 @@
   {
     "id": "ChIJD9GSBykRsYkR11xn6Jkmb0Q",
     "name": "The Grooming Tub",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-grooming-tub",
     "address": "1102 Hull St",
@@ -13006,7 +13006,7 @@
   {
     "id": "ChIJoSesu-lFsYkRDTJDXSYqZ6Q",
     "name": "PawsCienda Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pawscienda-pet-resort",
     "address": "16726 Mountain Rd",
@@ -13108,7 +13108,7 @@
   {
     "id": "ChIJoU04qTIKsYkRzfj3JmxmdCM",
     "name": "West Chester Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about West Chester Pet Resort.  What makes this dog facility special is its clean, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (804) 796-3632. Visit their website at https://westchesterpetresort.com/ to learn more about their services and pricing.",
     "slug": "west-chester-pet-resort",
     "address": "12021 Iron Bridge Rd",
@@ -13159,7 +13159,7 @@
   {
     "id": "ChIJISxx8Eg8sYkRgRgU40Svk_k",
     "name": "Four Paws Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "four-paws-pet-resort",
     "address": "10429 Leadbetter Rd",
@@ -13210,7 +13210,7 @@
   {
     "id": "ChIJVXKj4Yl1uokRfR1IKGddSvQ",
     "name": "Sandy Creek Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sandy-creek-pet-resort",
     "address": "9689 Burkes Pond Rd",
@@ -13261,7 +13261,7 @@
   {
     "id": "ChIJf4G3XI4BsYkREWZI0-XGCTQ",
     "name": "A Stay in the Country Pet Lodge and Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "a-stay-in-the-country-pet-lodge-and-training-center",
     "address": "2610 Shadewood Ln",
@@ -13414,7 +13414,7 @@
   {
     "id": "ChIJLwtGlkh7sYkRFjN2E-rsvdI",
     "name": "Acres of Fun Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "acres-of-fun-kennel",
     "address": "1600 Dorset Rd",
@@ -14531,7 +14531,7 @@
   {
     "id": "ChIJH5OrSQd4sIkR-ROyIYzCIE8",
     "name": "The Happy Dog Pet Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-happy-dog-pet-grooming-salon",
     "address": "304 Main St",
@@ -14633,7 +14633,7 @@
   {
     "id": "ChIJ8W7a9SR5sIkRaZN9yAhujns",
     "name": "Care-A-Lot Pet Supply Oyster Point",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "care-a-lot-pet-supply-oyster-point",
     "address": "301 Oyster Point Rd",
@@ -14735,7 +14735,7 @@
   {
     "id": "ChIJ9ZeFagB4sIkR_NtV801msDg",
     "name": "The MeowManor - Cats Only Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-meowmanor-cats-only-boarding",
     "address": "98 Nelson Dr",
@@ -14786,7 +14786,7 @@
   {
     "id": "ChIJN-Ds2aV_sIkRTNSkhtSfU_8",
     "name": "Puppy Palace Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Puppy Palace Spa.  What makes this pet store special is its excellent, clean, spacious. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 981-9029. Visit their website at http://www.puppypalacespa.com/ to learn more about their services and pricing.",
     "slug": "puppy-palace-spa",
     "address": "620 Stoney Creek Ln #19",
@@ -14837,7 +14837,7 @@
   {
     "id": "ChIJ4xQWzlSJsIkRKgH8nFwlymc",
     "name": "Paws Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paws-pet-resort",
     "address": "5423 Airport Rd",
@@ -14939,7 +14939,7 @@
   {
     "id": "ChIJPX1a6kZ5sIkRuX4YTHWfcHw",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petsmart-dog-training",
     "address": "12142 Jefferson Ave",
@@ -15033,7 +15033,7 @@
   {
     "id": "ChIJyZPkPgCJsIkRggi_SZ-glB0",
     "name": "Ridgeside K9 Tidewater Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Ridgeside K9 Tidewater Dog Training.  What makes this dog facility special is its excellent, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 514-3242. Visit their website at https://www.ridgesidek9tidewater.com/ to learn more about their services and pricing.",
     "slug": "ridgeside-k9-tidewater-dog-training",
     "address": "1596 Penniman Rd C",
@@ -15084,7 +15084,7 @@
   {
     "id": "ChIJRRC06qETXIAR0pOQx1YYvKs",
     "name": "Happy Dog Academy LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "happy-dog-academy-llc",
     "address": "13 E Lamington Rd",
@@ -15186,7 +15186,7 @@
   {
     "id": "ChIJsVM-TCLXr4kRNNgJuDL0rRo",
     "name": "Buck’s Dog Training Virginia",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "buck-s-dog-training-virginia",
     "address": "34577 Monroe Rd",
@@ -15288,7 +15288,7 @@
   {
     "id": "ChIJa79yw89-sIkRG7LhI_lGpzI",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "12551 Jefferson Ave Suite 119",
@@ -15339,7 +15339,7 @@
   {
     "id": "ChIJ6f2D3VuDuokRJ8_J4FWCJdE",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "26 Coliseum Xing",
@@ -15390,7 +15390,7 @@
   {
     "id": "ChIJzd7f-XZ_sIkR962aZpwpzuw",
     "name": "Pawsitive Training Service Dog Solutions",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "pawsitive-training-service-dog-solutions",
     "address": "101 Charlene Ct",
@@ -15441,7 +15441,7 @@
   {
     "id": "ChIJO5QdVQV5sIkR7ayvZo_DqRo",
     "name": "Foxy Roxy Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "foxy-roxy-grooming-salon",
     "address": "12638 Jefferson Ave #14",
@@ -15543,7 +15543,7 @@
   {
     "id": "ChIJTUAmi2x4sIkRf0EmWaERPnI",
     "name": "The Grooming Gallery",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-grooming-gallery",
     "address": "133 Harpersville Rd",
@@ -15594,7 +15594,7 @@
   {
     "id": "ChIJaxWBWjV5sIkRHHPTQCxGKE4",
     "name": "Dog Grooming GroomingKingdomINC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "dog-grooming-groomingkingdominc",
     "address": "13678 Warwick Blvd",
@@ -15645,7 +15645,7 @@
   {
     "id": "ChIJuYu_5EuduokRl3wk0w53EdQ",
     "name": "Critter Cleaners Pet Grooming Salon & Mobile Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Critter Cleaners Pet Grooming Salon & Mobile Grooming has become a favorite among the area residents.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (757) 848-5260. ",
     "slug": "critter-cleaners-pet-grooming-salon-mobile-grooming",
     "address": "5109 Mercury Blvd",
@@ -15892,7 +15892,7 @@
   {
     "id": "ChIJr5Qq29aFuokRWGv1xUZJApU",
     "name": "Sunset Creek Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Sunset Creek Dog Grooming.  What makes this dog facility special is its great, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (757) 814-3962. Visit their website at https://sunsetcreekdoggrooming.com/ to learn more about their services and pricing.",
     "slug": "sunset-creek-dog-grooming",
     "address": "4340 Kecoughtan Rd",
@@ -15994,7 +15994,7 @@
   {
     "id": "ChIJSVGIPUzvtYkRNBZoP9n7oOw",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "2580 S Pleasant Valley Rd",
@@ -16045,7 +16045,7 @@
   {
     "id": "ChIJMQAWjMx_sIkRswBJqlHAcu8",
     "name": "Pawpular Pets Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pawpular-pets-dog-grooming",
     "address": "5005 Victory Blvd F",
@@ -16096,7 +16096,7 @@
   {
     "id": "ChIJFdPUXgWhfggRDBdB-uRhbnI",
     "name": "Pawfectly Perfect Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pawfectly-perfect-grooming-salon",
     "address": "562 Denbigh Blvd",
@@ -16147,7 +16147,7 @@
   {
     "id": "ChIJMXyPttiLsIkRMmzEE_m8Wxo",
     "name": "St. Francis Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "st-francis-pet-resort",
     "address": "102 Tewning Rd",
@@ -16198,7 +16198,7 @@
   {
     "id": "ChIJidd-wMzBsIkRZvg3r8ORU7U",
     "name": "K W Pet Resort & Spa Boarding & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "K W Pet Resort & Spa Boarding & Grooming has become a favorite among the area residents.  What makes this dog facility special is its excellent, spacious. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (804) 843-4419. Visit their website at http://kwpetresort.com/ to learn more about their services and pricing.",
     "slug": "k-w-pet-resort-spa-boarding-grooming",
     "address": "1118 B Seaton Lane Building B",
@@ -16249,7 +16249,7 @@
   {
     "id": "ChIJETEmK3i8XIYRZtSX9dmMrEg",
     "name": "New Braunfels Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "new-braunfels-pet-resort",
     "address": "1456 Weltner Rd",
@@ -16351,7 +16351,7 @@
   {
     "id": "ChIJrys2mvx4sIkRgstzzYrdq-A",
     "name": "VCA Boulevard Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "vca-boulevard-animal-hospital",
     "address": "12620 Nettles Dr",
@@ -16402,7 +16402,7 @@
   {
     "id": "ChIJs8zgCeJtsIkRnIkrwaW8W8g",
     "name": "D.O.G.'s Daycare & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "d-o-g-s-daycare-spa",
     "address": "12647 Courthouse Hwy",
@@ -17015,7 +17015,7 @@
   {
     "id": "ChIJLTTRa96xt4kRbMvuulJXt6k",
     "name": "Happy Cat Hotel & Spa Alexandria",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Happy Cat Hotel & Spa Alexandria.  What makes this dog facility special is its friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (703) 570-4105. Visit their website at https://happycathotel.com/alexandria/ to learn more about their services and pricing.",
     "slug": "happy-cat-hotel-spa-alexandria",
     "address": "2391 S Dove St",
@@ -17270,7 +17270,7 @@
   {
     "id": "ChIJcX4vEXmfJIYRkHTxti_o7s8",
     "name": "NOVA Canine Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "nova-canine-academy",
     "address": "5834c N Kings Hwy #4055",
@@ -17372,7 +17372,7 @@
   {
     "id": "ChIJVWOo1p2xt4kRCVLgKj-uw3Q",
     "name": "Mount Vernon Dog Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Mount Vernon Dog Training Club has become a favorite among the area residents.  What makes this dog facility special is its attentive, knowledgeable, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. Visit their website at http://mountvernondogtrainingclub.com/training-classes-locations to learn more about their services and pricing.",
     "slug": "mount-vernon-dog-training-club",
     "address": "3208 Colvin St",
@@ -17466,7 +17466,7 @@
   {
     "id": "ChIJ1emv-Rutt4kRM-LHkEcxWE4",
     "name": "Woof Gang Bakery & Grooming Alexandria",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "woof-gang-bakery-grooming-alexandria",
     "address": "6462 Landsdowne Centre Dr",
@@ -17517,7 +17517,7 @@
   {
     "id": "ChIJVS79NI2xt4kRMW8gGuCJkWI",
     "name": "Pampered Pet Boutique and Barkery",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "Pet parents in the area rave about Pampered Pet Boutique and Barkery.  What makes this pet store special is its great, spacious, clean. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (571) 371-8057. Visit their website at http://www.pamperedpetboutiquebarkery.com/ to learn more about their services and pricing.",
     "slug": "pampered-pet-boutique-and-barkery",
     "address": "1612-A Belle View Blvd",
@@ -17568,7 +17568,7 @@
   {
     "id": "ChIJTaOFUPMB2YgRKZpu_6hBD0E",
     "name": "Alexandria's Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Alexandria's Grooming.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (954) 564-4141. Visit their website at http://alexandriasgrooming.com/ to learn more about their services and pricing.",
     "slug": "alexandria-s-grooming",
     "address": "2032 E Oakland Park Blvd",
@@ -18478,7 +18478,7 @@
   {
     "id": "ChIJz1ND4MOCuokRlrpxpHWI6XQ",
     "name": "VCA Todds Lane Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "vca-todds-lane-animal-hospital",
     "address": "1309 Todds Ln",
@@ -18529,7 +18529,7 @@
   {
     "id": "ChIJ8be__QKDuokR621yADr9F84",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a dog facility located in the area. This facility specializes in Pet care and Professional services. For more information, call (757) 637-4828. Visit their website at https://stores.petsmart.com/va/hampton/hampton/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "3670 Von Schilling Dr",
@@ -18631,7 +18631,7 @@
   {
     "id": "ChIJ1Qdlfho9sIkRtDIGwMEJtAA",
     "name": "American K-9 Interdiction",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about American K-9 Interdiction.  What makes this dog facility special is its spacious, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (757) 304-9600. Visit their website at http://www.ak9i.edu/ to learn more about their services and pricing.",
     "slug": "american-k-9-interdiction",
     "address": "4007 Burdette Rd",
@@ -18674,7 +18674,7 @@
   {
     "id": "ChIJL3aEisWDuokR3cWdCw6i1Y4",
     "name": "Bubbles & Bark",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "bubbles-bark",
     "address": "109 Marketplace Dr STE 230",
@@ -18878,7 +18878,7 @@
   {
     "id": "ChIJq5Y2sxaDuokR6Q_G84vYoX0",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Petco Grooming.  What makes this dog facility special is its professional, reliable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (757) 262-0444. Visit their website at https://stores.petco.com/va/hampton/full-service-grooming-hampton-va-1897.html to learn more about their services and pricing.",
     "slug": "petco-grooming",
     "address": "26 Coliseum Xing",
@@ -18980,7 +18980,7 @@
   {
     "id": "ChIJYfC5emqduokRT3fz2kHWutY",
     "name": "Canine Wellness🐾 Holistic grooming service",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "canine-wellness-holistic-grooming-service",
     "address": "4206 #B",
@@ -19023,7 +19023,7 @@
   {
     "id": "ChIJky0lEI-DuokRbdyTvww34BI",
     "name": "Doggie Stylin Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "doggie-stylin-grooming-salon",
     "address": "1114 Big Bethel Rd #106",
@@ -19176,7 +19176,7 @@
   {
     "id": "ChIJUXsdIvLp4okR79rM1qhCCIE",
     "name": "Playtime Pet Resort - North Hampton",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "playtime-pet-resort-north-hampton",
     "address": "125 Lafayette Rd",
@@ -19576,7 +19576,7 @@
   {
     "id": "ChIJzZPRntoTTYgRvkp59fRf_RE",
     "name": "Off Leash K9 Training of Roanoke",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Off Leash K9 Training of Roanoke.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (540) 750-1955. Visit their website at https://nrvandroanokedogtrainer.com/ to learn more about their services and pricing.",
     "slug": "off-leash-k9-training-of-roanoke",
     "address": "2445 E Washington Ave Ste 102",
@@ -20121,7 +20121,7 @@
   {
     "id": "ChIJK-CXL7gNTYgRG4qLe_cISi4",
     "name": "City Dogs Boarding & Playcare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "city-dogs-boarding-playcare",
     "address": "801 Norfolk Ave SW",
@@ -20274,7 +20274,7 @@
   {
     "id": "ChIJJQFFqZkLTYgR9jnw8lKM6Hk",
     "name": "Klub Kanine And Barkley & Rover",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "klub-kanine-and-barkley-rover",
     "address": "1874 Apperson Dr",
@@ -20376,7 +20376,7 @@
   {
     "id": "ChIJxbF4Le0LTYgRXafHGB2OobM",
     "name": "Canine Cottage Salem - Dog Daycare, Grooming, and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "canine-cottage-salem-dog-daycare-grooming-and-boarding",
     "address": "1145 E Main St",
@@ -20427,7 +20427,7 @@
   {
     "id": "ChIJRaiiQJgMTYgRg-WynPUKY54",
     "name": "Clip & Dip Professional Dog Grooming & Boarding Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "clip-dip-professional-dog-grooming-boarding-kennel",
     "address": "3414 Brambleton Ave",
@@ -20478,7 +20478,7 @@
   {
     "id": "ChIJrb9al09yTYgREtq2XbpgQG8",
     "name": "Aspen Grove Bed & Breakfast Boarding Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "aspen-grove-bed-breakfast-boarding-kennel",
     "address": "7373 Franklin Rd",
@@ -20887,7 +20887,7 @@
   {
     "id": "ChIJVWHE8QE5TYgRwn6U1mdFZJc",
     "name": "Camp Happy Tails",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-happy-tails",
     "address": "1281 Old Nance Farm Trl",
@@ -20989,7 +20989,7 @@
   {
     "id": "ChIJ1Sseb6gTTYgReXKw2ZFa3iA",
     "name": "K9 Clips and Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about K9 Clips and Kennel.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 344-5565. Visit their website at http://www.k9clipsandkennel.com/ to learn more about their services and pricing.",
     "slug": "k9-clips-and-kennel",
     "address": "2104 Hardy Rd",
@@ -21091,7 +21091,7 @@
   {
     "id": "ChIJ29Mex_lvTYgReOUhndbA6pI",
     "name": "CountrySide Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "countryside-boarding",
     "address": "3218 Wirtz Rd",
@@ -21142,7 +21142,7 @@
   {
     "id": "ChIJDdbvTCgNTYgRcHQ90WttGo4",
     "name": "PetHotels.com - Roanoke Dog Boarding Cat & Dog Friendly Hotels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pethotels-com-roanoke-dog-boarding-cat-dog-friendly-hotels",
     "address": "406 S Jefferson St #656",
@@ -21193,7 +21193,7 @@
   {
     "id": "ChIJb794rZyVTYgRf_V1smAz_Jc",
     "name": "Heartstrings Pet Lodging and Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "heartstrings-pet-lodging-and-spa",
     "address": "809 Patrick Henry Dr",
@@ -21295,7 +21295,7 @@
   {
     "id": "ChIJeZpuHy8CLhURZZBLejFPOlI",
     "name": "Star City Canine Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Star City Canine Training Club.  What makes this dog facility special is its friendly, caring, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. Visit their website at http://www.starcityk9training.com/ to learn more about their services and pricing.",
     "slug": "star-city-canine-training-club",
     "address": "1860 Apperson Dr",
@@ -21338,7 +21338,7 @@
   {
     "id": "ChIJWdXctgkLTYgR8KXhDCeNHuk",
     "name": "Willis Wolfpack Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "willis-wolfpack-dog-training",
     "address": "Melrose Ave NW",
@@ -21440,7 +21440,7 @@
   {
     "id": "ChIJj0mZ85SgTYgRCGdyY7ZgnV0",
     "name": "Roanoke Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "roanoke-dog-training",
     "address": "546 Ingal Blvd",
@@ -21491,7 +21491,7 @@
   {
     "id": "ChIJW_ZnXysNTYgR-QlOEAObsH0",
     "name": "Instinct and Intelligence Canine Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "instinct-and-intelligence-canine-training",
     "address": "3125 Salem Turnpike NW",
@@ -21534,7 +21534,7 @@
   {
     "id": "ChIJybr_RlSVTYgR4BXknFVe3dU",
     "name": "Off Leash K9 Training of Blacksburg",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Off Leash K9 Training of Blacksburg.  What makes this dog facility special is its excellent, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 750-1955. Visit their website at https://nrvandroanokedogtrainer.com/ to learn more about their services and pricing.",
     "slug": "off-leash-k9-training-of-blacksburg",
     "address": "3225 N Franklin St #7",
@@ -21636,7 +21636,7 @@
   {
     "id": "ChIJVRc3SMsNTYgRQyAKAEKzj2A",
     "name": "B & B K-9 Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "B & B K-9 Kennels is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its spacious, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (540) 342-8280. ",
     "slug": "b-b-k-9-kennels",
     "address": "1511 Centre Ave NW",
@@ -21687,7 +21687,7 @@
   {
     "id": "ChIJpQC5a7MNTYgR9KmK3rxBTeY",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its great, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (540) 283-5301. Visit their website at https://stores.petsmart.com/va/roanoke/roanoke/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "4210L Franklin Rd",
@@ -21738,7 +21738,7 @@
   {
     "id": "ChIJURf65P4NTYgR1wMQsVXMuq4",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Petco Dog Training is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 342-2364. Visit their website at https://stores.petco.com/va/roanoke/dog-training-roanoke-va-2809.html to learn more about their services and pricing.",
     "slug": "petco-dog-training",
     "address": "630 Brandon Ave SW",
@@ -21789,7 +21789,7 @@
   {
     "id": "ChIJ09N-lckPTYgRLq3d8i993Ms",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petsmart-dog-training",
     "address": "4749 Valley View Blvd NW",
@@ -21840,7 +21840,7 @@
   {
     "id": "ChIJj9esA_YLTYgRxoJKPUWNPGE",
     "name": "Falkenhorst K-9 Training Inc",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Falkenhorst K-9 Training Inc is a dog facility located in the area. This facility specializes in Pet care and Professional services. For more information, call (540) 344-5038. ",
     "slug": "falkenhorst-k-9-training-inc",
     "address": "693 Westside Blvd NW",
@@ -21883,7 +21883,7 @@
   {
     "id": "ChIJpY6361QMTYgRswDUhDA9ZAQ",
     "name": "Padgett Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "padgett-grooming",
     "address": "1902 Main St SW",
@@ -21934,7 +21934,7 @@
   {
     "id": "ChIJ6VjZ_J8NTYgRzd6_ni7vu9g",
     "name": "Doggie Stylez Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "doggie-stylez-grooming-salon",
     "address": "3758 Garden City Blvd SE",
@@ -21985,7 +21985,7 @@
   {
     "id": "ChIJ81bx82rJjW8RAaEwKNjXJwY",
     "name": "Pet-A-Coat Professional Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pet-a-coat-professional-dog-grooming",
     "address": "1312 Morningside St SE",
@@ -22036,7 +22036,7 @@
   {
     "id": "ChIJy-KDfKMRTYgRtl7KyZPmmSQ",
     "name": "Wag N' Wash Natural Pet Food & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Wag N' Wash Natural Pet Food & Grooming.  What makes this pet store special is its excellent, clean. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 924-9274. Visit their website at https://www.wagnwash.com/store/va/roanoke/3038-roanoke/3038 to learn more about their services and pricing.",
     "slug": "wag-n-wash-natural-pet-food-grooming",
     "address": "3433 Orange Ave NE Suite A",
@@ -22087,7 +22087,7 @@
   {
     "id": "ChIJ-Y1WCk0NTYgRaZQtkrc8Hq0",
     "name": "House of Paws Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "house-of-paws-grooming",
     "address": "1104 Brandon Ave SW",
@@ -22189,7 +22189,7 @@
   {
     "id": "ChIJwUfYN0QNTYgR8koOvHGOoMc",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "630 Brandon Ave SW",
@@ -22240,7 +22240,7 @@
   {
     "id": "ChIJ4a8MWI0NTYgRHEWpqhPe0Z8",
     "name": "Abcde Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "abcde-dog-grooming",
     "address": "211 8 1/2 St SE",
@@ -22291,7 +22291,7 @@
   {
     "id": "ChIJ-Sy1CRgSTYgRM77PO-WuYEo",
     "name": "Pretty Paws Dog & Cat Grooming Salon, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pretty-paws-dog-cat-grooming-salon-llc",
     "address": "122 N Pollard St",
@@ -22334,7 +22334,7 @@
   {
     "id": "ChIJySal2qkPTYgR35pCKTWxeJ8",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "1419 Towne Square Blvd NW",
@@ -22530,7 +22530,7 @@
   {
     "id": "ChIJ6wpFntt0TYgR3rb2wfoE-vk",
     "name": "A Bark Above Pet Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "a-bark-above-pet-salon",
     "address": "2532 Rutrough Rd SE",
@@ -22573,7 +22573,7 @@
   {
     "id": "ChIJsT8WDnkOTYgRfApbeQ-HPmQ",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "4749 Valley View Blvd NW",
@@ -22624,7 +22624,7 @@
   {
     "id": "ChIJoyTmj0kPTYgRwtwxPjPNppQ",
     "name": "Claws & Paws Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "claws-paws-grooming",
     "address": "7629 Williamson Rd Unit 17",
@@ -22718,7 +22718,7 @@
   {
     "id": "ChIJsT8WDnkOTYgRfApbeQ-HPmQ",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "4749 Valley View Blvd NW",
@@ -22769,7 +22769,7 @@
   {
     "id": "ChIJLS_-tx6TTYgRTG3vv5mq0cU",
     "name": "Prestige Pet Hotel and Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Prestige Pet Hotel and Spa.  What makes this dog facility special is its attentive, knowledgeable, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (540) 961-1710. Visit their website at https://prestigepethotel.com/ to learn more about their services and pricing.",
     "slug": "prestige-pet-hotel-and-spa",
     "address": "1605 N Franklin St",
@@ -22871,7 +22871,7 @@
   {
     "id": "ChIJk5eTubg_TYgRtPmjrEhFH78",
     "name": "Sugarfoot Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Sugarfoot Kennels.  What makes this dog facility special is its friendly, caring, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (540) 890-7217. Visit their website at http://www.sugarfootkennels.com/ to learn more about their services and pricing.",
     "slug": "sugarfoot-kennels",
     "address": "1110 Rexford Dr",
@@ -22914,7 +22914,7 @@
   {
     "id": "ChIJZZ_8TEMOTYgRFpkjnyq8jN0",
     "name": "VCA Valley Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "vca-valley-animal-hospital",
     "address": "5146 Hildebrand Rd NW",
@@ -22965,7 +22965,7 @@
   {
     "id": "ChIJJfqEYN0MTYgRtwfpFHXS1oM",
     "name": "Southern Hills Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "Pet parents in the area rave about Southern Hills Animal Hospital.  What makes this veterinary care special is its clean, excellent, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (540) 343-4155. Visit their website at https://southernhillsanimalhospital.com/?utm_source=google&utm_medium=google_business_profile+&utm_campaign=website_click+ to learn more about their services and pricing.",
     "slug": "southern-hills-animal-hospital",
     "address": "3827 Hite St SW",
@@ -23271,7 +23271,7 @@
   {
     "id": "ChIJZ5WNrD_D4okRW78Za0E-qxk",
     "name": "Salty Paws - Daycare & Adventures For Your Dog",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Salty Paws - Daycare & Adventures For Your Dog.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (603) 910-5184. Visit their website at http://saltypawsnh.com/ to learn more about their services and pricing.",
     "slug": "salty-paws-daycare-adventures-for-your-dog",
     "address": "9 Ann's Ln",
@@ -23322,7 +23322,7 @@
   {
     "id": "ChIJ07UeWei9uokR6jYw6DlDw4w",
     "name": "Goody Dog Care and Pet Boarding/Sitting",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Goody Dog Care and Pet Boarding/Sitting is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (757) 450-2942. Visit their website at https://goodydogcare.com/ to learn more about their services and pricing.",
     "slug": "goody-dog-care-and-pet-boarding-sitting",
     "address": "1225 Hazel Ave",
@@ -23424,7 +23424,7 @@
   {
     "id": "ChIJdybV5JehuokRXdLOYsj0UDc",
     "name": "Portsmouth Chesapeake Obedience Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "portsmouth-chesapeake-obedience-training-club",
     "address": "5900 Portsmouth Blvd",
@@ -23475,7 +23475,7 @@
   {
     "id": "ChIJwe-gOyiiuokR9YPeD6zu8rc",
     "name": "Dog House Grooming Shop",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "dog-house-grooming-shop",
     "address": "103 Mohawk Dr",
@@ -23577,7 +23577,7 @@
   {
     "id": "ChIJJ_5rc7GhuokRAzX24tNvw5o",
     "name": "Lucky Pups Pet Wash",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "lucky-pups-pet-wash",
     "address": "3916 Portsmouth Blvd",
@@ -23679,7 +23679,7 @@
   {
     "id": "ChIJOcD402yiuokRwoiROxKleNM",
     "name": "VCA Airline Boulevard Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "vca-airline-boulevard-animal-hospital",
     "address": "615 Airline Blvd",
@@ -23730,7 +23730,7 @@
   {
     "id": "ChIJJxQf1SuiuokR_RHS5cbeYPc",
     "name": "VCA Portsmouth Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "vca-portsmouth-animal-hospital",
     "address": "2607 Airline Blvd",
@@ -23781,7 +23781,7 @@
   {
     "id": "ChIJzXTUyjbB4okRPS32LH0-GKA",
     "name": "The Sculpted Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-sculpted-pet-grooming",
     "address": "2800 Lafayette Rd Suite 16",
@@ -23832,7 +23832,7 @@
   {
     "id": "ChIJS6TVR-akuokR3s-AokWOib8",
     "name": "Furst Love Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Furst Love Pet Spa.  What makes this dog facility special is its spacious, clean, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (757) 549-3313. Visit their website at http://www.furstlovepets.com/ to learn more about their services and pricing.",
     "slug": "furst-love-pet-spa",
     "address": "1501 Cedar Rd #121",
@@ -23883,7 +23883,7 @@
   {
     "id": "ChIJU4tRd-KjuokR3Xf7Kkc1WKc",
     "name": "Precious Paws Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Precious Paws Grooming is a dog facility located in the area.  What makes this dog facility special is its excellent, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (757) 793-8671. Visit their website at https://www.facebook.com/share/18V8rDFq9T/ to learn more about their services and pricing.",
     "slug": "precious-paws-grooming",
     "address": "Columbia St",
@@ -23977,7 +23977,7 @@
   {
     "id": "ChIJv1spPGqwuokREACffl7qdac",
     "name": "ChalQuest Boarding Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "chalquest-boarding-kennels",
     "address": "2525 St Brides Rd W",
@@ -24608,7 +24608,7 @@
   {
     "id": "ChIJJWZmHr4PsIkRwKjeva6T1PI",
     "name": "Suffolk Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "Pet parents in the area rave about Suffolk Animal Hospital.  What makes this veterinary care special is its professional, reliable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (757) 539-1385. Visit their website at http://www.suffolkanimalhospital.com/ to learn more about their services and pricing.",
     "slug": "suffolk-animal-hospital",
     "address": "1232 Holland Rd",
@@ -24659,7 +24659,7 @@
   {
     "id": "ChIJ09LV44ETsIkRO1L0ic1ls3A",
     "name": "The Kennel At Five Forks",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-kennel-at-five-forks",
     "address": "24030 Ennis Mill Rd",
@@ -24710,7 +24710,7 @@
   {
     "id": "ChIJ34I16E0v6IkR7rnFShu-8qE",
     "name": "Suffolk Obedience Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "suffolk-obedience-training-club",
     "address": "60 S 2nd St",
@@ -24753,7 +24753,7 @@
   {
     "id": "ChIJA_I1TJgPsIkR0f1gotHPhAs",
     "name": "Fairy Tails Grooming by Elizabeth",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "fairy-tails-grooming-by-elizabeth",
     "address": "3614 Pruden Blvd",
@@ -24804,7 +24804,7 @@
   {
     "id": "ChIJIdR7KYAKsIkRkgsGg05TRdM",
     "name": "Le Paw Royale Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "le-paw-royale-pet-grooming",
     "address": "5705 Lee Farm Ln",
@@ -24855,7 +24855,7 @@
   {
     "id": "ChIJMzcVTZIPsIkR4tg-FGd2Sco",
     "name": "Grannies Grooming Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "grannies-grooming-salon",
     "address": "868 General Pickett Dr",
@@ -25008,7 +25008,7 @@
   {
     "id": "ChIJ4W3ygr4asIkRsrspkoaLHLM",
     "name": "Bubbles' Grooming Parlor and Mobile",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bubbles-grooming-parlor-and-mobile",
     "address": "2109 Holland Rd Suite C",
@@ -25059,7 +25059,7 @@
   {
     "id": "ChIJl7k6wJmfuokRyH9NXswDPFc",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "1011 University Blvd #100",
@@ -25110,7 +25110,7 @@
   {
     "id": "ChIJWWwOVQAPsIkR_EGP0uK0C7U",
     "name": "Pet Supplies Plus",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "pet-supplies-plus",
     "address": "1405 N Main St",
@@ -25161,7 +25161,7 @@
   {
     "id": "ChIJ_7PrWvdtsIkRmO_7wxPcU5U",
     "name": "Elite Doggy Spaw",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "elite-doggy-spaw",
     "address": "15631 Scotts Factory Rd",
@@ -25212,7 +25212,7 @@
   {
     "id": "ChIJo5Jo2j2fuokRyozUPiAx_tM",
     "name": "PetSmart Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petsmart-grooming",
     "address": "6243 College Dr",
@@ -25365,7 +25365,7 @@
   {
     "id": "ChIJYS-l-bufuokRsASFHeDS3cY",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "6243 College Dr",
@@ -25416,7 +25416,7 @@
   {
     "id": "ChIJgfNeeBj9t4kRPFopgxmpu9w",
     "name": "Rising Moon Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rising-moon-kennels",
     "address": "20268 Southampton Pkwy",
@@ -25663,7 +25663,7 @@
   {
     "id": "ChIJs_qeYsbXsokRriSm4m1ySVY",
     "name": "Petz Boarding and Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Petz Boarding and Doggie Daycare.  What makes this dog facility special is its professional, reliable, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (434) 582-9685. Visit their website at http://www.facebook.com/PetzBoardingandDoggieDaycare to learn more about their services and pricing.",
     "slug": "petz-boarding-and-doggie-daycare",
     "address": "2222 Lakeside Dr",
@@ -25757,7 +25757,7 @@
   {
     "id": "ChIJg_axy8LVTIgRE4GvHCfhejE",
     "name": "Happy Hound K9 Social Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "happy-hound-k9-social-club",
     "address": "1363 Red Hill Rd",
@@ -25808,7 +25808,7 @@
   {
     "id": "ChIJ4cClT4nZsokRAUtApZkPdq4",
     "name": "K-9 Cloud 9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "K-9 Cloud 9 has become a favorite among the area residents.  What makes this dog facility special is its great, excellent, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (434) 845-8500. Visit their website at http://k9cloud9.com/ to learn more about their services and pricing.",
     "slug": "k-9-cloud-9",
     "address": "18479 Forest Rd",
@@ -25910,7 +25910,7 @@
   {
     "id": "ChIJT0ol1pnFsokRi0noB7ncOBE",
     "name": "Learn Play Stay Doggie Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "learn-play-stay-doggie-resort",
     "address": "186 Amy Rd",
@@ -26012,7 +26012,7 @@
   {
     "id": "ChIJp6hBReXZsokR_n95RsTO4iA",
     "name": "Oak Hill Veterinary Care & Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "oak-hill-veterinary-care-pet-resort",
     "address": "120 Dillard Rd",
@@ -26114,7 +26114,7 @@
   {
     "id": "ChIJNbaigyDRsokRmCNekFUk1Pc",
     "name": "Lake Forest Boarding & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "lake-forest-boarding-grooming",
     "address": "18510 Forest Rd",
@@ -26267,7 +26267,7 @@
   {
     "id": "ChIJfVyrnmbXsokROVrqB2ykCJ0",
     "name": "Focused Choice Dog Training, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "focused-choice-dog-training-llc",
     "address": "Spottswood Pl",
@@ -26412,7 +26412,7 @@
   {
     "id": "ChIJC5G5dabRsokRpzim4Mln14s",
     "name": "Bucky's Boarding & Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "bucky-s-boarding-daycare",
     "address": "3431 Waterlick Rd",
@@ -26455,7 +26455,7 @@
   {
     "id": "ChIJ_fsbLs3PsokRpMdejx2rQ9A",
     "name": "Prestige Kennel & Pet Services 🐾",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "prestige-kennel-pet-services",
     "address": "14004 Leesville Rd",
@@ -26506,7 +26506,7 @@
   {
     "id": "ChIJQ6acDSVHTYgROrMPre28P14",
     "name": "Little Ponderosa Pet Resort & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "little-ponderosa-pet-resort-spa",
     "address": "2533 Feldspar Rd",
@@ -26608,7 +26608,7 @@
   {
     "id": "ChIJq3uwyiTXsokRJXwTCI0OCsA",
     "name": "Peaks View Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "peaks-view-animal-hospital",
     "address": "802 Wiggington Rd",
@@ -26659,7 +26659,7 @@
   {
     "id": "ChIJjwHN8yvDsokRiyQRo0IpBBA",
     "name": "Rosedale Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "rosedale-pet-spa",
     "address": "80 Rosedale Ln",
@@ -26710,7 +26710,7 @@
   {
     "id": "ChIJEbLwRcwgs4kRcBonxumVlYU",
     "name": "Tracys K9 Bed & Breakfast",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Tracys K9 Bed & Breakfast.  What makes this dog facility special is its spacious, great, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 929-6791. Visit their website at http://tracysk9bedandbreakfast.com/ to learn more about their services and pricing.",
     "slug": "tracys-k9-bed-breakfast",
     "address": "235 Longview Dr",
@@ -26847,7 +26847,7 @@
   {
     "id": "ChIJNRUqXsrQsokRTqrr8aA0UJA",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "3901 Old Forest Rd Bldg B",
@@ -26898,7 +26898,7 @@
   {
     "id": "ChIJpXF2HdfbsokRVvOz6iKvkFQ",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a dog facility located in the area.  What makes this dog facility special is its attentive, knowledgeable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (434) 237-0036. Visit their website at https://stores.petsmart.com/va/lynchburg/lynchburg/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "4026-B Wards Rd",
@@ -27102,7 +27102,7 @@
   {
     "id": "ChIJF8cxfTTQsokRtdQWt2fyHzo",
     "name": "Steph's Bubbles & Bows Pet Grooming & Boutique",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "steph-s-bubbles-bows-pet-grooming-boutique",
     "address": "27 Green Hill Dr",
@@ -27204,7 +27204,7 @@
   {
     "id": "ChIJ3UdWR1vRsokRPapF5_LUGtg",
     "name": "Bark All About It Dog And Cat Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bark-all-about-it-dog-and-cat-spa",
     "address": "21289 Timberlake Rd",
@@ -27298,7 +27298,7 @@
   {
     "id": "ChIJV0XwvqTRsokRG3hJ7AQIRS4",
     "name": "Sit Pretty Grooming LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "sit-pretty-grooming-llc",
     "address": "109 Bonneville Pl",
@@ -27384,7 +27384,7 @@
   {
     "id": "ChIJPzLu1jzYsokRxvjJzszRRsw",
     "name": "The Paw Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-paw-spa",
     "address": "2486 Rivermont Ave",
@@ -27486,7 +27486,7 @@
   {
     "id": "ChIJNRUqXsrQsokRkOeXZlhjryk",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Petco Grooming.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 316-7072. Visit their website at https://stores.petco.com/va/lynchburg/full-service-grooming-lynchburg-va-2879.html to learn more about their services and pricing.",
     "slug": "petco-grooming",
     "address": "3901 Old Forest Rd Bldg B",
@@ -27537,7 +27537,7 @@
   {
     "id": "ChIJbfhWnoXasokRZXXx3Wnkvuk",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "PetSmart has become a favorite among the area residents.  What makes this dog facility special is its spacious, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 237-0036. Visit their website at https://www.petsmart.com/stores/us/va/lynchburg-store1030.html?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart",
     "address": "4026-B Wards Rd",
@@ -27588,7 +27588,7 @@
   {
     "id": "ChIJIXcSU9XRsokRe8RX_MNGhgw",
     "name": "Four Paws Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "four-paws-pet-spa",
     "address": "11591 Wards Rd",
@@ -27631,7 +27631,7 @@
   {
     "id": "ChIJ4cHlPBfXY4gRvjCcI33MhFY",
     "name": "Scruffy To Fluffy pet grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "scruffy-to-fluffy-pet-grooming",
     "address": "11077 Chestnut Ridge Rd",
@@ -27733,7 +27733,7 @@
   {
     "id": "ChIJSbJoIKmtsokRQSY3IumMRds",
     "name": "Sit Stay and Play Grooming and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sit-stay-and-play-grooming-and-boarding",
     "address": "106 Center St",
@@ -28788,7 +28788,7 @@
   {
     "id": "ChIJexlDXTbztIkRmd8n8FiK6d8",
     "name": "Horizons Edge Sports Campus",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "horizons-edge-sports-campus",
     "address": "325 Cornerstone Ln",
@@ -28839,7 +28839,7 @@
   {
     "id": "ChIJBav3p9WStIkRGud0Ty8WZcY",
     "name": "Happy Hounds Doggie Day Care, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-hounds-doggie-day-care-llc",
     "address": "220 Waterman Dr",
@@ -28890,7 +28890,7 @@
   {
     "id": "ChIJQz1cdADxtIkRmyBbYE-aoNg",
     "name": "Curlytail Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "curlytail-boarding",
     "address": "9424 N Valley Pike",
@@ -28941,7 +28941,7 @@
   {
     "id": "ChIJxw8t2g-TtIkRfic0nHWmyzo",
     "name": "All About Paws Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "all-about-paws-boarding",
     "address": "1685-B Garbers Church Rd",
@@ -28992,7 +28992,7 @@
   {
     "id": "ChIJA0PBNLWRtIkR1XM51vza4zU",
     "name": "Sunny Ridge Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sunny-ridge-kennels",
     "address": "5501 Sunny Ridge Dr",
@@ -29043,7 +29043,7 @@
   {
     "id": "ChIJ05Hyb1GNtIkRdJnM4kS73xc",
     "name": "Happy Paws Pet Resort LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-paws-pet-resort-llc",
     "address": "2844 Beulah Rd",
@@ -29086,7 +29086,7 @@
   {
     "id": "ChIJe1_Tk7qdtIkRPlqTYUnMxQc",
     "name": "Home Away From Home Dog Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "home-away-from-home-dog-boarding",
     "address": "333 Madrid Rd",
@@ -29290,7 +29290,7 @@
   {
     "id": "ChIJQ58JHIOhtIkRkFSa0nKeHng",
     "name": "Blue Barn Dog Daycare & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "blue-barn-dog-daycare-boarding",
     "address": "515 Middlebrook Ave",
@@ -29392,7 +29392,7 @@
   {
     "id": "ChIJ4bFmdeSTtIkRFw_f-y2PaH4",
     "name": "Wildmour K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "wildmour-k9",
     "address": "300 Waterman Dr",
@@ -29494,7 +29494,7 @@
   {
     "id": "ChIJxRA9IT_ttIkRl9WyG3wZNjg",
     "name": "All Phase K9 Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "all-phase-k9-training-center",
     "address": "711 Acorn Dr",
@@ -29545,7 +29545,7 @@
   {
     "id": "ChIJdUcLpDjttIkRPrKbdQQQehQ",
     "name": "Harrisonburg Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "harrisonburg-animal-hospital",
     "address": "1611 N Liberty St",
@@ -29596,7 +29596,7 @@
   {
     "id": "ChIJsVi97jbttIkR6GMSvKotU7A",
     "name": "Anicira Veterinary Center",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "anicira-veterinary-center",
     "address": "1992 Medical Ave",
@@ -29647,7 +29647,7 @@
   {
     "id": "ChIJgyLBWZGStIkRZCRGhgsQXWE",
     "name": "Valley Veterinary Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "valley-veterinary-hospital",
     "address": "498 University Blvd suite a",
@@ -29698,7 +29698,7 @@
   {
     "id": "ChIJ494VOKbttIkRus680VSLrx0",
     "name": "Love On A Leash Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "love-on-a-leash-dog-training",
     "address": "3225 Harpine Hwy",
@@ -29843,7 +29843,7 @@
   {
     "id": "ChIJq-IiRJaStIkRZmCNdJb-F6I",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Petco Dog Training is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its attentive, knowledgeable, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (540) 432-3830. Visit their website at https://stores.petco.com/va/harrisonburg/dog-training-harrisonburg-va-1740.html to learn more about their services and pricing.",
     "slug": "petco-dog-training",
     "address": "253 Burgess Rd",
@@ -29894,7 +29894,7 @@
   {
     "id": "ChIJ_RAfipaTtIkROMjMhi9-igM",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a dog facility located in the area.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (540) 432-6460. Visit their website at https://stores.petsmart.com/va/harrisonburg/harrisonburg/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "1671 E Market St",
@@ -29945,7 +29945,7 @@
   {
     "id": "ChIJya4mB5-StIkRMO--8O-Z9AA",
     "name": "Four Paws Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Four Paws Grooming has become a favorite among the area residents.  What makes this dog facility special is its attentive, knowledgeable, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (540) 437-7455. Visit their website at https://fourpawsgroomingharrisonburg.com/ to learn more about their services and pricing.",
     "slug": "four-paws-grooming",
     "address": "4550 Early Rd",
@@ -29996,7 +29996,7 @@
   {
     "id": "ChIJ1QtSw9GTtIkR7X5WR8BQ3Bo",
     "name": "Pooch Purrfect Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pooch-purrfect-grooming",
     "address": "2429 John Wayland Hwy Suite 1",
@@ -30047,7 +30047,7 @@
   {
     "id": "ChIJg535gAWTtIkRI0FPnRWVQx4",
     "name": "Hi Puppy Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "hi-puppy-grooming",
     "address": "48 S Carlton St",
@@ -30098,7 +30098,7 @@
   {
     "id": "ChIJMwnzK8qTtIkRqLCQmJ5Ds4I",
     "name": "PetSmart Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petsmart-grooming",
     "address": "1671 E Market St",
@@ -30149,7 +30149,7 @@
   {
     "id": "ChIJq-IiRJaStIkRc_TaJstAwxQ",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "253 Burgess Rd",
@@ -30200,7 +30200,7 @@
   {
     "id": "ChIJR3_3eaKStIkRKJeF-mKL97k",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "PetSmart has become a favorite among the area residents.  What makes this dog facility special is its excellent, great. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 432-6460. Visit their website at https://www.petsmart.com/stores/us/va/harrisonburg-store1554.html?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart",
     "address": "1671 E Market St",
@@ -30294,7 +30294,7 @@
   {
     "id": "ChIJb4UDtAhStIkRiWkvPXRLbNs",
     "name": "Mystic Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "mystic-pet-resort",
     "address": "1775 Bixlers Ferry Rd",
@@ -30345,7 +30345,7 @@
   {
     "id": "ChIJ37BjVQRhs4kRZH6WPyRsUC4",
     "name": "The Paw House Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "The Paw House Pet Resort is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (540) 949-7297. ",
     "slug": "the-paw-house-pet-resort",
     "address": "121 Ladd Rd",
@@ -30388,7 +30388,7 @@
   {
     "id": "ChIJFW8RhW2GtokRpV8F7sM6woQ",
     "name": "Liberty Hill Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Liberty Hill Pet Resort.  What makes this dog facility special is its attentive, knowledgeable, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (540) 439-7297. Visit their website at http://www.libertyhillpetresort.com/ to learn more about their services and pricing.",
     "slug": "liberty-hill-pet-resort",
     "address": "10401 Green Rd",
@@ -30439,7 +30439,7 @@
   {
     "id": "ChIJQb0xsaiLE0ARUDMcCBvZvtc",
     "name": "Rocky View Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rocky-view-kennels",
     "address": "7083 Beards Ford Rd",
@@ -30490,7 +30490,7 @@
   {
     "id": "ChIJu02Vba5Zs4kRDcMv4oncw1E",
     "name": "Rainbow Springs Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rainbow-springs-kennels",
     "address": "79 Rainbow Spgs Ln",
@@ -30541,7 +30541,7 @@
   {
     "id": "ChIJK5GwARCXtIkRo9BnTKPAl2g",
     "name": "Hidden Hollow Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "hidden-hollow-kennel",
     "address": "11 Wise Hill Ln",
@@ -30780,7 +30780,7 @@
   {
     "id": "ChIJa6YHRmkVtokRIAhWYA7Xzk4",
     "name": "Happy Paws K-9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "happy-paws-k-9",
     "address": "20492 Oatlands Chase Pl",
@@ -31463,7 +31463,7 @@
   {
     "id": "ChIJQ8Sg3Js9tokRe96DGBg7dKY",
     "name": "Old Mill Boarding Kennel & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Old Mill Boarding Kennel & Grooming.  What makes this dog facility special is its great, excellent, spacious. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (703) 777-4183. Visit their website at https://oldmillkennel.com/ to learn more about their services and pricing.",
     "slug": "old-mill-boarding-kennel-grooming",
     "address": "91 Lawson Rd SE",
@@ -31514,7 +31514,7 @@
   {
     "id": "ChIJZybg7jo9tokRuGSJy5IEUM4",
     "name": "DaySpaw",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "dayspaw",
     "address": "75 Lawson Rd SE #110",
@@ -31616,7 +31616,7 @@
   {
     "id": "ChIJ-e6abJs9tokR6vJICfVf404",
     "name": "My Dogs Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about My Dogs Daycare.  What makes this dog facility special is its great, clean, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (703) 777-0077. Visit their website at https://www.mydogsdaycareva.com/ to learn more about their services and pricing.",
     "slug": "my-dogs-daycare",
     "address": "75 Lawson Rd SE #110",
@@ -31659,7 +31659,7 @@
   {
     "id": "ChIJAeTaQDcZtokRNGCcNtF4QLU",
     "name": "VIP Boarding Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "vip-boarding-kennel",
     "address": "39710 Rocky Ln",
@@ -31710,7 +31710,7 @@
   {
     "id": "ChIJg2S7Vk0NtokR4-5nMELR-as",
     "name": "Dog Home Away From Home Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dog-home-away-from-home-kennel",
     "address": "19211 Silcott Springs Rd",
@@ -31812,7 +31812,7 @@
   {
     "id": "ChIJvxt0dgkbtokR3VhgwrA6B_Q",
     "name": "Kennels At Stoneleigh",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "kennels-at-stoneleigh",
     "address": "14359 Mountain Rd",
@@ -31906,7 +31906,7 @@
   {
     "id": "ChIJIzMT-VARtokRMik3TBiJx-E",
     "name": "Blue Ridge Pet Resort And Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "blue-ridge-pet-resort-and-spa",
     "address": "260 Shepherdstown Ct",
@@ -31957,7 +31957,7 @@
   {
     "id": "ChIJqfNhJnc9tokReXaw2YXqmlk",
     "name": "Towne Animal Clinic",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "towne-animal-clinic",
     "address": "64 A Plaza St NE",
@@ -32008,7 +32008,7 @@
   {
     "id": "ChIJeemSPo0VtokRgneSgnP6w9g",
     "name": "Furever K9, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Furever K9, LLC.  What makes this dog facility special is its attentive, knowledgeable, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (571) 600-6530. Visit their website at http://www.fureverk9.com/ to learn more about their services and pricing.",
     "slug": "furever-k9-llc",
     "address": "20690 Gleedsville Rd",
@@ -32059,7 +32059,7 @@
   {
     "id": "ChIJJXysM7MZtokRuuoyinQsXbU",
     "name": "The Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about The Pet Spa.  What makes this dog facility special is its excellent, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (571) 442-8382. Visit their website at https://thepetspava.com/ to learn more about their services and pricing.",
     "slug": "the-pet-spa",
     "address": "14255 Amys Meadow Ct",
@@ -32110,7 +32110,7 @@
   {
     "id": "ChIJuz5yAd-954gRrx5fiX2h5LM",
     "name": "Pet Lodge & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet Lodge & Spa has become a favorite among the area residents.  What makes this dog facility special is its excellent, spacious, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (352) 253-0059. Visit their website at https://petlodgeandspa.com/ to learn more about their services and pricing.",
     "slug": "pet-lodge-spa",
     "address": "Next to Home Depot",
@@ -32212,7 +32212,7 @@
   {
     "id": "ChIJQ8Sg3Js9tokRD5E0mFrFirA",
     "name": "Old Mill Veterinary Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "old-mill-veterinary-hospital",
     "address": "91 Lawson Rd SE",
@@ -32306,7 +32306,7 @@
   {
     "id": "ChIJR5dTBLk9tokRCE8CdW-YEak",
     "name": "Heeling House Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Heeling House Training Center is a dog facility located in the area.  What makes this dog facility special is its attentive, knowledgeable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (703) 661-6610. Visit their website at https://www.hhtrainingcenter.com/ to learn more about their services and pricing.",
     "slug": "heeling-house-training-center",
     "address": "75 Lawson Rd SE #110",
@@ -32349,7 +32349,7 @@
   {
     "id": "ChIJ6fi91KE9tokRrKEXcu-UCXs",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "1031 Edwards Ferry Rd NE",
@@ -32451,7 +32451,7 @@
   {
     "id": "ChIJEdGzmSsFtokRH-BEOzjFt7I",
     "name": "Pawsome Pups Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "pawsome-pups-dog-training",
     "address": "14878 Cider Mill Rd",
@@ -32502,7 +32502,7 @@
   {
     "id": "ChIJJ7mFQWo5tokRR2QmBTpSypE",
     "name": "Off Leash K9 Training, Loudoun County",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-loudoun-county",
     "address": "22034 Shaw Rd Suite 105",
@@ -32553,7 +32553,7 @@
   {
     "id": "ChIJAQAw9R1ZtokRSFgRuJkF7DE",
     "name": "Peace of Mind K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "peace-of-mind-k9",
     "address": "12405 Dumfries Rd",
@@ -32604,7 +32604,7 @@
   {
     "id": "ChIJu2Mfb2kRtokRFFl_tggupHo",
     "name": "T's Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "T's Dog Training is a dog facility located in the area.  What makes this dog facility special is its clean. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (703) 346-7882. ",
     "slug": "t-s-dog-training",
     "address": "Loudoun and West",
@@ -32698,7 +32698,7 @@
   {
     "id": "ChIJp8mPkpU9tokRbndrAMrKAV0",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a dog facility located in the area. This facility specializes in Pet care and Professional services. For more information, call (703) 669-5056. Visit their website at https://stores.petsmart.com/va/leesburg/leesburg/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "510 D",
@@ -32749,7 +32749,7 @@
   {
     "id": "ChIJ8_yoXeMXtokRqtge_Xl2Qkc",
     "name": "The Twins Pets Grooming Salon & Boutique",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-twins-pets-grooming-salon-boutique",
     "address": "217 Cres Station Terrace SE",
@@ -32800,7 +32800,7 @@
   {
     "id": "ChIJA0OEUXg9tokRbobi5noioDk",
     "name": "Bark N' Bubbles Dog Wash",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bark-n-bubbles-dog-wash",
     "address": "545 E Market St F",
@@ -32851,7 +32851,7 @@
   {
     "id": "ChIJk0D9ddo9tokR7rfhqYq19G8",
     "name": "Shear Love Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Shear Love Pet Spa.  What makes this pet store special is its clean, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (703) 891-0688. Visit their website at https://www.shearlovepetspa.com/ to learn more about their services and pricing.",
     "slug": "shear-love-pet-spa",
     "address": "700 Fieldstone Dr NE #120",
@@ -33055,7 +33055,7 @@
   {
     "id": "ChIJmXnSTew-tokRufQ9JK7CLPI",
     "name": "Belly Rubs Biscuit Bar & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "belly-rubs-biscuit-bar-spa",
     "address": "43330 Junction Plaza #178",
@@ -33106,7 +33106,7 @@
   {
     "id": "ChIJv2ARv3k9tokRAauVFzdDXss",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "510 D",
@@ -33157,7 +33157,7 @@
   {
     "id": "ChIJieuDU-W_54gRTB8BrEEx4TA",
     "name": "Dawgy Stylz grooming and boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Dawgy Stylz grooming and boarding.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (352) 801-7180. ",
     "slug": "dawgy-stylz-grooming-and-boarding",
     "address": "1411 E Main St",
@@ -33208,7 +33208,7 @@
   {
     "id": "ChIJ35eSsUlkXRQRlXBVnm4FFAM",
     "name": "Tailwaggers Pet Spa & Boutique",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "tailwaggers-pet-spa-boutique",
     "address": "1421 W Main St",
@@ -33259,7 +33259,7 @@
   {
     "id": "ChIJTwGgEpA9tokRuhNkUS-xzjs",
     "name": "Happy Tails Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "Pet parents in the area rave about Happy Tails Animal Hospital.  What makes this veterinary care special is its spacious, excellent. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (571) 831-3190. Visit their website at http://www.happytailsleesburg.com/ to learn more about their services and pricing.",
     "slug": "happy-tails-animal-hospital",
     "address": "700 Fieldstone Dr Suite 108",
@@ -33361,7 +33361,7 @@
   {
     "id": "ChIJg9O_JJg9tokRhoUThfY4v6M",
     "name": "Woof Gang Bakery & Grooming Belmont Chase",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "woof-gang-bakery-grooming-belmont-chase",
     "address": "19825 Belmont Chase Dr Suite 125",
@@ -33412,7 +33412,7 @@
   {
     "id": "ChIJh9X1SnI9tokRHH_WQU9BLiA",
     "name": "Hammer & Nails Grooming Shop for Guys - Leesburg",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "hammer-nails-grooming-shop-for-guys-leesburg",
     "address": "1610 Village Market Blvd SE Suite p125",
@@ -33463,7 +33463,7 @@
   {
     "id": "ChIJrfimIZY4tokRJ5EDrw_P9jo",
     "name": "Dulles Pets Hotel & Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dulles-pets-hotel-daycare",
     "address": "44931 Lane Ct",
@@ -33514,7 +33514,7 @@
   {
     "id": "ChIJXecgrlV88ogRO7-n-0zR_BY",
     "name": "Magnolia Pet Resort & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "magnolia-pet-resort-spa",
     "address": "628 Fussell Rd",
@@ -34017,7 +34017,7 @@
   {
     "id": "ChIJl9HlvnA4tokRNBsOsMSyP60",
     "name": "Healthy Hound Playground & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "healthy-hound-playground-grooming",
     "address": "45910 Transamerica Plaza #109",
@@ -34222,7 +34222,7 @@
   {
     "id": "ChIJH2P4BFl3tIkRLLTNWebiOlM",
     "name": "Wakefield Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "wakefield-kennel",
     "address": "798 Wakefield Farm",
@@ -34477,7 +34477,7 @@
   {
     "id": "ChIJ2QFID-WHs4kRQLM6ey4N32o",
     "name": "Canine Campus",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "canine-campus",
     "address": "440 Westfield Rd",
@@ -34783,7 +34783,7 @@
   {
     "id": "ChIJo1-tPI6Js4kRZdp5K0yo0xc",
     "name": "Pawsitive Barb",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "pawsitive-barb",
     "address": "1416 Hillbrook Ct",
@@ -34834,7 +34834,7 @@
   {
     "id": "ChIJEQie73uHs4kRP9PQvF_NiKg",
     "name": "Dog Training by Valerie",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dog-training-by-valerie",
     "address": "918 B Harris St",
@@ -34877,7 +34877,7 @@
   {
     "id": "ChIJE1vsHAV3tIkRqqySk-YCGg4",
     "name": "Happy Tails Puppy Camp",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Happy Tails Puppy Camp is a dog facility located in the area.  What makes this dog facility special is its spacious, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 566-0134. Visit their website at http://www.happytailspuppycamp.com/ to learn more about their services and pricing.",
     "slug": "happy-tails-puppy-camp",
     "address": "3466 Seminole Trail #2009",
@@ -34920,7 +34920,7 @@
   {
     "id": "ChIJmS3o3hFytIkR-neDx8Rqgok",
     "name": "Off Leash K9 Training, Charlottesville",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-charlottesville",
     "address": "8782 Seminole Trail",
@@ -34971,7 +34971,7 @@
   {
     "id": "ChIJgafC7yM9uS4RDzGDK3r-KCU",
     "name": "Atlantic Coast K-9 Training Service",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "atlantic-coast-k-9-training-service",
     "address": "257 Whitewood Rd",
@@ -35022,7 +35022,7 @@
   {
     "id": "ChIJ6X1OvNF_LYUR2cdQGXHO6cc",
     "name": "Ridgeside K9 Charlottesville",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "ridgeside-k9-charlottesville",
     "address": "6066 Advance Mills Rd",
@@ -35073,7 +35073,7 @@
   {
     "id": "ChIJr9nnSL9hs4kRt03_j0HUjUc",
     "name": "Sadie's Rules K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "sadie-s-rules-k9-training",
     "address": "365 Truslows Ln",
@@ -35175,7 +35175,7 @@
   {
     "id": "ChIJNSYQ74t3tIkRqAGX2i5jgiA",
     "name": "Liberty Canine Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Liberty Canine Academy has become a favorite among the area residents.  What makes this dog facility special is its spacious, attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 305-0518. Visit their website at http://www.charlottesvilledogtrainer.com/ to learn more about their services and pricing.",
     "slug": "liberty-canine-academy",
     "address": "115 Terrybrook Dr",
@@ -35226,7 +35226,7 @@
   {
     "id": "ChIJq6q6MpHus4kRDvt6IPl0pRU",
     "name": "Rivanna K9 Services LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "rivanna-k9-services-llc",
     "address": "563 Wilmington Rd",
@@ -35379,7 +35379,7 @@
   {
     "id": "ChIJwYNPHzWHs4kRVqKaT-xhTEg",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "1621 Emmet St N",
@@ -35532,7 +35532,7 @@
   {
     "id": "ChIJB8hFkCGHs4kReZuJ4_LiLmU",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Petco Grooming.  What makes this dog facility special is its attentive, knowledgeable, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (434) 244-6338. Visit their website at https://stores.petco.com/va/charlottesville/full-service-grooming-charlottesville-va-1530.html to learn more about their services and pricing.",
     "slug": "petco-grooming",
     "address": "1621 Emmet St N",
@@ -35677,7 +35677,7 @@
   {
     "id": "ChIJHQTrnqt_s4kR2193CIQ1SfE",
     "name": "Countryside Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "countryside-pet-grooming",
     "address": "5784 Three Notch'd Rd",
@@ -35830,7 +35830,7 @@
   {
     "id": "ChIJ30vK6wh3tIkRhsIaOYxcB_E",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "101 Community St",
@@ -35881,7 +35881,7 @@
   {
     "id": "ChIJCxRQ1-WHs4kREgqwAToDwrI",
     "name": "Pet Supplies Plus",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "pet-supplies-plus",
     "address": "1240 Seminole Trail",
@@ -35932,7 +35932,7 @@
   {
     "id": "ChIJd_WdlzSHs4kRBTT4Vcz3TNQ",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "425 Merchant Walk Sq",
@@ -36034,7 +36034,7 @@
   {
     "id": "ChIJLfp_ylOGs4kRIDeUWk7ARus",
     "name": "Animal Hospital of Ivy Square",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "animal-hospital-of-ivy-square",
     "address": "2125 Ivy Rd #2",
@@ -36085,7 +36085,7 @@
   {
     "id": "ChIJvxkDBdqHs4kRgFRvLrKPO4w",
     "name": "PetSmart Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "PetSmart Grooming has become a favorite among the area residents.  What makes this dog facility special is its clean, excellent, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (434) 422-4526. Visit their website at https://stores.petsmart.com/va/charlottesville/south-charlottesville/grooming?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-grooming",
     "address": "425 Merchant Walk Sq",
@@ -36136,7 +36136,7 @@
   {
     "id": "ChIJoTd_IXGGs4kR9k6-qYvA374",
     "name": "Monticello Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "Pet parents in the area rave about Monticello Animal Hospital.  What makes this veterinary care special is its great, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (434) 979-3644. Visit their website at http://www.cvillevet.com/ to learn more about their services and pricing.",
     "slug": "monticello-animal-hospital",
     "address": "1193 5th St SW",
@@ -36187,7 +36187,7 @@
   {
     "id": "ChIJ60S3wOc9tIkRL0K1QoY_vJ8",
     "name": "Applewood Boarding Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "applewood-boarding-kennels",
     "address": "294 Waylands Mill Rd",
@@ -36794,7 +36794,7 @@
   {
     "id": "ChIJzc675uiyUogRNRpkPN6KObg",
     "name": "Danville Pet Resort, Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Danville Pet Resort, Inc. is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (434) 836-1245. ",
     "slug": "danville-pet-resort-inc",
     "address": "215 Ash St",
@@ -36888,7 +36888,7 @@
   {
     "id": "ChIJHyhBrWetUogRd0bi3v_3d_k",
     "name": "Mt Hermon Pet Grooming & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "mt-hermon-pet-grooming-boarding",
     "address": "260 Swanson Ave",
@@ -37076,7 +37076,7 @@
   {
     "id": "ChIJGzUm1nWrK4cRgOWm-oIEYCY",
     "name": "Mak Pack Dog Training & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "mak-pack-dog-training-boarding",
     "address": "3050 S Gilbert Rd",
@@ -37178,7 +37178,7 @@
   {
     "id": "ChIJBw7uOhG1UogRX_McoWiK0A8",
     "name": "Spark-N-Bark Pet Sitting Services, LLC.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "spark-n-bark-pet-sitting-services-llc",
     "address": "3500 W Main St",
@@ -37280,7 +37280,7 @@
   {
     "id": "ChIJ12vSj0-xUogRSHl5TsSyLLI",
     "name": "Enlightened K9 Perspective",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "enlightened-k9-perspective",
     "address": "937 Stony Mill Rd",
@@ -37331,7 +37331,7 @@
   {
     "id": "ChIJ1c2Up6aqsokRYkl6MlEDK-E",
     "name": "My Shadow Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about My Shadow Dog Training.  What makes this dog facility special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (434) 713-3742. Visit their website at http://www.myshadowtraining.com/about-us to learn more about their services and pricing.",
     "slug": "my-shadow-dog-training",
     "address": "3897 Payneton Rd",
@@ -37382,7 +37382,7 @@
   {
     "id": "ChIJd_yfL3RWTYgRxxuq53kXYWA",
     "name": "Setterwoods Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "setterwoods-dog-training",
     "address": "1220 Climax Rd",
@@ -37425,7 +37425,7 @@
   {
     "id": "ChIJdaSlXiKzUogRkKVWbUMtCb0",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petsmart-dog-training",
     "address": "135 Collins Dr C",
@@ -37476,7 +37476,7 @@
   {
     "id": "ChIJUdV2vuCzUogRzJcmi6eF_Y0",
     "name": "Precision Flyball Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "precision-flyball-training",
     "address": "1476 Cartersville Rd",
@@ -37570,7 +37570,7 @@
   {
     "id": "ChIJd9Gl0_uzUogRDiGgveY3lqw",
     "name": "Danville Area Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Danville Area Training Center is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (434) 792-1871. Visit their website at http://www.datc.training/ to learn more about their services and pricing.",
     "slug": "danville-area-training-center",
     "address": "630 Randolph St",
@@ -37672,7 +37672,7 @@
   {
     "id": "ChIJmzcyUEizUogRGAFTtlDY3HM",
     "name": "Pretty 'N Cute Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "pretty-n-cute-pet-grooming",
     "address": "408 Lynn St",
@@ -37723,7 +37723,7 @@
   {
     "id": "ChIJTfq1-iKzUogRUdx7kqz16hU",
     "name": "Haley's Dog Grooming LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Haley's Dog Grooming LLC is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its professional, reliable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (434) 554-7436. Visit their website at https://www.facebook.com/profile.php?id=100090213501303&mibextid=ZbWKwL to learn more about their services and pricing.",
     "slug": "haley-s-dog-grooming-llc",
     "address": "1438 Myrtle Ave",
@@ -37774,7 +37774,7 @@
   {
     "id": "ChIJN3sxhLG7UogRBjw7qqB5fyQ",
     "name": "Sophisticuts Pet Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Sophisticuts Pet Spa.  What makes this dog facility special is its attentive, knowledgeable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (434) 489-1889. Visit their website at https://sophisticuts20.wixsite.com/sophisticutspetspa to learn more about their services and pricing.",
     "slug": "sophisticuts-pet-spa",
     "address": "6220 Whispering Pines Rd",
@@ -37817,7 +37817,7 @@
   {
     "id": "ChIJCxcG8wmzUogReB6IviNwozw",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "135 Collins Dr C",
@@ -37868,7 +37868,7 @@
   {
     "id": "ChIJFZKGmKFQDYgRQMNNfmuc9Zw",
     "name": "South Paw Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about South Paw Grooming.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (217) 431-2151. Visit their website at https://localdoggroomers.net/explore/south-paw-grooming/ to learn more about their services and pricing.",
     "slug": "south-paw-grooming",
     "address": "10 W Bridge St",
@@ -37919,7 +37919,7 @@
   {
     "id": "ChIJjTAW-8G1UogR-wAcATMo9GU",
     "name": "JTMB Luxury Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "jtmb-luxury-grooming",
     "address": "1228 W Main St",
@@ -37970,7 +37970,7 @@
   {
     "id": "ChIJm-3wq7SzUogRYyxm4MphWOw",
     "name": "PetSmart Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petsmart-grooming",
     "address": "135 Collins Dr C",
@@ -38021,7 +38021,7 @@
   {
     "id": "ChIJUaeOLByzUogRhhr51533yXI",
     "name": "TLC Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "tlc-pet-grooming",
     "address": "536 Piney Forest Rd",
@@ -38064,7 +38064,7 @@
   {
     "id": "ChIJhVgitgyzUogRr95NodXoMwk",
     "name": "Grooming at Animal Medical Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Grooming at Animal Medical Center is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its attentive, knowledgeable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (434) 793-6477 ext. 305. ",
     "slug": "grooming-at-animal-medical-center",
     "address": "2816 Riverside Dr",
@@ -38405,7 +38405,7 @@
   {
     "id": "ChIJtQlftLlQDYgRFUR3MhlL6IU",
     "name": "Paw-a-day Inn K9 Suites",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Paw-a-day Inn K9 Suites.  What makes this dog facility special is its clean, spacious, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (217) 442-7297. Visit their website at http://www.pawadayinnsuites.com/ to learn more about their services and pricing.",
     "slug": "paw-a-day-inn-k9-suites",
     "address": "5 Hodge St",
@@ -38456,7 +38456,7 @@
   {
     "id": "ChIJreTejYXhUogRAyrqquM_xSI",
     "name": "Country Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "country-kennel",
     "address": "7630 Royster Rd",
@@ -38507,7 +38507,7 @@
   {
     "id": "ChIJ4xmL2e9dDYgR0T0T8XCKM58",
     "name": "K-9 Peace of Mind Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k-9-peace-of-mind-pet-resort",
     "address": "15228 E 2430 N Rd",
@@ -38915,7 +38915,7 @@
   {
     "id": "ChIJy9cHg5zjVogRStkiW_3i2Ls",
     "name": "Green Acres Pet Boarding & Daycare, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "green-acres-pet-boarding-daycare-llc",
     "address": "151 Oak Grove Rd",
@@ -39017,7 +39017,7 @@
   {
     "id": "ChIJYZA4IOunTYgRcB8Ja3YBklU",
     "name": "Catawba Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "catawba-kennel",
     "address": "6609 Blacksburg Rd",
@@ -39068,7 +39068,7 @@
   {
     "id": "ChIJxQzuoK-TTYgRkXa945T1tjI",
     "name": "Off Leash K9 Training of Christiansburg",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-training-of-christiansburg",
     "address": "300B Roanoke St",
@@ -39170,7 +39170,7 @@
   {
     "id": "ChIJc0XyMJfDTYgREi3TYYKTLOc",
     "name": "Doe Creek Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "doe-creek-kennels",
     "address": "Doe Creek Farm Rd",
@@ -39213,7 +39213,7 @@
   {
     "id": "ChIJjTLfKwSTTYgR4dmzeV6IQlQ",
     "name": "Hans Meadow Kennel Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Hans Meadow Kennel Inc. is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (540) 382-8796. Visit their website at http://www.hansmeadowkennel.com/ to learn more about their services and pricing.",
     "slug": "hans-meadow-kennel-inc",
     "address": "207 Depot St NW",
@@ -39409,7 +39409,7 @@
   {
     "id": "ChIJaahcw3SVTYgR7vVTLF4S03E",
     "name": "Hi D Ho Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "hi-d-ho-dog-training",
     "address": "Blacksburg",
@@ -39452,7 +39452,7 @@
   {
     "id": "ChIJ-40aGdW_TYgRVECDxSSMv6g",
     "name": "Village Groomer",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "village-groomer",
     "address": "1531 N Main St Ste A",
@@ -39554,7 +39554,7 @@
   {
     "id": "ChIJCRTM9HWVTYgR46hhytYEPfo",
     "name": "SoLo Paws Grooming and Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "solo-paws-grooming-and-training",
     "address": "209 Roanoke St # 1A",
@@ -39597,7 +39597,7 @@
   {
     "id": "ChIJD5HQUBrrTYgRRxn-smrx8Ow",
     "name": "New River Valley Kennel Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "New River Valley Kennel Club is a dog facility located in the area. This facility specializes in Pet care and Professional services. For more information, call (540) 552-1130. Visit their website at https://newrivervalleykennelclub.org/ to learn more about their services and pricing.",
     "slug": "new-river-valley-kennel-club",
     "address": "2929 Weatherly Ct",
@@ -39691,7 +39691,7 @@
   {
     "id": "ChIJuboRBBfzTYgRzRjNjVSLOAc",
     "name": "Rolling Hills Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rolling-hills-kennels",
     "address": "3333 Tyler Rd",
@@ -39947,7 +39947,7 @@
   {
     "id": "ChIJ0Sho7aRdtokRF813YAIxC_g",
     "name": "Bark + Boarding Manassas",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Bark + Boarding Manassas.  What makes this dog facility special is its friendly, caring, clean. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (703) 361-7550. Visit their website at https://www.barkandboarding.com/ to learn more about their services and pricing.",
     "slug": "bark-boarding-manassas",
     "address": "10035 Dean Dr",
@@ -40049,7 +40049,7 @@
   {
     "id": "ChIJYZPKcDb3tokR21xG6lVHRqc",
     "name": "Kellenberger Kennels LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Kellenberger Kennels LLC.  What makes this dog facility special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (703) 594-6612. Visit their website at http://www.kellenbergerkennels.com/ to learn more about their services and pricing.",
     "slug": "kellenberger-kennels-llc",
     "address": "7431 Rosita Ct",
@@ -40407,7 +40407,7 @@
   {
     "id": "ChIJX29wWm5EtokR10HKjVWs46U",
     "name": "GOLDEN DOG HOTEL",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "golden-dog-hotel",
     "address": "14726 Crenshaw Dr",
@@ -40509,7 +40509,7 @@
   {
     "id": "ChIJ0xwMFipEtokRY4t3InE-gSs",
     "name": "Dog Tales Daycare & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dog-tales-daycare-boarding",
     "address": "13944-G",
@@ -40611,7 +40611,7 @@
   {
     "id": "ChIJJUIjJI9ftokRlCtIOGT7uk4",
     "name": "The Bigger the Better Canine Camp",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-bigger-the-better-canine-camp",
     "address": "10692 Parkgate Dr",
@@ -40654,7 +40654,7 @@
   {
     "id": "ChIJ2Qs88z5ptokRg0cWbqn-lAw",
     "name": "DOGTOWN Day Camp for Dogs",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dogtown-day-camp-for-dogs",
     "address": "3492 James Madison Hwy",
@@ -40705,7 +40705,7 @@
   {
     "id": "ChIJI0MJ-ppbtokRIol-cHbH-qA",
     "name": "Morganna Animal Clinic & Boarding Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Morganna Animal Clinic & Boarding Kennel has become a favorite among the area residents.  What makes this veterinary care special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (703) 361-4196. Visit their website at http://morgannaanimalclinicva.com/ to learn more about their services and pricing.",
     "slug": "morganna-animal-clinic-boarding-kennel",
     "address": "9050 Liberia Ave",
@@ -40807,7 +40807,7 @@
   {
     "id": "ChIJiQt56Y9htokRNuBM4IPJrV0",
     "name": "Boarding Feathered Friends",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "boarding-feathered-friends",
     "address": "10174 Elgin Way",
@@ -40858,7 +40858,7 @@
   {
     "id": "ChIJGXRdOY9ZtokRYbrJ2ODvH5w",
     "name": "Magic Mountain K9 Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Magic Mountain K9 Training.  What makes this dog facility special is its spacious, excellent, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (571) 342-1328. Visit their website at http://magicmtk9.com/ to learn more about their services and pricing.",
     "slug": "magic-mountain-k9-training",
     "address": "6099 River Forest Dr",
@@ -40909,7 +40909,7 @@
   {
     "id": "ChIJV0gNy-VdtokRPLX3jQKa_S0",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training has become a favorite among the area residents.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (703) 335-1755. Visit their website at https://stores.petsmart.com/va/manassas/manassas/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "10834 Sudley Manor Dr",
@@ -41003,7 +41003,7 @@
   {
     "id": "ChIJMWj_t7P4tokRgaxvWTnWAms",
     "name": "Off Leash K9 of Northern Virginia",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "off-leash-k9-of-northern-virginia",
     "address": "2627 Hanco Ctr Dr",
@@ -41097,7 +41097,7 @@
   {
     "id": "ChIJs0g3GARntokRsPayKIZHShg",
     "name": "Citizen K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "citizen-k9",
     "address": "8891 Largemont Ln",
@@ -41148,7 +41148,7 @@
   {
     "id": "ChIJO9EiAaRbtokR498bLYc0bMw",
     "name": "Virginia School of Pet Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Virginia School of Pet Grooming is a dog facility located in the area.  What makes this dog facility special is its attentive, knowledgeable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (703) 361-1363. Visit their website at https://virginiaschoolofpetgrooming.com/ to learn more about their services and pricing.",
     "slug": "virginia-school-of-pet-grooming",
     "address": "9750 Center St",
@@ -41199,7 +41199,7 @@
   {
     "id": "ChIJUX33qe5btokRL2txhD3mVWw",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Petco Dog Training is a dog facility located in the area. This facility specializes in Pet care and Professional services. For more information, call (703) 330-3743. Visit their website at https://stores.petco.com/va/manassas/dog-training-manassas-va-2874.html to learn more about their services and pricing.",
     "slug": "petco-dog-training",
     "address": "10055 Wellington Rd",
@@ -41250,7 +41250,7 @@
   {
     "id": "ChIJFR2aCY9dtokRMMFvjKMXkQs",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "PetSmart Dog Training is a dog facility located in the area.  What makes this dog facility special is its friendly, caring, excellent. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (703) 396-8631. Visit their website at https://stores.petsmart.com/va/manassas/bristow-south-manassas/dog-training?utm_source=google&utm_medium=organic&utm_campaign=google-my-business to learn more about their services and pricing.",
     "slug": "petsmart-dog-training",
     "address": "9970 Sowder Village Square",
@@ -41352,7 +41352,7 @@
   {
     "id": "ChIJSfR0aHVctokRBWJcFkQ6zvk",
     "name": "Lucky Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "lucky-dog-grooming",
     "address": "Historic District",
@@ -41454,7 +41454,7 @@
   {
     "id": "ChIJY6w4XmxbtokR-gJ9kNMt18w",
     "name": "PetJoy Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petjoy-grooming",
     "address": "8067 Centreville Rd Unit 101",
@@ -41599,7 +41599,7 @@
   {
     "id": "ChIJJz6Diu5FtokRBQL6_r3U198",
     "name": "Paws and Spa Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Paws and Spa Grooming.  What makes this dog facility special is its professional, reliable, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (703) 328-2122. Visit their website at https://pawsandspagrooming.com/ to learn more about their services and pricing.",
     "slug": "paws-and-spa-grooming",
     "address": "14011-h St Germain Dr",
@@ -41701,7 +41701,7 @@
   {
     "id": "ChIJr_SSg2JbtokRj_3iJIYfdXM",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "10055 Wellington Rd",
@@ -41752,7 +41752,7 @@
   {
     "id": "ChIJnYPkDeNctokRmRu5hYnIGZc",
     "name": "Pet Supplies Plus Manassas",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "Pet parents in the area rave about Pet Supplies Plus Manassas.  What makes this pet store special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (703) 368-2940. Visit their website at https://www.petsuppliesplus.com/Store/VA/Manassas/Manassas/4131 to learn more about their services and pricing.",
     "slug": "pet-supplies-plus-manassas",
     "address": "7859 Sudley Rd",
@@ -41905,7 +41905,7 @@
   {
     "id": "ChIJaa3yyUSKtokRx9JaljMCpzk",
     "name": "Top Dog Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "top-dog-resort",
     "address": "2591 Carriage Ford Rd",
@@ -41948,7 +41948,7 @@
   {
     "id": "ChIJjbcy-ppbtokRRUa6rRbLC_c",
     "name": "Morganna Animal Clinic and Boarding Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Morganna Animal Clinic and Boarding Kennel.  What makes this veterinary care special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (703) 361-4196. Visit their website at https://www.morgannaanimalclinicva.com/ to learn more about their services and pricing.",
     "slug": "morganna-animal-clinic-and-boarding-kennel",
     "address": "9050 Liberia Ave",
@@ -41999,7 +41999,7 @@
   {
     "id": "ChIJ-bH4NEdbtokRADJhwek4cJo",
     "name": "PetCentre Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "petcentre-animal-hospital",
     "address": "8307 Yorkshire Ln",
@@ -42050,7 +42050,7 @@
   {
     "id": "ChIJ7etqTSPstokRGNGDE8kpa70",
     "name": "Silverbrook Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "silverbrook-kennels",
     "address": "50 Red Fox Ln",
@@ -42144,7 +42144,7 @@
   {
     "id": "ChIJu6VL7MhbtokRvjWYv75R1UU",
     "name": "Colors home daycare LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Colors home daycare LLC.  What makes this dog facility special is its attentive, knowledgeable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (571) 361-1111. ",
     "slug": "colors-home-daycare-llc",
     "address": "Black Hawk Ct",
@@ -42391,7 +42391,7 @@
   {
     "id": "ChIJdch15d2lsYkRvcy7ONvueW8",
     "name": "SABALI DOG TRAINING ACADEMY",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "sabali-dog-training-academy",
     "address": "1430 Farmer St #308",
@@ -42442,7 +42442,7 @@
   {
     "id": "ChIJr5dlb9m6sYkRsERlKD6iMpU",
     "name": "Brandywine Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "brandywine-kennels",
     "address": "12117 Halifax Rd",
@@ -42493,7 +42493,7 @@
   {
     "id": "ChIJD4D0UaOvsYkRDXyvl3aRrqY",
     "name": "Just Chasing Joy- Home Dog Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "just-chasing-joy-home-dog-boarding",
     "address": "649 Flynn Ln",
@@ -42544,7 +42544,7 @@
   {
     "id": "ChIJP1_aqsSvsYkRr0tGEVCVFqQ",
     "name": "Farmview Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "farmview-pet-resort",
     "address": "12620 Johnson Rd",
@@ -42697,7 +42697,7 @@
   {
     "id": "ChIJeev2h0R2sYkRiL2nun-OM3Y",
     "name": "Kennels at Winterpock, Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Kennels at Winterpock, Inc..  What makes this dog facility special is its spacious, great, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (804) 898-9632. Visit their website at http://www.winterpock.com/ to learn more about their services and pricing.",
     "slug": "kennels-at-winterpock-inc",
     "address": "14601 Beach Rd",
@@ -42748,7 +42748,7 @@
   {
     "id": "ChIJ63gpzT6osYkR0bFY79yo9Vg",
     "name": "Conrecode Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "conrecode-kennel",
     "address": "2408 River Rd",
@@ -43398,7 +43398,7 @@
   {
     "id": "ChIJ74xhh4CnsYkRYpLsRiVoAQ8",
     "name": "Hotel Petersburg, Tapestry Collection by Hilton",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Hotel Petersburg, Tapestry Collection by Hilton.  What makes this dog facility special is its clean, great, excellent. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (804) 280-0998. Visit their website at https://www.hilton.com/en/hotels/richeup-hotel-petersburg/?SEO_id=GMB-AMER-UP-RICHEUP&y_source=1_OTgxMzcwOTctNzE1LWxvY2F0aW9uLndlYnNpdGU%3D to learn more about their services and pricing.",
     "slug": "hotel-petersburg-tapestry-collection-by-hilton",
     "address": "20 W Tabb St",
@@ -43586,7 +43586,7 @@
   {
     "id": "ChIJMWQ6OSSpsYkRBTorJracdK8",
     "name": "IHG Army Hotels Mackintosh Buildings",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "ihg-army-hotels-mackintosh-buildings",
     "address": "9050 Sustainment Ave",
@@ -43629,7 +43629,7 @@
   {
     "id": "ChIJFcHSIq6psYkRdAzL0OZeKHA",
     "name": "Candlewood Suites Ft Gregg-Adams - Petersburg - Hopewell, an IHG Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Candlewood Suites Ft Gregg-Adams - Petersburg - Hopewell, an IHG Hotel has become a favorite among the area residents.  What makes this dog facility special is its clean. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (804) 541-0200. Visit their website at https://www.ihg.com/candlewood/hotels/us/en/hopewell/hpwpd/hoteldetail?cm_mmc=GoogleMaps-_-CW-_-US-_-HPWPD to learn more about their services and pricing.",
     "slug": "candlewood-suites-ft-gregg-adams-petersburg-hopewell-an-ihg-hotel",
     "address": "5113 Plaza Dr",
@@ -43766,7 +43766,7 @@
   {
     "id": "ChIJpbYGN2X8wogRBflw7n_JuJw",
     "name": "Sit Means Sit Dog Training St. Petersburg",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "sit-means-sit-dog-training-st-petersburg",
     "address": "3551 42nd Ave S Suite B 105",
@@ -43817,7 +43817,7 @@
   {
     "id": "ChIJNTIe8kSnsYkRyVQic3LZP60",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petsmart-dog-training",
     "address": "42 Southgate Sq",
@@ -43868,7 +43868,7 @@
   {
     "id": "ChIJLTTlFJDjwogRGoGK3dvetAg",
     "name": "Dog Training Club of St Pete",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Dog Training Club of St Pete.  What makes this dog facility special is its clean, spacious, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (727) 527-5568. Visit their website at http://dtcsp.org/ to learn more about their services and pricing.",
     "slug": "dog-training-club-of-st-pete",
     "address": "4400 34th St N # B",
@@ -43970,7 +43970,7 @@
   {
     "id": "ChIJjS-jI7E_qAkRmuokvHwPEVg",
     "name": "Trained Wright K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "trained-wright-k9",
     "address": "17061 Lee Hwy",
@@ -44123,7 +44123,7 @@
   {
     "id": "ChIJ2TId2Y6nsYkR4H0c5WnCWB8",
     "name": "Bark Avenue Pet Salon & Spaw",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bark-avenue-pet-salon-spaw",
     "address": "117 Orange Ave # A",
@@ -44174,7 +44174,7 @@
   {
     "id": "ChIJAQCsutYJsYkRL-RN1ensOCk",
     "name": "Comforts Of Home Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Comforts Of Home Pet Resort.  What makes this dog facility special is its great, spacious, clean. great place for my dog This facility specializes in Pet care and Professional services. ",
     "slug": "comforts-of-home-pet-resort",
     "address": "15100 Harrowgate Rd",
@@ -44217,7 +44217,7 @@
   {
     "id": "ChIJB8NdDw2nsYkRkBQzDv9C-mQ",
     "name": "Swift Creek Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "swift-creek-kennels",
     "address": "17700 Branders Bridge Rd",
@@ -44268,7 +44268,7 @@
   {
     "id": "ChIJgW4iWAeksYkRtGVTFBwxoyM",
     "name": "Chesdin Animal Hospital",
-    "businessType": "Dog Park",
+    "businessType": "Veterinary Clinic",
     "description": "",
     "slug": "chesdin-animal-hospital",
     "address": "25026 Ferndale Rd",
@@ -44319,7 +44319,7 @@
   {
     "id": "ChIJG-ZDYlw7tYkR5n2JJ5KIqq0",
     "name": "Mountainview Pet Resort and Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Mountainview Pet Resort and Spa.  What makes this dog facility special is its attentive, knowledgeable, professional. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. knowledgeable and attentive staff This facility specializes in Pet care and Professional services. For more information, call (304) 257-5711. Visit their website at https://mountainviewvetpetersburg.com/pet-resort-and-spa/ to learn more about their services and pricing.",
     "slug": "mountainview-pet-resort-and-spa",
     "address": "311 Virginia Ave",
@@ -44805,7 +44805,7 @@
   {
     "id": "ChIJP5XDD6zvtYkR_hwqgah0Sf0",
     "name": "Jim Barnett Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "Pet parents in the area rave about Jim Barnett Park.  What makes this dog facility special is its friendly, caring, spacious. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (540) 662-4946. Visit their website at http://www.winchesterva.gov/parks/ to learn more about their services and pricing.",
     "slug": "jim-barnett-park",
     "address": "1001 E Cork St",
@@ -44856,7 +44856,7 @@
   {
     "id": "ChIJM1r7jszvtYkR5vRXY8TZf0Y",
     "name": "Ridgeside K9 Winchester",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "ridgeside-k9-winchester",
     "address": "360 Gateway Dr Ste 7",
@@ -44907,7 +44907,7 @@
   {
     "id": "ChIJlyRjWdfrtYkRMH9AGnKlUgw",
     "name": "Strategic Paws Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Strategic Paws Boarding.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 327-2911. Visit their website at http://www.strategicpawstraining.com/ to learn more about their services and pricing.",
     "slug": "strategic-paws-boarding",
     "address": "4527 Valley Pike",
@@ -45001,7 +45001,7 @@
   {
     "id": "ChIJlba2A_X6tYkRwB2HGXuPKJU",
     "name": "Country K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "country-k9",
     "address": "667 Walters Mill Ln",
@@ -45095,7 +45095,7 @@
   {
     "id": "ChIJHVtU-ADDtYkRp_O6yrTl3-M",
     "name": "Cavalier Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Cavalier Kennels.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (540) 631-1100. Visit their website at http://www.cavalierkennels.com/ to learn more about their services and pricing.",
     "slug": "cavalier-kennels",
     "address": "799 Fairground Rd",
@@ -45197,7 +45197,7 @@
   {
     "id": "ChIJoW9Bfbi7tYkRJgdDUIPRw4M",
     "name": "Shenandoah Valley Boarding & Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Shenandoah Valley Boarding & Training.  What makes this dog facility special is its friendly, caring, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. staff is very friendly and caring This facility specializes in Pet care and Professional services. For more information, call (540) 465-3007. Visit their website at http://www.creaturecomfortinn.net/ to learn more about their services and pricing.",
     "slug": "shenandoah-valley-boarding-training",
     "address": "1937 Millner Rd",
@@ -45248,7 +45248,7 @@
   {
     "id": "ChIJuUcB-cStQ4gRTdSlaBYvKtA",
     "name": "Teddy and Friends Dog Boarding LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Teddy and Friends Dog Boarding LLC.  What makes this dog facility special is its excellent, great, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (859) 749-8139. Visit their website at https://petboardingservices.net/explore/teddy-and-friends-dog-boarding-llc/ to learn more about their services and pricing.",
     "slug": "teddy-and-friends-dog-boarding-llc",
     "address": "1880 Flanagan Station Rd",
@@ -45401,7 +45401,7 @@
   {
     "id": "ChIJwzZI8H-uQ4gRHEeDOXSp-UA",
     "name": "Almost Home Pet Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "almost-home-pet-boarding",
     "address": "2275 Two Mile Rd",
@@ -45538,7 +45538,7 @@
   {
     "id": "ChIJKTXgYOrvtYkRBlY0CoXEXt8",
     "name": "Cameo's Country Inn-Cat Only Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "cameo-s-country-inn-cat-only-boarding",
     "address": "211 Laurelwood Dr",
@@ -45581,7 +45581,7 @@
   {
     "id": "ChIJ8_kozQjvtYkR3F2jON-VhNs",
     "name": "Head of the Class Dog Training, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Head of the Class Dog Training, LLC.  What makes this dog facility special is its clean, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. clean and well-maintained facilities This facility specializes in Pet care and Professional services. For more information, call (304) 358-0293. Visit their website at http://www.headoftheclassdogtrainingllc.com/ to learn more about their services and pricing.",
     "slug": "head-of-the-class-dog-training-llc",
     "address": "2637 Papermill Rd",
@@ -45632,7 +45632,7 @@
   {
     "id": "ChIJGfK7qRPvtYkR_xphbb4xbE4",
     "name": "IJK9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "ijk9",
     "address": "216 Boyd Ave",
@@ -45675,7 +45675,7 @@
   {
     "id": "ChIJ9dnxVZdAlEoR_f5aNhAW--k",
     "name": "R+K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "R+K9 has become a favorite among the area residents.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (540) 532-1300. Visit their website at https://www.rplusk9.com/ to learn more about their services and pricing.",
     "slug": "r-k9",
     "address": "2637 Papermill Rd",
@@ -45726,7 +45726,7 @@
   {
     "id": "ChIJO0Q2G7bvtYkRPC2fNMNKnbQ",
     "name": "Blue Ridge Dog Training Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Blue Ridge Dog Training Club is a beloved dog facility in the area that consistently earns praise from pet owners.  What makes this dog facility special is its great, friendly, caring. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (540) 662-1664. Visit their website at https://brdtc.org/ to learn more about their services and pricing.",
     "slug": "blue-ridge-dog-training-club",
     "address": "221 Commonwealth Ct",
@@ -45769,7 +45769,7 @@
   {
     "id": "ChIJGT7gihwHyokRIPqbh-xpDSw",
     "name": "Berkeley K-9 School For Dogs",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "berkeley-k-9-school-for-dogs",
     "address": "3050 Arden Nollville Rd",
@@ -45863,7 +45863,7 @@
   {
     "id": "ChIJ-eZwmNDvtYkRJLtIWj6EreM",
     "name": "PetSmart Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petsmart-dog-training",
     "address": "2310 Legge Blvd",
@@ -45914,7 +45914,7 @@
   {
     "id": "ChIJnZD87JXvtYkR1Omut88wcYk",
     "name": "Ridgeside K9 Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "Pet parents in the area rave about Ridgeside K9 Grooming.  What makes this dog facility special is its excellent, spacious, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 270-7132. Visit their website at https://ridgesidek9grooming.com/ to learn more about their services and pricing.",
     "slug": "ridgeside-k9-grooming",
     "address": "360 Gateway Dr Ste 1",
@@ -45965,7 +45965,7 @@
   {
     "id": "ChIJK-t7NZPvtYkRQXdwbjoFQgo",
     "name": "Petco Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "petco-dog-training",
     "address": "2580 S Pleasant Valley Rd",
@@ -46059,7 +46059,7 @@
   {
     "id": "ChIJuQ72KPjxtYkRmqjIfBVX-40",
     "name": "The Dog House (Grooming Gals)",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "the-dog-house-grooming-gals",
     "address": "2442 Valley Ave",
@@ -46110,7 +46110,7 @@
   {
     "id": "ChIJEyL34onvtYkRkr_ty3euqQ8",
     "name": "Bella Rose Grooming Studio",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "bella-rose-grooming-studio",
     "address": "1577 Commerce St",
@@ -46161,7 +46161,7 @@
   {
     "id": "ChIJmz1bQ53vtYkRLaoIDDrVFbM",
     "name": "Groomingtails Salon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "groomingtails-salon",
     "address": "1855 Senseny Rd #5",
@@ -46212,7 +46212,7 @@
   {
     "id": "ChIJ8RCOn2PvtYkRkeBHHyqbpI0",
     "name": "Jurassic Bark",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "jurassic-bark",
     "address": "2229 Valley Ave",
@@ -46314,7 +46314,7 @@
   {
     "id": "ChIJI4EOOK7utYkRuHV3-PK8gtg",
     "name": "Creekside Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Creekside Grooming.  What makes this dog facility special is its excellent, clean, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 662-7272. ",
     "slug": "creekside-grooming",
     "address": "2444",
@@ -46365,7 +46365,7 @@
   {
     "id": "ChIJqbskU6XutYkRoVxALcRKDDY",
     "name": "At Your Bark'n Call",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "at-your-bark-n-call",
     "address": "3343 Valley Pike #500",
@@ -46416,7 +46416,7 @@
   {
     "id": "ChIJLYYSmmvztYkR1Z9J4O3ErBc",
     "name": "Sweet Pea Groomery, LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Sweet Pea Groomery, LLC.  What makes this dog facility special is its excellent, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 550-9075. ",
     "slug": "sweet-pea-groomery-llc",
     "address": "469 Old Bethel Church Rd",
@@ -46620,7 +46620,7 @@
   {
     "id": "ChIJSVGIPUzvtYkRNBZoP9n7oOw",
     "name": "Petco Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "petco-grooming",
     "address": "2580 S Pleasant Valley Rd",
@@ -46671,7 +46671,7 @@
   {
     "id": "ChIJIyJ_1GjAtYkR2DRopgwVUnc",
     "name": "Ruff Edge Grooming LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Ruff Edge Grooming LLC.  What makes this dog facility special is its spacious, professional, reliable. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (540) 508-0678. ",
     "slug": "ruff-edge-grooming-llc",
     "address": "7806 Main St #9500",
@@ -46722,7 +46722,7 @@
   {
     "id": "ChIJrTTjyhYNdEgRX5egSEys7oM",
     "name": "PawsomeCutz Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about PawsomeCutz Dog Grooming.  What makes this dog facility special is its professional, reliable, friendly. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call 01962 621790. Visit their website at https://www.pcmdg.co.uk/ to learn more about their services and pricing.",
     "slug": "pawsomecutz-dog-grooming",
     "address": "88a Cromwell Rd",
@@ -46824,7 +46824,7 @@
   {
     "id": "ChIJA-5n2_XvtYkRPc8chRMRS1g",
     "name": "D's and Mikes Dog Grooming And Pedicures",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "D's and Mikes Dog Grooming And Pedicures is a dog facility located in the area.  What makes this dog facility special is its spacious, excellent. spacious indoor play areas This facility specializes in Pet care and Professional services. For more information, call (540) 773-1522. Visit their website at https://dichaelstopdoggrooming280d.myonlineappointment.com/ to learn more about their services and pricing.",
     "slug": "d-s-and-mikes-dog-grooming-and-pedicures",
     "address": "155 Royal Ave",
@@ -46875,7 +46875,7 @@
   {
     "id": "ChIJpWlmrejutYkRblaSHrdpnF4",
     "name": "PetSmart",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "",
     "slug": "petsmart",
     "address": "2310 Legge Blvd",
@@ -46926,7 +46926,7 @@
   {
     "id": "ChIJkbc_7hQNdEgRc7arPISILOQ",
     "name": "Waggylocks Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "waggylocks-dog-grooming",
     "address": "34 Westman Rd",
@@ -46977,7 +46977,7 @@
   {
     "id": "ChIJf-u_KzD_tYkRxns9gGve_tc",
     "name": "Cedar Run Pet Resort LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "Pet parents in the area rave about Cedar Run Pet Resort LLC.  What makes this dog facility special is its great, excellent, attentive. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. great place for my dog This facility specializes in Pet care and Professional services. For more information, call (304) 229-4100. Visit their website at http://www.cedarrunpetresort.com/ to learn more about their services and pricing.",
     "slug": "cedar-run-pet-resort-llc",
     "address": "2551 Middleway Pike",
@@ -47028,7 +47028,7 @@
   {
     "id": "ChIJe1QSonKZtYkRxB20vuCSNuU",
     "name": "Doggie Style Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "doggie-style-pet-resort",
     "address": "3485 Capon Springs Rd",
@@ -47079,7 +47079,7 @@
   {
     "id": "ChIJJ-Av4G8CyokR5G3dN22Xshk",
     "name": "Paw Spa and Retreat at Shenandoah Veterinary",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Paw Spa and Retreat at Shenandoah Veterinary has become a favorite among the area residents.  What makes this dog facility special is its excellent, clean. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (304) 263-7829. Visit their website at http://wvboardinggrooming.com/ to learn more about their services and pricing.",
     "slug": "paw-spa-and-retreat-at-shenandoah-veterinary",
     "address": "1152 Shepherdstown Rd",
@@ -47130,7 +47130,7 @@
   {
     "id": "ChIJKU1c32aTtYkRirTvgDk_rHM",
     "name": "Pioneer Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pioneer-kennel",
     "address": "376 Gough Rd",
@@ -47275,7 +47275,7 @@
   {
     "id": "ChIJMT5etjUKTYgRie6FJwo1_co",
     "name": "Shampoodles Dog Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "Pet parents in the area rave about Shampoodles Dog Grooming.  What makes this dog facility special is its professional, reliable, great. The staff's dedication to creating a positive experience for both dogs and their owners is evident in every visit. professional and reliable service This facility specializes in Pet care and Professional services. For more information, call (540) 915-3195. ",
     "slug": "shampoodles-dog-grooming",
     "address": "14 W 4th St",
@@ -47326,7 +47326,7 @@
   {
     "id": "ChIJ_faz-BMKTYgR4jO6kG85p1E",
     "name": "Pet Supplies Plus Salem",
-    "businessType": "Dog Park",
+    "businessType": "Pet Store",
     "description": "Pet Supplies Plus Salem has become a favorite among the area residents.  What makes this pet store special is its excellent, clean. excellent customer service This facility specializes in Pet care and Professional services. For more information, call (540) 389-0615. Visit their website at https://www.petsuppliesplus.com/Store/VA/Salem/Salem/4027 to learn more about their services and pricing.",
     "slug": "pet-supplies-plus-salem",
     "address": "1439 W Main St",

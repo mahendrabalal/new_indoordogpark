@@ -187,6 +187,10 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
   const openingHourEntries = Object.entries(park.openingHours ?? {}).filter(
     ([, hours]) => typeof hours === 'string' && hours.trim().length > 0,
   );
+  
+  const todayDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+  const todaysHours = openingHourEntries.find(([day]) => day === todayDay)?.[1];
+
   // Use custom FAQs if available, otherwise build comprehensive default FAQs
   const faqItems = park.faqs && park.faqs.length > 0 ? park.faqs : buildParkFAQs(park);
 
@@ -296,6 +300,11 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <i className="bi bi-patch-check-fill"></i> VERIFIED LISTING
                 </span>
                 <ParkStatusBadge park={park} showNextChange={false} className="premium-badge" />
+                {park.businessType && (
+                  <span className="premium-badge badge-type bg-blue-100 text-blue-800 border-blue-200">
+                    <i className="bi bi-tag-fill"></i> {park.businessType}
+                  </span>
+                )}
               </div>
 
               <h1 className="premium-title">{park.name}</h1>
@@ -311,8 +320,13 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <i className="bi bi-star-fill text-yellow-400"></i>
                   <i className="bi bi-star-fill text-yellow-400"></i>
                   <span className="ml-2 font-bold">{park.rating}</span>
-                  <span className="ml-1 text-sm opacity-80">({park.reviewCount} reviews)</span>
+                  <span className="ml-1 text-sm opacity-80">({park.reviewCount} Google reviews)</span>
                 </span>
+                {todaysHours && (
+                  <span className="hours-inline inline-flex items-center gap-1">
+                    <i className="bi bi-clock-fill"></i> Today: {todaysHours}
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -693,6 +707,28 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
             </div>
 
             <aside className="premium-sidebar-column">
+              {openingHourEntries.length > 0 && (
+                <div className="sidebar-card-premium">
+                  <h3>Business Hours</h3>
+                  <ul className="hours-list-premium">
+                    {openingHourEntries.map(([day, hours]) => {
+                      const isToday = new Date().toLocaleDateString('en-US', { weekday: 'long' }) === day;
+                      return (
+                        <li key={day} className={isToday ? 'today' : ''}>
+                          <span className="day">{day}</span>
+                          <span className="time">{hours}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  {park.hoursNote && (
+                    <p className="mt-4 text-xs italic text-gray-500">
+                      <i className="bi bi-info-circle"></i> {park.hoursNote}
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="sidebar-card-premium">
                 <h3>Contact Provider</h3>
                 <div className="contact-info-premium">
@@ -733,28 +769,6 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   )}
                 </div>
               </div>
-
-              {openingHourEntries.length > 0 && (
-                <div className="sidebar-card-premium">
-                  <h3>Business Hours</h3>
-                  <ul className="hours-list-premium">
-                    {openingHourEntries.map(([day, hours]) => {
-                      const isToday = new Date().toLocaleDateString('en-US', { weekday: 'long' }) === day;
-                      return (
-                        <li key={day} className={isToday ? 'today' : ''}>
-                          <span className="day">{day}</span>
-                          <span className="time">{hours}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {park.hoursNote && (
-                    <p className="mt-4 text-xs italic text-gray-500">
-                      <i className="bi bi-info-circle"></i> {park.hoursNote}
-                    </p>
-                  )}
-                </div>
-              )}
 
               {/* Combined Business Owner Card */}
               <div className="sidebar-card-premium bg-amber-50 border-amber-100">

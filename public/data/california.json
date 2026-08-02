@@ -2,7 +2,7 @@
   {
     "id": "ChIJd9KNxDb_j4ARNoMV090zJwo",
     "name": "ALERT K-9 TRAINING CENTER",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "ALERT K-9 TRAINING CENTER is the beating heart of Brentwood's canine community, offering a dog park experience tailored to social, curious pups. Located in Brentwood, CA, the park is tucked near 901 Bonnie Ln, Brentwood, CA 94513 and easy to reach for commuters and weekend adventurers alike. Guests rave about its 5.0-star average across 107 reviews, pointing to spotless grounds, intuitive traffic flow, and staff who remember every pup's quirks. The campus layers mature trees with long sight lines so guardians can relax while still keeping eyes on the action. Morning, afternoon, and twilight blocks are thoughtfully staggered to keep crowds light and vibes relaxed. Drop-in passes, punch cards, and community days keep the experience accessible without sacrificing premium touches.\n\nExpansive turf runs, agility challenges, and shaded rest nooks stretch across the property so dogs can sprint, sniff, and reset without ever feeling crowded. ALERT K-9 TRAINING CENTER curates small-group play dates, confidence-building agility rotations, and gentle introductions for new rescues. Weekly enrichment labs, pop-up adoption drives, and local vendor markets keep Brentwood's canine calendar fresh. Certified behavior teams circulate through each yard, coaching leash manners and offering quick progress reports. Health-forward protocols guide every visit at ALERT K-9 TRAINING CENTER, from double-gated entries to staff-monitored hydration breaks. Check http://www.alertk-9.com/ for day passes, vaccination policies, and community spotlights.",
     "slug": "alert-k-9-training-center",
     "address": "901 Bonnie Ln",
@@ -122,7 +122,7 @@
   {
     "id": "ChIJex6lanN-j4AR-ogunSunDxg",
     "name": "Better Nature Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "better-nature-dog-training",
     "address": "1334 Kobbe Ave C",
@@ -181,7 +181,7 @@
   {
     "id": "ChIJwYrBLqkql4ARnxG2Lf3WIQM",
     "name": "Big Creek Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "big-creek-boarding",
     "address": "11425 Big Creek Shaft Rd",
@@ -240,7 +240,7 @@
   {
     "id": "ChIJ5315TBcLiC4R7W0dvsLVVUk",
     "name": "Blue Collar K9 Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "blue-collar-k9-dog-training",
     "address": "501 CA-49",
@@ -419,7 +419,7 @@
   {
     "id": "ChIJ86sGDbdIm4ARuWIjVj-sxn8",
     "name": "Dale Roberts Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dale-roberts-training-center",
     "address": "3167 S Beale Rd",
@@ -721,7 +721,7 @@
   {
     "id": "ChIJHQOV7EV5kIARqcthKRIOHWA",
     "name": "Dream Big Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dream-big-training-center",
     "address": "19681 Brandt Rd",
@@ -903,7 +903,7 @@
   {
     "id": "ChIJ82GkhgkB3IARZZnbI7xjHWQ",
     "name": "Fon's Canines Professional Dog Training and Sales",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "fons-canines-professional-dog-training-and-sales",
     "address": "5050 Santa Fe St Suite B",
@@ -964,7 +964,7 @@
   {
     "id": "ChIJkbm5G95TkIARr153zSEVLTo",
     "name": "For Wags N Wiggles Doggie Daycare and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "for-wags-n-wiggles-doggie-daycare-and-boarding",
     "address": "1001 Reno Ave Unit1L",
@@ -1206,7 +1206,7 @@
   {
     "id": "ChIJCxWVVIC5woAREzL-ssuZy1k",
     "name": "LAK9S",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "lak9s",
     "address": "8922 Ellis Ave",
@@ -1266,7 +1266,7 @@
   {
     "id": "ChIJhYCSlhcRIWwRNtkEF-032Tk",
     "name": "London Ridge Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "london-ridge-pet-resort",
     "address": "720 W Citrus Edge St",
@@ -1326,7 +1326,7 @@
   {
     "id": "ChIJtQf7_NJx3IARKtEbPF6MIsI",
     "name": "Man-K9 - San Diego Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "man-k9-san-diego-dog-training",
     "address": "5050 Santa Fe St",
@@ -1386,7 +1386,7 @@
   {
     "id": "ChIJWyGcmIRblIARTWLX_BkhDk4",
     "name": "Ohana K9 Academy - Dog Training, Boarding & Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "ohana-k9-academy-dog-training-boarding-dog-daycare",
     "address": "2747 N Sunnyside Ave Suite 101",
@@ -1445,7 +1445,7 @@
   {
     "id": "ChIJ_UcG_WPLj4AR64Zz1_QhdLw",
     "name": "Orion Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "orion-dog-training",
     "address": "Orion Dog Training",
@@ -1749,7 +1749,7 @@
   {
     "id": "ChIJB7qX6EtHjoARlRl4nyQ679g",
     "name": "Paws To Play - Doggy Daycare & Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paws-to-play-doggy-daycare-grooming",
     "address": "5272 Scotts Valley Dr",
@@ -1809,7 +1809,7 @@
   {
     "id": "ChIJp2JWfC1z3IARmJmAcwCHDbg",
     "name": "Pawtopia Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "pawtopia-dog-training",
     "address": "5666 La Jolla Blvd #25",
@@ -2114,7 +2114,7 @@
   {
     "id": "ChIJYXioSQfFmoARua9KuLrDAs8",
     "name": "Rainbow Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rainbow-dog-daycare",
     "address": "6701 Austin Way",
@@ -2233,7 +2233,7 @@
   {
     "id": "ChIJUUeT-Aku6CIRv8oddbZ2AYM",
     "name": "San Diego Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "san-diego-dog-training",
     "address": "3951 Texas St",
@@ -2293,7 +2293,7 @@
   {
     "id": "ChIJCWbizkqr3oARYHGfKoaCKug",
     "name": "San Diego Pet Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "san-diego-pet-boarding",
     "address": "2176 Chatsworth Blvd Unit C",
@@ -2478,7 +2478,7 @@
   {
     "id": "ChIJt5bJju_HwoAROVi5ffxWGZ4",
     "name": "Smart Paws Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "smart-paws-dog-training",
     "address": "1406 1/4 Silver Lake Blvd",
@@ -2538,7 +2538,7 @@
   {
     "id": "ChIJuV2umfM1joARr6PH9Ouvjus",
     "name": "South Bay Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "south-bay-dog-training",
     "address": "186 E Sunnyoaks Ave Suite C",
@@ -2598,7 +2598,7 @@
   {
     "id": "ChIJ4UTYHgrLwoARK8cAbLx6xVs",
     "name": "South Bay Dog Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "south-bay-dog-training-center",
     "address": "546 W 182nd St",
@@ -2718,7 +2718,7 @@
   {
     "id": "ChIJ0e15pkbbmoARqRnch6cxzvM",
     "name": "The Local Bark Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "the-local-bark-park",
     "address": "4024 Power Inn Rd",
@@ -2781,7 +2781,7 @@
   {
     "id": "ChIJ70ZCiRD_24ARm2BVb0HC4Jk",
     "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "zoom-room-dog-training",
     "address": "7475 Clairemont Mesa Blvd",
@@ -2842,7 +2842,7 @@
   {
     "id": "ChIJ__8PS-v024ARJfXaBsZo-Gg",
     "name": "24 Hour Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "24-hour-dog-daycare",
     "address": "1150 Simpson Way",
@@ -2904,7 +2904,7 @@
   {
     "id": "ChIJ__9rjmZwm4ARa6pNIQ3gxF0",
     "name": "All About Dogs Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "all-about-dogs-training-center",
     "address": "131 Joerschke Dr",
@@ -2964,7 +2964,7 @@
   {
     "id": "ChIJhXxEST-7woARocRYnJBATn4",
     "name": "CANIS - Dog Behavior & Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "canis-dog-behavior-training",
     "address": "18603 Topham St",
@@ -3084,7 +3084,7 @@
   {
     "id": "ChIJx9tl5RSNj4ARqEH3WCaiS7E",
     "name": "Club K9",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "club-k9",
     "address": "10671 Crow Canyon Rd",
@@ -3145,7 +3145,7 @@
   {
     "id": "ChIJ2eiIULwp3YARHirlwGCw5NM",
     "name": "Comfy Home Dog Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "comfy-home-dog-boarding",
     "address": "1440 E Willow St",
@@ -3264,7 +3264,7 @@
   {
     "id": "ChIJi0OiLd7BwoARQNT_d00AlSI",
     "name": "Dog Resort Glendale",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dog-resort-glendale",
     "address": "4111 San Fernando Rd",
@@ -3324,7 +3324,7 @@
   {
     "id": "ChIJk9c5UVqqm4AR0BCZkvaR9Lg",
     "name": "Dog Woods Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dog-woods-resort",
     "address": "3060 Graybar Mine Rd",
@@ -3576,7 +3576,7 @@
   {
     "id": "ChIJ9e0wxJakwoARotWU9XFrQo8",
     "name": "Dominant Dogs Santa Monica - Dog Aggression & Separation Anxiety Dog Training Specialist",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dominant-dogs-santa-monica-dog-aggression-separation-anxiety-dog-training-specialist",
     "address": "201 Ocean Ave Ext",
@@ -3756,7 +3756,7 @@
   {
     "id": "ChIJY-vLvwm7woARrV5j08aq7Jk",
     "name": "Fun Paw Care Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "fun-paw-care-dog-training",
     "address": "3079 Patricia Ave",
@@ -3877,7 +3877,7 @@
   {
     "id": "ChIJ55Wpo16r3IAR8X_pL00DS4o",
     "name": "Happy Dog Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-dog-resort",
     "address": "1625 Industrial Park Ave",
@@ -3936,7 +3936,7 @@
   {
     "id": "ChIJ89b0Ig0xw4AR1gSDEkVmhBQ",
     "name": "Heavenly Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "heavenly-pet-resort",
     "address": "913 N Benson Ave",
@@ -3996,7 +3996,7 @@
   {
     "id": "ChIJSxaPTeucwoARCqE0P6m5h4c",
     "name": "Hideaway Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "hideaway-kennels",
     "address": "9257 Jordan Ave",
@@ -4056,7 +4056,7 @@
   {
     "id": "ChIJU7UUSRlh24ARFxrzuUd5zJM",
     "name": "Homeland Pet Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "homeland-pet-hotel",
     "address": "24750 Juniper Flats Rd",
@@ -4115,7 +4115,7 @@
   {
     "id": "ChIJ5Q6g900ikIARPttDrC-GF_U",
     "name": "K9 Development",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-development",
     "address": "26666 Hansen Rd",
@@ -4175,7 +4175,7 @@
   {
     "id": "ChIJxZ45QAjBwoARvAgTyYr5IRc",
     "name": "K9 Logic Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-logic-dog-training",
     "address": "3908 Mayfield Ave",
@@ -4297,7 +4297,7 @@
   {
     "id": "ChIJ1eZB_C7GwoAROLqcge0ZmWU",
     "name": "Oh Hello Dog: DTLA Dog Daycare & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "oh-hello-dog-dtla-dog-daycare-boarding",
     "address": "1228 E 8th St",
@@ -4359,7 +4359,7 @@
   {
     "id": "ChIJb_NMbH97moARow-b_VxObkw",
     "name": "Paradise Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paradise-doggie-daycare",
     "address": "30 Prospect Dr",
@@ -4478,7 +4478,7 @@
   {
     "id": "ChIJRZT1U5vTwoARzPuTWzwrXXI",
     "name": "Paws On Doggy Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paws-on-doggy-daycare",
     "address": "9441 Via Amorita",
@@ -4538,7 +4538,7 @@
   {
     "id": "ChIJq9ax-3Dz3IARiq_0L2kr3Zg",
     "name": "Paws Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paws-pet-resort",
     "address": "1285 Puerta Del Sol",
@@ -4600,7 +4600,7 @@
   {
     "id": "ChIJm6XKr8yAhYARjg3rMK9uk4I",
     "name": "Pet Camp Cat Safari",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pet-camp-cat-safari",
     "address": "3233 Sacramento St",
@@ -4663,7 +4663,7 @@
   {
     "id": "ChIJIZJ4dUXGbIcR6-olsqlyo4M",
     "name": "Prestige Dog Boarding & Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "prestige-dog-boarding-training",
     "address": "8151 Oak Ave",
@@ -4723,7 +4723,7 @@
   {
     "id": "ChIJjV_qXv-Pj4AR63ef1m048yM",
     "name": "PupTown Dog Daycare & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "puptown-dog-daycare-boarding",
     "address": "14073 Catalina St",
@@ -4843,7 +4843,7 @@
   {
     "id": "ChIJqx2PhxW_woARcG74nNAXjAg",
     "name": "Puppy Island Care & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "puppy-island-care-spa",
     "address": "5210 San Fernando Rd",
@@ -4906,7 +4906,7 @@
   {
     "id": "ChIJ9y5iDT_HwoARLteaxlCGdFg",
     "name": "Riley's Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "rileys-doggie-daycare",
     "address": "1101 E 14th St",
@@ -4967,7 +4967,7 @@
   {
     "id": "ChIJMxmHBMmq3oARto47i94u5Nc",
     "name": "Sit Means Sit Dog Training San Diego",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "sit-means-sit-dog-training-san-diego",
     "address": "10035 Carroll Canyon Rd Suite E",
@@ -5027,7 +5027,7 @@
   {
     "id": "ChIJ6z882S6HhYARTLsEw2E_oZM",
     "name": "Stanfur'd k9 - Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "stanfurd-k9-dog-training",
     "address": "4207 Geary Blvd",
@@ -5087,7 +5087,7 @@
   {
     "id": "ChIJO3bDGclV2YARi1Iyhv7K2Ow",
     "name": "Strategic K9 Training LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "strategic-k9-training-llc",
     "address": "9978 Campo Rd",
@@ -5146,7 +5146,7 @@
   {
     "id": "ChIJOWRGvVrRmoAR974Neen2OLs",
     "name": "The Bark Park Pet Resort and Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-bark-park-pet-resort-and-daycare",
     "address": "2112 Alhambra Blvd",
@@ -5326,7 +5326,7 @@
   {
     "id": "ChIJrbkSu_nnmoAR-XmZorOEyBY",
     "name": "The Local Bark",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "the-local-bark",
     "address": "3201 Fitzgerald Rd",
@@ -5445,7 +5445,7 @@
   {
     "id": "ChIJKfVOnJh_j4ARAvuKLJeKqtU",
     "name": "The Pawffice Pet Spa & Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-pawffice-pet-spa-daycare",
     "address": "1102 Valencia St",
@@ -5564,7 +5564,7 @@
   {
     "id": "ChIJgckM9qmZwoAROeiVckT_K8c",
     "name": "The Ranch Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "the-ranch-dog-training",
     "address": "2244 Federal Ave",
@@ -5805,7 +5805,7 @@
   {
     "id": "ChIJm5zwYFfrZUERiuQMTvJhCIs",
     "name": "Webster's Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "websters-dog-training",
     "address": "4133 Redwood Ave",
@@ -5986,7 +5986,7 @@
   {
     "id": "ChIJFahiIlX_24AR6lzZl1MdXb8",
     "name": "24 Hour Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "24-hour-dog-daycare",
     "address": "7686 Miramar Rd suite b",
@@ -6048,7 +6048,7 @@
   {
     "id": "ChIJL2aQD-LGlIARs0vA_nQtAws",
     "name": "AJ Country Kennel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "aj-country-kennel",
     "address": "15800 Idaho Ave",
@@ -6107,7 +6107,7 @@
   {
     "id": "ChIJx0fJJlDRmoARVzPGY5_Ts00",
     "name": "Adventure Awaits Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "adventure-awaits-dog-daycare",
     "address": "1831 V St",
@@ -6227,7 +6227,7 @@
   {
     "id": "ChIJj-Ea5t3emoARwgoWgEZSWxM",
     "name": "Arcade Creek Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "arcade-creek-kennels",
     "address": "5441 Hackberry Ln",
@@ -6288,7 +6288,7 @@
   {
     "id": "ChIJpVWx5B3cmoARKjG6n_UtTgc",
     "name": "Best Friends Pet Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "best-friends-pet-hotel",
     "address": "3633 Garfield Ave",
@@ -6348,7 +6348,7 @@
   {
     "id": "ChIJVxfHwFUOkYARmIEGLASRSDI",
     "name": "Big Valley Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "big-valley-dog-training",
     "address": "14886 Lombardy St",
@@ -6467,7 +6467,7 @@
   {
     "id": "ChIJzxaiSmTW3IARQfLNY_VMeik",
     "name": "Camp Bow Wow Anaheim",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-anaheim",
     "address": "1431 N Daly St",
@@ -6527,7 +6527,7 @@
   {
     "id": "ChIJ5b48AyNY2YARMtYz50TnCVo",
     "name": "Camp Bow Wow El Cajon",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-el-cajon",
     "address": "1677 N Marshall Ave Suite A",
@@ -6587,7 +6587,7 @@
   {
     "id": "ChIJuUnbMFXHmoARB_UwDwan2to",
     "name": "Camp Bow Wow Elk Grove",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-elk-grove",
     "address": "9263 Bendel Pl",
@@ -6647,7 +6647,7 @@
   {
     "id": "ChIJpSZY9AZS2YARAqK3EHVvJNE",
     "name": "Camp Run-A-Mutt Chula Vista",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-run-a-mutt-chula-vista",
     "address": "35 N 4th Ave",
@@ -6707,7 +6707,7 @@
   {
     "id": "ChIJB4uPg1iq3oARsOUWAK4DnRI",
     "name": "Camp Run-A-Mutt Point Loma",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-run-a-mutt-point-loma",
     "address": "4030 Sports Arena Blvd",
@@ -6829,7 +6829,7 @@
   {
     "id": "ChIJL54ka2S5woARTglTX5gCx0s",
     "name": "Country Dog Ranch boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "country-dog-ranch-boarding",
     "address": "1702 S Robertson Blvd Suite 288",
@@ -6892,7 +6892,7 @@
   {
     "id": "ChIJ70RhtIqB3IARfnICLuPEA94",
     "name": "Country Kennels and Dawg Waterpark",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "country-kennels-and-dawg-waterpark",
     "address": "25817 Washington Ave",
@@ -6954,7 +6954,7 @@
   {
     "id": "ChIJt18-13NWkIARRL2ySEGAG3o",
     "name": "Country View Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "country-view-kennels",
     "address": "3900 Sylvan Ave",
@@ -7134,7 +7134,7 @@
   {
     "id": "ChIJK--P_frHwoARoscZi75iJ0U",
     "name": "Dogdrop Dog Daycare Arts District DTLA",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dogdrop-dog-daycare-arts-district-dtla",
     "address": "905 E 2nd St #110",
@@ -7256,7 +7256,7 @@
   {
     "id": "ChIJs5MHUYnf3IARv48rjhEzMIE",
     "name": "Doggie Daycare...And More",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "doggie-daycareand-more",
     "address": "1557 Placentia Ave",
@@ -7555,7 +7555,7 @@
   {
     "id": "ChIJBdfIP9b_jYARZOSHcKQLzvA",
     "name": "Dogwood Ranch Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dogwood-ranch-pet-resort",
     "address": "10385 Reese Cir",
@@ -7614,7 +7614,7 @@
   {
     "id": "ChIJR7ADdBPUmoARw88h0vD8qiA",
     "name": "Elite Dogs Training & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "elite-dogs-training-boarding",
     "address": "3500 W Capitol Ave",
@@ -7673,7 +7673,7 @@
   {
     "id": "ChIJWZfGl7J524ARW0YNXnGbt_Y",
     "name": "Epic Dog Academy LLC",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "epic-dog-academy-llc",
     "address": "42346 Rio Nedo Rd Ste A",
@@ -7857,7 +7857,7 @@
   {
     "id": "ChIJT7hCSFElhYAR1jjxYf7qcrM",
     "name": "Happy Paws Kennels, Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-paws-kennels-inc",
     "address": "6677 Midway Rd",
@@ -7918,7 +7918,7 @@
   {
     "id": "ChIJwaK6KPXawoAR-QYTC87Rbfc",
     "name": "Heavenly Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "heavenly-pet-resort",
     "address": "5011 Encinita Ave",
@@ -7980,7 +7980,7 @@
   {
     "id": "ChIJvQ8mEe7XwoARgb0M4AA2wpc",
     "name": "Heavenly Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "heavenly-pet-resort",
     "address": "1733 W San Bernardino Rd",
@@ -8100,7 +8100,7 @@
   {
     "id": "ChIJI9nfjP9-j4ARtdFFKIp9Htk",
     "name": "High Tail Hotel",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "high-tail-hotel",
     "address": "2275 Revere Ave",
@@ -8159,7 +8159,7 @@
   {
     "id": "ChIJf890_dk5hIARA-gXrbno_IU",
     "name": "K9 Activity Club",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-activity-club",
     "address": "4340 Occidental Rd",
@@ -8219,7 +8219,7 @@
   {
     "id": "ChIJv0tt2HO3woARnlNdGK4mL1w",
     "name": "K9 Resorts Luxury Pet Hotel Los Angeles",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-resorts-luxury-pet-hotel-los-angeles",
     "address": "11121 Hindry Ave",
@@ -8279,7 +8279,7 @@
   {
     "id": "ChIJv49E02qBhYARLp1y7T9AOu8",
     "name": "Lombard Doggy Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "lombard-doggy-daycare",
     "address": "1488 Lombard St",
@@ -8523,7 +8523,7 @@
   {
     "id": "ChIJj1ro12SUwoARie6CCQkHcOY",
     "name": "Paradise Ranch Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paradise-ranch-pet-resort",
     "address": "10268 La Tuna Canyon Rd",
@@ -8582,7 +8582,7 @@
   {
     "id": "ChIJ4Q01LKf_24ARkQ0AIN9HenE",
     "name": "Paw Commons Pet Resort & Training Center - Kearny Mesa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "paw-commons-pet-resort-training-center-kearny-mesa",
     "address": "7888 Othello Ave",
@@ -8701,7 +8701,7 @@
   {
     "id": "ChIJWcSTzLM66IARM0de0XmWdQg",
     "name": "Paw Play Dog Daycare and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "paw-play-dog-daycare-and-boarding",
     "address": "736 Masterson Dr #5947",
@@ -8878,7 +8878,7 @@
   {
     "id": "ChIJ-2rQ-0J33IARnpbCekXUQYI",
     "name": "Performance K9 Training Centre",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "performance-k9-training-centre",
     "address": "30924 Mission Rd",
@@ -9058,7 +9058,7 @@
   {
     "id": "ChIJ0fQDghF_j4ARzVA81j5hBnw",
     "name": "Primepaw Dog Training: San Francisco's BEST!",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "primepaw-dog-training-san-franciscos-best",
     "address": "243 Alabama St",
@@ -9425,7 +9425,7 @@
   {
     "id": "ChIJz9dNSqGmmoARg725H1fkEC8",
     "name": "Sunset Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sunset-kennels",
     "address": "19705 N Ray Rd",
@@ -9543,7 +9543,7 @@
   {
     "id": "ChIJX1ijZN2mmoARpt7QmdHPxlE",
     "name": "Sycamore Lane Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "sycamore-lane-kennels",
     "address": "5111 W Sargent Rd",
@@ -9905,7 +9905,7 @@
   {
     "id": "ChIJve1oasqVwoAR7j6sHzbiQ88",
     "name": "Whitaker Dog Day Camp - Dog Daycare, Boarding and Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "whitaker-dog-day-camp-dog-daycare-boarding-and-training",
     "address": "2756 Clearwater St",
@@ -9967,7 +9967,7 @@
   {
     "id": "ChIJ907o_6iwwoARYf2uB6edQkk",
     "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "zoom-room-dog-training",
     "address": "11836 Teale St",
@@ -10031,7 +10031,7 @@
   {
     "id": "ChIJc_Tm5SiWwoARZRZi0DVoqLE",
     "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "zoom-room-dog-training",
     "address": "13618 Ventura Blvd",
@@ -10095,7 +10095,7 @@
   {
     "id": "ChIJk2t8JYfJj4ARu8x2Z2zoe5A",
     "name": "A Pet Villa Dog Boarding and Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "a-pet-villa-dog-boarding-and-grooming",
     "address": "1205 Laurelwood Rd",
@@ -10396,7 +10396,7 @@
   {
     "id": "ChIJC6S5GavmjYAR77aYsnvtE4E",
     "name": "California Canine Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "california-canine-dog-training",
     "address": "120 Central Ave",
@@ -10455,7 +10455,7 @@
   {
     "id": "ChIJu_u6OBQxlYARweNv2U7npmM",
     "name": "California Service Dog Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "california-service-dog-academy",
     "address": "18701 Lort Dr",
@@ -10697,7 +10697,7 @@
   {
     "id": "ChIJTRF3psyLj4ARq5tGfdL2wys",
     "name": "Custom-K9 Dog Training & Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "custom-k9-dog-training-boarding",
     "address": "113 S Linden Ave",
@@ -10757,7 +10757,7 @@
   {
     "id": "ChIJR40jZNaVwoAR6MXBDtFxY-A",
     "name": "Delta K9 Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "delta-k9-academy",
     "address": "7360 Varna Ave",
@@ -11251,7 +11251,7 @@
   {
     "id": "ChIJVS0FzlWxhYARODVlx7ia7cE",
     "name": "Fit 'N' Furry Pet Resort & Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "fit-n-furry-pet-resort-training-center",
     "address": "860 Lindberg Ln",
@@ -11370,7 +11370,7 @@
   {
     "id": "ChIJYyE1JyHkmoAR3t2LFoaSghs",
     "name": "Folsom Dog Resort & Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "folsom-dog-resort-training-center",
     "address": "120 Blue Ravine Rd",
@@ -11430,7 +11430,7 @@
   {
     "id": "ChIJSWK1rdjAwoAR8SRzjUg9URc",
     "name": "Glendale Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "glendale-pet-resort",
     "address": "3645 San Fernando Rd",
@@ -11550,7 +11550,7 @@
   {
     "id": "ChIJ0_N3ktHQmoARHz9K-gF5NcE",
     "name": "Grateful Dog Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "grateful-dog-daycare",
     "address": "430 17th St",
@@ -11673,7 +11673,7 @@
   {
     "id": "ChIJ-yzftj1-hYAR7OqdPro0WBE",
     "name": "Happy Hound Play & Daycare, Inc.",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "happy-hound-play-daycare-inc",
     "address": "2101 Mandela Pkwy",
@@ -11733,7 +11733,7 @@
   {
     "id": "ChIJo5rZoo4yw4ARveHmMtlClnw",
     "name": "It's A Dog's World K-9 Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "its-a-dogs-world-k-9-academy",
     "address": "132 S Pennsylvania Ave",
@@ -11918,7 +11918,7 @@
   {
     "id": "ChIJE0w5h-qq3oAR6GpL40AaG_g",
     "name": "Paw Commons Pet Resort & Training Center - Bay Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "paw-commons-pet-resort-training-center-bay-park",
     "address": "1136 Morena Blvd",
@@ -11978,7 +11978,7 @@
   {
     "id": "ChIJ18toYdtU2YAR5MAtndoI-Ws",
     "name": "Paw Commons Pet Resort & Training Center - Hillcrest",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "paw-commons-pet-resort-training-center-hillcrest",
     "address": "3915 9th Ave",
@@ -12038,7 +12038,7 @@
   {
     "id": "ChIJIUyjbgh_j4ARLoHbLHMDgkw",
     "name": "Pet Camp San Francisco",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pet-camp-san-francisco",
     "address": "525 Phelps St",
@@ -12219,7 +12219,7 @@
   {
     "id": "ChIJZ1jkRsPTmoARPu6uOO3rSho",
     "name": "River Dogs Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "river-dogs-resort",
     "address": "2835 Hart Ave",
@@ -12338,7 +12338,7 @@
   {
     "id": "ChIJy_d18AFX2YARsO8t9Fu_CM0",
     "name": "San Diego Pet Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "san-diego-pet-training",
     "address": "Box 64",
@@ -12397,7 +12397,7 @@
   {
     "id": "ChIJ52WRlKEp6IARHW7Gt2Tp_-I",
     "name": "Simi Valley Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "simi-valley-pet-resort",
     "address": "1655 E Los Angeles Ave",
@@ -12457,7 +12457,7 @@
   {
     "id": "ChIJz4kKJYe_woARgQzhDEYC52g",
     "name": "Smart Dogs Training Academy",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "smart-dogs-training-academy",
     "address": "11054 Ventura Blvd Suite 400",
@@ -12516,7 +12516,7 @@
   {
     "id": "ChIJVxYr1aPp3IARddJA17ETPnU",
     "name": "Smart Parke | Dog Boarding in Laguna & Orange County",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "smart-parke-dog-boarding-in-laguna-orange-county",
     "address": "24334 El Toro Rd",
@@ -12757,7 +12757,7 @@
   {
     "id": "ChIJp-VsGKmwwoAR_PgstrY5Img",
     "name": "Wallis Annenberg PetSpace",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "wallis-annenberg-petspace",
     "address": "12005 Bluff Creek Dr",
@@ -12998,7 +12998,7 @@
   {
     "id": "ChIJPfAYx9Z_j4AR-obEaAhOnIg",
     "name": "Bark Avenue Doggy Day Care",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "bark-avenue-doggy-day-care",
     "address": "301 King St",
@@ -13181,7 +13181,7 @@
   {
     "id": "ChIJrSfvb4C5woAR1vVQwJ2bxc8",
     "name": "Cagefree K-9 Camp",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "cagefree-k-9-camp",
     "address": "3385 Robertson Pl",
@@ -13240,7 +13240,7 @@
   {
     "id": "ChIJpbKSO4W-3IARoc0_cICJFW8",
     "name": "California Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "california-dog-training",
     "address": "11111 Spanish Hills Dr",
@@ -13299,7 +13299,7 @@
   {
     "id": "ChIJq8LskZngmoARVau-tT946iU",
     "name": "Camp Bow Wow Fair Oaks",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-fair-oaks",
     "address": "8311 Greenback Ln Suite B",
@@ -13607,7 +13607,7 @@
   {
     "id": "ChIJX0jbjuW_woAR-XvOeOtvZoM",
     "name": "Dog-E-Den Hollywood Dog Daycare Boarding Grooming and Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dog-e-den-hollywood-dog-daycare-boarding-grooming-and-training",
     "address": "7551 Sunset Blvd",
@@ -14098,7 +14098,7 @@
   {
     "id": "ChIJ0RzwaNI3hIARzcWxbTtepQs",
     "name": "Incredible Canine Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "incredible-canine-training-center",
     "address": "3163 Juniper Ave",
@@ -14648,7 +14648,7 @@
   {
     "id": "ChIJQ6U4T_Ddj4ARxGLDW0qZyRE",
     "name": "The Ranch Pet Resort & Spa",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "the-ranch-pet-resort-spa",
     "address": "4964 Tesla Rd",
@@ -14708,7 +14708,7 @@
   {
     "id": "ChIJx6M-MFDT3IARxWMZgC2Rr_Q",
     "name": "The Royal K9 Boarding, Daycare, and Training Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "the-royal-k9-boarding-daycare-and-training-center",
     "address": "4691 Valley View Ave",
@@ -14889,7 +14889,7 @@
   {
     "id": "ChIJ_47XupifwoARh1WomuXY29E",
     "name": "Topanga Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "topanga-pet-resort",
     "address": "1776 Old Topanga Canyon Rd",
@@ -14950,7 +14950,7 @@
   {
     "id": "ChIJ1aXnCWZEkYARG7sMzvAXh0M",
     "name": "University Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "university-pet-resort",
     "address": "3789 E Yosemite Ave",
@@ -15069,7 +15069,7 @@
   {
     "id": "ChIJK_zZaxpV2YARmwt4ARKnhGw",
     "name": "Wag Hotels - San Diego",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "wag-hotels-san-diego",
     "address": "2120 Camino Del Rio N",
@@ -15128,7 +15128,7 @@
   {
     "id": "ChIJ_zuNZ3zUmoARY4HR5ctdy7U",
     "name": "Wag Hotels - West Sacramento",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "wag-hotels-west-sacramento",
     "address": "1759 Enterprise Blvd",
@@ -15744,7 +15744,7 @@
   {
     "id": "ChIJU2oxXfbfmoARKu9hvkbVS30",
     "name": "Buster’s Pet Resort & Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "busters-pet-resort-daycare",
     "address": "7341 Winding Way",
@@ -15864,7 +15864,7 @@
   {
     "id": "ChIJI-aNZzur3oARugLuu7Z3rqw",
     "name": "Camp Bow Wow San Diego Airport",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-bow-wow-san-diego-airport",
     "address": "3146 Sports Arena Blvd #21",
@@ -15923,7 +15923,7 @@
   {
     "id": "ChIJe6ATr2LamoAR0dAg71zrWoA",
     "name": "Cha Cha's Doggie Daycare",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "cha-chas-doggie-daycare",
     "address": "910 57th St",
@@ -16109,7 +16109,7 @@
   {
     "id": "ChIJ85x9p_9-j4ARV9_Iln4Oz58",
     "name": "Dan Perata Training and Boarding",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "dan-perata-training-and-boarding",
     "address": "80 Elmira St",
@@ -16168,7 +16168,7 @@
   {
     "id": "ChIJw10Xz0LXmoARoKFzV_URNO4",
     "name": "Dog Park | Barandas Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "dog-park-barandas-park",
     "address": "2805 Grasslands Dr",
@@ -16290,7 +16290,7 @@
   {
     "id": "ChIJEwB2Ko_NwoAR7_tRJ2FFN5s",
     "name": "Doggy Land Grooming",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "doggy-land-grooming",
     "address": "9047 E Florence Ave",
@@ -16656,7 +16656,7 @@
   {
     "id": "ChIJZa6z86OHhYARdZs451KURS0",
     "name": "Golden Gate Park Dog Training Area",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "golden-gate-park-dog-training-area",
     "address": "6335 Fulton St",
@@ -16718,7 +16718,7 @@
   {
     "id": "ChIJwzdqCwe13IARxOi8L2zZJ04",
     "name": "Golden Retreat Kennels",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "golden-retreat-kennels",
     "address": "10396 Bellegrave Ave",
@@ -16778,7 +16778,7 @@
   {
     "id": "ChIJGWTeERTd3IAR6upryteRFy8",
     "name": "Irvine Central Bark",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "irvine-central-bark",
     "address": "6405 Oak Canyon",
@@ -16840,7 +16840,7 @@
   {
     "id": "ChIJEbi92ty2woAR-HertRUh_3o",
     "name": "Kennel Club LAX",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "kennel-club-lax",
     "address": "5325 W 102nd St Suite 100",
@@ -17207,7 +17207,7 @@
   {
     "id": "ChIJFU-hkRCu3IARcSYbbUJ16Co",
     "name": "Ruff House Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "ruff-house-pet-resort",
     "address": "3035 Chicago Ave",
@@ -17508,7 +17508,7 @@
   {
     "id": "ChIJ0YdlRSy_woARKIEa53eH2ao",
     "name": "Wag Hotels - Hollywood",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "wag-hotels-hollywood",
     "address": "960 Highland Ave",
@@ -17567,7 +17567,7 @@
   {
     "id": "ChIJh9tpCnifj4ARONkn-6iuLgM",
     "name": "Waterdog Lake & Open Space",
-    "businessType": "Dog Park",
+    "businessType": "Dog Grooming",
     "description": "",
     "slug": "waterdog-lake-open-space",
     "address": "2400 Lyall Way &",
@@ -17873,7 +17873,7 @@
   {
     "id": "ChIJTWRJLsPXwoARnqFHJ8YCN7Q",
     "name": "Central Bark Dog Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "central-bark-dog-park",
     "address": "1500 W Rowland Ave",
@@ -18308,7 +18308,7 @@
   {
     "id": "ChIJQ_28KhG2j4AR3vSTbcQXqmo",
     "name": "Klub K9 Play Center",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "klub-k9-play-center",
     "address": "174 Commercial St",
@@ -18739,7 +18739,7 @@
   {
     "id": "ChIJDSXwn9jQmoARXB-hnAlgVw4",
     "name": "Truitt Bark Park",
-    "businessType": "Dog Park",
+    "businessType": "Dog Bar",
     "description": "",
     "slug": "truitt-bark-park",
     "address": "1818 Q St",
@@ -18982,7 +18982,7 @@
   {
     "id": "ChIJvfcmDyqUwoARMRj6l1V0HG8",
     "name": "Dog Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "dog-resort",
     "address": "11911 Vose St",
@@ -19598,7 +19598,7 @@
   {
     "id": "ChIJnwz8DxGawoARAoP-1iPrWWY",
     "name": "Pet Resort",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "pet-resort",
     "address": "16915 Roscoe Blvd",
@@ -19718,7 +19718,7 @@
   {
     "id": "ChIJCQqg3SV-j4ARD6ZUjtnu8No",
     "name": "Wag Hotels - San Francisco",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "wag-hotels-san-francisco",
     "address": "25 14th St",
@@ -20700,7 +20700,7 @@
   {
     "id": "ChIJbYCYqYpvhYARn65PcVS91TI",
     "name": "K9 Optima",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "k9-optima",
     "address": "1408 Harris Ct",
@@ -20760,7 +20760,7 @@
   {
     "id": "ChIJOT1pAQxV24AR6xFEOz2c4lA",
     "name": "Zoom Room Dog Training",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "zoom-room-dog-training",
     "address": "700 E Redlands Blvd Unit 700G",
@@ -20880,7 +20880,7 @@
   {
     "id": "ChIJb6DEP9TWG08RTNnkRd7S8IM",
     "name": "OffLeash K9 Training Bakersfield",
-    "businessType": "Dog Park",
+    "businessType": "Dog Training",
     "description": "",
     "slug": "offleash-k9-training-bakersfield",
     "address": "1450 Olive Dr a",
@@ -20999,7 +20999,7 @@
   {
     "id": "ChIJC1m8oFcG3IARj5mEBoR4iQE",
     "name": "Camp Run-A-Mutt, Sorrento Valley",
-    "businessType": "Dog Park",
+    "businessType": "Dog Daycare",
     "description": "",
     "slug": "camp-run-a-mutt-sorrento-valley",
     "address": "11468 Sorrento Valley Rd STE B",
