@@ -290,12 +290,7 @@ const nextConfig = {
       },
       // Note: Removed old blog category/tag redirects to avoid sitemap conflicts
       // Search engines should discover the new URLs naturally
-      // Redirect old park slugs to new city-inclusive slugs
-      {
-        source: '/guides',
-        destination: '/blog',
-        permanent: true,
-      },
+
       {
         source: '/parks/oneida-run',
         destination: '/parks/oneida-run-bronx',

@@ -430,7 +430,12 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
               </header>
 
-
+              {/* Mobile Table of Contents */}
+              <div className="block lg:hidden mb-8">
+                {headings.length > 0 && (
+                  <BlogTableOfContents items={headings} isMobile={true} />
+                )}
+              </div>
 
               {/* Article Content */}
               <div
@@ -440,7 +445,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
             </article>
 
             {/* Sidebar */}
-            <aside className="lg:sticky lg:top-24 h-fit">
+            <aside className="hidden lg:block lg:sticky lg:top-24 h-fit">
               <div className="space-y-6">
                 {/* Table of Contents */}
                 {headings.length > 0 && (
@@ -571,10 +576,10 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Tags and Share */}
-              <div className="flex flex-col items-end gap-4">
+              <div className="flex flex-col items-start md:items-end gap-4 mt-4 md:mt-0 pt-4 md:pt-0 border-t border-gray-100 md:border-0">
                 {/* Tags */}
                 {post.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 justify-end">
+                  <div className="flex flex-wrap gap-2 justify-start md:justify-end">
                     {post.tags.map((tag) => (
                       <Link
                         key={tag.id}
@@ -588,14 +593,14 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
 
                 {/* Share Section */}
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-semibold text-gray-900">Share</span>
-                  <div className="flex gap-3">
+                <div className="flex items-center gap-4 mt-2">
+                  <span className="text-sm font-semibold text-gray-900 leading-none">Share</span>
+                  <div className="flex items-center gap-3">
                     <a
                       href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-[#FF5722] transition-colors"
+                      className="flex items-center justify-center text-gray-600 hover:text-[#FF5722] transition-colors"
                       aria-label="Share on Twitter"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -606,7 +611,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                       href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-[#FF5722] transition-colors"
+                      className="flex items-center justify-center text-gray-600 hover:text-[#FF5722] transition-colors"
                       aria-label="Share on Facebook"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -615,7 +620,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     </a>
                     <a
                       href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent((process.env.NEXT_PUBLIC_BASE_URL || 'https://indoordogpark.com') + '/blog/' + post.slug)}`}
-                      className="text-gray-600 hover:text-[#FF5722] transition-colors"
+                      className="flex items-center justify-center text-gray-600 hover:text-[#FF5722] transition-colors"
                       aria-label="Share via Email"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

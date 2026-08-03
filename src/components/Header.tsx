@@ -92,29 +92,8 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <div className="header-center">
           {/* Desktop navigation - hidden on mobile */}
           <nav className="header-nav" aria-label="Main navigation" ref={navRef}>
-            <Link href="/" className="header-nav-link">Browse Parks</Link>
 
-            <div
-              className="header-nav-item"
-              onMouseEnter={() => handleMouseEnter('discover')}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button
-                className="header-nav-link"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 'discover'}
-                onClick={() => toggleDropdown('discover')}
-              >
-                Discover <i className={`bi bi-chevron-down dropdown-icon ${openDropdown === 'discover' ? 'rotated' : ''}`}></i>
-              </button>
-              <div className={`header-dropdown ${openDropdown === 'discover' ? 'open' : ''}`}>
-                <Link href="/parks-with-bars" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Parks with Bars</Link>
-                <Link href="/training-facilities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Training Facilities</Link>
-                <Link href="/off-leash-dog-park" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Off-Leash Parks</Link>
-                <Link href="/how-it-works" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>How It Works</Link>
-              </div>
-            </div>
-
+            {/* Locations Dropdown */}
             <div
               className="header-nav-item"
               onMouseEnter={() => handleMouseEnter('locations')}
@@ -137,18 +116,58 @@ export default function Header({ variant = 'default' }: HeaderProps) {
               </div>
             </div>
 
+            {/* Discover Dropdown */}
+            <div
+              className="header-nav-item"
+              onMouseEnter={() => handleMouseEnter('discover')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className="header-nav-link"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 'discover'}
+                onClick={() => toggleDropdown('discover')}
+              >
+                Discover <i className={`bi bi-chevron-down dropdown-icon ${openDropdown === 'discover' ? 'rotated' : ''}`}></i>
+              </button>
+              <div className={`header-dropdown ${openDropdown === 'discover' ? 'open' : ''}`}>
+                <Link href="/parks-with-bars" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Parks with Bars</Link>
+                <Link href="/training-facilities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Training Facilities</Link>
+                <Link href="/off-leash-dog-park" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Off-Leash Parks</Link>
+                <Link href="/how-it-works" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>How It Works</Link>
+              </div>
+            </div>
+
+            {/* Resources Dropdown */}
+            <div
+              className="header-nav-item"
+              onMouseEnter={() => handleMouseEnter('resources')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className="header-nav-link"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 'resources'}
+                onClick={() => toggleDropdown('resources')}
+              >
+                Resources <i className={`bi bi-chevron-down dropdown-icon ${openDropdown === 'resources' ? 'rotated' : ''}`}></i>
+              </button>
+              <div className={`header-dropdown ${openDropdown === 'resources' ? 'open' : ''}`}>
+                <Link href="/tools" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Free Tools & Calculators</Link>
+                <Link href="/guides" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Dog Guides</Link>
+                <Link href="/reports" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Industry Reports</Link>
+
+              </div>
+            </div>
+
             <Link href="/about" className="header-nav-link">About</Link>
-            <Link href="/tools" className="header-nav-link">Tools</Link>
             <Link href="/blog" prefetch={false} className="header-nav-link">Blog</Link>
+
+
           </nav>
         </div>
 
         <div className="header-right">
-          <Link href="/contact" className="header-link">Contact us</Link>
-          <Link href="/list-your-park" className="header-link header-link-primary">
-            List your park
-          </Link>
-
           {user ? (
             <>
               <span className="header-link">Welcome, {user.email}</span>
@@ -161,11 +180,12 @@ export default function Header({ variant = 'default' }: HeaderProps) {
               </button>
             </>
           ) : (
-            <>
-              <Link href="/signup" className="header-link">Sign up</Link>
-              <Link href="/login" className="header-link">Log in</Link>
-            </>
+            <Link href="/login" className="header-link">Log in</Link>
           )}
+
+          <Link href="/list-your-park" className="header-link header-link-primary">
+            List your park
+          </Link>
 
           <button
             className="menu-toggle"
@@ -183,20 +203,28 @@ export default function Header({ variant = 'default' }: HeaderProps) {
 
       {/* Mobile menu */}
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
-        <Link href="/" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Browse Parks</Link>
+        {/* Core Discovery */}
+        <Link href="/cities/new-york" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Locations</Link>
         <Link href="/parks-with-bars" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Parks with Bars</Link>
-        <Link href="/training-facilities" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Training Facilities</Link>
         <Link href="/off-leash-dog-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Off-Leash Parks</Link>
-        <Link href="/how-it-works" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>How It Works</Link>
-        <Link href="/blog" prefetch={false} className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Blog & Guides</Link>
-        <Link href="/tools" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Tools</Link>
-        <Link href="/about" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>About</Link>
-        <Link href="/contact" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Contact us</Link>
-        <Link href="/list-your-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>List your park</Link>
+        
+
+        
+        {/* Resources */}
+        <Link href="/tools" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Free Tools</Link>
+        <Link href="/guides" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Guides</Link>
+        <Link href="/reports" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Industry Reports</Link>
+        <Link href="/blog" prefetch={false} className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+
+
+        
+        <Link href="/about" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>About Us</Link>
+        <Link href="/contact" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+        <Link href="/list-your-park" className="mobile-menu-item font-bold text-orange-600" onClick={() => setIsMenuOpen(false)}>List your park</Link>
 
         {user ? (
           <>
-            <span className="mobile-menu-item">Welcome, {user.email}</span>
+            <span className="mobile-menu-item text-slate-500">Logged in as {user.email}</span>
             <button
               onClick={() => {
                 signOut();
@@ -209,10 +237,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
             </button>
           </>
         ) : (
-          <>
-            <Link href="/signup" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Sign up</Link>
-            <Link href="/login" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Log in</Link>
-          </>
+          <Link href="/login" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Log in / Sign up</Link>
         )}
       </div>
     </header>

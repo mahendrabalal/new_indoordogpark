@@ -236,9 +236,11 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
               </div>
 
               <div className="premium-badge-row">
-                <span className="premium-badge badge-verified">
-                  <i className="bi bi-patch-check-fill"></i> VERIFIED LISTING
-                </span>
+                {park.listingType === 'featured' && (
+                  <span className="premium-badge badge-verified">
+                    <i className="bi bi-patch-check-fill"></i> VERIFIED LISTING
+                  </span>
+                )}
                 <ParkStatusBadge park={park} showNextChange={false} className="premium-badge" />
               </div>
 
@@ -620,6 +622,17 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
                   <button className="btn-primary w-full py-3 rounded-lg font-bold">Get Free Estimate</button>
                 </div>
               </div>
+
+              {/* Claim Listing Card (Only for static parks) */}
+              {park.source === 'static' && (
+                <div className="sidebar-card-premium bg-gradient-to-br from-indigo-50 to-purple-50 border-purple-100">
+                  <h3 className="text-purple-900">Is this your business?</h3>
+                  <p className="text-sm text-purple-700 mb-4">Claim this listing to update your info, add photos, and get the Verified badge.</p>
+                  <Link href={`/list-your-park?claim=${park.id}`} className="btn-primary w-full py-3 rounded-lg font-bold text-center block">
+                    Claim This Listing
+                  </Link>
+                </div>
+              )}
 
               {/* City Link Card */}
               <div className="sidebar-card-premium">

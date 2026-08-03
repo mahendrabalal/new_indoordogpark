@@ -12,11 +12,15 @@ interface PageLayoutProps {
 export default function PageLayout({ children, mainClassName = '', hideSafetyChecker = false }: PageLayoutProps) {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900">
-      <Header variant="light" />
-      {/* Add top padding to account for fixed header */}
-      <main className={`flex-1 pt-[70px] ${mainClassName}`}>{children}</main>
-      {!hideSafetyChecker && <SafetyCheckerFooter />}
-      <Footer />
+      <div className="print:hidden">
+        <Header variant="light" />
+      </div>
+      {/* Add top padding to account for fixed header (remove padding on print) */}
+      <main className={`flex-1 pt-[70px] print:pt-0 ${mainClassName}`}>{children}</main>
+      <div className="print:hidden">
+        {!hideSafetyChecker && <SafetyCheckerFooter />}
+        <Footer />
+      </div>
     </div>
   );
 }

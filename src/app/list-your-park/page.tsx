@@ -50,10 +50,40 @@ export default function ListPropertyPage() {
   // Load selected plan and step from URL params if available (coming back from login)
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Check URL params (in case user came back from login)
+      // Check URL params (in case user came back from login or claim flow)
       const urlParams = new URLSearchParams(window.location.search);
       const planParam = urlParams.get('plan');
       const stepParam = urlParams.get('step');
+      const claimParam = urlParams.get('claim');
+
+      // Case 0: Claim listing flow
+      if (claimParam) {
+        fetch(`/api/parks/claim?id=${claimParam}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.park) {
+              const park = data.park;
+              setFormData((prev) => ({
+                ...prev,
+                name: park.name || '',
+                businessType: park.businessType || '',
+                description: park.description || '',
+                city: park.city || '',
+                state: park.state || 'California',
+                address: park.address || '',
+                zipCode: park.zipCode || '',
+                phone: park.phone || '',
+                email: park.email || '',
+                website: park.website || '',
+              }));
+              setCurrentStep(0); // Start at plan selection with prefilled data
+              // Clean up URL
+              window.history.replaceState({}, '', '/list-your-park');
+            }
+          })
+          .catch((err) => console.error('Error fetching claim data:', err));
+        return;
+      }
 
       // Case 1: Both plan and step in URL (e.g., from review submit redirect)
       if (planParam === 'free' || planParam === 'featured') {

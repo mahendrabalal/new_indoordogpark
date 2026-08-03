@@ -5,10 +5,12 @@ import { useEffect, useRef, useState } from 'react';
 
 interface BlogTableOfContentsProps {
   items: HeadingItem[];
+  isMobile?: boolean;
 }
 
-export default function BlogTableOfContents({ items }: BlogTableOfContentsProps) {
+export default function BlogTableOfContents({ items, isMobile = false }: BlogTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
+  const [isExpanded, setIsExpanded] = useState<boolean>(!isMobile);
   const isScrollingRef = useRef(false);
   const sectionRefs = useRef<Map<string, IntersectionObserverEntry>>(new Map());
 
@@ -81,8 +83,23 @@ export default function BlogTableOfContents({ items }: BlogTableOfContentsProps)
 
   return (
     <div className="bg-[#FFF5F2] border-2 border-[#FF5722]/20 rounded-lg p-4 mb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">Table Of Contents</h3>
-      <ul className="space-y-2">
+      <div 
+        className={`flex justify-between items-center ${isMobile ? 'cursor-pointer select-none' : ''}`}
+        onClick={() => isMobile && setIsExpanded(!isExpanded)}
+      >
+        <h3 className="text-lg font-semibold text-gray-900 m-0">Table Of Contents</h3>
+        {isMobile && (
+          <svg 
+            className={`w-5 h-5 text-[#FF5722] transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
+            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        )}
+      </div>
+      
+      {isExpanded && (
+        <ul className="space-y-2 mt-4 pt-3 border-t border-[#FF5722]/10">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -100,7 +117,8 @@ export default function BlogTableOfContents({ items }: BlogTableOfContentsProps)
             </li>
           );
         })}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 }

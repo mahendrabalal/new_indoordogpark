@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import RichTextEditor from '@/components/RichTextEditor';
 
 interface BlogPost {
@@ -44,7 +44,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
 
     // Enforce valid template selection based on audience
     useEffect(() => {
-        if (audienceType !== 'pending_owners' && templateType === 'badge_outreach') {
+        if (audienceType !== 'pending_owners' && audienceType !== 'single_partner' && templateType === 'badge_outreach') {
             setTemplateType('generic');
         }
     }, [audienceType, templateType]);
@@ -72,7 +72,94 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
         return () => clearTimeout(timeout);
     }, [subject, headline, bodyContent]);
 
+    const [attachments, setAttachments] = useState<{ filename: string; content: string; size: number }[]>([]);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (!files) return;
+
+        Array.from(files).forEach(file => {
+            // Check size (max 5MB per file to prevent payload issues)
+            if (file.size > 5 * 1024 * 1024) {
+                alert(`File ${file.name} is too large. Max size is 5MB.`);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const base64String = event.target?.result as string;
+                // e.g. "data:application/pdf;base64,JVBER..." -> we need just the base64 part for Resend
+                const base64Data = base64String.split(',')[1];
+                
+                setAttachments(prev => [...prev, {
+                    filename: file.name,
+                    content: base64Data,
+                    size: file.size
+                }]);
+            };
+            reader.readAsDataURL(file);
+        });
+        
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
+    const removeAttachment = (index: number) => {
+        setAttachments(prev => prev.filter((_, i) => i !== index));
+    };
+
     const [customPartners, setCustomPartners] = useState([{ email: '', name: '', notes: '' }]);
+    const [isPastingCsv, setIsPastingCsv] = useState(false);
+    const [csvText, setCsvText] = useState('');
+
+    const handleCsvPaste = () => {
+        const rows = csvText.split('\n');
+        const newPartners: {email: string, name: string, notes: string}[] = [];
+        
+        rows.forEach(row => {
+            if (!row.trim()) return;
+            
+            const parts = row.split(',');
+            const hasMultipleEmails = parts.filter(p => p.includes('@')).length > 1;
+            
+            if (hasMultipleEmails) {
+                // User pasted a comma-separated list of emails
+                parts.forEach(part => {
+                    const cleanPart = part.trim();
+                    if (cleanPart.includes('@')) {
+                        newPartners.push({
+                            email: cleanPart,
+                            name: '',
+                            notes: ''
+                        });
+                    }
+                });
+            } else {
+                // Standard "Email, Name" format
+                const rawEmail = parts[0];
+                const nameParts = parts.slice(1);
+                
+                if (rawEmail && rawEmail.includes('@')) {
+                    newPartners.push({
+                        email: rawEmail.trim(),
+                        name: nameParts.join(',').trim() || '',
+                        notes: ''
+                    });
+                }
+            }
+        });
+        
+        if (newPartners.length > 0) {
+            setCustomPartners(prev => {
+                const existing = prev.filter(p => p.email);
+                return [...existing, ...newPartners];
+            });
+            setIsPastingCsv(false);
+            setCsvText('');
+        }
+    };
 
     const [isSending, setIsSending] = useState(false);
     const [result, setResult] = useState<any | null>(null);
@@ -97,6 +184,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                         headline, 
                         bodyContent,
                         customPartners: audienceType === 'single_partner' ? customPartners : undefined,
+                        attachments: attachments.length > 0 ? attachments : undefined
                     },
         };
 
@@ -181,7 +269,7 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                 onChange={(e) => setTemplateType(e.target.value)}
                                 className="w-full bg-white border border-slate-300 text-slate-900 rounded-lg px-3 py-2.5 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm shadow-sm"
                             >
-                                {audienceType === 'pending_owners' && (
+                                { (audienceType === 'pending_owners' || audienceType === 'single_partner') && (
                                     <option value="badge_outreach">Badge Offer Outreach</option>
                                 )}
                                 <option value="generic">Custom Announcement</option>
@@ -242,12 +330,47 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                                         />
                                     </div>
                                 ))}
-                                <button 
-                                    onClick={() => setCustomPartners(prev => [...prev, { email: '', name: '', notes: '' }])}
-                                    className="w-full py-2 bg-indigo-100 text-indigo-700 font-semibold rounded-lg hover:bg-indigo-200 transition-colors text-sm border border-indigo-200"
-                                >
-                                    + Add Another Partner
-                                </button>
+                                {isPastingCsv ? (
+                                    <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg space-y-3">
+                                        <label className="text-xs font-bold text-slate-700">Paste CSV Data (Email, Name)</label>
+                                        <textarea 
+                                            value={csvText}
+                                            onChange={e => setCsvText(e.target.value)}
+                                            placeholder="example@dogpark.com, The Dog Penn&#10;hello@park.com, Central Bark"
+                                            rows={4}
+                                            className="w-full text-sm border-slate-300 rounded p-2 shadow-sm resize-y"
+                                        />
+                                        <div className="flex gap-2">
+                                            <button 
+                                                onClick={handleCsvPaste}
+                                                className="py-2 px-4 bg-emerald-600 text-white text-xs font-bold rounded hover:bg-emerald-700 transition-colors"
+                                            >
+                                                Import List
+                                            </button>
+                                            <button 
+                                                onClick={() => setIsPastingCsv(false)}
+                                                className="py-2 px-4 bg-slate-200 text-slate-700 text-xs font-bold rounded hover:bg-slate-300 transition-colors"
+                                            >
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="flex gap-2">
+                                        <button 
+                                            onClick={() => setCustomPartners(prev => [...prev, { email: '', name: '', notes: '' }])}
+                                            className="flex-1 py-2 bg-indigo-100 text-indigo-700 font-semibold rounded-lg hover:bg-indigo-200 transition-colors text-sm border border-indigo-200"
+                                        >
+                                            + Add Another
+                                        </button>
+                                        <button 
+                                            onClick={() => setIsPastingCsv(true)}
+                                            className="flex-1 py-2 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-900 transition-colors text-sm border border-slate-900 flex items-center justify-center gap-2"
+                                        >
+                                            <i className="bi bi-file-earmark-spreadsheet"></i> Bulk Paste
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -339,13 +462,46 @@ export function CampaignBuilderView({ subscribers, recentPosts, approvedParks, o
                             </div>
 
                             {/* Body */}
-                            <div className="flex-1 w-full bg-white relative">
-                                <div className="absolute inset-0 overflow-y-auto">
+                            <div className="flex-1 flex flex-col w-full bg-white relative min-h-[300px]">
+                                <div className="flex-1 overflow-y-auto">
                                     <RichTextEditor 
                                         value={bodyContent} 
                                         onChange={setBodyContent} 
                                         placeholder="Write your email content..." 
                                     />
+                                </div>
+                                
+                                {/* Attachments Area */}
+                                <div className="border-t border-slate-100 p-4 bg-slate-50/50">
+                                    <div className="flex flex-wrap gap-2 mb-2">
+                                        {attachments.map((file, idx) => (
+                                            <div key={idx} className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg py-1.5 px-3 text-sm shadow-sm">
+                                                <i className="bi bi-paperclip text-slate-400"></i>
+                                                <span className="text-slate-700 truncate max-w-[150px]">{file.filename}</span>
+                                                <span className="text-slate-400 text-xs">{(file.size / 1024 / 1024).toFixed(2)}MB</span>
+                                                <button onClick={() => removeAttachment(idx)} className="ml-1 text-rose-500 hover:text-rose-700">
+                                                    <i className="bi bi-x"></i>
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="flex items-center">
+                                        <input 
+                                            type="file" 
+                                            multiple 
+                                            ref={fileInputRef}
+                                            onChange={handleFileSelect}
+                                            className="hidden" 
+                                            id="email-attachments"
+                                        />
+                                        <label 
+                                            htmlFor="email-attachments" 
+                                            className="cursor-pointer flex items-center gap-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 px-4 py-2 rounded-lg shadow-sm transition-colors"
+                                        >
+                                            <i className="bi bi-paperclip"></i>
+                                            Attach Files
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </>

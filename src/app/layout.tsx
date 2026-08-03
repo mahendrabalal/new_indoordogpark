@@ -229,7 +229,6 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <LazyStyles />
-          <CookieBanner />
           <NewsletterPopup />
           <AuthProvider>
             <FavoritesProvider>

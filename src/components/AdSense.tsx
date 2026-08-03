@@ -30,28 +30,10 @@ function injectAdSenseScript() {
 
 export default function AdSense() {
   useEffect(() => {
-    // GDPR / CCPA compliance: only load AdSense if the user has not declined cookies.
-    // 'cookieConsent' is set by the CookieBanner component:
-    //   'accepted'  → user clicked "Accept All"
-    //   'declined'  → user clicked "Essential Only"
-    //   null        → user has not yet made a choice (treat as accepted to allow ads
-    const consent = safeLocalStorage.getItem('cookieConsent');
-    // Only inject AdSense if explicitly accepted, to protect Core Web Vitals on first load
-    if (consent !== 'accepted') return;
-
-    // Inject immediately if accepted
+    // Rely on Google AdSense's built-in Consent Management Platform (CMP)
+    // for GDPR/CCPA compliance. The adsbygoogle.js script must load first
+    // in order to display the Google CMP banner.
     injectAdSenseScript();
-
-    // Listen for the user accepting cookies after the page has loaded
-    // (e.g. they clicked "Accept All" on the banner that appeared after 1 s)
-    function handleStorageChange(event: StorageEvent) {
-      if (event.key === 'cookieConsent' && event.newValue === 'accepted') {
-        injectAdSenseScript();
-      }
-    }
-
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   return null;

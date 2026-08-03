@@ -106,12 +106,12 @@ const tools = [
     tag: 'New',
   },
   {
-    title: 'More Tools Coming Soon',
-    description: 'We\'re building more free tools for dog owners — including a hydration calculator and indoor space planner.',
-    href: '#',
-    icon: 'bi-tools',
-    color: 'from-gray-400 to-gray-300',
-    tag: 'Coming Soon',
+    title: 'Dog Hydration Calculator',
+    description: 'Find out exactly how many ounces and cups of water your dog should drink per day based on their weight, activity level, and local climate.',
+    href: '/tools/dog-hydration-calculator',
+    icon: 'bi-droplet-half',
+    color: 'from-blue-500 to-cyan-500',
+    tag: 'New',
   },
 ];
 

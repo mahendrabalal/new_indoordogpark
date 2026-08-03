@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
         } else if (template === 'outreach') {
             const { parkId, personalizedNote } = data;
 
-            if (segment !== 'bulk-outreach') {
+            if (segment !== 'bulk-outreach' && segment !== 'single') {
                 const adminClient = supabaseAdminClient;
 
                 // Try park_submissions first
@@ -240,7 +240,7 @@ export async function POST(request: NextRequest) {
                 const email = partner.email?.toLowerCase().trim();
                 if (!email) continue;
                 
-                const metadata = { isPartner: true, partnerName: partner.name, partnerDetails: partner.notes };
+                const metadata = { isPartner: true, partnerName: partner.name, parkName: partner.name, partnerDetails: partner.notes };
 
                 // Check if subscriber exists
                 const { data: existingSubscriber } = await adminClient
@@ -334,7 +334,7 @@ export async function POST(request: NextRequest) {
                 let currentHtml = emailHtml;
                 let currentSubject = subject;
 
-                if (template === 'outreach' && segment === 'bulk-outreach') {
+                if (template === 'outreach' && (segment === 'bulk-outreach' || segment === 'single')) {
                     const metadata = (recipient as any).metadata as SubscriberMetadata | null;
                     const parkName = metadata?.parkName || 'Indoor Dog Park';
                     const parkSlug = (metadata as any)?.parkSlug || parkName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -368,6 +368,12 @@ export async function POST(request: NextRequest) {
                     subject: currentSubject,
                     html: personalizedHtml,
                     replyTo: replyToEmail,
+                    ...(data.attachments && {
+                        attachments: data.attachments.map((att: any) => ({
+                            filename: att.filename,
+                            content: att.content,
+                        }))
+                    }),
                 });
 
                 if (sendError) {
@@ -449,7 +455,7 @@ export async function POST(request: NextRequest) {
                 let currentHtml = emailHtml;
                 let currentSubject = subject;
 
-                if (template === 'outreach' && segment === 'bulk-outreach') {
+                if (template === 'outreach' && (segment === 'bulk-outreach' || segment === 'single')) {
                     const metadata = recipient.metadata;
                     const parkName = metadata?.parkName || 'Indoor Dog Park';
                     const parkSlug = metadata?.parkSlug || parkName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

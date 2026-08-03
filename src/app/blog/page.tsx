@@ -219,12 +219,12 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
             />
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm font-medium text-gray-500 mr-1">Categories:</span>
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+          <span className="text-sm font-medium text-gray-500 mr-1 shrink-0">Categories:</span>
           <Link
             href={buildFilterHref({ category: '', tag: '', search: '' })}
             prefetch={false}
-            className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition ${!categorySlug && !tagSlug && !searchTerm
+            className={`shrink-0 inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
               ? 'border-[#FF5722] bg-[#FF5722] text-white'
               : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
               }`}
@@ -238,7 +238,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
                 key={category.id}
                 href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
                 prefetch={false}
-                className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition ${isActive
+                className={`shrink-0 inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
                   ? 'border-[#FF5722] bg-[#FF5722] text-white'
                   : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
                   }`}
