@@ -895,6 +895,13 @@ i[class^="bi-"], i[class*=" bi-"] {
   .header-container {
     height: 64px;
     padding: 0 16px;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .logo img {
@@ -6991,15 +6998,7 @@ mark {
   margin-bottom: 1.5rem;
 }
 
-/* First paragraph - larger lead text */
-.blog-content>p:first-of-type {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: #4b5563;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
+/* First paragraph - larger lead text (removed to match standard paragraph size) */
 /* Links */
 .blog-content a {
   color: #FF5722;

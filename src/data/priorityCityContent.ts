@@ -7391,6 +7391,21 @@ const southamptonTownshipNjFaqs = [
 ];
 
 export const priorityCityContent: PriorityCityConfig[] = [
+  {
+    slug: 'albuquerque',
+    city: 'Albuquerque',
+    state: 'NM',
+    summary: 'Discover dog parks and indoor dog-friendly spots in Albuquerque, New Mexico.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Indoor Dog Park In Albuquerque',
+      heroDescription: 'We’re building out our verified directory for Albuquerque. Submit a park to help us review and publish more dog-friendly spots in this area.',
+      longDescription: [
+        "Albuquerque, New Mexico offers a sunny, high-desert climate that is perfect for outdoor adventures, but indoor dog parks are becoming increasingly popular for those hot summer days.",
+      ],
+      faqs: [],
+    },
+  },
   // ... existing cities
   {
     slug: 'sicklerville-nj',

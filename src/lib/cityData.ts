@@ -3,7 +3,6 @@ import path from 'path';
 import { DogPark } from '@/types/dog-park';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
 import { priorityCityContent } from '@/data/priorityCityContent';
-import { priorityStateContent } from '@/data/priorityStateContent';
 
 export interface CityData {
   slug: string;
@@ -83,7 +82,15 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
     if (priorityConfig?.featuredImage) {
       featuredImage = priorityConfig.featuredImage;
-    } else {
+      if (featuredImage.startsWith('/')) {
+        const absolutePath = path.join(process.cwd(), 'public', featuredImage);
+        if (!fs.existsSync(absolutePath)) {
+          featuredImage = undefined;
+        }
+      }
+    }
+
+    if (!featuredImage) {
       // Fallback to first park with photos
       const parkWithPhoto = cityParks.find(p => p.photos && p.photos.length > 0);
       if (parkWithPhoto?.photos?.[0]) {
@@ -99,17 +106,6 @@ export function getAllCities(parks: DogPark[]): CityData[] {
 
     if (!featuredImage && cityHeroExists) {
       featuredImage = `/images/cities/${citySlug}/hero.webp`;
-    }
-
-    // STATE FALLBACK: If still no image (or it's explicitly missing), use state image
-    if (!featuredImage) {
-      const stateConfig = priorityStateContent.find(s =>
-        normalizeStateKey(s.abbr) === normalizeStateKey(cityState) ||
-        normalizeStateKey(s.name) === normalizeStateKey(cityState)
-      );
-      if (stateConfig?.featuredImage) {
-        featuredImage = stateConfig.featuredImage;
-      }
     }
 
 

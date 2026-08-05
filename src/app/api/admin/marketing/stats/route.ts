@@ -21,18 +21,24 @@ export async function GET() {
 
         const adminClient = supabaseAdminClient;
 
-        const { count: total, error: e1 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active');
-        const { count: owners, error: e2 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'owner');
+        const { count: totalSubs, error: e1 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active');
+        const { count: ownersSubs, error: e2 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'owner');
         const { count: consumers, error: e3 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'consumer');
         const { count: partners, error: e4 } = await adminClient.from('subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('type', 'partner');
 
-        if (e1 || e2 || e3 || e4) {
-            console.error('Stats fetch error:', e1, e2, e3, e4);
+        // Also count approved park submissions as they are included in the marketing audience
+        const { count: approvedParks, error: e5 } = await adminClient.from('park_submissions').select('*', { count: 'exact', head: true }).eq('status', 'approved');
+
+        if (e1 || e2 || e3 || e4 || e5) {
+            console.error('Stats fetch error:', e1, e2, e3, e4, e5);
         }
 
+        const totalOwners = (ownersSubs || 0) + (approvedParks || 0);
+        const totalAudience = (totalSubs || 0) + (approvedParks || 0);
+
         return NextResponse.json({
-            total: total || 0,
-            owners: owners || 0,
+            total: totalAudience,
+            owners: totalOwners,
             consumers: consumers || 0,
             partners: partners || 0
         });

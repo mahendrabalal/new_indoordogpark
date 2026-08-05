@@ -105,9 +105,11 @@ function buildUniqueHeroDescription(params: {
   const weatherContext = getWeatherContext(slug);
 
   const inventoryLine =
-    indoorCount > 0
-      ? `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
-      : `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`;
+    totalParks > 0
+      ? indoorCount > 0
+        ? `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
+        : `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`
+      : `${weatherContext}. We are actively expanding our directory of dog-friendly spots and canine parks in ${cityName}, ${state}. Explore local rules, tips, and nearby options while we verify new listings.`;
 
   return inventoryLine;
 }
@@ -134,9 +136,11 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
       : `Dog Parks in ${city.name}, ${fullState} | Map & Reviews`
   );
   const pageDescription = createMetaDescription(
-    indoorCount > 0
-      ? `Explore ${stats.totalParks} dog-friendly spots in ${city.name} including ${indoorCount} indoor options. Compare ratings, amenities, hours, and map locations.`
-      : `Explore ${stats.totalParks} dog parks and dog-friendly spots in ${city.name}. Compare ratings, amenities, hours, and map locations.`,
+    stats.totalParks > 0
+      ? indoorCount > 0
+        ? `Explore ${stats.totalParks} dog-friendly spots in ${city.name} including ${indoorCount} indoor options. Compare ratings, amenities, hours, and map locations.`
+        : `Explore ${stats.totalParks} dog parks and dog-friendly spots in ${city.name}. Compare ratings, amenities, hours, and map locations.`
+      : `Discover dog-friendly play areas and parks in ${city.name}, ${fullState}. Check community listings, safety rules, and neighboring facilities.`,
   );
   const canonicalUrl = `/cities/${canonicalSlug}`;
   const absoluteCanonicalUrl = `${SITE_URL}${canonicalUrl}`;

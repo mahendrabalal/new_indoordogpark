@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface Favorite {
@@ -50,7 +50,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setLoading(false);
     }
-  }, [user]);
+  }, [user?.id]);
 
   useEffect(() => {
     fetchFavorites();
@@ -151,14 +151,17 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     await fetchFavorites();
   }, [fetchFavorites]);
 
-  const value = {
-    favorites,
-    loading,
-    isFavorited,
-    addFavorite,
-    removeFavorite,
-    refreshFavorites,
-  };
+  const value = useMemo(
+    () => ({
+      favorites,
+      loading,
+      isFavorited,
+      addFavorite,
+      removeFavorite,
+      refreshFavorites,
+    }),
+    [favorites, loading, isFavorited, addFavorite, removeFavorite, refreshFavorites]
+  );
 
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
 }

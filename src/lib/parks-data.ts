@@ -41,6 +41,7 @@ export interface CityContentPayload {
 
 let parksCache: DogPark[] | null = null;
 const STATIC_PARK_FILES = [
+  'arizona.json',
   'california.json',
   'washington.json',
   'virginia.json',
@@ -522,17 +523,9 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       featuredImage = priorityConfig?.featuredImage || city.featuredImage;
     }
 
-    // STATE FALLBACK: If still no image (or it's explicitly missing), use state image
-    if (!featuredImage) {
-      const stateConfig = priorityStateContent.find(s =>
-        normalizeStateKey(s.abbr) === normalizeStateKey(city.state) ||
-        normalizeStateKey(s.name) === normalizeStateKey(city.state)
-      );
-
-      if (stateConfig?.featuredImage) {
-        featuredImage = stateConfig.featuredImage;
-      } else {
-        // Ultimate fallback: undefined triggers the CSS `.no-image` text-only layout
+    if (featuredImage?.startsWith('/')) {
+      const absolutePath = path.join(process.cwd(), 'public', featuredImage);
+      if (!fs.existsSync(absolutePath)) {
         featuredImage = undefined;
       }
     }
@@ -579,17 +572,9 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       featuredImage = undefined;
     }
 
-    if (!featuredImage) {
-      // Priority 4: State Fallback
-      const stateConfig = priorityStateContent.find(s =>
-        normalizeStateKey(s.abbr) === normalizeStateKey(priorityConfig.state) ||
-        normalizeStateKey(s.name) === normalizeStateKey(priorityConfig.state)
-      );
-
-      if (stateConfig?.featuredImage) {
-        featuredImage = stateConfig.featuredImage;
-      } else {
-        // Ultimate Fallback: undefined triggers the CSS `.no-image` text-only layout
+    if (featuredImage?.startsWith('/')) {
+      const absolutePath = path.join(process.cwd(), 'public', featuredImage);
+      if (!fs.existsSync(absolutePath)) {
         featuredImage = undefined;
       }
     }
@@ -618,56 +603,10 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     };
   }
 
-  // Final fallback: render a lightweight "coming soon" city page instead of 404.
-  // This improves UX for users landing on `/cities/<slug>` links we haven't verified yet.
-  // These pages stay noindex when there are 0 listings (see `shouldIndexCity` on the city route).
-  const slugParts = normalizedSlug.split('-').filter(Boolean);
-  const lastPart = slugParts[slugParts.length - 1] || '';
-  const inferredState = lastPart.length === 2 ? lastPart.toUpperCase() : 'CA';
-  const citySlugBase = lastPart.length === 2 ? slugParts.slice(0, -1).join('-') : normalizedSlug;
-  const inferredCityName = slugToCityName(citySlugBase);
-
-  const hydratedCity: CityData = {
-    slug: normalizedSlug,
-    name: inferredCityName,
-    state: normalizeState(inferredState) || inferredState,
-    parkCount: 0,
-    avgRating: 0,
-    totalReviews: 0,
-    featuredImage: undefined,
-    latitude: undefined,
-    longitude: undefined,
-  };
-
-  const emptyStats: CityStats = {
-    totalParks: 0,
-    avgRating: 0,
-    totalReviews: 0,
-  };
-
-  return {
-    city: hydratedCity,
-    cityParks: [],
-    parksByType: {},
-    stats: emptyStats,
-    customContent: {
-      heroEyebrow: 'City spotlight',
-      heroHeading: hydratedCity.state === 'CA' || hydratedCity.state === 'California'
-        ? `Indoor Dog Park In ${hydratedCity.name}`
-        : `Dog Parks in ${hydratedCity.name}, ${hydratedCity.state}`,
-      heroDescription:
-        `We’re building out our verified directory for ${hydratedCity.name}. Submit a park to help us review and publish more dog-friendly spots in this area.`,
-      heroPill: 'Listings in review',
-      heroFootnotes: ['Data refreshed weekly', 'Submit a park to help us verify more locations'],
-      heroChips: [
-        { label: 'Verified parks', value: '—', caption: 'In review' },
-        { label: 'Avg rating', value: '—', caption: 'Pending data' },
-        { label: 'Park types', value: '—', caption: 'Pending data' },
-        { label: 'Local reviews', value: '—', caption: 'Pending data' },
-      ],
-    },
-    nearbyCities: undefined,
-  };
+  // Final fallback: If the slug doesn't match any known city with parks,
+  // and it's not a priority configured city, we should return null to trigger a 404.
+  // This prevents generating pages for typos (like "tuscon") or random URLs.
+  return null;
 }
 
 /**

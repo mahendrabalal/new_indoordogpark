@@ -356,6 +356,12 @@ const nextConfig = {
         destination: '/parks/digs-canine-hotel-spa-daycare-brooklyn',
         permanent: true,
       },
+      // City misspelling redirects
+      {
+        source: '/cities/tuscon',
+        destination: '/cities/tucson',
+        permanent: true,
+      },
       // Fix broken redirects
       {
         source: '/blog/starting-indoor-dog-park-business-guide',

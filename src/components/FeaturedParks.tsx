@@ -43,7 +43,7 @@ export default function FeaturedParks() {
   useEffect(() => {
     const fetchFeaturedParks = async () => {
       try {
-        const response = await fetch('/api/parks/featured', { cache: 'no-store' });
+        const response = await fetch('/api/parks/featured', { next: { revalidate: 3600 } });
         if (response.ok) {
           const data = await response.json();
           setFeaturedParks(data.parks || []);

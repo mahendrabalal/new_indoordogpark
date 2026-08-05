@@ -5,6 +5,7 @@ import { buildDefaultFAQs } from '@/lib/faq-data';
 import { FAQItem } from '@/types/faq';
 import { SupportCTA } from '@/types/city-content';
 import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
+import Link from 'next/link';
 
 interface FAQSectionProps {
   cityName: string;
@@ -42,18 +43,49 @@ export default function FAQSection({ cityName, parkCount, faqs, supportCard }: F
               </summary>
               <div className="pb-6 pr-8 text-slate-600 text-[15px] leading-relaxed animate-fadeIn">
                 {faq.answer.split('\n\n').map((paragraph, idx) => {
+                  const parseInline = (text: string) => {
+                    return text.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
+                      if (!part) return null;
+                      
+                      const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
+                      if (linkMatch) {
+                        const [, linkText, href] = linkMatch;
+                        const isExternal = href.startsWith('http') && !href.includes('indoordogpark.org');
+                        if (isExternal) {
+                          return (
+                            <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">
+                              {linkText}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link key={i} href={href} className="text-orange-600 hover:underline">
+                            {linkText}
+                          </Link>
+                        );
+                      }
+                      
+                      const boldMatch = part.match(/\*\*(.*?)\*\*/);
+                      if (boldMatch) {
+                        return <strong key={i} className="font-semibold">{boldMatch[1]}</strong>;
+                      }
+                      
+                      return part;
+                    });
+                  };
+
                   if (paragraph.trim().startsWith('•')) {
                     const bulletItems = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
                     return (
                       <ul key={idx} className="list-disc pl-5 mb-4">
                         {bulletItems.map((item, itemIdx) => (
-                          <li key={itemIdx} className="mb-2">{item.replace(/^•\s*/, '')}</li>
+                          <li key={itemIdx} className="mb-2">{parseInline(item.replace(/^•\s*/, ''))}</li>
                         ))}
                       </ul>
                     );
                   }
                   if (paragraph.trim()) {
-                    return <p key={idx} className="mb-4 last:mb-0">{paragraph.trim()}</p>;
+                    return <p key={idx} className="mb-4 last:mb-0">{parseInline(paragraph.trim())}</p>;
                   }
                   return null;
                 })}

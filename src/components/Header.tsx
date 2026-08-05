@@ -76,7 +76,18 @@ export default function Header({ variant = 'default' }: HeaderProps) {
   return (
     <header className={`header ${isVisible ? 'header-visible' : 'header-hidden'} ${isScrolled ? 'header-scrolled' : ''}${variant === 'light' ? ' header-light' : ''}`}>
       <div className="header-container">
-        <div className="header-left">
+        <div className="header-left" style={{ gap: '12px' }}>
+          <button
+            className="menu-toggle"
+            onClick={() => {
+              setIsMenuOpen(!isMenuOpen);
+              setOpenDropdown(null);
+            }}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <i className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'}></i>
+          </button>
           <Link href="/" className="logo">
             <Image
               src="/images/logo/logo.png"
@@ -134,7 +145,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                 <Link href="/parks-with-bars" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Parks with Bars</Link>
                 <Link href="/training-facilities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Training Facilities</Link>
                 <Link href="/off-leash-dog-park" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Off-Leash Parks</Link>
-                <Link href="/how-it-works" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>How It Works</Link>
+                <Link href="/indoor-dog-pools" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Indoor Dog Pools</Link>
               </div>
             </div>
 
@@ -187,17 +198,6 @@ export default function Header({ variant = 'default' }: HeaderProps) {
             List your park
           </Link>
 
-          <button
-            className="menu-toggle"
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-              setOpenDropdown(null);
-            }}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-          >
-            <i className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'}></i>
-          </button>
         </div>
       </div>
 
@@ -207,6 +207,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <Link href="/cities/new-york" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Locations</Link>
         <Link href="/parks-with-bars" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Parks with Bars</Link>
         <Link href="/off-leash-dog-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Off-Leash Parks</Link>
+        <Link href="/indoor-dog-pools" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Indoor Dog Pools</Link>
         
 
         

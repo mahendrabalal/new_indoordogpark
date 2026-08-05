@@ -40,7 +40,7 @@ export default function CityPremiumSpotlight({ city, state }: CityPremiumSpotlig
     const loadPremiumParks = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('/api/parks/featured', { cache: 'no-store' });
+        const response = await fetch('/api/parks/featured', { next: { revalidate: 3600 } });
         if (!response.ok) {
           throw new Error('Failed to load premium data');
         }

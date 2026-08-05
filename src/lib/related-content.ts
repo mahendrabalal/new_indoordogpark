@@ -81,15 +81,57 @@ export async function getRelatedParks(
     const postContent = blogPost.content.toLowerCase();
     const postExcerpt = blogPost.excerpt.toLowerCase();
 
-    // Extract city names from post
-    const cityKeywords: string[] = [];
+    // US state abbreviation to full name mapping for state validation
+    const stateNames: Record<string, string> = {
+      'AL': 'alabama', 'AK': 'alaska', 'AZ': 'arizona', 'AR': 'arkansas', 'CA': 'california',
+      'CO': 'colorado', 'CT': 'connecticut', 'DE': 'delaware', 'FL': 'florida', 'GA': 'georgia',
+      'HI': 'hawaii', 'ID': 'idaho', 'IL': 'illinois', 'IN': 'indiana', 'IA': 'iowa',
+      'KS': 'kansas', 'KY': 'kentucky', 'LA': 'louisiana', 'ME': 'maine', 'MD': 'maryland',
+      'MA': 'massachusetts', 'MI': 'michigan', 'MN': 'minnesota', 'MS': 'mississippi', 'MO': 'missouri',
+      'MT': 'montana', 'NE': 'nebraska', 'NV': 'nevada', 'NH': 'new hampshire', 'NJ': 'new jersey',
+      'NM': 'new mexico', 'NY': 'new york', 'NC': 'north carolina', 'ND': 'north dakota', 'OH': 'ohio',
+      'OK': 'oklahoma', 'OR': 'oregon', 'PA': 'pennsylvania', 'RI': 'rhode island', 'SC': 'south carolina',
+      'SD': 'south dakota', 'TN': 'tennessee', 'TX': 'texas', 'UT': 'utah', 'VT': 'vermont',
+      'VA': 'virginia', 'WA': 'washington', 'WV': 'west virginia', 'WI': 'wisconsin', 'WY': 'wyoming',
+      'DC': 'district of columbia',
+    };
+
+    // Helper: check if a state (abbreviation or full name) is mentioned in the article
+    const allText = `${postTitle} ${postContent} ${postExcerpt}`; // lowercased
+    const originalText = `${blogPost.title} ${blogPost.content} ${blogPost.excerpt}`; // original case
+    const isStateMentioned = (stateAbbr: string): boolean => {
+      const abbr = stateAbbr.toUpperCase();
+      const fullName = stateNames[abbr];
+      // Check full state name with word boundaries against lowercased text
+      if (fullName) {
+        const stateRegex = new RegExp(`\\b${fullName}\\b`, 'i');
+        if (stateRegex.test(allText)) return true;
+      }
+      // Check abbreviation against ORIGINAL text (abbreviations are uppercase, e.g. "GA")
+      const abbrRegex = new RegExp(`\\b${abbr}\\b`);
+      if (abbrRegex.test(originalText)) return true;
+      return false;
+    };
+
+    // Extract city names from post using word boundaries AND state validation
+    // A city only counts as "mentioned" if BOTH the city name and its state appear in the article
+    const cityStateKeywords: Array<{ city: string; state: string }> = [];
     allParks.forEach((park) => {
       const cityName = park.city.toLowerCase();
+      const parkState = park.state;
+      if (!cityName || cityName.length < 3) return;
+      
+      const escapedCityName = cityName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const cityRegex = new RegExp(`\\b${escapedCityName}\\b`, 'i');
+      
+      const cityFound = cityRegex.test(postTitle) || cityRegex.test(postContent) || cityRegex.test(postExcerpt);
+      const stateFound = isStateMentioned(parkState);
+      
       if (
-        (postTitle.includes(cityName) || postContent.includes(cityName) || postExcerpt.includes(cityName)) &&
-        !cityKeywords.includes(cityName)
+        cityFound && stateFound &&
+        !cityStateKeywords.some(cs => cs.city === cityName && cs.state === parkState)
       ) {
-        cityKeywords.push(cityName);
+        cityStateKeywords.push({ city: cityName, state: parkState });
       }
     });
 
@@ -98,14 +140,18 @@ export async function getRelatedParks(
       let score = 0;
       const parkName = park.name.toLowerCase();
       const parkCity = park.city.toLowerCase();
+      const parkState = park.state;
 
-      // High score for city match
-      if (cityKeywords.includes(parkCity)) {
-        score += 10;
+      // High score for city+state match (ensures only local parks get boosted)
+      if (cityStateKeywords.some(cs => cs.city === parkCity && cs.state === parkState)) {
+        score += 30;
       }
 
       // Score for name mentions
-      if (postContent.includes(parkName) || postExcerpt.includes(parkName)) {
+      // Using word boundaries to prevent substring matching
+      const escapedParkName = parkName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const parkNameRegex = new RegExp(`\\b${escapedParkName}\\b`, 'i');
+      if (parkName.length > 3 && (parkNameRegex.test(postContent) || parkNameRegex.test(postExcerpt))) {
         score += 15;
       }
 
@@ -240,7 +286,12 @@ export function extractMentionedCities(blogPost: BlogPost, allParks: DogPark[]):
 
   allParks.forEach((park) => {
     const cityName = park.city.toLowerCase();
-    if (content.includes(cityName) && !cities.includes(cityName)) {
+    if (!cityName || cityName.length < 3) return;
+    
+    const escapedCityName = cityName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const cityRegex = new RegExp(`\\b${escapedCityName}\\b`, 'i');
+    
+    if (cityRegex.test(content) && !cities.includes(cityName)) {
       cities.push(cityName);
     }
   });

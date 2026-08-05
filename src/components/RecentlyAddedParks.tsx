@@ -34,7 +34,7 @@ export default function RecentlyAddedParks() {
     useEffect(() => {
         const fetchRecentParks = async () => {
             try {
-                const response = await fetch('/api/parks/recent', { cache: 'no-store' });
+                const response = await fetch('/api/parks/recent', { next: { revalidate: 3600 } });
                 if (response.ok) {
                     const data = await response.json();
                     setRecentParks(data.parks || []);

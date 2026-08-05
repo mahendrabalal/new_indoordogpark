@@ -1,17 +1,26 @@
 import { FAQItem } from '@/types/faq';
 
 export function buildDefaultFAQs(cityName: string, parkCount: number): FAQItem[] {
+  const parkCountText =
+    parkCount === 0
+      ? `Our directory is actively expanding its verified listings for ${cityName}. While we continue to verify local dog parks, indoor facilities, and dog-friendly spots in ${cityName}, pet owners can explore nearby city listings or submit a local dog park to our platform.`
+      : parkCount === 1
+      ? `${cityName} currently features 1 verified dog park in our directory, offering a great space for your pup to exercise and socialize.`
+      : `${cityName} currently features ${parkCount} verified dog parks and dog-friendly establishments, including traditional outdoor dog parks, indoor dog parks, and dog-friendly businesses like restaurants and shops.`;
+
   return [
     {
       question: `How many dog parks are available in ${cityName}?`,
-      answer: `${cityName} has ${parkCount} dog parks and dog-friendly establishments, including traditional outdoor dog parks, indoor dog parks, and dog-friendly businesses like restaurants and shops. Each type offers unique benefits for different situations and dog personalities.`,
+      answer: `${parkCountText} Each facility offers unique benefits for different weather conditions and dog personalities.`,
       category: 'general',
       popular: true,
     },
     {
       question: `What are the best indoor dog parks in ${cityName}?`,
       answer:
-        `While our directory is constantly expanding, ${cityName} is a growing market for indoor dog parks. These climate-controlled spaces are essential for hot summers or rainy seasons. Check our directory and local listings to see what features to look for when choosing a facility in ${cityName}.`,
+        parkCount > 0
+          ? `While our directory is constantly expanding, ${cityName} is a growing market for indoor dog parks. These climate-controlled spaces are essential for hot summers or rainy seasons. Check our directory and local listings to see what features to look for when choosing a facility in ${cityName}.`
+          : `We are currently updating our verified list of indoor dog parks in ${cityName}. Indoor facilities provide essential climate-controlled spaces for hot summers or rainy seasons. If you know of or manage an indoor dog park in ${cityName}, you can submit it to our directory for review.`,
       category: 'facilities',
       popular: true,
     },

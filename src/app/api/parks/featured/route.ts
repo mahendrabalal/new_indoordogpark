@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { MediaAsset } from '@/types/dog-park';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Cache for 1 hour to prevent Egress overages
 export const runtime = 'nodejs';
 
 export async function GET() {

@@ -4,7 +4,7 @@ import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
 import { getAllStaticParks } from '@/lib/parks-data';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 1800; // Cache for 30 minutes to minimize Supabase egress
 
 export async function GET(request: Request) {
   try {
