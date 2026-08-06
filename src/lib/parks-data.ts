@@ -57,11 +57,9 @@ const STATIC_PARK_FILES = [
 ];
 
 function getStaticDataBaseUrl() {
-  if (process.env.NODE_ENV === 'development') {
-    return 'http://localhost:3000/data';
-  }
-  // Point to dedicated static data Pages project
-  return 'https://new-indoordogpark-data.pages.dev';
+  // Legacy – kept for reference but no longer used.
+  // Data is now read directly from the filesystem in all environments.
+  return 'http://localhost:3000/data';
 }
 
 function getPriorityCityConfigBySlug(slug: string) {
@@ -236,29 +234,12 @@ async function loadStaticParks(): Promise<DogPark[]> {
   const parkArrays = await Promise.all(
     STATIC_PARK_FILES.map(async (file) => {
       try {
-        if (process.env.NODE_ENV === 'development') {
-          // Read from filesystem directly in development to avoid fetch cache limits and spam
-          const filePath = path.join(process.cwd(), 'public', 'data', file);
-          const content = await fs.promises.readFile(filePath, 'utf-8');
-          const json = JSON.parse(content);
-          return Array.isArray(json) ? (json as DogPark[]) : [];
-        } else {
-          const baseUrl = getStaticDataBaseUrl();
-          const url = `${baseUrl.replace(/\/$/, '')}/${file}`;
-          // Next.js has a 2MB limit for the fetch cache. We accept the build warning for large files
-          // because using `cache: 'no-store'` opts the entire route into dynamic rendering, breaking static generation.
-          const fetchOptions: RequestInit = { next: { revalidate: 3600 } };
-          
-          const res = await fetch(url, fetchOptions);
-          if (!res.ok) {
-            console.warn(`[parks-data] Failed to fetch ${url}: ${res.status}`);
-            return [];
-          }
-          const json = await res.json();
-          return Array.isArray(json) ? (json as DogPark[]) : [];
-        }
+        const filePath = path.join(process.cwd(), 'public', 'data', file);
+        const content = await fs.promises.readFile(filePath, 'utf-8');
+        const json = JSON.parse(content);
+        return Array.isArray(json) ? (json as DogPark[]) : [];
       } catch (err) {
-        console.warn(`[parks-data] Error fetching/reading ${file}:`, err);
+        console.warn(`[parks-data] Error reading ${file}:`, err);
         return [];
       }
     }),
