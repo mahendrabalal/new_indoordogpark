@@ -98,7 +98,7 @@ const REGIONAL_HEROES: Record<string, string> = {
   'WY': '/images/cities/minneapolis-mn/hero.png',
 
   // Desert / Mountain West
-  'AZ': '/images/cities/Phoenix/hero.webp',
+  'AZ': '/images/cities/phoenix/hero.webp',
   'NV': '/images/cities/las-vegas-nv/hero.png',
   'UT': '/images/cities/las-vegas-nv/hero.png',
   'NM': '/images/cities/las-vegas-nv/hero.png',
