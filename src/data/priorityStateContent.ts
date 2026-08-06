@@ -889,7 +889,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
         slug: 'arizona',
         name: 'Arizona',
         abbr: 'AZ',
-        featuredImage: '/images/cities/Phoenix/hero.webp',
+        featuredImage: '/images/cities/phoenix/hero.webp',
         customContent: {
             heroEyebrow: 'Grand Canyon State Dog Parks',
             heroHeading: 'Dog Parks in Arizona',
