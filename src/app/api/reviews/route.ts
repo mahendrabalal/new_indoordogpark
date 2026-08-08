@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
         // Fetch user's review (regardless of status) if they have one
         const { data: review } = await supabase
           .from('reviews')
-          .select('*')
+          .select('id, park_id, user_id, rating, title, content, status, created_at, updated_at')
           .eq('park_id', parkId)
           .eq('user_id', user.id)
           .single();
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     // Fetch all approved reviews for the park
     let query = supabase
       .from('reviews')
-      .select('*')
+      .select('id, park_id, user_id, rating, title, content, status, created_at, updated_at')
       .eq('park_id', parkId)
       .eq('status', 'approved')
       .order('created_at', { ascending: false });

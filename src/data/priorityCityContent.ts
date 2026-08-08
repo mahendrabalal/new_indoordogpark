@@ -7390,7 +7390,46 @@ const southamptonTownshipNjFaqs = [
   },
 ];
 
+const omahaNeFaqs = [
+  {
+    question: 'Does Omaha have a dog park?',
+    answer: 'Yes, Omaha has several dog parks, including the popular Hanscom Dog Park and Hefflinger Dog Park, which offer large fenced areas for off-leash play.',
+    category: 'General',
+  },
+  {
+    question: 'Are there indoor dog parks in Omaha?',
+    answer: 'While dedicated indoor dog parks might be limited, there are some local dog daycares and training facilities that offer indoor play areas.',
+    category: 'General',
+  },
+  {
+    question: 'Is Chalco Hills Recreation Area dog-friendly?',
+    answer: 'Yes, leashed dogs are welcome on the trails at Chalco Hills, which is a favorite spot for walking and enjoying nature in Omaha.',
+    category: 'General',
+  },
+  {
+    question: 'Where can I walk my dog in Omaha?',
+    answer: 'The Omaha Riverfront, including Heartland of America Park, and the extensive trail system around Zorinsky Lake are excellent for leashed walks.',
+    category: 'General',
+  },
+];
+
 export const priorityCityContent: PriorityCityConfig[] = [
+  {
+    slug: 'omaha-ne',
+    city: 'Omaha',
+    state: 'NE',
+    summary: 'Explore the expansive dog parks and scenic lake trails of Omaha, NE, a welcoming Midwest city with plenty of green space for dogs.',
+    parks: [],
+    customContent: {
+      heroHeading: 'Dog Parks in Omaha, NE',
+      heroDescription: 'Explore the dog parks and scenic lake trails in Omaha.',
+      longDescription: [
+        "Omaha, Nebraska, offers a fantastic environment for dogs, featuring expansive parks and a welcoming Midwest vibe. The city boasts several excellent off-leash areas, with Hanscom Park and Hefflinger Park being local favorites, offering plenty of space for dogs to run and socialize. For those who prefer leashed walks, the trails around Zorinsky Lake and Chalco Hills Recreation Area provide beautiful natural settings. The recently revitalized Riverfront is also a great place for a stroll with your pup. With its blend of dedicated dog facilities and abundant green spaces, Omaha is a highly dog-friendly city.",
+        "Check out [The Ultimate Guide to the Top 10 Indoor Dog Parks in Omaha, NE](/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-omaha-ne) to discover the best climate-controlled spots to keep your pup active and socialized year-round!"
+      ],
+      faqs: omahaNeFaqs,
+    },
+  },
   {
     slug: 'albuquerque',
     city: 'Albuquerque',
@@ -21160,7 +21199,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Experience the rugged beauty of Colorado Springs, featuring the iconic Garden of the Gods trails and expansive neighborhood recreation areas.',
       longDescription: [
         "Colorado Springs offers an unparalleled environment for dog owners who enjoy mountain scenery and rugged terrain. The city is home to several outstanding facilities, including the scenic [Garden of the Gods](https://gardenofgods.com/) which permits leashed dogs on its stunning red rock trails. For off-leash recreation, Bear Creek Dog Park provides a massive, well-maintained space with separate areas for different sizes. The local pet culture is deeply integrated into the city's outdoor identity, with residents frequently exploring the nearby Pikes Peak National Forest trail systems.",
-        "Maintaining a safe environment is a priority for the Colorado Springs community, supported by ordinances that emphasize leashed control and stewardship of the region's unique natural habitats. This dedication to order ensures that shared spaces remain pristine for both the local population and the area's many visitors. During the snowy winter months or during high-summer heat peaks, there is growing interest in [how it works](https://www.indoordogpark.org/how-it-works) for climate-controlled socialization and indoor enrichment. Colorado Springs remains a premier home for active dog owners who value space, nature, and a community-focused lifestyle."
+        "Maintaining a safe environment is a priority for the Colorado Springs community, supported by ordinances that emphasize leashed control and stewardship of the region's unique natural habitats. This dedication to order ensures that shared spaces remain pristine for both the local population and the area's many visitors. During the snowy winter months or during high-summer heat peaks, there is growing interest in [how it works](https://www.indoordogpark.org/how-it-works) for climate-controlled socialization and indoor enrichment. If you're looking for great options to escape the weather, check out our guide to the [Top 10 best indoor dog parks in Colorado Springs](https://www.indoordogpark.org/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-colorado-springs-co). Colorado Springs remains a premier home for active dog owners who value space, nature, and a community-focused lifestyle."
       ],
     },
   },
@@ -21176,7 +21215,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Experience the vibrant dog culture of Miami, featuring tropical off-leash havens, scenic waterfront paths, and a thriving pet-friendly urban lifestyle.',
       longDescription: [
         "Miami, Florida, is a world-renowned destination that offers a dynamic and sun-drenched lifestyle for dog owners. The local pet social scene is anchored by premiere facilities like [Tropical Park Dog Park](https://www.miamidade.gov/parks/tropical.asp) and the scenic [Blanche Park](https://www.miamigov.com/Parks-Recreation), providing essential off-leash zones and shaded areas for play. Residents also cherish leashed strolls through the historic Art Deco District and along the Atlantic Greenway, where companions can enjoy the coastal breeze and vibrant city energy.",
-        "Responsible pet ownership is a cornerstone of the Miami community, with local ordinances emphasizing leashed control in all public plazas and community greenbelts unless in a designated dog run. This commitment to stewardship ensures that shared spaces remain pristine and safe for residents and visitors alike. Given the region's intense tropical sun and seasonal rainfall, there is significant interest in [how it works](https://www.indoordogpark.org/how-it-works) for indoor play, providing a climate-controlled socialization alternative. Miami remains a premier destination for those who value an active, pet-integrated lifestyle in a cosmopolitan coastal setting."
+        "Responsible pet ownership is a cornerstone of the Miami community, with local ordinances emphasizing leashed control in all public plazas and community greenbelts unless in a designated dog run. This commitment to stewardship ensures that shared spaces remain pristine and safe for residents and visitors alike. Given the region's intense tropical sun and seasonal rainfall, there is significant interest in [how it works](https://www.indoordogpark.org/how-it-works) for indoor play, providing a climate-controlled socialization alternative. If you're looking for great options to escape the weather, check out our guide to the [Top 10 best indoor dog parks in Miami](/blog/top-10-best-indoor-dog-parks-in-miami-fl-beat-the-heat-and-humidity). Miami remains a premier destination for those who value an active, pet-integrated lifestyle in a cosmopolitan coastal setting."
       ],
     },
   },
@@ -21377,7 +21416,7 @@ export const priorityCityContent: PriorityCityConfig[] = [
       heroDescription: 'Discover the active spirit of Brookhaven, featuring the expansive Brookhaven Park and a community that embraces outdoor recreation.',
       longDescription: [
         "Brookhaven, Georgia, is a dynamic city that offers one of the most dog-friendly environments in the Atlanta metro area. The crown jewel is [Brookhaven Park](https://www.brookhavenga.gov/parksrec/page/brookhaven-park), a favorite destination known for its large open areas where dogs often gather for play. Residents also enjoy the [Peachtree Creek Greenway](https://www.brookhavenga.gov/parksrec/page/peachtree-creek-greenway), a multi-use trail that connects neighborhoods and provides a safe route for leashed exercise. Many residents visit our [about page](https://www.indoordogpark.org/about) to learn more about our focus on professional socialization hubs that align with the city's active lifestyle.",
-        "Maintaining a safe and welcoming community is a top priority, supported by DeKalb County ordinances that generally require leashes in public areas unless otherwise designated. This ensures that shared spaces remain enjoyable for all park users. Local owners are proactive about wellness, frequently utilizing professional [training facilities](https://www.indoordogpark.org/training-facilities) to maintain social skills for outings in the city's walkable districts like Town Brookhaven. During the peak of summer heat, there is growing interest in [how it works](https://www.indoordogpark.org/how-it-works) for indoor play, providing a consistent, climate-controlled socialization alternative."
+        "Maintaining a safe and welcoming community is a top priority, supported by DeKalb County ordinances that generally require leashes in public areas unless otherwise designated. This ensures that shared spaces remain enjoyable for all park users. Local owners are proactive about wellness, frequently utilizing professional [training facilities](https://www.indoordogpark.org/training-facilities) to maintain social skills for outings in the city's walkable districts like Town Brookhaven. During the peak of summer heat, there is growing interest in [how it works](https://www.indoordogpark.org/how-it-works) for indoor play, providing a consistent, climate-controlled socialization alternative. For those looking for the best options, check out our guide to the [Top 10 Indoor Dog Parks in Brookhaven, GA](/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-brookhaven-ga)."
       ],
       faqs: brookhavenFaqs,
     },

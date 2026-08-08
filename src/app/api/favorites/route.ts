@@ -12,7 +12,7 @@ export async function GET() {
 
     const { data: favorites, error } = await supabase
       .from('favorites')
-      .select('*')
+      .select('id, user_id, park_id, park_slug, created_at')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     // First, check if the favorite already exists
     const { data: existingFavorite, error: checkError } = await supabase
       .from('favorites')
-      .select('*')
+      .select('id, user_id, park_id, park_slug, created_at')
       .eq('user_id', user.id)
       .eq('park_id', parkId)
       .maybeSingle();
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
       if (insertError.code === '23505' || insertError.message?.includes('duplicate key')) {
         const { data: existing, error: fetchError } = await supabase
           .from('favorites')
-          .select('*')
+          .select('id, user_id, park_id, park_slug, created_at')
           .eq('user_id', user.id)
           .eq('park_id', parkId)
           .single();

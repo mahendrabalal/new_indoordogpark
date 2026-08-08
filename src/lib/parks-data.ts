@@ -360,7 +360,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
     // First, try to find by exact slug match
     const { data: submission, error } = await supabaseAdminClient
       .from('park_submissions')
-      .select('*')
+      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
       .eq('slug', slug)
       .eq('status', 'approved')
       .maybeSingle();
@@ -373,7 +373,7 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
     // This handles cases where the slug wasn't set in the database
     const { data: allApproved, error: fetchError } = await supabaseAdminClient
       .from('park_submissions')
-      .select('*')
+      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
       .eq('status', 'approved');
 
     if (!fetchError && allApproved) {
@@ -418,7 +418,7 @@ async function loadUserSubmissions(): Promise<DogPark[]> {
   try {
     const { data: submissions, error } = await supabaseAdminClient
       .from('park_submissions')
-      .select('*')
+      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
       .eq('status', 'approved')
       .order('created_at', { ascending: false });
 

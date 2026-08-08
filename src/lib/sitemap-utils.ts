@@ -243,7 +243,7 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
     try {
       const { data: submissions, error: dbError } = await supabaseAdminClient
         .from('park_submissions')
-        .select('*')
+        .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
         .eq('status', 'approved')
         .not('approved_at', 'is', null)
 
