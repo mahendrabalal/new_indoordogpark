@@ -17,12 +17,9 @@ import { getAllStaticParks, getCitySlugByName } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
 import { SITE_URL } from '@/lib/metadata';
 
-// Use ISR with on-demand revalidation (best practice)
-// Pages are statically generated and cached for performance
-// Revalidate via webhook when posts are updated in Sanity
-export const revalidate = 300; // Fallback: revalidate every 5 minutes if webhook fails
-// Render on-demand; avoid prebuilding all post slugs to keep bundle small
-export const dynamic = 'force-dynamic';
+// ISR: cache rendered post pages, revalidate every 5 minutes as a safety net.
+// On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
+export const revalidate = 300;
 
 interface BlogPostPageProps {
   params: Promise<{

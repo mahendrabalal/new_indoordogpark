@@ -19,11 +19,10 @@ import NewsletterForm from '@/components/NewsletterForm';
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
 
-// Use ISR with on-demand revalidation (best practice)
-// Pages are statically generated and cached for performance
-// Revalidate via webhook when new posts are published in Sanity
-export const revalidate = 60; // Revalidate every 1 minute for faster updates
-export const dynamic = 'force-dynamic';
+// ISR: serve cached page, revalidate in the background every 1 hour.
+// On-demand revalidation via Sanity webhook is the primary cache-busting mechanism;
+// the 1-hour timer is a safety net if the webhook is missed.
+export const revalidate = 3600;
 
 // Define the BlogPage component props
 interface BlogPageProps {

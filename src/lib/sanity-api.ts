@@ -3,6 +3,28 @@ import { BlogPost, BlogListResponse, BlogSearchParams, WPMedia } from '@/types/w
 import { PortableTextBlock } from '@portabletext/types';
 import { unstable_cache } from 'next/cache';
 
+// Retry wrapper for transient network errors (e.g. DNS lookup failures, timeouts)
+async function withRetry<T>(fn: () => Promise<T>, retries = 2, delayMs = 500): Promise<T> {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      const isLastAttempt = attempt === retries;
+      const isTransient =
+        error instanceof TypeError ||
+        (error instanceof Error && ('isNetworkError' in error || error.message.includes('fetch failed') || error.message.includes('ENOTFOUND') || error.message.includes('ETIMEDOUT') || error.message.includes('ECONNRESET')));
+
+      if (isLastAttempt || !isTransient) {
+        throw error;
+      }
+      console.warn(`[Sanity API] Transient error (attempt ${attempt + 1}/${retries + 1}), retrying in ${delayMs}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, delayMs * (attempt + 1)));
+    }
+  }
+  // TypeScript: unreachable, but satisfies return type
+  throw new Error('withRetry exhausted');
+}
+
 interface SanitySlug {
   current: string;
 }
@@ -488,18 +510,18 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
 
     // Use regular client with CDN for performance
     // Cache invalidation handled via Next.js cache tags and revalidation
-    const sanityPosts = await sanityClient.fetch<SanityPost[]>(query, params);
+    const sanityPosts = await withRetry(() => sanityClient.fetch<SanityPost[]>(query, params));
 
     // Get the correct total count based on the filter
     let totalCount: number;
     if (searchParams.category) {
-      totalCount = await sanityClient.fetch<number>(queries.postCountByCategory, { categorySlug: searchParams.category });
+      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountByCategory, { categorySlug: searchParams.category }));
     } else if (searchParams.tag) {
-      totalCount = await sanityClient.fetch<number>(queries.postCountByTag, { tagSlug: searchParams.tag });
+      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountByTag, { tagSlug: searchParams.tag }));
     } else if (searchParams.search) {
-      totalCount = await sanityClient.fetch<number>(queries.postCountBySearch, { searchTerm: `*${searchParams.search}*` });
+      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountBySearch, { searchTerm: `*${searchParams.search}*` }));
     } else {
-      totalCount = await sanityClient.fetch<number>(queries.postCount);
+      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCount));
     }
 
     const posts = sanityPosts.map(sanityPostToBlogPost);
@@ -513,13 +535,7 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
     };
   } catch (error) {
     console.error('Error fetching posts from Sanity:', error);
-    return {
-      posts: [],
-      total: 0,
-      totalPages: 0,
-      page: 1,
-      perPage: searchParams.perPage || 10,
-    };
+    throw error;
   }
 }
 
@@ -529,12 +545,12 @@ export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     // Use regular client with CDN for performance
     // Cache invalidation handled via Next.js cache tags and revalidation
-    const sanityPost = await sanityClient.fetch<SanityPost | null>(queries.postBySlug, { slug });
+    const sanityPost = await withRetry(() => sanityClient.fetch<SanityPost | null>(queries.postBySlug, { slug }));
     if (!sanityPost) return null;
     return sanityPostToBlogPost(sanityPost);
   } catch (error) {
     console.error('Error fetching post by slug from Sanity:', error);
-    return null;
+    throw error;
   }
 }
 
@@ -542,7 +558,7 @@ export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
 export async function fetchCategories() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
   try {
-    const sanityCategories = await sanityClient.fetch<SanityCategory[]>(queries.categories);
+    const sanityCategories = await withRetry(() => sanityClient.fetch<SanityCategory[]>(queries.categories));
     return sanityCategories.map((cat, index: number) => ({
       id: parseInt(cat._id.replace(/\D/g, '').slice(0, 8)) || index + 1,
       name: cat.title,
@@ -556,7 +572,7 @@ export async function fetchCategories() {
     }));
   } catch (error) {
     console.error('Error fetching categories from Sanity:', error);
-    return [];
+    throw error;
   }
 }
 
@@ -564,7 +580,7 @@ export async function fetchCategories() {
 export async function fetchTags() {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
   try {
-    const sanityTags = await sanityClient.fetch<SanityTag[]>(queries.tags);
+    const sanityTags = await withRetry(() => sanityClient.fetch<SanityTag[]>(queries.tags));
     return sanityTags.map((tag, index: number) => ({
       id: parseInt(tag._id.replace(/\D/g, '').slice(0, 8)) || index + 1,
       name: tag.title,
@@ -577,20 +593,21 @@ export async function fetchTags() {
     }));
   } catch (error) {
     console.error('Error fetching tags from Sanity:', error);
-    return [];
+    throw error;
   }
 }
 
 // Cached versions with Next.js cache - using unstable_cache for proper revalidation
-// Best practice: Use cache tags for on-demand revalidation via webhooks
+// Primary cache-busting: on-demand revalidation via Sanity webhook (instant)
+// Fallback: time-based revalidation every 1 hour (safety net if webhook fails)
 export async function getCachedPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
   const cacheKey = `blog-posts-${JSON.stringify(searchParams)}`;
   return unstable_cache(
     async () => fetchPosts(searchParams),
     [cacheKey],
     {
-      revalidate: 300, // Fallback revalidation: 5 minutes
-      tags: ['blog-posts', 'blog-list'], // Use tags for on-demand revalidation
+      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+      tags: ['blog-posts', 'blog-list'],
     }
   )();
 }
@@ -600,8 +617,8 @@ export async function getCachedPostBySlug(slug: string): Promise<BlogPost | null
     async () => fetchPostBySlug(slug),
     [`blog-post-${slug}`],
     {
-      revalidate: 300, // Fallback revalidation: 5 minutes
-      tags: ['blog-posts', `blog-post-${slug}`], // Use tags for on-demand revalidation
+      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+      tags: ['blog-posts', `blog-post-${slug}`],
     }
   )();
 }
@@ -611,7 +628,7 @@ export async function getCachedCategories() {
     async () => fetchCategories(),
     ['blog-categories'],
     {
-      revalidate: 300, // Revalidate every 5 minutes (categories change less frequently)
+      revalidate: 3600, // 1 hour — categories rarely change
       tags: ['blog-categories'],
     }
   )();
@@ -622,7 +639,7 @@ export async function getCachedTags() {
     async () => fetchTags(),
     ['blog-tags'],
     {
-      revalidate: 300, // Revalidate every 5 minutes (tags change less frequently)
+      revalidate: 3600, // 1 hour — tags rarely change
       tags: ['blog-tags'],
     }
   )();
@@ -672,15 +689,15 @@ function sanityAuthorToProfile(a: SanityAuthorFull): AuthorProfile {
 export async function fetchAuthorBySlug(slug: string): Promise<AuthorProfile | null> {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return null;
   try {
-    const author = await sanityClient.fetch<SanityAuthorFull | null>(
+    const author = await withRetry(() => sanityClient.fetch<SanityAuthorFull | null>(
       queries.authorBySlug,
       { slug }
-    );
+    ));
     if (!author) return null;
     return sanityAuthorToProfile(author);
   } catch (error) {
     console.error('Error fetching author by slug:', error);
-    return null;
+    throw error;
   }
 }
 
@@ -689,7 +706,7 @@ export async function getCachedAuthorBySlug(slug: string): Promise<AuthorProfile
     async () => fetchAuthorBySlug(slug),
     [`blog-author-${slug}`],
     {
-      revalidate: 300,
+      revalidate: 3600, // 1 hour — author profiles rarely change
       tags: ['blog-authors', `blog-author-${slug}`],
     }
   )();
@@ -707,12 +724,12 @@ export async function fetchPostsByAuthor(
     const end = start + perPage;
 
     const [sanityPosts, totalCount] = await Promise.all([
-      sanityClient.fetch<SanityPost[]>(queries.postsByAuthor, {
+      withRetry(() => sanityClient.fetch<SanityPost[]>(queries.postsByAuthor, {
         authorSlug,
         start,
         end,
-      }),
-      sanityClient.fetch<number>(queries.postCountByAuthor, { authorSlug }),
+      })),
+      withRetry(() => sanityClient.fetch<number>(queries.postCountByAuthor, { authorSlug })),
     ]);
 
     return {
@@ -724,7 +741,7 @@ export async function fetchPostsByAuthor(
     };
   } catch (error) {
     console.error('Error fetching posts by author:', error);
-    return emptyResponse;
+    throw error;
   }
 }
 
@@ -737,7 +754,7 @@ export async function getCachedPostsByAuthor(
     async () => fetchPostsByAuthor(authorSlug, page, perPage),
     [`blog-author-posts-${authorSlug}-${page}-${perPage}`],
     {
-      revalidate: 300,
+      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
       tags: ['blog-posts', `blog-author-${authorSlug}`],
     }
   )();

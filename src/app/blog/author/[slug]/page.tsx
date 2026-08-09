@@ -10,8 +10,7 @@ import { getCachedAuthorBySlug, getCachedPostsByAuthor } from '@/lib/sanity-api'
 import { SITE_URL } from '@/lib/metadata';
 import { WPPaginationInfo } from '@/types/wordpress';
 
-export const revalidate = 300;
-export const dynamic = 'force-dynamic';
+export const revalidate = 300; // ISR: revalidate every 5 minutes
 
 interface AuthorPageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +20,13 @@ interface AuthorPageProps {
 // ── Metadata ──────────────────────────────────────────────────────────────────
 export async function generateMetadata({ params }: AuthorPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const author = await getCachedAuthorBySlug(slug);
+  let author;
+  try {
+    author = await getCachedAuthorBySlug(slug);
+  } catch (error) {
+    console.error('Error fetching author metadata:', error);
+    author = null;
+  }
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
   if (!author) {
@@ -75,10 +80,17 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
   const page = Math.max(1, parseInt(pageParam || '1', 10));
   const perPage = 12;
 
-  const [author, blogData] = await Promise.all([
-    getCachedAuthorBySlug(slug),
-    getCachedPostsByAuthor(slug, page, perPage),
-  ]);
+  let author;
+  let blogData;
+  try {
+    [author, blogData] = await Promise.all([
+      getCachedAuthorBySlug(slug),
+      getCachedPostsByAuthor(slug, page, perPage),
+    ]);
+  } catch (error) {
+    console.error('Error fetching author page data:', error);
+    return notFound();
+  }
 
   if (!author) return notFound();
 

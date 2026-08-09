@@ -8,7 +8,7 @@ import { WPCategory, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300; // ISR: revalidate every 5 minutes
 
 interface CategoryPageProps {
   params: Promise<{
@@ -159,11 +159,17 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const perPage = Math.max(1, Number.parseInt(resolvedSearchParams.perPage || '12', 10) || 12);
 
   // Fetch posts server-side (best practice)
-  const blogData = await getCachedPosts({
-    page,
-    perPage,
-    category: category.slug,
-  });
+  let blogData;
+  try {
+    blogData = await getCachedPosts({
+      page,
+      perPage,
+      category: category.slug,
+    });
+  } catch (error) {
+    console.error('Error fetching category posts:', error);
+    blogData = { posts: [], total: 0, totalPages: 0, page, perPage };
+  }
 
   const posts: BlogPost[] = blogData.posts || [];
   const pagination: WPPaginationInfo = {

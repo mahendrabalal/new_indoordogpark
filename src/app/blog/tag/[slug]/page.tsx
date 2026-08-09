@@ -8,7 +8,7 @@ import { WPTag, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedTags } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300; // ISR: revalidate every 5 minutes
 
 interface TagPageProps {
   params: Promise<{
@@ -159,11 +159,17 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   const perPage = Math.max(1, Number.parseInt(resolvedSearchParams.perPage || '12', 10) || 12);
 
   // Fetch posts server-side (best practice)
-  const blogData = await getCachedPosts({
-    page,
-    perPage,
-    tag: tag.slug,
-  });
+  let blogData;
+  try {
+    blogData = await getCachedPosts({
+      page,
+      perPage,
+      tag: tag.slug,
+    });
+  } catch (error) {
+    console.error('Error fetching tag posts:', error);
+    blogData = { posts: [], total: 0, totalPages: 0, page, perPage };
+  }
 
   const posts: BlogPost[] = blogData.posts || [];
   const pagination: WPPaginationInfo = {
