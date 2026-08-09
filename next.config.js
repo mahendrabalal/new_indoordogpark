@@ -282,6 +282,12 @@ const nextConfig = {
         destination: '/:path+',
         permanent: true,
       },
+      // Redirect state names mistakenly used as cities to the homepage
+      {
+        source: '/cities/:slug(california|ca|new-york|ny|washington|wa|florida|fl|texas|tx)',
+        destination: '/',
+        permanent: true,
+      },
       // Consolidate privacy policy URLs - redirect /privacy-policy to /privacy
       {
         source: '/privacy-policy',

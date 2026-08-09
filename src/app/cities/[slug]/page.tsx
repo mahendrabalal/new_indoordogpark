@@ -194,15 +194,6 @@ export default async function CityPage({ params }: CityPageProps) {
   const cityContent = await getCityContentBySlug(slug);
 
   if (!cityContent) {
-    // Check if this is a state name mistakenly used as a city
-    const stateNames = ['california', 'ca', 'new-york', 'ny', 'washington', 'wa', 'florida', 'fl', 'texas', 'tx'];
-    const normalizedSlug = slug.toLowerCase().replace(/[^a-z]/g, '');
-
-    if (stateNames.some(state => normalizedSlug.includes(state) || state.includes(normalizedSlug))) {
-      // Redirect to home page with a helpful message for state names
-      permanentRedirect('/');
-    }
-
     notFound();
   }
 
