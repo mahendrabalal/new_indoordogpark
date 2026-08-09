@@ -288,12 +288,29 @@ const nextConfig = {
         destination: '/privacy',
         permanent: true,
       },
-      // Note: Removed old blog category/tag redirects to avoid sitemap conflicts
-      // Search engines should discover the new URLs naturally
-
+      {
+        source: '/blog/how-to-tire-out-your-dog-indoors-10-proven-strategies',
+        destination: '/blog/how-to-tire-out-a-high-energy-dog-indoors-without-ruining-your-house',
+        permanent: true,
+      },
+      {
+        source: '/blog/san-antonio-indoor-dog-parks',
+        destination: '/blog/top-10-bestindoor-dog-park-in-san-antonio-texas',
+        permanent: true,
+      },
+      {
+        source: '/blog/fort-worth-indoor-dog-parks',
+        destination: '/blog/top-10-indoor-dog-parks-and-dog-daycares-in-fort-worth-texas',
+        permanent: true,
+      },
       {
         source: '/parks/oneida-run',
         destination: '/parks/oneida-run-bronx',
+        permanent: true,
+      },
+      {
+        source: '/parks/down-town-indoor-dog-park-durham',
+        destination: '/parks/downtown-durham-dog-park',
         permanent: true,
       },
       {

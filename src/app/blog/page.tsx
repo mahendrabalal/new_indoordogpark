@@ -199,53 +199,79 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
   };
 
   const renderBrowseControls = (searchInputId: string) => (
-    <section className="bg-white py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="mb-5">
-          <div className="relative w-full">
+    <section className="relative w-full">
+      {/* Dark Hero Section */}
+      <div className="bg-primary pt-12 pb-16">
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
+          
+          {/* Main Heading */}
+          <h1 className="text-center text-4xl md:text-5xl font-semibold text-white tracking-tight mb-5 font-serif">
+            Indoor Dog Park Insights, <span className="text-[#FF5722] font-serif">Expert Advice</span>
+          </h1>
+
+          {/* Subheading */}
+          <p className="mx-auto max-w-xl text-center text-base text-gray-300 mb-10 leading-relaxed font-light">
+            Expert insights on indoor dog park health, training tips, and the latest in canine wellness and facility updates.
+          </p>
+
+          {/* Search Bar */}
+          <div className="relative mx-auto w-full max-w-2xl">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-              <svg className="h-6 w-6 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
               </svg>
             </div>
             <LiveSearchInput
               id={searchInputId}
               defaultValue={searchTerm || ''}
-              placeholder="Search articles..."
+              placeholder="Search articles by topic, keyword..."
               aria-label="Search articles"
               suggestions={searchSuggestions}
-              className="block w-full rounded-full border border-gray-300 bg-gray-50 py-3 pl-12 pr-6 text-base text-gray-900 shadow-sm transition-colors focus:border-[#FF5722] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#FF5722]"
+              className="block w-full rounded-full border-0 bg-white py-3.5 pl-11 pr-12 text-sm text-gray-900 shadow-lg ring-1 ring-black/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF5722]"
             />
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
+              <span className="hidden sm:inline-flex items-center justify-center rounded border border-gray-200 bg-gray-50 px-2 py-1 text-[10px] font-medium text-gray-400">
+                /
+              </span>
+            </div>
           </div>
         </div>
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
-          <span className="text-sm font-medium text-gray-500 mr-1 shrink-0">Categories:</span>
-          <Link
-            href={buildFilterHref({ category: '', tag: '', search: '' })}
-            prefetch={false}
-            className={`shrink-0 inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${!categorySlug && !tagSlug && !searchTerm
-              ? 'border-[#FF5722] bg-[#FF5722] text-white'
-              : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
-              }`}
-          >
-            All
-          </Link>
-          {categoryChips.map((category) => {
-            const isActive = category.slug === categorySlug;
-            return (
-              <Link
-                key={category.id}
-                href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
-                prefetch={false}
-                className={`shrink-0 inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition ${isActive
-                  ? 'border-[#FF5722] bg-[#FF5722] text-white'
-                  : 'border-gray-200 bg-white text-gray-600 hover:border-[#FF5722] hover:text-[#FF5722]'
-                  }`}
-              >
-                {category.name}
-              </Link>
-            );
-          })}
+      </div>
+
+      {/* Filter and Count Bar */}
+      <div className="container mx-auto px-4 max-w-6xl mt-6 mb-2">
+        <div className="flex flex-row items-center gap-4 justify-between border-b border-gray-100 pb-4">
+          <div className="hidden md:block text-sm font-bold text-gray-400 shrink-0">
+            <span className="text-[#FF5722]">{pagination.total}</span> articles published
+          </div>
+          <div className="flex flex-1 items-center gap-2 overflow-x-auto scrollbar-hide">
+            <Link
+              href={buildFilterHref({ category: '', tag: '', search: '' })}
+              prefetch={false}
+              className={`shrink-0 inline-flex items-center rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition ${!categorySlug && !tagSlug && !searchTerm
+                ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                : 'border-gray-200 bg-white text-gray-500 hover:border-[#FF5722] hover:text-[#FF5722]'
+                }`}
+            >
+              All
+            </Link>
+            {categoryChips.map((category) => {
+              const isActive = category.slug === categorySlug;
+              return (
+                <Link
+                  key={category.id}
+                  href={buildFilterHref({ category: category.slug, tag: '', search: '' })}
+                  prefetch={false}
+                  className={`shrink-0 inline-flex items-center rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition ${isActive
+                    ? 'border-[#FF5722] bg-[#FF5722] text-white'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-[#FF5722] hover:text-[#FF5722]'
+                    }`}
+                >
+                  {category.name}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -333,7 +359,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
 
         {/* The Latest and Top Reads Section */}
         {featuredPost && showEditorialHighlights && (
-          <section className="border-b border-gray-200 bg-white py-12">
+          <section className="border-b border-gray-200 bg-white pt-4 pb-12">
             <div className="container mx-auto px-4">
               <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 {/* The Latest - Left Column */}
