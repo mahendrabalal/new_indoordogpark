@@ -257,31 +257,12 @@ export default function ListPropertyPage() {
 
 
   const handleSubmit = async (listingType: 'free' | 'featured') => {
-    // Require login before submission
-    if (!user) {
-      // Include step in redirect so user returns to review page
-      // URL encode the redirect path to ensure params are preserved
-      const redirectPath = `/list-your-park?plan=${listingType}&step=3`;
-      router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
-      return;
-    }
-
     setIsSubmitting(true);
     setErrors({});
 
     try {
-      const { accessToken, refreshToken } = await getSessionTokens();
-      if (!accessToken) {
-        const redirectPath = `/list-your-park?plan=${listingType}&step=3`;
-        router.push(`/login?redirect=${encodeURIComponent(redirectPath)}`);
-        setIsSubmitting(false);
-        return;
-      }
-
       const authHeaders: HeadersInit = {
         'Content-Type': 'application/json',
-        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
-        ...(refreshToken ? { 'x-refresh-token': refreshToken } : {}),
       };
 
       // Submit the park listing

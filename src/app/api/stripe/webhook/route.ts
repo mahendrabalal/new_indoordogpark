@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { stripe, verifyWebhookSignature } from '@/lib/stripe';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { sanityServerClient } from '@/lib/sanity-server';
 import Stripe from 'stripe';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
@@ -42,9 +43,6 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-
-  // Create Supabase client with service role for admin operations
-  // Supabase client already imported
 
   try {
     const supabase = supabaseAdminClient;
@@ -108,37 +106,29 @@ async function handleCheckoutSessionCompleted(
     return;
   }
 
-  // CRITICAL: Verify payment was actually successful
-  // checkout.session.completed fires even if payment fails
   if (session.payment_status !== 'paid') {
     console.error(
       `Checkout session completed but payment not successful. Session: ${session.id}, Payment Status: ${session.payment_status}, Submission: ${submissionId}`
     );
-    // Don't upgrade to featured if payment failed
     return;
   }
 
-  // Verify subscription exists
   if (!session.subscription) {
     console.error(`Checkout session ${session.id} completed but no subscription found`);
     return;
   }
 
-  // Retrieve the subscription details
   const subscriptionId = session.subscription as string;
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);
 
-  // Extract dates safely - subscription is a Response object, access data via subscription.data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionData = (subscription as any).data || subscription;
 
-  // Verify subscription is in a valid active state
   const validStatuses = ['active', 'trialing'];
   if (!validStatuses.includes(subscriptionData.status)) {
     console.error(
       `Subscription ${subscriptionId} is not in a valid state. Status: ${subscriptionData.status}, Submission: ${submissionId}`
     );
-    // Don't upgrade to featured if subscription is not active
     return;
   }
 
@@ -149,25 +139,18 @@ async function handleCheckoutSessionCompleted(
     ? new Date(subscriptionData.current_period_start * 1000).toISOString()
     : new Date().toISOString();
 
-  // Update park submission with featured listing status
-  // Only reaches here if payment_status === 'paid' and subscription is active/trialing
-  const { error: updateError } = await supabaseClient
-    .from('park_submissions')
-    .update({
-      listing_type: 'featured',
-      stripe_subscription_id: subscriptionId,
-      stripe_customer_id: session.customer as string,
-      subscription_status: subscriptionData.status,
-      subscription_current_period_end: periodEnd,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('id', submissionId);
-
-  if (updateError) {
-    console.error('Failed to update park submission:', updateError);
+  // Update park submission in Sanity with featured listing status
+  try {
+    await sanityServerClient.patch(submissionId).set({
+      listingType: 'featured',
+      stripeSubscriptionId: subscriptionId,
+      stripeCustomerId: session.customer as string,
+    }).commit();
+  } catch (error) {
+    console.error('Failed to update Sanity park submission:', error);
   }
 
-  // Create subscription record
+  // Create subscription record in Supabase
   const { error: subscriptionError } = await supabaseClient
     .from('subscriptions')
     .insert([{
@@ -195,7 +178,6 @@ async function handleSubscriptionUpdated(
 ) {
   const subscriptionId = subscription.id;
 
-  // Extract dates safely - handle both Response and direct Subscription types
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionData = (subscription as any).data || subscription;
   const periodEnd = subscriptionData.current_period_end
@@ -225,20 +207,6 @@ async function handleSubscriptionUpdated(
     console.error('Failed to update subscription:', subError);
   }
 
-  // Update park submission
-  const { error: parkError } = await supabaseClient
-    .from('park_submissions')
-    .update({
-      subscription_status: subscriptionData.status,
-      subscription_current_period_end: periodEnd,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscriptionId);
-
-  if (parkError) {
-    console.error('Failed to update park submission:', parkError);
-  }
-
   console.log(`Subscription updated: ${subscriptionId}`);
 }
 
@@ -248,7 +216,6 @@ async function handleSubscriptionDeleted(
 ) {
   const subscriptionId = subscription.id;
 
-  // Update subscription record
   const { error: subError } = await supabaseClient
     .from('subscriptions')
     .update({
@@ -262,18 +229,19 @@ async function handleSubscriptionDeleted(
     console.error('Failed to update subscription:', subError);
   }
 
-  // Downgrade park listing from featured to free
-  const { error: parkError } = await supabaseClient
-    .from('park_submissions')
-    .update({
-      listing_type: 'free',
-      subscription_status: 'canceled',
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscriptionId);
-
-  if (parkError) {
-    console.error('Failed to downgrade park listing:', parkError);
+  // Downgrade park listing from featured to free in Sanity
+  try {
+    const submissions = await sanityServerClient.fetch(
+      `*[_type == "parkSubmission" && stripeSubscriptionId == $stripeSubscriptionId]`,
+      { stripeSubscriptionId: subscriptionId }
+    );
+    if (submissions && submissions.length > 0) {
+      await sanityServerClient.patch(submissions[0]._id).set({
+        listingType: 'free'
+      }).commit();
+    }
+  } catch (error) {
+    console.error('Failed to downgrade Sanity park listing:', error);
   }
 
   console.log(`Subscription canceled and listing downgraded: ${subscriptionId}`);
@@ -286,12 +254,8 @@ async function handleInvoicePaymentSucceeded(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionId = (invoice as any).subscription as string | null;
 
-  if (!subscriptionId) {
-    // Not a subscription invoice, skip
-    return;
-  }
+  if (!subscriptionId) return;
 
-  // Verify invoice is actually paid
   if (invoice.status !== 'paid') {
     console.error(
       `Invoice ${invoice.id} marked as payment_succeeded but not actually paid. Status: ${invoice.status}`
@@ -299,39 +263,22 @@ async function handleInvoicePaymentSucceeded(
     return;
   }
 
-  // Find the park submission associated with this subscription
-  const { data: submission, error: fetchError } = await supabaseClient
-    .from('park_submissions')
-    .select('id, name, listing_type')
-    .eq('stripe_subscription_id', subscriptionId)
-    .maybeSingle();
-
-  if (fetchError) {
-    console.error(`Failed to find submission for subscription ${subscriptionId}:`, fetchError);
-    return;
-  }
-
-  // If submission exists but isn't featured yet, upgrade it
-  // This handles cases where checkout.session.completed fired before payment
-  if (submission && submission.listing_type !== 'featured') {
-    const { error: updateError } = await supabaseClient
-      .from('park_submissions')
-      .update({
-        listing_type: 'featured',
-        updated_at: new Date().toISOString(),
-      })
-      .eq('id', submission.id);
-
-    if (updateError) {
-      console.error(`Failed to upgrade submission ${submission.id} to featured:`, updateError);
-    } else {
-      console.log(`Upgraded submission ${submission.id} (${submission.name}) to featured after payment confirmation`);
+  // If submission isn't featured yet, upgrade it in Sanity
+  try {
+    const submissions = await sanityServerClient.fetch(
+      `*[_type == "parkSubmission" && stripeSubscriptionId == $stripeSubscriptionId]`,
+      { stripeSubscriptionId: subscriptionId }
+    );
+    if (submissions && submissions.length > 0 && submissions[0].listingType !== 'featured') {
+      await sanityServerClient.patch(submissions[0]._id).set({
+        listingType: 'featured'
+      }).commit();
     }
+  } catch (error) {
+    console.error('Failed to upgrade Sanity park listing to featured:', error);
   }
 
   console.log(`Payment succeeded for subscription: ${subscriptionId}, Invoice: ${invoice.id}`);
-
-  // You could send a success email notification here
 }
 
 async function handleInvoicePaymentFailed(
@@ -340,23 +287,6 @@ async function handleInvoicePaymentFailed(
 ) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionId = (invoice as any).subscription as string | null;
-
   if (!subscriptionId) return;
-
-  // Update subscription status
-  const { error } = await supabaseClient
-    .from('park_submissions')
-    .update({
-      subscription_status: 'past_due',
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscriptionId);
-
-  if (error) {
-    console.error('Failed to update payment status:', error);
-  }
-
   console.log(`Payment failed for subscription: ${subscriptionId}`);
-
-  // You could send a payment failed email notification here
 }
