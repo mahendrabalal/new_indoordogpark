@@ -154,11 +154,10 @@ export async function POST(req: NextRequest) {
             });
 
         if (insertError) {
-            console.error('Error inserting subscriber:', insertError);
-            return NextResponse.json(
-                { error: 'Failed to subscribe. Please try again.' },
-                { status: 500 }
-            );
+            console.error('Error inserting subscriber to Supabase (bypassing due to restrictions):', insertError);
+            // We intentionally do NOT return a 500 error here. 
+            // Since Supabase is restricted, we just log the error and continue 
+            // so the subscriber still gets added to Beehiiv!
         }
 
         // ==========================================
