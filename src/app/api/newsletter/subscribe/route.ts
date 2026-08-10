@@ -195,7 +195,31 @@ export async function POST(req: NextRequest) {
                     const errText = await beehiivResponse.text();
                     console.error('Failed to sync with Beehiiv:', errText);
                 } else {
+                    const responseData = await beehiivResponse.json();
+                    const subscriptionId = responseData.data?.id;
                     console.log(`Successfully synced ${email} to Beehiiv`);
+
+                    // Add tags to match the CSV import format visually in the Beehiiv dashboard
+                    if (subscriptionId) {
+                        const tags = [type]; // 'owner' or 'consumer'
+                        if (source) tags.push(source);
+                        
+                        const tagsResponse = await fetch(`https://api.beehiiv.com/v2/publications/${beehiivPubId}/subscriptions/${subscriptionId}/tags`, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${beehiivApiKey}`,
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ tags })
+                        });
+                        
+                        if (!tagsResponse.ok) {
+                            console.error('Failed to add tags to Beehiiv subscriber:', await tagsResponse.text());
+                        } else {
+                            console.log(`Successfully added tags [${tags.join(', ')}] to subscriber`);
+                        }
+                    }
                 }
             } catch (err) {
                 console.error('Error syncing to Beehiiv:', err);
