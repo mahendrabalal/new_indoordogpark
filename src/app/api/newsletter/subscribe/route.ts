@@ -161,6 +161,49 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // ==========================================
+        // BEEHIIV INTEGRATION
+        // ==========================================
+        const beehiivApiKey = process.env.BEEHIIV_API_KEY;
+        const beehiivPubId = process.env.BEEHIIV_PUBLICATION_ID;
+
+        if (beehiivApiKey && beehiivPubId) {
+            try {
+                // Format custom fields for Beehiiv
+                const customFields = [
+                    { name: 'type', value: type },
+                    { name: 'source', value: source || 'website' }
+                ];
+                if (parkName) customFields.push({ name: 'parkName', value: parkName });
+                if (location) customFields.push({ name: 'location', value: location });
+
+                const beehiivResponse = await fetch(`https://api.beehiiv.com/v2/publications/${beehiivPubId}/subscriptions`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${beehiivApiKey}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email.toLowerCase(),
+                        reactivate_existing: true,
+                        send_welcome_email: false, // We send our own welcome email below
+                        utm_source: source || 'indoordogpark_website',
+                        custom_fields: customFields
+                    })
+                });
+
+                if (!beehiivResponse.ok) {
+                    const errText = await beehiivResponse.text();
+                    console.error('Failed to sync with Beehiiv:', errText);
+                } else {
+                    console.log(`Successfully synced ${email} to Beehiiv`);
+                }
+            } catch (err) {
+                console.error('Error syncing to Beehiiv:', err);
+                // Don't fail the request if Beehiiv sync fails
+            }
+        }
+
         // Send welcome email based on type
         const welcomeHtml =
             type === 'consumer'
