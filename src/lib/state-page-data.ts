@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
 import type { DogPark } from '@/types/dog-park';
 import type { CityData } from '@/lib/cityData';
 import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data';
@@ -50,28 +49,7 @@ function dedupeParks(parks: DogPark[]): DogPark[] {
 
 export async function getAllParksForStateAggregation(): Promise<DogPark[]> {
   const staticParks = await getAllStaticParks();
-  let submissionParks: DogPark[] = [];
-  try {
-    const { data: submissions, error } = await supabaseAdminClient
-      .from('park_submissions')
-      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-      .eq('status', 'approved');
-
-    if (!error && submissions) {
-      submissionParks = submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow));
-    } else if (error) {
-      console.warn('[Supabase] Failed to fetch submissions for state aggregation');
-    }
-  } catch (err) {
-    if (err instanceof Error && err.name === 'AbortError') {
-      console.warn('[Supabase] Timeout during state aggregation');
-    } else {
-      console.warn('[Supabase] Error during state aggregation');
-    }
-    // Ignore DB errors for sitemap/state pages; fall back to static data.
-  }
-
-  return dedupeParks([...staticParks, ...submissionParks]);
+  return staticParks;
 }
 
 export async function getAllStateSlugs(): Promise<string[]> {

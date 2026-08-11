@@ -1,7 +1,6 @@
 import { useId, useRef, useState, type ChangeEvent } from 'react';
 import Image from 'next/image';
 import type { ParkSubmissionForm } from '@/types/park-submission';
-import { useAuth } from '@/contexts/AuthContext';
 
 interface PhotosPricingStepProps {
   formData: ParkSubmissionForm;
@@ -12,13 +11,13 @@ interface PhotosPricingStepProps {
 type PricingInfo = NonNullable<ParkSubmissionForm['pricingInfo']>;
 
 export default function PhotosPricingStep({ formData, updateFormData, errors }: PhotosPricingStepProps) {
+  const fileInputId = useId();
   const [photoUrl, setPhotoUrl] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const uploadSessionIdRef = useRef<string>('');
-  const fileInputId = useId();
-  const { getSessionTokens } = useAuth();
+
 
   const ensureUploadSessionId = () => {
     if (!uploadSessionIdRef.current) {
@@ -57,14 +56,7 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
     setIsUploading(true);
 
     try {
-      const { accessToken, refreshToken } = await getSessionTokens();
-
-      if (!accessToken) {
-        setIsUploading(false);
-        // Instead of just an error, we prompt with a clear sign-in link
-        setUploadError('sign-in-required');
-        return;
-      }
+      // Auth removed
 
       const uploadPayload = new FormData();
       uploadPayload.append('file', file);
@@ -76,10 +68,7 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
 
       const response = await fetch('/api/uploads/park-photos', {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          ...(refreshToken ? { 'x-refresh-token': refreshToken } : {}),
-        },
+        // Headers for auth removed
         body: uploadPayload,
       });
 
@@ -178,20 +167,7 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
         </div>
 
         {uploadError && (
-          uploadError === 'sign-in-required' ? (
-            <div className="flex items-center gap-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-              <span className="text-sm text-amber-800">Please log in before uploading photos.</span>
-              <a
-                href="/login?redirect=/list-your-park?step=2"
-                className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
-                rel="nofollow"
-              >
-                Sign In to Upload
-              </a>
-            </div>
-          ) : (
-            <p className="text-sm text-red-600">{uploadError}</p>
-          )
+          <p className="text-sm text-red-600">{uploadError}</p>
         )}
 
         {/* Photo Gallery */}

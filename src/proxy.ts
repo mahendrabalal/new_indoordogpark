@@ -1,4 +1,3 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
 function applyNoIndexHeader(response: NextResponse) {
@@ -94,102 +93,6 @@ export async function proxy(request: NextRequest) {
     },
   });
   response = applyNoIndexHeader(response);
-
-  // Build-safe Supabase client initialization for middleware
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  const supabase = (supabaseUrl && supabaseAnonKey)
-    ? createServerClient(
-      supabaseUrl,
-      supabaseAnonKey,
-      {
-        cookies: {
-          get(name: string) {
-            return request.cookies.get(name)?.value;
-          },
-          set(name: string, value: string, options: CookieOptions) {
-            request.cookies.set({
-              name,
-              value,
-              ...options,
-            });
-            response = NextResponse.next({
-              request: {
-                headers: request.headers,
-              },
-            });
-            response.cookies.set({
-              name,
-              value,
-              ...options,
-            });
-          },
-          remove(name: string, options: CookieOptions) {
-            request.cookies.set({
-              name,
-              value: '',
-              ...options,
-            });
-            response = NextResponse.next({
-              request: {
-                headers: request.headers,
-              },
-            });
-            response.cookies.set({
-              name,
-              value: '',
-              ...options,
-            });
-          },
-        },
-      }
-    )
-    : new Proxy({} as any, {
-      get: () => () => {
-        console.warn('Middleware Supabase client called during build or without configuration');
-        return { data: { user: null }, error: { message: 'Supabase configuration missing' } };
-      }
-    });
-
-  // Refresh session if expired - required for Server Components
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  // Only log auth info in debug mode or actual errors (not missing sessions)
-  const shouldLogAuth =
-    process.env.NODE_ENV !== 'production' &&
-    process.env.NEXT_PUBLIC_ENABLE_AUTH_DEBUG === 'true';
-
-  if (shouldLogAuth) {
-    console.info('middleware: auth session', {
-      user: user?.email || user?.id || 'anonymous',
-      error: error?.message,
-    });
-  } else if (error && error.message !== 'Auth session missing!' && process.env.NODE_ENV !== 'production') {
-    // Only log actual errors, not expected missing sessions for public routes
-    console.warn('middleware: auth session error', error.message);
-  }
-
-  // Protect admin routes - industry best practice: middleware-level protection
-  if (pathname.startsWith('/admin')) {
-    // Check if user is authenticated
-    if (!user) {
-      const loginUrl = new URL('/login', request.url);
-      loginUrl.searchParams.set('redirect', pathname);
-      return NextResponse.redirect(loginUrl);
-    }
-
-    // Check if user has admin role
-    const userMetadata = user.user_metadata as { role?: string } | undefined;
-    if (userMetadata?.role !== 'admin') {
-      // Return 403 Forbidden instead of redirecting to home
-      const forbiddenUrl = new URL('/403', request.url);
-      return NextResponse.rewrite(forbiddenUrl);
-    }
-  }
 
   return response;
 }

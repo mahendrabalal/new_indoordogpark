@@ -174,20 +174,7 @@ export default function PlanSelectionStep({ onSelectPlan, isLoggedIn = false }: 
         </article>
       </div>
 
-      {!isLoggedIn && (
-        <footer className="text-center pt-4 border-t">
-          <p className="text-sm text-gray-600">
-            Already have an account?{' '}
-            <Link
-              href="/login?redirect=/list-your-park"
-              className="text-purple-600 hover:text-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded font-medium"
-              rel="nofollow"
-            >
-              Sign in
-            </Link>
-          </p>
-        </footer>
-      )}
+
     </div>
   );
 }

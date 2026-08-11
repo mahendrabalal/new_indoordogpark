@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { AuthProvider } from '@/contexts/AuthContext';
-import { FavoritesProvider } from '@/contexts/FavoritesContext';
 import { ToastProvider } from '@/contexts/ToastContext';
 import NotFoundContent from './not-found-content';
 
@@ -15,13 +13,9 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <AuthProvider>
-      <FavoritesProvider>
-        <ToastProvider>
-          <NotFoundContent />
-        </ToastProvider>
-      </FavoritesProvider>
-    </AuthProvider>
+    <ToastProvider>
+      <NotFoundContent />
+    </ToastProvider>
   );
 }
 

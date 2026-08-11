@@ -1,21 +1,11 @@
 import { randomUUID } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
-import { getUserFromRequest } from '@/lib/auth-helpers';
 import { sanityServerClient } from '@/lib/sanity-server';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 
 export async function POST(request: NextRequest) {
   try {
-    const { user, error: authError } = await getUserFromRequest(request);
-
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized. Please log in to submit a park.' },
-        { status: 401 }
-      );
-    }
-
-    const userId = user.id;
+    const userId = 'anonymous';
     // Parse request body
     const body: ParkSubmissionForm & { listingType: 'free' | 'featured' } = await request.json();
 
@@ -176,41 +166,4 @@ async function generateUniqueSlug(name: string, city?: string | null) {
   return `${base}-${randomUUID().slice(0, 8)}`;
 }
 
-// GET endpoint to retrieve user's submissions
-export async function GET(request: NextRequest) {
-  try {
-    const { user, error: authError } = await getUserFromRequest(request);
 
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    // Fetch user's submissions from Sanity
-    const submissions = await sanityServerClient.fetch(
-      `*[_type == "parkSubmission" && userId == $userId] | order(_createdAt desc) {
-        _id,
-        _createdAt,
-        name,
-        city,
-        state,
-        status,
-        listingType,
-        "slug": slug.current,
-        "id": _id
-      }`,
-      { userId: user.id }
-    );
-
-    return NextResponse.json({ submissions }, { status: 200 });
-
-  } catch (error) {
-    console.error('GET submissions error:', error);
-    return NextResponse.json(
-      { error: 'An unexpected error occurred' },
-      { status: 500 }
-    );
-  }
-}

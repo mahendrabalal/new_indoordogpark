@@ -1,7 +1,6 @@
 import { SITE_URL } from './metadata'
 import { DogPark } from '@/types/dog-park'
 import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from './parks-data'
-import { supabaseAdminClient } from './supabase-admin'
 import { getParkUrl } from './routing'
 import { escapeXML } from './sitemap-utils'
 
@@ -40,19 +39,7 @@ export async function getParksImageSitemapData() {
       console.error(e)
     }
 
-    try {
-      const { data: submissions, error: dbError } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-        .eq('status', 'approved')
-        .not('approved_at', 'is', null)
 
-      if (!dbError && submissions) {
-        allParks.push(...submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow)))
-      }
-    } catch (e) {
-      console.error(e)
-    }
 
     const seenUrls = new Set<string>()
 

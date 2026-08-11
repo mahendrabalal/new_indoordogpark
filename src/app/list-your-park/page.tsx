@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/contexts/AuthContext';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -27,7 +26,6 @@ const STEPS = [
 
 export default function ListPropertyPage() {
   const router = useRouter();
-  const { user, loading, getSessionTokens } = useAuth();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'featured' | null>(null);
   const [formData, setFormData] = useState<ParkSubmissionForm>(() => {
@@ -234,27 +232,7 @@ export default function ListPropertyPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentStep]);
 
-  const loadingState = useMemo(
-    () => (
-      <div className="min-h-screen flex items-center justify-center" role="status" aria-live="polite">
-        <div className="text-center">
-          <div
-            className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"
-            aria-hidden="true"
-          />
-          <p className="mt-4 text-gray-600">Loading...</p>
-          <span className="sr-only">Loading page content</span>
-        </div>
-      </div>
-    ),
-    []
-  );
-
-  // Early return must come AFTER all hooks
-  if (loading) {
-    return loadingState;
-  }
-
+  // Removed loading early return
 
   const handleSubmit = async (listingType: 'free' | 'featured') => {
     setIsSubmitting(true);
@@ -396,7 +374,7 @@ export default function ListPropertyPage() {
 
             {/* Step Content */}
             {currentStep === 0 && (
-              <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={!!user} />
+              <PlanSelectionStep onSelectPlan={handlePlanSelection} isLoggedIn={true} />
             )}
             {currentStep === 1 && (
               <div className="space-y-8">
@@ -545,7 +523,7 @@ export default function ListPropertyPage() {
               {
                 question: 'Do I need an account to submit a listing?',
                 answer:
-                  'You can fill out the form at any time, but you’ll be asked to sign in before final submission so we can link the listing to your account and follow up if we have questions.',
+                  'You can fill out the form at any time and submit it right away. We do not require you to create an account.',
               },
               {
                 question: 'How long does approval take?',

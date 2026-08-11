@@ -17,7 +17,7 @@ import {
   getNearbyCities,
   slugToCityName,
 } from '@/lib/cityData';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
+
 import { sanityServerClient } from '@/lib/sanity-server';
 export interface PaginatedParks {
   data: DogPark[];

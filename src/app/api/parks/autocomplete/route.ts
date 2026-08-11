@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DogPark } from '@/types/dog-park';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { getAllStaticParks } from '@/lib/parks-data';
+import { sanityServerClient } from '@/lib/sanity-server';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,16 +35,21 @@ export async function GET(request: Request) {
     // Fetch approved user submissions from database
     let submissionParks: DogPark[] = [];
     try {
-      const { data: submissions, error } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('name, city, business_type, latitude, longitude')
-        .eq('status', 'approved');
+      const submissions = await sanityServerClient.fetch(
+        `*[_type == "parkSubmission" && status == 'approved'] {
+          name,
+          city,
+          businessType,
+          latitude,
+          longitude
+        }`
+      );
 
-      if (!error && submissions) {
+      if (submissions) {
         submissionParks = submissions.map((sub: any) => ({
           name: sub.name,
           city: sub.city,
-          businessType: sub.business_type,
+          businessType: sub.businessType,
         })) as DogPark[];
       }
     } catch (dbError) {

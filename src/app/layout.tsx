@@ -1,9 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
-import { AuthProvider } from '@/contexts/AuthContext'
 import { ToastProvider } from '@/contexts/ToastContext'
-import { FavoritesProvider } from '@/contexts/FavoritesContext'
 import { LazyStyles } from '@/components/LazyStyles'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
@@ -230,13 +228,9 @@ export default function RootLayout({
           <SpeedInsights />
           <LazyStyles />
           <NewsletterPopup />
-          <AuthProvider>
-            <FavoritesProvider>
-              <ToastProvider>
-                {children}
-              </ToastProvider>
-            </FavoritesProvider>
-          </AuthProvider>
+          <ToastProvider>
+            {children}
+          </ToastProvider>
         </ErrorBoundary>
       </body>
     </html>

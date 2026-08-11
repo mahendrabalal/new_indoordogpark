@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getParkUrl } from '@/lib/routing';
 import Image from 'next/image';
-import FavoriteButton from '@/components/FavoriteButton';
+
 import type { ParkSubmission } from '@/types/park-submission';
 
 function truncateCopy(text?: string, limit = 180) {
@@ -165,13 +165,7 @@ export default function RecentlyAddedParks() {
                                             {park.businessType}
                                         </p>
                                     </div>
-                                    <div className="relative z-20">
-                                        <FavoriteButton
-                                            parkId={park.id}
-                                            parkSlug={park.slug}
-                                            className="favorite-btn-minimal"
-                                        />
-                                    </div>
+
                                 </div>
 
                                 <p className="text-sm text-slate-600 leading-relaxed line-clamp-2 mb-3">

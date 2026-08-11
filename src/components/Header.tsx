@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
 import { useNavbarScroll } from '@/hooks/useNavbarScroll';
 
 interface HeaderProps {
@@ -13,7 +12,6 @@ interface HeaderProps {
 export default function Header({ variant = 'default' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const { user, signOut } = useAuth();
   const { isVisible, isScrolled } = useNavbarScroll();
   const navRef = useRef<HTMLElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -179,25 +177,9 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         </div>
 
         <div className="header-right">
-          {user ? (
-            <>
-              <span className="header-link">Welcome, {user.email}</span>
-              <button
-                onClick={signOut}
-                className="header-link"
-                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-              >
-                Log out
-              </button>
-            </>
-          ) : (
-            <Link href="/login" className="header-link">Log in</Link>
-          )}
-
           <Link href="/list-your-park" className="header-link header-link-primary">
             List your park
           </Link>
-
         </div>
       </div>
 
@@ -222,24 +204,6 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <Link href="/about" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>About Us</Link>
         <Link href="/contact" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         <Link href="/list-your-park" className="mobile-menu-item font-bold text-orange-600" onClick={() => setIsMenuOpen(false)}>List your park</Link>
-
-        {user ? (
-          <>
-            <span className="mobile-menu-item text-slate-500">Logged in as {user.email}</span>
-            <button
-              onClick={() => {
-                signOut();
-                setIsMenuOpen(false);
-              }}
-              className="mobile-menu-item"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}
-            >
-              Log out
-            </button>
-          </>
-        ) : (
-          <Link href="/login" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Log in / Sign up</Link>
-        )}
       </div>
     </header>
   );

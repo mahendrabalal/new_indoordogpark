@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
 
 interface Review {
@@ -26,7 +25,6 @@ interface ReviewSectionProps {
 }
 
 export default function ReviewSection({ parkId }: ReviewSectionProps) {
-  const { user } = useAuth();
   const pathname = usePathname();
   const { showSuccess, showError } = useToast();
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -45,10 +43,8 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
   const fetchReviews = useCallback(async () => {
     try {
       // Include user's review if they're logged in
-      const includeUserReview = user ? 'true' : 'false';
-      const response = await fetch(`/api/reviews?parkId=${parkId}&includeUserReview=${includeUserReview}`, {
-        credentials: 'include', // Include auth cookies
-      });
+      const includeUserReview = 'false';
+      const response = await fetch(`/api/reviews?parkId=${parkId}&includeUserReview=${includeUserReview}`);
       if (response.ok) {
         const data = await response.json();
         setReviews(data.reviews);
@@ -70,7 +66,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
     } finally {
       setIsLoading(false);
     }
-  }, [parkId, user]);
+  }, [parkId]);
 
   useEffect(() => {
     fetchReviews();
@@ -78,7 +74,6 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
 
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) return;
 
     setIsSubmitting(true);
     try {
@@ -87,7 +82,6 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // This is crucial for sending auth cookies
         body: JSON.stringify({
           parkId,
           rating: reviewForm.rating,
@@ -123,10 +117,6 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
   };
 
   const handleHelpfulVote = async (reviewId: string, isHelpful: boolean) => {
-    if (!user) {
-      showError('Please log in to vote on reviews');
-      return;
-    }
 
     try {
       const response = await fetch(`/api/reviews/${reviewId}/helpful`, {
@@ -134,7 +124,6 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Include auth cookies
         body: JSON.stringify({ isHelpful }),
       });
 
@@ -196,29 +185,18 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
             </div>
             <span className="total-reviews">({totalReviews} reviews)</span>
           </div>
-          {user ? (
-            <button
-              className="write-review-btn"
-              onClick={() => setShowReviewForm(!showReviewForm)}
-            >
-              <i className="bi bi-pencil"></i> {userReview ? 'Edit Your Review' : 'Write a Review'}
-            </button>
-          ) : (
-            <Link
-              href={`/login?redirect=${encodeURIComponent(pathname || '/')}`}
-              className="write-review-btn"
-              style={{ textDecoration: 'none' }}
-              rel="nofollow"
-            >
-              <i className="bi bi-box-arrow-in-right"></i> Log in to Review
-            </Link>
-          )}
+          <button
+            className="write-review-btn"
+            onClick={() => setShowReviewForm(!showReviewForm)}
+          >
+            <i className="bi bi-pencil"></i> Write a Review
+          </button>
         </div>
       </div>
 
       {showReviewForm && (
         <div className="review-form">
-          <h3>{userReview ? 'Edit Your Review' : 'Share Your Experience'}</h3>
+          <h3>Share Your Experience</h3>
           {userReview && userReview.status === 'pending' && (
             <div className="review-status-notice" style={{
               padding: '10px',
@@ -300,20 +278,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
       ) : displayReviews.length === 0 ? (
         <div className="no-reviews">
           <p>
-            No reviews yet. {user ? (
-              'Be the first to share your experience!'
-            ) : (
-              <span>
-                <Link href={`/login?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold" rel="nofollow">
-                  Log in
-                </Link>
-                {' '}or{' '}
-                <Link href={`/signup?redirect=${encodeURIComponent(pathname || '/')}`} className="text-[#FF5722] hover:underline font-semibold" rel="nofollow">
-                  Sign up
-                </Link>
-                {' '}to be the first to share your experience!
-              </span>
-            )}
+            No reviews yet. Be the first to share your experience!
           </p>
         </div>
       ) : (
@@ -339,7 +304,7 @@ export default function ReviewSection({ parkId }: ReviewSectionProps) {
               {review.content && <p className="review-comment">{review.content}</p>}
               <div className="review-actions">
                 <span className="helpful-count">{review.helpful_count} people found this helpful</span>
-                {user && review.status === 'approved' && (
+                {review.status === 'approved' && (
                   <div className="helpful-buttons">
                     <button
                       className="helpful-btn"

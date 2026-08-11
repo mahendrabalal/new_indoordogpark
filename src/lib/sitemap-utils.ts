@@ -8,7 +8,6 @@ import {
   mapSubmissionToDogPark,
   type SubmissionRow
 } from './parks-data'
-import { supabaseAdminClient } from './supabase-admin'
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
 import { getAllStateSlugs, getStateContentBySlug } from './state-page-data'
 import { getParkUrl } from './routing'
@@ -239,25 +238,7 @@ export async function getParksSitemap(): Promise<MetadataRoute.Sitemap> {
       return []
     }
 
-    // Also load approved database submissions (user-submitted parks)
-    try {
-      const { data: submissions, error: dbError } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-        .eq('status', 'approved')
-        .not('approved_at', 'is', null)
 
-      if (!dbError && submissions && submissions.length > 0) {
-        const submissionParks = submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow))
-        allParks.push(...submissionParks)
-        console.log(`[sitemap-parks] Added ${submissionParks.length} approved database submissions`)
-      } else if (dbError) {
-        console.warn('[sitemap-parks] Failed to load database submissions:', dbError)
-      }
-    } catch (dbError) {
-      console.warn('[sitemap-parks] Error loading database submissions:', dbError)
-      // Continue with static parks even if database fails
-    }
 
     console.log(`[sitemap-parks] Processing ${allParks.length} total parks (static + database) into sitemap`)
 
