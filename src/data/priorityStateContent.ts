@@ -1117,7 +1117,7 @@ export const priorityStateContent: PriorityStateConfig[] = [
             heroEyebrow: 'Sunflower State Dog Parks',
             heroHeading: 'Dog Parks in Kansas',
             heroDescription:
-                'Explore verified dog-friendly spots across Kansas. Browse the best-covered cities, compare ratings, and plan your next visit.\n\nOur directory includes detailed information on each location, including user reviews, photos, amenities, and real-time availability where available.\n\nCheck out our guide to the [Top 6 Best Indoor Dog Parks in Wichita, KS](/blog/top-6-best-indoor-dog-parks-in-wichita-ks) to discover the best climate-controlled spots to keep your pup active and safe from severe Midwest weather and thunderstorms!',
+                'Explore verified dog-friendly spots across Kansas. Browse the best-covered cities, compare ratings, and plan your next visit.\n\nOur directory includes detailed information on each location, including user reviews, photos, amenities, and real-time availability where available.\n\nCheck out our guide to the [Top 6 Best Indoor Dog Parks in Wichita, KS](/blog/top-6-best-indoor-dog-parks-and-daycares-in-wichita-ks) to discover the best climate-controlled spots to keep your pup active and safe from severe Midwest weather and thunderstorms!',
             heroPill: 'Verified KS Directory',
             heroFootnotes: ['Daily updates for Wichita & Kansas City', 'Parks across the state'],
             heroChips: [
