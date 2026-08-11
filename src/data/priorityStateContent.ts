@@ -1107,5 +1107,24 @@ export const priorityStateContent: PriorityStateConfig[] = [
             insightIntro:
                 'Navigating the Nebraska dog park scene requires knowing your terrain and local climate. Whether it is a temperature-controlled indoor facility in the winter or a sprawling outdoor park in the summer, our directory filters for quality and safety first.',
         }
+    },
+    {
+        slug: 'kansas',
+        name: 'Kansas',
+        abbr: 'KS',
+        featuredImage: '/images/states/kansas/hero.webp',
+        customContent: {
+            heroEyebrow: 'Sunflower State Dog Parks',
+            heroHeading: 'Dog Parks in Kansas',
+            heroDescription:
+                'Explore verified dog-friendly spots across Kansas. Browse the best-covered cities, compare ratings, and plan your next visit.\n\nOur directory includes detailed information on each location, including user reviews, photos, amenities, and real-time availability where available.\n\nCheck out our guide to the [Top 6 Best Indoor Dog Parks in Wichita, KS](/blog/top-6-best-indoor-dog-parks-in-wichita-ks) to discover the best climate-controlled spots to keep your pup active and safe from severe Midwest weather and thunderstorms!',
+            heroPill: 'Verified KS Directory',
+            heroFootnotes: ['Daily updates for Wichita & Kansas City', 'Parks across the state'],
+            heroChips: [
+                { label: 'Top Cities', value: 'Wichita, Olathe, Overland Park' },
+            ],
+            insightIntro:
+                'Navigating the Kansas dog park scene requires knowing your local climate. Whether it is a temperature-controlled indoor facility to avoid tornadoes or a sprawling outdoor prairie park in the spring, our directory filters for quality and safety first.',
+        }
     }
 ];
