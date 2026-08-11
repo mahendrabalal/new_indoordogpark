@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ChIJ_zXWlJjluocRpWfKk_FZb2U",
+    "name": "Chisholm Creek Pet Resort",
+    "businessType": "Dog Park",
+    "description": "Located in Wichita, Kansas, Chisholm Creek Pet Resort is a massive 15-acre facility offering top-tier outdoor spaces alongside high-quality boarding and daycare services. It boasts an expansive outdoor area tailored for off-leash play, making it a favorite for local dog owners.",
+    "slug": "chisholm-creek-pet-resort",
+    "address": "6260 N Hillside St",
+    "street": "6260 N Hillside St",
+    "city": "Wichita",
+    "state": "KS",
+    "zipCode": "67219",
+    "full_address": "6260 N Hillside St, Wichita, KS 67219, USA",
+    "latitude": 37.8010839,
+    "longitude": -97.3006203,
+    "phone": "(316) 744-0191",
+    "website": "https://chisholmcreekpetresort.com/",
+    "rating": 4.6,
+    "reviewCount": 420,
+    "source": "static",
+    "listingType": "free"
+  }
+]

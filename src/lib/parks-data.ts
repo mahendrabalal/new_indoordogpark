@@ -53,6 +53,7 @@ const STATIC_PARK_FILES = [
   'newyork.json',
   'missouri.json',
   'newjersey.json',
+  'kansas.json',
   'mixmatch.json',
 ];
 
