@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { DogPark, MediaAsset } from '@/types/dog-park';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { sanityServerClient } from '@/lib/sanity-server';
 import { normalizeTypeParameter } from '@/lib/type-normalizer';
-import { getAllStaticParks } from '@/lib/parks-data';
+import { getAllStaticParks, mapSanitySubmissionToDogPark } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -141,70 +141,18 @@ export async function GET(request: Request) {
     // Industry best practice: Include ALL approved parks in search, regardless of listing type
     let submissionParks: DogPark[] = [];
     try {
-      const { data: submissions, error } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-        .eq('status', 'approved')
-        // Include all approved parks - both featured and free
-        // No filter on listing_type or subscription_status to ensure all parks are searchable
-        .order('created_at', { ascending: false });
+      const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
+        ...,
+        "photoUrls": photos[].asset->url
+      }`;
+      const submissions = await sanityServerClient.fetch(sanityQuery);
 
-      if (error) {
-        // Industry standard: Log error but don't fail the entire request
-        console.error('[SEARCH API] Error fetching approved submissions:', {
-          message: error.message,
-          code: error.code,
-          details: error.details,
-          hint: error.hint,
-        });
-        // Continue with empty array - graceful degradation
-        submissionParks = [];
-      } else if (submissions && submissions.length > 0) {
-        // Industry standard: Log success for monitoring
-        console.log(`[SEARCH API] Found ${submissions.length} approved submission(s)`);
-        submissionParks = submissions.map((sub: any) => {
-          const normalizedPhotos = normalizePhotos(sub.photos);
-
-          return {
-            id: sub.id,
-            name: sub.name,
-            slug: sub.slug || sub.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-            businessType: sub.business_type,
-            rating: 0,
-            reviewCount: 0,
-            address: sub.address,
-            street: sub.street,
-            city: sub.city,
-            state: sub.state,
-            zipCode: sub.zip_code,
-            full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
-            latitude: sub.latitude,
-            longitude: sub.longitude,
-            phone: sub.phone,
-            email: sub.email,
-            website: sub.website,
-            description: sub.description,
-            photos: normalizedPhotos,
-            photo: normalizedPhotos[0]?.url,
-            priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
-            openingHours: sub.opening_hours,
-            amenities: sub.amenities || {},
-            userRatingsTotal: 0,
-            source: 'user_submitted' as const,
-            listingType: sub.listing_type || ('free' as const),
-            submittedBy: sub.user_id,
-            submittedAt: sub.created_at,
-            approvedAt: sub.approved_at,
-            subscriptionStatus: sub.subscription_status
-          } as DogPark;
-        });
-      } else {
-        // No submissions found - this is normal, not an error
-        submissionParks = [];
+      if (submissions && submissions.length > 0) {
+        console.log(`[SEARCH API] Found ${submissions.length} approved submission(s) from Sanity`);
+        submissionParks = submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
       }
     } catch (dbError) {
-      // Industry standard: Catch unexpected errors, log them, but continue gracefully
-      console.error('[SEARCH API] Unexpected error fetching submissions:', {
+      console.error('[SEARCH API] Unexpected error fetching submissions from Sanity:', {
         error: dbError instanceof Error ? dbError.message : String(dbError),
         stack: dbError instanceof Error ? dbError.stack : undefined,
       });

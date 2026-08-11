@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth-helpers';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { sanityServerClient } from '@/lib/sanity-server';
 import { createCheckoutSession, STRIPE_CONFIG } from '@/lib/stripe';
 import { getBaseUrl } from '@/lib/base-url';
 
@@ -28,14 +28,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify the submission belongs to the user
-    const { data: submission, error: fetchError } = await supabaseAdminClient
-      .from('park_submissions')
-      .select('*')
-      .eq('id', submissionId)
-      .eq('user_id', user.id)
-      .single();
+    const submission = await sanityServerClient.fetch(
+      `*[_type == "parkSubmission" && _id == $submissionId && userId == $userId][0]`,
+      { submissionId, userId: user.id }
+    );
 
-    if (fetchError || !submission) {
+    if (!submission) {
       return NextResponse.json(
         { error: 'Submission not found or unauthorized' },
         { status: 404 }
@@ -44,7 +42,7 @@ export async function POST(request: NextRequest) {
 
     // Check if submission already has an active subscription
     // This prevents creating multiple checkout sessions for the same submission
-    if (submission.stripe_subscription_id) {
+    if (submission.stripeSubscriptionId) {
       return NextResponse.json(
         { error: 'This listing already has an active subscription' },
         { status: 400 }

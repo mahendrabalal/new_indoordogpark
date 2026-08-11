@@ -6,9 +6,16 @@ import type { ParkSubmissionForm } from '@/types/park-submission';
 
 export async function POST(request: NextRequest) {
   try {
-    // Auth check bypassed
-    const userId = 'anonymous';
+    const { user, error: authError } = await getUserFromRequest(request);
 
+    if (authError || !user) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Please log in to submit a park.' },
+        { status: 401 }
+      );
+    }
+
+    const userId = user.id;
     // Parse request body
     const body: ParkSubmissionForm & { listingType: 'free' | 'featured' } = await request.json();
 
@@ -60,7 +67,7 @@ export async function POST(request: NextRequest) {
       
       // For featured listings, start as 'free' until payment is confirmed via webhook
       listingType: body.listingType === 'featured' ? 'free' : body.listingType,
-      status: 'pending',
+      status: 'approved', // Auto-approve submissions
     };
 
     // Insert submission into Sanity

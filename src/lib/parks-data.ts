@@ -18,7 +18,7 @@ import {
   slugToCityName,
 } from '@/lib/cityData';
 import { supabaseAdminClient } from '@/lib/supabase-admin';
-
+import { sanityServerClient } from '@/lib/sanity-server';
 export interface PaginatedParks {
   data: DogPark[];
   pagination: {
@@ -209,6 +209,39 @@ export function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
   } as DogPark;
 }
 
+export function mapSanitySubmissionToDogPark(sub: any): DogPark {
+  return {
+    id: sub._id,
+    name: sub.name,
+    slug: sub.slug?.current || slugify(sub.name, sub.city),
+    businessType: sub.businessType,
+    rating: 0,
+    reviewCount: 0,
+    address: sub.address,
+    street: sub.street,
+    city: sub.city,
+    state: normalizeState(sub.state),
+    zipCode: sub.zipCode,
+    full_address: sub.fullAddressString || `${sub.address || ''}, ${sub.city || ''}, ${sub.state || ''}, ${sub.zipCode || ''}`.replace(/(^,\s*|\s*,\s*$)/g, ''),
+    latitude: sub.latitude,
+    longitude: sub.longitude,
+    phone: sub.phoneNumber,
+    email: sub.emailAddress,
+    website: sub.website,
+    description: sub.description,
+    photos: sub.photoUrls?.map((url: string) => ({ url })) || [],
+    photo: sub.photoUrls?.[0],
+    openingHours: sub.operatingHours || {},
+    amenities: sub.amenities || {},
+    source: 'user_submitted',
+    listingType: sub.listingType || 'free',
+    submittedBy: sub.userId,
+    submittedAt: sub._createdAt,
+    approvedAt: sub._updatedAt,
+    lastUpdated: sub._updatedAt,
+  } as DogPark;
+}
+
 function dedupeParks(parks: DogPark[]): DogPark[] {
   const seen = new Set<string>();
   return parks.filter((park) => {
@@ -256,16 +289,21 @@ async function loadStaticParks(): Promise<DogPark[]> {
 }
 
 export async function getAllStaticParks(): Promise<DogPark[]> {
-  return loadStaticParks();
+  const staticParks = await loadStaticParks();
+  const userSubmissions = await loadUserSubmissions();
+  return dedupeParks([...userSubmissions, ...staticParks]);
 }
 
 export async function getPaginatedStaticParks(page = 1, limit = 20): Promise<PaginatedParks> {
-  const parks = await loadStaticParks();
+  const staticParks = await loadStaticParks();
+  const userSubmissions = await loadUserSubmissions();
+  const allParks = dedupeParks([...userSubmissions, ...staticParks]);
+  
   const safePage = Math.max(1, page);
   const safeLimit = Math.max(1, Math.min(limit, 100));
   const startIdx = (safePage - 1) * safeLimit;
-  const data = parks.slice(startIdx, startIdx + safeLimit);
-  const totalParks = parks.length;
+  const data = allParks.slice(startIdx, startIdx + safeLimit);
+  const totalParks = allParks.length;
   const totalPages = Math.ceil(totalParks / safeLimit) || 1;
 
   return {
@@ -358,57 +396,45 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
 
   try {
     // First, try to find by exact slug match
-    const { data: submission, error } = await supabaseAdminClient
-      .from('park_submissions')
-      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-      .eq('slug', slug)
-      .eq('status', 'approved')
-      .maybeSingle();
+    const sanityQuery = `*[_type == "parkSubmission" && status == "approved"]{
+      ...,
+      "photoUrls": photos[].asset->url
+    }`;
+    const allApproved = await sanityServerClient.fetch(sanityQuery);
 
-    if (submission && !error) {
-      return mapSubmissionToDogPark(submission as SubmissionRow);
-    }
+    if (allApproved && allApproved.length > 0) {
+      // Find exact slug
+      let matchingSubmission = allApproved.find((sub: any) => sub.slug?.current === slug);
 
-    // If not found by slug, try to find by matching generated slug from name+city
-    // This handles cases where the slug wasn't set in the database
-    const { data: allApproved, error: fetchError } = await supabaseAdminClient
-      .from('park_submissions')
-      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-      .eq('status', 'approved');
-
-    if (!fetchError && allApproved) {
-      const matchingSubmission = allApproved.find((sub: any) => {
-        const generatedSlug = sub.slug || slugify(sub.name, sub.city);
-        return generatedSlug === slug;
-      });
-
-      if (matchingSubmission) {
-        return mapSubmissionToDogPark(matchingSubmission as SubmissionRow);
+      if (!matchingSubmission) {
+        // Fallback: generated slug
+        matchingSubmission = allApproved.find((sub: any) => {
+          const generatedSlug = slugify(sub.name, sub.city);
+          return generatedSlug === slug;
+        });
       }
 
-      // Last resort: try name-based matching (case-insensitive, partial match)
-      // This handles cases where the slug doesn't match exactly
+      if (matchingSubmission) {
+        return mapSanitySubmissionToDogPark(matchingSubmission);
+      }
+
+      // Last resort: try name-based matching
       const normalizedSearchSlug = slug.toLowerCase().trim();
       const nameBasedMatch = allApproved.find((sub: any) => {
         const subName = sub.name.toLowerCase().trim();
         const expectedSlug = slugify(sub.name, sub.city).toLowerCase();
 
-        // Check if the search slug contains the park name or vice versa
         return normalizedSearchSlug.includes(subName.replace(/[^a-z0-9]+/g, '-')) ||
           expectedSlug.includes(normalizedSearchSlug) ||
           normalizedSearchSlug.includes(expectedSlug);
       });
 
       if (nameBasedMatch) {
-        return mapSubmissionToDogPark(nameBasedMatch as SubmissionRow);
+        return mapSanitySubmissionToDogPark(nameBasedMatch);
       }
     }
   } catch (submissionError) {
-    if (submissionError instanceof Error && submissionError.name === 'AbortError') {
-      console.warn(`[Supabase] Timeout fetching park by slug: ${slug}`);
-    } else {
-      console.warn(`[Supabase] Failed to fetch park by slug: ${slug}`);
-    }
+    console.warn(`[Sanity] Failed to fetch park by slug: ${slug}`);
   }
 
   return null;
@@ -416,24 +442,20 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
 
 async function loadUserSubmissions(): Promise<DogPark[]> {
   try {
-    const { data: submissions, error } = await supabaseAdminClient
-      .from('park_submissions')
-      .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-      .eq('status', 'approved')
-      .order('created_at', { ascending: false });
+    const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
+      ...,
+      "photoUrls": photos[].asset->url
+    }`;
+    
+    const submissions = await sanityServerClient.fetch(sanityQuery);
 
-    if (error || !submissions) {
-      console.warn('[Supabase] Failed to fetch user submissions (offline or network error)');
+    if (!submissions || submissions.length === 0) {
       return [];
     }
 
-    return submissions.map((sub: any) => mapSubmissionToDogPark(sub as SubmissionRow));
+    return submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
   } catch (error) {
-    if (error instanceof Error && error.name === 'AbortError') {
-      console.warn('[Supabase] Timeout loading user submissions');
-    } else {
-      console.warn('[Supabase] Failed to load user submissions');
-    }
+    console.warn('[Sanity] Failed to load user submissions');
     return [];
   }
 }

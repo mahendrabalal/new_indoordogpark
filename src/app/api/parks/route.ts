@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { DogPark, MediaAsset } from '@/types/dog-park';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { sanityServerClient } from '@/lib/sanity-server';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
-import { getAllStaticParks } from '@/lib/parks-data';
+import { getAllStaticParks, mapSanitySubmissionToDogPark } from '@/lib/parks-data';
 
 export const revalidate = 1800; // Cache for 30 minutes to minimize Supabase egress
 
@@ -68,53 +68,17 @@ export async function GET(request: Request) {
     // Fetch approved user submissions from database
     let submissionParks: DogPark[] = [];
     try {
-      const { data: submissions, error } = await supabaseAdminClient
-        .from('park_submissions')
-        .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-        .eq('status', 'approved')
-        .order('created_at', { ascending: false });
+      const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
+        ...,
+        "photoUrls": photos[].asset->url
+      }`;
+      const submissions = await sanityServerClient.fetch(sanityQuery);
 
-      if (!error && submissions) {
-        submissionParks = submissions.map((sub: any) => {
-          const normalizedPhotos = normalizePhotos(sub.photos);
-
-          return {
-            id: sub.id,
-            name: sub.name,
-            slug: sub.slug || sub.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-            businessType: sub.business_type,
-            rating: 0,
-            reviewCount: 0,
-            address: sub.address,
-            street: sub.street,
-            city: sub.city,
-            state: normalizeState(sub.state),
-            zipCode: sub.zip_code,
-            full_address: sub.full_address || `${sub.address || ''} ${sub.city || ''} ${sub.state || ''} ${sub.zip_code || ''}`.trim(),
-            latitude: sub.latitude,
-            longitude: sub.longitude,
-            phone: sub.phone,
-            email: sub.email,
-            website: sub.website,
-            description: sub.description,
-            photos: normalizedPhotos,
-            photo: normalizedPhotos[0]?.url,
-            priceLevel: sub.pricing_info && typeof sub.pricing_info === 'string' ? (sub.pricing_info.includes('$$') ? 2 : sub.pricing_info.includes('$') ? 1 : 0) : undefined,
-            openingHours: sub.opening_hours,
-            amenities: sub.amenities || {},
-            userRatingsTotal: 0,
-            source: 'user_submitted',
-            listingType: sub.listing_type || 'free',
-            submittedBy: sub.user_id,
-            submittedAt: sub.created_at,
-            approvedAt: sub.approved_at,
-            subscriptionStatus: sub.subscription_status
-          };
-        });
+      if (submissions && submissions.length > 0) {
+        submissionParks = submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
       }
-    } catch (dbError) {
-      console.error('Error fetching user submissions:', dbError);
-      // Continue with static parks only if database fetch fails
+    } catch (error) {
+      console.warn('[PARKS API] Failed to fetch submissions from Sanity', error);
     }
 
     // Merge both data sources

@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { stripe, verifyWebhookSignature } from '@/lib/stripe';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
 import { sanityServerClient } from '@/lib/sanity-server';
 import Stripe from 'stripe';
-import type { SupabaseClient } from '@supabase/supabase-js';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,38 +43,36 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const supabase = supabaseAdminClient;
-
     console.log(`📦 Processing webhook event: ${event.type}`);
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;
         console.log(`💳 Checkout session completed: ${session.id}, Payment status: ${session.payment_status}`);
-        await handleCheckoutSessionCompleted(session, supabase);
+        await handleCheckoutSessionCompleted(session);
         break;
       }
 
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription;
-        await handleSubscriptionUpdated(subscription, supabase);
+        await handleSubscriptionUpdated(subscription);
         break;
       }
 
       case 'customer.subscription.deleted': {
         const subscription = event.data.object as Stripe.Subscription;
-        await handleSubscriptionDeleted(subscription, supabase);
+        await handleSubscriptionDeleted(subscription);
         break;
       }
 
       case 'invoice.payment_succeeded': {
         const invoice = event.data.object as Stripe.Invoice;
-        await handleInvoicePaymentSucceeded(invoice, supabase);
+        await handleInvoicePaymentSucceeded(invoice);
         break;
       }
 
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice;
-        await handleInvoicePaymentFailed(invoice, supabase);
+        await handleInvoicePaymentFailed(invoice);
         break;
       }
 
@@ -96,8 +92,7 @@ export async function POST(request: NextRequest) {
 }
 
 async function handleCheckoutSessionCompleted(
-  session: Stripe.Checkout.Session,
-  supabaseClient: SupabaseClient
+  session: Stripe.Checkout.Session
 ) {
   const { userId, submissionId, parkName } = session.metadata || {};
 
@@ -150,84 +145,20 @@ async function handleCheckoutSessionCompleted(
     console.error('Failed to update Sanity park submission:', error);
   }
 
-  // Create subscription record in Supabase
-  const { error: subscriptionError } = await supabaseClient
-    .from('subscriptions')
-    .insert([{
-      user_id: userId,
-      park_submission_id: submissionId,
-      stripe_subscription_id: subscriptionId,
-      stripe_customer_id: session.customer as string,
-      stripe_price_id: subscription.items.data[0]?.price?.id ?? '',
-      status: subscriptionData.status,
-      current_period_start: periodStart,
-      current_period_end: periodEnd,
-      cancel_at_period_end: subscription.cancel_at_period_end,
-    }]);
-
-  if (subscriptionError) {
-    console.error('Failed to create subscription record:', subscriptionError);
-  }
-
   console.log(`Featured listing activated for park: ${parkName}`);
 }
 
 async function handleSubscriptionUpdated(
-  subscription: Stripe.Subscription,
-  supabaseClient: SupabaseClient
+  subscription: Stripe.Subscription
 ) {
   const subscriptionId = subscription.id;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const subscriptionData = (subscription as any).data || subscription;
-  const periodEnd = subscriptionData.current_period_end
-    ? new Date(subscriptionData.current_period_end * 1000).toISOString()
-    : new Date().toISOString();
-  const periodStart = subscriptionData.current_period_start
-    ? new Date(subscriptionData.current_period_start * 1000).toISOString()
-    : new Date().toISOString();
-  const canceledAt = subscriptionData.canceled_at
-    ? new Date(subscriptionData.canceled_at * 1000).toISOString()
-    : null;
-
-  // Update subscription record
-  const { error: subError } = await supabaseClient
-    .from('subscriptions')
-    .update({
-      status: subscriptionData.status,
-      current_period_start: periodStart,
-      current_period_end: periodEnd,
-      cancel_at_period_end: subscription.cancel_at_period_end,
-      canceled_at: canceledAt,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscriptionId);
-
-  if (subError) {
-    console.error('Failed to update subscription:', subError);
-  }
-
   console.log(`Subscription updated: ${subscriptionId}`);
 }
 
 async function handleSubscriptionDeleted(
-  subscription: Stripe.Subscription,
-  supabaseClient: SupabaseClient
+  subscription: Stripe.Subscription
 ) {
   const subscriptionId = subscription.id;
-
-  const { error: subError } = await supabaseClient
-    .from('subscriptions')
-    .update({
-      status: 'canceled',
-      canceled_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscriptionId);
-
-  if (subError) {
-    console.error('Failed to update subscription:', subError);
-  }
 
   // Downgrade park listing from featured to free in Sanity
   try {
@@ -248,8 +179,7 @@ async function handleSubscriptionDeleted(
 }
 
 async function handleInvoicePaymentSucceeded(
-  invoice: Stripe.Invoice,
-  supabaseClient: SupabaseClient
+  invoice: Stripe.Invoice
 ) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionId = (invoice as any).subscription as string | null;
@@ -282,8 +212,7 @@ async function handleInvoicePaymentSucceeded(
 }
 
 async function handleInvoicePaymentFailed(
-  invoice: Stripe.Invoice,
-  supabaseClient: SupabaseClient
+  invoice: Stripe.Invoice
 ) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const subscriptionId = (invoice as any).subscription as string | null;

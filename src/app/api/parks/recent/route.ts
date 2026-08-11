@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabaseAdminClient } from '@/lib/supabase-admin';
+import { sanityClient } from '@/lib/sanity-client';
 import { MediaAsset } from '@/types/dog-park';
 
 export const revalidate = 3600; // Cache for 1 hour to prevent Egress overages
@@ -7,145 +7,85 @@ export const runtime = 'nodejs';
 
 export async function GET() {
     try {
-        // Helper to normalize photos stored in Supabase
-        const normalizePhotos = (photos: unknown): MediaAsset[] => {
-            if (!Array.isArray(photos)) return [];
+        // Fetch from Sanity
+        const query = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc)[0...8] {
+            _id,
+            _createdAt,
+            name,
+            "slug": slug.current,
+            businessType,
+            description,
+            address,
+            city,
+            state,
+            zipCode,
+            latitude,
+            longitude,
+            phone,
+            email,
+            website,
+            socialMedia,
+            amenities,
+            rules,
+            pricingInfo,
+            listingType,
+            status,
+            "photos": photos[]{
+                "url": asset->url
+            }
+        }`;
 
-            return photos
-                .map((photo) => {
-                    if (!photo) return null;
+        const sanityParksData = await sanityClient.fetch(query).catch(err => {
+            console.error('Failed to fetch from Sanity:', err);
+            return [];
+        });
 
-                    if (typeof photo === 'string') {
-                        const trimmed = photo.trim();
-                        if (!trimmed) return null;
-                        return {
-                            url: trimmed,
-                            type: 'photo',
-                        } as MediaAsset;
-                    }
-
-                    if (typeof photo === 'object') {
-                        const anyPhoto = photo as Record<string, unknown>;
-                        const url =
-                            typeof anyPhoto.url === 'string' && anyPhoto.url.trim()
-                                ? anyPhoto.url
-                                : typeof anyPhoto.publicUrl === 'string' && anyPhoto.publicUrl.trim()
-                                    ? anyPhoto.publicUrl
-                                    : undefined;
-
-                        if (!url) return null;
-
-                        return {
-                            type: (anyPhoto.type as MediaAsset['type']) || 'photo',
-                            url,
-                            caption: typeof anyPhoto.caption === 'string' ? anyPhoto.caption : undefined,
-                            source: typeof anyPhoto.source === 'string' ? (anyPhoto.source as MediaAsset['source']) : undefined,
-                            uploadedAt: typeof anyPhoto.uploadedAt === 'string' ? anyPhoto.uploadedAt : undefined,
-                            storagePath: typeof anyPhoto.storagePath === 'string' ? anyPhoto.storagePath : undefined,
-                        } satisfies MediaAsset;
-                    }
-
-                    return null;
-                })
-                .filter((photo): photo is MediaAsset => !!photo);
-        };
-        // Fetch recently approved parks (both free and featured)
-        // Order by approved_at descending to get the newest first
-        const { data: parks, error } = await supabaseAdminClient
-            .from('park_submissions')
-            .select('id, name, slug, business_type, address, street, city, state, zip_code, full_address, latitude, longitude, phone, email, website, description, photos, opening_hours, amenities, listing_type, user_id, created_at, approved_at, updated_at, status')
-            .eq('status', 'approved')
-            .not('approved_at', 'is', null)
-            .order('approved_at', { ascending: false })
-            .limit(8);
-
-        if (error) {
-            console.error('Failed to fetch recent parks:', error);
-            return NextResponse.json(
-                { error: 'Failed to fetch recent parks' },
-                { status: 500 }
-            );
-        }
-
-        interface ParkSubmissionRow {
-            id: string;
-            user_id: string;
-            name: string;
-            slug: string;
-            business_type: string;
-            description: string;
-            address: string | null;
-            street: string;
-            city: string;
-            state: string;
-            zip_code: string;
-            full_address: string;
-            latitude: number | null;
-            longitude: number | null;
-            phone: string;
-            email: string | null;
-            website: string | null;
-            social_media: unknown;
-            photos: unknown;
-            opening_hours: unknown;
-            hours_24x7: boolean;
-            hours_note: string | null;
-            pricing_info: unknown;
-            amenities: unknown;
-            indoor_outdoor: string;
-            size_category: string;
-            surface_type: string;
-            pet_friendly_features: unknown;
-            listing_type: string;
-            status: string;
-            created_at: string;
-            updated_at: string;
-            approved_at: string;
-        }
-
-        // Transform snake_case to camelCase for frontend
-        const transformedParks = (parks as unknown as ParkSubmissionRow[] || []).map((park) => {
-            const normalizedPhotos = normalizePhotos(park.photos);
+        const sanityParks = sanityParksData.map((park: any) => {
+            const normalizedPhotos: MediaAsset[] = (park.photos || []).map((p: any) => ({
+                url: p.url,
+                type: 'photo'
+            })).filter((p: any) => p.url);
 
             return {
-                id: park.id,
-                userId: park.user_id,
+                id: park._id,
+                userId: park.userId || 'anonymous',
                 name: park.name,
                 slug: park.slug,
-                businessType: park.business_type,
+                businessType: park.businessType,
                 description: park.description,
                 address: park.address,
-                street: park.street,
+                street: park.address,
                 city: park.city,
                 state: park.state,
-                zipCode: park.zip_code,
-                fullAddress: park.full_address,
+                zipCode: park.zipCode,
+                fullAddress: `${park.address || ''}, ${park.city || ''}, ${park.state || ''} ${park.zipCode || ''}`.trim().replace(/^,|,$/g, '').trim(),
                 latitude: park.latitude,
                 longitude: park.longitude,
                 phone: park.phone,
                 email: park.email,
                 website: park.website,
-                socialMedia: park.social_media,
+                socialMedia: park.socialMedia,
                 photos: normalizedPhotos,
                 photo: normalizedPhotos[0]?.url,
-                openingHours: park.opening_hours,
-                hours24x7: park.hours_24x7,
-                hoursNote: park.hours_note,
-                pricingInfo: park.pricing_info,
+                openingHours: park.openingHours || null,
+                hours24x7: false,
+                hoursNote: null,
+                pricingInfo: park.pricingInfo,
                 amenities: park.amenities,
-                indoorOutdoor: park.indoor_outdoor,
-                sizeCategory: park.size_category,
-                surfaceType: park.surface_type,
-                petFriendlyFeatures: park.pet_friendly_features,
-                listingType: park.listing_type,
+                listingType: park.listingType || 'free',
                 status: park.status,
-                createdAt: park.created_at,
-                updatedAt: park.updated_at,
-                approvedAt: park.approved_at,
+                createdAt: park._createdAt,
+                updatedAt: park._updatedAt || park._createdAt,
+                approvedAt: park._createdAt,
             };
-        }) || [];
+        });
 
-        return NextResponse.json({ parks: transformedParks }, { status: 200 });
+        // Only return Sanity parks
+        const allParks = sanityParks
+            .sort((a: any, b: any) => new Date(b.createdAt || b.submittedAt || b.approvedAt || 0).getTime() - new Date(a.createdAt || a.submittedAt || a.approvedAt || 0).getTime())
+            .slice(0, 8);
+
+        return NextResponse.json({ parks: allParks }, { status: 200 });
 
     } catch (error) {
         console.error('GET recent parks error:', error);

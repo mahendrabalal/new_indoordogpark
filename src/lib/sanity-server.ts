@@ -6,5 +6,5 @@ export const sanityServerClient = createClient({
   dataset,
   apiVersion,
   useCdn: false, // Set to false for mutations
-  token: process.env.SANITY_API_WRITE_TOKEN,
+  token: process.env.SANITY_API_TOKEN || process.env.SANITY_API_WRITE_TOKEN,
 })

@@ -201,7 +201,7 @@ export async function POST(req: NextRequest) {
 
                     // Add tags to match the CSV import format visually in the Beehiiv dashboard
                     if (subscriptionId) {
-                        const tags = [type]; // 'owner' or 'consumer'
+                        const tags: string[] = [type]; // 'owner' or 'consumer'
                         if (source) tags.push(source);
                         
                         const tagsResponse = await fetch(`https://api.beehiiv.com/v2/publications/${beehiivPubId}/subscriptions/${subscriptionId}/tags`, {
