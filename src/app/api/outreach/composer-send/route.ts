@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       process.env.RESEND_FROM_EMAIL || 'IndoorDogPark <outreach@indoordogpark.org>';
     const senderFrom = from || defaultFrom;
     const senderReplyTo =
-      replyTo || process.env.ADMIN_EMAIL || 'outreach@indoordogpark.org';
+      replyTo || 'media@indoordogpark.org';
 
     // If test mode is requested without actual sending
     if (testMode && !apiKey) {

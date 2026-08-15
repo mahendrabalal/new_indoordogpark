@@ -341,10 +341,16 @@ export default function OutreachStudioPage() {
 <body style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color:#f1f5f9; margin:0; padding:24px 12px; -webkit-font-smoothing:antialiased;">
   <div style="max-width:600px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden; border:1px solid #e2e8f0; box-shadow:0 4px 20px rgba(0,0,0,0.05);">
     
-    <!-- Top Header Banner -->
-    <div style="background:linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); padding:28px 24px; text-align:center;">
-      <h1 style="color:#ffffff; margin:0; font-size:24px; font-weight:800; letter-spacing:-0.5px;">IndoorDogPark.org</h1>
-      <p style="color:rgba(255,255,255,0.85); margin:6px 0 0; font-size:13px; font-weight:500;">America's Premier Indoor Canine Recreation Directory</p>
+    <!-- Top Header Banner with Official Logo -->
+    <div style="background:linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #7c3aed 100%); padding:32px 20px 24px; text-align:center;">
+      <a href="https://www.indoordogpark.org" target="_blank" style="text-decoration:none; display:inline-block;">
+        <div style="display:inline-block; background:#ffffff; padding:10px 24px 8px; border-radius:100px; box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+          <img src="https://www.indoordogpark.org/images/logo/logo.png" alt="IndoorDogPark.org" width="145" style="display:block; margin:0 auto; max-width:145px; height:auto;" />
+        </div>
+      </a>
+      <p style="color:rgba(255,255,255,0.95); margin:14px 0 0; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px;">
+        🐾 America's Premier Indoor Canine Recreation Directory
+      </p>
     </div>
 
     <!-- Body Content Area -->
