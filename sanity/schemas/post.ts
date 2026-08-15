@@ -76,6 +76,27 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
+      name: 'hidePublishedDate',
+      title: 'Hide Published Date',
+      type: 'boolean',
+      description: 'Turn this on to hide the published and last updated dates on the website frontend (useful for evergreen content). Google will still see the date for SEO.',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'newsletterSent',
+      title: 'Newsletter Broadcasted',
+      type: 'boolean',
+      description: 'Marked true when this post has been sent out via Beehiiv weekly newsletter.',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'newsletterSentAt',
+      title: 'Newsletter Sent At',
+      type: 'datetime',
+      description: 'Timestamp when the newsletter was dispatched.',
+      readOnly: true,
+    }),
+    defineField({
       name: 'lastUpdated',
       title: 'Last Updated',
       type: 'datetime',

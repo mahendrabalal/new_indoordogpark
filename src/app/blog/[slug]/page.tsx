@@ -270,7 +270,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
 
                 {/* Meta Information */}
-                <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-3 md:gap-4 text-sm text-gray-600 mb-6">
+                <div className="flex flex-wrap items-center gap-3 md:gap-4 text-sm text-gray-600 mb-6">
                   <div className="flex flex-wrap items-center gap-4">
                     {post.author && (
                       <div className="flex items-center gap-2">
@@ -292,7 +292,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     )}
                     {reviewer && (
                       <>
-                        <span className="hidden md:inline text-gray-300">|</span>
+                        <span className="text-gray-300">|</span>
                         <div className="flex items-center gap-2">
                           <span className="text-gray-500">{reviewerRole}</span>
                           <Link href={`/blog/author/${reviewer.slug}`} className="flex items-center gap-2 hover:text-green-600 transition-colors group">
@@ -313,26 +313,30 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     )}
                   </div>
                   
-                  <div className="flex items-center gap-3 md:gap-4 text-gray-500 w-full md:w-auto md:border-l md:border-gray-300 md:pl-4">
-                    <div className="flex items-center gap-1">
-                      <time dateTime={post.date}>
-                        {new Date(post.date).toLocaleDateString('en-US', {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
-                      </time>
-                      {post.lastUpdated && post.lastUpdated !== post.date && (
-                        <span className="italic whitespace-nowrap">
-                          (Updated: {new Date(post.lastUpdated).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })})
-                        </span>
-                      )}
-                    </div>
-                    <span className="text-gray-300">|</span>
+                  <div className="flex flex-wrap items-center gap-3 md:gap-4 text-gray-500 border-l border-gray-300 pl-3 md:pl-4">
+                    {!post.hidePublishedDate && (
+                      <>
+                        <div className="flex items-center gap-1">
+                          <time dateTime={post.date}>
+                            {new Date(post.date).toLocaleDateString('en-US', {
+                              month: 'long',
+                              day: 'numeric',
+                              year: 'numeric',
+                            })}
+                          </time>
+                          {post.lastUpdated && post.lastUpdated !== post.date && (
+                            <span className="italic whitespace-nowrap">
+                              (Updated: {new Date(post.lastUpdated).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                              })})
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-gray-300">|</span>
+                      </>
+                    )}
                     <span>{readingTime} min read</span>
                   </div>
                 </div>

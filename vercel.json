@@ -8,6 +8,10 @@
     {
       "path": "/api/admin/marketing/queue/process",
       "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/cron/broadcast-newsletter",
+      "schedule": "0 14 * * 0,4"
     }
   ]
 }

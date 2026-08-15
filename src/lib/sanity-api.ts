@@ -123,6 +123,7 @@ interface SanityPost {
   publishedAt: string;
   _updatedAt: string;
   lastUpdated?: string;
+  hidePublishedDate?: boolean;
   mainImage?: SanityImage;
   author?: SanityAuthor;
   reviewedBy?: SanityAuthor;
@@ -428,6 +429,7 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
     date: sanityPost.publishedAt,
     modified: sanityPost.lastUpdated || sanityPost._updatedAt,
     lastUpdated: sanityPost.lastUpdated,
+    hidePublishedDate: sanityPost.hidePublishedDate,
     author: sanityAuthorToWPAuthor(sanityPost.author) || {
       id: 1,
       name: 'California Dog Parks Team',

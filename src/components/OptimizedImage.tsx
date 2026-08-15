@@ -54,8 +54,7 @@ function OptimizedImageComponent({
     src.startsWith('https://lh3.googleusercontent.com') ||
     src.startsWith('https://lh4.googleusercontent.com') ||
     src.startsWith('https://lh5.googleusercontent.com') ||
-    src.startsWith('https://lh6.googleusercontent.com') ||
-    src.includes('supabase.co/storage/v1/object/public')
+    src.startsWith('https://lh6.googleusercontent.com')
   );
 
   // For local images, use unoptimized to avoid Vercel Image Optimization API limits (402 errors)

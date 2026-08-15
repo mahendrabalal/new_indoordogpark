@@ -1,17 +1,5 @@
 const path = require('path');
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-
-let supabaseHostname;
-try {
-  if (SUPABASE_URL) {
-    const parsed = new URL(SUPABASE_URL);
-    supabaseHostname = parsed.hostname;
-  }
-} catch (error) {
-  console.warn('[next.config.js] Failed to parse NEXT_PUBLIC_SUPABASE_URL:', error);
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
@@ -90,15 +78,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'm.media-amazon.com',
       },
-      ...(supabaseHostname
-        ? [
-          {
-            protocol: 'https',
-            hostname: supabaseHostname,
-            pathname: '/storage/v1/object/public/**',
-          },
-        ]
-        : []),
     ],
     formats: ['image/avif', 'image/webp'],
     // Optimize image loading - reduced sizes for better performance
@@ -450,16 +429,6 @@ const nextConfig = {
     config.resolve.alias = config.resolve.alias || {};
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
 
-    // Fix Supabase Edge Runtime warnings by providing polyfills for Node.js APIs
-    // These are used by @supabase/supabase-js and @supabase/realtime-js but aren't
-    // actually required for Edge Runtime functionality
-    config.plugins = config.plugins || [];
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.version': JSON.stringify(process.version || 'v18.0.0'),
-        'process.versions': JSON.stringify(process.versions || {}),
-      })
-    );
 
     return config;
   },

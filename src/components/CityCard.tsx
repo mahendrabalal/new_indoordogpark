@@ -22,7 +22,7 @@ export default function CityCard({ city, priority = false }: CityCardProps) {
             className="city-card-image"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1200px) 33vw, 400px"
             priority={priority}
-            unoptimized={city.featuredImage?.startsWith('/images/')}
+            unoptimized={true} // Vercel API Usage saver: Sanity & local images are already WebP/compressed
           />
         </div>
       )}

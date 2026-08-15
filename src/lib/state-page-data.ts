@@ -5,8 +5,9 @@ import type { CityData } from '@/lib/cityData';
 import { getAllStaticParks, mapSubmissionToDogPark, type SubmissionRow } from '@/lib/parks-data';
 import { normalizeStateKey } from '@/lib/state';
 import { getCityCardsForState, getIndexableStateSlugs, getStateBySlug, type StateData } from '@/lib/stateData';
-import { priorityStateContent } from '@/data/priorityStateContent';
+import { getAllStateContent, getAllCityContent } from '@/lib/sanity-content';
 import { StateCustomContent, PriorityStateConfig } from '@/types/state-content';
+import type { PriorityCityConfig } from '@/types/city-content';
 
 export type StateStats = {
   totalParks: number;
@@ -57,12 +58,18 @@ export async function getAllStateSlugs(): Promise<string[]> {
   return getIndexableStateSlugs(allParks, INDEX_THRESHOLDS);
 }
 
-function getPriorityStateConfigBySlug(slug: string) {
+async function getPriorityStateConfigBySlug(slug: string) {
   const normalized = slug.toLowerCase().trim();
+  let content: PriorityStateConfig[] = [];
+  try {
+    content = await getAllStateContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch state content', err);
+  }
   return (
-    priorityStateContent.find((s) => s.slug === normalized) ||
-    priorityStateContent.find(
-      (s) => s.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${s.slug}-`),
+    content.find((s) => s?.slug === normalized) ||
+    content.find(
+      (s) => Boolean(s?.slug && (s.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${s.slug}-`))),
     )
   );
 }
@@ -160,11 +167,19 @@ export async function getStateContentBySlug(slug: string): Promise<StateContentP
   const state = getStateBySlug(allParks, slug);
   if (!state) return null;
 
-  const priorityConfig = getPriorityStateConfigBySlug(slug);
+  const priorityConfig = await getPriorityStateConfigBySlug(slug);
 
   const indexable = state.totalCities >= INDEX_THRESHOLDS.minCities && state.totalParks >= INDEX_THRESHOLDS.minListings;
   const canonicalSlug = state.slug;
-  const cities = getCityCardsForState(allParks, state)
+  
+  let cityContent: PriorityCityConfig[] = [];
+  try {
+    cityContent = await getAllCityContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch city content', err);
+  }
+
+  const cities = getCityCardsForState(allParks, state, cityContent)
     .sort((a, b) => b.parkCount - a.parkCount)
     .slice(0, 24);
 

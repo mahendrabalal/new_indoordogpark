@@ -143,11 +143,31 @@ export default function CityPageStyles() {
         }
 
         .hero-description {
-          font-size: 18px;
+          font-size: 17px;
           color: #475569;
-          line-height: 1.6;
-          margin-bottom: 20px;
-          max-width: 60ch;
+          line-height: 1.7;
+          margin-bottom: 16px;
+          max-width: 68ch;
+        }
+
+        .hero-description:last-of-type {
+          margin-bottom: 24px;
+        }
+
+        .hero-description .rich-link,
+        .hero-description a {
+          color: #FF5722;
+          text-decoration: none;
+          font-weight: 600;
+          border-bottom: 1.5px solid rgba(255, 87, 34, 0.35);
+          transition: all 0.2s ease;
+        }
+
+        .hero-description .rich-link:hover,
+        .hero-description a:hover {
+          color: #E64A19;
+          border-bottom-color: #E64A19;
+          text-decoration: underline;
         }
 
         .city-hero-section.no-image .hero-description {

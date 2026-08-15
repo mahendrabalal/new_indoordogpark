@@ -18,8 +18,7 @@ type StatePageProps = {
 };
 
 export const revalidate = 3600; // hourly
-// Render on-demand to avoid prebuilding all state paths
-export const dynamic = 'force-dynamic';
+// Render on-demand (ISR) but cached at edge to avoid prebuilding all state paths
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);

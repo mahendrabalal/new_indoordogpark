@@ -129,6 +129,7 @@ export default function RecentlyAddedParks() {
                                         fill
                                         className="object-cover transition duration-500 group-hover:scale-110"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                                        unoptimized={true} // Vercel API Usage saver
                                     />
                                 ) : (
                                     <div className="absolute inset-0 flex items-center justify-center">

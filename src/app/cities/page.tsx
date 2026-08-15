@@ -8,7 +8,7 @@ import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllCities } from '@/lib/cityData';
 import { ABBR_TO_NAME } from '@/lib/stateData';
 import { USStateAbbr } from '@/lib/state';
-import { priorityCityContent } from '@/data/priorityCityContent';
+import { getAllCityContent } from '@/lib/sanity-content';
 import CitiesPageStyles from './CitiesPageStyles';
 import CityDirectory from '@/components/CityDirectory';
 
@@ -25,10 +25,11 @@ export const metadata: Metadata = {
 
 export default async function CitiesPage() {
     const allParks = await getAllParksForStateAggregation();
-    const allCities = getAllCities(allParks);
+    const cityContent = await getAllCityContent();
+    const allCities = getAllCities(allParks, cityContent);
 
     // Identify priority cities
-    const prioritySlugs = new Set(priorityCityContent.map(c => c.slug));
+    const prioritySlugs = new Set(cityContent.map(c => c.slug));
     const featuredCities = allCities
         .filter(city => prioritySlugs.has(city.slug))
         .sort((a, b) => b.parkCount - a.parkCount)

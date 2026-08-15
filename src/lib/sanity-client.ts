@@ -55,6 +55,7 @@ export const queries = {
     excerpt,
     "content": body,
     publishedAt,
+    hidePublishedDate,
     _updatedAt,
     mainImage {
       asset->{
@@ -125,6 +126,7 @@ export const queries = {
     excerpt,
     "content": body,
     publishedAt,
+    hidePublishedDate,
     _updatedAt,
     mainImage {
       asset->{
@@ -227,6 +229,7 @@ export const queries = {
     slug,
     excerpt,
     publishedAt,
+    hidePublishedDate,
     mainImage {
       asset->{
         _id,
@@ -254,6 +257,7 @@ export const queries = {
     excerpt,
     "content": body,
     publishedAt,
+    hidePublishedDate,
     _updatedAt,
     mainImage {
       asset->{
@@ -324,6 +328,7 @@ export const queries = {
     excerpt,
     "content": body,
     publishedAt,
+    hidePublishedDate,
     _updatedAt,
     mainImage {
       asset->{
@@ -412,6 +417,7 @@ export const queries = {
     excerpt,
     "content": body,
     publishedAt,
+    hidePublishedDate,
     _updatedAt,
     mainImage {
       asset->{

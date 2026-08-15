@@ -33,8 +33,8 @@ interface CityPageProps {
   }>;
 }
 
-// Render on-demand to avoid prebuilding thousands of city pages
-export const dynamic = 'force-dynamic';
+// Render on-demand but cache at the edge (ISR) to prevent massive Vercel compute bills
+export const revalidate = 3600; // Cache for 1 hour
 
 /** Index city pages once we have at least three verified listings (directory has real value). Cities with fewer than three listings stay noindex — including synthetic "coming soon" fallbacks. Three listings ensures the page has enough substantive content for AdSense compliance. */
 function shouldIndexCity(totalParks: number) {
@@ -572,64 +572,93 @@ export default async function CityPage({ params }: CityPageProps) {
 
 
 
-              <p className="hero-description">{heroDescriptionCopy}</p>
-
-              {customContent?.longDescription && customContent.longDescription.length > 0 && (
-                <div className="city-rich-description">
-                  {customContent.longDescription.map((para, idx) => {
-                    const parseInline = (text: string) => {
-                      return text.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
-                        if (!part) return null;
-                        
-                        const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
-                        if (linkMatch) {
-                          const [, linkText, href] = linkMatch;
-                          const isExternal = href.startsWith('http');
-                          return (
-                            <Link key={i} href={href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="rich-link">
-                              {linkText}
-                            </Link>
-                          );
+              {(() => {
+                const parseInline = (text: string) => {
+                  return text.split(/(\[.*?\]\(.*?\))|(\*\*.*?\*\*)/g).map((part, i) => {
+                    if (!part) return null;
+                    
+                    const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
+                    if (linkMatch) {
+                      const [, linkText, rawHref] = linkMatch;
+                      let href = rawHref;
+                      const isInternalDomain = href.includes('indoordogpark.org');
+                      if (isInternalDomain) {
+                        try {
+                          const urlObj = new URL(href);
+                          href = urlObj.pathname + urlObj.search + urlObj.hash;
+                        } catch {
+                          // fallback to rawHref
                         }
-                        
-                        const boldMatch = part.match(/\*\*(.*?)\*\*/);
-                        if (boldMatch) {
-                          return <strong key={i}>{boldMatch[1]}</strong>;
-                        }
-                        
-                        return part;
-                      });
-                    };
-
-                    // Handle Markdown block types
-                    if (para.startsWith('### ')) {
-                      return <h3 key={idx} className="rich-description-h3">{parseInline(para.slice(4))}</h3>;
-                    }
-                    if (para.startsWith('## ')) {
-                      return <h2 key={idx} className="rich-description-h2">{parseInline(para.slice(3))}</h2>;
-                    }
-                    if (para.startsWith('> ')) {
-                      return <blockquote key={idx} className="rich-description-blockquote">{parseInline(para.slice(2))}</blockquote>;
-                    }
-                    if (para.trim().startsWith('- ') || para.trim().startsWith('* ')) {
-                      const listItems = para.split('\n').filter(line => line.trim().startsWith('- ') || line.trim().startsWith('* '));
+                      }
+                      const isExternal = href.startsWith('http') && !isInternalDomain;
                       return (
-                        <ul key={idx} className="rich-description-list">
-                          {listItems.map((item, i) => (
-                            <li key={i}>{parseInline(item.replace(/^[-*]\s/, ''))}</li>
-                          ))}
-                        </ul>
+                        <Link
+                          key={i}
+                          href={href}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                          className="rich-link"
+                        >
+                          {linkText}
+                        </Link>
                       );
                     }
+                    
+                    const boldMatch = part.match(/\*\*(.*?)\*\*/);
+                    if (boldMatch) {
+                      return <strong key={i}>{boldMatch[1]}</strong>;
+                    }
+                    
+                    return part;
+                  });
+                };
 
-                    return (
-                      <p key={idx} className="rich-description-paragraph">
-                        {parseInline(para)}
-                      </p>
-                    );
-                  })}
-                </div>
-              )}
+                return (
+                  <>
+                    {heroDescriptionCopy
+                      .split(/\n\s*\n/)
+                      .map((p) => p.trim())
+                      .filter(Boolean)
+                      .map((para, pIdx) => (
+                        <p key={pIdx} className="hero-description">
+                          {parseInline(para)}
+                        </p>
+                      ))}
+
+                    {customContent?.longDescription && customContent.longDescription.length > 0 && (
+                      <div className="city-rich-description">
+                        {customContent.longDescription.map((para, idx) => {
+                          if (para.startsWith('### ')) {
+                            return <h3 key={idx} className="rich-description-h3">{parseInline(para.slice(4))}</h3>;
+                          }
+                          if (para.startsWith('## ')) {
+                            return <h2 key={idx} className="rich-description-h2">{parseInline(para.slice(3))}</h2>;
+                          }
+                          if (para.startsWith('> ')) {
+                            return <blockquote key={idx} className="rich-description-blockquote">{parseInline(para.slice(2))}</blockquote>;
+                          }
+                          if (para.trim().startsWith('- ') || para.trim().startsWith('* ')) {
+                            const listItems = para.split('\n').filter(line => line.trim().startsWith('- ') || line.trim().startsWith('* '));
+                            return (
+                              <ul key={idx} className="rich-description-list">
+                                {listItems.map((item, i) => (
+                                  <li key={i}>{parseInline(item.replace(/^[-*]\s/, ''))}</li>
+                                ))}
+                              </ul>
+                            );
+                          }
+
+                          return (
+                            <p key={idx} className="rich-description-paragraph">
+                              {parseInline(para)}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
 
               <div className="hero-cta-row">
                 <ScrollToButton className="hero-cta primary" targetId="park-directory">

@@ -28,15 +28,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
       const formData = new FormData();
       formData.append('file', file);
 
-      // Using the same auth token approach as the rest of the app
-      const token = localStorage.getItem('supabase.auth.token');
-      const parsedToken = token ? JSON.parse(token) : null;
-      const accessToken = parsedToken?.currentSession?.access_token;
-
       const headers: HeadersInit = {};
-      if (accessToken) {
-        headers['Authorization'] = `Bearer ${accessToken}`;
-      }
 
       const response = await fetch('/api/admin/uploads/email-attachments', {
         method: 'POST',

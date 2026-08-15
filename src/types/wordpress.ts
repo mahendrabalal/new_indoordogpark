@@ -159,6 +159,7 @@ export interface BlogPost {
   date: string;
   modified: string;
   lastUpdated?: string;
+  hidePublishedDate?: boolean;
   author?: WPAuthor;
   factCheckedBy?: WPAuthor;
   reviewedBy?: WPAuthor;

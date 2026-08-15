@@ -1,4 +1,5 @@
 import type { DogPark } from '@/types/dog-park';
+import type { PriorityCityConfig } from '@/types/city-content';
 import type { CityData } from '@/lib/cityData';
 import { getAllCities, getParksByCity } from '@/lib/cityData';
 import { normalizeState, normalizeStateKey, type USStateAbbr } from '@/lib/state';
@@ -131,9 +132,9 @@ export function getStateBySlug(parks: DogPark[], slugOrAbbr: string): StateData 
   return allStates.find((s) => s.slug === normalized) || null;
 }
 
-export function getCitiesForState(allParks: DogPark[], state: string): CityData[] {
+export function getCitiesForState(allParks: DogPark[], state: string, priorityCityContentOverride?: PriorityCityConfig[]): CityData[] {
   const stateKey = normalizeStateKey(state);
-  const allCities = getAllCities(allParks);
+  const allCities = getAllCities(allParks, priorityCityContentOverride);
   return allCities.filter((city) => normalizeStateKey(city.state) === stateKey);
 }
 
@@ -150,8 +151,8 @@ export function getIndexableStateSlugs(
     .map((s) => s.slug);
 }
 
-export function getCityCardsForState(allParks: DogPark[], state: StateData): CityData[] {
-  const cities = getCitiesForState(allParks, state.abbr);
+export function getCityCardsForState(allParks: DogPark[], state: StateData, priorityCityContentOverride?: PriorityCityConfig[]): CityData[] {
+  const cities = getCitiesForState(allParks, state.abbr, priorityCityContentOverride);
   // Ensure city stats are hydrated for consistent card display.
   return cities.map((city) => {
     const cityParks = getParksByCity(allParks, city.name, city.state);

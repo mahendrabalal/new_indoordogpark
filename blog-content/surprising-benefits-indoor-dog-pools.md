@@ -72,6 +72,7 @@ Professional indoor dog pools are typically kept heated to a therapeutic tempera
 
 The table below outlines the primary differences between walking/running on land and swimming in a heated indoor pool.
 
+```html
 <div class="overflow-x-auto">
   <table class="min-w-full border-collapse border border-gray-200 my-6">
     <thead>
@@ -110,6 +111,7 @@ The table below outlines the primary differences between walking/running on land
     </tbody>
   </table>
 </div>
+```
 
 ---
 

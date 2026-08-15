@@ -58,6 +58,7 @@ export default function PopularCitiesSection() {
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     className="city-image"
+                                    unoptimized={true} // Vercel API Usage saver
                                 />
                                 <div className="city-overlay"></div>
                                 <div className="city-content">

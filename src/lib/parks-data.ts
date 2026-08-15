@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { DogPark, MediaAsset } from '@/types/dog-park';
-import { CityCustomContent } from '@/types/city-content';
+import { CityCustomContent, PriorityCityConfig } from '@/types/city-content';
 import { normalizeState, normalizeStateKey, getStateName } from '@/lib/state';
-import { priorityCityContent } from '@/data/priorityCityContent';
-import { priorityStateContent } from '@/data/priorityStateContent';
+import { getAllCityContent } from '@/lib/sanity-content';
 import { californiaFallbackCities } from '@/data/californiaFallbackCities';
 import {
   CityData,
@@ -63,12 +62,18 @@ function getStaticDataBaseUrl() {
   return 'http://localhost:3000/data';
 }
 
-function getPriorityCityConfigBySlug(slug: string) {
+async function getPriorityCityConfigBySlug(slug: string) {
   const normalized = slug.toLowerCase().trim();
+  let content: PriorityCityConfig[] = [];
+  try {
+    content = await getAllCityContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch city content', err);
+  }
   return (
-    priorityCityContent.find((c) => c.slug === normalized) ||
-    priorityCityContent.find(
-      (c) => c.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${c.slug}-`),
+    content.find((c) => c?.slug === normalized) ||
+    content.find(
+      (c) => Boolean(c?.slug && (c.slug.startsWith(`${normalized}-`) || normalized.startsWith(`${c.slug}-`))),
     )
   );
 }
@@ -466,6 +471,13 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   const staticParks = await loadStaticParks();
   const userSubmissions = await loadUserSubmissions();
   const allParks = dedupeParks([...staticParks, ...userSubmissions]);
+  
+  let content: PriorityCityConfig[] = [];
+  try {
+    content = await getAllCityContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch city content', err);
+  }
 
   // Normalize slug: decode URL encoding and handle malformed slugs
   let normalizedSlug = slug;
@@ -486,7 +498,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   // - handle old slugs that included state (e.g. los-angeles-ca)
   // - handle state normalization changes (CA vs California)
   if (!city) {
-    const allCities = getAllCities(allParks);
+    const allCities = getAllCities(allParks, content);
     const matches = allCities.filter(
       (candidate) =>
         candidate.slug === normalizedSlug ||
@@ -501,7 +513,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   if (city) {
     // For regular cities: merge static parks + user submissions for this city
     // Also check if there's a priority config to merge custom content and featured image
-    const priorityConfig = getPriorityCityConfigBySlug(normalizedSlug);
+    const priorityConfig = await getPriorityCityConfigBySlug(normalizedSlug);
     const allCityParks = getParksByCity(allParks, city.name, city.state);
     const parksByType = getParksByType(allCityParks);
     const stats = getCityStatistics(allCityParks);
@@ -542,7 +554,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       featuredImage: featuredImage,
     };
 
-    const nearbyCities = getNearbyCities(allParks, city.name, city.state);
+    const nearbyCities = getNearbyCities(allParks, city.name, city.state, 6, content);
 
     return {
       city: hydratedCity,
@@ -555,7 +567,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
   }
 
   // Priority city fallback (content-led city pages even if we don't have listings yet)
-  const priorityConfig = getPriorityCityConfigBySlug(normalizedSlug);
+  const priorityConfig = await getPriorityCityConfigBySlug(normalizedSlug);
   if (priorityConfig) {
     const dataCityParks = getParksByCity(allParks, priorityConfig.city, priorityConfig.state);
     const priorityParks = (priorityConfig.parks || []).map(normalizePark);
@@ -595,7 +607,7 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
       longitude: allCityParks.find((p) => typeof p.longitude === 'number')?.longitude,
     };
 
-    const nearbyCities = getNearbyCities(allParks, hydratedCity.name, hydratedCity.state);
+    const nearbyCities = getNearbyCities(allParks, hydratedCity.name, hydratedCity.state, 6, content);
 
     return {
       city: hydratedCity,
@@ -622,7 +634,13 @@ export async function getCitySlugByName(cityName: string, state?: string): Promi
   const normalizedState = state ? normalizeStateKey(state) : undefined;
 
   // Check priority cities first
-  const priorityMatch = priorityCityContent.find(
+  let content: PriorityCityConfig[] = [];
+  try {
+    content = await getAllCityContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch city content', err);
+  }
+  const priorityMatch = content.find(
     (city) =>
       city.city.toLowerCase() === normalizedCityName &&
       (!normalizedState || normalizeStateKey(city.state) === normalizedState),
@@ -795,7 +813,13 @@ export async function getAllCitySlugs(): Promise<string[]> {
   );
 
   // Always include priority city pages (content-led; may be noindex until they have verified listings)
-  for (const city of priorityCityContent) {
+  let content: PriorityCityConfig[] = [];
+  try {
+    content = await getAllCityContent();
+  } catch (err) {
+    console.warn('[Sanity] Failed to fetch city content', err);
+  }
+  for (const city of content) {
     slugs.add(city.slug);
   }
 

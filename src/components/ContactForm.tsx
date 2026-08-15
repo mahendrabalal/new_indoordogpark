@@ -10,6 +10,7 @@ export default function ContactForm() {
     subject: '',
     message: '',
     category: 'general',
+    honeypot: '', // Invisible anti-spam honeypot
   });
 
   const [loading, setLoading] = useState(false);
@@ -38,8 +39,10 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message. Please try again.');
       }
 
       setSubmitted(true);
@@ -50,10 +53,11 @@ export default function ContactForm() {
         subject: '',
         message: '',
         category: 'general',
+        honeypot: '',
       });
 
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitted(false), 5000);
+      // Reset success message after 7 seconds
+      setTimeout(() => setSubmitted(false), 7000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred. Please try again.');
     } finally {
@@ -76,6 +80,20 @@ export default function ContactForm() {
           <p>{error}</p>
         </div>
       )}
+
+      {/* Invisible Anti-Spam Honeypot Field */}
+      <div style={{ display: 'none' }} aria-hidden="true">
+        <label htmlFor="honeypot">Leave this empty</label>
+        <input
+          type="text"
+          id="honeypot"
+          name="honeypot"
+          value={formData.honeypot}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Full Name *</label>

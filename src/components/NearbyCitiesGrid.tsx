@@ -39,7 +39,7 @@ export default function NearbyCitiesGrid({ cities }: NearbyCitiesGridProps) {
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
                   style={{ objectFit: 'cover' }}
-                  unoptimized={nearby.featuredImage.startsWith('/images/')}
+                  unoptimized={true} // Vercel API Usage saver
                 />
               ) : (
                 <div className="city-card-placeholder" style={{

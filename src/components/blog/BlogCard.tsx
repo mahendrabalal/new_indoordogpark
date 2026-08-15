@@ -77,7 +77,7 @@ export default function BlogCard({
         </div>
 
         {/* Date */}
-        {showDate && (
+        {showDate && !post.hidePublishedDate && (
           <time dateTime={post.date} className="mb-3 block text-sm text-gray-500">
             {new Date(post.date).toLocaleDateString('en-US', {
               month: 'long',

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { DogPark } from '@/types/dog-park';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
-import { priorityCityContent } from '@/data/priorityCityContent';
+import { PriorityCityConfig } from '@/types/city-content';
 
 export interface CityData {
   slug: string;
@@ -25,8 +25,11 @@ export interface CityStats {
 
 /**
  * Get all unique cities with aggregated data
+ * @param parks - array of dog parks to aggregate
+ * @param priorityCityContentOverride - optional pre-loaded Sanity city content (avoids async call)
  */
-export function getAllCities(parks: DogPark[]): CityData[] {
+export function getAllCities(parks: DogPark[], priorityCityContentOverride?: PriorityCityConfig[]): CityData[] {
+  const priorityCityContent = priorityCityContentOverride || [];
   const cityMap = new Map<string, DogPark[]>();
 
   // Group parks by city
@@ -286,8 +289,8 @@ export function getFeaturedParks(parks: DogPark[], limit: number = 16): DogPark[
 /**
  * Get nearby cities based on state
  */
-export function getNearbyCities(parks: DogPark[], currentCity: string, currentState: string, limit: number = 6): CityData[] {
-  const allCities = getAllCities(parks);
+export function getNearbyCities(parks: DogPark[], currentCity: string, currentState: string, limit: number = 6, priorityCityContentOverride?: PriorityCityConfig[]): CityData[] {
+  const allCities = getAllCities(parks, priorityCityContentOverride);
 
   // Filter cities in the same state, excluding current city
   const nearby = allCities.filter(city =>

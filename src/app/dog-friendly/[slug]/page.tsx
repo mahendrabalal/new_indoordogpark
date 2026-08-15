@@ -67,8 +67,8 @@ function getStateAbbr(state: string | undefined): string {
   return abbrMap[state] || state.substring(0, 2).toUpperCase();
 }
 
-// Reviews are dynamic, so pages must be dynamic too
-export const dynamic = 'force-dynamic';
+// Cache at the edge for 1 hour to prevent massive Vercel compute bills on high-traffic pages
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: ParkPageProps): Promise<Metadata> {
   const { slug } = await params;
