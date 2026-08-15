@@ -177,10 +177,6 @@ export default function BlogLeadMagnet({
             {errorMsg && (
               <p className="text-red-300 text-xs bg-red-900/40 p-2 rounded-lg max-w-xl">{errorMsg}</p>
             )}
-
-            <p className="text-xs text-indigo-300 pt-1">
-              🔒 100% Free. No spam ever. You can unsubscribe in one click.
-            </p>
           </form>
         ) : (
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-emerald-400/40 flex items-center gap-3 animate-fade-in max-w-xl">
