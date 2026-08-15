@@ -5,9 +5,6 @@ import {
   EnvelopeIcon,
   CheckCircleIcon,
   SparklesIcon,
-  ShieldCheckIcon,
-  FireIcon,
-  HomeModernIcon,
 } from '@heroicons/react/24/outline';
 
 interface BlogLeadMagnetProps {
@@ -144,33 +141,6 @@ export default function BlogLeadMagnet({
         <p className="text-indigo-100 text-sm md:text-base mb-6 leading-relaxed max-w-2xl">
           Don&apos;t let scorching summer pavement or freezing winter storms compromise your dog&apos;s physical health and mental happiness. Get our comprehensive survival guide delivered instantly.
         </p>
-
-        {/* Value Highlights */}
-        <div className="grid sm:grid-cols-3 gap-3 mb-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-indigo-400/20 flex items-start gap-2.5">
-            <FireIcon className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-xs font-bold text-white">7-Second Heat Rule</p>
-              <p className="text-[11px] text-indigo-200">Prevent severe summer paw pad burns</p>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-indigo-400/20 flex items-start gap-2.5">
-            <ShieldCheckIcon className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-xs font-bold text-white">Winter Salt Defense</p>
-              <p className="text-[11px] text-indigo-200">Frostbite &amp; toxic deicer protection</p>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-indigo-400/20 flex items-start gap-2.5">
-            <HomeModernIcon className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-xs font-bold text-white">12 Indoor Games</p>
-              <p className="text-[11px] text-indigo-200">Burn high energy right inside your home</p>
-            </div>
-          </div>
-        </div>
 
         {/* Lead Form */}
         {!submitted ? (
