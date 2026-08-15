@@ -36,6 +36,23 @@ const estimateReadingTime = (content: string) => {
   return Math.max(3, Math.ceil(words / 200));
 };
 
+// Helper to insert lead magnet naturally in the middle of the article
+const splitContentAtMidpoint = (html: string): { firstHalf: string; secondHalf: string } => {
+  if (!html) return { firstHalf: '', secondHalf: '' };
+
+  const parts = html.split('</p>');
+  if (parts.length <= 3) {
+    return { firstHalf: html, secondHalf: '' };
+  }
+
+  // Insert around 40-50% through the paragraphs
+  const splitIndex = Math.max(2, Math.floor(parts.length / 2));
+  const firstHalf = parts.slice(0, splitIndex).join('</p>') + '</p>';
+  const secondHalf = parts.slice(splitIndex).join('</p>');
+
+  return { firstHalf, secondHalf };
+};
+
 // Blog post page component
 async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
@@ -71,6 +88,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // Add IDs to headings in content
   const contentWithIds = addIdsToHeadings(post.content);
+  const contentParts = splitContentAtMidpoint(contentWithIds);
 
   // Get related posts (by category or tag)
   let relatedPosts: BlogPost[] = [];
@@ -439,14 +457,22 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
               </div>
 
-              {/* Article Content */}
+              {/* Article Content - First Half */}
               <div
                 className="prose prose-lg max-w-none blog-content"
-                dangerouslySetInnerHTML={{ __html: contentWithIds }}
+                dangerouslySetInnerHTML={{ __html: contentParts.firstHalf }}
               />
 
-              {/* High-Converting Inline Lead Magnet Box */}
-              <BlogLeadMagnet postTitle={post.title} source="blog_article_footer" />
+              {/* High-Converting Mid-Article Lead Magnet Box */}
+              <BlogLeadMagnet postTitle={post.title} source="blog_article_midpoint" />
+
+              {/* Article Content - Second Half */}
+              {contentParts.secondHalf && (
+                <div
+                  className="prose prose-lg max-w-none blog-content mt-6"
+                  dangerouslySetInnerHTML={{ __html: contentParts.secondHalf }}
+                />
+              )}
             </article>
 
             {/* Sidebar */}
