@@ -316,12 +316,20 @@ export default function OutreachStudioPage() {
     const processedBody = renderVariables(bodyContent);
 
     let formattedBody = processedBody
+      .replace(/```(?:html)?([\s\S]*?)```/g, (_, code) => {
+        const escaped = code
+          .trim()
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+        return `<div style="background:#f8fafc; border:1px solid #cbd5e1; border-left:4px solid #6366f1; color:#0f172a; font-family:Consolas, Monaco, 'Courier New', monospace; padding:14px; border-radius:6px; font-size:12px; word-break:break-all; margin:16px 0; text-align:left; line-height:1.5;">${escaped}</div>`;
+      })
       .replace(/^### (.*$)/gim, '<h3 style="color:#0f172a; margin:24px 0 10px; font-size:17px; font-weight:700;">$1</h3>')
       .replace(/^## (.*$)/gim, '<h2 style="color:#0f172a; margin:28px 0 12px; font-size:20px; font-weight:800;">$1</h2>')
       .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#0f172a;">$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
       .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" style="color:#6366f1; text-decoration:underline; font-weight:600;">$1</a>')
-      .replace(/```html([\s\S]*?)```/g, '<div style="background:#0f172a; color:#38bdf8; font-family:Consolas, Monaco, monospace; padding:12px; border-radius:8px; font-size:12px; word-break:break-all; margin:16px 0; text-align:left;">$1</div>')
       .replace(/\n\n/g, '</p><p style="margin:0 0 16px; font-size:15px; line-height:1.65; color:#334155;">')
       .replace(/\n/g, '<br />');
 
