@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlogTableOfContents from '@/components/blog/BlogTableOfContents';
 import BlogSubscribe from '@/components/blog/BlogSubscribe';
+import BlogLeadMagnet from '@/components/blog/BlogLeadMagnet';
 import BlogCard from '@/components/blog/BlogCard';
 import { getCachedPosts, getCachedPostBySlug } from '@/lib/sanity-api';
 import { extractHeadingsFromHtml, addIdsToHeadings } from '@/lib/extract-headings';
@@ -443,6 +444,9 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 className="prose prose-lg max-w-none blog-content"
                 dangerouslySetInnerHTML={{ __html: contentWithIds }}
               />
+
+              {/* High-Converting Inline Lead Magnet Box */}
+              <BlogLeadMagnet postTitle={post.title} source="blog_article_footer" />
             </article>
 
             {/* Sidebar */}
