@@ -250,6 +250,7 @@ async function handleBroadcast(request: NextRequest) {
       status: 'confirmed', // 'confirmed' automatically publishes and emails all subscribers
       send_to: 'all',
       body_content: emailBodyHtml,
+      reply_to_address: 'media@indoordogpark.org',
       preview_text: post.excerpt || 'Discover our latest indoor dog park and recreation guide.',
       thumbnail_url: heroImageUrl,
       content_tags: ['Weekly Guide', 'Dog Care'],
