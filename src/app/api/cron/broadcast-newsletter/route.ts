@@ -249,7 +249,8 @@ async function handleBroadcast(request: NextRequest) {
       subtitle: post.excerpt || 'New dog care guide from IndoorDogPark.org',
       status: 'confirmed', // 'confirmed' automatically publishes and emails all subscribers
       send_to: 'all',
-      body: emailBodyHtml,
+      body_content: emailBodyHtml,
+      preview_text: post.excerpt || 'Discover our latest indoor dog park and recreation guide.',
       thumbnail_url: heroImageUrl,
       content_tags: ['Weekly Guide', 'Dog Care'],
     };
