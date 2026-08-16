@@ -36,13 +36,20 @@ interface TemplateDef {
   defaultNote: string;
 }
 
+interface SentRecord {
+  email: string;
+  parkName: string;
+  sentAt: string;
+  templateId?: string;
+}
+
 const TEMPLATES: TemplateDef[] = [
   {
     id: 'badge-ego-bait',
     name: 'Featured Badge & Partner',
     shortLabel: 'Featured Badge',
     icon: 'bi-award-fill',
-    badge: 'Highest Link ROI',
+    badge: 'Highest ROI',
     badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
     subject: 'Congrats {{park_name}} - Featured in the 2026 Indoor Dog Park Directory!',
     body: `Hello {{contact_name}} Team,
@@ -75,7 +82,7 @@ Warm regards,
     name: 'Broken Link Replacement',
     shortLabel: 'Broken Link',
     icon: 'bi-link-45deg',
-    badge: 'High Authority .Org',
+    badge: 'Authority .Org',
     badgeColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
     subject: 'Outdated pet directory link update for {{city}} dog owners',
     body: `Hi {{contact_name}},
@@ -101,7 +108,7 @@ Best regards,
     name: 'Shelter & Rescue Resource',
     shortLabel: 'Rescue / Shelter',
     icon: 'bi-heart-pulse-fill',
-    badge: 'High Trust .Org',
+    badge: 'High Trust',
     badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/20',
     subject: 'Safe indoor socialization resource for {{city}} rescue adopters',
     body: `Hello {{contact_name}} Team,
@@ -129,7 +136,7 @@ Warmly,
     name: 'Tourism & Visitors Guide',
     shortLabel: 'Tourism Board',
     icon: 'bi-geo-alt-fill',
-    badge: 'Local SEO Booster',
+    badge: 'Local SEO',
     badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
     subject: 'Pet-friendly indoor recreation guide for {{city}} visitors',
     body: `Hi {{contact_name}},
@@ -165,13 +172,6 @@ Best regards,
     defaultNote: '',
   },
 ];
-
-interface SentRecord {
-  email: string;
-  parkName: string;
-  sentAt: string;
-  templateId?: string;
-}
 
 const US_STATES = [
   { code: '', label: 'All States' },
@@ -235,7 +235,7 @@ export default function OutreachStudioPage() {
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'mobile' | 'code'>('desktop');
   const [showSenderDetails, setShowSenderDetails] = useState<boolean>(false);
 
-  // Sent Tracking State (Persisted in browser localStorage)
+  // Sent Tracking State (Persisted in localStorage)
   const [sentRecords, setSentRecords] = useState<Record<string, SentRecord>>({});
   const [statusFilter, setStatusFilter] = useState<'all' | 'unsent' | 'sent'>('all');
 
@@ -272,14 +272,13 @@ export default function OutreachStudioPage() {
 
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // Load Sent Records from LocalStorage on mount (seeds Glendale if empty)
+  // Load Sent Records from LocalStorage on mount
   useEffect(() => {
     try {
       const raw = localStorage.getItem('indoordogpark_outreach_sent');
       if (raw) {
         setSentRecords(JSON.parse(raw));
       } else {
-        // Pre-seed Dog Resort Glendale as already sent
         const initialSeed: Record<string, SentRecord> = {
           'info@resort4dogs.com': {
             email: 'info@resort4dogs.com',
@@ -351,7 +350,7 @@ export default function OutreachStudioPage() {
         const params = new URLSearchParams();
         if (searchQuery) params.set('q', searchQuery);
         if (stateFilter) params.set('state', stateFilter);
-        params.set('limit', '12');
+        params.set('limit', '30');
 
         fetch(`/api/outreach/parks-search?${params.toString()}`)
           .then((res) => res.json())
@@ -566,33 +565,52 @@ export default function OutreachStudioPage() {
     }
   };
 
+  const sentCount = Object.keys(sentRecords).length > 0 ? Math.ceil(Object.keys(sentRecords).length / 2) : 0;
+  const isCurrentRecipientSent = Boolean(getSentInfo(recipientEmail) || getSentInfo(parkName));
+  const currentSentInfo = getSentInfo(recipientEmail) || getSentInfo(parkName);
+
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#070a12] text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
       {/* ── Top Bar / Header ─────────────────────────────────────────────── */}
-      <header className="border-b border-white/[0.08] bg-[#0c111d]/95 backdrop-blur sticky top-0 z-40 px-5 py-3">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <header className="border-b border-white/[0.08] bg-[#0c121e]/90 backdrop-blur-md sticky top-0 z-40 px-6 py-3.5 shadow-sm">
+        <div className="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-4">
+          
+          {/* Logo & Navigation */}
           <div className="flex items-center gap-3">
-            <Link href="/" className="inline-flex items-center gap-2.5 font-bold text-white hover:text-indigo-300 transition">
-              <span className="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-base shadow-md shadow-indigo-500/20">
+            <Link href="/" className="inline-flex items-center gap-2.5 font-bold text-white hover:text-indigo-300 transition group">
+              <span className="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white text-lg shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
                 🐾
               </span>
-              <span className="text-base tracking-tight font-semibold">IndoorDogPark</span>
+              <span className="text-base tracking-tight font-extrabold text-white">IndoorDogPark</span>
             </Link>
             <span className="text-slate-600 text-sm">/</span>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold text-slate-300">Outreach Studio</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="text-xs font-bold text-slate-200">Outreach Studio</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Resend Live
               </span>
             </div>
           </div>
 
-          {/* Quick Actions & Header Buttons */}
+          {/* Stats Bar */}
+          <div className="hidden lg:flex items-center gap-3 bg-[#111726] px-3 py-1.5 rounded-xl border border-white/[0.06] text-xs text-slate-300">
+            <div className="flex items-center gap-1.5 font-medium">
+              <i className="bi bi-database text-indigo-400"></i>
+              <span>7,200+ Parks Database</span>
+            </div>
+            <span className="text-slate-600">•</span>
+            <div className="flex items-center gap-1.5 font-medium text-emerald-400">
+              <i className="bi bi-check2-all"></i>
+              <span>Sent: {sentCount}</span>
+            </div>
+          </div>
+
+          {/* Action Header Buttons */}
           <div className="flex items-center gap-2.5">
             <button
               onClick={() => setShowTestModal(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700/80 text-xs font-medium text-slate-200 transition shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-800/90 hover:bg-slate-700 text-xs font-bold text-slate-200 transition shadow-sm hover:border-slate-600"
             >
               <i className="bi bi-send-check text-indigo-400"></i>
               <span>Send Test</span>
@@ -601,20 +619,16 @@ export default function OutreachStudioPage() {
             <button
               onClick={() => handleSendEmail(false)}
               disabled={isSending || !recipientEmail}
-              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-semibold shadow-sm transition ${
-                isSending || !recipientEmail
-                  ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700'
-                  : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-600/25 active:scale-[0.98]'
-              }`}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-xs font-extrabold text-white transition shadow-lg shadow-indigo-600/30 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
             >
               {isSending ? (
                 <>
-                  <span className="inline-block animate-spin h-3.5 w-3.5 border-2 border-white border-t-transparent rounded-full"></span>
+                  <span className="h-3.5 w-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                   <span>Sending...</span>
                 </>
               ) : (
                 <>
-                  <i className="bi bi-send-fill text-[11px]"></i>
+                  <i className="bi bi-send-fill"></i>
                   <span>Send Outreach</span>
                 </>
               )}
@@ -623,69 +637,75 @@ export default function OutreachStudioPage() {
         </div>
       </header>
 
-      {/* ── Status Toast Banner ──────────────────────────────────────────── */}
+      {/* ── Status Notification Toast ─────────────────────────────────────── */}
       {statusMessage && (
         <div
-          className={`px-4 py-2.5 text-xs font-medium border-b transition-all ${
-            statusMessage.type === 'success'
-              ? 'bg-emerald-950/90 border-emerald-800/80 text-emerald-200'
-              : statusMessage.type === 'error'
-              ? 'bg-rose-950/90 border-rose-800/80 text-rose-200'
-              : 'bg-indigo-950/90 border-indigo-800/80 text-indigo-200'
+          className={`mx-auto max-w-[1600px] w-full px-6 pt-3 transition-all ${
+            statusMessage.type === 'error'
+              ? 'text-red-300'
+              : statusMessage.type === 'success'
+              ? 'text-emerald-300'
+              : 'text-indigo-300'
           }`}
         >
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <i
-                className={`bi ${
-                  statusMessage.type === 'success'
-                    ? 'bi-check-circle-fill text-emerald-400'
-                    : statusMessage.type === 'error'
-                    ? 'bi-exclamation-octagon-fill text-rose-400'
-                    : 'bi-info-circle-fill text-indigo-400'
-                }`}
-              ></i>
-              <span>{statusMessage.text}</span>
-            </div>
-            <button onClick={() => setStatusMessage(null)} className="opacity-60 hover:opacity-100 text-sm">
+          <div
+            className={`p-3.5 rounded-xl border flex items-center justify-between text-xs font-medium backdrop-blur-md shadow-lg ${
+              statusMessage.type === 'error'
+                ? 'bg-red-950/80 border-red-500/30 shadow-red-950/40'
+                : statusMessage.type === 'success'
+                ? 'bg-emerald-950/80 border-emerald-500/30 shadow-emerald-950/40'
+                : 'bg-indigo-950/80 border-indigo-500/30 shadow-indigo-950/40'
+            }`}
+          >
+            <span>{statusMessage.text}</span>
+            <button
+              onClick={() => setStatusMessage(null)}
+              className="text-slate-400 hover:text-white px-2 py-0.5 rounded text-sm font-bold"
+            >
               ✕
             </button>
           </div>
         </div>
       )}
 
-      {/* ── Main Dual-Pane Workspace ─────────────────────────────────────── */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* ── Left Column: Composer & Controls (7 Cols) ─────────────────── */}
-        <section className="lg:col-span-7 flex flex-col gap-4">
+      {/* ── Main Studio Split Workspace ──────────────────────────────────── */}
+      <main className="flex-1 max-w-[1600px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* ── Left Column: Configuration & Composer (7 cols) ──────────────── */}
+        <div className="lg:col-span-7 space-y-5">
           
-          {/* 1. Campaign Template Cards */}
-          <div className="bg-[#101625] border border-white/[0.08] rounded-xl p-3.5 shadow-sm">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                1. Select Campaign Strategy
-              </span>
-              <span className="text-[11px] text-slate-500">5 Proven Link Templates</span>
+          {/* STEP 1: Select Strategy */}
+          <div className="bg-[#0f1422] border border-white/[0.08] rounded-2xl p-5 shadow-sm space-y-3.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-600/30 border border-indigo-500/40 text-[10px] font-extrabold text-indigo-300">
+                  01
+                </span>
+                <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                  Select Campaign Strategy
+                </span>
+              </div>
+              <span className="text-[11px] text-slate-500 font-medium">5 Proven Link Templates</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
               {TEMPLATES.map((tpl) => {
                 const isActive = selectedTemplateId === tpl.id;
                 return (
                   <button
                     key={tpl.id}
                     onClick={() => setSelectedTemplateId(tpl.id)}
-                    className={`text-left p-3 rounded-lg border text-xs transition-all flex flex-col justify-between gap-2 ${
+                    className={`text-left p-3.5 rounded-xl border text-xs transition-all flex flex-col justify-between gap-2.5 ${
                       isActive
-                        ? 'bg-indigo-600/15 border-indigo-500 text-white shadow-sm ring-1 ring-indigo-500/50'
-                        : 'bg-[#151c2e] border-white/[0.06] text-slate-300 hover:bg-[#1a233a] hover:border-white/[0.12]'
+                        ? 'bg-gradient-to-br from-indigo-600/20 to-purple-600/10 border-indigo-500 text-white shadow-md ring-1 ring-indigo-500/40'
+                        : 'bg-[#141a2a] border-white/[0.06] text-slate-300 hover:bg-[#182136] hover:border-white/[0.12]'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <i className={`bi ${tpl.icon} text-sm ${isActive ? 'text-indigo-400' : 'text-slate-400'}`}></i>
-                      <span className="font-semibold truncate">{tpl.name}</span>
+                      <span className="font-bold truncate">{tpl.name}</span>
                     </div>
-                    <span className={`text-[10px] px-2 py-0.5 rounded font-medium border inline-block w-fit ${tpl.badgeColor}`}>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-md font-semibold border inline-block w-fit ${tpl.badgeColor}`}>
                       {tpl.badge}
                     </span>
                   </button>
@@ -694,18 +714,23 @@ export default function OutreachStudioPage() {
             </div>
           </div>
 
-          {/* 2. Target Park & Recipient Picker */}
-          <div className="bg-[#101625] border border-white/[0.08] rounded-xl p-4 shadow-sm flex flex-col gap-3.5">
+          {/* STEP 2: Target Recipient & Listing */}
+          <div className="bg-[#0f1422] border border-white/[0.08] rounded-2xl p-5 shadow-sm space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                2. Target Recipient & Listing
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-600/30 border border-indigo-500/40 text-[10px] font-extrabold text-indigo-300">
+                  02
+                </span>
+                <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                  Target Recipient &amp; Listing
+                </span>
+              </div>
 
-              {/* Source Tabs */}
-              <div className="flex items-center rounded-lg bg-[#0a0d16] p-1 border border-white/[0.08]">
+              {/* Source Switcher */}
+              <div className="flex items-center rounded-xl bg-[#090d16] p-1 border border-white/[0.08]">
                 <button
                   onClick={() => setContactSource('directory')}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition ${
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                     contactSource === 'directory' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -713,7 +738,7 @@ export default function OutreachStudioPage() {
                 </button>
                 <button
                   onClick={() => setContactSource('beehiiv')}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition ${
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                     contactSource === 'beehiiv' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -721,7 +746,7 @@ export default function OutreachStudioPage() {
                 </button>
                 <button
                   onClick={() => setContactSource('manual')}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition ${
+                  className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                     contactSource === 'manual' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -730,12 +755,12 @@ export default function OutreachStudioPage() {
               </div>
             </div>
 
-            {/* Combobox Search Bar */}
+            {/* Command-Style Search Bar & Status Filter */}
             {contactSource === 'directory' && (
               <div className="relative space-y-2.5" ref={searchContainerRef}>
                 <div className="flex gap-2">
                   <div className="relative flex-1">
-                    <i className="bi bi-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                    <i className="bi bi-search absolute left-3.5 top-3 text-slate-400 text-xs"></i>
                     <input
                       type="text"
                       placeholder="Search 7,200+ parks by name, city, state, or email..."
@@ -745,8 +770,16 @@ export default function OutreachStudioPage() {
                         setSearchQuery(e.target.value);
                         setIsSearchOpen(true);
                       }}
-                      className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                      className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
                     />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery('')}
+                        className="absolute right-2.5 top-2.5 text-slate-500 hover:text-white text-xs px-1"
+                      >
+                        ✕
+                      </button>
+                    )}
                   </div>
                   <select
                     value={stateFilter}
@@ -754,7 +787,7 @@ export default function OutreachStudioPage() {
                       setStateFilter(e.target.value);
                       setIsSearchOpen(true);
                     }}
-                    className="bg-[#0a0d16] border border-white/[0.1] rounded-lg px-2.5 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 max-w-[150px]"
+                    className="bg-[#090d16] border border-white/[0.1] rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 max-w-[160px] font-medium"
                   >
                     {US_STATES.map((st) => (
                       <option key={st.code} value={st.code}>
@@ -764,13 +797,13 @@ export default function OutreachStudioPage() {
                   </select>
                 </div>
 
-                {/* Status Filter Tabs */}
-                <div className="flex items-center gap-1.5 pt-1">
-                  <span className="text-[10px] text-slate-400 font-medium mr-1">Status:</span>
+                {/* Status Filter Segmented Controls */}
+                <div className="flex items-center gap-1.5 pt-0.5">
+                  <span className="text-[11px] text-slate-400 font-semibold mr-1">Status:</span>
                   <button
                     type="button"
                     onClick={() => setStatusFilter('all')}
-                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                       statusFilter === 'all'
                         ? 'bg-indigo-600 text-white shadow-sm'
                         : 'bg-white/5 text-slate-400 hover:text-slate-200'
@@ -781,9 +814,9 @@ export default function OutreachStudioPage() {
                   <button
                     type="button"
                     onClick={() => setStatusFilter('unsent')}
-                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                       statusFilter === 'unsent'
-                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
                         : 'bg-white/5 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -792,23 +825,23 @@ export default function OutreachStudioPage() {
                   <button
                     type="button"
                     onClick={() => setStatusFilter('sent')}
-                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
                       statusFilter === 'sent'
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm'
                         : 'bg-white/5 text-slate-400 hover:text-slate-200'
                     }`}
                   >
-                    ✓ Sent ({Object.keys(sentRecords).length > 0 ? Math.ceil(Object.keys(sentRecords).length / 2) : 0})
+                    ✓ Sent ({sentCount})
                   </button>
                 </div>
 
-                {/* Floating Autocomplete Dropdown */}
+                {/* Autocomplete Dropdown List */}
                 {isSearchOpen && (
-                  <div className="absolute top-full left-0 right-0 mt-1.5 max-h-64 overflow-y-auto border border-white/[0.12] rounded-xl bg-[#0c111e] divide-y divide-white/[0.04] shadow-2xl z-50">
+                  <div className="absolute top-full left-0 right-0 mt-1.5 max-h-64 overflow-y-auto border border-white/[0.12] rounded-xl bg-[#0a0e1a] divide-y divide-white/[0.04] shadow-2xl z-50">
                     {isSearching ? (
                       <div className="p-4 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
-                        <span className="h-3 w-3 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></span>
-                        <span>Searching park database...</span>
+                        <span className="h-3.5 w-3.5 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></span>
+                        <span>Searching park directory...</span>
                       </div>
                     ) : searchResults.length > 0 ? (
                       searchResults
@@ -826,34 +859,34 @@ export default function OutreachStudioPage() {
                             <button
                               key={`${park.name}-${idx}`}
                               onClick={() => handleSelectPark(park)}
-                              className={`w-full text-left p-2.5 px-3 text-xs hover:bg-[#161f36] transition flex items-center justify-between gap-3 ${
+                              className={`w-full text-left p-3 text-xs hover:bg-[#141b2e] transition flex items-center justify-between gap-3 ${
                                 selectedPark?.name === park.name ? 'bg-indigo-600/20 text-indigo-200' : 'text-slate-300'
                               }`}
                             >
                               <div className="truncate">
-                                <span className="font-semibold text-white">{park.name}</span>
-                                <span className="text-slate-400 ml-2">
+                                <span className="font-bold text-white text-xs">{park.name}</span>
+                                <span className="text-slate-400 ml-2 text-[11px]">
                                   {park.city}, {park.state}
                                 </span>
                               </div>
                               <div className="shrink-0 flex items-center gap-2">
                                 {isSent ? (
-                                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
+                                  <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
                                     <i className="bi bi-check2-circle"></i>
                                     SENT
                                   </span>
                                 ) : (
-                                  <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-slate-800 text-slate-400 border border-white/[0.06]">
+                                  <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-slate-800 text-slate-400 border border-white/[0.06]">
                                     UNSENT
                                   </span>
                                 )}
 
                                 {park.hasEmail ? (
-                                  <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                  <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
                                     {park.email}
                                   </span>
                                 ) : (
-                                  <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400">
+                                  <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-500">
                                     No email
                                   </span>
                                 )}
@@ -862,57 +895,32 @@ export default function OutreachStudioPage() {
                           );
                         })
                     ) : (
-                      <div className="p-3 text-center text-xs text-slate-500">No parks found.</div>
+                      <div className="p-4 text-center text-xs text-slate-500">No matching parks found.</div>
                     )}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Beehiiv Picker */}
-            {contactSource === 'beehiiv' && (
-              <div className="space-y-2">
-                {beehiivContacts.length > 0 ? (
-                  <div className="max-h-48 overflow-y-auto border border-white/[0.1] rounded-lg bg-[#0a0d16] divide-y divide-white/[0.04]">
-                    {beehiivContacts.map((contact) => (
-                      <button
-                        key={contact.id}
-                        onClick={() => handleSelectBeehiivContact(contact)}
-                        className="w-full text-left p-2.5 px-3 text-xs hover:bg-[#161f36] transition flex items-center justify-between text-slate-300"
-                      >
-                        <div>
-                          <span className="font-semibold text-white">{contact.email}</span>
-                          {contact.parkName && <span className="text-slate-400 ml-2">({contact.parkName})</span>}
-                        </div>
-                        <span className="text-[10px] px-2 py-0.5 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded">
-                          {contact.status}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="p-4 text-center rounded-lg bg-[#0a0d16] border border-white/[0.08] text-xs text-slate-400">
-                    <p>No active Beehiiv contacts loaded, or Beehiiv credentials need to be configured.</p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Recipient Details Form */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-white/[0.06]">
+            {/* Recipient Details 2x2 Form */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-3 border-t border-white/[0.06]">
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Recipient Email *</label>
+                <label className="block text-[11px] font-bold text-slate-400 mb-1 uppercase tracking-wider">
+                  Recipient Email *
+                </label>
                 <input
                   type="email"
                   value={recipientEmail}
                   onChange={(e) => setRecipientEmail(e.target.value)}
                   placeholder="owner@dogpark.com"
-                  className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
+                  className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Park / Business Name</label>
+                <label className="block text-[11px] font-bold text-slate-400 mb-1 uppercase tracking-wider">
+                  Park / Facility Name
+                </label>
                 <input
                   type="text"
                   value={parkName}
@@ -920,76 +928,80 @@ export default function OutreachStudioPage() {
                     setParkName(e.target.value);
                     setRecipientName(e.target.value);
                   }}
-                  placeholder="e.g. Canine Connection"
-                  className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500"
+                  placeholder="e.g. Dog Resort Glendale"
+                  className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 font-medium"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">City & State</label>
+                <label className="block text-[11px] font-bold text-slate-400 mb-1 uppercase tracking-wider">
+                  City &amp; State
+                </label>
                 <div className="flex gap-2">
                   <input
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    placeholder="New Orleans"
-                    className="flex-1 bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500"
+                    placeholder="City"
+                    className="flex-1 bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500"
                   />
                   <input
                     type="text"
                     value={stateName}
                     onChange={(e) => setStateName(e.target.value)}
-                    placeholder="LA"
-                    className="w-16 bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 uppercase"
+                    placeholder="State"
+                    className="w-20 bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500 uppercase font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Directory Listing URL</label>
+                <label className="block text-[11px] font-bold text-slate-400 mb-1 uppercase tracking-wider">
+                  Directory Listing URL
+                </label>
                 <input
                   type="text"
                   value={listingUrl}
                   onChange={(e) => setListingUrl(e.target.value)}
                   placeholder="https://www.indoordogpark.org/parks/..."
-                  className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 font-mono text-[11px]"
+                  className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 font-mono text-[11px]"
                 />
               </div>
             </div>
 
-            {/* Sender & Reply-To Settings Toggle */}
+            {/* Sender & Reply-To Settings Accordion */}
             <div className="pt-2 border-t border-white/[0.06]">
               <button
                 type="button"
                 onClick={() => setShowSenderDetails(!showSenderDetails)}
-                className="text-[11px] text-slate-400 hover:text-slate-200 inline-flex items-center gap-1.5"
+                className="text-[11px] text-slate-400 hover:text-slate-200 inline-flex items-center gap-1.5 font-semibold"
               >
                 <i className={`bi bi-chevron-${showSenderDetails ? 'up' : 'down'} text-[10px]`}></i>
-                <span>{showSenderDetails ? 'Hide' : 'Configure'} Sender & Reply-To Settings</span>
+                <span>{showSenderDetails ? 'Hide' : 'Configure'} Sender &amp; Reply-To Settings</span>
               </button>
 
               {showSenderDetails && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2.5 p-3 rounded-lg bg-[#0a0d16] border border-white/[0.06]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 p-3.5 rounded-xl bg-[#090d16] border border-white/[0.06]">
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-400 mb-1">From Name & Email</label>
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1 uppercase">From Email</label>
                     <input
                       type="text"
                       value={fromEmail}
                       onChange={(e) => setFromEmail(e.target.value)}
                       placeholder="outreach@indoordogpark.org"
-                      className="w-full bg-[#101625] border border-white/[0.1] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
+                      className="w-full bg-[#111726] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-400 mb-1">
+                    <label className="block text-[10px] font-bold text-slate-400 mb-1 uppercase">
                       Reply-To (Your Inbox)
                     </label>
                     <input
                       type="email"
                       value={replyTo}
                       onChange={(e) => setReplyTo(e.target.value)}
-                      placeholder="yourpersonal@gmail.com"
-                      className="w-full bg-[#101625] border border-white/[0.1] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
+                      placeholder="media@indoordogpark.org"
+                      className="w-full bg-[#111726] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
                     />
                   </div>
                 </div>
@@ -997,24 +1009,29 @@ export default function OutreachStudioPage() {
             </div>
           </div>
 
-          {/* 3. Subject & Message Editor */}
-          <div className="bg-[#101625] border border-white/[0.08] rounded-xl p-4 shadow-sm flex flex-col gap-3.5">
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-              3. Customize Email Message
-            </span>
+          {/* STEP 3: Customize Email Message */}
+          <div className="bg-[#0f1422] border border-white/[0.08] rounded-2xl p-5 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-indigo-600/30 border border-indigo-500/40 text-[10px] font-extrabold text-indigo-300">
+                  03
+                </span>
+                <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                  Customize Email Message
+                </span>
+              </div>
+            </div>
 
             {/* Already Sent Notice */}
-            {(getSentInfo(recipientEmail) || getSentInfo(parkName)) && (
-              <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-3.5 flex items-center justify-between text-xs text-emerald-200 animate-fade-in">
-                <div className="flex items-center gap-2.5">
-                  <i className="bi bi-check-circle-fill text-emerald-400 text-base shrink-0"></i>
+            {isCurrentRecipientSent && currentSentInfo && (
+              <div className="bg-emerald-950/60 border border-emerald-500/40 rounded-xl p-3.5 flex items-center justify-between text-xs text-emerald-200 shadow-sm animate-fade-in">
+                <div className="flex items-center gap-3">
+                  <i className="bi bi-check-circle-fill text-emerald-400 text-lg shrink-0"></i>
                   <div>
-                    <p className="font-semibold text-white">Outreach Already Sent to This Facility</p>
-                    <p className="text-[11px] text-emerald-300/80">
+                    <p className="font-bold text-white text-xs">Outreach Already Sent to This Facility</p>
+                    <p className="text-[11px] text-emerald-300/80 mt-0.5">
                       Dispatched on{' '}
-                      {new Date(
-                        (getSentInfo(recipientEmail) || getSentInfo(parkName))!.sentAt
-                      ).toLocaleDateString(undefined, {
+                      {new Date(currentSentInfo.sentAt).toLocaleDateString(undefined, {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric',
@@ -1025,27 +1042,27 @@ export default function OutreachStudioPage() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0 ml-2">
+                <span className="text-[10px] uppercase font-extrabold tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0 ml-2">
                   ✓ Sent
                 </span>
               </div>
             )}
 
-            {/* Subject Line with Variable Tags */}
+            {/* Variable Insertion Chips */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs font-medium text-slate-300">Subject Line</label>
-                <div className="flex items-center gap-1">
-                  <span className="text-[10px] text-slate-500">Insert tag:</span>
+                <label className="text-xs font-bold text-slate-300 uppercase tracking-wider text-[11px]">Subject Line</label>
+                <div className="flex flex-wrap items-center gap-1">
+                  <span className="text-[10px] text-slate-500 font-semibold mr-0.5">Insert:</span>
                   <button
                     onClick={() => setSubject((s) => s + ' {{park_name}}')}
-                    className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#1a233a] text-indigo-300 hover:bg-indigo-600 hover:text-white transition"
+                    className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#182136] text-indigo-300 hover:bg-indigo-600 hover:text-white transition"
                   >
                     + Park
                   </button>
                   <button
                     onClick={() => setSubject((s) => s + ' {{city}}')}
-                    className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#1a233a] text-indigo-300 hover:bg-indigo-600 hover:text-white transition"
+                    className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#182136] text-indigo-300 hover:bg-indigo-600 hover:text-white transition"
                   >
                     + City
                   </button>
@@ -1055,208 +1072,221 @@ export default function OutreachStudioPage() {
                 type="text"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white font-medium focus:outline-none focus:border-indigo-500"
+                className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500 font-medium"
               />
             </div>
 
-            {/* Formatting Bar */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-[#0a0d16] p-1.5 rounded-lg border border-white/[0.06] text-xs">
-              <button
-                onClick={() => insertSnippet('**Bold Text**')}
-                className="px-2 py-1 bg-[#151c2e] hover:bg-[#1e293b] rounded text-slate-300 font-bold"
-                title="Bold"
-              >
-                B
-              </button>
-              <button
-                onClick={() => insertSnippet('*Italic Text*')}
-                className="px-2 py-1 bg-[#151c2e] hover:bg-[#1e293b] rounded text-slate-300 italic"
-                title="Italic"
-              >
-                I
-              </button>
-              <button
-                onClick={() => insertSnippet('[Link Text](https://www.indoordogpark.org)')}
-                className="px-2 py-1 bg-[#151c2e] hover:bg-[#1e293b] rounded text-slate-300 inline-flex items-center gap-1"
-                title="Link"
-              >
-                <i className="bi bi-link-45deg"></i> Link
-              </button>
-              <button
-                onClick={() => insertSnippet('{{badge_snippet}}')}
-                className="px-2 py-1 bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/25 rounded font-semibold inline-flex items-center gap-1"
-                title="Insert Verified Badge"
-              >
-                🏆 Embed Badge Snippet
-              </button>
-              <button
-                onClick={() => insertSnippet('{{listing_url}}')}
-                className="px-2 py-1 bg-[#151c2e] hover:bg-[#1e293b] rounded text-indigo-300"
-              >
-                + Listing URL
-              </button>
-            </div>
-
-            {/* Message Body Textarea */}
+            {/* Email Body Textarea */}
             <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-xs font-bold text-slate-300 uppercase tracking-wider text-[11px]">Message Content (Markdown)</label>
+                <div className="flex flex-wrap items-center gap-1">
+                  <button
+                    onClick={() => insertSnippet('{{badge_snippet}}')}
+                    className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-white transition"
+                  >
+                    + Badge Preview
+                  </button>
+                  <button
+                    onClick={() => insertSnippet('{{listing_url}}')}
+                    className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#182136] text-indigo-300 hover:bg-indigo-600 hover:text-white transition"
+                  >
+                    + Listing URL
+                  </button>
+                </div>
+              </div>
               <textarea
-                rows={11}
+                rows={9}
                 value={bodyContent}
                 onChange={(e) => setBodyContent(e.target.value)}
-                className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg p-3 text-xs font-mono text-slate-200 leading-relaxed focus:outline-none focus:border-indigo-500"
+                className="w-full bg-[#090d16] border border-white/[0.1] rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono leading-relaxed"
               />
             </div>
 
-            {/* Personal Note Box */}
-            <div className="bg-indigo-950/30 border border-indigo-800/40 rounded-lg p-3">
-              <label className="block text-xs font-semibold text-indigo-300 mb-1">
-                <i className="bi bi-chat-quote-fill mr-1"></i> Add 1-on-1 Personalized Note (Optional)
+            {/* Personal Note Callout */}
+            <div className="p-3.5 bg-indigo-950/30 border border-indigo-500/20 rounded-xl space-y-1.5">
+              <label className="block text-[11px] font-bold text-indigo-300 flex items-center gap-1.5">
+                <i className="bi bi-chat-quote-fill"></i>
+                Personal Note Callout (Appears highlighted in email)
               </label>
               <input
                 type="text"
-                placeholder="e.g. Loved your agility equipment and clean turf!"
                 value={personalNote}
                 onChange={(e) => setPersonalNote(e.target.value)}
-                className="w-full bg-[#0a0d16] border border-indigo-700/50 rounded-lg px-3 py-1.5 text-xs text-indigo-200 focus:outline-none focus:border-indigo-500"
+                placeholder="e.g. We loved your agility equipment and clean play floor!"
+                className="w-full bg-[#090d16] border border-indigo-500/30 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-400 placeholder-indigo-300/40"
               />
             </div>
 
-            {/* Beehiiv Safe Opt-In Checkbox */}
-            <div className="flex items-start gap-2 pt-1">
-              <input
-                type="checkbox"
-                id="syncBeehiiv"
-                checked={syncToBeehiiv}
-                onChange={(e) => setSyncToBeehiiv(e.target.checked)}
-                className="mt-0.5 rounded bg-[#0a0d16] border-slate-700 text-indigo-600 focus:ring-indigo-500 h-4 w-4"
-              />
-              <label htmlFor="syncBeehiiv" className="text-xs text-slate-300">
-                Save contact to <strong>Beehiiv audience</strong> as <code className="text-indigo-300 font-mono">park_owner</code>{' '}
-                <span className="text-amber-400/90 text-[11px] block mt-0.5">
-                  (Best practice: only check for contacts who have opted in, claimed their listing, or replied)
-                </span>
+            {/* Beehiiv Auto-Sync Switch */}
+            <div className="flex items-center justify-between pt-1">
+              <label className="text-xs text-slate-300 flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={syncToBeehiiv}
+                  onChange={(e) => setSyncToBeehiiv(e.target.checked)}
+                  className="rounded bg-[#090d16] border-white/20 text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer"
+                />
+                <span className="font-semibold">Auto-save contact into Beehiiv audience as partner</span>
               </label>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* ── Right Column: Live Device Preview (5 Cols) ─────────────────── */}
-        <section className="lg:col-span-5 flex flex-col gap-3">
-          <div className="bg-[#101625] border border-white/[0.08] rounded-xl p-3 shadow-sm flex items-center justify-between">
-            <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <i className="bi bi-eye-fill text-indigo-400"></i> Live Email Preview
-            </span>
+        {/* ── Right Column: Live Email Preview Frame (5 cols) ─────────────── */}
+        <div className="lg:col-span-5">
+          <div className="sticky top-20 bg-[#0f1422] border border-white/[0.08] rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+            
+            {/* Window Top Controls & Device Switcher */}
+            <div className="bg-[#090d16] px-4 py-3 border-b border-white/[0.08] flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                </div>
+                <span className="text-[11px] font-bold text-slate-400 ml-2">Email Preview</span>
+              </div>
 
-            {/* Device Toggles */}
-            <div className="flex items-center rounded-lg bg-[#0a0d16] p-0.5 border border-white/[0.08]">
-              <button
-                onClick={() => setPreviewDevice('desktop')}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition ${
-                  previewDevice === 'desktop' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
-                }`}
-                title="Desktop View (600px)"
-              >
-                <i className="bi bi-display mr-1"></i> Desktop
-              </button>
-              <button
-                onClick={() => setPreviewDevice('mobile')}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition ${
-                  previewDevice === 'mobile' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
-                }`}
-                title="Mobile View (375px)"
-              >
-                <i className="bi bi-phone mr-1"></i> Mobile
-              </button>
-              <button
-                onClick={() => setPreviewDevice('code')}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition ${
-                  previewDevice === 'code' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
-                }`}
-                title="HTML Code"
-              >
-                <i className="bi bi-code-slash mr-1"></i> HTML
-              </button>
-            </div>
-          </div>
-
-          {/* Email Preview Frame */}
-          <div className="bg-[#101625] border border-white/[0.08] rounded-xl p-4 flex-1 flex flex-col justify-center items-center overflow-hidden min-h-[640px]">
-            {previewDevice === 'code' ? (
-              <div className="w-full h-full relative">
-                <textarea
-                  readOnly
-                  value={compiledHtml}
-                  className="w-full h-[600px] bg-[#0a0d16] border border-white/[0.08] rounded-lg p-3 text-xs font-mono text-emerald-400 leading-relaxed"
-                />
+              {/* Device Mode Toggle */}
+              <div className="flex rounded-lg bg-[#141a2a] p-0.5 border border-white/[0.06]">
                 <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(compiledHtml);
-                    setCopiedCode(true);
-                    setTimeout(() => setCopiedCode(false), 2000);
-                  }}
-                  className="absolute top-4 right-4 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-md text-white shadow-md border border-slate-700"
+                  onClick={() => setPreviewDevice('desktop')}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition flex items-center gap-1 ${
+                    previewDevice === 'desktop' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+                  }`}
                 >
-                  {copiedCode ? '✓ Copied' : 'Copy HTML'}
+                  <i className="bi bi-display"></i>
+                  <span>Desktop</span>
+                </button>
+                <button
+                  onClick={() => setPreviewDevice('mobile')}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition flex items-center gap-1 ${
+                    previewDevice === 'mobile' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <i className="bi bi-phone"></i>
+                  <span>Mobile</span>
+                </button>
+                <button
+                  onClick={() => setPreviewDevice('code')}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition flex items-center gap-1 ${
+                    previewDevice === 'code' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <i className="bi bi-code-slash"></i>
+                  <span>HTML</span>
                 </button>
               </div>
-            ) : (
-              <div
-                className={`transition-all duration-300 overflow-y-auto bg-slate-100 rounded-xl shadow-2xl p-2 ${
-                  previewDevice === 'mobile' ? 'w-[360px] h-[620px] border-8 border-slate-800 rounded-3xl' : 'w-full max-w-[560px] h-[620px]'
-                }`}
-              >
-                <iframe
-                  title="Email Preview Frame"
-                  srcDoc={compiledHtml}
-                  className="w-full h-full rounded-lg border-none"
-                />
+            </div>
+
+            {/* Email Client Header Metadata */}
+            {previewDevice !== 'code' && (
+              <div className="bg-[#111726] p-3.5 border-b border-white/[0.06] text-xs space-y-1.5 text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500 font-semibold w-14 shrink-0 text-[11px]">To:</span>
+                  <span className="font-mono text-white truncate font-medium">{recipientEmail || 'owner@dogpark.com'}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500 font-semibold w-14 shrink-0 text-[11px]">From:</span>
+                  <span className="text-slate-200 truncate">{fromName} &lt;{fromEmail}&gt;</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500 font-semibold w-14 shrink-0 text-[11px]">Subject:</span>
+                  <span className="font-bold text-white truncate">{compiledSubject}</span>
+                </div>
               </div>
             )}
+
+            {/* Preview Frame Body */}
+            <div className="p-4 bg-[#0a0e1a] overflow-y-auto max-h-[calc(100vh-250px)] flex justify-center">
+              {previewDevice === 'code' ? (
+                <div className="w-full space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-slate-400 font-mono">Compiled HTML Output</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(compiledHtml);
+                        setCopiedCode(true);
+                        setTimeout(() => setCopiedCode(false), 2000);
+                      }}
+                      className="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white transition flex items-center gap-1.5"
+                    >
+                      <i className={`bi bi-${copiedCode ? 'check-lg' : 'clipboard'}`}></i>
+                      <span>{copiedCode ? 'Copied!' : 'Copy HTML'}</span>
+                    </button>
+                  </div>
+                  <pre className="bg-[#070a12] p-3.5 rounded-xl border border-white/[0.08] text-[11px] font-mono text-slate-300 overflow-x-auto whitespace-pre-wrap max-h-[500px]">
+                    {compiledHtml}
+                  </pre>
+                </div>
+              ) : (
+                <div
+                  className={`w-full transition-all duration-300 ${
+                    previewDevice === 'mobile' ? 'max-w-[375px] rounded-2xl shadow-2xl border-4 border-slate-700 overflow-hidden' : 'max-w-[560px]'
+                  }`}
+                >
+                  <iframe
+                    srcDoc={compiledHtml}
+                    title="Email Live Preview"
+                    className="w-full min-h-[640px] rounded-xl bg-white border-0"
+                  />
+                </div>
+              )}
+            </div>
+
           </div>
-        </section>
+        </div>
+
       </main>
 
-      {/* ── Send Test Modal ──────────────────────────────────────────────── */}
+      {/* ── Test Email Modal ─────────────────────────────────────────────── */}
       {showTestModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#101625] border border-white/[0.12] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0f1422] border border-white/[0.1] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-scale-in">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <i className="bi bi-send-check text-indigo-400"></i> Send a Test Preview
+              <h3 className="text-base font-extrabold text-white flex items-center gap-2">
+                <i className="bi bi-send-check text-indigo-400"></i>
+                Send Test Preview Email
               </h3>
-              <button onClick={() => setShowTestModal(false)} className="text-slate-400 hover:text-white">
+              <button
+                onClick={() => setShowTestModal(false)}
+                className="text-slate-400 hover:text-white text-lg font-bold"
+              >
                 ✕
               </button>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Send this exact draft with real preview data to your own email address to verify inbox styling, badge rendering, and buttons.
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Verify how this email appears in your Gmail inbox before broadcasting to facility owners.
             </p>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Your Test Email Address</label>
+              <label className="block text-[11px] font-bold text-slate-400 mb-1 uppercase tracking-wider">
+                Send Test To:
+              </label>
               <input
                 type="email"
-                placeholder="youremail@gmail.com"
-                value={testEmailAddress}
+                value={testEmailAddress || 'mahenbalal@gmail.com'}
                 onChange={(e) => setTestEmailAddress(e.target.value)}
-                className="w-full bg-[#0a0d16] border border-white/[0.1] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
+                placeholder="your-email@gmail.com"
+                className="w-full bg-[#090d16] border border-white/[0.12] rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-indigo-500 font-mono"
               />
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2">
+            <div className="flex justify-end gap-2.5 pt-2">
               <button
                 onClick={() => setShowTestModal(false)}
-                className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:bg-slate-800"
+                className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition"
               >
                 Cancel
               </button>
               <button
-                onClick={() => handleSendEmail(true, testEmailAddress)}
-                disabled={isSending || !testEmailAddress}
-                className="px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30 active:scale-[0.98]"
+                onClick={() => handleSendEmail(true, testEmailAddress || 'mahenbalal@gmail.com')}
+                disabled={isSending}
+                className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-extrabold text-white transition flex items-center gap-2 shadow-lg shadow-indigo-600/30"
               >
-                {isSending ? 'Sending...' : 'Send Test Now'}
+                {isSending ? 'Sending...' : 'Send Test Now →'}
               </button>
             </div>
           </div>
