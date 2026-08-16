@@ -18,9 +18,22 @@ import { getAllStaticParks, getCitySlugByName } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
 import { SITE_URL } from '@/lib/metadata';
 
-// ISR: cache rendered post pages, revalidate every 5 minutes as a safety net.
+// ISR: cache rendered post pages at the edge CDN for 24 hours.
 // On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
-export const revalidate = 300;
+export const revalidate = 86400;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const { posts } = await getCachedPosts({ perPage: 100 });
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params for blog:', error);
+    return [];
+  }
+}
 
 interface BlogPostPageProps {
   params: Promise<{

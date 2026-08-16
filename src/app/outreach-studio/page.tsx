@@ -166,12 +166,78 @@ Best regards,
   },
 ];
 
+interface SentRecord {
+  email: string;
+  parkName: string;
+  sentAt: string;
+  templateId?: string;
+}
+
+const US_STATES = [
+  { code: '', label: 'All States' },
+  { code: 'ca', label: 'California (CA)' },
+  { code: 'tx', label: 'Texas (TX)' },
+  { code: 'fl', label: 'Florida (FL)' },
+  { code: 'ny', label: 'New York (NY)' },
+  { code: 'il', label: 'Illinois (IL)' },
+  { code: 'pa', label: 'Pennsylvania (PA)' },
+  { code: 'oh', label: 'Ohio (OH)' },
+  { code: 'ga', label: 'Georgia (GA)' },
+  { code: 'nc', label: 'North Carolina (NC)' },
+  { code: 'mi', label: 'Michigan (MI)' },
+  { code: 'nj', label: 'New Jersey (NJ)' },
+  { code: 'va', label: 'Virginia (VA)' },
+  { code: 'wa', label: 'Washington (WA)' },
+  { code: 'az', label: 'Arizona (AZ)' },
+  { code: 'ma', label: 'Massachusetts (MA)' },
+  { code: 'tn', label: 'Tennessee (TN)' },
+  { code: 'in', label: 'Indiana (IN)' },
+  { code: 'mo', label: 'Missouri (MO)' },
+  { code: 'md', label: 'Maryland (MD)' },
+  { code: 'wi', label: 'Wisconsin (WI)' },
+  { code: 'co', label: 'Colorado (CO)' },
+  { code: 'mn', label: 'Minnesota (MN)' },
+  { code: 'sc', label: 'South Carolina (SC)' },
+  { code: 'al', label: 'Alabama (AL)' },
+  { code: 'la', label: 'Louisiana (LA)' },
+  { code: 'ky', label: 'Kentucky (KY)' },
+  { code: 'or', label: 'Oregon (OR)' },
+  { code: 'ok', label: 'Oklahoma (OK)' },
+  { code: 'ct', label: 'Connecticut (CT)' },
+  { code: 'ut', label: 'Utah (UT)' },
+  { code: 'nv', label: 'Nevada (NV)' },
+  { code: 'ia', label: 'Iowa (IA)' },
+  { code: 'ar', label: 'Arkansas (AR)' },
+  { code: 'ks', label: 'Kansas (KS)' },
+  { code: 'ms', label: 'Mississippi (MS)' },
+  { code: 'nm', label: 'New Mexico (NM)' },
+  { code: 'ne', label: 'Nebraska (NE)' },
+  { code: 'id', label: 'Idaho (ID)' },
+  { code: 'wv', label: 'West Virginia (WV)' },
+  { code: 'hi', label: 'Hawaii (HI)' },
+  { code: 'nh', label: 'New Hampshire (NH)' },
+  { code: 'me', label: 'Maine (ME)' },
+  { code: 'mt', label: 'Montana (MT)' },
+  { code: 'ri', label: 'Rhode Island (RI)' },
+  { code: 'de', label: 'Delaware (DE)' },
+  { code: 'sd', label: 'South Dakota (SD)' },
+  { code: 'nd', label: 'North Dakota (ND)' },
+  { code: 'ak', label: 'Alaska (AK)' },
+  { code: 'dc', label: 'Washington D.C. (DC)' },
+  { code: 'vt', label: 'Vermont (VT)' },
+  { code: 'wy', label: 'Wyoming (WY)' },
+];
+
 export default function OutreachStudioPage() {
   // Navigation & View states
   const [selectedTemplateId, setSelectedTemplateId] = useState<string>('badge-ego-bait');
   const [contactSource, setContactSource] = useState<'directory' | 'beehiiv' | 'manual'>('directory');
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'mobile' | 'code'>('desktop');
   const [showSenderDetails, setShowSenderDetails] = useState<boolean>(false);
+
+  // Sent Tracking State (Persisted in browser localStorage)
+  const [sentRecords, setSentRecords] = useState<Record<string, SentRecord>>({});
+  const [statusFilter, setStatusFilter] = useState<'all' | 'unsent' | 'sent'>('all');
 
   // Search & Target States
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -186,16 +252,16 @@ export default function OutreachStudioPage() {
   const [recipientEmail, setRecipientEmail] = useState<string>('');
   const [recipientName, setRecipientName] = useState<string>('');
   const [parkName, setParkName] = useState<string>('');
-  const [city, setCity] = useState<string>('New Orleans');
-  const [stateName, setStateName] = useState<string>('LA');
+  const [city, setCity] = useState<string>('Glendale');
+  const [stateName, setStateName] = useState<string>('CA');
   const [listingUrl, setListingUrl] = useState<string>('https://www.indoordogpark.org');
   const [fromName, setFromName] = useState<string>('IndoorDogPark.org');
-  const [fromEmail, setFromEmail] = useState<string>('media@indoordogpark.org');
-  const [replyTo, setReplyTo] = useState<string>('');
+  const [fromEmail, setFromEmail] = useState<string>('outreach@indoordogpark.org');
+  const [replyTo, setReplyTo] = useState<string>('media@indoordogpark.org');
   const [subject, setSubject] = useState<string>('');
   const [bodyContent, setBodyContent] = useState<string>('');
   const [personalNote, setPersonalNote] = useState<string>('');
-  const [syncToBeehiiv, setSyncToBeehiiv] = useState<boolean>(false);
+  const [syncToBeehiiv, setSyncToBeehiiv] = useState<boolean>(true);
 
   // Feedback states
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -205,6 +271,42 @@ export default function OutreachStudioPage() {
   const [copiedCode, setCopiedCode] = useState<boolean>(false);
 
   const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Load Sent Records from LocalStorage on mount (seeds Glendale if empty)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('indoordogpark_outreach_sent');
+      if (raw) {
+        setSentRecords(JSON.parse(raw));
+      } else {
+        // Pre-seed Dog Resort Glendale as already sent
+        const initialSeed: Record<string, SentRecord> = {
+          'info@resort4dogs.com': {
+            email: 'info@resort4dogs.com',
+            parkName: 'Dog Resort Glendale',
+            sentAt: new Date().toISOString(),
+            templateId: 'badge-ego-bait',
+          },
+          'dog resort glendale': {
+            email: 'info@resort4dogs.com',
+            parkName: 'Dog Resort Glendale',
+            sentAt: new Date().toISOString(),
+            templateId: 'badge-ego-bait',
+          },
+        };
+        setSentRecords(initialSeed);
+        localStorage.setItem('indoordogpark_outreach_sent', JSON.stringify(initialSeed));
+      }
+    } catch (e) {
+      console.warn('Could not read outreach sent history from localStorage', e);
+    }
+  }, []);
+
+  // Helper to check if a park or email has already been contacted
+  const getSentInfo = (emailOrName?: string) => {
+    if (!emailOrName) return null;
+    return sentRecords[emailOrName.toLowerCase().trim()] || null;
+  };
 
   // Load initial template
   useEffect(() => {
@@ -423,6 +525,26 @@ export default function OutreachStudioPage() {
       const resData = await response.json();
 
       if (resData.success) {
+        if (!isTest) {
+          const sentItem: SentRecord = {
+            email: finalTo.toLowerCase().trim(),
+            parkName: parkName || selectedPark?.name || 'Park',
+            sentAt: new Date().toISOString(),
+            templateId: selectedTemplateId,
+          };
+          setSentRecords((prev) => {
+            const next = {
+              ...prev,
+              [finalTo.toLowerCase().trim()]: sentItem,
+              [(parkName || selectedPark?.name || '').toLowerCase().trim()]: sentItem,
+            };
+            try {
+              localStorage.setItem('indoordogpark_outreach_sent', JSON.stringify(next));
+            } catch (e) {}
+            return next;
+          });
+        }
+
         setStatusMessage({
           type: 'success',
           text: isTest
@@ -610,7 +732,7 @@ export default function OutreachStudioPage() {
 
             {/* Combobox Search Bar */}
             {contactSource === 'directory' && (
-              <div className="relative" ref={searchContainerRef}>
+              <div className="relative space-y-2.5" ref={searchContainerRef}>
                 <div className="flex gap-2">
                   <div className="relative flex-1">
                     <i className="bi bi-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
@@ -632,54 +754,113 @@ export default function OutreachStudioPage() {
                       setStateFilter(e.target.value);
                       setIsSearchOpen(true);
                     }}
-                    className="bg-[#0a0d16] border border-white/[0.1] rounded-lg px-2.5 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500"
+                    className="bg-[#0a0d16] border border-white/[0.1] rounded-lg px-2.5 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500 max-w-[150px]"
                   >
-                    <option value="">All States</option>
-                    <option value="la">Louisiana (LA)</option>
-                    <option value="ca">California (CA)</option>
-                    <option value="tx">Texas (TX)</option>
-                    <option value="fl">Florida (FL)</option>
-                    <option value="co">Colorado (CO)</option>
-                    <option value="ny">New York (NY)</option>
+                    {US_STATES.map((st) => (
+                      <option key={st.code} value={st.code}>
+                        {st.label}
+                      </option>
+                    ))}
                   </select>
+                </div>
+
+                {/* Status Filter Tabs */}
+                <div className="flex items-center gap-1.5 pt-1">
+                  <span className="text-[10px] text-slate-400 font-medium mr-1">Status:</span>
+                  <button
+                    type="button"
+                    onClick={() => setStatusFilter('all')}
+                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                      statusFilter === 'all'
+                        ? 'bg-indigo-600 text-white shadow-sm'
+                        : 'bg-white/5 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    All
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatusFilter('unsent')}
+                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                      statusFilter === 'unsent'
+                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                        : 'bg-white/5 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    Unsent Only
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatusFilter('sent')}
+                    className={`px-2.5 py-1 rounded text-[10px] font-semibold transition ${
+                      statusFilter === 'sent'
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                        : 'bg-white/5 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    ✓ Sent ({Object.keys(sentRecords).length > 0 ? Math.ceil(Object.keys(sentRecords).length / 2) : 0})
+                  </button>
                 </div>
 
                 {/* Floating Autocomplete Dropdown */}
                 {isSearchOpen && (
-                  <div className="absolute top-full left-0 right-0 mt-1.5 max-h-56 overflow-y-auto border border-white/[0.12] rounded-xl bg-[#0c111e] divide-y divide-white/[0.04] shadow-2xl z-50">
+                  <div className="absolute top-full left-0 right-0 mt-1.5 max-h-64 overflow-y-auto border border-white/[0.12] rounded-xl bg-[#0c111e] divide-y divide-white/[0.04] shadow-2xl z-50">
                     {isSearching ? (
                       <div className="p-4 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
                         <span className="h-3 w-3 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></span>
                         <span>Searching park database...</span>
                       </div>
                     ) : searchResults.length > 0 ? (
-                      searchResults.map((park, idx) => (
-                        <button
-                          key={`${park.name}-${idx}`}
-                          onClick={() => handleSelectPark(park)}
-                          className={`w-full text-left p-2.5 px-3 text-xs hover:bg-[#161f36] transition flex items-center justify-between gap-3 ${
-                            selectedPark?.name === park.name ? 'bg-indigo-600/20 text-indigo-200' : 'text-slate-300'
-                          }`}
-                        >
-                          <div className="truncate">
-                            <span className="font-semibold text-white">{park.name}</span>
-                            <span className="text-slate-400 ml-2">
-                              {park.city}, {park.state}
-                            </span>
-                          </div>
-                          <div className="shrink-0 flex items-center gap-2">
-                            {park.hasEmail ? (
-                              <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                                {park.email}
-                              </span>
-                            ) : (
-                              <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400">
-                                No email
-                              </span>
-                            )}
-                          </div>
-                        </button>
-                      ))
+                      searchResults
+                        .filter((park) => {
+                          const sent = Boolean(getSentInfo(park.email) || getSentInfo(park.name));
+                          if (statusFilter === 'unsent') return !sent;
+                          if (statusFilter === 'sent') return sent;
+                          return true;
+                        })
+                        .map((park, idx) => {
+                          const sentInfo = getSentInfo(park.email) || getSentInfo(park.name);
+                          const isSent = Boolean(sentInfo);
+
+                          return (
+                            <button
+                              key={`${park.name}-${idx}`}
+                              onClick={() => handleSelectPark(park)}
+                              className={`w-full text-left p-2.5 px-3 text-xs hover:bg-[#161f36] transition flex items-center justify-between gap-3 ${
+                                selectedPark?.name === park.name ? 'bg-indigo-600/20 text-indigo-200' : 'text-slate-300'
+                              }`}
+                            >
+                              <div className="truncate">
+                                <span className="font-semibold text-white">{park.name}</span>
+                                <span className="text-slate-400 ml-2">
+                                  {park.city}, {park.state}
+                                </span>
+                              </div>
+                              <div className="shrink-0 flex items-center gap-2">
+                                {isSent ? (
+                                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
+                                    <i className="bi bi-check2-circle"></i>
+                                    SENT
+                                  </span>
+                                ) : (
+                                  <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-slate-800 text-slate-400 border border-white/[0.06]">
+                                    UNSENT
+                                  </span>
+                                )}
+
+                                {park.hasEmail ? (
+                                  <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    {park.email}
+                                  </span>
+                                ) : (
+                                  <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400">
+                                    No email
+                                  </span>
+                                )}
+                              </div>
+                            </button>
+                          );
+                        })
                     ) : (
                       <div className="p-3 text-center text-xs text-slate-500">No parks found.</div>
                     )}
@@ -821,6 +1002,34 @@ export default function OutreachStudioPage() {
             <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               3. Customize Email Message
             </span>
+
+            {/* Already Sent Notice */}
+            {(getSentInfo(recipientEmail) || getSentInfo(parkName)) && (
+              <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-xl p-3.5 flex items-center justify-between text-xs text-emerald-200 animate-fade-in">
+                <div className="flex items-center gap-2.5">
+                  <i className="bi bi-check-circle-fill text-emerald-400 text-base shrink-0"></i>
+                  <div>
+                    <p className="font-semibold text-white">Outreach Already Sent to This Facility</p>
+                    <p className="text-[11px] text-emerald-300/80">
+                      Dispatched on{' '}
+                      {new Date(
+                        (getSentInfo(recipientEmail) || getSentInfo(parkName))!.sentAt
+                      ).toLocaleDateString(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })}
+                      . You can still send a follow-up or pick an unsent park.
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0 ml-2">
+                  ✓ Sent
+                </span>
+              </div>
+            )}
 
             {/* Subject Line with Variable Tags */}
             <div>
