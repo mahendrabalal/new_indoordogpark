@@ -17,6 +17,8 @@ import { getRelatedParks, extractMentionedCities } from '@/lib/related-content';
 import { getAllStaticParks, getCitySlugByName } from '@/lib/parks-data';
 import ParkCard from '@/components/ParkCard';
 import { SITE_URL } from '@/lib/metadata';
+import { getAffiliateProduct } from '@/lib/affiliate-products';
+import AffiliateProductBox from '@/components/blog/AffiliateProductBox';
 
 // ISR: cache rendered post pages at the edge CDN for 24 hours.
 // On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
@@ -184,10 +186,14 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const reviewer = post.factCheckedBy || post.reviewedBy;
   const reviewerRole = post.factCheckedBy ? 'Fact-checked by' : 'Reviewed by';
+  const affiliateProduct = getAffiliateProduct(slug);
 
   return (
     <>
       <StructuredData type="BlogPosting" data={post} />
+      {affiliateProduct && (
+        <StructuredData type="ProductReview" data={post} product={affiliateProduct} />
+      )}
       {/* Add Video structured data if videos are present */}
       {videos.length > 0 && videos.map((video, index) => (
         <script
@@ -470,6 +476,11 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
               </div>
 
+              {/* Affiliate Product Review Summary Box (Top of Post) */}
+              {affiliateProduct && (
+                <AffiliateProductBox product={affiliateProduct} variant="top" />
+              )}
+
               {/* Article Content - First Half */}
               <div
                 className="prose prose-lg max-w-none blog-content"
@@ -485,6 +496,13 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="prose prose-lg max-w-none blog-content mt-6"
                   dangerouslySetInnerHTML={{ __html: contentParts.secondHalf }}
                 />
+              )}
+
+              {/* Affiliate Product Review Summary Box (Bottom of Post) */}
+              {affiliateProduct && (
+                <div className="mt-8">
+                  <AffiliateProductBox product={affiliateProduct} variant="bottom" />
+                </div>
               )}
             </article>
 

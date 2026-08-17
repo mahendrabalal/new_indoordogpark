@@ -9,7 +9,7 @@ import FAQSection from '@/components/FAQSection';
 import StatePageStyles from './StatePageStyles';
 import { SITE_URL, createMetaDescription, createSEOTitle, generateBreadcrumbSchema } from '@/lib/metadata';
 import { getStateContentBySlug } from '@/lib/state-page-data';
-
+import { getStateGuides } from '@/lib/city-guides';
 
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllStates } from '@/lib/stateData';
@@ -149,6 +149,8 @@ export default async function StatePage({ params }: StatePageProps) {
     });
   };
 
+  const stateGuides = getStateGuides(state.slug) || getStateGuides(slug) || getStateGuides(state.abbr);
+
   return (
     <>
       <script
@@ -176,10 +178,15 @@ export default async function StatePage({ params }: StatePageProps) {
               <h1>{customContent?.heroHeading || `Dog Parks in ${state.name}`}</h1>
               <div className="hero-description">
                 {(() => {
-                  const description = customContent?.heroDescription ||
+                  let description = customContent?.heroDescription ||
                     (indexable
                       ? `Explore ${formatNumber(stats.totalParks)} verified dog-friendly spots across ${state.name}. Browse the best-covered cities, compare ratings, and plan your next visit.\n\nOur directory includes detailed information on each location, including user reviews, photos, amenities, and real-time availability where available.`
                       : `We're building out our verified directory for ${state.name}. Browse nearby cities now, or submit a park to help us review and publish more dog-friendly spots.\n\nHelp us grow by contributing your favorite local spots and sharing your experiences with the community.`);
+                  
+                  if (stateGuides.length > 0) {
+                    description += `\n\nLooking for localized indoor recommendations? Check out our in-depth regional guides: ${stateGuides.map((g) => `[${g.title}](${g.guideUrl})`).join(', ')}.`;
+                  }
+                  
                   const paragraphs = description.split('\n\n').filter(Boolean);
                   return paragraphs.map((para, idx) => (
                     <p key={idx}>{renderMarkdownContent(para)}</p>
@@ -292,6 +299,41 @@ export default async function StatePage({ params }: StatePageProps) {
             )}
           </div>
         </section>
+
+        {stateGuides && stateGuides.length > 0 && (
+          <section className="state-section state-guides-section">
+            <div className="section-shell">
+              <div className="section-heading">
+                <div className="section-eyebrow">Expert Regional Guides</div>
+                <h2>Featured Dog Park Guides in {state.name}</h2>
+                <p>In-depth, veterinarian-vetted guides to the best climate-controlled play spaces across {state.name}.</p>
+              </div>
+              <div className="state-guides-grid">
+                {stateGuides.map((guide) => (
+                  <article key={guide.guideUrl} className="state-guide-card">
+                    <div className="state-guide-badge-row">
+                      <span className="state-guide-badge">
+                        <i className="bi bi-journal-bookmark-fill" /> {guide.badge || 'Local Guide'}
+                      </span>
+                      <span className="state-guide-meta">
+                        <i className="bi bi-clock" /> {guide.readTime}
+                      </span>
+                    </div>
+                    <h3 className="state-guide-title">
+                      <Link href={guide.guideUrl}>{guide.title}</Link>
+                    </h3>
+                    <p className="state-guide-desc">{guide.description}</p>
+                    <div className="state-guide-footer">
+                      <Link href={guide.guideUrl} className="state-guide-link">
+                        Read full guide <i className="bi bi-arrow-right" />
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <FAQSection
           cityName={state.name}

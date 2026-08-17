@@ -1,13 +1,15 @@
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { SITE_URL } from '@/lib/metadata';
+import { AffiliateProduct } from '@/lib/affiliate-products';
 
 interface StructuredDataProps {
-  type: 'BlogPosting' | 'Blog' | 'BreadcrumbList';
+  type: 'BlogPosting' | 'Blog' | 'BreadcrumbList' | 'ProductReview';
   data: BlogPost | BlogPost[] | { categories?: WPCategory[]; tags?: WPTag[] } | Record<string, never>;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  product?: AffiliateProduct;
 }
 
-export default function StructuredData({ type, data, breadcrumbs }: StructuredDataProps) {
+export default function StructuredData({ type, data, breadcrumbs, product }: StructuredDataProps) {
   const generateStructuredData = () => {
     switch (type) {
       case 'BlogPosting':
@@ -16,6 +18,8 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         return generateBlogData(data as BlogPost[]);
       case 'BreadcrumbList':
         return generateBreadcrumbData(breadcrumbs || []);
+      case 'ProductReview':
+        return generateProductReviewData(data as BlogPost, product);
       default:
         return {};
     }
@@ -178,6 +182,56 @@ export default function StructuredData({ type, data, breadcrumbs }: StructuredDa
         name: breadcrumb.name,
         item: breadcrumb.url.startsWith('http') ? breadcrumb.url : `${SITE_URL}${breadcrumb.url.startsWith('/') ? '' : '/'}${breadcrumb.url}`,
       })),
+    };
+  };
+
+  const generateProductReviewData = (post: BlogPost, prod?: AffiliateProduct) => {
+    const baseUrl = SITE_URL;
+    if (!prod) return {};
+
+    const featuredImage = post.featuredImage?.source_url ||
+      post.featuredImage?.media_details?.sizes?.large?.source_url ||
+      `${baseUrl}/images/logo/logo.png`;
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: prod.productName,
+      image: featuredImage,
+      description: prod.description,
+      brand: {
+        '@type': 'Brand',
+        name: prod.brand,
+      },
+      review: {
+        '@type': 'Review',
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: String(prod.rating),
+          bestRating: '5',
+          worstRating: '1',
+        },
+        author: {
+          '@type': 'Person',
+          name: post.author?.name || 'Indoor Dog Park Review Team',
+        },
+        reviewBody: post.excerpt.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim(),
+        datePublished: post.date,
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: String(prod.rating),
+        reviewCount: String(prod.reviewCount),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'USD',
+        priceRange: prod.priceRange || '$$',
+        url: prod.amazonUrl,
+        availability: 'https://schema.org/InStock',
+      },
     };
   };
 

@@ -401,6 +401,95 @@ export default function StatePageStyles() {
           margin: 0 auto;
         }
       }
+
+      /* State Guides Grid & Cards */
+      .state-guides-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+      }
+
+      .state-guide-card {
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 24px 28px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .state-guide-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+        border-color: #cbd5e1;
+      }
+
+      .state-guide-badge-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .state-guide-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(2, 132, 199, 0.1);
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        text-transform: uppercase;
+      }
+
+      .state-guide-meta {
+        font-size: 13px;
+        color: #64748b;
+      }
+
+      .state-guide-title {
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.35;
+        margin: 0 0 10px 0;
+        color: #0f172a;
+      }
+
+      .state-guide-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .state-guide-title a:hover {
+        color: #0284c7;
+      }
+
+      .state-guide-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #475569;
+        margin: 0 0 16px 0;
+        flex: 1;
+      }
+
+      .state-guide-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0284c7;
+        text-decoration: none;
+      }
+
+      .state-guide-link:hover {
+        color: #0369a1;
+        text-decoration: underline;
+      }
     `}</style>
   );
 }
