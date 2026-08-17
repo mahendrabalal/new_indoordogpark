@@ -13,7 +13,7 @@ import CitiesPageStyles from './CitiesPageStyles';
 import CityDirectory from '@/components/CityDirectory';
 
 
-export const revalidate = 3600; // hourly
+export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
     title: 'Top Dog-Friendly Cities | Indoor Dog Park Directory',

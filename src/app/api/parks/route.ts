@@ -4,7 +4,7 @@ import { sanityServerClient } from '@/lib/sanity-server';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
 import { getAllStaticParks, mapSanitySubmissionToDogPark } from '@/lib/parks-data';
 
-export const revalidate = 1800; // Cache for 30 minutes to minimize Supabase egress
+export const dynamic = 'force-dynamic'; // API routes using request.url must be dynamic
 
 export async function GET(request: Request) {
   try {

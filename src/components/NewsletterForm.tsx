@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useId, useMemo, useRef, useState, FormEvent } from 'react';
+import { useEffect, useId, useRef, useState, FormEvent } from 'react';
 
 interface NewsletterFormProps {
     type: 'owner' | 'consumer';
     source: string;
     className?: string;
     variant?: 'light' | 'dark';
+    defaultCity?: string;
+    defaultState?: string;
 }
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,6 +18,8 @@ export default function NewsletterForm({
     source,
     className = '',
     variant = 'light',
+    defaultCity = '',
+    defaultState = '',
 }: NewsletterFormProps) {
     const [selectedType, setSelectedType] = useState<'owner' | 'consumer'>(initialType);
     const [email, setEmail] = useState('');
@@ -24,8 +28,8 @@ export default function NewsletterForm({
     const [parkName, setParkName] = useState('');
     const [website, setWebsite] = useState('');
     const [streetAddress, setStreetAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
+    const [city, setCity] = useState(defaultCity);
+    const [state, setState] = useState(defaultState);
     const [zipCode, setZipCode] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');
@@ -48,6 +52,12 @@ export default function NewsletterForm({
         'SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC'
     ];
 
+    // If defaultCity or defaultState changes, update state
+    useEffect(() => {
+        if (defaultCity) setCity(defaultCity);
+        if (defaultState) setState(defaultState);
+    }, [defaultCity, defaultState]);
+
     // If the user edits inputs after an error, reset to idle so styling + messaging stays responsive.
     useEffect(() => {
         if (status !== 'error') return;
@@ -62,8 +72,8 @@ export default function NewsletterForm({
         const trimmedEmail = email.trim();
         const trimmedName = name.trim();
         const trimmedParkName = parkName.trim();
-        const trimmedCity = city.trim();
-        const trimmedState = state.trim();
+        const trimmedCity = (city || defaultCity).trim();
+        const trimmedState = (state || defaultState).trim();
         const trimmedZip = zipCode.trim();
         const trimmedPhone = phone.trim();
         const trimmedWebsite = website.trim();
@@ -162,8 +172,8 @@ export default function NewsletterForm({
                 setParkName('');
                 setWebsite('');
                 setStreetAddress('');
-                setCity('');
-                setState('');
+                if (!defaultCity) setCity('');
+                if (!defaultState) setState('');
                 setZipCode('');
             } else {
                 setStatus('error');
@@ -181,9 +191,6 @@ export default function NewsletterForm({
 
     return (
         <div className={`newsletter-premium-wrapper newsletter-premium-wrapper--${variant} ${className}`}>
-            {/* Decorative top accent */}
-            <div className="newsletter-premium-accent" aria-hidden="true" />
-            
             {/* User Type Toggle */}
             <div className="newsletter-premium-toggle" role="tablist" aria-label="Newsletter audience">
                 <div
@@ -222,241 +229,219 @@ export default function NewsletterForm({
             <form onSubmit={handleSubmit} className="newsletter-premium-form" aria-describedby={message ? `${formId}-message` : undefined}>
                 <div id={`${formId}-panel`} role="tabpanel">
                     
-                    {/* Section: Contact Information */}
-                    <div className="newsletter-premium-section">
-                        <div className="newsletter-premium-section-label">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
-                                <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            Contact Information
-                        </div>
-                        
-                        {/* Name */}
-                        <div className="newsletter-premium-field">
-                            <label htmlFor={`newsletter-name-${source}`} className="sr-only">Your Name</label>
-                            <div className="newsletter-premium-input-wrap">
-                                <input
-                                    id={`newsletter-name-${source}`}
-                                    type="text"
-                                    value={name}
-                                    ref={nameInputRef}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder={selectedType === 'owner' ? "Contact name" : "Your name"}
-                                    required
-                                    disabled={status === 'loading' || status === 'success'}
-                                    className={inputBaseClass}
-                                />
-                                <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                    {selectedType === 'consumer' ? (
+                        /* Dog Owner (Consumer) - Streamlined and compact */
+                        <>
+                            <div className="newsletter-premium-fields-group">
+                                {/* Name */}
+                                <div className="newsletter-premium-field">
+                                    <label htmlFor={`newsletter-name-${source}`} className="sr-only">Your Name</label>
+                                    <div className="newsletter-premium-input-wrap">
+                                        <input
+                                            id={`newsletter-name-${source}`}
+                                            type="text"
+                                            value={name}
+                                            ref={nameInputRef}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder="Your name"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
+                                        <div className="newsletter-premium-input-icon" aria-hidden="true">
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
+                                                <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        {/* Email */}
-                        <div className="newsletter-premium-field">
-                            <label htmlFor={`newsletter-email-${source}`} className="sr-only">Your Email</label>
-                            <div className="newsletter-premium-input-wrap">
-                                <input
-                                    id={`newsletter-email-${source}`}
-                                    type="email"
-                                    name="email"
-                                    value={email}
-                                    ref={emailInputRef}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder={selectedType === 'owner' ? "Business email" : "Email address"}
-                                    required
-                                    disabled={status === 'loading' || status === 'success'}
-                                    aria-invalid={status === 'error' ? true : undefined}
-                                    className={inputBaseClass}
-                                />
-                                <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                    {status === 'loading' ? (
-                                        <div className="newsletter-premium-spinner" />
-                                    ) : (
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <rect x="2" y="4" width="20" height="16" rx="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M22 7l-10 7L2 7" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    )}
+                                {/* Email */}
+                                <div className="newsletter-premium-field">
+                                    <label htmlFor={`newsletter-email-${source}`} className="sr-only">Your Email</label>
+                                    <div className="newsletter-premium-input-wrap">
+                                        <input
+                                            id={`newsletter-email-${source}`}
+                                            type="email"
+                                            name="email"
+                                            value={email}
+                                            ref={emailInputRef}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="Email address"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            aria-invalid={status === 'error' ? true : undefined}
+                                            className={inputBaseClass}
+                                        />
+                                        <div className="newsletter-premium-input-icon" aria-hidden="true">
+                                            {status === 'loading' ? (
+                                                <div className="newsletter-premium-spinner" />
+                                            ) : (
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <rect x="2" y="4" width="20" height="16" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M22 7l-10 7L2 7" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        {/* Phone (Owner only) */}
-                        {selectedType === 'owner' && (
-                            <div className="newsletter-premium-field">
-                                <label htmlFor={`newsletter-phone-${source}`} className="sr-only">Phone Number</label>
-                                <div className="newsletter-premium-input-wrap">
-                                    <input
-                                        id={`newsletter-phone-${source}`}
-                                        type="tel"
-                                        value={phone}
-                                        onChange={(e) => setPhone(e.target.value)}
-                                        placeholder="Phone number (optional)"
-                                        disabled={status === 'loading' || status === 'success'}
-                                        className={inputBaseClass}
-                                    />
-                                    <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
+                                {/* Location row if no default city is set */}
+                                {!defaultCity && (
+                                    <div className="newsletter-premium-row">
+                                        <div className="newsletter-premium-field newsletter-premium-field--grow">
+                                            <label htmlFor={`newsletter-city-${source}`} className="sr-only">City</label>
+                                            <input
+                                                id={`newsletter-city-${source}`}
+                                                type="text"
+                                                value={city}
+                                                ref={cityInputRef}
+                                                onChange={(e) => setCity(e.target.value)}
+                                                placeholder="City"
+                                                disabled={status === 'loading' || status === 'success'}
+                                                className={inputBaseClass}
+                                            />
+                                        </div>
+                                        <div className="newsletter-premium-field newsletter-premium-field--state">
+                                            <label htmlFor={`newsletter-state-${source}`} className="sr-only">State</label>
+                                            <select
+                                                id={`newsletter-state-${source}`}
+                                                value={state}
+                                                ref={stateInputRef as any}
+                                                onChange={(e) => setState(e.target.value)}
+                                                disabled={status === 'loading' || status === 'success'}
+                                                className={selectBaseClass}
+                                            >
+                                                <option value="">State</option>
+                                                {usStates.map(s => (
+                                                    <option key={s} value={s}>{s}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="newsletter-premium-field newsletter-premium-field--zip">
+                                            <label htmlFor={`newsletter-zip-${source}`} className="sr-only">Zip Code</label>
+                                            <input
+                                                id={`newsletter-zip-${source}`}
+                                                type="text"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
+                                                maxLength={10}
+                                                value={zipCode}
+                                                ref={zipInputRef}
+                                                onChange={(e) => setZipCode(e.target.value)}
+                                                placeholder="Zip"
+                                                disabled={status === 'loading' || status === 'success'}
+                                                className={inputBaseClass}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </>
+                    ) : (
+                        /* Park Owner - Clean and structured */
+                        <>
+                            <div className="newsletter-premium-fields-group">
+                                {/* Park Name */}
+                                <div className="newsletter-premium-field">
+                                    <label htmlFor={`newsletter-park-${source}`} className="sr-only">Park Name</label>
+                                    <div className="newsletter-premium-input-wrap">
+                                        <input
+                                            id={`newsletter-park-${source}`}
+                                            type="text"
+                                            value={parkName}
+                                            onChange={(e) => setParkName(e.target.value)}
+                                            ref={parkNameInputRef}
+                                            placeholder="Park / Business name"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Name & Email Row */}
+                                <div className="newsletter-premium-row">
+                                    <div className="newsletter-premium-field newsletter-premium-field--grow">
+                                        <label htmlFor={`newsletter-name-${source}`} className="sr-only">Contact Name</label>
+                                        <input
+                                            id={`newsletter-name-${source}`}
+                                            type="text"
+                                            value={name}
+                                            ref={nameInputRef}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder="Contact name"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
+                                    </div>
+                                    <div className="newsletter-premium-field newsletter-premium-field--grow">
+                                        <label htmlFor={`newsletter-email-${source}`} className="sr-only">Business Email</label>
+                                        <input
+                                            id={`newsletter-email-${source}`}
+                                            type="email"
+                                            value={email}
+                                            ref={emailInputRef}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="Business email"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* City, State & Website/Phone */}
+                                <div className="newsletter-premium-row">
+                                    <div className="newsletter-premium-field newsletter-premium-field--grow">
+                                        <label htmlFor={`newsletter-city-${source}`} className="sr-only">City</label>
+                                        <input
+                                            id={`newsletter-city-${source}`}
+                                            type="text"
+                                            value={city}
+                                            ref={cityInputRef}
+                                            onChange={(e) => setCity(e.target.value)}
+                                            placeholder="City"
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
+                                    </div>
+                                    <div className="newsletter-premium-field newsletter-premium-field--state">
+                                        <label htmlFor={`newsletter-state-${source}`} className="sr-only">State</label>
+                                        <select
+                                            id={`newsletter-state-${source}`}
+                                            value={state}
+                                            ref={stateInputRef as any}
+                                            onChange={(e) => setState(e.target.value)}
+                                            required
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={selectBaseClass}
+                                        >
+                                            <option value="">State</option>
+                                            {usStates.map(s => (
+                                                <option key={s} value={s}>{s}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className="newsletter-premium-field newsletter-premium-field--grow">
+                                        <label htmlFor={`newsletter-phone-${source}`} className="sr-only">Phone</label>
+                                        <input
+                                            id={`newsletter-phone-${source}`}
+                                            type="tel"
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
+                                            placeholder="Phone (optional)"
+                                            disabled={status === 'loading' || status === 'success'}
+                                            className={inputBaseClass}
+                                        />
                                     </div>
                                 </div>
                             </div>
-                        )}
-                    </div>
-
-                    {/* Section: Park Details (Owner only) */}
-                    {selectedType === 'owner' && (
-                        <div className="newsletter-premium-section">
-                            <div className="newsletter-premium-section-label">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeLinecap="round" strokeLinejoin="round" />
-                                    <polyline points="9 22 9 12 15 12 15 22" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                Park Details
-                            </div>
-
-                            {/* Park Name */}
-                            <div className="newsletter-premium-field">
-                                <label htmlFor={`newsletter-park-${source}`} className="sr-only">Park Name</label>
-                                <div className="newsletter-premium-input-wrap">
-                                    <input
-                                        id={`newsletter-park-${source}`}
-                                        type="text"
-                                        value={parkName}
-                                        onChange={(e) => setParkName(e.target.value)}
-                                        ref={parkNameInputRef}
-                                        placeholder="Indoor dog park name"
-                                        required
-                                        disabled={status === 'loading' || status === 'success'}
-                                        className={inputBaseClass}
-                                    />
-                                    <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Website */}
-                            <div className="newsletter-premium-field">
-                                <label htmlFor={`newsletter-website-${source}`} className="sr-only">Website</label>
-                                <div className="newsletter-premium-input-wrap">
-                                    <input
-                                        id={`newsletter-website-${source}`}
-                                        type="url"
-                                        value={website}
-                                        onChange={(e) => setWebsite(e.target.value)}
-                                        placeholder="Website URL (optional)"
-                                        disabled={status === 'loading' || status === 'success'}
-                                        className={inputBaseClass}
-                                    />
-                                    <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" />
-                                            <line x1="2" y1="12" x2="22" y2="12" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </>
                     )}
-
-                    {/* Section: Address */}
-                    <div className="newsletter-premium-section">
-                        <div className="newsletter-premium-section-label">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" strokeLinecap="round" strokeLinejoin="round" />
-                                <circle cx="12" cy="10" r="3" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            {selectedType === 'owner' ? 'Park Address' : 'Your Location'}
-                        </div>
-
-                        {/* Street Address (Owner only) */}
-                        {selectedType === 'owner' && (
-                            <div className="newsletter-premium-field">
-                                <label htmlFor={`newsletter-street-${source}`} className="sr-only">Street Address</label>
-                                <div className="newsletter-premium-input-wrap">
-                                    <input
-                                        id={`newsletter-street-${source}`}
-                                        type="text"
-                                        value={streetAddress}
-                                        onChange={(e) => setStreetAddress(e.target.value)}
-                                        placeholder="Street address (optional)"
-                                        disabled={status === 'loading' || status === 'success'}
-                                        className={inputBaseClass}
-                                    />
-                                    <div className="newsletter-premium-input-icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" strokeLinecap="round" strokeLinejoin="round" />
-                                            <circle cx="12" cy="10" r="3" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* City + State Row */}
-                        <div className="newsletter-premium-row">
-                            <div className="newsletter-premium-field newsletter-premium-field--grow">
-                                <label htmlFor={`newsletter-city-${source}`} className="sr-only">City</label>
-                                <input
-                                    id={`newsletter-city-${source}`}
-                                    type="text"
-                                    value={city}
-                                    ref={cityInputRef}
-                                    onChange={(e) => setCity(e.target.value)}
-                                    placeholder="City"
-                                    required={selectedType === 'owner'}
-                                    disabled={status === 'loading' || status === 'success'}
-                                    className={inputBaseClass}
-                                />
-                            </div>
-                            <div className="newsletter-premium-field newsletter-premium-field--state">
-                                <label htmlFor={`newsletter-state-${source}`} className="sr-only">State</label>
-                                <select
-                                    id={`newsletter-state-${source}`}
-                                    value={state}
-                                    ref={stateInputRef as any}
-                                    onChange={(e) => setState(e.target.value)}
-                                    required={selectedType === 'owner'}
-                                    disabled={status === 'loading' || status === 'success'}
-                                    className={selectBaseClass}
-                                >
-                                    <option value="">State</option>
-                                    {usStates.map(s => (
-                                        <option key={s} value={s}>{s}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-
-                        {/* Zip Code */}
-                        <div className="newsletter-premium-field newsletter-premium-field--zip">
-                            <label htmlFor={`newsletter-zip-${source}`} className="sr-only">Zip Code</label>
-                            <input
-                                id={`newsletter-zip-${source}`}
-                                type="text"
-                                inputMode="numeric"
-                                pattern="[0-9]*"
-                                maxLength={10}
-                                value={zipCode}
-                                ref={zipInputRef}
-                                onChange={(e) => setZipCode(e.target.value)}
-                                placeholder={selectedType === 'owner' ? "Zip code" : "Zip code (for local alerts)"}
-                                disabled={status === 'loading' || status === 'success'}
-                                className={inputBaseClass}
-                            />
-                        </div>
-                    </div>
 
                     {/* Submit Button */}
                     <div className="newsletter-premium-submit-wrap">
@@ -472,7 +457,7 @@ export default function NewsletterForm({
                                 </span>
                             ) : status === 'success' ? (
                                 <span className="newsletter-premium-submit-success">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                                         <polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     Welcome to the Pack!
@@ -480,7 +465,7 @@ export default function NewsletterForm({
                             ) : (
                                 <span className="newsletter-premium-submit-text">
                                     {selectedType === 'owner' ? 'Join Partner Network' : 'Join the Pack'}
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                                         <line x1="5" y1="12" x2="19" y2="12" strokeLinecap="round" strokeLinejoin="round" />
                                         <polyline points="12 5 19 12 12 19" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
@@ -489,11 +474,11 @@ export default function NewsletterForm({
                         </button>
 
                         <p className="newsletter-premium-disclaimer">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            Your information is secure. We&apos;ll only email you when we have something worth sharing. Unsubscribe anytime.
+                            Your info is secure. Unsubscribe anytime.
                         </p>
                     </div>
                 </div>
@@ -507,12 +492,12 @@ export default function NewsletterForm({
                 >
                     <div className="newsletter-premium-message-inner">
                         {status === 'success' ? (
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" strokeLinecap="round" strokeLinejoin="round" />
                                 <polyline points="22 4 12 14.01 9 11.01" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         ) : (
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                                 <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" />
                                 <line x1="12" y1="8" x2="12" y2="12" strokeLinecap="round" strokeLinejoin="round" />
                                 <line x1="12" y1="16" x2="12.01" y2="16" strokeLinecap="round" strokeLinejoin="round" />

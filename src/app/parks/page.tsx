@@ -4,7 +4,7 @@ import { getAllStaticParks } from '@/lib/parks-data';
 import { SITE_URL } from '@/lib/metadata';
 import ParksDirectoryClient from './ParksDirectoryClient';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 const siteUrl = SITE_URL || 'https://www.indoordogpark.org';
 

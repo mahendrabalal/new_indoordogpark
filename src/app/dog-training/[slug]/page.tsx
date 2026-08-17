@@ -15,6 +15,7 @@ import { getParkReviews } from '@/lib/reviews-data';
 import { getRelatedBlogPosts } from '@/lib/related-content';
 import { getParkUrl } from '@/lib/routing';
 import { isDogTrainingFacility } from '@/lib/routing';
+import ParkPhotoGallery from '@/components/ParkPhotoGallery';
 
 
 type ParkPageProps = {
@@ -68,8 +69,18 @@ function getStateAbbr(state: string | undefined): string {
   return abbrMap[state] || state.substring(0, 2).toUpperCase();
 }
 
-// Cache at the edge for 1 hour to prevent massive Vercel compute bills on high-traffic pages
-export const revalidate = 3600;
+// Cache at the edge for 24 hours to prevent Vercel compute bills
+export const revalidate = 86400;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const parks = await getAllStaticParks();
+  return parks
+    .filter((p) => isDogTrainingFacility(p))
+    .map((park) => ({
+      slug: park.slug || park.id,
+    }));
+}
 
 export async function generateMetadata({ params }: ParkPageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -267,6 +278,15 @@ export default async function ParkDetailPage({ params }: ParkPageProps) {
 
 
         <div className="container park-detail-container">
+          <ParkPhotoGallery
+            photos={park.photos}
+            primaryPhoto={park.photo}
+            parkName={park.name}
+            parkCity={park.city}
+            parkState={park.state}
+            listingSlug={canonicalSlug}
+          />
+
           <div className="premium-content-grid">
             <div className="premium-main-column">
               <section className="premium-content-section">

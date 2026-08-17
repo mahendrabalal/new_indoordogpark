@@ -11,14 +11,25 @@ import { SITE_URL, createMetaDescription, createSEOTitle, generateBreadcrumbSche
 import { getStateContentBySlug } from '@/lib/state-page-data';
 
 
+import { getAllParksForStateAggregation } from '@/lib/state-page-data';
+import { getAllStates } from '@/lib/stateData';
+
 type StatePageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
 
-export const revalidate = 3600; // hourly
-// Render on-demand (ISR) but cached at edge to avoid prebuilding all state paths
+export const revalidate = 86400; // 24 hours
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const allParks = await getAllParksForStateAggregation();
+  const states = getAllStates(allParks);
+  return states.map((state) => ({
+    slug: state.slug,
+  }));
+}
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);

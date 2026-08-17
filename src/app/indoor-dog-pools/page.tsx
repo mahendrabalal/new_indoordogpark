@@ -87,7 +87,7 @@ function filterIndoorDogPools(parks: DogPark[]): DogPark[] {
   });
 }
 
-export const revalidate = 3600; // Refresh hourly
+export const revalidate = 86400; // 24 hours
 
 export default async function IndoorDogPoolsPage() {
   // Get all parks and filter for those with pools

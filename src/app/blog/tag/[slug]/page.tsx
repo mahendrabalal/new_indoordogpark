@@ -8,7 +8,20 @@ import { WPTag, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedTags } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
-export const revalidate = 300; // ISR: revalidate every 5 minutes
+export const revalidate = 86400; // 24 hours
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const tags = await getCachedTags();
+    return tags.map((tag: any) => ({
+      slug: tag.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params for tags:', error);
+    return [];
+  }
+}
 
 interface TagPageProps {
   params: Promise<{

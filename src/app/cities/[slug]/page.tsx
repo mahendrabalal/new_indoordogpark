@@ -27,14 +27,29 @@ import CityPremiumSpotlight from '@/components/CityPremiumSpotlight';
 import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 
 
+import { getAllParksForStateAggregation } from '@/lib/state-page-data';
+import { getAllCities } from '@/lib/cityData';
+import { getAllCityContent } from '@/lib/sanity-content';
+import { getCityGuide } from '@/lib/city-guides';
+
 interface CityPageProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
-// Render on-demand but cache at the edge (ISR) to prevent massive Vercel compute bills
-export const revalidate = 3600; // Cache for 1 hour
+// Render statically at build time & cache at the edge for 24 hours
+export const revalidate = 86400;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const allParks = await getAllParksForStateAggregation();
+  const cityContent = await getAllCityContent();
+  const allCities = getAllCities(allParks, cityContent);
+  return allCities.map((city) => ({
+    slug: city.slug,
+  }));
+}
 
 /** Index city pages once we have at least three verified listings (directory has real value). Cities with fewer than three listings stay noindex — including synthetic "coming soon" fallbacks. Three listings ensures the page has enough substantive content for AdSense compliance. */
 function shouldIndexCity(totalParks: number) {
@@ -103,13 +118,18 @@ function buildUniqueHeroDescription(params: {
   const { cityName, state, totalParks, indoorCount, slug } = params;
 
   const weatherContext = getWeatherContext(slug);
+  const cityGuide = getCityGuide(slug);
 
-  const inventoryLine =
+  let inventoryLine =
     totalParks > 0
       ? indoorCount > 0
         ? `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
         : `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`
       : `${weatherContext}. We are actively expanding our directory of dog-friendly spots and canine parks in ${cityName}, ${state}. Explore local rules, tips, and nearby options while we verify new listings.`;
+
+  if (cityGuide) {
+    inventoryLine += ` Read our in-depth local guide: [${cityGuide.title}](${cityGuide.guideUrl}).`;
+  }
 
   return inventoryLine;
 }
@@ -510,9 +530,11 @@ export default async function CityPage({ params }: CityPageProps) {
   };
 
   const ownerCta = customContent?.ownerCta || defaultOwnerCta;
+  const cityGuide = getCityGuide(city.slug) || getCityGuide(slug);
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
+    ...(cityGuide ? [{ id: 'featured-guide', title: 'Local Expert Guide', level: 1 }] : []),
     { id: 'park-collections', title: 'Park Collections', level: 1 },
     { id: 'map-and-neighborhoods', title: 'Map & Neighborhoods', level: 1 },
     { id: 'park-directory', title: 'Full Directory', level: 1 },
@@ -613,21 +635,48 @@ export default async function CityPage({ params }: CityPageProps) {
                   });
                 };
 
+                // Unify and deduplicate descriptions across cities seamlessly
+                const rawHeroParagraphs = (heroDescriptionCopy || '')
+                  .split(/\n\s*\n/)
+                  .map((p) => p.trim())
+                  .filter(Boolean);
+
+                const rawLongParagraphs = (customContent?.longDescription || [])
+                  .map((p) => (typeof p === 'string' ? p.trim() : ''))
+                  .filter(Boolean);
+
+                // Lead paragraph: use heroDescription if available, else first item of longDescription
+                const leadParagraph = rawHeroParagraphs[0] || rawLongParagraphs[0] || '';
+
+                // Body paragraphs: collect remaining paragraphs without duplicates
+                const bodyParagraphs: string[] = [];
+
+                // Add any extra paragraphs from heroDescription (if multi-paragraph was pasted)
+                for (let i = 1; i < rawHeroParagraphs.length; i++) {
+                  const p = rawHeroParagraphs[i];
+                  if (p && p !== leadParagraph && !bodyParagraphs.includes(p)) {
+                    bodyParagraphs.push(p);
+                  }
+                }
+
+                // Add longDescription paragraphs (skipping any duplicate of leadParagraph)
+                for (const p of rawLongParagraphs) {
+                  if (p && p !== leadParagraph && !bodyParagraphs.includes(p)) {
+                    bodyParagraphs.push(p);
+                  }
+                }
+
                 return (
                   <>
-                    {heroDescriptionCopy
-                      .split(/\n\s*\n/)
-                      .map((p) => p.trim())
-                      .filter(Boolean)
-                      .map((para, pIdx) => (
-                        <p key={pIdx} className="hero-description">
-                          {parseInline(para)}
-                        </p>
-                      ))}
+                    {leadParagraph && (
+                      <p className="hero-description">
+                        {parseInline(leadParagraph)}
+                      </p>
+                    )}
 
-                    {customContent?.longDescription && customContent.longDescription.length > 0 && (
+                    {bodyParagraphs.length > 0 && (
                       <div className="city-rich-description">
-                        {customContent.longDescription.map((para, idx) => {
+                        {bodyParagraphs.map((para, idx) => {
                           if (para.startsWith('### ')) {
                             return <h3 key={idx} className="rich-description-h3">{parseInline(para.slice(4))}</h3>;
                           }
@@ -706,6 +755,35 @@ export default async function CityPage({ params }: CityPageProps) {
 
 
         <CityPremiumSpotlight city={city.name} state={city.state} />
+
+        {cityGuide && (
+          <section id="featured-guide" className="city-guide-spotlight-section">
+            <div className="section-shell">
+              <div className="city-guide-card">
+                <div className="city-guide-badge-row">
+                  <span className="city-guide-pill">
+                    <i className="bi bi-journal-bookmark-fill" /> {cityGuide.badge || 'Local Expert Guide'}
+                  </span>
+                  <span className="city-guide-meta">
+                    <i className="bi bi-clock" /> {cityGuide.readTime} · {cityGuide.publishDate}
+                  </span>
+                </div>
+                <h2 className="city-guide-title">
+                  <Link href={cityGuide.guideUrl}>
+                    {cityGuide.title}
+                  </Link>
+                </h2>
+                <p className="city-guide-description">{cityGuide.description}</p>
+                <div className="city-guide-action-row">
+                  <Link href={cityGuide.guideUrl} className="city-guide-btn">
+                    <span>Read Full {city.name} Guide</span>
+                    <i className="bi bi-arrow-right" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
 
 
@@ -820,17 +898,17 @@ export default async function CityPage({ params }: CityPageProps) {
 
 
 
-        <section id="newsletter-optin" className="newsletter-optin-section" style={{ padding: '60px 0' }}>
+        <section id="newsletter-optin" className="newsletter-optin-section" style={{ padding: '36px 0' }}>
           <div className="section-shell">
             <div style={{ 
               position: 'relative',
-              padding: '64px 48px', 
+              padding: '28px 32px', 
               background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)', 
-              borderRadius: '32px', 
-              boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.5)', 
+              borderRadius: '20px', 
+              boxShadow: '0 16px 36px -10px rgba(15, 23, 42, 0.4)', 
               display: 'flex', 
               flexWrap: 'wrap', 
-              gap: '48px', 
+              gap: '24px', 
               alignItems: 'center',
               overflow: 'hidden'
             }}>
@@ -838,18 +916,18 @@ export default async function CityPage({ params }: CityPageProps) {
               <div style={{ position: 'absolute', top: '-30%', left: '-10%', width: '60%', height: '160%', background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
               <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '70%', height: '150%', background: 'radial-gradient(circle, rgba(255,87,34,0.15) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
               
-              <div style={{ flex: '1 1 300px', position: 'relative', zIndex: 10 }}>
-                <span style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(255,87,34,0.1)', border: '1px solid rgba(255,87,34,0.2)', borderRadius: '999px', fontSize: '0.875rem', fontWeight: 700, color: '#FF5722', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>Stay Updated</span>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', margin: '0', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
+              <div style={{ flex: '1 1 260px', position: 'relative', zIndex: 10 }}>
+                <span style={{ display: 'inline-block', padding: '4px 10px', background: 'rgba(255,87,34,0.1)', border: '1px solid rgba(255,87,34,0.2)', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700, color: '#FF5722', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>Stay Updated</span>
+                <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', margin: '0', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
                   Join the {city.name} pack
                 </h2>
-                <p style={{ color: '#94a3b8', marginTop: '16px', lineHeight: 1.6, fontSize: '1.125rem', maxWidth: '480px' }}>
-                  Get the latest {city.name} dog park news, local events, and exclusive updates delivered straight to your inbox. Join thousands of other local pet parents.
+                <p style={{ color: '#94a3b8', marginTop: '8px', lineHeight: 1.5, fontSize: '0.92rem', maxWidth: '420px' }}>
+                  Get the latest {city.name} dog park news, local events, and exclusive updates delivered straight to your inbox. Join thousands of local pet parents.
                 </p>
               </div>
-              <div style={{ flex: '1 1 380px', minWidth: '300px', position: 'relative', zIndex: 10 }}>
-                <div style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '24px', padding: '32px', boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)' }}>
-                  <NewsletterForm type="consumer" source={`city_pillar_${city.slug}`} variant="dark" />
+              <div style={{ flex: '1 1 320px', minWidth: '260px', position: 'relative', zIndex: 10 }}>
+                <div style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '16px 18px', boxShadow: '0 4px 24px rgba(0, 0, 0, 0.1)' }}>
+                  <NewsletterForm type="consumer" source={`city_pillar_${city.slug}`} variant="dark" defaultCity={city.name} defaultState={city.state} />
                 </div>
               </div>
             </div>

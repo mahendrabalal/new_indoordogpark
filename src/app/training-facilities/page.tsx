@@ -55,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const revalidate = 3600; // Refresh hourly
+export const revalidate = 86400; // 24 hours
 
 const updatedDate = new Intl.DateTimeFormat('en-US', {
   month: 'long',

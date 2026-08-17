@@ -10,7 +10,8 @@ import { getCachedAuthorBySlug, getCachedPostsByAuthor } from '@/lib/sanity-api'
 import { SITE_URL } from '@/lib/metadata';
 import { WPPaginationInfo } from '@/types/wordpress';
 
-export const revalidate = 300; // ISR: revalidate every 5 minutes
+export const revalidate = 86400; // 24 hours
+export const dynamicParams = true;
 
 interface AuthorPageProps {
   params: Promise<{ slug: string }>;

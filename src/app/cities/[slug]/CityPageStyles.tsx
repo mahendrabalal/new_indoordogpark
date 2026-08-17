@@ -246,6 +246,113 @@ export default function CityPageStyles() {
           border-bottom-color: #E64A19;
         }
 
+        /* City Guide Spotlight Section */
+        .city-guide-spotlight-section {
+          padding: 16px 0 32px;
+          position: relative;
+        }
+
+        .city-guide-card {
+          background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+          border-radius: 16px;
+          padding: 24px 28px;
+          color: #ffffff;
+          box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.25), 0 8px 10px -6px rgba(2, 132, 199, 0.2);
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .city-guide-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 16px 32px -6px rgba(2, 132, 199, 0.35);
+        }
+
+        .city-guide-badge-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-bottom: 12px;
+        }
+
+        .city-guide-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(8px);
+          padding: 4px 12px;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+
+        .city-guide-meta {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.85);
+        }
+
+        .city-guide-title {
+          font-size: 22px;
+          font-weight: 800;
+          line-height: 1.35;
+          margin: 0 0 10px 0;
+          letter-spacing: -0.01em;
+        }
+
+        .city-guide-title a {
+          color: #ffffff;
+          text-decoration: none;
+          transition: opacity 0.2s ease;
+        }
+
+        .city-guide-title a:hover {
+          opacity: 0.9;
+          text-decoration: underline;
+        }
+
+        .city-guide-description {
+          font-size: 15px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          margin: 0 0 18px 0;
+          max-width: 85ch;
+        }
+
+        .city-guide-action-row {
+          display: flex;
+          align-items: center;
+        }
+
+        .city-guide-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #ffffff;
+          color: #0284c7;
+          font-weight: 700;
+          font-size: 14px;
+          padding: 10px 20px;
+          border-radius: 8px;
+          text-decoration: none;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: all 0.2s ease;
+        }
+
+        .city-guide-btn:hover {
+          background: #f8fafc;
+          transform: translateX(3px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }

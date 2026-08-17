@@ -2,6 +2,9 @@
   "name": "dog-parks-nextjs",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "next dev --webpack",
     "dev:turbo": "next dev --turbo",
@@ -68,7 +71,6 @@
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.15.7",
     "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.10"
   }

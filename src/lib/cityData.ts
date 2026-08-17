@@ -23,6 +23,17 @@ export interface CityStats {
   totalReviews: number;
 }
 
+export function findLocalCityHeroImage(candidateSlugs: (string | undefined | null)[]): string | undefined {
+  for (const s of candidateSlugs) {
+    if (!s) continue;
+    const heroPath = path.join(process.cwd(), 'public', 'images', 'cities', s, 'hero.webp');
+    if (fs.existsSync(heroPath)) {
+      return `/images/cities/${s}/hero.webp`;
+    }
+  }
+  return undefined;
+}
+
 /**
  * Get all unique cities with aggregated data
  * @param parks - array of dog parks to aggregate
@@ -79,11 +90,20 @@ export function getAllCities(parks: DogPark[], priorityCityContentOverride?: Pri
     const prioritySlug = priorityConfig?.slug;
     const citySlug = prioritySlug || (needsState ? `${baseSlug}-${stateToSlugPart(cityState)}` : baseSlug);
 
-    // Get featured image - check priority content first, then park photos
+    // Get featured image - check local filesystem hero first, then priority config, then park photos
     let featuredImage: string | undefined;
 
+    // Check for city hero image on filesystem (try exact slug, base slug, state-suffixed slug)
+    const localHero = findLocalCityHeroImage([
+      citySlug,
+      baseSlug,
+      `${baseSlug}-${stateToSlugPart(cityState)}`,
+      prioritySlug,
+    ]);
 
-    if (priorityConfig?.featuredImage) {
+    if (localHero) {
+      featuredImage = localHero;
+    } else if (priorityConfig?.featuredImage) {
       featuredImage = priorityConfig.featuredImage;
       if (featuredImage.startsWith('/')) {
         const absolutePath = path.join(process.cwd(), 'public', featuredImage);
@@ -101,14 +121,6 @@ export function getAllCities(parks: DogPark[], priorityCityContentOverride?: Pri
       } else {
         featuredImage = cityParks.find(p => p.photo)?.photo || undefined;
       }
-    }
-
-    // Check for city hero image on filesystem
-    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', citySlug, 'hero.webp');
-    const cityHeroExists = fs.existsSync(cityHeroPath);
-
-    if (!featuredImage && cityHeroExists) {
-      featuredImage = `/images/cities/${citySlug}/hero.webp`;
     }
 
 

@@ -360,6 +360,11 @@ const nextConfig = {
       },
       // City misspelling redirects
       {
+        source: '/cities/newark-ng',
+        destination: '/cities/newark-nj',
+        permanent: true,
+      },
+      {
         source: '/cities/tuscon',
         destination: '/cities/tucson',
         permanent: true,

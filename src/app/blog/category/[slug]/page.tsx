@@ -8,7 +8,20 @@ import { WPCategory, BlogPost, WPPaginationInfo } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
 
-export const revalidate = 300; // ISR: revalidate every 5 minutes
+export const revalidate = 86400; // 24 hours
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const categories = await getCachedCategories();
+    return categories.map((cat: WPCategory) => ({
+      slug: cat.slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params for categories:', error);
+    return [];
+  }
+}
 
 interface CategoryPageProps {
   params: Promise<{

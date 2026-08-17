@@ -1246,7 +1246,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 65.0,
+      "dailyRate": 65,
       "pricingType": "daily"
     },
     "placeTypes": [
@@ -1471,9 +1471,9 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "hourlyRate": 10.0,
+      "hourlyRate": 10,
       "pricingType": "membership",
-      "dailyRate": 119.0
+      "dailyRate": 119
     },
     "placeTypes": [
       "point_of_interest",
@@ -1811,7 +1811,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 10.0,
+      "dailyRate": 10,
       "pricingType": "daily"
     },
     "placeTypes": [
@@ -2743,7 +2743,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "hourlyRate": 33.0,
+      "hourlyRate": 33,
       "pricingType": "hourly"
     },
     "placeTypes": [
@@ -2898,7 +2898,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 34.0,
+      "dailyRate": 34,
       "pricingType": "membership"
     },
     "placeTypes": [
@@ -2938,7 +2938,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 52.0,
+      "dailyRate": 52,
       "pricingType": "membership"
     },
     "placeTypes": [
@@ -3561,7 +3561,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 65.0,
+      "dailyRate": 65,
       "pricingType": "daily"
     },
     "placeTypes": [
@@ -3678,7 +3678,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 1.0,
+      "dailyRate": 1,
       "pricingType": "membership"
     },
     "placeTypes": [
@@ -3875,7 +3875,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 10.0,
+      "dailyRate": 10,
       "pricingType": "daily"
     },
     "placeTypes": [
@@ -4030,7 +4030,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 5.0,
+      "dailyRate": 5,
       "pricingType": "membership"
     },
     "placeTypes": [
@@ -5864,7 +5864,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 120.0,
+      "dailyRate": 120,
       "pricingType": "daily"
     },
     "placeTypes": [
@@ -7847,9 +7847,9 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 40.0,
+      "dailyRate": 40,
       "pricingType": "monthly",
-      "monthlyRate": 500.0
+      "monthlyRate": 500
     },
     "placeTypes": [
       "point_of_interest",
@@ -8562,44 +8562,6 @@
     "photo": "/images/parks/los-angeles/cagefree-k-9-camp.jpg"
   },
   {
-    "id": "ChIJpbKSO4W-3IARoc0_cICJFW8",
-    "name": "California Dog Training",
-    "businessType": "Dog Park",
-    "description": "California Dog Training is a dog park in Corona, California.",
-    "slug": "california-dog-training",
-    "address": "11111 Spanish Hills Dr",
-    "street": "11111 Spanish Hills Dr",
-    "city": "Corona",
-    "state": "CA",
-    "zipCode": "92883",
-    "full_address": "11111 Spanish Hills Dr, Corona, CA 92883",
-    "latitude": 33.77407,
-    "longitude": -117.46544799999998,
-    "googlePlaceId": "ChIJpbKSO4W-3IARoc0_cICJFW8",
-    "phone": "(951) 277-4040",
-    "website": "http://www.calidogtraining.com/dog-training",
-    "photos": [
-      {
-        "url": "/images/parks/corona/california-dog-training.jpg",
-        "type": "photo",
-        "source": "local"
-      }
-    ],
-    "rating": 4.6,
-    "reviewCount": 44,
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": "/images/parks/corona/california-dog-training.jpg"
-  },
-  {
     "id": "ChIJq8LskZngmoARVau-tT946iU",
     "name": "Camp Bow Wow Fair Oaks",
     "businessType": "Dog Park",
@@ -8763,9 +8725,9 @@
   },
   {
     "id": "ChIJYakGpM7VwoAR3682Mt0TQJs",
-    "name": "Dali\u2019s Dog Park",
+    "name": "Dali’s Dog Park",
     "businessType": "Dog Park",
-    "description": "Dali\u2019s Dog Park is a dog park in City of Industry, California.",
+    "description": "Dali’s Dog Park is a dog park in City of Industry, California.",
     "slug": "dalis-dog-park",
     "address": "17250 Colima Rd",
     "street": "17250 Colima Rd",
@@ -9672,7 +9634,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "dailyRate": 5.0,
+      "dailyRate": 5,
       "pricingType": "membership"
     },
     "placeTypes": [
@@ -10204,9 +10166,9 @@
   },
   {
     "id": "ChIJU2oxXfbfmoARKu9hvkbVS30",
-    "name": "Buster\u2019s Pet Resort & Daycare",
+    "name": "Buster’s Pet Resort & Daycare",
     "businessType": "Dog Park",
-    "description": "Buster\u2019s Pet Resort & Daycare is a dog park in Fair Oaks, California.",
+    "description": "Buster’s Pet Resort & Daycare is a dog park in Fair Oaks, California.",
     "slug": "busters-pet-resort-daycare",
     "address": "7341 Winding Way",
     "street": "7341 Winding Way",
@@ -12890,9 +12852,9 @@
   },
   {
     "id": "ChIJu-n1fOrRmoARNzCtKoAdM7o",
-    "name": "Sutter\u2019s Landing Dog Park",
+    "name": "Sutter’s Landing Dog Park",
     "businessType": "Dog Park",
-    "description": "Sutter\u2019s Landing Dog Park is a dog park in Sacramento, California.",
+    "description": "Sutter’s Landing Dog Park is a dog park in Sacramento, California.",
     "slug": "sutters-landing-dog-park",
     "address": "20 28th St",
     "street": "20 28th St",
@@ -13240,7 +13202,7 @@
     "pricing": {
       "pricingSource": "website",
       "isFree": false,
-      "monthlyRate": 55.0,
+      "monthlyRate": 55,
       "pricingType": "membership"
     },
     "placeTypes": [

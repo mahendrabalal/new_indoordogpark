@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/metadata';
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllStates } from '@/lib/stateData';
 
-export const revalidate = 3600; // hourly
+export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
   title: 'Browse Dog Parks by State | Indoor Dog Park',

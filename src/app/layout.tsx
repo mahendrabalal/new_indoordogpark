@@ -7,7 +7,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CoreWebVitals from '@/components/CoreWebVitals'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import CookieBanner from '@/components/CookieBanner'
-import NewsletterPopup from '@/components/NewsletterPopup'
+// import NewsletterPopup from '@/components/NewsletterPopup'
 import AdSense from '@/components/AdSense'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next'
@@ -227,7 +227,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <LazyStyles />
-          <NewsletterPopup />
+          {/* <NewsletterPopup /> */}
           <ToastProvider>
             {children}
           </ToastProvider>

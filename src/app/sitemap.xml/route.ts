@@ -3,6 +3,7 @@ import { SITE_URL } from '@/lib/metadata'
 import { generateSitemapIndexXML } from '@/lib/sitemap-utils'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs';
 
 /**
  * Main sitemap index - Industry best practice for sites with 500+ URLs
@@ -29,7 +30,7 @@ export async function GET() {
     status: 200,
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
     },
   })
 }

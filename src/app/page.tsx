@@ -90,7 +90,7 @@ function hasActiveSearchParams(
   return Object.keys(searchParams).length > 0;
 }
 
-export const revalidate = 3600; // Refresh server-rendered home data hourly
+export const revalidate = 86400; // Refresh server-rendered home data every 24 hours
 
 export default async function HomePage({ searchParams }: HomePageProps) {
   const resolvedSearchParams = (await searchParams) || {};

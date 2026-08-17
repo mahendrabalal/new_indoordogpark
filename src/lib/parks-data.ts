@@ -15,6 +15,8 @@ import {
   getParksByType,
   getNearbyCities,
   slugToCityName,
+  cityNameToSlug,
+  findLocalCityHeroImage,
 } from '@/lib/cityData';
 
 import { sanityServerClient } from '@/lib/sanity-server';
@@ -216,51 +218,107 @@ export function mapSubmissionToDogPark(submission: SubmissionRow): DogPark {
 }
 
 export function mapSanitySubmissionToDogPark(sub: any): DogPark {
+  const photoUrls: string[] = [];
+  if (Array.isArray(sub.photoUrls)) {
+    sub.photoUrls.forEach((u: any) => {
+      if (typeof u === 'string' && u.trim()) photoUrls.push(u.trim());
+    });
+  }
+  if (Array.isArray(sub.photos)) {
+    sub.photos.forEach((p: any) => {
+      const url = typeof p === 'string' ? p : p?.url || p?.asset?.url;
+      if (url && typeof url === 'string' && !photoUrls.includes(url)) {
+        photoUrls.push(url);
+      }
+    });
+  }
+  if (sub.photo && typeof sub.photo === 'string' && !photoUrls.includes(sub.photo)) {
+    photoUrls.push(sub.photo);
+  }
+
+  const mediaAssets: MediaAsset[] = photoUrls.map((url) => ({ url, type: 'photo' }));
+
   return {
-    id: sub._id,
+    id: sub._id || sub.id,
     name: sub.name,
-    slug: sub.slug?.current || slugify(sub.name, sub.city),
+    slug: sub.slug?.current || sub.slug || slugify(sub.name, sub.city),
     businessType: sub.businessType,
-    rating: 0,
-    reviewCount: 0,
+    rating: sub.rating || 0,
+    reviewCount: sub.reviewCount || 0,
     address: sub.address,
-    street: sub.street,
+    street: sub.street || sub.address,
     city: sub.city,
     state: normalizeState(sub.state),
     zipCode: sub.zipCode,
     full_address: sub.fullAddressString || `${sub.address || ''}, ${sub.city || ''}, ${sub.state || ''}, ${sub.zipCode || ''}`.replace(/(^,\s*|\s*,\s*$)/g, ''),
     latitude: sub.latitude,
     longitude: sub.longitude,
-    phone: sub.phoneNumber,
-    email: sub.emailAddress,
+    phone: sub.phoneNumber || sub.phone,
+    email: sub.emailAddress || sub.email,
     website: sub.website,
     description: sub.description,
-    photos: sub.photoUrls?.map((url: string) => ({ url })) || [],
-    photo: sub.photoUrls?.[0],
-    openingHours: sub.operatingHours || {},
+    photos: mediaAssets,
+    photo: mediaAssets[0]?.url,
+    openingHours: sub.operatingHours || sub.openingHours || {},
     amenities: sub.amenities || {},
+    pricing: sub.pricing || sub.pricingInfo || undefined,
+    rules: sub.rules || undefined,
     source: 'user_submitted',
     listingType: sub.listingType || 'free',
     submittedBy: sub.userId,
     submittedAt: sub._createdAt,
-    approvedAt: sub._updatedAt,
-    lastUpdated: sub._updatedAt,
+    approvedAt: sub._updatedAt || sub._createdAt,
+    lastUpdated: sub._updatedAt || sub._createdAt,
   } as DogPark;
 }
 
+function mergeParkData(primary: DogPark, secondary: DogPark): DogPark {
+  const mergedPhotos = [
+    ...(primary.photos || []),
+    ...(secondary.photos || []),
+  ];
+  const uniquePhotos: MediaAsset[] = [];
+  const seenUrls = new Set<string>();
+  for (const p of mergedPhotos) {
+    if (p?.url && !seenUrls.has(p.url)) {
+      seenUrls.add(p.url);
+      uniquePhotos.push(p);
+    }
+  }
+
+  const primaryPhoto = primary.photo || secondary.photo || uniquePhotos[0]?.url || null;
+
+  return {
+    ...secondary,
+    ...primary,
+    rating: primary.rating || secondary.rating || 0,
+    reviewCount: primary.reviewCount || secondary.reviewCount || 0,
+    description: primary.description?.trim() || secondary.description?.trim() || '',
+    pricing: primary.pricing || secondary.pricing,
+    openingHours: Object.keys(primary.openingHours || {}).length > 0 ? primary.openingHours : secondary.openingHours,
+    amenities: { ...(secondary.amenities || {}), ...(primary.amenities || {}) },
+    rules: primary.rules || secondary.rules,
+    photos: uniquePhotos.length > 0 ? uniquePhotos : null,
+    photo: primaryPhoto,
+    listingType: primary.listingType === 'featured' || secondary.listingType === 'featured' ? 'featured' : (primary.listingType || secondary.listingType || 'free'),
+  };
+}
+
 function dedupeParks(parks: DogPark[]): DogPark[] {
-  const seen = new Set<string>();
-  return parks.filter((park) => {
-    const name = (park.name || 'Unknown Park').toLowerCase();
-    const city = (park.city || 'Unknown City').toLowerCase();
+  const map = new Map<string, DogPark>();
+  for (const park of parks) {
+    const name = (park.name || 'Unknown Park').toLowerCase().trim();
+    const city = (park.city || 'Unknown City').toLowerCase().trim();
     const stateAbbr = normalizeStateKey(park.state) || '';
     const key = `${name}|${city}|${stateAbbr}`;
-    if (seen.has(key)) {
-      return false;
+    if (map.has(key)) {
+      const existing = map.get(key)!;
+      map.set(key, mergeParkData(existing, park));
+    } else {
+      map.set(key, park);
     }
-    seen.add(key);
-    return true;
-  });
+  }
+  return Array.from(map.values());
 }
 
 async function loadStaticParks(): Promise<DogPark[]> {
@@ -325,7 +383,7 @@ export async function getPaginatedStaticParks(page = 1, limit = 20): Promise<Pag
 }
 
 export async function getParkBySlug(slug: string): Promise<DogPark | null> {
-  const parks = await loadStaticParks();
+  const parks = await getAllStaticParks();
 
   // Try exact match first
   let park = parks.find((p) => {
@@ -524,12 +582,19 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
     // 3. Priority Config / DB value
     let featuredImage: string | undefined | null = undefined;
 
-    // Check for city hero image on filesystem
-    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', city.slug, 'hero.webp');
-    const cityHeroExists = fs.existsSync(cityHeroPath);
+    // Check for city hero image on filesystem (try exact slug, base slug, state-suffixed slug)
+    const baseSlug = cityNameToSlug(city.name);
+    const stateSlug = `${baseSlug}-${normalizeStateKey(city.state)}`;
+    const localHero = findLocalCityHeroImage([
+      city.slug,
+      baseSlug,
+      stateSlug,
+      normalizedSlug,
+      priorityConfig?.slug,
+    ]);
 
-    if (cityHeroExists) {
-      featuredImage = `/images/cities/${city.slug}/hero.webp`;
+    if (localHero) {
+      featuredImage = localHero;
     } else if (californiaFallbackCities.includes(city.name)) {
       // If no local file exists and it's in our fallback list, 
       // explicitly leave featuredImage undefined to trigger state fallback
@@ -577,12 +642,18 @@ export async function getCityContentBySlug(slug: string): Promise<CityContentPay
 
     // Resolve featured image with priority: Local > Fallback List > Config > State Fallback > Default
     let featuredImage: string | undefined = priorityConfig.featuredImage;
-    const cityHeroPath = path.join(process.cwd(), 'public', 'images', 'cities', priorityConfig.slug, 'hero.webp');
-    const cityHeroExists = fs.existsSync(cityHeroPath);
+    const priorityBaseSlug = cityNameToSlug(priorityConfig.city);
+    const priorityStateSlug = `${priorityBaseSlug}-${normalizeStateKey(priorityConfig.state)}`;
+    const localHero = findLocalCityHeroImage([
+      priorityConfig.slug,
+      priorityBaseSlug,
+      priorityStateSlug,
+      normalizedSlug,
+    ]);
 
-    if (cityHeroExists) {
+    if (localHero) {
       // Priority 1: Local file
-      featuredImage = `/images/cities/${priorityConfig.slug}/hero.webp`;
+      featuredImage = localHero;
     } else if (!featuredImage && californiaFallbackCities.includes(priorityConfig.city)) {
       // Priority 2: Fallback list (triggers state fallback below)
       featuredImage = undefined;

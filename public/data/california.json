@@ -13238,65 +13238,6 @@
     ]
   },
   {
-    "id": "ChIJpbKSO4W-3IARoc0_cICJFW8",
-    "name": "California Dog Training",
-    "businessType": "Dog Training",
-    "description": "",
-    "slug": "california-dog-training",
-    "address": "11111 Spanish Hills Dr",
-    "street": "11111 Spanish Hills Dr",
-    "city": "Corona",
-    "state": "CA",
-    "zipCode": "92883",
-    "full_address": "11111 Spanish Hills Dr, Corona, CA 92883",
-    "latitude": 33.77407,
-    "longitude": -117.46544799999998,
-    "googlePlaceId": "ChIJpbKSO4W-3IARoc0_cICJFW8",
-    "phone": "(951) 277-4040",
-    "website": "http://www.calidogtraining.com/dog-training",
-    "photos": null,
-    "rating": 4.6,
-    "reviewCount": 44,
-    "pricing": {
-      "pricingSource": "website",
-      "isFree": false
-    },
-    "placeTypes": [
-      "point_of_interest",
-      "establishment"
-    ],
-    "lastUpdated": null,
-    "dataQuality": "verified",
-    "photo": null,
-    "faqs": [
-      {
-        "question": "What should I bring for check-in at California Dog Training?",
-        "answer": "Bring proof of current rabies and core vaccinations, a leash for entry and exit, and an ID tag with up-to-date contact info to breeze through check-in at California Dog Training. Download the waiver from http://www.calidogtraining.com/dog-training and submit your dog profile before your visit.",
-        "lastUpdated": "2025-11-14T19:36:02.813163+00:00"
-      },
-      {
-        "question": "How does pricing work at California Dog Training?",
-        "answer": "California Dog Training offers flexible memberships and punch cards so you can tailor visits to your routine. Contact the desk for the latest promotions or multi-dog discounts.",
-        "lastUpdated": "2025-11-14T19:36:02.813163+00:00"
-      },
-      {
-        "question": "Which amenities does California Dog Training offer?",
-        "answer": "The team rotates toys, agility props, and splash features weekly so repeat visits to California Dog Training never feel stale. Expect shaded seating, rinse stations, and staff roaming the yards to keep playgroups safe.",
-        "lastUpdated": "2025-11-14T19:36:02.813163+00:00"
-      },
-      {
-        "question": "When is California Dog Training open and where do I park?",
-        "answer": "Hours rotate with weather and staffing, so call ahead to confirm current play blocks. Street and shared-lot parking is available nearby; arrive a few minutes early to grab a spot. Use posted signage around Corona to navigate any temporary closures.",
-        "lastUpdated": "2025-11-14T19:36:02.813163+00:00"
-      },
-      {
-        "question": "How do I contact the team at California Dog Training?",
-        "answer": "For reservations, temperament assessments, or party rentals, call (951) 277-4040, and visit http://www.calidogtraining.com/dog-training. The concierge team at California Dog Training typically replies within one business day.",
-        "lastUpdated": "2025-11-14T19:36:02.813163+00:00"
-      }
-    ]
-  },
-  {
     "id": "ChIJq8LskZngmoARVau-tT946iU",
     "name": "Camp Bow Wow Fair Oaks",
     "businessType": "Dog Daycare",
@@ -15630,7 +15571,13 @@
     "googlePlaceId": "ChIJZU7DBDbOyIARxyK4ENcr9X4",
     "phone": "(702) 518-6439",
     "website": "https://barxparx.com/",
-    "photos": null,
+    "photos": [
+      {
+        "url": "https://cdn.sanity.io/images/ruuprk8g/production/a5296ee19b02ae51dee26254d3c081c28ba8a113-959x639.webp",
+        "type": "photo"
+      }
+    ],
+    "photo": null,
     "rating": 4.5,
     "reviewCount": 294,
     "pricing": {
@@ -15650,7 +15597,6 @@
     ],
     "lastUpdated": null,
     "dataQuality": "verified",
-    "photo": null,
     "faqs": [
       {
         "question": "What should I bring for check-in at Barx Parx?",
