@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CityCard from '@/components/CityCard';
-import { SITE_URL } from '@/lib/metadata';
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllCities } from '@/lib/cityData';
 import { ABBR_TO_NAME } from '@/lib/stateData';
@@ -11,13 +10,13 @@ import { USStateAbbr } from '@/lib/state';
 import { getAllCityContent } from '@/lib/sanity-content';
 import CitiesPageStyles from './CitiesPageStyles';
 import CityDirectory from '@/components/CityDirectory';
-
+import { generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
 
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
-    title: 'Top Dog-Friendly Cities | Indoor Dog Park Directory',
-    description: 'Explore the best cities for indoor dog parks and dog-friendly amenities. Find verified listings in Chicago, Austin, NYC, and more.',
+    title: 'Best Cities for Indoor Dog Parks (2026 Directory) | Find Local Play Areas',
+    description: 'Explore the best dog-friendly cities for indoor dog parks across the US in 2026. Find verified climate-controlled facilities, dog bars, and play areas in Houston, Las Vegas, Chicago, NYC, Austin, and more.',
     alternates: {
         canonical: '/cities',
     },
@@ -27,6 +26,19 @@ export default async function CitiesPage() {
     const allParks = await getAllParksForStateAggregation();
     const cityContent = await getAllCityContent();
     const allCities = getAllCities(allParks, cityContent);
+
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Cities Directory', url: '/cities' },
+    ]);
+
+    const collectionPageSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Top Dog-Friendly Cities & Indoor Dog Parks Directory',
+        description: 'Explore verified indoor dog parks and dog-friendly spots across major US cities.',
+        url: `${SITE_URL}/cities`,
+    };
 
     // Identify priority cities
     const prioritySlugs = new Set(cityContent.map(c => c.slug));
@@ -55,6 +67,16 @@ export default async function CitiesPage() {
 
     return (
         <>
+            <script
+                type="application/ld+json"
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+            />
             <Header variant="light" />
             <CitiesPageStyles />
             <main className="cities-page-layout">

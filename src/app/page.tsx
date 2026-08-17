@@ -29,9 +29,9 @@ export async function generateMetadata({
   searchParams,
 }: HomePageProps): Promise<Metadata> {
   const resolvedSearchParams = await searchParams;
-  const title = 'Indoor Dog Parks Near Me | Find 500+ Dog Parks & Play Areas';
+  const title = 'Indoor Dog Parks Near Me (2026) | Verified Play Areas & Dog Bars';
   const description =
-    'Find the best indoor dog parks near you. Search our directory of 500+ climate-controlled dog parks, dog bars, and play areas across the US. View reviews, hours, and pricing.';
+    'Find the best indoor dog parks near you in 2026. Search 500+ verified climate-controlled indoor dog parks, dog bars, agility arenas & swimming pools with real reviews and hours.';
 
   const isFiltered = hasActiveSearchParams(resolvedSearchParams);
 
@@ -179,12 +179,64 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   const initialData = await getPaginatedStaticParks(1, 20);
   const collectionPageSchema = generateCollectionPageSchema(initialData.data);
 
+  const homepageFAQSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do I find indoor dog parks near me?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Use our interactive Indoor Dog Park directory above to browse verified indoor play facilities, dog swimming pools, dog bars, and agility courses by city or state across the US. Filter by amenities, pricing, and dog sizes.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is an indoor dog park?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'An indoor dog park is a climate-controlled, fully enclosed recreational facility with pet-safe synthetic turf (like K9Grass) or padded rubber flooring where dogs can exercise and socialize off-leash in any weather, including rain, snow, and extreme summer heat.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much does an indoor dog park cost?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most indoor dog parks offer single-visit day passes between $10 and $25 per dog, with monthly memberships typically ranging from $35 to $95. Many facilities offer multi-dog discounts or punch passes.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What are the rules and vaccination requirements for indoor dog parks?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'To protect all dogs, reputable indoor facilities require proof of up-to-date vaccinations (Rabies, DHPP/DA2PP, and Bordetella). Most locations also require dogs over 6 to 12 months old to be spayed or neutered and pass a quick temperament test.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Are there separate areas for small dogs at indoor dog parks?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes! The majority of verified indoor dog parks provide separate, dedicated play arenas for small or shy dogs (typically under 25–30 lbs) to ensure safe and comfortable play away from large, high-energy breeds.',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }}
       />
       <Suspense fallback={
         <div className="loading">

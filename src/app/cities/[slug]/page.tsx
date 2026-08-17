@@ -152,14 +152,14 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const fullState = getStateName(city.state) || city.state;
   const cityTitle = createSEOTitle(
     indoorCount > 0
-      ? `Indoor Dog Parks in ${city.name}, ${fullState} | Map & Reviews`
-      : `Dog Parks in ${city.name}, ${fullState} | Map & Reviews`
+      ? `Indoor Dog Parks in ${city.name}, ${city.state} (2026) | Reviews & Map`
+      : `Best Dog Parks in ${city.name}, ${city.state} (2026) | Reviews & Map`
   );
   const pageDescription = createMetaDescription(
     stats.totalParks > 0
       ? indoorCount > 0
-        ? `Explore ${stats.totalParks} dog-friendly spots in ${city.name} including ${indoorCount} indoor options. Compare ratings, amenities, hours, and map locations.`
-        : `Explore ${stats.totalParks} dog parks and dog-friendly spots in ${city.name}. Compare ratings, amenities, hours, and map locations.`
+        ? `Find verified indoor dog parks in ${city.name}, ${city.state} for 2026. Compare ${indoorCount} climate-controlled facilities, ${stats.totalParks} total dog spots, hours, amenities & user ratings.`
+        : `Find the best dog parks and play areas in ${city.name}, ${city.state} for 2026. Explore ${stats.totalParks} verified dog-friendly spots, off-leash zones, hours & user reviews.`
       : `Discover dog-friendly play areas and parks in ${city.name}, ${fullState}. Check community listings, safety rules, and neighboring facilities.`,
   );
   const canonicalUrl = `/cities/${canonicalSlug}`;
