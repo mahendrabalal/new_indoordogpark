@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'Dog Park First-Aid Quick Reference | Guide',
+  title: { absolute: 'Dog Park First-Aid Quick Reference | Guide' },
   description: 'Download our free quick-reference guide for handling common dog park emergencies like overheating, cuts, and choking.',
   keywords: ['dog first aid', 'dog park emergencies', 'overheating dog', 'dog choking', 'dog park safety'],
   alternates: {

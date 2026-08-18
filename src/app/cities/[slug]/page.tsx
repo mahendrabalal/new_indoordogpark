@@ -30,7 +30,8 @@ import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllCities } from '@/lib/cityData';
 import { getAllCityContent } from '@/lib/sanity-content';
-import { getCityGuide } from '@/lib/city-guides';
+import { getCityGuide, getCityGuideHtml } from '@/lib/city-guides';
+import CityGuideExpandable from '@/components/CityGuideExpandable';
 
 interface CityPageProps {
   params: Promise<{
@@ -152,14 +153,14 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const fullState = getStateName(city.state) || city.state;
   const cityTitle = createSEOTitle(
     indoorCount > 0
-      ? `Indoor Dog Parks in ${city.name}, ${city.state} (2026) | Reviews & Map`
-      : `Best Dog Parks in ${city.name}, ${city.state} (2026) | Reviews & Map`
+      ? `${city.name}, ${city.state} Indoor Dog Parks Directory (2026) | Live Map & Hours`
+      : `${city.name}, ${city.state} Dog Parks Directory (2026) | Live Map & Hours`
   );
   const pageDescription = createMetaDescription(
     stats.totalParks > 0
       ? indoorCount > 0
-        ? `Find verified indoor dog parks in ${city.name}, ${city.state} for 2026. Compare ${indoorCount} climate-controlled facilities, ${stats.totalParks} total dog spots, hours, amenities & user ratings.`
-        : `Find the best dog parks and play areas in ${city.name}, ${city.state} for 2026. Explore ${stats.totalParks} verified dog-friendly spots, off-leash zones, hours & user reviews.`
+        ? `Explore verified indoor dog parks in ${city.name}, ${city.state} for 2026. Browse ${indoorCount} climate-controlled facilities, ${stats.totalParks} total dog spots, interactive map, real-time hours & admission fees.`
+        : `Explore verified dog parks in ${city.name}, ${city.state} for 2026. Browse ${stats.totalParks} dog spots, interactive map, off-leash zones, hours & user ratings.`
       : `Discover dog-friendly play areas and parks in ${city.name}, ${fullState}. Check community listings, safety rules, and neighboring facilities.`,
   );
   const canonicalUrl = `/cities/${canonicalSlug}`;
@@ -531,6 +532,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const ownerCta = customContent?.ownerCta || defaultOwnerCta;
   const cityGuide = getCityGuide(city.slug) || getCityGuide(slug);
+  const cityGuideHtml = getCityGuideHtml(city.slug) || getCityGuideHtml(slug);
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },
@@ -660,7 +662,23 @@ export default async function CityPage({ params }: CityPageProps) {
                 }
 
                 // Add longDescription paragraphs (skipping any duplicate of leadParagraph)
-                for (const p of rawLongParagraphs) {
+                for (let p of rawLongParagraphs) {
+                  if (!p) continue;
+
+                  // If p is identical to leadParagraph, skip it
+                  if (p.trim() === leadParagraph.trim()) continue;
+
+                  // If p starts with leadParagraph (e.g. leadParagraph was an excerpt of p), remove the duplicate lead part
+                  if (leadParagraph && p.startsWith(leadParagraph.trim())) {
+                    p = p.slice(leadParagraph.trim().length).replace(/^[\.\s,]+/, '').trim();
+                  } else if (leadParagraph) {
+                    // Check if the first sentence of p matches the first sentence of leadParagraph
+                    const leadFirstSentence = leadParagraph.split(/(?<=[.?!])\s+/)[0]?.trim();
+                    if (leadFirstSentence && leadFirstSentence.length > 20 && p.startsWith(leadFirstSentence)) {
+                      p = p.slice(leadFirstSentence.length).replace(/^[\.\s,]+/, '').trim();
+                    }
+                  }
+
                   if (p && p !== leadParagraph && !bodyParagraphs.includes(p)) {
                     bodyParagraphs.push(p);
                   }
@@ -757,32 +775,15 @@ export default async function CityPage({ params }: CityPageProps) {
         <CityPremiumSpotlight city={city.name} state={city.state} />
 
         {cityGuide && (
-          <section id="featured-guide" className="city-guide-spotlight-section">
-            <div className="section-shell">
-              <div className="city-guide-card">
-                <div className="city-guide-badge-row">
-                  <span className="city-guide-pill">
-                    <i className="bi bi-journal-bookmark-fill" /> {cityGuide.badge || 'Local Expert Guide'}
-                  </span>
-                  <span className="city-guide-meta">
-                    <i className="bi bi-clock" /> {cityGuide.readTime} · {cityGuide.publishDate}
-                  </span>
-                </div>
-                <h2 className="city-guide-title">
-                  <Link href={cityGuide.guideUrl}>
-                    {cityGuide.title}
-                  </Link>
-                </h2>
-                <p className="city-guide-description">{cityGuide.description}</p>
-                <div className="city-guide-action-row">
-                  <Link href={cityGuide.guideUrl} className="city-guide-btn">
-                    <span>Read Full {city.name} Guide</span>
-                    <i className="bi bi-arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
+          <CityGuideExpandable
+            cityName={city.name}
+            title={cityGuide.title}
+            guideUrl={cityGuide.guideUrl}
+            badge={cityGuide.badge}
+            readTime={cityGuide.readTime}
+            publishDate={cityGuide.publishDate}
+            description={cityGuide.description}
+          />
         )}
 
 

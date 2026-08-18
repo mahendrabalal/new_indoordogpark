@@ -278,24 +278,55 @@ export async function getRelatedTags(tag: WPTag, limit: number = 4): Promise<WPT
 }
 
 /**
- * Extract city names mentioned in blog post content
+ * Extract city names mentioned in blog post content, scored and ranked by relevance
  */
 export function extractMentionedCities(blogPost: BlogPost, allParks: DogPark[]): string[] {
-  const cities: string[] = [];
-  const content = (blogPost.content + ' ' + blogPost.title + ' ' + blogPost.excerpt).toLowerCase();
+  const postTitle = (blogPost.title || '').toLowerCase();
+  const postSlug = (blogPost.slug || '').toLowerCase();
+  const postExcerpt = (blogPost.excerpt || '').toLowerCase();
+  const postContent = (blogPost.content || '').toLowerCase();
 
+  // Deduplicate cities across parks
+  const uniqueCities = new Map<string, string>();
   allParks.forEach((park) => {
-    const cityName = park.city.toLowerCase();
-    if (!cityName || cityName.length < 3) return;
-    
-    const escapedCityName = cityName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const cityRegex = new RegExp(`\\b${escapedCityName}\\b`, 'i');
-    
-    if (cityRegex.test(content) && !cities.includes(cityName)) {
-      cities.push(cityName);
+    if (park.city && park.city.trim().length >= 3) {
+      const lower = park.city.trim().toLowerCase();
+      if (!uniqueCities.has(lower)) {
+        uniqueCities.set(lower, park.city.trim());
+      }
     }
   });
 
-  return cities;
+  const scoredCities: Array<{ cityName: string; score: number }> = [];
+
+  uniqueCities.forEach((properCityName, lowerCityName) => {
+    let score = 0;
+    const escaped = lowerCityName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const wordRegex = new RegExp(`\\b${escaped}\\b`, 'i');
+    const globalRegex = new RegExp(`\\b${escaped}\\b`, 'gi');
+    const slugKey = lowerCityName.replace(/\s+/g, '-');
+
+    // Title & Slug matches get the absolute highest priority (focal subject of article)
+    if (postSlug.includes(slugKey)) score += 1000;
+    if (wordRegex.test(postTitle)) score += 300;
+    if (wordRegex.test(postExcerpt)) score += 50;
+
+    // Body text occurrences (exclude "Orange County" for city "Orange")
+    let bodyMatches = (postContent.match(globalRegex) || []).length;
+    if (lowerCityName === 'orange') {
+      const countyMatches = (postContent.match(/\borange county\b/gi) || []).length;
+      bodyMatches = Math.max(0, bodyMatches - countyMatches);
+    }
+    score += bodyMatches * 5;
+
+    if (score > 0) {
+      scoredCities.push({ cityName: properCityName, score });
+    }
+  });
+
+  // Sort by score descending so the focal city is always at index 0
+  return scoredCities
+    .sort((a, b) => b.score - a.score)
+    .map((item) => item.cityName);
 }
 

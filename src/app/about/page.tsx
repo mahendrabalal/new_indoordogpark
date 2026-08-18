@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 
 export const metadata: Metadata = {
-  title: 'About Us | Indoor Dog Park Directory & Reviews',
+  title: { absolute: 'About Us | Indoor Dog Park Directory & Reviews' },
   description: 'IndoorDogPark is an independent directory helping pet parents discover indoor dog parks, dog-friendly establishments, and canine play areas. Learn about our mission.',
   keywords: [
     'about indoor dog park',

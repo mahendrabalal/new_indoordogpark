@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import HydrationCalculator from '@/components/tools/HydrationCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog Hydration Calculator | How Much Water Does My Dog Need?',
+  title: { absolute: 'Dog Hydration Calculator | How Much Water Does My Dog Need?' },
   description: 'Use our free interactive Dog Hydration Calculator to find out exactly how many ounces and cups of water your dog should drink per day based on their weight and activity level.',
   alternates: {
     canonical: '/tools/dog-hydration-calculator',

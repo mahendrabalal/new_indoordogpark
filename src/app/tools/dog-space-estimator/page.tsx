@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import SpaceEstimator from '@/components/tools/SpaceEstimator';
 
 export const metadata: Metadata = {
-  title: 'Indoor Dog Space Estimator | Room Size Calculator',
+  title: { absolute: 'Indoor Dog Space Estimator | Room Size Calculator' },
   description: 'Use our free interactive space estimator to calculate exactly how much open square footage your dog needs to safely play fetch or sprint indoors.',
   alternates: {
     canonical: '/tools/dog-space-estimator',

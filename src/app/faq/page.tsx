@@ -5,7 +5,7 @@ import FAQSection from '@/components/FAQSection';
 const parkCount = 500;
 
 export const metadata: Metadata = {
-  title: 'IndoorDogPark FAQs',
+  title: { absolute: 'IndoorDogPark FAQs' },
   description: 'Answers to common questions about IndoorDogPark, listings, safety standards, and community guidelines.',
   alternates: {
     canonical: '/faq',
@@ -33,9 +33,7 @@ export default function FAQPage() {
           {/* Header Section */}
           <div className="text-center">
             <h1 className="text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-none mb-2">
-              Frequently asked
-            </h1>
-            <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight leading-none">
+              Frequently asked<br />
               <span 
                 className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 drop-shadow-sm" 
                 style={{ 

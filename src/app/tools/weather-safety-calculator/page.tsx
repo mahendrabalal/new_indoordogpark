@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogWeatherSafetyCalculator from '@/components/DogWeatherSafetyCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog Weather Safety & Walk Calculator | IndoorDogPark.org',
+  title: { absolute: 'Dog Weather Safety & Walk Calculator | IndoorDogPark.org' },
   description: 'Is it too hot or cold to walk your dog? Use our free Dog Weather Safety Calculator to find out if conditions are safe based on your dog\'s breed and age.',
   keywords: [
     'dog weather safety calculator',

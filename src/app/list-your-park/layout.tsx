@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'List Your Dog Park | Indoor Dog Park Directory',
+  title: { absolute: 'List Your Dog Park | Indoor Dog Park Directory' },
   description: 'Add your indoor dog park, dog daycare, or dog-friendly establishment to the most trusted US directory. Free and featured listing options available.',
   keywords: [
     'list dog park',

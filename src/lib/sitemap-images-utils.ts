@@ -26,6 +26,20 @@ ${urls}
 </urlset>`
 }
 
+/**
+ * Normalizes an image URL to an absolute URL.
+ * Per Google's Image Sitemap spec, <image:loc> MUST be a fully qualified absolute URL.
+ * - Relative paths (e.g. "/images/parks/...") are prefixed with SITE_URL.
+ * - Already-absolute URLs (http:// or https://) pass through unchanged.
+ * - Empty/invalid URLs are returned as-is (filtered out downstream).
+ */
+function toAbsoluteImageUrl(url: string): string {
+  if (!url) return url
+  if (url.startsWith('http://') || url.startsWith('https://')) return url
+  // Relative path — prepend site origin
+  return `${SITE_URL}${url.startsWith('/') ? '' : '/'}${url}`
+}
+
 export async function getParksImageSitemapData() {
   const baseUrl = SITE_URL
   const parkData: Array<{ url: string; images: string[]; title: string }> = []
@@ -52,10 +66,11 @@ export async function getParksImageSitemapData() {
       seenUrls.add(parkUrl)
       
       const images: string[] = []
-      if (park.photo) images.push(park.photo)
+      if (park.photo) images.push(toAbsoluteImageUrl(park.photo))
       if (park.photos && park.photos.length > 0) {
         park.photos.forEach(p => {
-          if (!images.includes(p.url)) images.push(p.url)
+          const absoluteUrl = toAbsoluteImageUrl(p.url)
+          if (!images.includes(absoluteUrl)) images.push(absoluteUrl)
         })
       }
 

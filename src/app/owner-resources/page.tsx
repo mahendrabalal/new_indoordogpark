@@ -63,7 +63,7 @@ const supportChannels = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Owner Resources | Indoor Dog Park Business Guides',
+  title: { absolute: 'Owner Resources | Indoor Dog Park Business Guides' },
   description: 'Business guides, templates, and coaching resources for indoor dog park operators and dog-friendly business owners.',
   keywords: [
     'indoor dog park business',

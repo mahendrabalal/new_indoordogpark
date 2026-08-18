@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'What to Pack for an Indoor Dog Park | Checklist',
+  title: { absolute: 'What to Pack for an Indoor Dog Park | Checklist' },
   description: 'Download or print our free indoor dog park packing list. Don\'t forget these essentials before your next visit to the indoor park.',
   keywords: ['dog park packing list', 'what to bring to dog park', 'indoor dog park essentials', 'dog park checklist', 'first time dog park'],
   alternates: {

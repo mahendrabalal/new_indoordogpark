@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'Indoor Dog Park Etiquette Checklist | Printable Guide',
+  title: { absolute: 'Indoor Dog Park Etiquette Checklist | Printable Guide' },
   description: 'Download or print our free indoor dog park etiquette checklist. Ensure a safe, fun, and respectful visit for your dog and others.',
   keywords: ['dog park etiquette', 'indoor dog park rules', 'dog park checklist', 'dog park safety', 'first time dog park'],
   alternates: {

@@ -22,7 +22,7 @@ const cookieCategories = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Cookie Preferences | Privacy Settings - Indoor Dog Park',
+  title: { absolute: 'Cookie Preferences | Privacy Settings - Indoor Dog Park' },
   description: 'Manage your cookie preferences and privacy settings for IndoorDogPark. Control advertising cookies, analytics, and functionality preferences. Opt out of personalized advertising anytime.',
   keywords: [
     'cookie preferences',

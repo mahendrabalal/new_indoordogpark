@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogParkEtiquetteQuiz from '@/components/DogParkEtiquetteQuiz';
 
 export const metadata: Metadata = {
-  title: 'Dog Park Etiquette Quiz & Certification',
+  title: { absolute: 'Dog Park Etiquette Quiz & Certification' },
   description: 'Test your knowledge of dog park safety, rules, and etiquette. Pass the test to earn your Certified Good Human badge!',
   keywords: [
     'dog park etiquette',

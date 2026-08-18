@@ -5,11 +5,11 @@ import Footer from '@/components/Footer';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
-const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/og-image.jpg`;
+const ogImageUrl = `${siteUrl.replace(/\/$/, '')}/images/og-image.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Research & Reports | Indoor Dog Park Insights | IndoorDogPark.org',
+  title: { absolute: 'Research & Reports | Indoor Dog Park Insights | IndoorDogPark.org' },
   description:
     'Quarterly data-driven reports on indoor dog park trends, canine safety statistics, and pet industry insights by IndoorDogPark.org. Freely available for media and researchers.',
   keywords:

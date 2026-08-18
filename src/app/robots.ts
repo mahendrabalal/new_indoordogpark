@@ -8,11 +8,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: [
-          '/',
-          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file for search engine verification
+          '/llms.txt', // Standard manifest for AI search engines
+          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
         ],
         disallow: [
           '/admin/',
+          '/outreach-studio/', // Internal admin tools
           '/api/',
           '/dashboard/',
           '/payment/',
@@ -24,38 +25,16 @@ export default function robots(): MetadataRoute.Robots {
           '/login',   // Auth pages — block to save crawl budget
           '/signup',  // Auth pages — block to save crawl budget
         ],
-        // Be polite to smaller bots/scrapers without slowing down Google/Bing (they ignore crawlDelay anyway)
-        crawlDelay: 1,
       },
       {
-        userAgent: 'Googlebot',
+        userAgent: ['Googlebot', 'Bingbot'],
         allow: [
-          '/',
-          '/parks/',
-          '/dog-training/',
-          '/dog-friendly/',
-          '/cities/',
-          '/states/',
-          '/blog/',
-          '/about',
-          '/contact',
-          '/faq',
-          '/how-it-works',
-          '/list-your-park',
-          '/owner-resources',
-          '/partners',
-          '/privacy',
-          '/terms',
-          '/cookie-preferences',
-          '/images/',
-          '/icons/',
-          '/_next/static/', // Allow static assets for crawling
+          '/_next/static/', // Allow static assets for crawling rendering
           '/_next/image/', // Allow Next.js image optimization
-          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
-          '/sitemap-images.xml', // Allow image sitemap
         ],
         disallow: [
           '/admin/',
+          '/outreach-studio/',
           '/api/',
           '/dashboard/',
           '/payment/',
@@ -66,45 +45,6 @@ export default function robots(): MetadataRoute.Robots {
           '/login',
           '/signup',
         ],
-        crawlDelay: 0,
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: [
-          '/',
-          '/parks/',
-          '/cities/',
-          '/states/',
-          '/blog/',
-          '/about',
-          '/contact',
-          '/faq',
-          '/how-it-works',
-          '/list-your-park',
-          '/owner-resources',
-          '/partners',
-          '/privacy',
-          '/terms',
-          '/cookie-preferences',
-          '/images/',
-          '/icons/',
-          '/_next/static/',
-          '/_next/image/',
-          '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
-        ],
-        disallow: [
-          '/admin/',
-          '/api/',
-          '/dashboard/',
-          '/payment/',
-          '/checkout/',
-          '/studio/',
-          '/webhook/',
-          '/private/',
-          '/login',
-          '/signup',
-        ],
-        crawlDelay: 0,
       },
       // Allow image bots to access public images
       {
@@ -116,6 +56,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
         disallow: [
           '/admin/',
+          '/outreach-studio/',
           '/api/',
           '/private/',
         ],
@@ -123,20 +64,38 @@ export default function robots(): MetadataRoute.Robots {
       // Allow video bots
       {
         userAgent: 'Googlebot-Video',
-        allow: '/',
         disallow: [
           '/admin/',
+          '/outreach-studio/',
           '/api/',
           '/private/',
           '/payment/',
           '/checkout/',
         ],
       },
-      // Explicitly block aggressive crawlers and scrapers
+      // Explicitly allow AI Search Engines & assistants
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'OAI-SearchBot',
+          'ClaudeBot',
+          'PerplexityBot',
+          'Google-Extended',
+          'SemrushBot',
+        ],
+        disallow: [
+          '/admin/',
+          '/outreach-studio/',
+          '/api/',
+          '/private/',
+          '/studio/',
+        ],
+      },
+      // Explicitly block aggressive scrapers and data harvesters
       {
         userAgent: [
           'AhrefsBot',
-          'SemrushBot',
           'DotBot',
           'MJ12bot',
           'BLEXBot',

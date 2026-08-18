@@ -46,7 +46,7 @@ const ownerProcess = [
 ];
 
 export const metadata: Metadata = {
-  title: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards',
+  title: { absolute: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards' },
   description: 'Learn about our rigorous 12-point safety check and how we review indoor dog parks for cleanliness, staff training, and vaccination policies.',
   alternates: {
     canonical: '/how-it-works',

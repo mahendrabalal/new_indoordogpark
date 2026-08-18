@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'Dog Body Language at the Park | Visual Guide',
+  title: { absolute: 'Dog Body Language at the Park | Visual Guide' },
   description: 'Learn how to read your dog\'s body language to ensure safe, mutual play at the indoor dog park. Download our free quick-reference poster.',
   keywords: ['dog body language', 'dog park safety', 'reading dog body language', 'is my dog playing', 'dog behavior'],
   alternates: {

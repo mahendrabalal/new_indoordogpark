@@ -9,7 +9,7 @@ import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/metadata';
  * SEO metadata for the Off‑Leash Dog Parks pillar page.
  */
 export const metadata: Metadata = {
-  title: 'Off‑Leash Dog Parks – The Ultimate Guide & Resources',
+  title: { absolute: 'Off‑Leash Dog Parks – The Ultimate Guide & Resources' },
   description: 'Discover everything you need to know about off‑leash dog parks: health benefits, safety tips, how to choose the right park, and the latest U.S. statistics.',
   keywords: [
     'off‑leash dog park',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: 'https://www.indoordogpark.org/off-leash-dog-park',
     type: 'website',
     images: [{
-      url: '/images/hero/off-leash-hero.webp',
+      url: '/images/hero/hero.webp',
       width: 1200,
       height: 630,
       alt: 'Happy dogs playing off‑leash in a fenced indoor park',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Off‑Leash Dog Parks – The Ultimate Guide',
     description: 'Everything you need to know about off‑leash dog parks.',
-    images: ['/images/hero/off-leash-hero.webp'],
+    images: ['/images/hero/hero.webp'],
     site: '@indoordogpark',
     creator: '@indoordogpark',
   },
@@ -54,7 +54,7 @@ export default function OffLeashPillarPage() {
     '@type': 'Article',
     headline: 'Off‑Leash Dog Parks – The Ultimate Guide',
     description: 'All you need to know about off‑leash dog parks, from health benefits and safety guidelines to how to evaluate a facility and the latest U.S. statistics.',
-    image: '/images/hero/off-leash-hero.webp',
+    image: '/images/hero/hero.webp',
     author: {
       '@type': 'Organization',
       name: 'Indoor Dog Park',

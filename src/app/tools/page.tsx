@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Free Dog Tools & Calculators | IndoorDogPark.org',
+  title: { absolute: 'Free Dog Tools & Calculators | IndoorDogPark.org' },
   description: 'Use our free interactive tools and calculators to keep your dog happy and healthy. Dog exercise calculator, and more coming soon.',
   keywords: [
     'dog tools',

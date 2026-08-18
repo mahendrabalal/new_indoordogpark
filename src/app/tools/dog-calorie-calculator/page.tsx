@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogCalorieCalculator from '@/components/DogCalorieCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog Calorie & Portion Calculator | IndoorDogPark.org',
+  title: { absolute: 'Dog Calorie & Portion Calculator | IndoorDogPark.org' },
   description: 'Use our free interactive dog calorie calculator to find out exactly how much to feed your dog per day based on their weight, age, and activity level.',
   keywords: [
     'dog calorie calculator',

@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogSocializationCostCalculator from '@/components/DogSocializationCostCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog Daycare vs Dog Walker Cost Calculator | IndoorDogPark.org',
+  title: { absolute: 'Dog Daycare vs Dog Walker Cost Calculator | IndoorDogPark.org' },
   description: 'Compare the true annual cost of doggy daycare, dog walkers, and indoor dog park memberships. Find out how much you could save with our free calculator.',
   keywords: [
     'dog daycare cost calculator',

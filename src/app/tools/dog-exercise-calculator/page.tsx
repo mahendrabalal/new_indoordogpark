@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogExerciseCalculator from '@/components/DogExerciseCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog Exercise Calculator: How Much Exercise Does A Dog Need?',
+  title: { absolute: 'Dog Exercise Calculator: How Much Exercise Does A Dog Need?' },
   description: 'Use our free interactive Dog Exercise Calculator to find out exactly how much daily physical and mental exercise your puppy, adult, or senior dog needs.',
   keywords: [
     'dog exercise calculator',

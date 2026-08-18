@@ -6,7 +6,7 @@ import ContactForm from '@/components/ContactForm';
 
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Indoor Dog Park Support & Feedback',
+  title: { absolute: 'Contact Us | Indoor Dog Park Support & Feedback' },
   description: 'Have questions about our dog park directory? Contact the IndoorDogPark team for support, park listings, or partnership inquiries. We respond within 24 hours.',
   keywords: [
     'contact indoor dog park',

@@ -1,0 +1,40 @@
+# Indoor Dog Park Directory
+
+> The premier climate-controlled indoor dog park and canine recreation directory across the United States.
+
+Indoor Dog Park (https://www.indoordogpark.org) is a comprehensive national directory and resource hub dedicated to helping pet owners find safe, climate-controlled, and verified indoor dog parks, canine agility facilities, indoor dog swimming pools, dog-friendly bars, and professional training centers across all 50 US states.
+
+## Core Directory Sections
+
+- [Indoor Dog Parks Directory](https://www.indoordogpark.org/cities): Browse verified indoor dog play facilities organized by city and state.
+- [Parks with Bars](https://www.indoordogpark.org/parks-with-bars): Dog-friendly social taprooms, breweries, and indoor dog parks with human beverage service.
+- [Training Facilities](https://www.indoordogpark.org/training-facilities): Professional indoor dog training centers, puppy socialization classes, and behavioral gyms.
+- [Indoor Dog Pools](https://www.indoordogpark.org/indoor-dog-pools): Canine hydrotherapy centers and indoor swimming facilities.
+- [Indoor Agility Courses](https://www.indoordogpark.org/indoor-agility-courses): Obstacle courses, jump arenas, and indoor canine athletic tracks.
+- [Small Dog Areas](https://www.indoordogpark.org/small-dog-areas): Verified facilities with dedicated play zones for small, toy, and senior breeds.
+
+## Top City Hubs
+
+- [Indoor Dog Parks in Houston, TX](https://www.indoordogpark.org/cities/houston): Top climate-controlled play facilities and dog bars in Houston.
+- [Indoor Dog Parks in Las Vegas, NV](https://www.indoordogpark.org/cities/las-vegas): Air-conditioned indoor parks for hot desert summers.
+- [Indoor Dog Parks in New York, NY](https://www.indoordogpark.org/cities/new-york-ny): Premier indoor play spaces across Manhattan, Brooklyn, and Queens.
+- [Indoor Dog Parks in Chicago, IL](https://www.indoordogpark.org/cities/chicago): Heated winter play hubs and dog daycares in the Windy City.
+- [Indoor Dog Parks in Austin, TX](https://www.indoordogpark.org/cities/austin): Top off-leash dog bars and climate-controlled play centers.
+- [Indoor Dog Parks in San Diego, CA](https://www.indoordogpark.org/cities/san-diego): Coastal California canine recreation and agility arenas.
+- [Indoor Dog Parks in Seattle, WA](https://www.indoordogpark.org/cities/seattle): Rainy day indoor play options in the Pacific Northwest.
+
+## Free Canine Health & Safety Tools
+
+- [Dog Exercise Calculator](https://www.indoordogpark.org/tools/dog-exercise-calculator): Calculate daily exercise and calorie expenditure based on dog breed, weight, and activity level.
+- [Chocolate Toxicity Calculator](https://www.indoordogpark.org/tools/chocolate-toxicity-calculator): Emergency veterinary toxicity assessment tool for canine chocolate ingestion.
+- [Weather Safety Calculator](https://www.indoordogpark.org/tools/weather-safety-calculator): Safe outdoor temperature thresholds based on coat type, age, and breed.
+- [Dog Socialization Cost Calculator](https://www.indoordogpark.org/tools/dog-socialization-cost-calculator): Estimate monthly costs of day passes, memberships, and daycare.
+
+## Top Expert Gear Reviews & Guides
+
+- [Ruffwear Front Range vs. Web Master Harness Review](https://www.indoordogpark.org/blog/ruffwear-front-range-vs-web-master-dog-harness-review): In-depth comparison of top active dog harnesses for indoor play and agility.
+- [Top 5 Best Portable Dog Water Bottles](https://www.indoordogpark.org/blog/best-portable-dog-water-bottles-for-indoor-dog-parks): Tested leak-proof travel bottles for parks and travel.
+- [Boss Dog 4ft Tactical Leash Review](https://www.indoordogpark.org/blog/expert-gear-test-boss-dog-tactical-leash-4ft-green-camo-performance-review): Heavy-duty dual-handle control leash performance test.
+- [Crew LaLa 5ft Rope Leash & Collar Review](https://www.indoordogpark.org/blog/in-depth-gear-review-crew-lala-fancy-fins-and-5ft-rope-dog-leashes): Handcrafted luxury marine rope gear review.
+- [Bowsers Divine Futon Dog Bed Review](https://www.indoordogpark.org/blog/bowsers-divine-futon-dog-bed-review-luxury-comfort-and-joint-support-tested): Orthopedic foam joint recovery bed review.
+- [ACANA Classics Salmon & Barley Food Review](https://www.indoordogpark.org/blog/acana-classics-dry-dog-food-salmon-and-barley-recipe-the-ultimate-nutritional-review): Complete nutritional breakdown for active dogs.

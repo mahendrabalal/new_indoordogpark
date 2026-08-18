@@ -353,6 +353,28 @@ export default function CityPageStyles() {
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
+        .city-guide-prose {
+          font-family: inherit;
+          line-height: 1.7;
+        }
+        .city-guide-prose h2, .city-guide-prose h3, .city-guide-prose h4 {
+          color: #0f172a;
+          letter-spacing: -0.01em;
+        }
+        .city-guide-prose p {
+          color: #334155;
+          font-size: 15px;
+          margin-bottom: 1rem;
+        }
+        .city-guide-prose ul, .city-guide-prose ol {
+          margin-bottom: 1.25rem;
+          padding-left: 1.25rem;
+        }
+        .city-guide-prose li {
+          color: #334155;
+          margin-bottom: 0.35rem;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }

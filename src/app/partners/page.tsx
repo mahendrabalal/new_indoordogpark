@@ -58,7 +58,7 @@ const partnerTiers = [
 // Partner testimonials section removed - will add real partner quotes when available
 
 export const metadata: Metadata = {
-  title: 'IndoorDogPark Partners Program',
+  title: { absolute: 'IndoorDogPark Partners Program' },
   description: 'Collaborate with IndoorDogPark to reach committed dog families, promote premium facilities, and access performance insights.',
   alternates: {
     canonical: '/partners',

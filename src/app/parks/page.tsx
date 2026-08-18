@@ -9,7 +9,7 @@ export const revalidate = 86400; // 24 hours
 const siteUrl = SITE_URL || 'https://www.indoordogpark.org';
 
 export const metadata: Metadata = {
-  title: 'Browse All Dog Parks | Indoor Dog Park Directory',
+  title: { absolute: 'Browse All Dog Parks | Indoor Dog Park Directory' },
   description:
     'Browse 500+ indoor dog parks, off-leash areas, and dog-friendly venues across the US. Filter by state, city, type, rating, and price. Find the perfect park for your pup.',
   keywords: [

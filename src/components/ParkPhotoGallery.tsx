@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { MediaAsset } from '@/types/dog-park';
+import SubmitPhotoModal from './SubmitPhotoModal';
 
 interface ParkPhotoGalleryProps {
   photos?: (MediaAsset | string)[] | null;
@@ -22,26 +23,35 @@ export default function ParkPhotoGallery({
   parkState,
   listingSlug,
 }: ParkPhotoGalleryProps) {
+  const [failedImages, setFailedImages] = useState<string[]>([]);
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+
+  const handleImageError = useCallback((url: string) => {
+    setFailedImages((prev) => (prev.includes(url) ? prev : [...prev, url]));
+  }, []);
+
   // Extract all valid image URLs and captions
-  const photoList: { url: string; caption?: string }[] = [];
+  const initialPhotoList: { url: string; caption?: string }[] = [];
 
   if (photos && Array.isArray(photos)) {
     photos.forEach((item) => {
       if (typeof item === 'string' && item.trim()) {
-        if (!photoList.some((p) => p.url === item.trim())) {
-          photoList.push({ url: item.trim() });
+        if (!initialPhotoList.some((p) => p.url === item.trim())) {
+          initialPhotoList.push({ url: item.trim() });
         }
       } else if (item && typeof item === 'object' && 'url' in item && item.url) {
-        if (!photoList.some((p) => p.url === item.url)) {
-          photoList.push({ url: item.url, caption: item.caption });
+        if (!initialPhotoList.some((p) => p.url === item.url)) {
+          initialPhotoList.push({ url: item.url, caption: item.caption });
         }
       }
     });
   }
 
-  if (primaryPhoto && !photoList.some((p) => p.url === primaryPhoto)) {
-    photoList.unshift({ url: primaryPhoto });
+  if (primaryPhoto && !initialPhotoList.some((p) => p.url === primaryPhoto)) {
+    initialPhotoList.unshift({ url: primaryPhoto });
   }
+
+  const photoList = initialPhotoList.filter((p) => !failedImages.includes(p.url));
 
   const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(null);
 
@@ -88,29 +98,41 @@ export default function ParkPhotoGallery({
   // If no photos exist, show an inviting prompt for listing owners
   if (photoList.length === 0) {
     return (
-      <div className="park-gallery-wrapper mb-8 w-full">
-        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-100 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl flex-shrink-0">
-              <i className="bi bi-camera" />
+      <>
+        <div className="park-gallery-wrapper mb-8 w-full">
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-100 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl flex-shrink-0">
+                <i className="bi bi-camera" />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-slate-800">
+                  Do you have photos of {parkName}?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+                  Help other pet parents by sharing photos of play areas, turf, and seating.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-base font-semibold text-slate-800">
-                Do you have photos of {parkName}?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-                Help other pet parents by sharing photos of play areas, turf, and seating.
-              </p>
-            </div>
+            <button
+              type="button"
+              onClick={() => setIsSubmitModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl transition shadow-sm hover:shadow flex-shrink-0 cursor-pointer"
+            >
+              <i className="bi bi-cloud-arrow-up-fill" /> Submit Photos
+            </button>
           </div>
-          <Link
-            href={listingSlug ? `/contact?subject=Photos%20for%20${encodeURIComponent(parkName)}` : '/contact'}
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl transition shadow-sm flex-shrink-0"
-          >
-            <i className="bi bi-cloud-arrow-up-fill" /> Submit Photos
-          </Link>
         </div>
-      </div>
+
+        <SubmitPhotoModal
+          isOpen={isSubmitModalOpen}
+          onClose={() => setIsSubmitModalOpen(false)}
+          parkName={parkName}
+          parkCity={parkCity}
+          parkState={parkState}
+          listingSlug={listingSlug}
+        />
+      </>
     );
   }
 
@@ -137,6 +159,7 @@ export default function ParkPhotoGallery({
               sizes="(max-width: 1200px) 100vw, 1200px"
               priority
               unoptimized
+              onError={() => handleImageError(photoList[0].url)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
@@ -174,6 +197,7 @@ export default function ParkPhotoGallery({
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority={idx === 0}
                   unoptimized
+                  onError={() => handleImageError(photo.url)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-3 right-3 z-10 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-[11px] font-medium text-white">
@@ -204,6 +228,7 @@ export default function ParkPhotoGallery({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
                 unoptimized
+                onError={() => handleImageError(photoList[0].url)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -232,6 +257,7 @@ export default function ParkPhotoGallery({
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1200px) 25vw, 300px"
                       unoptimized
+                      onError={() => handleImageError(photo.url)}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
 
@@ -259,7 +285,7 @@ export default function ParkPhotoGallery({
       </div>
 
       {/* Lightbox Modal */}
-      {activeLightboxIndex !== null && (
+      {activeLightboxIndex !== null && photoList[activeLightboxIndex] && (
         <div
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-between bg-black/95 text-white p-4 sm:p-6 backdrop-blur-md animate-fadeIn"
           role="dialog"
@@ -311,6 +337,7 @@ export default function ParkPhotoGallery({
                 sizes="(max-width: 1200px) 100vw, 1200px"
                 priority
                 unoptimized
+                onError={() => handleImageError(photoList[activeLightboxIndex].url)}
               />
             </div>
 
@@ -357,6 +384,7 @@ export default function ParkPhotoGallery({
                       className="object-cover"
                       sizes="80px"
                       unoptimized
+                      onError={() => handleImageError(thumb.url)}
                     />
                   </button>
                 ))}
@@ -365,6 +393,15 @@ export default function ParkPhotoGallery({
           </div>
         </div>
       )}
+
+      <SubmitPhotoModal
+        isOpen={isSubmitModalOpen}
+        onClose={() => setIsSubmitModalOpen(false)}
+        parkName={parkName}
+        parkCity={parkCity}
+        parkState={parkState}
+        listingSlug={listingSlug}
+      />
     </>
   );
 }

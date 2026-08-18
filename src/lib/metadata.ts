@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { DogPark } from '@/types/dog-park';
 import { getStateName } from '@/lib/state';
+import { getParkUrl } from '@/lib/routing';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 
@@ -127,7 +128,7 @@ function generateUniqueParkKeywords(park: DogPark): string {
 }
 
 export function generateParkMetadata(park: DogPark): Metadata {
-  const canonicalPath = `/parks/${park.slug || park.id}`;
+  const canonicalPath = getParkUrl(park);
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   const uniqueKeywords = generateUniqueParkKeywords(park);
@@ -168,8 +169,9 @@ export function generateParkMetadata(park: DogPark): Metadata {
     park.description || fallbackDescription
   );
 
-  const representativeImage =
-    park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5';
+  const representativeImage = toAbsoluteUrl(
+    park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'
+  );
 
   // Determine published and modified dates
   // Use approvedAt or submittedAt for publishedTime, lastUpdated for modifiedTime
@@ -273,11 +275,17 @@ export function generateParkMetadata(park: DogPark): Metadata {
   };
 }
 
+function toAbsoluteUrl(path: string): string {
+  if (!path) return path;
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  return `${SITE_URL}${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
 export function generateParkSchema(park: DogPark) {
-  const canonicalPath = `/parks/${park.slug || park.id}`;
+  const canonicalPath = getParkUrl(park);
   const canonical = `${SITE_URL}${canonicalPath}`;
-  const imageUrl =
-    park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5';
+  const rawImageUrl = park.photo || park.photos?.[0]?.url || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5';
+  const imageUrl = toAbsoluteUrl(rawImageUrl);
   const priceRange = park.pricing?.isFree
     ? 'Free'
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
@@ -538,7 +546,7 @@ export function generateReviewSchemas(
   }>,
   park: DogPark
 ) {
-  const canonicalPath = `/parks/${park.slug || park.id}`;
+  const canonicalPath = getParkUrl(park);
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
@@ -576,7 +584,7 @@ export function generateReviewSchemas(
       postalCode: park.zipCode,
       addressCountry: 'US',
     },
-    ...((park.photo || park.photos?.[0]?.url) ? { image: park.photo || park.photos?.[0]?.url } : {}),
+    ...((park.photo || park.photos?.[0]?.url) ? { image: toAbsoluteUrl(park.photo || park.photos?.[0]?.url || '') } : {}),
     ...(park.phone ? { telephone: park.phone } : {}),
   };
 
@@ -641,7 +649,7 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
       '@id': `${canonical}#itemlist`,
       numberOfItems: displayedParks.length, // Matches actual items in list
       itemListElement: displayedParks.map((park, index) => {
-        const parkUrl = `${SITE_URL}/parks/${park.slug || park.id}`;
+        const parkUrl = `${SITE_URL}${getParkUrl(park)}`;
         return {
           '@type': 'ListItem',
           position: index + 1,
@@ -675,7 +683,7 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
 }
 
 export function generateWebPageSchema(park: DogPark) {
-  const canonicalPath = `/parks/${park.slug || park.id}`;
+  const canonicalPath = getParkUrl(park);
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Use dates logic similar to generateParkMetadata

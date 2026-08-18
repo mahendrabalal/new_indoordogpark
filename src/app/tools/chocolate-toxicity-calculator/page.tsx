@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import ChocolateToxicityCalculator from '@/components/ChocolateToxicityCalculator';
 
 export const metadata: Metadata = {
-  title: 'Chocolate Toxicity Calculator for Dogs | Is Chocolate Poisonous to Dogs?',
+  title: { absolute: 'Chocolate Toxicity Calculator for Dogs | Is Chocolate Poisonous to Dogs?' },
   description: 'Use our free Chocolate Toxicity Calculator to find out if the amount of chocolate your dog ate is dangerous. Includes theobromine dose levels, symptoms, and emergency vet contacts.',
   keywords: [
     'chocolate toxicity calculator dogs',

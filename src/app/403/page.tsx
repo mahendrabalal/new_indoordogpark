@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '403 Forbidden | Access Denied',
+  title: { absolute: '403 Forbidden | Access Denied' },
   description: 'You do not have permission to access this resource.',
   robots: {
     index: false,

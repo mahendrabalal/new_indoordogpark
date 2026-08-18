@@ -42,12 +42,14 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
 
   const { state, stats, indexable, customContent } = stateContent;
 
-  const fullTitle = customContent?.heroHeading || `Dog Parks in ${state.name} | Cities, Top Picks & Maps`;
+  const fullTitle =
+    customContent?.heroHeading ||
+    `${state.name} Indoor Dog Parks: Statewide City Directory & Map (2026)`;
   const title = createSEOTitle(fullTitle, 60);
   const description = createMetaDescription(
     customContent?.heroDescription ||
     (indexable
-      ? `Explore ${formatNumber(stats.totalParks)} verified dog-friendly spots across ${state.name}. Browse top cities, compare ratings, and plan your next visit.`
+      ? `Explore ${formatNumber(stats.totalParks)} verified dog parks across ${state.name}. Browse all cities, interactive maps, admission details, and climate-controlled play spots.`
       : `We’re building out our verified directory for ${state.name}. Browse nearby cities or submit a park to help us review more dog-friendly spots.`),
   );
 

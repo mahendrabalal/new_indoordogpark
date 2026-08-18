@@ -19,6 +19,7 @@ import ParkCard from '@/components/ParkCard';
 import { SITE_URL } from '@/lib/metadata';
 import { getAffiliateProduct } from '@/lib/affiliate-products';
 import AffiliateProductBox from '@/components/blog/AffiliateProductBox';
+import { getCityGuideHtml } from '@/lib/city-guides';
 
 // ISR: cache rendered post pages at the edge CDN for 24 hours.
 // On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
@@ -83,6 +84,14 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) {
     return notFound();
+  }
+
+  // Ensure content is populated (fallback to local markdown if Sanity content is empty)
+  if (!post.content || post.content.trim().length === 0) {
+    const fallbackHtml = getCityGuideHtml(slug);
+    if (fallbackHtml) {
+      post.content = fallbackHtml;
+    }
   }
 
   // Get featured image with validation
@@ -155,8 +164,14 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
       // Get the correct canonical slug (handles priority cities)
       const slug = await getCitySlugByName(cityName, state);
 
+      // Format clean Title Case for display
+      const displayName = cityName
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+
       return {
-        name: cityName,
+        name: displayName,
         slug: slug || cityName.toLowerCase().replace(/\s+/g, '-'), // Fallback to basic slug if not found
       };
     })
@@ -188,9 +203,19 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   const reviewerRole = post.factCheckedBy ? 'Fact-checked by' : 'Reviewed by';
   const affiliateProduct = getAffiliateProduct(slug);
 
+  // Check if primaryCity is a genuine focal subject of this blog post (in title or slug)
+  const rawPrimaryCity = mentionedCitiesWithSlugs[0];
+  const postTextForMatch = (post.title + ' ' + post.slug).toLowerCase();
+  const isCityGuidePost = rawPrimaryCity && (
+    postTextForMatch.includes(rawPrimaryCity.name.toLowerCase()) ||
+    postTextForMatch.includes(rawPrimaryCity.slug)
+  );
+  const primaryCity = isCityGuidePost ? rawPrimaryCity : undefined;
+
   return (
     <>
-      <StructuredData type="BlogPosting" data={post} />
+      <StructuredData type="BlogPosting" data={post} primaryCity={primaryCity} />
+      <StructuredData type="FAQPage" data={post} />
       {affiliateProduct && (
         <StructuredData type="ProductReview" data={post} product={affiliateProduct} />
       )}
@@ -476,6 +501,34 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
               </div>
 
+              {/* Primary City Directory Link / Pillar Siloing Card */}
+              {primaryCity && (
+                <div className="mb-8 p-5 bg-gradient-to-r from-emerald-50 to-teal-50/80 border border-emerald-200/80 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm not-prose">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <i className="bi bi-geo-alt-fill text-xl" />
+                    </div>
+                    <div>
+                      <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full mb-1">
+                        Official {primaryCity.name} Directory Hub
+                      </span>
+                      <h3 className="text-base font-bold text-gray-900 m-0 leading-snug">
+                        Looking for all verified indoor dog parks in {primaryCity.name}?
+                      </h3>
+                      <p className="text-sm text-gray-600 m-0 mt-0.5">
+                        Access real-time open hours, admission fees, breed guidelines, and the interactive map.
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href={`/cities/${primaryCity.slug}`}
+                    className="inline-flex items-center justify-center px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all whitespace-nowrap shadow-sm hover:shadow flex-shrink-0"
+                  >
+                    View {primaryCity.name} Directory →
+                  </Link>
+                </div>
+              )}
+
               {/* Affiliate Product Review Summary Box (Top of Post) */}
               {affiliateProduct && (
                 <AffiliateProductBox product={affiliateProduct} variant="top" />
@@ -726,7 +779,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="mt-8 text-center">
                 <Link
                   href="/"
-                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors font-medium"
+                  className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors font-medium shadow-sm"
                 >
                   Browse All Parks →
                 </Link>
@@ -737,15 +790,17 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Mentioned Cities Section */}
         {mentionedCitiesWithSlugs.length > 0 && (
-          <div className="bg-gradient-to-r from-purple-50 to-purple-100 py-12 mt-12">
+          <div className="bg-slate-50 border-t border-slate-200/80 py-12 mt-12">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Explore These Cities</h2>
-              <p className="text-gray-600 mb-6">
-                This article mentions the following cities. Discover dog parks and resources in these locations.
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-2.5 py-1 rounded-full">
+                Related City Directories
+              </span>
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-3 mb-2">Explore Verified Parks in These Cities</h2>
+              <p className="text-gray-600 mb-6 max-w-2xl text-sm md:text-base">
+                Discover full directories, opening hours, interactive maps, and user ratings for dog parks in the locations featured in this guide.
               </p>
               <div className="flex flex-wrap gap-3">
                 {mentionedCitiesWithSlugs.map((city) => {
-                  // Capitalize first letter of each word for display
                   const displayName = city.name
                     .split(' ')
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -755,10 +810,10 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={city.name}
                       href={`/cities/${city.slug}`}
-                      className="inline-flex items-center px-4 py-2 bg-white text-purple-700 rounded-lg hover:bg-purple-50 transition-colors font-medium shadow-sm"
+                      className="inline-flex items-center px-4 py-2.5 bg-white border border-gray-200 text-gray-900 rounded-xl hover:border-emerald-500 hover:text-emerald-700 transition-all font-medium text-sm shadow-sm hover:shadow"
                     >
-                      <i className="bi bi-geo-alt mr-2"></i>
-                      {displayName}
+                      <i className="bi bi-geo-alt-fill text-emerald-600 mr-2"></i>
+                      <span>{displayName} Dog Parks Directory</span>
                     </Link>
                   );
                 })}

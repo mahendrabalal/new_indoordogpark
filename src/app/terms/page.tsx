@@ -91,7 +91,7 @@ const termsSections = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Legal Terms - Indoor Dog Park',
+  title: { absolute: 'Terms of Service | Legal Terms - Indoor Dog Park' },
   description: 'Legal terms and conditions governing the use of IndoorDogPark directory, including listings, reviews, and paid services for dog park businesses.',
   keywords: [
     'terms of service',

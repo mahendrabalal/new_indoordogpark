@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Free Dog Park Guides & Printables | IndoorDogPark.org',
+  title: { absolute: 'Free Dog Park Guides & Printables | IndoorDogPark.org' },
   description: 'Download free, beautiful checklists, packing lists, and safety guides to make your next indoor dog park visit perfect.',
   keywords: [
     'dog park guides',

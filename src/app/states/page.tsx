@@ -9,7 +9,7 @@ import { getAllStates } from '@/lib/stateData';
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
-  title: 'Browse Dog Parks by State | Indoor Dog Park',
+  title: { absolute: 'Browse Dog Parks by State | Indoor Dog Park' },
   description: 'Explore dog park and dog-friendly listings by state. Start with the best-covered states and drill down into city directories.',
   alternates: {
     canonical: '/states',

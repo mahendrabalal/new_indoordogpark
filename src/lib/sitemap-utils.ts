@@ -11,6 +11,7 @@ import {
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
 import { getAllStateSlugs, getStateContentBySlug } from './state-page-data'
 import { getParkUrl } from './routing'
+import { getAllCities } from './cityData'
 
 /**
  * Shared utilities for sitemap generation
@@ -211,6 +212,134 @@ export async function getStaticPagesSitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly' as const,
       priority: 0.7,
     },
+
+    // Directory hub pages
+    {
+      url: `${baseUrl}/parks`,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/cities`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/states`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+
+    // Feature landing pages
+    {
+      url: `${baseUrl}/indoor-agility-courses`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/indoor-dog-pools`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/small-dog-areas`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/reports`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+
+    // Guides
+    {
+      url: `${baseUrl}/guides`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides/body-language`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/etiquette-checklist`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/first-aid`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/park-vs-daycare`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/safety-assessment`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/guides/what-to-pack`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+
+    // Additional tool pages
+    {
+      url: `${baseUrl}/tools/dog-bmi-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-calorie-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-hydration-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-park-etiquette-quiz`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/dog-space-estimator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/puppy-vaccination-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
   ]
 }
 /**
@@ -297,52 +426,28 @@ export async function getCitiesSitemap(): Promise<MetadataRoute.Sitemap> {
   const cityPages: MetadataRoute.Sitemap = []
 
   try {
-    // Add city pages (includes both static cities and priority cities)
-    // Calculate lastModified based on most recent park update in each city
-    const citySlugs = await getAllCitySlugs()
-    console.log(`[sitemap-cities] Processing ${citySlugs.length} cities`)
+    const allParks = await getAllStaticParks()
+    const cities = getAllCities(allParks)
+    const seenUrls = new Set<string>()
 
-    for (const slug of citySlugs) {
-      try {
-        // Get city content to find parks in this city
-        const cityContent = await getCityContentBySlug(slug)
-
-        if (!cityContent) {
-          continue
-        }
-
-        // Must match src/app/cities/[slug]/page.tsx:shouldIndexCity (index when >= 3 listings)
-        const shouldIndex = cityContent.stats.totalParks >= 3
-
-        if (!shouldIndex) {
-          // console.log(`[sitemap-cities] Skipping thin city: ${slug} (${cityContent.stats.totalParks} parks, ${cityContent.stats.totalReviews} reviews)`)
-          continue
-        }
-
-        // Get the most recent lastUpdated date from parks in this city
-        let cityLastModified = currentDate
-        if (cityContent.cityParks.length > 0) {
-          const parkDates = cityContent.cityParks
-            .map((park) => (park.lastUpdated ? new Date(park.lastUpdated) : null))
-            .filter((date): date is Date => date !== null && !isNaN(date.getTime()))
-
-          if (parkDates.length > 0) {
-            cityLastModified = new Date(Math.max(...parkDates.map((d) => d.getTime())))
-          }
-        }
-
-        cityPages.push({
-          url: `${baseUrl}/cities/${slug}`,
-          lastModified: cityLastModified,
-          changeFrequency: 'weekly' as const,
-          priority: 0.75,
-        })
-      } catch (cityError) {
-        // Skip individual city if it fails, but continue with others
-        console.warn(`[sitemap-cities] Failed to process city ${slug}:`, {
-          error: cityError instanceof Error ? cityError.message : String(cityError),
-        })
+    for (const city of cities) {
+      // Must match indexability threshold (>= 3 verified listings)
+      if (city.parkCount < 3) {
+        continue
       }
+
+      const cityUrl = `${baseUrl}/cities/${city.slug}`
+      if (seenUrls.has(cityUrl)) {
+        continue
+      }
+      seenUrls.add(cityUrl)
+
+      cityPages.push({
+        url: cityUrl,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 0.75,
+      })
     }
 
     console.log(`[sitemap-cities] Successfully added ${cityPages.length} city pages to sitemap`)
@@ -483,4 +588,3 @@ export async function getBlogSitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [...blogPages]
 }
-

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Indoor Dog Park',
+  title: { absolute: 'Privacy Policy | Indoor Dog Park' },
   description: 'Learn how IndoorDogPark collects, uses, discloses, and safeguards your information when you visit our website and use our directory services.',
   keywords: [
     'privacy policy',

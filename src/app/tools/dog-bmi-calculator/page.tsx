@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogBmiCalculator from '@/components/DogBmiCalculator';
 
 export const metadata: Metadata = {
-  title: 'Dog BMI & Healthy Weight Checker | Free Calculator',
+  title: { absolute: 'Dog BMI & Healthy Weight Checker | Free Calculator' },
   description: 'Use our free interactive Dog BMI Calculator to assess your dog\'s Body Condition Score (BCS) and find their ideal healthy weight target.',
   keywords: [
     'dog bmi calculator',

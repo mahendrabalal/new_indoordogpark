@@ -5620,8 +5620,8 @@
   {
     "id": "ChIJo6EGL0wZU4gRmk4v3NQPpIc",
     "name": "Sally Said So Dog Training Greensboro",
-    "businessType": "Indoor Dog Park",
-    "description": "Sally Said So Dog Training Greensboro serves the Greensboro pet community with dedication. This facility features spacious exercise zones, caring and attentive team members, offering pet care. Their services provides essential socialization for your pet. readily accessible to Greensboro pet owners. Experience the difference at Sally Said So Dog Training Greensboro",
+    "businessType": "Dog Training",
+    "description": "Sally Said So Dog Training Greensboro provides professional dog training, puppy obedience programs, private in-home lessons, and behavior modification in Greensboro, North Carolina. Experienced trainers use positive, results-oriented techniques tailored to each dog.",
     "slug": "sally-said-so-dog-training-greensboro",
     "address": "305 N Edgeworth St",
     "street": "305 N Edgeworth St",
@@ -5656,20 +5656,11 @@
       "Sunday": "12:00 – 5:00 PM"
     },
     "faqs": [],
-    "amenities": {},
-    "photos": [
-      {
-        "url": "/images/parks/northcarolina/sally-said-so-dog-training-greensboro/sally-said-so-dog-training-greensboro-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/northcarolina/sally-said-so-dog-training-greensboro/sally-said-so-dog-training-greensboro-2.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/northcarolina/sally-said-so-dog-training-greensboro/sally-said-so-dog-training-greensboro-1.jpg"
+    "amenities": {
+      "training": true,
+      "climateControl": true
+    },
+    "photos": []
   },
   {
     "id": "ChIJNQTbOAgnU4gRR3gA4OkFTdk",
@@ -40807,8 +40798,8 @@
   {
     "id": "ChIJnwG8G7MhVIgR0mIu2oDdl9w",
     "name": "Sally Said So Professional Dog Training",
-    "businessType": "Indoor Dog Park",
-    "description": "Among Indian Trail's top-rated facilities, Sally Said So Professional Dog Training excels in year-round care. This facility features air-conditioned spaces for hot summers, North Carolina pet care professionals, offering pet care. Their services ensures your dog stays comfortable year-round in North Carolina. situated in a prime Indian Trail location. Contact Sally Said So Professional Dog Training today to schedule your dog's visit",
+    "businessType": "Dog Training",
+    "description": "Sally Said So Professional Dog Training provides expert dog training, puppy preschool, behavior rehabilitation, and customized training programs in Charlotte and surrounding North Carolina communities.",
     "slug": "sally-said-so-professional-dog-training",
     "address": "2301 Rama Rd",
     "street": "2301 Rama Rd",
@@ -40843,20 +40834,11 @@
       "Sunday": "8:00 AM – 8:00 PM"
     },
     "faqs": [],
-    "amenities": {},
-    "photos": [
-      {
-        "url": "/images/parks/northcarolina/sally-said-so-professional-dog-training/sally-said-so-professional-dog-training-1.jpg",
-        "type": "photo",
-        "source": "website"
-      },
-      {
-        "url": "/images/parks/northcarolina/sally-said-so-professional-dog-training/sally-said-so-professional-dog-training-2.jpg",
-        "type": "photo",
-        "source": "website"
-      }
-    ],
-    "photo": "/images/parks/northcarolina/sally-said-so-professional-dog-training/sally-said-so-professional-dog-training-1.jpg"
+    "amenities": {
+      "training": true,
+      "climateControl": true
+    },
+    "photos": []
   },
   {
     "id": "ChIJxyIg_x0xVIgRIvgFzw55YNM",

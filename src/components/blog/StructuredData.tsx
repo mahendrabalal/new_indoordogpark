@@ -3,13 +3,37 @@ import { SITE_URL } from '@/lib/metadata';
 import { AffiliateProduct } from '@/lib/affiliate-products';
 
 interface StructuredDataProps {
-  type: 'BlogPosting' | 'Blog' | 'BreadcrumbList' | 'ProductReview';
+  type: 'BlogPosting' | 'Blog' | 'BreadcrumbList' | 'ProductReview' | 'FAQPage';
   data: BlogPost | BlogPost[] | { categories?: WPCategory[]; tags?: WPTag[] } | Record<string, never>;
   breadcrumbs?: Array<{ name: string; url: string }>;
   product?: AffiliateProduct;
+  faqs?: Array<{ question: string; answer: string }>;
+  primaryCity?: { name: string; slug: string };
 }
 
-export default function StructuredData({ type, data, breadcrumbs, product }: StructuredDataProps) {
+export function extractFAQsFromHtml(html: string): Array<{ question: string; answer: string }> {
+  if (!html) return [];
+  const faqs: Array<{ question: string; answer: string }> = [];
+
+  const faqSectionRegex = /<h2[^>]*>(?:Frequently Asked Questions|FAQs|Common Questions)[\s\S]*?<\/h2>([\s\S]*?)(?=<h2|$)/i;
+  const match = faqSectionRegex.exec(html);
+  if (match && match[1]) {
+    const sectionHtml = match[1];
+    const qaRegex = /<h3[^>]*>(.*?)<\/h3>([\s\S]*?)(?=<h3|$)/gi;
+    let qaMatch;
+    while ((qaMatch = qaRegex.exec(sectionHtml)) !== null) {
+      const q = qaMatch[1].replace(/<[^>]*>/g, '').replace(/^Q:\s*/i, '').trim();
+      const a = qaMatch[2].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').replace(/^A:\s*/i, '').trim();
+      if (q && a) {
+        faqs.push({ question: q, answer: a });
+      }
+    }
+  }
+
+  return faqs;
+}
+
+export default function StructuredData({ type, data, breadcrumbs, product, faqs: customFaqs, primaryCity }: StructuredDataProps) {
   const generateStructuredData = () => {
     switch (type) {
       case 'BlogPosting':
@@ -20,8 +44,10 @@ export default function StructuredData({ type, data, breadcrumbs, product }: Str
         return generateBreadcrumbData(breadcrumbs || []);
       case 'ProductReview':
         return generateProductReviewData(data as BlogPost, product);
+      case 'FAQPage':
+        return generateFAQData(data as BlogPost, customFaqs);
       default:
-        return {};
+        return null;
     }
   };
 
@@ -111,6 +137,17 @@ export default function StructuredData({ type, data, breadcrumbs, product }: Str
         name: 'Indoor Dog Park Blog',
         url: `${baseUrl}/blog`,
       },
+      ...(primaryCity ? {
+        about: {
+          '@type': 'City',
+          name: primaryCity.name,
+          url: `${baseUrl}/cities/${primaryCity.slug}`,
+        },
+        contentLocation: {
+          '@type': 'City',
+          name: primaryCity.name,
+        },
+      } : {}),
       keywords: [
         ...post.categories.map(cat => cat.name),
         ...post.tags.map(tag => tag.name),
@@ -235,7 +272,28 @@ export default function StructuredData({ type, data, breadcrumbs, product }: Str
     };
   };
 
+  const generateFAQData = (post: BlogPost, customFaqs?: Array<{ question: string; answer: string }>) => {
+    const faqs = customFaqs && customFaqs.length > 0 ? customFaqs : (post?.content ? extractFAQsFromHtml(post.content) : []);
+    if (!faqs || faqs.length === 0) return null;
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    };
+  };
+
   const structuredData = generateStructuredData();
+  if (!structuredData || Object.keys(structuredData).length === 0) {
+    return null;
+  }
 
   return (
     <script

@@ -289,7 +289,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
             <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="rounded-3xl border border-dashed border-purple-200 bg-white p-10 text-center shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-purple-600">No results</p>
-                <h1 className="mt-4 text-3xl font-bold text-gray-900">{getPageTitle()}</h1>
+                <h2 className="mt-4 text-3xl font-bold text-gray-900">{getPageTitle()}</h2>
                 <p className="mt-2 text-gray-500">{getPageDescription()}</p>
                 <h2 className="mt-6 text-2xl font-semibold text-gray-900">We couldn’t find articles that match.</h2>
                 <p className="mt-3 text-gray-600">
@@ -363,7 +363,7 @@ async function BlogPageContent({ searchParams }: BlogPageProps) {
               <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 {/* The Latest - Left Column */}
                 <div>
-                  <h1 className="mb-6 text-2xl font-bold text-gray-900">The Latest</h1>
+                  <h2 className="mb-6 text-2xl font-bold text-gray-900">The Latest</h2>
                   <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
                     <div className="relative h-64 w-full overflow-hidden bg-gray-100 md:h-80">
                       <Image

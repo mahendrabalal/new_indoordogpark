@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import DogParkPackingListGenerator from '@/components/DogParkPackingListGenerator';
 
 export const metadata: Metadata = {
-  title: 'Dog Park Packing List Generator | IndoorDogPark.org',
+  title: { absolute: 'Dog Park Packing List Generator | IndoorDogPark.org' },
   description: 'Create a custom, printable packing list for your next trip to the dog park. See exactly what you need to bring based on the park type, weather, and your dog\'s age.',
   keywords: [
     'dog park packing list',
