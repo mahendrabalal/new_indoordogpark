@@ -39,17 +39,13 @@ interface CityPageProps {
   }>;
 }
 
-// Render statically at build time & cache at the edge for 24 hours
-export const revalidate = 86400;
+// Render statically at build time & cache at the edge for 30 days
+export const revalidate = 2592000;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const allParks = await getAllParksForStateAggregation();
-  const cityContent = await getAllCityContent();
-  const allCities = getAllCities(allParks, cityContent);
-  return allCities.map((city) => ({
-    slug: city.slug,
-  }));
+  // Return empty array to build pages on-demand (ISR) rather than ahead of time.
+  return [];
 }
 
 /** Index city pages once we have at least three verified listings (directory has real value). Cities with fewer than three listings stay noindex — including synthetic "coming soon" fallbacks. Three listings ensures the page has enough substantive content for AdSense compliance. */

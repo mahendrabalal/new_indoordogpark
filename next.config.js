@@ -419,7 +419,7 @@ const nextConfig = {
   // Optimize bundle size
   experimental: {
     // CSS optimization - requires 'critters' package (now installed)
-    optimizeCss: true,
+    optimizeCss: false,
     optimizePackageImports: ['@heroicons/react', 'date-fns'],
     // Enable partial prerendering for better performance
     ppr: false, // Disable for now as it's experimental

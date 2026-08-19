@@ -69,17 +69,13 @@ function getStateAbbr(state: string | undefined): string {
   return abbrMap[state] || state.substring(0, 2).toUpperCase();
 }
 
-// Cache at the edge for 24 hours to prevent Vercel compute bills
-export const revalidate = 86400;
+// Cache at the edge for 30 days to maximize cache hits for long-tail pages and reduce Vercel bills
+export const revalidate = 2592000;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const parks = await getAllStaticParks();
-  return parks
-    .filter((p) => isDogTrainingFacility(p))
-    .map((park) => ({
-      slug: park.slug || park.id,
-    }));
+  // Return empty array to build pages on-demand (ISR) rather than ahead of time.
+  return [];
 }
 
 export async function generateMetadata({ params }: ParkPageProps): Promise<Metadata> {

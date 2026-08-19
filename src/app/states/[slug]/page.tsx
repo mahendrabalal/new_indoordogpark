@@ -20,15 +20,12 @@ type StatePageProps = {
   }>;
 };
 
-export const revalidate = 86400; // 24 hours
+export const revalidate = 2592000; // 30 days
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const allParks = await getAllParksForStateAggregation();
-  const states = getAllStates(allParks);
-  return states.map((state) => ({
-    slug: state.slug,
-  }));
+  // Return empty array to build pages on-demand (ISR) rather than ahead of time.
+  return [];
 }
 
 function formatNumber(value: number) {
