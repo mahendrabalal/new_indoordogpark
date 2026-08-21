@@ -604,47 +604,63 @@ export async function fetchTags() {
 // Fallback: time-based revalidation every 1 hour (safety net if webhook fails)
 export async function getCachedPosts(searchParams: BlogSearchParams = {}): Promise<BlogListResponse> {
   const cacheKey = `blog-posts-${JSON.stringify(searchParams)}`;
-  return unstable_cache(
-    async () => fetchPosts(searchParams),
-    [cacheKey],
-    {
-      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
-      tags: ['blog-posts', 'blog-list'],
-    }
-  )();
+  try {
+    return await unstable_cache(
+      async () => fetchPosts(searchParams),
+      [cacheKey],
+      {
+        revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+        tags: ['blog-posts', 'blog-list'],
+      }
+    )();
+  } catch {
+    return fetchPosts(searchParams);
+  }
 }
 
 export async function getCachedPostBySlug(slug: string): Promise<BlogPost | null> {
-  return unstable_cache(
-    async () => fetchPostBySlug(slug),
-    [`blog-post-${slug}`],
-    {
-      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
-      tags: ['blog-posts', `blog-post-${slug}`],
-    }
-  )();
+  try {
+    return await unstable_cache(
+      async () => fetchPostBySlug(slug),
+      [`blog-post-${slug}`],
+      {
+        revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+        tags: ['blog-posts', `blog-post-${slug}`],
+      }
+    )();
+  } catch {
+    return fetchPostBySlug(slug);
+  }
 }
 
 export async function getCachedCategories() {
-  return unstable_cache(
-    async () => fetchCategories(),
-    ['blog-categories'],
-    {
-      revalidate: 3600, // 1 hour — categories rarely change
-      tags: ['blog-categories'],
-    }
-  )();
+  try {
+    return await unstable_cache(
+      async () => fetchCategories(),
+      ['blog-categories'],
+      {
+        revalidate: 3600, // 1 hour — categories rarely change
+        tags: ['blog-categories'],
+      }
+    )();
+  } catch {
+    return fetchCategories();
+  }
 }
 
 export async function getCachedTags() {
-  return unstable_cache(
-    async () => fetchTags(),
-    ['blog-tags'],
-    {
-      revalidate: 3600, // 1 hour — tags rarely change
-      tags: ['blog-tags'],
-    }
-  )();
+  try {
+    return await unstable_cache(
+      async () => fetchTags(),
+      ['blog-tags'],
+      {
+        revalidate: 3600, // 1 hour — tags rarely change
+        tags: ['blog-tags'],
+      }
+    )();
+  } catch {
+    return fetchTags();
+  }
 }
 
 // ──────────────────────────────────────────────

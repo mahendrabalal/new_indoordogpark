@@ -8,7 +8,7 @@ import {
   mapSubmissionToDogPark,
   type SubmissionRow
 } from './parks-data'
-import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api'
+import { fetchPosts, fetchCategories, fetchTags } from './sanity-api'
 import { getAllStateSlugs, getStateContentBySlug } from './state-page-data'
 import { getParkUrl } from './routing'
 import { getAllCities } from './cityData'
@@ -525,8 +525,8 @@ export async function getBlogSitemap(): Promise<MetadataRoute.Sitemap> {
   const tagPages: MetadataRoute.Sitemap = []
 
   try {
-    // Fetch all blog posts from Sanity
-    const blogData = await getCachedPosts({ page: 1, perPage: 1000 })
+    // Fetch all blog posts from Sanity directly (bypassing unstable_cache for sitemaps)
+    const blogData = await fetchPosts({ page: 1, perPage: 1000 })
     const posts = blogData.posts || []
 
     console.log(`[sitemap-blog] Processing ${posts.length} blog posts`)

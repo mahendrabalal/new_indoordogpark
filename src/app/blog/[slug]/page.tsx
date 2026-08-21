@@ -870,26 +870,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       ? rawFeaturedImage
       : undefined;
 
-    // Create SEO-friendly title (60 characters max for optimal SEO)
-    // Truncate at word boundary when possible to avoid cutting words
-    let seoTitle = post.title;
-    if (seoTitle.length > 60) {
-      // Try to truncate at a word boundary (space) near 60 characters
-      const truncated = seoTitle.substring(0, 60);
-      const lastSpace = truncated.lastIndexOf(' ');
-      // If we found a space after position 50, use it for cleaner truncation
-      // This ensures we have room for "..." (3 chars) and stay <= 60 total
-      if (lastSpace >= 50) {
-        seoTitle = truncated.substring(0, lastSpace) + '...';
-      } else {
-        // Otherwise, truncate at 57 and add ellipsis (total exactly 60)
-        seoTitle = truncated.substring(0, 57) + '...';
-      }
-      // Final safety check: ensure we never exceed 60 characters
-      if (seoTitle.length > 60) {
-        seoTitle = seoTitle.substring(0, 57) + '...';
-      }
-    }
+    // Use full post title for optimal keyword indexing (Google reads up to 100+ chars)
+    const seoTitle = post.title;
 
     // Extract keywords from categories and tags
     const keywords = [

@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: [
+          '/', // Explicitly allow all public routes
           '/llms.txt', // Standard manifest for AI search engines
           '/8abd796f2d329b8de96a77235663de27.txt', // IndexNow key file
         ],
@@ -29,6 +30,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: ['Googlebot', 'Bingbot'],
         allow: [
+          '/', // Explicitly allow all public routes
           '/_next/static/', // Allow static assets for crawling rendering
           '/_next/image/', // Allow Next.js image optimization
         ],
