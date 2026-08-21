@@ -95,11 +95,24 @@ function slugify(name: string, city?: string): string {
     .replace(/(^-|-$)/g, '');
 }
 
+export function cleanParkDescription(desc?: string): string {
+  if (!desc) return '';
+  return desc
+    .replace(/\bensures\s+ensures\b/gi, 'ensures')
+    .replace(/,\s*conveniently located/gi, '. Conveniently located')
+    .replace(/\b([a-z0-9])\s+(conveniently located)\b/gi, '$1. Conveniently located')
+    .replace(/\b([a-z0-9])\s+(Contact\s+)/g, '$1. Contact ')
+    .replace(/\b([a-z0-9])\s+(Visit their website\s+)/g, '$1. Visit their website ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export function normalizePark(rawPark: DogPark): DogPark {
   const slug = rawPark.slug || slugify(rawPark.name, rawPark.city);
   return {
     ...rawPark,
     slug,
+    description: cleanParkDescription(rawPark.description),
     state: normalizeState(rawPark.state),
     source: rawPark.source || 'static',
     listingType: rawPark.listingType || 'free',

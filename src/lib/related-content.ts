@@ -4,54 +4,93 @@ import { getAllStaticParks } from './parks-data';
 import { getCachedPosts, getCachedCategories, getCachedTags } from './sanity-api';
 
 /**
- * Get blog posts related to a park based on city, business type, or keywords
+ * List of known US city names that appear in blog listicle titles
+ */
+const KNOWN_BLOG_CITIES = [
+  'new york', 'long island', 'brooklyn', 'phoenix', 'las vegas', 'san antonio', 'minneapolis',
+  'portland', 'denver', 'los angeles', 'austin', 'chicago', 'bay area', 'san diego', 'dallas',
+  'houston', 'philadelphia', 'jacksonville', 'fort worth', 'san jose', 'charlotte', 'seattle',
+  'columbus', 'indianapolis', 'san francisco', 'boston', 'el paso', 'washington dc', 'oklahoma city',
+  'detroit', 'memphis', 'milwaukee', 'fresno', 'sacramento', 'kansas city', 'atlanta', 'tucson',
+  'mesa', 'raleigh', 'miami', 'brookhaven', 'colorado springs', 'omaha', 'virginia beach',
+  'long beach', 'oakland', 'bakersfield', 'tampa', 'tulsa', 'aurora', 'arlington', 'wichita',
+  'cleveland', 'henderson', 'new orleans', 'islip', 'honolulu', 'anaheim', 'orlando', 'lexington',
+  'newark', 'stockton', 'riverside', 'irvine', 'corpus christi', 'santa ana'
+];
+
+/**
+ * Universal guides that provide immense value across all dog park pages
+ */
+const UNIVERSAL_GUIDE_SLUGS = [
+  'what-to-pack-in-your-dog-park-bag-5-essentials-for-every-visit',
+  'how-to-tell-if-your-dog-is-overwhelmed-at-the-dog-park-signs-of-canine-stress',
+  'too-hot-for-the-sidewalk-how-to-tell-if-the-pavement-is-safe-for-your-dog-s-paws',
+  'are-indoor-dog-parks-safe-a-veterinarian-backed-health-and-safety-guide',
+  'making-a-splash-the-surprising-health-benefits-of-indoor-dog-swimming-pools',
+  'the-best-indoor-dog-park-flooring-turf-vs-rubber-vs-epoxy',
+  'safe-sanctuaries-managing-storm-and-noise-anxiety-in-dogs-with-structured-indoor-play',
+  'how-to-tire-out-a-high-energy-dog-indoors-without-ruining-your-house',
+  'dogs-at-the-dog-park-10-things-every-owner-must-know',
+  'kennel-cough-in-dogs-symptoms-treatment-and-dog-park-safety',
+];
+
+/**
+ * Get blog posts related to a park based on city, state, business type, and universal care guides
  */
 export async function getRelatedBlogPosts(
   park: DogPark,
-  limit: number = 3
+  limit: number = 2
 ): Promise<BlogPost[]> {
   try {
-    const allPosts = await getCachedPosts({ page: 1, perPage: 50 });
+    const allPosts = await getCachedPosts({ page: 1, perPage: 100 });
     const posts = allPosts.posts || [];
 
-    // Extract keywords from park
-    const cityName = park.city.toLowerCase();
-    const businessType = park.businessType.toLowerCase();
+    const cityName = (park.city || '').toLowerCase().trim();
+    const stateName = (park.state || '').toLowerCase().trim();
+    const businessType = (park.businessType || '').toLowerCase();
 
     // Score posts based on relevance
     const scoredPosts = posts.map((post) => {
       let score = 0;
-      const postTitle = post.title.toLowerCase();
-      const postContent = post.content.toLowerCase();
-      const postExcerpt = post.excerpt.toLowerCase();
+      const postTitle = (post.title || '').toLowerCase();
+      const postSlug = (post.slug || '').toLowerCase();
+      const postExcerpt = (post.excerpt || '').toLowerCase();
+      const postContent = (post.content || '').toLowerCase();
 
-      // High score for city mentions
-      if (postTitle.includes(cityName) || postContent.includes(cityName) || postExcerpt.includes(cityName)) {
-        score += 10;
+      // 1. Check for foreign city listicles (e.g. "Best in New York" on an Arizona park)
+      const foreignCity = KNOWN_BLOG_CITIES.find(
+        (c) => (postTitle.includes(c) || postSlug.includes(c)) && !cityName.includes(c) && !c.includes(cityName)
+      );
+
+      // If this post is explicitly a listicle for another specific city, disqualify it
+      if (foreignCity) {
+        return { post, score: -1000 };
       }
 
-      // Score for business type keywords
-      const businessKeywords = ['indoor dog park', 'dog park', 'training', 'agility', 'daycare', 'boarding'];
-      businessKeywords.forEach((keyword) => {
-        if (businessType.includes(keyword) && (postTitle.includes(keyword) || postContent.includes(keyword))) {
-          score += 5;
-        }
-      });
+      // 2. High boost for direct city matches
+      if (cityName && (postTitle.includes(cityName) || postSlug.includes(cityName))) {
+        score += 100;
+      } else if (cityName && (postExcerpt.includes(cityName) || postContent.includes(cityName))) {
+        score += 40;
+      }
 
-      // Score for category/tag matches
-      post.categories.forEach((cat) => {
-        const catName = cat.name.toLowerCase();
-        if (catName.includes('dog park') || catName.includes('training') || catName.includes('care')) {
-          score += 3;
-        }
-      });
+      // 3. Boost for state mentions (e.g., Arizona / AZ)
+      if (stateName && (postTitle.includes(stateName) || postExcerpt.includes(stateName))) {
+        score += 30;
+      }
 
-      post.tags.forEach((tag) => {
-        const tagName = tag.name.toLowerCase();
-        if (tagName === cityName || tagName.includes('dog park') || tagName.includes('training')) {
-          score += 3;
-        }
-      });
+      // 4. Boost for business type relevance (e.g., training guides for training facilities)
+      if (businessType.includes('training') && (postTitle.includes('train') || postSlug.includes('train'))) {
+        score += 25;
+      }
+      if (businessType.includes('pool') && (postTitle.includes('pool') || postTitle.includes('splash') || postTitle.includes('swim'))) {
+        score += 25;
+      }
+
+      // 5. Universal high-authority care/health guides get a reliable base score
+      if (UNIVERSAL_GUIDE_SLUGS.includes(post.slug)) {
+        score += 20;
+      }
 
       return { post, score };
     });
