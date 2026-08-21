@@ -70,7 +70,7 @@ Allow parks to sponsor blog posts or content sections:
 ### 4. **Affiliate Marketing** (Medium Priority)
 Partner with dog-related businesses:
 
-- **Dog food/treats**: Amazon Associates, Chewy affiliate links
+- **Dog food/treats**: Chewy affiliate links
 - **Pet insurance**: Lemonade, Healthy Paws partnerships
 - **Dog gear**: Leashes, toys, accessories
 - **Dog training courses**: Online course affiliates
