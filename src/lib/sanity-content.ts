@@ -122,6 +122,16 @@ const CITY_QUERY = `*[_type == "cityContent"] {
 // In-memory cache with 1-hour TTL to bypass Next.js 2MB unstable_cache item size limit
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 
+async function fetchStateContentRaw(): Promise<PriorityStateConfig[]> {
+  try {
+    const results = await sanityClient.fetch<PriorityStateConfig[]>(STATE_QUERY);
+    return results || [];
+  } catch (error) {
+    console.warn('[Sanity CDN] Failed to fetch state content:', error);
+    return [];
+  }
+}
+
 let cachedStateContent: { data: PriorityStateConfig[]; timestamp: number } | null = null;
 let pendingStateFetch: Promise<PriorityStateConfig[]> | null = null;
 
