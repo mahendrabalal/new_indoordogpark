@@ -434,6 +434,46 @@ const nextConfig = {
         destination: '/cities/succasunna',
         permanent: true,
       },
+      // Legacy health/safety post → first-aid guide
+      {
+        source: '/blog/dog-throwing-up-white-foam',
+        destination: '/guides/first-aid',
+        permanent: true,
+      },
+      // Legacy San Jose blog post → San Jose city directory
+      {
+        source: '/blog/top-10-indoor-dog-parks-san-jose',
+        destination: '/cities/san-jose',
+        permanent: true,
+      },
+      // Typo URL /hour → /how-it-works
+      {
+        source: '/hour',
+        destination: '/how-it-works',
+        permanent: true,
+      },
+      // Legacy author URL → /about
+      {
+        source: '/blog/author/indoor-dog-park-directory-team',
+        destination: '/about',
+        permanent: true,
+      },
+      // Malformed legacy city slugs from old scraped address data
+      {
+        source: '/cities/nj-08550-nj',
+        destination: '/cities/west-windsor-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/weehawken-township-nj',
+        destination: '/cities/weehawken-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/105-california-ave-nj',
+        destination: '/cities/middletown-nj',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs
