@@ -622,6 +622,12 @@ const nextConfig = {
         destination: '/cities/lakewood-nj',
         permanent: true,
       },
+      // Short blog slug → full live slug
+      {
+        source: '/blog/are-indoor-dog-parks-safe',
+        destination: '/blog/are-indoor-dog-parks-safe-a-veterinarian-backed-health-and-safety-guide',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs

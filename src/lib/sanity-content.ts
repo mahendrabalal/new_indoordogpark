@@ -119,26 +119,33 @@ const CITY_QUERY = `*[_type == "cityContent"] {
   }
 }`;
 
-// ─── State Content ─────────────────────────────────────────────────────────────
+// In-memory cache with 1-hour TTL to bypass Next.js 2MB unstable_cache item size limit
+const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 
-async function fetchStateContentRaw(): Promise<PriorityStateConfig[]> {
-  try {
-    const results = await sanityClient.fetch<PriorityStateConfig[]>(STATE_QUERY);
-    return results || [];
-  } catch (error) {
-    console.warn('[Sanity CDN] Failed to fetch state content:', error);
-    return [];
+let cachedStateContent: { data: PriorityStateConfig[]; timestamp: number } | null = null;
+let pendingStateFetch: Promise<PriorityStateConfig[]> | null = null;
+
+export async function getAllStateContent(): Promise<PriorityStateConfig[]> {
+  const now = Date.now();
+  if (cachedStateContent && now - cachedStateContent.timestamp < CACHE_TTL_MS) {
+    return cachedStateContent.data;
   }
+  if (pendingStateFetch) {
+    return pendingStateFetch;
+  }
+  pendingStateFetch = fetchStateContentRaw()
+    .then((data) => {
+      cachedStateContent = { data, timestamp: Date.now() };
+      pendingStateFetch = null;
+      return data;
+    })
+    .catch((err) => {
+      console.warn('[Sanity CDN] Error in state content fetch:', err);
+      pendingStateFetch = null;
+      return cachedStateContent ? cachedStateContent.data : [];
+    });
+  return pendingStateFetch;
 }
-
-export const getAllStateContent = unstable_cache(
-  fetchStateContentRaw,
-  ['sanity-all-state-content'],
-  {
-    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
-    tags: ['state-content', 'sanity-content'],
-  }
-);
 
 export async function getStateContentBySlug(slug: string): Promise<PriorityStateConfig | null> {
   const all = await getAllStateContent();
@@ -167,14 +174,30 @@ async function fetchCityContentRaw(): Promise<PriorityCityConfig[]> {
   }
 }
 
-export const getAllCityContent = unstable_cache(
-  fetchCityContentRaw,
-  ['sanity-all-city-content'],
-  {
-    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
-    tags: ['city-content', 'sanity-content'],
+let cachedCityContent: { data: PriorityCityConfig[]; timestamp: number } | null = null;
+let pendingCityFetch: Promise<PriorityCityConfig[]> | null = null;
+
+export async function getAllCityContent(): Promise<PriorityCityConfig[]> {
+  const now = Date.now();
+  if (cachedCityContent && now - cachedCityContent.timestamp < CACHE_TTL_MS) {
+    return cachedCityContent.data;
   }
-);
+  if (pendingCityFetch) {
+    return pendingCityFetch;
+  }
+  pendingCityFetch = fetchCityContentRaw()
+    .then((data) => {
+      cachedCityContent = { data, timestamp: Date.now() };
+      pendingCityFetch = null;
+      return data;
+    })
+    .catch((err) => {
+      console.warn('[Sanity CDN] Error in city content fetch:', err);
+      pendingCityFetch = null;
+      return cachedCityContent ? cachedCityContent.data : [];
+    });
+  return pendingCityFetch;
+}
 
 export async function getCityContentBySlug(slug: string): Promise<PriorityCityConfig | null> {
   const all = await getAllCityContent();
