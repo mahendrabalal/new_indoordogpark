@@ -434,16 +434,16 @@ const nextConfig = {
         destination: '/cities/succasunna',
         permanent: true,
       },
-      // Legacy health/safety post → first-aid guide
+      // Legacy health/safety post → live blog post
       {
         source: '/blog/dog-throwing-up-white-foam',
-        destination: '/guides/first-aid',
+        destination: '/blog/why-is-my-dog-throwing-up-white-foam-causes-facts-and-when-to-call-the-vet',
         permanent: true,
       },
-      // Legacy San Jose blog post → San Jose city directory
+      // Legacy San Jose blog post → live blog post
       {
         source: '/blog/top-10-indoor-dog-parks-san-jose',
-        destination: '/cities/san-jose',
+        destination: '/blog/top-10-best-indoor-dog-parks-in-san-jose-and-indoor-friendly-play-areas',
         permanent: true,
       },
       // Typo URL /hour → /how-it-works
