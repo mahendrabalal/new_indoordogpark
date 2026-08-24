@@ -480,6 +480,330 @@ export const queries = {
     }
   }`,
 
+  // Compound queries returning both items and total count in a SINGLE query
+  postsWithCount: `{
+    "posts": *[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      "content": body,
+      publishedAt,
+      hidePublishedDate,
+      _updatedAt,
+      mainImage {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt,
+        caption
+      },
+      author->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      lastUpdated,
+      factCheckedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      reviewedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      categories[]->{
+        _id,
+        title,
+        slug,
+        description
+      },
+      tags[]->{
+        _id,
+        title,
+        slug
+      }
+    },
+    "total": count(*[_type == "post" && !(_id in path("drafts.**"))])
+  }`,
+
+  postsByCategoryWithCount: `{
+    "posts": *[_type == "post" && references(*[_type=="category" && slug.current == $categorySlug]._id) && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      "content": body,
+      publishedAt,
+      hidePublishedDate,
+      _updatedAt,
+      mainImage {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt,
+        caption
+      },
+      author->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      lastUpdated,
+      factCheckedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      reviewedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      categories[]->{
+        _id,
+        title,
+        slug,
+        description
+      },
+      tags[]->{
+        _id,
+        title,
+        slug
+      }
+    },
+    "total": count(*[_type == "post" && references(*[_type=="category" && slug.current == $categorySlug]._id) && !(_id in path("drafts.**"))])
+  }`,
+
+  postsByTagWithCount: `{
+    "posts": *[_type == "post" && references(*[_type=="tag" && slug.current == $tagSlug]._id) && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      "content": body,
+      publishedAt,
+      hidePublishedDate,
+      _updatedAt,
+      mainImage {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt,
+        caption
+      },
+      author->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      lastUpdated,
+      factCheckedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      reviewedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      categories[]->{
+        _id,
+        title,
+        slug,
+        description
+      },
+      tags[]->{
+        _id,
+        title,
+        slug
+      }
+    },
+    "total": count(*[_type == "post" && references(*[_type=="tag" && slug.current == $tagSlug]._id) && !(_id in path("drafts.**"))])
+  }`,
+
+  searchPostsWithCount: `{
+    "posts": *[_type == "post" && !(_id in path("drafts.**")) && 
+      (title match $searchTerm || excerpt match $searchTerm)
+    ] | order(publishedAt desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt,
+      hidePublishedDate,
+      mainImage {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+      author->{
+        name
+      },
+      lastUpdated,
+      factCheckedBy->{ name },
+      reviewedBy->{ name },
+      categories[]->{
+        title,
+        slug
+      }
+    },
+    "total": count(*[_type == "post" && !(_id in path("drafts.**")) && (title match $searchTerm || excerpt match $searchTerm)])
+  }`,
+
+  postsByAuthorWithCount: `{
+    "posts": *[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
+      _id,
+      title,
+      slug,
+      excerpt,
+      "content": body,
+      publishedAt,
+      hidePublishedDate,
+      _updatedAt,
+      mainImage {
+        asset->{
+          _id,
+          url,
+          metadata {
+            dimensions
+          }
+        },
+        alt,
+        caption
+      },
+      author->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      lastUpdated,
+      factCheckedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      reviewedBy->{
+        _id,
+        name,
+        slug,
+        bio,
+        image {
+          asset->{
+            _id,
+            url
+          }
+        }
+      },
+      categories[]->{
+        _id,
+        title,
+        slug,
+        description
+      },
+      tags[]->{
+        _id,
+        title,
+        slug
+      }
+    },
+    "total": count(*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))])
+  }`,
+
   // Count posts by author slug
   postCountByAuthor: `count(*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))])`,
 };

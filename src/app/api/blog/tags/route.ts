@@ -2,17 +2,24 @@ import { NextResponse } from 'next/server'
 import { getCachedTags } from '@/lib/sanity-api'
 
 export const revalidate = 3600
-export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
     const tags = await getCachedTags()
 
-    return NextResponse.json({
-      success: true,
-      data: tags,
-      count: tags.length
-    })
+    return NextResponse.json(
+      {
+        success: true,
+        data: tags,
+        count: tags.length
+      },
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        },
+      }
+    )
   } catch (error) {
     console.error('Error fetching tags:', error)
     return NextResponse.json(

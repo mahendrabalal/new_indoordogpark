@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server';
 import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogSearchParams } from '@/types/wordpress';
 
-export const revalidate = 300; // Revalidate every 5 minutes
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function GET(request: Request) {
   try {
@@ -35,16 +34,24 @@ export async function GET(request: Request) {
 
     const blogData = await getCachedPosts(blogParams);
 
-    return NextResponse.json({
-      success: true,
-      data: blogData.posts || [],
-      pagination: {
-        total: blogData.total || 0,
-        totalPages: blogData.totalPages || 0,
-        currentPage: blogData.page || 1,
-        perPage: blogData.perPage || 12,
+    return NextResponse.json(
+      {
+        success: true,
+        data: blogData.posts || [],
+        pagination: {
+          total: blogData.total || 0,
+          totalPages: blogData.totalPages || 0,
+          currentPage: blogData.page || 1,
+          perPage: blogData.perPage || 12,
+        },
       },
-    });
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        },
+      }
+    );
   } catch (error) {
     console.error('Error fetching blog posts:', error);
     return NextResponse.json(

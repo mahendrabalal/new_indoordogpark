@@ -489,43 +489,34 @@ export async function fetchPosts(searchParams: BlogSearchParams = {}): Promise<B
     const start = (page - 1) * perPage;
     const end = start + perPage;
 
-    let query = queries.posts;
+    let query = queries.postsWithCount;
     const params: Record<string, unknown> = { start, end };
 
     // Handle search
     if (searchParams.search) {
-      query = queries.searchPosts;
+      query = queries.searchPostsWithCount;
       params.searchTerm = `*${searchParams.search}*`;
     }
 
     // Handle category filter
     if (searchParams.category) {
-      query = queries.postsByCategory;
+      query = queries.postsByCategoryWithCount;
       params.categorySlug = searchParams.category;
     }
 
     // Handle tag filter
     if (searchParams.tag) {
-      query = queries.postsByTag;
+      query = queries.postsByTagWithCount;
       params.tagSlug = searchParams.tag;
     }
 
-    // Use regular client with CDN for performance
-    // Cache invalidation handled via Next.js cache tags and revalidation
-    const sanityPosts = await withRetry(() => sanityClient.fetch<SanityPost[]>(query, params));
+    // Single round-trip to Sanity CDN for both posts and total count
+    const result = await withRetry(() =>
+      sanityClient.fetch<{ posts: SanityPost[]; total: number }>(query, params)
+    );
 
-    // Get the correct total count based on the filter
-    let totalCount: number;
-    if (searchParams.category) {
-      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountByCategory, { categorySlug: searchParams.category }));
-    } else if (searchParams.tag) {
-      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountByTag, { tagSlug: searchParams.tag }));
-    } else if (searchParams.search) {
-      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCountBySearch, { searchTerm: `*${searchParams.search}*` }));
-    } else {
-      totalCount = await withRetry(() => sanityClient.fetch<number>(queries.postCount));
-    }
-
+    const sanityPosts = result?.posts || [];
+    const totalCount = typeof result?.total === 'number' ? result.total : 0;
     const posts = sanityPosts.map(sanityPostToBlogPost);
 
     return {
@@ -741,14 +732,16 @@ export async function fetchPostsByAuthor(
     const start = (page - 1) * perPage;
     const end = start + perPage;
 
-    const [sanityPosts, totalCount] = await Promise.all([
-      withRetry(() => sanityClient.fetch<SanityPost[]>(queries.postsByAuthor, {
+    const result = await withRetry(() =>
+      sanityClient.fetch<{ posts: SanityPost[]; total: number }>(queries.postsByAuthorWithCount, {
         authorSlug,
         start,
         end,
-      })),
-      withRetry(() => sanityClient.fetch<number>(queries.postCountByAuthor, { authorSlug })),
-    ]);
+      })
+    );
+
+    const sanityPosts = result?.posts || [];
+    const totalCount = typeof result?.total === 'number' ? result.total : 0;
 
     return {
       posts: sanityPosts.map(sanityPostToBlogPost),
