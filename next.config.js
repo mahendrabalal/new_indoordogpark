@@ -405,7 +405,35 @@ const nextConfig = {
         destination: '/training-facilities',
         permanent: true,
       },
-      // Add more redirects as needed for old URLs or common misspellings
+      // ── GSC 404 fixes (August 2026) ──────────────────────────────
+      // Blog category that doesn't exist in Sanity → top-level feature page
+      {
+        source: '/blog/category/parks-with-bars',
+        destination: '/parks-with-bars',
+        permanent: true,
+      },
+      // Variant blog slugs → actual live posts
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-bakersfield-ca',
+        destination: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-tampa-fl',
+        destination: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+        permanent: true,
+      },
+      {
+        source: '/blog/san-diego-indoor-dog-parks',
+        destination: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+        permanent: true,
+      },
+      // Roxbury is the township name; actual city in data is Succasunna
+      {
+        source: '/cities/roxbury-nj',
+        destination: '/cities/succasunna',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs
