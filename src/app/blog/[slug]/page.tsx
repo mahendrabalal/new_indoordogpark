@@ -94,6 +94,16 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
     }
   }
 
+  // Ensure reciprocal link for One Health Globe is rendered
+  if (post.content && (slug.includes('are-indoor-dog-parks-safe') || slug.includes('storm-and-noise-anxiety') || slug.includes('indoor-dog-swimming-pools'))) {
+    if (!post.content.includes('onehealthglobe.com')) {
+      post.content = post.content.replace(
+        /flea, tick, and heartworm medications are up to date\./i,
+        'flea, tick, and heartworm medications are up to date. On rest days or when you cannot make it to a facility, following an at-home <a href="https://onehealthglobe.com/dog-mental-enrichment-at-home/" target="_blank" rel="noopener">dog mental enrichment guide</a> keeps your pup sharp and calm.'
+      );
+    }
+  }
+
   // Get featured image with validation
   const rawFeaturedImage = post.featuredImage?.media_details?.sizes?.large?.source_url ||
     post.featuredImage?.media_details?.sizes?.medium?.source_url ||

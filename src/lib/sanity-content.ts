@@ -1,21 +1,15 @@
-import { sanityServerClient } from '@/lib/sanity-server';
+import { sanityClient } from '@/lib/sanity-client';
 import imageUrlBuilder from '@sanity/image-url';
+import { unstable_cache } from 'next/cache';
 import type { PriorityStateConfig, StateCustomContent } from '@/types/state-content';
 import type { PriorityCityConfig, CityCustomContent } from '@/types/city-content';
 
-// Image URL builder for Sanity assets
-const builder = imageUrlBuilder(sanityServerClient);
+// Image URL builder for Sanity assets (uses public CDN client)
+const builder = imageUrlBuilder(sanityClient);
 
 function urlFor(source: any) {
   return builder.image(source);
 }
-
-// ─── In-memory caches ──────────────────────────────────────────────────────────
-let stateCache: PriorityStateConfig[] | null = null;
-let cityCache: PriorityCityConfig[] | null = null;
-let stateCacheTime = 0;
-let cityCacheTime = 0;
-const CACHE_TTL = process.env.NODE_ENV === 'development' ? 0 : 5 * 60 * 1000; // Instant in dev, 5 min in prod
 
 // ─── GROQ Queries ──────────────────────────────────────────────────────────────
 const STATE_QUERY = `*[_type == "stateContent"] {
@@ -127,22 +121,24 @@ const CITY_QUERY = `*[_type == "cityContent"] {
 
 // ─── State Content ─────────────────────────────────────────────────────────────
 
-export async function getAllStateContent(): Promise<PriorityStateConfig[]> {
-  const now = Date.now();
-  if (stateCache && (now - stateCacheTime) < CACHE_TTL) {
-    return stateCache;
-  }
-
+async function fetchStateContentRaw(): Promise<PriorityStateConfig[]> {
   try {
-    const results = await sanityServerClient.fetch(STATE_QUERY);
-    stateCache = results;
-    stateCacheTime = now;
-    return results;
+    const results = await sanityClient.fetch<PriorityStateConfig[]>(STATE_QUERY);
+    return results || [];
   } catch (error) {
-    console.warn('[Sanity] Failed to fetch state content, using cache or empty:', error);
-    return stateCache || [];
+    console.warn('[Sanity CDN] Failed to fetch state content:', error);
+    return [];
   }
 }
+
+export const getAllStateContent = unstable_cache(
+  fetchStateContentRaw,
+  ['sanity-all-state-content'],
+  {
+    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
+    tags: ['state-content', 'sanity-content'],
+  }
+);
 
 export async function getStateContentBySlug(slug: string): Promise<PriorityStateConfig | null> {
   const all = await getAllStateContent();
@@ -156,27 +152,29 @@ export async function getStateContentBySlug(slug: string): Promise<PriorityState
 
 // ─── City Content ──────────────────────────────────────────────────────────────
 
-export async function getAllCityContent(): Promise<PriorityCityConfig[]> {
-  const now = Date.now();
-  if (cityCache && (now - cityCacheTime) < CACHE_TTL) {
-    return cityCache;
-  }
-
+async function fetchCityContentRaw(): Promise<PriorityCityConfig[]> {
   try {
-    const results = await sanityServerClient.fetch(CITY_QUERY);
+    const results = await sanityClient.fetch<any[]>(CITY_QUERY);
+    if (!results) return [];
     // Map the Sanity results to match PriorityCityConfig shape
-    const mapped = results.map((r: any) => ({
+    return results.map((r: any) => ({
       ...r,
       parks: [], // Parks come from static data, not Sanity
     }));
-    cityCache = mapped;
-    cityCacheTime = now;
-    return mapped;
   } catch (error) {
-    console.warn('[Sanity] Failed to fetch city content, using cache or empty:', error);
-    return cityCache || [];
+    console.warn('[Sanity CDN] Failed to fetch city content:', error);
+    return [];
   }
 }
+
+export const getAllCityContent = unstable_cache(
+  fetchCityContentRaw,
+  ['sanity-all-city-content'],
+  {
+    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
+    tags: ['city-content', 'sanity-content'],
+  }
+);
 
 export async function getCityContentBySlug(slug: string): Promise<PriorityCityConfig | null> {
   const all = await getAllCityContent();
@@ -198,3 +196,4 @@ export async function getAllSanityStateSlugs(): Promise<string[]> {
   const all = await getAllStateContent();
   return all.map((s) => s.slug);
 }
+

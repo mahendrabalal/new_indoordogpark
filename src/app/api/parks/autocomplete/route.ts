@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { DogPark } from '@/types/dog-park';
-import { getAllStaticParks } from '@/lib/parks-data';
-import { sanityServerClient } from '@/lib/sanity-server';
+import { getAllStaticParks, loadUserSubmissions } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,32 +28,11 @@ export async function GET(request: Request) {
 
     const searchTerm = query.toLowerCase();
 
-    // Fetch static parks using centralized data loader
-    const staticParks = await getAllStaticParks();
-
-    // Fetch approved user submissions from database
-    let submissionParks: DogPark[] = [];
-    try {
-      const submissions = await sanityServerClient.fetch(
-        `*[_type == "parkSubmission" && status == 'approved'] {
-          name,
-          city,
-          businessType,
-          latitude,
-          longitude
-        }`
-      );
-
-      if (submissions) {
-        submissionParks = submissions.map((sub: any) => ({
-          name: sub.name,
-          city: sub.city,
-          businessType: sub.businessType,
-        })) as DogPark[];
-      }
-    } catch (dbError) {
-      console.error('Error fetching submissions for autocomplete:', dbError);
-    }
+    // Fetch static parks and cached user submissions concurrently
+    const [staticParks, submissionParks] = await Promise.all([
+      getAllStaticParks().catch(() => []),
+      loadUserSubmissions().catch(() => []),
+    ]);
 
     // Merge both sources
     const allParks = [...staticParks, ...submissionParks];

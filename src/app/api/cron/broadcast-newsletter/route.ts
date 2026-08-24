@@ -13,7 +13,7 @@ const sanityReadClient = createClient({
   projectId: projectId || '',
   dataset,
   apiVersion: '2024-01-01',
-  useCdn: false, // Fresh data
+  useCdn: true,
 });
 
 const sanityWriteClient = writeToken

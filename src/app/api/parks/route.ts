@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DogPark, MediaAsset } from '@/types/dog-park';
-import { sanityServerClient } from '@/lib/sanity-server';
 import { normalizeState, normalizeStateKey } from '@/lib/state';
-import { getAllStaticParks, mapSanitySubmissionToDogPark } from '@/lib/parks-data';
+import { getAllStaticParks, loadUserSubmissions } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic'; // API routes using request.url must be dynamic
 
@@ -22,64 +21,8 @@ export async function GET(request: Request) {
       listingType: 'free'
     }));
 
-    // Helper to normalize photos from database submissions
-    const normalizePhotos = (photos: unknown): MediaAsset[] => {
-      if (!Array.isArray(photos)) return [];
-
-      return photos
-        .map((photo) => {
-          if (!photo) return null;
-
-          if (typeof photo === 'string') {
-            const trimmed = photo.trim();
-            if (!trimmed) return null;
-            return {
-              url: trimmed,
-              type: 'photo',
-            } as MediaAsset;
-          }
-
-          if (typeof photo === 'object') {
-            const anyPhoto = photo as Record<string, unknown>;
-            const url =
-              typeof anyPhoto.url === 'string' && anyPhoto.url.trim() !== ''
-                ? anyPhoto.url
-                : typeof anyPhoto.publicUrl === 'string' && anyPhoto.publicUrl.trim() !== ''
-                  ? anyPhoto.publicUrl
-                  : undefined;
-
-            if (!url) return null;
-
-            return {
-              type: (anyPhoto.type as MediaAsset['type']) || 'photo',
-              url,
-              caption: typeof anyPhoto.caption === 'string' ? anyPhoto.caption : undefined,
-              source: typeof anyPhoto.source === 'string' ? (anyPhoto.source as MediaAsset['source']) : undefined,
-              uploadedAt: typeof anyPhoto.uploadedAt === 'string' ? anyPhoto.uploadedAt : undefined,
-              storagePath: typeof anyPhoto.storagePath === 'string' ? anyPhoto.storagePath : undefined,
-            } satisfies MediaAsset;
-          }
-
-          return null;
-        })
-        .filter((photo): photo is MediaAsset => !!photo);
-    };
-
-    // Fetch approved user submissions from database
-    let submissionParks: DogPark[] = [];
-    try {
-      const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
-        ...,
-        "photoUrls": photos[].asset->url
-      }`;
-      const submissions = await sanityServerClient.fetch(sanityQuery);
-
-      if (submissions && submissions.length > 0) {
-        submissionParks = submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
-      }
-    } catch (error) {
-      console.warn('[PARKS API] Failed to fetch submissions from Sanity', error);
-    }
+    // Fetch approved user submissions (cached from Sanity CDN)
+    const submissionParks = await loadUserSubmissions().catch(() => []);
 
     // Merge both data sources
     const allParks: DogPark[] = [...staticParksWithSource, ...submissionParks] as DogPark[];

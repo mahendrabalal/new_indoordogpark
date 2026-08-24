@@ -39,7 +39,7 @@ To plan a balanced fitness regimen that includes swimming and land play, you can
 
 ## Mental Enrichment: Tiring Out High-Energy Breeds Indoors
 
-For many working and high-energy breeds—such as Border Collies, Belgian Malinois, and Australian Shepherds—physical fatigue is only half the battle. They require **mental stimulation** to prevent destructive behaviors at home. 
+For many working and high-energy breeds—such as Border Collies, Belgian Malinois, and Australian Shepherds—physical fatigue is only half the battle. They require **mental stimulation** to prevent destructive behaviors at home. Combining physical hydrotherapy with an at-home [dog mental enrichment guide](https://onehealthglobe.com/dog-mental-enrichment-at-home/) provides a comprehensive physical and mental workout. 
 
 Indoor dog pools offer a highly stimulating sensory experience that engages a dog's brain:
 1.  **Proprioceptive Feedback:** Navigating a three-dimensional fluid environment forces the brain to coordinate muscle movements constantly, providing deep cognitive engagement.

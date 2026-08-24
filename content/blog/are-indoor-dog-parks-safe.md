@@ -114,7 +114,7 @@ Not all indoor parks are created equal. Before you purchase a membership, take a
 
 Safety at an indoor dog park is a two-way street. While the facility provides the infrastructure, owners must adhere to proper etiquette. 
 
-Never bring a dog to the park if they are exhibiting signs of illness, such as lethargy, coughing, or diarrhea. Ensure your dog's preventative flea, tick, and heartworm medications are up to date. Finally, stay off your phone! Actively watching your dog is the single best way to prevent incidents. Brush up on your etiquette with our [10 things every owner must know at the dog park](https://www.indoordogpark.org/blog/dogs-at-the-dog-park-10-things-every-owner-must-know).
+Never bring a dog to the park if they are exhibiting signs of illness, such as lethargy, coughing, or diarrhea. Ensure your dog's preventative flea, tick, and heartworm medications are up to date. On rest days or when you cannot make it to a facility, following an at-home [dog mental enrichment guide](https://onehealthglobe.com/dog-mental-enrichment-at-home/) keeps your pup sharp and calm. Finally, stay off your phone! Actively watching your dog is the single best way to prevent incidents. Brush up on your etiquette with our [10 things every owner must know at the dog park](https://www.indoordogpark.org/blog/dogs-at-the-dog-park-10-things-every-owner-must-know).
 
 ## The Verdict
 

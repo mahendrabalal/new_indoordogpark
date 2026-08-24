@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { DogPark, MediaAsset } from '@/types/dog-park';
-import { sanityServerClient } from '@/lib/sanity-server';
 import { normalizeTypeParameter } from '@/lib/type-normalizer';
-import { getAllStaticParks, mapSanitySubmissionToDogPark } from '@/lib/parks-data';
+import { getAllStaticParks, loadUserSubmissions } from '@/lib/parks-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -137,27 +136,8 @@ export async function GET(request: Request) {
     // Fetch static parks using centralized data loader (includes all states: CA, WA, VA, etc.)
     const staticParksWithSource = await getAllStaticParks();
 
-    // Fetch approved user submissions from database (includes both featured and free listings)
-    // Industry best practice: Include ALL approved parks in search, regardless of listing type
-    let submissionParks: DogPark[] = [];
-    try {
-      const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
-        ...,
-        "photoUrls": photos[].asset->url
-      }`;
-      const submissions = await sanityServerClient.fetch(sanityQuery);
-
-      if (submissions && submissions.length > 0) {
-        console.log(`[SEARCH API] Found ${submissions.length} approved submission(s) from Sanity`);
-        submissionParks = submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
-      }
-    } catch (dbError) {
-      console.error('[SEARCH API] Unexpected error fetching submissions from Sanity:', {
-        error: dbError instanceof Error ? dbError.message : String(dbError),
-        stack: dbError instanceof Error ? dbError.stack : undefined,
-      });
-      submissionParks = []; // Graceful degradation - return empty array
-    }
+    // Fetch approved user submissions (cached from Sanity CDN)
+    const submissionParks = await loadUserSubmissions().catch(() => []);
 
     // Merge both data sources
     let allParks: DogPark[] = [...staticParksWithSource, ...submissionParks];

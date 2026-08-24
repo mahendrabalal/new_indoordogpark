@@ -77,8 +77,8 @@ Designate an interior room of your house (like a bathroom, walk-in closet, or ba
 ### 2. Sound Masking
 Silence is the enemy during a thunderstorm, as it makes every clap of thunder sound louder by contrast. Turn on a loud fan, a white noise machine, or play classical music. Studies have shown that reggae and soft rock are particularly effective at lowering canine heart rates.
 
-### 3. Deep Pressure Therapy
-Products like the *Thundershirt* or DIY calming wraps utilize deep pressure therapy. Wrapping the dog's torso in a snug garment applies gentle, constant pressure that has a swaddling effect, similar to calming a crying infant. 
+### 3. Deep Pressure Therapy & Mental Enrichment
+Products like the *Thundershirt* or DIY calming wraps utilize deep pressure therapy. Wrapping the dog's torso in a snug garment applies gentle, constant pressure that has a swaddling effect, similar to calming a crying infant. Pairing physical compression with puzzle toys from a structured [dog mental enrichment guide](https://onehealthglobe.com/dog-mental-enrichment-at-home/) helps redirect nervous adrenaline into positive mental focus. 
 
 ### 4. Consult Your Veterinarian About Medication
 For dogs with severe phobias, holistic remedies (like CBD or chamomile) may not be enough. Talk to your veterinarian about FDA-approved situational anti-anxiety medications (such as Sileo, Trazodone, or Gabapentin). These are not sedatives that simply paralyze a terrified dog; they actively reduce the brain's anxiety response.

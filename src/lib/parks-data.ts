@@ -19,7 +19,8 @@ import {
   findLocalCityHeroImage,
 } from '@/lib/cityData';
 
-import { sanityServerClient } from '@/lib/sanity-server';
+import { sanityClient } from '@/lib/sanity-client';
+import { unstable_cache } from 'next/cache';
 export interface PaginatedParks {
   data: DogPark[];
   pagination: {
@@ -472,32 +473,27 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
   }
 
   try {
-    // First, try to find by exact slug match
-    const sanityQuery = `*[_type == "parkSubmission" && status == "approved"]{
-      ...,
-      "photoUrls": photos[].asset->url
-    }`;
-    const allApproved = await sanityServerClient.fetch(sanityQuery);
-
-    if (allApproved && allApproved.length > 0) {
-      // Find exact slug
-      let matchingSubmission = allApproved.find((sub: any) => sub.slug?.current === slug);
+    // Check cached approved user submissions
+    const userSubmissions = await loadUserSubmissions();
+    if (userSubmissions && userSubmissions.length > 0) {
+      // 1. Find exact slug
+      let matchingSubmission = userSubmissions.find((sub) => sub.slug === slug);
 
       if (!matchingSubmission) {
-        // Fallback: generated slug
-        matchingSubmission = allApproved.find((sub: any) => {
+        // 2. Fallback: generated slug
+        matchingSubmission = userSubmissions.find((sub) => {
           const generatedSlug = slugify(sub.name, sub.city);
           return generatedSlug === slug;
         });
       }
 
       if (matchingSubmission) {
-        return mapSanitySubmissionToDogPark(matchingSubmission);
+        return matchingSubmission;
       }
 
-      // Last resort: try name-based matching
+      // 3. Last resort: try name-based matching
       const normalizedSearchSlug = slug.toLowerCase().trim();
-      const nameBasedMatch = allApproved.find((sub: any) => {
+      const nameBasedMatch = userSubmissions.find((sub) => {
         const subName = sub.name.toLowerCase().trim();
         const expectedSlug = slugify(sub.name, sub.city).toLowerCase();
 
@@ -507,24 +503,24 @@ export async function getParkBySlug(slug: string): Promise<DogPark | null> {
       });
 
       if (nameBasedMatch) {
-        return mapSanitySubmissionToDogPark(nameBasedMatch);
+        return nameBasedMatch;
       }
     }
   } catch (submissionError) {
-    console.warn(`[Sanity] Failed to fetch park by slug: ${slug}`);
+    console.warn(`[Sanity CDN] Failed to find park by slug: ${slug}`, submissionError);
   }
 
   return null;
 }
 
-async function loadUserSubmissions(): Promise<DogPark[]> {
+async function fetchUserSubmissionsRaw(): Promise<DogPark[]> {
   try {
     const sanityQuery = `*[_type == "parkSubmission" && status == "approved"] | order(_createdAt desc) {
       ...,
       "photoUrls": photos[].asset->url
     }`;
     
-    const submissions = await sanityServerClient.fetch(sanityQuery);
+    const submissions = await sanityClient.fetch<any[]>(sanityQuery);
 
     if (!submissions || submissions.length === 0) {
       return [];
@@ -532,10 +528,19 @@ async function loadUserSubmissions(): Promise<DogPark[]> {
 
     return submissions.map((sub: any) => mapSanitySubmissionToDogPark(sub));
   } catch (error) {
-    console.warn('[Sanity] Failed to load user submissions');
+    console.warn('[Sanity CDN] Failed to load user submissions:', error);
     return [];
   }
 }
+
+export const loadUserSubmissions = unstable_cache(
+  fetchUserSubmissionsRaw,
+  ['sanity-user-park-submissions'],
+  {
+    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
+    tags: ['park-submissions', 'parks'],
+  }
+);
 
 export async function getCityContentBySlug(slug: string): Promise<CityContentPayload | null> {
   // Load all data sources

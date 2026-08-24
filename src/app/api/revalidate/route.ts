@@ -53,15 +53,61 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await request.json().catch(() => ({}));
     const { secret, paths = [], tags = [] } = body;
 
-    // Check for secret to prevent unauthorized revalidation
-    if (secret !== process.env.REVALIDATE_SECRET) {
+    // Check for secret to prevent unauthorized revalidation (supports query param or body secret)
+    const { searchParams } = new URL(request.url);
+    const querySecret = searchParams.get('secret');
+    const providedSecret = secret || querySecret;
+
+    if (providedSecret !== process.env.REVALIDATE_SECRET) {
       return NextResponse.json(
         { error: 'Invalid secret' },
         { status: 401 }
       );
+    }
+
+    const revalidatePaths = new Set<string>(paths);
+    const revalidateTags = new Set<string>(tags);
+
+    // Automatic tag and path inference from Sanity Webhook payloads
+    const docType = body._type || body.type;
+    if (docType) {
+      switch (docType) {
+        case 'post':
+          revalidateTags.add('blog-posts');
+          revalidateTags.add('blog-list');
+          if (body.slug?.current) {
+            revalidateTags.add(`blog-post-${body.slug.current}`);
+            revalidatePaths.add(`/blog/${body.slug.current}`);
+          }
+          break;
+        case 'author':
+          revalidateTags.add('blog-authors');
+          if (body.slug?.current) {
+            revalidateTags.add(`blog-author-${body.slug.current}`);
+          }
+          break;
+        case 'category':
+          revalidateTags.add('blog-categories');
+          break;
+        case 'tag':
+          revalidateTags.add('blog-tags');
+          break;
+        case 'stateContent':
+          revalidateTags.add('state-content');
+          revalidateTags.add('sanity-content');
+          break;
+        case 'cityContent':
+          revalidateTags.add('city-content');
+          revalidateTags.add('sanity-content');
+          break;
+        case 'parkSubmission':
+          revalidateTags.add('park-submissions');
+          revalidateTags.add('parks');
+          break;
+      }
     }
 
     const results = {
@@ -70,7 +116,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Revalidate multiple paths
-    for (const path of paths) {
+    for (const path of revalidatePaths) {
       try {
         await revalidatePath(path);
         results.paths.push(path);
@@ -81,7 +127,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Revalidate multiple tags
-    for (const tag of tags) {
+    for (const tag of revalidateTags) {
       try {
         // @ts-expect-error - Next.js 16 signature mismatch
         await revalidateTag(tag);
