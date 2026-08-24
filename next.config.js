@@ -520,6 +520,57 @@ const nextConfig = {
         destination: '/cities/ewing-nj',
         permanent: true,
       },
+      // Batch 4 GSC 404 fixes
+      {
+        source: '/trails',
+        destination: '/off-leash-dog-park',
+        permanent: true,
+      },
+      {
+        source: '/services',
+        destination: '/owner-resources',
+        permanent: true,
+      },
+      {
+        source: '/rules',
+        destination: '/guides/etiquette-checklist',
+        permanent: true,
+      },
+      {
+        source: '/cities/387-rifle-camp-rd-nj',
+        destination: '/cities/woodland-park-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-07095',
+        destination: '/cities/woodbridge-nj',
+        permanent: true,
+      },
+      {
+        source: '/parks/priority-pdx-pearl-pack',
+        destination: '/cities/portland-or',
+        permanent: true,
+      },
+      {
+        source: '/cities/hamilton-ml3-6qr-nj',
+        destination: '/cities/hamilton-nj',
+        permanent: true,
+      },
+      {
+        source: '/lakenorman',
+        destination: '/states/north-carolina',
+        permanent: true,
+      },
+      {
+        source: '/cities/west-windsor-township-nj',
+        destination: '/cities/west-windsor-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/40-main-st-nj',
+        destination: '/cities',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs
