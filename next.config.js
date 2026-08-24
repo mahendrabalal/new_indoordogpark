@@ -571,6 +571,57 @@ const nextConfig = {
         destination: '/cities',
         permanent: true,
       },
+      // Batch 5 GSC 404 fixes
+      {
+        source: '/history',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/cities/557-englishtown-rd',
+        destination: '/cities/monroe-township-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-07733-nj',
+        destination: '/cities/holmdel-nj',
+        permanent: true,
+      },
+      {
+        source: '/community',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/locations',
+        destination: '/cities',
+        permanent: true,
+      },
+      {
+        source: '/regulations',
+        destination: '/guides/etiquette-checklist',
+        permanent: true,
+      },
+      {
+        source: '/directory',
+        destination: '/parks',
+        permanent: true,
+      },
+      {
+        source: '/cities/5137-69th-st',
+        destination: '/cities',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-07002-nj',
+        destination: '/cities/bayonne-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-08701',
+        destination: '/cities/lakewood-nj',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs
