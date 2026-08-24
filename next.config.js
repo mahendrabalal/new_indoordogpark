@@ -474,6 +474,52 @@ const nextConfig = {
         destination: '/cities/middletown-nj',
         permanent: true,
       },
+      // Batch 3 GSC 404 fixes
+      {
+        source: '/cities/llc-nj',
+        destination: '/cities',
+        permanent: true,
+      },
+      {
+        source: '/cities/ewing-township-nj',
+        destination: '/cities/ewing-nj',
+        permanent: true,
+      },
+      {
+        source: '/parks/canine-ph-d-dog-training-inc-decatur',
+        destination: '/dog-training',
+        permanent: true,
+      },
+      {
+        source: '/attractions',
+        destination: '/parks',
+        permanent: true,
+      },
+      {
+        source: '/students',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/vets',
+        destination: '/guides/first-aid',
+        permanent: true,
+      },
+      {
+        source: '/$',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-07071',
+        destination: '/cities/lyndhurst-nj',
+        permanent: true,
+      },
+      {
+        source: '/cities/nj-08628-nj',
+        destination: '/cities/ewing-nj',
+        permanent: true,
+      },
     ];
   },
   // Trailing slash configuration for consistent URLs
