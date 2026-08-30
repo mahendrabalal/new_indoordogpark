@@ -29,7 +29,7 @@ export async function generateMetadata({
   searchParams,
 }: HomePageProps): Promise<Metadata> {
   const resolvedSearchParams = await searchParams;
-  const title = 'Indoor Dog Parks Near Me (2026) | Verified Play Areas & Dog Bars';
+  const title = 'Find Indoor Dog Parks Near Me | Verified Parks & Dog Bars | IndoorDogPark.org';
   const description =
     'Find the best indoor dog parks near you in 2026. Search 500+ verified climate-controlled indoor dog parks, dog bars, agility arenas & swimming pools with real reviews and hours.';
 

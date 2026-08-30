@@ -115,6 +115,6 @@ Swimming is a fantastic way to burn energy and stay cool in the summer. Check ou
 
 ## Conclusion
 
-Your dog relies on you to protect them from the elements. By remembering the **7-second rule** and understanding how quickly pavement temperatures rise, you can prevent painful pad burns and keep your furry friend happy, healthy, and active all summer long. 
+Your dog relies on you to protect them from the elements. By remembering the **7-second rule** and understanding how quickly pavement temperatures rise, you can prevent painful pad burns and keep your dog happy, healthy, and active all summer long. 
 
 When it gets too hot for the sidewalk, take advantage of indoor alternatives like training centers, swimming pools, and indoor dog parks to keep the play going safely!

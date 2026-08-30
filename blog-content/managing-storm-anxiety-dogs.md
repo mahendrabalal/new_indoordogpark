@@ -4,7 +4,7 @@ As the sky darkens and the first distant rumble of thunder rolls across the hori
 
 Canine noise phobia is a serious behavioral condition that can lead to destructive behavior, self-injury, and immense psychological suffering for your dog. While we cannot control the weather or stop holiday fireworks, we can change how we manage our dogs' environments during these stressful events.
 
-In this comprehensive guide, we will explore the science behind noise anxiety, immediate calming strategies, long-term desensitization techniques, and how utilizing insulated indoor dog parks can provide a crucial "safe sanctuary" to help your dog burn off adrenaline safely.
+In this article, we will explore the science behind noise anxiety, immediate calming strategies, long-term desensitization techniques, and how utilizing insulated indoor dog parks can provide a crucial "safe sanctuary" to help your dog burn off adrenaline safely.
 
 ---
 
@@ -81,7 +81,7 @@ Silence is the enemy during a thunderstorm, as it makes every clap of thunder so
 Products like the *Thundershirt* or DIY calming wraps utilize deep pressure therapy. Wrapping the dog's torso in a snug garment applies gentle, constant pressure that has a swaddling effect, similar to calming a crying infant. Pairing physical compression with puzzle toys from a structured [dog mental enrichment guide](https://onehealthglobe.com/dog-mental-enrichment-at-home/) helps redirect nervous adrenaline into positive mental focus. 
 
 ### 4. Consult Your Veterinarian About Medication
-For dogs with severe phobias, holistic remedies (like CBD or chamomile) may not be enough. Talk to your veterinarian about FDA-approved situational anti-anxiety medications (such as Sileo, Trazodone, or Gabapentin). These are not sedatives that simply paralyze a terrified dog; they actively reduce the brain's anxiety response.
+For dogs with severe phobias, complete remedies (like CBD or chamomile) may not be enough. Talk to your veterinarian about FDA-approved situational anti-anxiety medications (such as Sileo, Trazodone, or Gabapentin). These are not sedatives that simply paralyze a terrified dog; they actively reduce the brain's anxiety response.
 
 ---
 
@@ -98,7 +98,7 @@ The ultimate goal is to change how your dog emotionally reacts to loud noises. T
 
 One of the most effective, yet overlooked, strategies for managing storm anxiety is removing the dog from the home entirely and relocating them to a heavily insulated, highly distracting environment. 
 
-If you know a severe storm system is moving into your area (or the Fourth of July is approaching), booking a session at a commercial **indoor dog park** or indoor daycare facility can be a game-changer. 
+If you know a severe storm system is moving into your area (or the Fourth of July is approaching), booking a session at a commercial **indoor dog park** or indoor daycare facility can be a major help. 
 
 ### Why Indoor Parks Work for Anxious Dogs:
 

@@ -122,6 +122,9 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                 <Link href="/cities/san-diego" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>San Diego</Link>
                 <Link href="/cities/new-york" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>New York</Link>
                 <Link href="/cities/seattle" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Seattle</Link>
+                <hr style={{ margin: '6px 0', borderColor: 'rgba(0,0,0,0.08)' }} />
+                <Link href="/cities" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Browse All Cities</Link>
+                <Link href="/states" className="header-dropdown-link" onClick={() => setOpenDropdown(null)}>Browse by State</Link>
               </div>
             </div>
 
@@ -187,6 +190,8 @@ export default function Header({ variant = 'default' }: HeaderProps) {
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
         {/* Core Discovery */}
         <Link href="/cities/new-york" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Locations</Link>
+        <Link href="/cities" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Browse All Cities</Link>
+        <Link href="/states" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Browse by State</Link>
         <Link href="/parks-with-bars" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Parks with Bars</Link>
         <Link href="/off-leash-dog-park" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Off-Leash Parks</Link>
         <Link href="/indoor-dog-pools" className="mobile-menu-item" onClick={() => setIsMenuOpen(false)}>Indoor Dog Pools</Link>

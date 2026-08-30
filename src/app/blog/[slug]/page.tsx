@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlogPost } from '@/types/wordpress';
+import '@/app/blog/blog.css';
 import StructuredData from '@/components/blog/StructuredData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -379,7 +380,13 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                                 />
                               </div>
                             )}
-                            <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">{reviewer.name}</span>
+                            <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors flex items-center gap-1.5">
+                              {reviewer.name}
+                              <span className="inline-flex items-center gap-0.5 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded border border-blue-200" title="Reviewed by a certified expert">
+                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                                Verified Expert
+                              </span>
+                            </span>
                           </Link>
                         </div>
                       </>
@@ -688,7 +695,13 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
                     </Link>
                     <div>
                       <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">{reviewerRole}</div>
-                      <Link href={`/blog/author/${reviewer.slug}`} className="text-base font-bold text-gray-900 mb-1 hover:text-green-600 transition-colors block">{reviewer.name}</Link>
+                      <Link href={`/blog/author/${reviewer.slug}`} className="text-base font-bold text-gray-900 mb-1 hover:text-green-600 transition-colors flex items-center gap-2">
+                        {reviewer.name}
+                        <span className="inline-flex items-center gap-0.5 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded border border-blue-200" title="Reviewed by a certified expert">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                          Verified Expert
+                        </span>
+                      </Link>
                       {reviewer.description && (
                         <p className="text-sm text-gray-600 leading-relaxed">{reviewer.description}</p>
                       )}

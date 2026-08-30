@@ -102,6 +102,7 @@ export default function StructuredData({ type, data, breadcrumbs, product, faqs:
         reviewedBy: {
           '@type': 'Person',
           name: reviewer.name,
+          url: `https://www.indoordogpark.org/blog/author/${reviewer.slug}`,
           ...(reviewer.avatar_urls?.['96'] && {
             image: {
               '@type': 'ImageObject',
@@ -261,14 +262,7 @@ export default function StructuredData({ type, data, breadcrumbs, product, faqs:
         reviewCount: String(prod.reviewCount),
         bestRating: '5',
         worstRating: '1',
-      },
-      offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        priceRange: prod.priceRange || '$$',
-        url: prod.amazonUrl,
-        availability: 'https://schema.org/InStock',
-      },
+      }
     };
   };
 

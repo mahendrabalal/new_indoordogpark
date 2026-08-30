@@ -409,6 +409,24 @@ export const queries = {
     "postCount": count(*[_type == "post" && references(^._id) && !(_id in path("drafts.**"))])
   }`,
 
+  // Fetch all authors with post counts (for /blog/authors listing page)
+  allAuthors: `*[_type == "author"] | order(name asc) {
+    _id,
+    name,
+    slug,
+    bio,
+    image {
+      asset->{
+        _id,
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    },
+    "postCount": count(*[_type == "post" && references(^._id) && !(_id in path("drafts.**"))])
+  }`,
+
   // Posts by author slug
   postsByAuthor: `*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))] | order(publishedAt desc) [$start...$end] {
     _id,
@@ -807,4 +825,3 @@ export const queries = {
   // Count posts by author slug
   postCountByAuthor: `count(*[_type == "post" && references(*[_type=="author" && slug.current == $authorSlug]._id) && !(_id in path("drafts.**"))])`,
 };
-

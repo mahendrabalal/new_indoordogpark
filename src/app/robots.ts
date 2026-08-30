@@ -94,16 +94,18 @@ export default function robots(): MetadataRoute.Robots {
           '/studio/',
         ],
       },
-      // Explicitly block aggressive scrapers and data harvesters
+      // Allow SEO audit bots (so the site owner can use these tools for their own research)
+      {
+        userAgent: 'AhrefsBot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/studio/', '/outreach-studio/'],
+      },
+      // Block truly aggressive scrapers and data harvesters only
       {
         userAgent: [
-          'AhrefsBot',
           'DotBot',
-          'MJ12bot',
           'BLEXBot',
-          'PetalBot',
           'DataForSeoBot',
-          'SeznamBot',
           'MauiBot',
           'AspiegelBot',
         ],

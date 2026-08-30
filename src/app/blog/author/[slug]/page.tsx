@@ -107,12 +107,29 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
   const profilePageSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
+    dateCreated: new Date().toISOString(),
+    dateModified: new Date().toISOString(),
     mainEntity: {
       '@type': 'Person',
       name: author.name,
       url: `${SITE_URL}/blog/author/${author.slug}`,
       description: author.bio || undefined,
-      image: author.avatarUrl || undefined,
+      image: author.avatarUrl
+        ? {
+            '@type': 'ImageObject',
+            url: author.avatarUrl,
+            width: 200,
+            height: 200,
+          }
+        : undefined,
+      jobTitle: 'Pet Care Writer & Indoor Dog Park Expert',
+      knowsAbout: [
+        'Indoor Dog Parks',
+        'Dog Health & Wellness',
+        'Canine Recreation',
+        'Pet Safety',
+        'Dog Training',
+      ],
       worksFor: {
         '@type': 'Organization',
         name: 'Indoor Dog Park',

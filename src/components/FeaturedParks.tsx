@@ -59,36 +59,11 @@ export default function FeaturedParks() {
   }, []);
 
   if (isLoading) {
-    return (
-      <section className="featured-parks-premium-new py-24 bg-slate-50 relative overflow-hidden" aria-labelledby="premium-featured-heading-loading">
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-        <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-indigo-50 rounded-full blur-[100px] opacity-70 pointer-events-none" />
+    return null;
+  }
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center justify-center gap-2 mb-4 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm opacity-50">
-              <i className="bi bi-star-fill text-amber-400 text-xs" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">Premium Partner Network</span>
-            </div>
-            <h2 id="premium-featured-heading-loading" className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] opacity-50">
-              Elevating the <span className="font-serif italic text-slate-600 font-normal pr-2">Standard</span> of Play.
-            </h2>
-            <p className="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed opacity-50">
-              Join an elite network of climate-controlled facilities with concierge visibility, prioritized placements, and performance insights.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 opacity-50">
-              <div className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-8 py-4 text-sm font-bold text-white">
-                List your park — $9.99/mo
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-8 py-4 text-sm font-bold text-slate-700">
-                Learn about visibility
-              </div>
-            </div>
-          </div>
-          {/* Omit skeleton grid to prevent massive layout collapse if 0 parks */}
-        </div>
-      </section>
-    );
+  if (!isLoading && (!featuredParks || featuredParks.length === 0)) {
+    return null;
   }
 
   return (

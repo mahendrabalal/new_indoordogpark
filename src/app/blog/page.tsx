@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import '@/app/blog/blog.css';
 import { permanentRedirect } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -22,6 +23,8 @@ import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity
 // ISR: serve cached page, revalidate in the background every 24 hours.
 // On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
 export const revalidate = 86400;
+
+
 
 // Define the BlogPage component props
 interface BlogPageProps {

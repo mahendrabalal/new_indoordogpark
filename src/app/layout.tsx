@@ -32,20 +32,6 @@ export const metadata: Metadata = {
   description:
     'Find year-round indoor dog parks across the United States. Search by city, state, or zip to discover safe, climate-controlled play spaces for your dog.',
   applicationName: 'Indoor Dog Park',
-  keywords: [
-    'indoor dog park',
-    'dog play area',
-    'dog recreation',
-    'indoor dog facility',
-    'dog daycare',
-    'dog training',
-    'dog boarding',
-    'pet services',
-    'canine activities',
-    'off-leash dog areas',
-    'US dog parks',
-    'dog-friendly spaces'
-  ],
   authors: [{ name: 'Indoor Dog Park Team', url: 'https://www.indoordogpark.org' }],
   creator: 'Indoor Dog Park',
   publisher: 'Indoor Dog Park',
@@ -161,7 +147,7 @@ export default function RootLayout({
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://www.indoordogpark.org/?search={search_term_string}',
+        urlTemplate: 'https://www.indoordogpark.org/?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },

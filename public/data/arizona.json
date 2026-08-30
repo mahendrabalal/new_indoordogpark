@@ -19671,10 +19671,10 @@
     "id": "aardbark-grooming",
     "name": "Aardbark Grooming",
     "businessType": "Dog Park",
-    "description": "Pet owners in Gilbert consistently choose Aardbark Grooming for exceptional pet care, making it the trusted name in professional pet care. Their facility features comprehensive pet care programs, state-of-the-art indoor play areas, experienced and certified staff. This ensures your dog stays active and healthy, provides essential socialization for your pet, offers peace of mind for busy pet parents. conveniently located in the heart of Gilbert Contact Aardbark Grooming today to schedule your dog's visit Visit their website at https://doggroominggilbert.com/?y_source=1_OTc0Mzk3MS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D to learn more about their services and pricing.",
+    "description": "Aardbark Grooming stands as one of Gilbert, Arizona's premier pet care and professional grooming destinations, renowned for providing compassionate, high-quality coat care and hygiene services. Serving dogs of all breeds, life stages, and sizes, this established salon combines gentle animal handling with meticulous styling techniques in a clean, climate-controlled indoor environment designed to keep four-legged visitors calm and comfortable.\n\nThe salon offers a full spectrum of pet styling and wellness treatments tailored to each dog's specific coat type and individual needs. Core services include full-service warm water baths, professional blowouts, breed-standard haircuts, and personalized styling. For pet parents seeking targeted care, the facility provides specialized doodle coat maintenance and detangling, gentle first-time puppy introductions, deep de-shedding treatments, hypoallergenic washes, soothing ear cleaning, and precision nail trimming and filing.\n\nBuilt on a philosophy of low-stress handling and safety-first care, Aardbark Grooming's experienced groomers take the time to understand each pet's temperament, ensuring a relaxing and positive grooming experience. Backed by hundreds of top-rated local reviews and years of dedicated service to Gilbert dog owners, the salon remains a trusted staple for families seeking dependable pet hygiene, healthy coats, and exceptional care.",
     "slug": "aardbark-grooming",
-    "address": "",
-    "street": "",
+    "address": "610 N Gilbert Rd #316",
+    "street": "610 N Gilbert Rd #316",
     "city": "Gilbert",
     "state": "AZ",
     "zipCode": "85234",
@@ -19683,7 +19683,7 @@
     "longitude": -111.7907533,
     "googlePlaceId": "",
     "phone": "(480) 497-5707",
-    "website": "https://doggroominggilbert.com/?y_source=1_OTc0Mzk3MS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+    "website": "https://doggroominggilbert.com/",
     "photos": null,
     "rating": 4.7,
     "reviewCount": 236,
@@ -19716,7 +19716,23 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [
+      {
+        "question": "What grooming services does Aardbark Grooming offer?",
+        "answer": "Aardbark Grooming provides full-service dog baths, breed styling and haircuts, doodle coat grooming, puppy grooming, de-shedding treatments, nail trimming and filing, ear cleaning, and sanitary trims.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      },
+      {
+        "question": "Where is Aardbark Grooming located in Gilbert?",
+        "answer": "Aardbark Grooming is located in Fountain Plaza at 610 N Gilbert Rd #316, Gilbert, AZ 85234, conveniently situated south of Guadalupe Road.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      },
+      {
+        "question": "How can I schedule a grooming appointment?",
+        "answer": "You can schedule a visit by calling (480) 497-5707 or by visiting their official website at https://doggroominggilbert.com/.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "jeannie-s-grooming",

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import type { MediaAsset } from '@/types/dog-park';
 import SubmitPhotoModal from './SubmitPhotoModal';
 
@@ -95,32 +94,52 @@ export default function ParkPhotoGallery({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeLightboxIndex, closeLightbox, showNext, showPrev]);
 
-  // If no photos exist, show an inviting prompt for listing owners
+  // If no photos exist, show a tasteful, beautiful themed cover banner
   if (photoList.length === 0) {
     return (
       <>
-        <div className="park-gallery-wrapper mb-8 w-full">
-          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-100 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl flex-shrink-0">
-                <i className="bi bi-camera" />
+        <div className="park-gallery-wrapper mb-6 sm:mb-8 w-full">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border border-slate-800/80 shadow-lg p-6 sm:p-10 text-white">
+            {/* Ambient background blur circles */}
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+              <div className="flex items-start gap-4 sm:gap-5 max-w-2xl">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-2xl sm:text-3xl shadow-lg shadow-orange-500/20 flex-shrink-0">
+                  <i className="bi bi-camera-fill" />
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-orange-400 bg-orange-500/15 px-2.5 py-0.5 rounded-full border border-orange-500/20">
+                      Community Gallery
+                    </span>
+                    {parkCity && (
+                      <span className="text-xs text-slate-400 font-medium hidden sm:inline">
+                        • {parkCity}, {parkState || 'CA'}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
+                    Do you have photos of {parkName}?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                    Help pet parents in {parkCity || 'the area'} visualize the facility by sharing photos of play areas, agility gear, turf, and seating.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-base font-semibold text-slate-800">
-                  Do you have photos of {parkName}?
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-                  Help other pet parents by sharing photos of play areas, turf, and seating.
-                </p>
+
+              <div className="flex-shrink-0 w-full md:w-auto flex justify-start md:justify-end">
+                <button
+                  type="button"
+                  onClick={() => setIsSubmitModalOpen(true)}
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm font-bold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <i className="bi bi-cloud-arrow-up-fill text-lg" />
+                  <span>Submit Photos</span>
+                </button>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => setIsSubmitModalOpen(true)}
-              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl transition shadow-sm hover:shadow flex-shrink-0 cursor-pointer"
-            >
-              <i className="bi bi-cloud-arrow-up-fill" /> Submit Photos
-            </button>
           </div>
         </div>
 
@@ -140,7 +159,7 @@ export default function ParkPhotoGallery({
 
   return (
     <>
-      <div className="park-gallery-wrapper mb-8 w-full">
+      <div className="park-gallery-wrapper mb-6 sm:mb-8 w-full">
         {/* Single Photo Layout */}
         {photoList.length === 1 && (
           <div
@@ -162,7 +181,7 @@ export default function ParkPhotoGallery({
               onError={() => handleImageError(photoList[0].url)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
+
             <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold text-white shadow">
               <i className="bi bi-arrows-fullscreen" />
               <span>Expand Photo</span>
@@ -274,10 +293,11 @@ export default function ParkPhotoGallery({
 
             {/* Bottom-right "View all photos" button */}
             <button
+              type="button"
               onClick={() => openLightbox(0)}
-              className="absolute bottom-4 right-4 z-20 flex items-center gap-2 rounded-xl bg-white/90 hover:bg-white text-slate-900 px-4 py-2 text-xs sm:text-sm font-bold shadow-lg backdrop-blur-md transition-all hover:scale-105"
+              className="absolute bottom-4 right-4 z-20 flex items-center gap-2 rounded-xl bg-white/95 hover:bg-white text-slate-900 px-4 py-2 text-xs sm:text-sm font-bold shadow-lg backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
             >
-              <i className="bi bi-grid-3x3-gap-fill text-emerald-600" />
+              <i className="bi bi-grid-3x3-gap-fill text-orange-600" />
               <span>View all {photoList.length} photos</span>
             </button>
           </div>
@@ -305,8 +325,9 @@ export default function ParkPhotoGallery({
             </div>
 
             <button
+              type="button"
               onClick={closeLightbox}
-              className="rounded-full bg-white/10 hover:bg-white/25 text-white p-2.5 transition focus:outline-none"
+              className="rounded-full bg-white/10 hover:bg-white/25 text-white p-2.5 transition focus:outline-none cursor-pointer"
               aria-label="Close photo gallery"
             >
               <i className="bi bi-x-lg text-lg" />
@@ -317,11 +338,12 @@ export default function ParkPhotoGallery({
           <div className="relative flex-1 w-full max-w-5xl flex items-center justify-center my-auto">
             {hasMultiple && (
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   showPrev();
                 }}
-                className="absolute left-2 sm:-left-6 z-20 rounded-full bg-black/60 hover:bg-white/20 text-white p-3 sm:p-4 backdrop-blur transition hover:scale-110 focus:outline-none"
+                className="absolute left-2 sm:-left-6 z-20 rounded-full bg-black/60 hover:bg-white/20 text-white p-3 sm:p-4 backdrop-blur transition hover:scale-110 focus:outline-none cursor-pointer"
                 aria-label="Previous photo"
               >
                 <i className="bi bi-chevron-left text-xl sm:text-2xl" />
@@ -343,11 +365,12 @@ export default function ParkPhotoGallery({
 
             {hasMultiple && (
               <button
+                type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   showNext();
                 }}
-                className="absolute right-2 sm:-right-6 z-20 rounded-full bg-black/60 hover:bg-white/20 text-white p-3 sm:p-4 backdrop-blur transition hover:scale-110 focus:outline-none"
+                className="absolute right-2 sm:-right-6 z-20 rounded-full bg-black/60 hover:bg-white/20 text-white p-3 sm:p-4 backdrop-blur transition hover:scale-110 focus:outline-none cursor-pointer"
                 aria-label="Next photo"
               >
                 <i className="bi bi-chevron-right text-xl sm:text-2xl" />
@@ -368,11 +391,12 @@ export default function ParkPhotoGallery({
               <div className="flex items-center gap-2 overflow-x-auto max-w-full py-1 px-2 no-scrollbar">
                 {photoList.map((thumb, idx) => (
                   <button
+                    type="button"
                     key={thumb.url}
                     onClick={() => setActiveLightboxIndex(idx)}
-                    className={`relative h-12 w-16 sm:h-14 sm:w-20 flex-shrink-0 rounded-lg overflow-hidden transition-all ${
+                    className={`relative h-12 w-16 sm:h-14 sm:w-20 flex-shrink-0 rounded-lg overflow-hidden transition-all cursor-pointer ${
                       idx === activeLightboxIndex
-                        ? 'ring-2 ring-emerald-400 scale-105 opacity-100'
+                        ? 'ring-2 ring-orange-400 scale-105 opacity-100'
                         : 'opacity-50 hover:opacity-80'
                     }`}
                     aria-label={`Jump to photo ${idx + 1}`}

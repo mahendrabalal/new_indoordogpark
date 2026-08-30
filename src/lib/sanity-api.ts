@@ -420,12 +420,50 @@ function sanityPostToBlogPost(sanityPost: SanityPost): BlogPost {
     })()
     : undefined;
 
+    let htmlContent = portableTextToHtml(sanityPost.content || []);
+    let excerptStr = sanityPost.excerpt || '';
+    
+    // Dynamically clean AI filler since Sanity write API quota is maxed
+    const replacements: Record<string, string> = {
+      '\\bseamless\\b': 'smooth',
+      '\\bSeamless\\b': 'Smooth',
+      '\\bpremier\\b': 'top',
+      '\\bPremier\\b': 'Top',
+      '\\bvibrant\\b': 'active',
+      '\\bVibrant\\b': 'Active',
+      '\\bbustling\\b': 'busy',
+      '\\bBustling\\b': 'Busy',
+      '\\bholistic\\b': 'complete',
+      '\\bHolistic\\b': 'Complete',
+      '\\bstate-of-the-art\\b': 'modern',
+      '\\bState-of-the-art\\b': 'Modern',
+      '\\bgame-changer\\b': 'major help',
+      '\\bGame-changer\\b': 'Major help',
+      "\\bin this comprehensive guide\\b": 'in this article',
+      "\\bIn this comprehensive guide\\b": 'In this article',
+      "\\bwhether you're looking\\b": 'if you need',
+      "\\bWhether you're looking\\b": 'If you need',
+      "\\bwhen it comes to\\b": 'regarding',
+      "\\bWhen it comes to\\b": 'Regarding',
+      "\\bnot just a\\b": 'more than a',
+      "\\bNot just a\\b": 'More than a'
+    };
+
+    for (const [pattern, replacement] of Object.entries(replacements)) {
+      const regex = new RegExp(pattern, 'g');
+      htmlContent = htmlContent.replace(regex, replacement);
+      excerptStr = excerptStr.replace(regex, replacement);
+    }
+    
+    htmlContent = htmlContent.replace(/\[the best indoor dog park flooring: turf vs\. rubber vs\. epoxy\]/g, '[dog park flooring]');
+    htmlContent = htmlContent.replace(/\[identifying and managing dog paw yeast infections\]/g, '[dog paw yeast infections]');
+
   return {
     id: sanitizeNumericId(sanityPost._id, Math.floor(Math.random() * 100000)),
     title: sanityPost.title,
     slug: sanityPost.slug.current,
-    excerpt: sanityPost.excerpt || '',
-    content: portableTextToHtml(sanityPost.content || []),
+    excerpt: excerptStr,
+    content: htmlContent,
     date: sanityPost.publishedAt,
     modified: sanityPost.lastUpdated || sanityPost._updatedAt,
     lastUpdated: sanityPost.lastUpdated,
@@ -767,6 +805,38 @@ export async function getCachedPostsByAuthor(
     {
       revalidate: 3600, // 1 hour fallback — webhook handles instant updates
       tags: ['blog-posts', `blog-author-${authorSlug}`],
+    }
+  )();
+}
+
+// ──────────────────────────────────────────────
+// All Authors (for /blog/authors listing page)
+// ──────────────────────────────────────────────
+
+export async function fetchAllAuthors(): Promise<AuthorProfile[]> {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
+  try {
+    const authors = await withRetry(() =>
+      sanityClient.fetch<SanityAuthorFull[]>(queries.allAuthors)
+    );
+    if (!authors || !Array.isArray(authors)) return [];
+    // Only include authors who have published at least one post
+    return authors
+      .map(sanityAuthorToProfile)
+      .filter((a) => a.postCount > 0);
+  } catch (error) {
+    console.error('Error fetching all authors:', error);
+    return [];
+  }
+}
+
+export async function getCachedAllAuthors(): Promise<AuthorProfile[]> {
+  return unstable_cache(
+    async () => fetchAllAuthors(),
+    ['blog-all-authors'],
+    {
+      revalidate: 3600, // 1 hour — re-check when new authors are added
+      tags: ['blog-authors'],
     }
   )();
 }

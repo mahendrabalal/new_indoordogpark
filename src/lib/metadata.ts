@@ -135,9 +135,10 @@ export function generateParkMetadata(park: DogPark): Metadata {
   const stateAbbr = park.state || 'CA';
   const stateName = getStateName(park.state) || park.state || 'California';
 
-  // Create highly clickable title optimized for brand + directory intent
-  // Format: "Park Name Reviews & Pricing | City Business Type"
-  const fullTitleWithTemplate = `${park.name} Reviews & Pricing | ${park.city} ${park.businessType}`;
+  // Create title that matches navigational intent (user knows the park, wants hours/location/pricing)
+  // Format: "Park Name — Hours, Pricing & Reviews | City, ST"
+  const stateAbbrUpper = stateAbbr.toUpperCase();
+  const fullTitleWithTemplate = `${park.name} — Hours, Pricing & Reviews | ${park.city}, ${stateAbbrUpper}`;
   const title = createSEOTitle(fullTitleWithTemplate, 60);
 
   let fallbackDescription = `${park.name} is a ${park.businessType.toLowerCase()} located in ${park.city}, ${stateName}.`;
@@ -222,11 +223,32 @@ export function generateParkMetadata(park: DogPark): Metadata {
     }
   }
 
+  // ==========================================
+  // THIN CONTENT DETECTION (Auto-Noindex Logic)
+  // ==========================================
+  const hasGoodDescription = park.description && park.description.trim().length > 200;
+  const hasPhotos = park.photos && park.photos.length > 0;
+  
+  // If a page has NO real description AND NO photos, it provides zero unique value
+  // compared to Google Maps, and must be noindexed to prevent Helpful Content penalties.
+  const isThinContent = !hasGoodDescription && !hasPhotos;
+
   return {
     title: {
       absolute: title, // Use absolute to bypass template and have full control
     },
     description,
+    robots: {
+      index: !isThinContent,
+      follow: true,
+      googleBot: {
+        index: !isThinContent,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     keywords: [
       park.name,
       park.city,
@@ -342,6 +364,20 @@ export function generateParkSchema(park: DogPark) {
       name: `${park.city}, ${park.state}`,
     },
   };
+
+  // Add amenityFeature — surfaced by Google in local knowledge panels
+  if (park.amenities && Object.keys(park.amenities).length > 0) {
+    const amenityFeatures = Object.entries(park.amenities)
+      .filter(([, value]) => value === true)
+      .map(([key]) => ({
+        '@type': 'LocationFeatureSpecification',
+        name: key.replace(/([A-Z])/g, ' $1').trim().replace(/^./, (c) => c.toUpperCase()),
+        value: true,
+      }));
+    if (amenityFeatures.length > 0) {
+      baseSchema.amenityFeature = amenityFeatures;
+    }
+  }
 
   // Add geo coordinates if available
   if (park.latitude && park.longitude) {

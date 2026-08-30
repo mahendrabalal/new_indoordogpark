@@ -72,7 +72,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_TWITTER}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Follow us on X (Twitter)"
                 title="Follow us on X (Twitter)"
               >
@@ -83,7 +83,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Follow us on Facebook"
                 title="Follow us on Facebook"
               >
@@ -94,7 +94,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Follow us on Instagram"
                 title="Follow us on Instagram"
               >
@@ -105,7 +105,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_PINTEREST}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Follow us on Pinterest"
                 title="Follow us on Pinterest"
               >
@@ -116,7 +116,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Follow us on LinkedIn"
                 title="Follow us on LinkedIn"
               >
@@ -127,7 +127,7 @@ export default function Footer() {
               <a
                 href={process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label="Subscribe to our YouTube channel"
                 title="Subscribe to our YouTube channel"
               >
@@ -140,7 +140,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>&copy; 2025 IndoorDogPark. All rights reserved</p>
+          <p>&copy; {new Date().getFullYear()} IndoorDogPark. All rights reserved</p>
           <div className="footer-bottom-links">
             <Link href="/terms">Terms</Link>
             <Link href="/privacy">Privacy</Link>

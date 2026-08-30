@@ -104,7 +104,8 @@ export function cleanParkDescription(desc?: string): string {
     .replace(/\b([a-z0-9])\s+(conveniently located)\b/gi, '$1. Conveniently located')
     .replace(/\b([a-z0-9])\s+(Contact\s+)/g, '$1. Contact ')
     .replace(/\b([a-z0-9])\s+(Visit their website\s+)/g, '$1. Visit their website ')
-    .replace(/\s+/g, ' ')
+    .replace(/[^\S\r\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 

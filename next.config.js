@@ -267,6 +267,284 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // SEO Cannibalization Redirects
+      { source: '/blog/top-10-best-indoor-dog-parks-in-anaheim', destination: '/cities/anaheim', permanent: true },
+      { source: '/blog/top-10-best-indoor-dog-parks-in-lexington-ky', destination: '/cities/lexington', permanent: true },
+      { source: '/blog/top-10-best-indoor-dog-parks-in-orlando', destination: '/cities/orlando', permanent: true },
+      { source: '/blog/top-10-best-indoor-dog-parks-in-riverside-ca', destination: '/cities/riverside', permanent: true },
+      { source: '/blog/top-10-best-indoor-dog-parks-in-stockton-ca', destination: '/cities/stockton', permanent: true },
+      { source: '/blog/top-5-indoor-dog-parks-honolulu', destination: '/cities/honolulu', permanent: true },
+      { source: '/blog/top-5-indoor-dog-parks-islip', destination: '/cities/islip', permanent: true },
+      { source: '/blog/top-5-indoor-dog-parks-new-orleans', destination: '/cities/new-orleans', permanent: true },
+      { source: '/blog/top-8-best-indoor-dog-parks-in-corpus-christi-tx', destination: '/cities/corpus-christi', permanent: true },
+      { source: '/blog/top-8-best-indoor-dog-parks-in-irvine-ca', destination: '/cities/irvine', permanent: true },
+      { source: '/blog/top-8-best-indoor-dog-parks-in-newark-nj', destination: '/cities/newark', permanent: true },
+      {
+        source: '/blog/top-8-best-indoor-dog-parks-in-santa-ana-ca',
+        destination: '/cities/santa-ana',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-fresno-beat-the-central-valley-heat',
+        destination: '/cities/fresno',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-denver-colorado',
+        destination: '/cities/denver',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-san-francisco',
+        destination: '/cities/san-francisco',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-san-jose-and-indoor-friendly-play-areas',
+        destination: '/cities/san-jose',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-oklahoma-city',
+        destination: '/cities/oklahoma-city',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-milwaukee-your-winter-play-guide',
+        destination: '/cities/milwaukee',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-bestindoor-dog-park-in-san-antonio-texas',
+        destination: '/cities/san-antonio',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-7-best-indoor-dog-parks-and-daycares-in-aurora-co',
+        destination: '/cities/aurora',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-indoor-dog-parks-and-dog-daycares-in-fort-worth-texas',
+        destination: '/cities/fort-worth',
+        permanent: true,
+      },
+      {
+        source: '/blog/7-best-indoor-dog-parks-in-minneapolis',
+        destination: '/cities/minneapolis',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-houston',
+        destination: '/cities/houston',
+        permanent: true,
+      },
+      {
+        source: '/blog/8-best-indoor-dog-parks-in-las-vegas',
+        destination: '/cities/las-vegas',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-indoor-dog-parks-in-chicago',
+        destination: '/cities/chicago',
+        permanent: true,
+      },
+      {
+        source: '/blog/10-best-indoor-dog-parks-and-daycares-in-oakland-ca',
+        destination: '/cities/oakland',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-dallas-texas',
+        destination: '/cities/dallas',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-raleigh-nc-play-hard-rain-or-shine',
+        destination: '/cities/raleigh',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-virginia-beach-va',
+        destination: '/cities/virginia-beach',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-memphis-your-ultimate-guide-for-year-round-play',
+        destination: '/cities/memphis',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-sacramento-beat-the-central-valley-heat',
+        destination: '/cities/sacramento',
+        permanent: true,
+      },
+      {
+        source: '/blog/4-best-indoor-dog-parks-in-columbus-ohio',
+        destination: '/cities/columbus',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-brooklyn-complete-local-guide-pet-parents',
+        destination: '/cities/brooklyn',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-indoor-dog-parks-in-portland-oregon',
+        destination: '/cities/portland',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-seattle',
+        destination: '/cities/seattle',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-omaha-ne',
+        destination: '/cities/omaha',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-indoor-dog-parks-new-york-city',
+        destination: '/cities/new-york',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-6-best-indoor-dog-parks-and-daycares-in-wichita-ks',
+        destination: '/cities/wichita',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-brookhaven-ga',
+        destination: '/cities/brookhaven',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-boston',
+        destination: '/cities/boston',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-detroit',
+        destination: '/cities/detroit',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-8-best-indoor-dog-parks-in-kansas-city-your-all-weather-playbook',
+        destination: '/cities/kansas-city',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-indoor-dog-parks-in-phoenix-your-complete-guide',
+        destination: '/cities/phoenix',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-doggy-soft-play-areas-in-los-angeles',
+        destination: '/cities/los-angeles',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-charlotte-nc',
+        destination: '/cities/charlotte',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-indianapolis',
+        destination: '/cities/indianapolis',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-indoor-dog-parks-in-jacksonville-florida',
+        destination: '/cities/jacksonville',
+        permanent: true,
+      },
+      {
+        source: '/blog/indoor-dog-parks-in-austin-tx-top-spots-for-your-pup',
+        destination: '/cities/austin',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-mesa-az',
+        destination: '/cities/mesa',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-washington-dc',
+        destination: '/cities/washington-dc',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-6-best-indoor-dog-parks-and-daycares-in-arlington-tx',
+        destination: '/cities/arlington',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-colorado-springs-co',
+        destination: '/cities/colorado-springs',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-el-paso',
+        destination: '/cities/el-paso',
+        permanent: true,
+      },
+      {
+        source: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+        destination: '/cities/tampa',
+        permanent: true,
+      },
+      {
+        source: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+        destination: '/cities/bakersfield',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-7-best-climate-controlled-dog-play-areas-in-albuquerque-nm',
+        destination: '/cities/albuquerque',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-miami-fl-beat-the-heat-and-humidity',
+        destination: '/cities/miami',
+        permanent: true,
+      },
+      {
+        source: '/blog/the-ultimate-guide-to-the-top-10-best-indoor-dog-parks-in-long-beach-ca',
+        destination: '/cities/long-beach',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+        destination: '/cities/san-diego',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-5-best-indoor-dog-parks-in-henderson-nevada-a-complete-guide',
+        destination: '/cities/henderson',
+        permanent: true,
+      },
+      {
+        source: '/blog/9-best-indoor-dog-parks-in-tulsa-where-to-play-rain-or-shine',
+        destination: '/cities/tulsa',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-8-best-indoor-dog-parks-in-tucson-a-local-s-guide-to-beating-the-heat',
+        destination: '/cities/tucson',
+        permanent: true,
+      },
+      {
+        source: '/blog/best-indoor-dog-parks-in-long-island',
+        destination: '/cities/long-island',
+        permanent: true,
+      },
+      {
+        source: '/blog/top-8-best-indoor-dog-parks-in-atlanta-surviving-the-georgia-heat-and-rain',
+        destination: '/cities/atlanta',
+        permanent: true,
+      },
+
       // Consolidate privacy policy URLs - redirect /privacy-policy to /privacy
       {
         source: '/privacy-policy',

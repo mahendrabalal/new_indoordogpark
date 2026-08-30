@@ -2878,7 +2878,7 @@
     "id": "ChIJi7TzdV8Hx4kReaYdLZ50NMY",
     "name": "Academy of Dog Training and Agility",
     "businessType": "Dog Training",
-    "description": "The Academy of Dog Training and Agility in [Newark](/cities/newark-nj) is a distinguished 10,000-square-foot indoor facility dedicated to high-level canine education and competition sports. This climate-controlled center is renowned for its state-of-the-art, shock-absorbing, non-slip rubber flooring, which provides a safe and comfortable surface for intense activities like agility and advanced obedience. A unique feature of the Academy is the 'Swimming Paws' Canine Swim Center, a year-round aquatic facility that offers swim evaluations, professional lessons, and dedicated exercise time for dogs of all skill levels. The center's philosophy is rooted in positive reinforcement, ensuring that every learning experience—whether in the pool or on the agility floor—is rewarding and builds a stronger bond between pets and their owners. Students the Academy are supported by a high instructor-to-student ratio, typically one professional for every three teams, ensuring personalized attention in every group class. Beyond basic manners and puppy head-starts, the Academy offers specialized 'Focus' classes in tricks, therapy dog preparation, and competitive rally obedience. For advanced handlers, the exclusive 'Academy Club' provides 24/7 access to the facility and its elite Max200 equipment, allowing for independent practice in an all-weather environment. The facility is thoughtfully designed for both dogs and their handlers, featuring secure entry points, ringside gallery seating, and a handicapped-accessible layout. An on-site store provides a curated selection of competition-grade equipment, from performance leads and motivational toys to specialized training books. Whether you are aiming for an AKC Canine Good Citizen title or simply looking for a fun and healthy way to engage your dog's mind and body, the Academy of Dog Training and Agility delivers a verified, world-class experience that caters to the most dedicated members of the Delaware and New Jersey dog communities.",
+    "description": "The Academy of Dog Training and Agility is a premier 10,000-square-foot indoor canine education and sports arena designed for dogs and handlers of all experience levels. The fully climate-controlled training center is equipped with shock-absorbing, non-slip rubber flooring specifically engineered to protect canine joints during fast-paced agility courses, rally obedience, and dynamic movement exercises. Complete with competition-grade Max200 agility obstacles and spacious ring layouts, the facility provides an ideal, weather-proof environment for structured learning and athletic conditioning.\n\nA signature feature of the academy is the dedicated 'Swimming Paws' Canine Swim Center—a year-round indoor aquatic facility offering guided swim evaluations, warm-water fitness sessions, confidence-building swims, and gentle exercise for dogs of all breeds and ages. On the training floor, certified trainers utilize positive reinforcement techniques across a broad course catalog, including puppy manners, foundational obedience, advanced trick titles, therapy dog preparation, and competitive AKC rally training. Low student-to-trainer ratios ensure every dog-and-handler team receives personalized attention and hands-on guidance.\n\nFrom casual pet parents seeking reliable manners to competitive athletes training for AKC Canine Good Citizen (CGC) titles and agility trials, the Academy of Dog Training and Agility delivers an enriching, high-standard experience. With ringside gallery seating for observers, an on-site training gear shop, and 24/7 facility access options for dedicated club members, the center stands out as a leading regional hub for canine sports, positive behavioral training, and lifelong canine wellness.",
     "slug": "academy-of-dog-training-and-agility",
     "address": "89-B Albe Dr",
     "street": "89-B Albe Dr",
@@ -2923,7 +2923,23 @@
     "lastUpdated": null,
     "dataQuality": "verified",
     "photo": null,
-    "faqs": []
+    "faqs": [
+      {
+        "question": "What training programs are offered at the Academy of Dog Training and Agility?",
+        "answer": "The academy offers puppy foundation classes, basic and advanced obedience, agility obstacle training, AKC Canine Good Citizen (CGC) prep, therapy dog training, competition rally obedience, and trick titles.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      },
+      {
+        "question": "What is the Swimming Paws Canine Swim Center?",
+        "answer": "Swimming Paws is an indoor, year-round warm water dog pool offering swimming evaluations, fitness swimming, rehabilitation exercises, and confidence-building sessions.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      },
+      {
+        "question": "What type of flooring is used in the indoor agility arena?",
+        "answer": "The facility features 10,000 square feet of climate-controlled space with non-slip, shock-absorbing rubber flooring designed to protect canine joints during training.",
+        "lastUpdated": "2026-08-24T00:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "ChIJk8Z7kzBXwokRdUyiqzRl4_8",
