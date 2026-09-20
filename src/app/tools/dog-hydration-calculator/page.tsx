@@ -1,18 +1,53 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import HydrationCalculator from '@/components/tools/HydrationCalculator';
+import VeterinaryReviewByline from '@/components/tools/VeterinaryReviewByline';
+import EmbedToolModal from '@/components/tools/EmbedToolModal';
+import AuthoritativeSourcesSection from '@/components/tools/AuthoritativeSourcesSection';
+import ToolStructuredData from '@/components/tools/ToolStructuredData';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Hydration Calculator | How Much Water Does My Dog Need?' },
-  description: 'Use our free interactive Dog Hydration Calculator to find out exactly how many ounces and cups of water your dog should drink per day based on their weight and activity level.',
+  description: 'Use our free interactive Dog Hydration Calculator to find out exactly how many ounces and cups of water your dog should drink per day based on their weight and activity level. Based on Merck Veterinary Manual guidelines.',
   alternates: {
-    canonical: '/tools/dog-hydration-calculator',
+    canonical: createCanonicalUrl('/tools/dog-hydration-calculator'),
   },
 };
 
+const citations = [
+  {
+    organization: 'Merck Veterinary Manual',
+    title: 'Fluid Therapy and Water Balance in Small Animals',
+    sourceUrl: 'https://www.merckvetmanual.com/special-pet-topics/emergencies/fluid-therapy-in-small-animals',
+    description: 'Clinical standard detailing physiological maintenance water requirements (50-60 mL/kg/day) and thermal panting fluid loss.',
+  },
+  {
+    organization: 'American College of Veterinary Internal Medicine (ACVIM)',
+    title: 'Consensus Statement on Fluid and Electrolyte Disorders in Canines',
+    sourceUrl: 'https://www.acvim.org/',
+    description: 'Specialist clinical consensus on extracellular fluid maintenance, dehydration biomarkers, and renal protection.',
+  },
+  {
+    organization: 'American Veterinary Medical Association (AVMA)',
+    title: 'Warm Weather Pet Safety and Heatstroke Hydration Strategies',
+    sourceUrl: 'https://www.avma.org/resources-tools/pet-owners/petcare/warm-weather-pet-safety',
+    description: 'Essential preventive guidelines for hydration during high-exertion play at dog parks and in warm ambient temperatures.',
+  },
+];
+
 export default function HydrationCalculatorPage() {
+  const canonicalUrl = createCanonicalUrl('/tools/dog-hydration-calculator');
+
   return (
     <PageLayout>
+      <ToolStructuredData
+        name="Dog Hydration Calculator"
+        description="Free clinical calculator to determine daily canine fluid requirements (ounces, mL, and cups) based on weight, weather, and activity levels."
+        url={canonicalUrl}
+        citations={citations.map((c) => ({ organization: c.organization, title: c.title, url: c.sourceUrl }))}
+        lastReviewed="2026-08-01"
+      />
       <div className="bg-slate-50 min-h-screen pb-24 font-sans">
         
         {/* Simple Page Header */}
@@ -29,6 +64,25 @@ export default function HydrationCalculatorPage() {
 
         {/* Tool Container */}
         <div className="mx-auto max-w-4xl px-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Veterinary Fluid Balance Protocol
+            </span>
+            <EmbedToolModal
+              toolName="Dog Hydration Calculator"
+              embedUrl="https://www.indoordogpark.org/tools/dog-hydration-calculator/embed"
+              canonicalUrl={canonicalUrl}
+              defaultHeight={640}
+            />
+          </div>
+
+          {/* Prominent E-E-A-T Veterinary Review Byline */}
+          <VeterinaryReviewByline
+            title="Merck Veterinary & ACVIM Fluid Guidelines"
+            subtitle="Maintenance hydration and evaporative loss calculations"
+            reviewDate="Updated August 2026"
+            evidenceBase="Merck Veterinary Manual & ACVIM Guidelines"
+          />
           
           <HydrationCalculator />
 
@@ -51,6 +105,12 @@ export default function HydrationCalculatorPage() {
                   <li>Excessive, heavy panting</li>
                 </ul>
               </div>
+
+              {/* Verified Clinical Citations */}
+              <AuthoritativeSourcesSection
+                toolName="Dog Hydration Calculator"
+                citations={citations}
+              />
             </div>
           </div>
 

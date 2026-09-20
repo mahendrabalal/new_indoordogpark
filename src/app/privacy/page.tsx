@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
+import { createCanonicalUrl } from '@/lib/seo-utils';
+import '@/app/legal.css';
 
 export const metadata: Metadata = {
   title: { absolute: 'Privacy Policy | Indoor Dog Park' },
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     'personal information'
   ],
   alternates: {
-    canonical: '/privacy',
+    canonical: createCanonicalUrl('/privacy'),
   },
   openGraph: {
     title: 'Privacy Policy | Indoor Dog Park',

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE_URL } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllStates } from '@/lib/stateData';
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Browse Dog Parks by State | Indoor Dog Park' },
   description: 'Explore dog park and dog-friendly listings by state. Start with the best-covered states and drill down into city directories.',
   alternates: {
-    canonical: '/states',
+    canonical: createCanonicalUrl('/states'),
   },
   openGraph: {
     title: 'Browse Dog Parks by State | Indoor Dog Park',

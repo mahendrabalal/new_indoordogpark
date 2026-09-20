@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { compressImage } from '@/lib/client-image-compressor';
 
 interface SubmitPhotoModalProps {
   isOpen: boolean;
@@ -32,6 +33,7 @@ export default function SubmitPhotoModal({
   const [notes, setNotes] = useState('');
   const [subscribeNewsletter, setSubscribeNewsletter] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadStatusText, setUploadStatusText] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -46,14 +48,15 @@ export default function SubmitPhotoModal({
     const newFiles: SelectedFile[] = [];
 
     Array.from(files).forEach((file) => {
-      if (file.size > 5 * 1024 * 1024) {
-        setErrorMessage(`"${file.name}" exceeds the 5MB file limit.`);
+      if (file.size > 15 * 1024 * 1024) {
+        setErrorMessage(`"${file.name}" exceeds the 15MB file limit.`);
         return;
       }
-      if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif'].includes(file.type)) {
+      if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/heif'].includes(file.type)) {
         setErrorMessage(`"${file.name}" is not a supported image format.`);
         return;
       }
+
 
       newFiles.push({
         file,
@@ -86,30 +89,55 @@ export default function SubmitPhotoModal({
 
     setIsUploading(true);
     setErrorMessage('');
+    setUploadStatusText('Preparing photos...');
 
     try {
       const uploadedUrls: string[] = [];
+      const locationText = [parkCity, parkState].filter(Boolean).join(', ');
 
-      // 1. Upload files to upload endpoint
-      for (const item of selectedFiles) {
+      // 1. Process and upload files sequentially with browser compression
+      for (let i = 0; i < selectedFiles.length; i++) {
+        const item = selectedFiles[i];
+        const step = `${i + 1} of ${selectedFiles.length}`;
+
+        setUploadStatusText(`Optimizing photo ${step}...`);
+        const optimizedFile = await compressImage(item.file, {
+          maxDimension: 1920,
+          quality: 0.85,
+        });
+
+        setUploadStatusText(`Uploading photo ${step}...`);
         const formData = new FormData();
-        formData.append('file', item.file);
+        formData.append('file', optimizedFile);
+        formData.append('parkName', parkName);
+        if (listingSlug) formData.append('listingSlug', listingSlug);
+        if (locationText) formData.append('location', locationText);
+        formData.append('uploaderName', uploaderName.trim());
+        formData.append('uploaderEmail', uploaderEmail.trim());
+        if (notes.trim()) formData.append('caption', notes.trim());
 
         const uploadRes = await fetch('/api/uploads/park-photos', {
           method: 'POST',
           body: formData,
         });
 
-        if (uploadRes.ok) {
-          const data = await uploadRes.json();
-          if (data?.photo?.url) {
-            uploadedUrls.push(data.photo.url);
-          }
+        const data = await uploadRes.json().catch(() => null);
+
+        if (!uploadRes.ok || !data?.photo?.url) {
+          const detail = data?.error || `Server returned status ${uploadRes.status}`;
+          throw new Error(`Failed to upload "${item.file.name}": ${detail}`);
         }
+
+        uploadedUrls.push(data.photo.url);
       }
 
+      if (uploadedUrls.length === 0) {
+        throw new Error('No photos were uploaded. Please try again.');
+      }
+
+      setUploadStatusText('Sending confirmation...');
+
       // 2. Notify Admin via Contact API
-      const locationText = [parkCity, parkState].filter(Boolean).join(', ');
       const messageBody = `
 New Community Photos Submitted for Dog Park:
 --------------------------------------------
@@ -117,19 +145,19 @@ Park Name: ${parkName}
 Location: ${locationText || 'N/A'}
 Listing Slug: ${listingSlug || 'N/A'}
 
-Submitted By: ${uploaderName} (${uploaderEmail})
-Notes / Captions: ${notes || 'None provided'}
+Submitted By: ${uploaderName.trim()} (${uploaderEmail.trim()})
+Notes / Captions: ${notes.trim() || 'None provided'}
 
 Uploaded Photo URLs:
-${uploadedUrls.length > 0 ? uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`).join('\n') : 'Files uploaded directly'}
+${uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`).join('\n')}
       `.trim();
 
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: uploaderName,
-          email: uploaderEmail,
+          name: uploaderName.trim(),
+          email: uploaderEmail.trim(),
           category: 'general',
           subject: `📸 New Photos Submitted: ${parkName}`,
           message: messageBody,
@@ -160,9 +188,10 @@ ${uploadedUrls.length > 0 ? uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`)
       setIsSuccess(true);
     } catch (err) {
       console.error('Error uploading photos:', err);
-      setErrorMessage('Failed to submit photos. Please try again.');
+      setErrorMessage(err instanceof Error ? err.message : 'Failed to submit photos. Please try again.');
     } finally {
       setIsUploading(false);
+      setUploadStatusText('');
     }
   };
 
@@ -241,14 +270,14 @@ ${uploadedUrls.length > 0 ? uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`)
               {/* Photo Upload Zone */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                  Select Photos (Up to 5 images, Max 5MB each)
+                  Select Photos (Up to 5 images, Max 15MB each)
                 </label>
                 
                 <input
                   type="file"
                   ref={fileInputRef}
                   onChange={handleFileChange}
-                  accept="image/jpeg,image/png,image/webp,image/gif"
+                  accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif"
                   multiple
                   className="hidden"
                 />
@@ -264,7 +293,7 @@ ${uploadedUrls.length > 0 ? uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`)
                     Click to browse or drop photos here
                   </p>
                   <p className="text-[11px] text-slate-500">
-                    JPG, PNG, WEBP supported
+                    JPG, PNG, WEBP supported • Automatically optimized for web
                   </p>
                 </div>
 
@@ -376,7 +405,7 @@ ${uploadedUrls.length > 0 ? uploadedUrls.map((url, idx) => `${idx + 1}. ${url}`)
                   {isUploading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>Uploading...</span>
+                      <span>{uploadStatusText || 'Uploading...'}</span>
                     </>
                   ) : (
                     <>

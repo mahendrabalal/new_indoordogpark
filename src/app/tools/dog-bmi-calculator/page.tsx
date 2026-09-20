@@ -3,20 +3,26 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogBmiCalculator from '@/components/DogBmiCalculator';
+import VeterinaryReviewByline from '@/components/tools/VeterinaryReviewByline';
+import EmbedToolModal from '@/components/tools/EmbedToolModal';
+import AuthoritativeSourcesSection from '@/components/tools/AuthoritativeSourcesSection';
+import ToolStructuredData from '@/components/tools/ToolStructuredData';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog BMI & Healthy Weight Checker | Free Calculator' },
-  description: 'Use our free interactive Dog BMI Calculator to assess your dog\'s Body Condition Score (BCS) and find their ideal healthy weight target.',
+  description: 'Use our free interactive Dog BMI Calculator to assess your dog\'s Body Condition Score (BCS) and find their ideal healthy weight target. Based on WSAVA and AAHA clinical standards.',
   keywords: [
     'dog bmi calculator',
     'dog weight checker',
     'is my dog overweight',
     'dog body condition score',
     'healthy dog weight',
-    'dog weight loss'
+    'dog weight loss',
+    'wsava bcs chart',
   ],
   alternates: {
-    canonical: '/tools/dog-bmi-calculator',
+    canonical: createCanonicalUrl('/tools/dog-bmi-calculator'),
   },
   openGraph: {
     title: 'Dog BMI & Healthy Weight Checker | IndoorDogPark.org',
@@ -26,9 +32,45 @@ export const metadata: Metadata = {
   },
 };
 
+const citations = [
+  {
+    organization: 'World Small Animal Veterinary Association (WSAVA)',
+    title: 'Global Nutrition Committee: Canine Body Condition Score (BCS) 9-Point Chart',
+    sourceUrl: 'https://wsava.org/global-guidelines/global-nutrition-guidelines/',
+    description: 'Standardized clinical assessment metric utilized worldwide by veterinary clinicians to determine lean muscle vs adipose fat mass.',
+  },
+  {
+    organization: 'American Animal Hospital Association (AAHA)',
+    title: 'AAHA Weight Management Guidelines for Dogs and Cats',
+    sourceUrl: 'https://www.aaha.org/resources/weight-management-guidelines-for-dogs-and-cats/',
+    description: 'Evidence-based clinical guidelines on safe caloric deficit, metabolic testing, and joint preservation during canine weight reduction.',
+  },
+  {
+    organization: 'Merck Veterinary Manual',
+    title: 'Canine Obesity and Weight Management Protocols',
+    sourceUrl: 'https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/nutritional-requirements-and-related-diseases-of-small-animals',
+    description: 'Veterinary medical manual detailing metabolic comorbidities, orthopaedic risks, and target body mass metrics.',
+  },
+  {
+    organization: 'American Veterinary Medical Association (AVMA)',
+    title: 'Your Pet’s Healthy Weight: Clinical Assessment and Prevention',
+    sourceUrl: 'https://www.avma.org/resources-tools/pet-owners/petcare/your-pets-healthy-weight',
+    description: 'Authoritative pet owner guidelines for maintaining cardiovascular health, mobility, and lifespan through healthy weight management.',
+  },
+];
+
 export default function DogBmiCalculatorPage() {
+  const canonicalUrl = createCanonicalUrl('/tools/dog-bmi-calculator');
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      <ToolStructuredData
+        name="Dog BMI & Healthy Weight Checker"
+        description="Interactive veterinary calculator to evaluate Body Condition Score (BCS) and estimate ideal canine target weight."
+        url={canonicalUrl}
+        citations={citations.map((c) => ({ organization: c.organization, title: c.title, url: c.sourceUrl }))}
+        lastReviewed="2026-08-01"
+      />
       <Header variant="light" />
 
       <main className="flex-1">
@@ -50,6 +92,26 @@ export default function DogBmiCalculatorPage() {
         {/* Calculator and Content */}
         <section className="px-4 pb-16">
           <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Veterinary BCS Morphometric Tool
+              </span>
+              <EmbedToolModal
+                toolName="Dog BMI & Body Condition Calculator"
+                embedUrl="https://www.indoordogpark.org/tools/dog-bmi-calculator/embed"
+                canonicalUrl={canonicalUrl}
+                defaultHeight={680}
+              />
+            </div>
+
+            {/* Prominent E-E-A-T Veterinary Review Byline */}
+            <VeterinaryReviewByline
+              title="WSAVA 9-Point Body Condition Score Standard"
+              subtitle="Morphometric weight classification based on veterinary nutritional guidelines"
+              reviewDate="Updated August 2026"
+              evidenceBase="WSAVA Global Nutrition & AAHA Guidelines"
+            />
+
             {/* The Interactive Calculator Component */}
             <DogBmiCalculator />
 
@@ -96,9 +158,15 @@ export default function DogBmiCalculatorPage() {
               <div className="bg-gray-50 border-l-4 border-accent p-6 mt-10 rounded-r-xl">
                 <h4 className="font-bold text-lg m-0">Veterinary Disclaimer</h4>
                 <p className="text-sm text-gray-600 mt-2 mb-0">
-                  This calculator provides an estimation based on standard veterinary scaling guidelines. It is not a substitute for professional medical advice. Always consult with your veterinarian before putting your dog on a diet or starting a new exercise regimen.
+                  This calculator provides an estimation based on standard veterinary scaling guidelines from the WSAVA and AAHA. It is not a substitute for professional medical diagnosis. Always consult with your veterinarian before putting your dog on a calorie-restricted diet or starting an intensive exercise regimen.
                 </p>
               </div>
+
+              {/* Verified Clinical Citations */}
+              <AuthoritativeSourcesSection
+                toolName="Dog BMI & Weight Calculator"
+                citations={citations}
+              />
             </article>
           </div>
         </section>

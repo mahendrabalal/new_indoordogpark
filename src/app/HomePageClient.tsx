@@ -21,6 +21,7 @@ import SeoContentSection from '@/components/SeoContentSection';
 import PopularCitiesSection from '@/components/PopularCitiesSection';
 import SafetyCheckerFooter from '@/components/tools/SafetyCheckerFooter';
 import FeaturedParks from '@/components/FeaturedParks';
+import './map-search.css';
 
 
 const Map = dynamic(() => import('@/components/Map'), {

@@ -44,7 +44,11 @@ const bcsOptions: BCSOption[] = [
   }
 ];
 
-export default function DogBmiCalculator() {
+export interface DogBmiCalculatorProps {
+  isEmbed?: boolean;
+}
+
+export default function DogBmiCalculator({ isEmbed = false }: DogBmiCalculatorProps) {
   const [weight, setWeight] = useState<string>('');
   const [bcs, setBcs] = useState<BCSCategory | null>(null);
   const [result, setResult] = useState<{ status: string; idealWeight: number; category: BCSOption } | null>(null);
@@ -70,98 +74,130 @@ export default function DogBmiCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl overflow-hidden mb-16 border border-gray-100 max-w-3xl mx-auto -mt-10 relative z-10">
-      <div className="p-8 md:p-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Check Your Dog's Healthy Weight</h2>
-        
-        <div className="space-y-8">
+    <div className={`bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 ${isEmbed ? 'm-0 shadow-sm border-slate-200' : 'mb-12'}`}>
+      <div className={`bg-gradient-to-r from-blue-700 to-indigo-800 text-white ${isEmbed ? 'p-4 sm:p-6' : 'p-8 md:p-10'}`}>
+        <div className="flex items-center justify-between gap-3">
+          <h2 className={`${isEmbed ? 'text-xl sm:text-2xl' : 'text-3xl'} font-black flex items-center gap-3`}>
+            <i className="bi bi-speedometer2 text-orange-400"></i>
+            Dog Body Condition & Weight Checker
+          </h2>
+          {isEmbed && (
+            <span className="text-[11px] font-semibold uppercase tracking-wider bg-white/20 px-2.5 py-1 rounded-full text-white">
+              WSAVA Standards
+            </span>
+          )}
+        </div>
+        <p className="text-blue-100 mt-2 text-sm sm:text-base">
+          Determine your dog&apos;s Body Condition Score (BCS) and estimate their ideal weight target.
+        </p>
+      </div>
+
+      <div className={isEmbed ? 'p-4 sm:p-6' : 'p-8 md:p-10'}>
+        <div className="space-y-6">
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2">
               1. Current Weight (lbs)
             </label>
             <input
               type="number"
-              min="1"
-              max="250"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-all text-lg"
               placeholder="e.g. 45"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none text-base sm:text-lg font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700 mb-4">
-              2. Select Body Condition Score (BCS)
+            <label className="block text-sm font-bold text-gray-700 mb-2">
+              2. Select Body Condition (Rib & Waist Feel)
             </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {bcsOptions.map((option) => (
                 <button
                   key={option.id}
+                  type="button"
                   onClick={() => setBcs(option.id)}
-                  className={`text-left p-4 rounded-xl border-2 transition-all ${
-                    bcs === option.id 
-                      ? option.color + ' ring-2 ring-offset-2 ring-' + option.color.split('-')[1] + '-500 scale-[1.02]' 
-                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  className={`p-3.5 rounded-2xl border-2 text-left transition-all ${
+                    bcs === option.id
+                      ? 'border-blue-600 bg-blue-50/50 shadow-xs ring-2 ring-blue-600/20'
+                      : 'border-gray-200 hover:border-gray-300 bg-white'
                   }`}
                 >
-                  <div className="font-bold text-lg mb-1">{option.label}</div>
-                  <div className="text-sm opacity-80">{option.description}</div>
+                  <div className="font-bold text-sm text-gray-900 mb-1">{option.label}</div>
+                  <div className="text-xs text-gray-500 leading-relaxed">{option.description}</div>
                 </button>
               ))}
             </div>
           </div>
 
           <button
+            type="button"
             onClick={calculateBMI}
             disabled={!weight || !bcs}
-            className="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            className="w-full py-3.5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-base sm:text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
           >
             Calculate Target Weight
           </button>
         </div>
 
         {result && (
-          <div className="mt-10 p-8 bg-gray-50 rounded-2xl border border-gray-100 animate-slide-in">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Your Results</h3>
+          <div className="mt-8 p-6 sm:p-8 bg-gray-50 rounded-2xl border border-gray-100 animate-slide-in">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-6 text-center">Your Assessment Results</h3>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-xl border border-gray-200 text-center shadow-sm">
-                <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Current Status</p>
-                <div className={`inline-block px-4 py-1 rounded-full text-lg font-bold border ${result.category.color}`}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-white p-5 rounded-xl border border-gray-200 text-center shadow-xs">
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Current Status</p>
+                <div className={`inline-block px-4 py-1 rounded-full text-base sm:text-lg font-bold border ${result.category.color}`}>
                   {result.status}
                 </div>
               </div>
               
-              <div className="bg-white p-6 rounded-xl border border-gray-200 text-center shadow-sm">
-                <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Ideal Target Weight</p>
-                <div className="text-4xl font-extrabold text-gray-900">
-                  {result.idealWeight} <span className="text-xl text-gray-500 font-normal">lbs</span>
+              <div className="bg-white p-5 rounded-xl border border-gray-200 text-center shadow-xs">
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Ideal Target Weight</p>
+                <div className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                  {result.idealWeight} <span className="text-base text-gray-500 font-normal">lbs</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 bg-white p-6 rounded-xl border border-blue-100 shadow-sm">
-              <h4 className="font-bold text-lg text-blue-900 mb-3 flex items-center gap-2">
-                <i className="bi bi-lightbulb-fill text-yellow-500"></i> Next Steps
+            <div className="mt-6 bg-white p-5 rounded-xl border border-blue-100 shadow-xs">
+              <h4 className="font-bold text-base text-blue-900 mb-2 flex items-center gap-2">
+                <i className="bi bi-lightbulb-fill text-yellow-500"></i> Recommended Next Steps
               </h4>
               {result.category.id === 'ideal' ? (
-                <p className="text-gray-700">
-                  Great job! Your dog is at a healthy weight. Keep up the good work with balanced meals and regular exercise. Finding local <Link href="/states" className="text-orange-600 font-bold hover:underline">indoor dog parks</Link> is a great way to maintain their weight year-round.
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                  Great job! Your dog is at a healthy weight. Keep up the good work with balanced meals and regular exercise.
                 </p>
               ) : result.category.id === 'underweight' ? (
-                <p className="text-gray-700">
-                  Your dog may need to gain a few pounds. Consider consulting your vet to adjust their caloric intake or switch to a higher-calorie food. Gentle exercise can help them build muscle mass.
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                  Your dog may need to gain a few pounds. Consider consulting your vet to adjust their caloric intake or switch to a nutrient-dense food.
                 </p>
               ) : (
-                <p className="text-gray-700">
-                  To help your dog safely reach their ideal weight of {result.idealWeight} lbs, you should reduce their caloric intake and slowly increase their activity. Low-impact exercises like swimming or playing on soft turf at an <Link href="/states" className="text-orange-600 font-bold hover:underline">indoor dog park</Link> are perfect for protecting their joints while they lose weight!
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                  To help your dog safely reach their ideal weight of {result.idealWeight} lbs, reduce caloric intake and increase gentle exercise like swimming or soft turf walking at an indoor park.
                 </p>
               )}
             </div>
           </div>
         )}
       </div>
+
+      {isEmbed && (
+        <div className="bg-slate-50 border-t border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+            <span>Based on <strong>WSAVA Body Condition Standards</strong></span>
+          </div>
+          <Link
+            href="https://www.indoordogpark.org/tools/dog-bmi-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 hover:text-blue-900 font-bold inline-flex items-center gap-1"
+          >
+            Powered by IndoorDogPark.org <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

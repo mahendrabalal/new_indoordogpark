@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { getAllStaticParks } from '@/lib/parks-data';
 import { SITE_URL } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 import ParksDirectoryClient from './ParksDirectoryClient';
 
 export const revalidate = 86400; // 24 hours
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     'dog park map',
   ],
   alternates: {
-    canonical: '/parks',
+    canonical: createCanonicalUrl('/parks'),
   },
   openGraph: {
     title: 'Browse All Dog Parks | Indoor Dog Park Directory',

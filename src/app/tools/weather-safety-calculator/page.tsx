@@ -3,10 +3,15 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogWeatherSafetyCalculator from '@/components/DogWeatherSafetyCalculator';
+import VeterinaryReviewByline from '@/components/tools/VeterinaryReviewByline';
+import EmbedToolModal from '@/components/tools/EmbedToolModal';
+import AuthoritativeSourcesSection from '@/components/tools/AuthoritativeSourcesSection';
+import ToolStructuredData from '@/components/tools/ToolStructuredData';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Weather Safety & Walk Calculator | IndoorDogPark.org' },
-  description: 'Is it too hot or cold to walk your dog? Use our free Dog Weather Safety Calculator to find out if conditions are safe based on your dog\'s breed and age.',
+  description: 'Is it too hot or cold to walk your dog? Use our free Dog Weather Safety Calculator to find out if conditions are safe based on your dog\'s breed and age. Based on Tufts TACC Scale and AVMA guidelines.',
   keywords: [
     'dog weather safety calculator',
     'is it too hot to walk my dog',
@@ -14,9 +19,10 @@ export const metadata: Metadata = {
     'dog walking temperature guide',
     'dog heatstroke risk',
     'safe temperature for dogs outside',
+    'tufts animal care condition scale',
   ],
   alternates: {
-    canonical: '/tools/weather-safety-calculator',
+    canonical: createCanonicalUrl('/tools/weather-safety-calculator'),
   },
   openGraph: {
     title: 'Dog Weather Safety & Walk Calculator | IndoorDogPark.org',
@@ -26,9 +32,39 @@ export const metadata: Metadata = {
   },
 };
 
+const citations = [
+  {
+    organization: 'Tufts Animal Condition and Care (TACC)',
+    title: 'TACC Weather Safety Scale: Environmental Temperature Guidelines for Dogs',
+    sourceUrl: 'https://vetmed.tufts.edu/',
+    description: 'Gold-standard veterinary scale evaluating heatstroke and hypothermia susceptibility across canine body size and breed morphology.',
+  },
+  {
+    organization: 'American Veterinary Medical Association (AVMA)',
+    title: 'Warm Weather Pet Safety and Canine Thermal Regulation',
+    sourceUrl: 'https://www.avma.org/resources-tools/pet-owners/petcare/warm-weather-pet-safety',
+    description: 'Clinical recommendations on brachycephalic airway syndrome, thermal asphalt burns, and heat exhaustion prevention.',
+  },
+  {
+    organization: 'American Animal Hospital Association (AAHA)',
+    title: 'Cold Weather Safety and Hypothermia Prevention in Canines',
+    sourceUrl: 'https://www.aaha.org/resources/cold-weather-pet-safety/',
+    description: 'Evidence-based protocols for winter exercise limits, frostbite triage, and cold-weather cardiovascular monitoring.',
+  },
+];
+
 export default function WeatherSafetyCalculatorPage() {
+  const canonicalUrl = createCanonicalUrl('/tools/weather-safety-calculator');
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      <ToolStructuredData
+        name="Dog Weather Safety & Walk Calculator"
+        description="Free clinical calculator evaluating outdoor temperature, humidity, breed susceptibility, and heatstroke / hypothermia risks."
+        url={canonicalUrl}
+        citations={citations.map((c) => ({ organization: c.organization, title: c.title, url: c.sourceUrl }))}
+        lastReviewed="2026-08-01"
+      />
       <Header variant="light" />
 
       <main className="flex-1">
@@ -50,6 +86,26 @@ export default function WeatherSafetyCalculatorPage() {
         {/* Calculator and Content */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Interactive Clinical Safety Model
+              </span>
+              <EmbedToolModal
+                toolName="Dog Weather Safety Calculator"
+                embedUrl="https://www.indoordogpark.org/tools/weather-safety-calculator/embed"
+                canonicalUrl={canonicalUrl}
+                defaultHeight={620}
+              />
+            </div>
+
+            {/* Prominent E-E-A-T Veterinary Review Byline */}
+            <VeterinaryReviewByline
+              title="Tufts TACC & AVMA Weather Safety Standards"
+              subtitle="Thermal risk metrics compiled from veterinary clinical consensus"
+              reviewDate="Updated August 2026"
+              evidenceBase="Tufts TACC Scale & AVMA Thermal Guidelines"
+            />
+
             <DogWeatherSafetyCalculator />
 
             {/* SEO Content */}
@@ -89,6 +145,18 @@ export default function WeatherSafetyCalculatorPage() {
                 <li><strong>Hide and Seek:</strong> Hide treats around your house and let your dog use their nose to find them.</li>
               </ol>
 
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mt-10 rounded-r-xl">
+                <h4 className="font-bold text-lg m-0 text-blue-900">⚠️ Veterinary Thermal Safety Disclaimer</h4>
+                <p className="text-sm text-blue-800 mt-2 mb-0">
+                  This calculator is an educational tool based on the Tufts Animal Care and Condition (TACC) weather safety index and AVMA guidelines. It does not replace individualized clinical advice from your veterinarian. Individual dogs with underlying cardiovascular conditions, obesity, or respiratory compromise may be vulnerable at milder temperatures.
+                </p>
+              </div>
+
+              {/* Verified Clinical Citations */}
+              <AuthoritativeSourcesSection
+                toolName="Dog Weather Safety Calculator"
+                citations={citations}
+              />
             </article>
           </div>
         </section>

@@ -100,7 +100,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
     if (!post.content.includes('onehealthglobe.com')) {
       post.content = post.content.replace(
         /flea, tick, and heartworm medications are up to date\./i,
-        'flea, tick, and heartworm medications are up to date. On rest days or when you cannot make it to a facility, following an at-home <a href="https://onehealthglobe.com/dog-mental-enrichment-at-home/" target="_blank" rel="noopener">dog mental enrichment guide</a> keeps your pup sharp and calm.'
+        'flea, tick, and heartworm medications are up to date. On rest days or when you cannot make it to a facility, following an at-home <a href="https://onehealthglobe.com/dog-mental-enrichment-at-home/" target="_blank" rel="noopener nofollow">dog mental enrichment guide</a> keeps your pup sharp and calm.'
       );
     }
   }

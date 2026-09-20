@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import CookiePreferencesForm from '@/components/CookiePreferencesForm';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const cookieCategories = [
   { 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     'third-party advertising'
   ],
   alternates: {
-    canonical: '/cookie-preferences',
+    canonical: createCanonicalUrl('/cookie-preferences'),
   },
   openGraph: {
     title: 'Cookie Preferences | Privacy Settings - Indoor Dog Park',

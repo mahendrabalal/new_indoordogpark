@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogParkEtiquetteQuiz from '@/components/DogParkEtiquetteQuiz';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Park Etiquette Quiz & Certification' },
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     'dog training quiz'
   ],
   alternates: {
-    canonical: '/tools/dog-park-etiquette-quiz',
+    canonical: createCanonicalUrl('/tools/dog-park-etiquette-quiz'),
   },
   openGraph: {
     title: 'Dog Park Etiquette Quiz | IndoorDogPark.org',

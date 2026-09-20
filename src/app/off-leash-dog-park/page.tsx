@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SeoContentSection from '@/components/SeoContentSection';
 import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 /**
  * SEO metadata for the Off‑Leash Dog Parks pillar page.
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     'indoor dog park',
     'dog park guide',
   ],
-  alternates: { canonical: '/off-leash-dog-park' },
+  alternates: { canonical: createCanonicalUrl('/off-leash-dog-park') },
   openGraph: {
     title: 'Off‑Leash Dog Parks – The Ultimate Guide',
     description: 'A comprehensive guide to off‑leash dog parks, covering health, safety, selection criteria, and U.S. market data.',

@@ -19,6 +19,7 @@ import NewsletterForm from '@/components/NewsletterForm';
 
 import { BlogPost, WPCategory, WPTag } from '@/types/wordpress';
 import { getCachedPosts, getCachedCategories, getCachedTags } from '@/lib/sanity-api';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 // ISR: serve cached page, revalidate in the background every 24 hours.
 // On-demand revalidation via Sanity webhook is the primary cache-busting mechanism.
@@ -612,7 +613,7 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
 
   let title = 'Indoor Dog Park Blog - Tips & Guides';
   let description = 'Expert tips, guides, and stories about indoor dog parks, dog training, pet care, and creating the best indoor environment for your furry friends.';
-  const canonicalUrl = '/blog';
+  const canonicalUrl = createCanonicalUrl('/blog');
   const ogImage = `${siteUrl}/images/hero/hero.webp`;
 
   // Category and tag query params redirect to canonical routes, so they should be indexable

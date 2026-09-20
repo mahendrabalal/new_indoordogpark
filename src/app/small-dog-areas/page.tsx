@@ -10,6 +10,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import ParkCard from '@/components/ParkCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Parks with Small Dog Areas | Safe Play Spaces';
   const description =
     'Discover indoor dog parks featuring dedicated small dog areas. Find safe, climate-controlled environments where petite pups can play freely without larger dogs.';
-  const canonicalUrl = '/small-dog-areas';
+  const canonicalUrl = createCanonicalUrl('/small-dog-areas');
 
   return {
     metadataBase: new URL(siteUrl),

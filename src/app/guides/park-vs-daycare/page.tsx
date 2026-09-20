@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Indoor Dog Park vs. Doggy Daycare | Comparison Guide' },
   description: 'Download or print our free comparison guide to understand the differences between indoor dog parks and doggy daycares, and choose the right option for your pup.',
   keywords: ['indoor dog park vs daycare', 'dog daycare alternative', 'indoor dog park', 'dog daycare', 'dog play options'],
   alternates: {
-    canonical: '/guides/park-vs-daycare',
+    canonical: createCanonicalUrl('/guides/park-vs-daycare'),
   },
 };
 

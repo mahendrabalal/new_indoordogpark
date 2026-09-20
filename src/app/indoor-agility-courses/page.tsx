@@ -10,6 +10,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import ParkCard from '@/components/ParkCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Dog Agility Courses | Training & Enrichment Parks';
   const description =
     'Find the best indoor dog agility courses near you. Discover climate-controlled facilities with professional agility equipment, obstacles, and training programs.';
-  const canonicalUrl = '/indoor-agility-courses';
+  const canonicalUrl = createCanonicalUrl('/indoor-agility-courses');
 
   return {
     metadataBase: new URL(siteUrl),

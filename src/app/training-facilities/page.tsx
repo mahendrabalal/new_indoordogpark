@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import { getAllStaticParks } from '@/lib/parks-data';
 import { DogPark } from '@/types/dog-park';
 import ParkCard from '@/components/ParkCard';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -18,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'The Ultimate Guide to Indoor Dog Training Facilities | IndoorDogPark';
   const description =
     'Discover the benefits of indoor dog training facilities. Learn about year-round consistency, specialized equipment, training programs, and how to evaluate certifications.';
-  const canonicalUrl = '/training-facilities';
+  const canonicalUrl = createCanonicalUrl('/training-facilities');
 
   return {
     metadataBase: new URL(siteUrl),

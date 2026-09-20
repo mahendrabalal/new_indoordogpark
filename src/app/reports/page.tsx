@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   keywords:
     'indoor dog park reports, dog park statistics, canine safety data, pet industry research, dog park trends, dog heatstroke data',
   alternates: {
-    canonical: '/reports',
+    canonical: createCanonicalUrl('/reports'),
   },
   openGraph: {
     type: 'website',

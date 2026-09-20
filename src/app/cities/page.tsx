@@ -11,6 +11,7 @@ import { getAllCityContent } from '@/lib/sanity-content';
 import CitiesPageStyles from './CitiesPageStyles';
 import CityDirectory from '@/components/CityDirectory';
 import { generateBreadcrumbSchema, SITE_URL } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const revalidate = 86400; // 24 hours
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Best Cities for Indoor Dog Parks (2026 Directory) | Find Local Play Areas',
     description: 'Explore the best dog-friendly cities for indoor dog parks across the US in 2026. Find verified climate-controlled facilities, dog bars, and play areas in Houston, Las Vegas, Chicago, NYC, Austin, and more.',
     alternates: {
-        canonical: '/cities',
+        canonical: createCanonicalUrl('/cities'),
     },
 };
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogSocializationCostCalculator from '@/components/DogSocializationCostCalculator';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Daycare vs Dog Walker Cost Calculator | IndoorDogPark.org' },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     'cheaper alternative to doggy daycare',
   ],
   alternates: {
-    canonical: '/tools/dog-socialization-cost-calculator',
+    canonical: createCanonicalUrl('/tools/dog-socialization-cost-calculator'),
   },
   openGraph: {
     title: 'Dog Daycare vs Dog Walker Cost Calculator | IndoorDogPark.org',

@@ -638,7 +638,7 @@ export async function getCachedPosts(searchParams: BlogSearchParams = {}): Promi
       async () => fetchPosts(searchParams),
       [cacheKey],
       {
-        revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+        revalidate: 86400, // 24 hour fallback — webhook handles instant updates
         tags: ['blog-posts', 'blog-list'],
       }
     )();
@@ -653,7 +653,7 @@ export async function getCachedPostBySlug(slug: string): Promise<BlogPost | null
       async () => fetchPostBySlug(slug),
       [`blog-post-${slug}`],
       {
-        revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+        revalidate: 86400, // 24 hour fallback — webhook handles instant updates
         tags: ['blog-posts', `blog-post-${slug}`],
       }
     )();
@@ -668,7 +668,7 @@ export async function getCachedCategories() {
       async () => fetchCategories(),
       ['blog-categories'],
       {
-        revalidate: 3600, // 1 hour — categories rarely change
+        revalidate: 86400, // 24 hours — categories rarely change
         tags: ['blog-categories'],
       }
     )();
@@ -683,7 +683,7 @@ export async function getCachedTags() {
       async () => fetchTags(),
       ['blog-tags'],
       {
-        revalidate: 3600, // 1 hour — tags rarely change
+        revalidate: 86400, // 24 hours — tags rarely change
         tags: ['blog-tags'],
       }
     )();
@@ -753,7 +753,7 @@ export async function getCachedAuthorBySlug(slug: string): Promise<AuthorProfile
     async () => fetchAuthorBySlug(slug),
     [`blog-author-${slug}`],
     {
-      revalidate: 3600, // 1 hour — author profiles rarely change
+      revalidate: 86400, // 24 hours — author profiles rarely change
       tags: ['blog-authors', `blog-author-${slug}`],
     }
   )();
@@ -803,7 +803,7 @@ export async function getCachedPostsByAuthor(
     async () => fetchPostsByAuthor(authorSlug, page, perPage),
     [`blog-author-posts-${authorSlug}-${page}-${perPage}`],
     {
-      revalidate: 3600, // 1 hour fallback — webhook handles instant updates
+      revalidate: 86400, // 24 hour fallback — webhook handles instant updates
       tags: ['blog-posts', `blog-author-${authorSlug}`],
     }
   )();
@@ -835,7 +835,7 @@ export async function getCachedAllAuthors(): Promise<AuthorProfile[]> {
     async () => fetchAllAuthors(),
     ['blog-all-authors'],
     {
-      revalidate: 3600, // 1 hour — re-check when new authors are added
+      revalidate: 86400, // 24 hours — re-check when new authors are added
       tags: ['blog-authors'],
     }
   )();

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const partnerStats = [
   { label: 'States covered', value: '50' },
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
   title: { absolute: 'IndoorDogPark Partners Program' },
   description: 'Collaborate with IndoorDogPark to reach committed dog families, promote premium facilities, and access performance insights.',
   alternates: {
-    canonical: '/partners',
+    canonical: createCanonicalUrl('/partners'),
   },
   openGraph: {
     title: 'IndoorDogPark Partners Program',

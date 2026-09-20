@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import HomePageClient from './HomePageClient';
 import { getPaginatedStaticParks } from '@/lib/parks-data';
 import { generateCollectionPageSchema } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 import { normalizeTypeParameter } from '@/lib/type-normalizer';
 
 type HomePageProps = {
@@ -40,7 +41,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: '/',
+      canonical: createCanonicalUrl('/'),
     },
     // Best practice: don't index infinite combinations of filter/search URLs
     // Keep them crawlable so bots can discover park/city pages.

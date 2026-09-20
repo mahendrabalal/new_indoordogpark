@@ -536,7 +536,22 @@ const nextConfig = {
       },
       {
         source: '/blog/best-indoor-dog-parks-in-long-island',
-        destination: '/cities/long-island',
+        destination: '/cities/long-island-city',
+        permanent: true,
+      },
+      {
+        source: '/cities/long-island',
+        destination: '/cities/long-island-city',
+        permanent: true,
+      },
+      {
+        source: '/cities/long-island-city-nj',
+        destination: '/cities/long-island-city',
+        permanent: true,
+      },
+      {
+        source: '/cities/long-island-city-ny',
+        destination: '/cities/long-island-city',
         permanent: true,
       },
       {
@@ -558,12 +573,12 @@ const nextConfig = {
       },
       {
         source: '/blog/san-antonio-indoor-dog-parks',
-        destination: '/blog/top-10-bestindoor-dog-park-in-san-antonio-texas',
+        destination: '/cities/san-antonio',
         permanent: true,
       },
       {
         source: '/blog/fort-worth-indoor-dog-parks',
-        destination: '/blog/top-10-indoor-dog-parks-and-dog-daycares-in-fort-worth-texas',
+        destination: '/cities/fort-worth',
         permanent: true,
       },
       {
@@ -693,17 +708,17 @@ const nextConfig = {
       // Variant blog slugs → actual live posts
       {
         source: '/blog/top-10-best-indoor-dog-parks-in-bakersfield-ca',
-        destination: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+        destination: '/cities/bakersfield',
         permanent: true,
       },
       {
         source: '/blog/top-10-best-indoor-dog-parks-in-tampa-fl',
-        destination: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+        destination: '/cities/tampa',
         permanent: true,
       },
       {
         source: '/blog/san-diego-indoor-dog-parks',
-        destination: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+        destination: '/cities/san-diego',
         permanent: true,
       },
       // Roxbury is the township name; actual city in data is Succasunna
@@ -718,10 +733,10 @@ const nextConfig = {
         destination: '/blog/why-is-my-dog-throwing-up-white-foam-causes-facts-and-when-to-call-the-vet',
         permanent: true,
       },
-      // Legacy San Jose blog post → live blog post
+      // Legacy San Jose blog post → city page (flattened)
       {
         source: '/blog/top-10-indoor-dog-parks-san-jose',
-        destination: '/blog/top-10-best-indoor-dog-parks-in-san-jose-and-indoor-friendly-play-areas',
+        destination: '/cities/san-jose',
         permanent: true,
       },
       // Typo URL /hour → /how-it-works

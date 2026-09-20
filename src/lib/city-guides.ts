@@ -13,7 +13,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // Texas
   'austin': {
     citySlug: 'austin',
-    guideUrl: '/blog/indoor-dog-parks-in-austin-tx-top-spots-for-your-pup',
+    guideUrl: '',
     title: 'Indoor Dog Parks in Austin, TX: Top Spots for Your Pup',
     shortTitle: 'Austin Indoor Dog Parks Editorial Guide',
     description: 'Discover top-rated climate-controlled indoor dog parks, canine agility clubs, and dog bars across Austin to beat the Texas summer heat and flash storms.',
@@ -23,7 +23,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'austin-tx': {
     citySlug: 'austin-tx',
-    guideUrl: '/blog/indoor-dog-parks-in-austin-tx-top-spots-for-your-pup',
+    guideUrl: '',
     title: 'Indoor Dog Parks in Austin, TX: Top Spots for Your Pup',
     shortTitle: 'Austin Indoor Dog Parks Editorial Guide',
     description: 'Discover top-rated climate-controlled indoor dog parks, canine agility clubs, and dog bars across Austin to beat the Texas summer heat and flash storms.',
@@ -33,7 +33,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'houston': {
     citySlug: 'houston',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-houston',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Houston',
     shortTitle: 'Houston Indoor Dog Parks Editorial Guide',
     description: 'Explore Houston’s top climate-controlled indoor dog parks, splash pads, and air-conditioned dog bars designed for intense Gulf Coast humidity.',
@@ -43,7 +43,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'houston-tx': {
     citySlug: 'houston-tx',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-houston',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Houston',
     shortTitle: 'Houston Indoor Dog Parks Editorial Guide',
     description: 'Explore Houston’s top climate-controlled indoor dog parks, splash pads, and air-conditioned dog bars designed for intense Gulf Coast humidity.',
@@ -53,7 +53,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'dallas': {
     citySlug: 'dallas',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-dallas-texas',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Dallas, Texas',
     shortTitle: 'Dallas Indoor Dog Parks Editorial Guide',
     description: 'Discover premier indoor dog parks, climate-controlled agility zones, and off-leash dog lounges across the Dallas-Fort Worth metroplex.',
@@ -63,7 +63,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'dallas-tx': {
     citySlug: 'dallas-tx',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-dallas-texas',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Dallas, Texas',
     shortTitle: 'Dallas Indoor Dog Parks Editorial Guide',
     description: 'Discover premier indoor dog parks, climate-controlled agility zones, and off-leash dog lounges across the Dallas-Fort Worth metroplex.',
@@ -73,7 +73,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'corpus-christi': {
     citySlug: 'corpus-christi',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-corpus-christi-tx-coastal-bend-guide',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Corpus Christi, TX (Coastal Bend Guide)',
     shortTitle: 'Corpus Christi Indoor Dog Parks Guide',
     description: 'Discover the top indoor dog parks, daycares, and climate-controlled play arenas in Corpus Christi, TX to escape Gulf heat and grassburs.',
@@ -83,7 +83,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'corpus-christi-tx': {
     citySlug: 'corpus-christi-tx',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-corpus-christi-tx-coastal-bend-guide',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Corpus Christi, TX (Coastal Bend Guide)',
     shortTitle: 'Corpus Christi Indoor Dog Parks Guide',
     description: 'Discover the top indoor dog parks, daycares, and climate-controlled play arenas in Corpus Christi, TX to escape Gulf heat and grassburs.',
@@ -93,7 +93,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'arlington': {
     citySlug: 'arlington',
-    guideUrl: '/blog/top-6-best-indoor-dog-parks-and-daycares-in-arlington-tx',
+    guideUrl: '',
     title: 'Top 6 Best Indoor Dog Parks & Daycares in Arlington, TX',
     shortTitle: 'Arlington Indoor Dog Parks Guide',
     description: 'Explore climate-controlled dog parks and daycares across Arlington and the Mid-Cities for year-round active play.',
@@ -103,7 +103,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'arlington-tx': {
     citySlug: 'arlington-tx',
-    guideUrl: '/blog/top-6-best-indoor-dog-parks-and-daycares-in-arlington-tx',
+    guideUrl: '',
     title: 'Top 6 Best Indoor Dog Parks & Daycares in Arlington, TX',
     shortTitle: 'Arlington Indoor Dog Parks Guide',
     description: 'Explore climate-controlled dog parks and daycares across Arlington and the Mid-Cities for year-round active play.',
@@ -113,7 +113,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'el-paso': {
     citySlug: 'el-paso',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-el-paso',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in El Paso',
     shortTitle: 'El Paso Indoor Dog Parks Guide',
     description: 'Beat West Texas desert heat and dust storms with the top air-conditioned indoor dog play facilities in El Paso.',
@@ -123,7 +123,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'el-paso-tx': {
     citySlug: 'el-paso-tx',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-el-paso',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in El Paso',
     shortTitle: 'El Paso Indoor Dog Parks Guide',
     description: 'Beat West Texas desert heat and dust storms with the top air-conditioned indoor dog play facilities in El Paso.',
@@ -135,7 +135,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // Arizona
   'phoenix': {
     citySlug: 'phoenix',
-    guideUrl: '/blog/best-indoor-dog-parks-in-phoenix-your-complete-guide',
+    guideUrl: '',
     title: 'Best Indoor Dog Parks in Phoenix: Your Complete Guide',
     shortTitle: 'Phoenix Indoor Dog Parks Editorial Guide',
     description: 'Complete guide to surviving 115°F desert summers with air-conditioned indoor dog parks, daycares, and canine agility centers in the Valley of the Sun.',
@@ -145,7 +145,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'phoenix-az': {
     citySlug: 'phoenix-az',
-    guideUrl: '/blog/best-indoor-dog-parks-in-phoenix-your-complete-guide',
+    guideUrl: '',
     title: 'Best Indoor Dog Parks in Phoenix: Your Complete Guide',
     shortTitle: 'Phoenix Indoor Dog Parks Editorial Guide',
     description: 'Complete guide to surviving 115°F desert summers with air-conditioned indoor dog parks, daycares, and canine agility centers in the Valley of the Sun.',
@@ -155,7 +155,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'mesa': {
     citySlug: 'mesa',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-mesa-az',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Mesa, AZ',
     shortTitle: 'Mesa Indoor Dog Parks Guide',
     description: 'Top climate-controlled dog parks and play venues in Mesa and the East Valley to protect paws from blistering pavement.',
@@ -165,7 +165,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'mesa-az': {
     citySlug: 'mesa-az',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-mesa-az',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Mesa, AZ',
     shortTitle: 'Mesa Indoor Dog Parks Guide',
     description: 'Top climate-controlled dog parks and play venues in Mesa and the East Valley to protect paws from blistering pavement.',
@@ -175,7 +175,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tucson': {
     citySlug: 'tucson',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-tucson-a-local-s-guide-to-beating-the-heat',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Tucson: A Local’s Guide to Beating the Heat',
     shortTitle: 'Tucson Indoor Dog Parks Guide',
     description: 'A local’s guide to air-conditioned play spaces, dog lounges, and indoor facilities across Tucson and Southern Arizona.',
@@ -185,7 +185,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tucson-az': {
     citySlug: 'tucson-az',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-tucson-a-local-s-guide-to-beating-the-heat',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Tucson: A Local’s Guide to Beating the Heat',
     shortTitle: 'Tucson Indoor Dog Parks Guide',
     description: 'A local’s guide to air-conditioned play spaces, dog lounges, and indoor facilities across Tucson and Southern Arizona.',
@@ -197,7 +197,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // Florida
   'orlando': {
     citySlug: 'orlando',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-orlando-fl-central-florida',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Orlando, FL (Central Florida)',
     shortTitle: 'Orlando Indoor Dog Parks Editorial Guide',
     description: 'Discover Central Florida’s premier indoor dog parks, canine agility gyms, and climate-controlled daycares to beat summer thunderstorms and humidity.',
@@ -207,7 +207,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'orlando-fl': {
     citySlug: 'orlando-fl',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-orlando-fl-central-florida',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Orlando, FL (Central Florida)',
     shortTitle: 'Orlando Indoor Dog Parks Editorial Guide',
     description: 'Discover Central Florida’s premier indoor dog parks, canine agility gyms, and climate-controlled daycares to beat summer thunderstorms and humidity.',
@@ -217,7 +217,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tampa': {
     citySlug: 'tampa',
-    guideUrl: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+    guideUrl: '',
     title: '10 Best Indoor Dog Parks, Dog Bars & Daycares in Tampa, FL',
     shortTitle: 'Tampa Indoor Dog Parks Guide',
     description: 'Explore Tampa Bay’s best indoor dog play parks, air-conditioned dog bars, and luxury play centers.',
@@ -227,7 +227,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tampa-fl': {
     citySlug: 'tampa-fl',
-    guideUrl: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+    guideUrl: '',
     title: '10 Best Indoor Dog Parks, Dog Bars & Daycares in Tampa, FL',
     shortTitle: 'Tampa Indoor Dog Parks Guide',
     description: 'Explore Tampa Bay’s best indoor dog play parks, air-conditioned dog bars, and luxury play centers.',
@@ -237,7 +237,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'miami': {
     citySlug: 'miami',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-miami-fl-beat-the-heat-and-humidity',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Miami, FL: Beat the Heat and Humidity',
     shortTitle: 'Miami Indoor Dog Parks Guide',
     description: 'Beat South Florida heat and monsoon downpours with top indoor play facilities, dog lounges, and air-conditioned dog parks across Miami.',
@@ -247,7 +247,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'miami-fl': {
     citySlug: 'miami-fl',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-miami-fl-beat-the-heat-and-humidity',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Miami, FL: Beat the Heat and Humidity',
     shortTitle: 'Miami Indoor Dog Parks Guide',
     description: 'Beat South Florida heat and monsoon downpours with top indoor play facilities, dog lounges, and air-conditioned dog parks across Miami.',
@@ -257,7 +257,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'jacksonville': {
     citySlug: 'jacksonville',
-    guideUrl: '/blog/top-indoor-dog-parks-in-jacksonville-florida',
+    guideUrl: '',
     title: 'Top Indoor Dog Parks in Jacksonville, Florida',
     shortTitle: 'Jacksonville Indoor Dog Parks Guide',
     description: 'Find verified indoor play spaces and daycares across Jacksonville and Northeast Florida for year-round socialization.',
@@ -267,7 +267,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'jacksonville-fl': {
     citySlug: 'jacksonville-fl',
-    guideUrl: '/blog/top-indoor-dog-parks-in-jacksonville-florida',
+    guideUrl: '',
     title: 'Top Indoor Dog Parks in Jacksonville, Florida',
     shortTitle: 'Jacksonville Indoor Dog Parks Guide',
     description: 'Find verified indoor play spaces and daycares across Jacksonville and Northeast Florida for year-round socialization.',
@@ -279,7 +279,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // Georgia
   'atlanta': {
     citySlug: 'atlanta',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-atlanta-surviving-the-georgia-heat-and-rain',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Atlanta: Surviving the Georgia Heat & Rain',
     shortTitle: 'Atlanta Indoor Dog Parks Editorial Guide',
     description: 'Discover the best climate-controlled dog parks, indoor play bars, and daycares in Atlanta and the surrounding metro area.',
@@ -289,7 +289,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'atlanta-ga': {
     citySlug: 'atlanta-ga',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-atlanta-surviving-the-georgia-heat-and-rain',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Atlanta: Surviving the Georgia Heat & Rain',
     shortTitle: 'Atlanta Indoor Dog Parks Editorial Guide',
     description: 'Discover the best climate-controlled dog parks, indoor play bars, and daycares in Atlanta and the surrounding metro area.',
@@ -301,7 +301,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // California
   'santa-ana': {
     citySlug: 'santa-ana',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-santa-ana-ca',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Santa Ana, CA (Orange County Guide)',
     shortTitle: 'Santa Ana Indoor Dog Parks Guide',
     description: 'Discover verified climate-controlled indoor dog parks, canine agility arenas, and daycares across Santa Ana and Central Orange County.',
@@ -311,7 +311,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'santa-ana-ca': {
     citySlug: 'santa-ana-ca',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-santa-ana-ca',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Santa Ana, CA (Orange County Guide)',
     shortTitle: 'Santa Ana Indoor Dog Parks Guide',
     description: 'Discover verified climate-controlled indoor dog parks, canine agility arenas, and daycares across Santa Ana and Central Orange County.',
@@ -321,7 +321,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'irvine': {
     citySlug: 'irvine',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-irvine-ca-orange-county-guide',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Irvine, CA (Orange County Guide)',
     shortTitle: 'Irvine Indoor Dog Parks Guide',
     description: 'Explore verified climate-controlled indoor dog parks, canine agility gyms, and luxury daycares in Irvine to beat the SoCal heat, Santa Ana winds, and foothill foxtails.',
@@ -331,7 +331,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'irvine-ca': {
     citySlug: 'irvine-ca',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-irvine-ca-orange-county-guide',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Irvine, CA (Orange County Guide)',
     shortTitle: 'Irvine Indoor Dog Parks Guide',
     description: 'Explore verified climate-controlled indoor dog parks, canine agility gyms, and luxury daycares in Irvine to beat the SoCal heat, Santa Ana winds, and foothill foxtails.',
@@ -341,7 +341,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'anaheim': {
     citySlug: 'anaheim',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-anaheim-ca-orange-county',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Anaheim, CA (Orange County)',
     shortTitle: 'Anaheim Indoor Dog Parks Guide',
     description: 'Discover top indoor dog parks and daycares across Anaheim and North Orange County with rubber flooring and live webcams.',
@@ -351,7 +351,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'anaheim-ca': {
     citySlug: 'anaheim-ca',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-anaheim-ca-orange-county',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Anaheim, CA (Orange County)',
     shortTitle: 'Anaheim Indoor Dog Parks Guide',
     description: 'Discover top indoor dog parks and daycares across Anaheim and North Orange County with rubber flooring and live webcams.',
@@ -361,7 +361,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'san-diego': {
     citySlug: 'san-diego',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in San Diego, California',
     shortTitle: 'San Diego Indoor Dog Parks Guide',
     description: 'Explore the top climate-controlled indoor dog parks, play areas, and daycares across San Diego County.',
@@ -371,7 +371,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'san-diego-ca': {
     citySlug: 'san-diego-ca',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in San Diego, California',
     shortTitle: 'San Diego Indoor Dog Parks Guide',
     description: 'Explore the top climate-controlled indoor dog parks, play areas, and daycares across San Diego County.',
@@ -381,7 +381,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'riverside': {
     citySlug: 'riverside',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-riverside-ca-inland-empire',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Riverside, CA (Inland Empire)',
     shortTitle: 'Riverside Indoor Dog Parks Guide',
     description: 'Beat the Inland Empire summer heat with the best climate-controlled dog parks and daycares in Riverside.',
@@ -391,7 +391,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'riverside-ca': {
     citySlug: 'riverside-ca',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-riverside-ca-inland-empire',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Riverside, CA (Inland Empire)',
     shortTitle: 'Riverside Indoor Dog Parks Guide',
     description: 'Beat the Inland Empire summer heat with the best climate-controlled dog parks and daycares in Riverside.',
@@ -401,7 +401,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'long-beach': {
     citySlug: 'long-beach',
-    guideUrl: '/blog/the-ultimate-guide-to-the-top-10-best-indoor-dog-parks-in-long-beach-ca',
+    guideUrl: '',
     title: 'The Ultimate Guide to the Top 10 Best Indoor Dog Parks in Long Beach, CA',
     shortTitle: 'Long Beach Indoor Dog Parks Guide',
     description: 'Discover the premier indoor dog parks, canine agility gyms, and play centers in Long Beach, CA.',
@@ -411,7 +411,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'long-beach-ca': {
     citySlug: 'long-beach-ca',
-    guideUrl: '/blog/the-ultimate-guide-to-the-top-10-best-indoor-dog-parks-in-long-beach-ca',
+    guideUrl: '',
     title: 'The Ultimate Guide to the Top 10 Best Indoor Dog Parks in Long Beach, CA',
     shortTitle: 'Long Beach Indoor Dog Parks Guide',
     description: 'Discover the premier indoor dog parks, canine agility gyms, and play centers in Long Beach, CA.',
@@ -421,7 +421,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'los-angeles': {
     citySlug: 'los-angeles',
-    guideUrl: '/blog/top-10-best-doggy-soft-play-areas-in-los-angeles',
+    guideUrl: '',
     title: 'Top 10 Best Doggy Soft Play Areas in Los Angeles',
     shortTitle: 'Los Angeles Doggy Soft Play Guide',
     description: 'Discover top indoor soft play spaces, daycares, and dog lounges in the Greater Los Angeles area.',
@@ -431,7 +431,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'los-angeles-ca': {
     citySlug: 'los-angeles-ca',
-    guideUrl: '/blog/top-10-best-doggy-soft-play-areas-in-los-angeles',
+    guideUrl: '',
     title: 'Top 10 Best Doggy Soft Play Areas in Los Angeles',
     shortTitle: 'Los Angeles Doggy Soft Play Guide',
     description: 'Discover top indoor soft play spaces, daycares, and dog lounges in the Greater Los Angeles area.',
@@ -441,7 +441,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'stockton': {
     citySlug: 'stockton',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-stockton-ca-and-the-central-valley',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Stockton, CA (and the Central Valley)',
     shortTitle: 'Stockton Indoor Dog Parks Guide',
     description: 'Complete guide to indoor dog parks and climate-controlled boarding in Stockton and the Central Valley.',
@@ -451,7 +451,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'stockton-ca': {
     citySlug: 'stockton-ca',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-stockton-ca-and-the-central-valley',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Stockton, CA (and the Central Valley)',
     shortTitle: 'Stockton Indoor Dog Parks Guide',
     description: 'Complete guide to indoor dog parks and climate-controlled boarding in Stockton and the Central Valley.',
@@ -461,7 +461,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'bakersfield': {
     citySlug: 'bakersfield',
-    guideUrl: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+    guideUrl: '',
     title: '10 Best Indoor Dog Parks & Daycares in Bakersfield, CA',
     shortTitle: 'Bakersfield Indoor Dog Parks Guide',
     description: 'Top air-conditioned play parks and daycares across Bakersfield and Kern County.',
@@ -471,7 +471,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'bakersfield-ca': {
     citySlug: 'bakersfield-ca',
-    guideUrl: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+    guideUrl: '',
     title: '10 Best Indoor Dog Parks & Daycares in Bakersfield, CA',
     shortTitle: 'Bakersfield Indoor Dog Parks Guide',
     description: 'Top air-conditioned play parks and daycares across Bakersfield and Kern County.',
@@ -483,7 +483,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   // Other States
   'new-orleans': {
     citySlug: 'new-orleans',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-new-orleans-beat-the-heat-and-rain',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in New Orleans: Beat the Heat and Rain',
     shortTitle: 'New Orleans Indoor Dog Parks Guide',
     description: 'Beat the Big Easy’s heat and torrential rain with the best indoor dog play facilities in New Orleans.',
@@ -493,7 +493,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'new-orleans-la': {
     citySlug: 'new-orleans-la',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-new-orleans-beat-the-heat-and-rain',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in New Orleans: Beat the Heat and Rain',
     shortTitle: 'New Orleans Indoor Dog Parks Guide',
     description: 'Beat the Big Easy’s heat and torrential rain with the best indoor dog play facilities in New Orleans.',
@@ -503,7 +503,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'newark': {
     citySlug: 'newark',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-newark-nj-and-surrounding-metro-area',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Newark, NJ (and Surrounding Metro Area)',
     shortTitle: 'Newark Indoor Dog Parks Guide',
     description: 'Top indoor dog parks and training arenas across Newark and Northern New Jersey.',
@@ -513,7 +513,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'newark-nj': {
     citySlug: 'newark-nj',
-    guideUrl: '/blog/top-8-best-indoor-dog-parks-in-newark-nj-and-surrounding-metro-area',
+    guideUrl: '',
     title: 'Top 8 Best Indoor Dog Parks in Newark, NJ (and Surrounding Metro Area)',
     shortTitle: 'Newark Indoor Dog Parks Guide',
     description: 'Top indoor dog parks and training arenas across Newark and Northern New Jersey.',
@@ -523,7 +523,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'charlotte': {
     citySlug: 'charlotte',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-charlotte-nc',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Charlotte, NC',
     shortTitle: 'Charlotte Indoor Dog Parks Guide',
     description: 'Discover Queen City’s top climate-controlled dog parks, indoor daycares, and dog bars.',
@@ -533,7 +533,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'charlotte-nc': {
     citySlug: 'charlotte-nc',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-charlotte-nc',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Charlotte, NC',
     shortTitle: 'Charlotte Indoor Dog Parks Guide',
     description: 'Discover Queen City’s top climate-controlled dog parks, indoor daycares, and dog bars.',
@@ -543,7 +543,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'indianapolis': {
     citySlug: 'indianapolis',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-indianapolis',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in Indianapolis',
     shortTitle: 'Indianapolis Indoor Dog Parks Guide',
     description: 'Top indoor dog parks and play zones in Indy for winter exercise and rainy-day fun.',
@@ -553,7 +553,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'indianapolis-in': {
     citySlug: 'indianapolis-in',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-indianapolis',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in Indianapolis',
     shortTitle: 'Indianapolis Indoor Dog Parks Guide',
     description: 'Top indoor dog parks and play zones in Indy for winter exercise and rainy-day fun.',
@@ -563,7 +563,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'cleveland': {
     citySlug: 'cleveland',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-cleveland-ohio-a-complete-guide',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in Cleveland, Ohio: A Complete Guide',
     shortTitle: 'Cleveland Indoor Dog Parks Guide',
     description: 'Escape lake-effect snow and freeze with Cleveland’s best indoor dog gyms and parks.',
@@ -573,7 +573,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'cleveland-oh': {
     citySlug: 'cleveland-oh',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-cleveland-ohio-a-complete-guide',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in Cleveland, Ohio: A Complete Guide',
     shortTitle: 'Cleveland Indoor Dog Parks Guide',
     description: 'Escape lake-effect snow and freeze with Cleveland’s best indoor dog gyms and parks.',
@@ -583,7 +583,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'washington-dc': {
     citySlug: 'washington-dc',
-    guideUrl: '/blog/top-5-best-indoor-dog-parks-in-washington-dc',
+    guideUrl: '',
     title: 'Top 5 Best Indoor Dog Parks in Washington, DC',
     shortTitle: 'Washington DC Indoor Dog Parks Guide',
     description: 'Top indoor dog parks, agility clubs, and dog bars across the District and DMV area.',
@@ -593,7 +593,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'colorado-springs': {
     citySlug: 'colorado-springs',
-    guideUrl: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-colorado-springs-co',
+    guideUrl: '',
     title: 'The Ultimate Guide to the Top 10 Indoor Dog Parks in Colorado Springs, CO',
     shortTitle: 'Colorado Springs Indoor Dog Parks Guide',
     description: 'Year-round indoor dog parks and training facilities across the Pikes Peak region.',
@@ -603,7 +603,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'colorado-springs-co': {
     citySlug: 'colorado-springs-co',
-    guideUrl: '/blog/the-ultimate-guide-to-the-top-10-indoor-dog-parks-in-colorado-springs-co',
+    guideUrl: '',
     title: 'The Ultimate Guide to the Top 10 Indoor Dog Parks in Colorado Springs, CO',
     shortTitle: 'Colorado Springs Indoor Dog Parks Guide',
     description: 'Year-round indoor dog parks and training facilities across the Pikes Peak region.',
@@ -613,7 +613,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'albuquerque': {
     citySlug: 'albuquerque',
-    guideUrl: '/blog/top-7-best-climate-controlled-dog-play-areas-in-albuquerque-nm',
+    guideUrl: '',
     title: 'Top 7 Best Climate-Controlled Dog Play Areas in Albuquerque, NM',
     shortTitle: 'Albuquerque Indoor Dog Play Guide',
     description: 'Top climate-controlled dog play venues and daycares in Duke City.',
@@ -623,7 +623,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'albuquerque-nm': {
     citySlug: 'albuquerque-nm',
-    guideUrl: '/blog/top-7-best-climate-controlled-dog-play-areas-in-albuquerque-nm',
+    guideUrl: '',
     title: 'Top 7 Best Climate-Controlled Dog Play Areas in Albuquerque, NM',
     shortTitle: 'Albuquerque Indoor Dog Play Guide',
     description: 'Top climate-controlled dog play venues and daycares in Duke City.',
@@ -633,7 +633,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tulsa': {
     citySlug: 'tulsa',
-    guideUrl: '/blog/9-best-indoor-dog-parks-in-tulsa-where-to-play-rain-or-shine',
+    guideUrl: '',
     title: '9 Best Indoor Dog Parks in Tulsa: Where to Play Rain or Shine',
     shortTitle: 'Tulsa Indoor Dog Parks Guide',
     description: 'Discover Tulsa’s best indoor dog play areas and daycares for rain or shine fun.',
@@ -643,7 +643,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'tulsa-ok': {
     citySlug: 'tulsa-ok',
-    guideUrl: '/blog/9-best-indoor-dog-parks-in-tulsa-where-to-play-rain-or-shine',
+    guideUrl: '',
     title: '9 Best Indoor Dog Parks in Tulsa: Where to Play Rain or Shine',
     shortTitle: 'Tulsa Indoor Dog Parks Guide',
     description: 'Discover Tulsa’s best indoor dog play areas and daycares for rain or shine fun.',
@@ -653,7 +653,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'lexington': {
     citySlug: 'lexington',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-lexington-ky-the-bluegrass-guide-to-year-round-play',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Lexington, KY: The Bluegrass Guide to Year-Round Play',
     shortTitle: 'Lexington Indoor Dog Parks Guide',
     description: 'Bluegrass guide to the best indoor dog parks, daycares, and training facilities in Lexington.',
@@ -663,7 +663,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'lexington-ky': {
     citySlug: 'lexington-ky',
-    guideUrl: '/blog/top-10-best-indoor-dog-parks-in-lexington-ky-the-bluegrass-guide-to-year-round-play',
+    guideUrl: '',
     title: 'Top 10 Best Indoor Dog Parks in Lexington, KY: The Bluegrass Guide to Year-Round Play',
     shortTitle: 'Lexington Indoor Dog Parks Guide',
     description: 'Bluegrass guide to the best indoor dog parks, daycares, and training facilities in Lexington.',
@@ -673,7 +673,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'honolulu': {
     citySlug: 'honolulu',
-    guideUrl: '/blog/the-top-5-best-indoor-dog-parks-and-playgrounds-in-honolulu',
+    guideUrl: '',
     title: 'The Top 5 Best Indoor Dog Parks & Playgrounds in Honolulu',
     shortTitle: 'Honolulu Indoor Dog Parks Guide',
     description: 'Explore top indoor dog playgrounds and daycare lounges across Oahu and Honolulu.',
@@ -683,7 +683,7 @@ export const CITY_BLOG_GUIDES: Record<string, CityGuide> = {
   },
   'honolulu-hi': {
     citySlug: 'honolulu-hi',
-    guideUrl: '/blog/the-top-5-best-indoor-dog-parks-and-playgrounds-in-honolulu',
+    guideUrl: '',
     title: 'The Top 5 Best Indoor Dog Parks & Playgrounds in Honolulu',
     shortTitle: 'Honolulu Indoor Dog Parks Guide',
     description: 'Explore top indoor dog playgrounds and daycare lounges across Oahu and Honolulu.',
@@ -715,7 +715,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'austin',
       cityName: 'Austin',
-      guideUrl: '/blog/indoor-dog-parks-in-austin-tx-top-spots-for-your-pup',
+      guideUrl: '',
       title: 'Indoor Dog Parks in Austin, TX: Top Spots for Your Pup',
       shortTitle: 'Austin Guide',
       description: 'Discover top-rated climate-controlled indoor dog parks, canine agility clubs, and dog bars across Austin.',
@@ -725,7 +725,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'houston',
       cityName: 'Houston',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-houston',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Houston',
       shortTitle: 'Houston Guide',
       description: 'Explore Houston’s top climate-controlled indoor dog parks, splash pads, and air-conditioned dog bars.',
@@ -735,7 +735,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'dallas',
       cityName: 'Dallas',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-dallas-texas',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Dallas, Texas',
       shortTitle: 'Dallas Guide',
       description: 'Premier indoor dog parks, climate-controlled agility zones, and off-leash lounges across DFW.',
@@ -745,7 +745,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'corpus-christi',
       cityName: 'Corpus Christi',
-      guideUrl: '/blog/top-8-best-indoor-dog-parks-in-corpus-christi-tx-coastal-bend-guide',
+      guideUrl: '',
       title: 'Top 8 Best Indoor Dog Parks in Corpus Christi, TX',
       shortTitle: 'Corpus Christi Guide',
       description: 'Discover top indoor dog parks and play arenas in Corpus Christi to escape Gulf heat and grassburs.',
@@ -755,7 +755,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'arlington',
       cityName: 'Arlington',
-      guideUrl: '/blog/top-6-best-indoor-dog-parks-and-daycares-in-arlington-tx',
+      guideUrl: '',
       title: 'Top 6 Best Indoor Dog Parks & Daycares in Arlington, TX',
       shortTitle: 'Arlington Guide',
       description: 'Explore climate-controlled dog parks and daycares across Arlington and the Mid-Cities.',
@@ -765,7 +765,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'el-paso',
       cityName: 'El Paso',
-      guideUrl: '/blog/top-5-best-indoor-dog-parks-in-el-paso',
+      guideUrl: '',
       title: 'Top 5 Best Indoor Dog Parks in El Paso',
       shortTitle: 'El Paso Guide',
       description: 'Air-conditioned indoor dog play facilities in El Paso to beat desert heat.',
@@ -777,7 +777,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'santa-ana',
       cityName: 'Santa Ana',
-      guideUrl: '/blog/top-8-best-indoor-dog-parks-in-santa-ana-ca',
+      guideUrl: '',
       title: 'Top 8 Best Indoor Dog Parks in Santa Ana, CA (Orange County Guide)',
       shortTitle: 'Santa Ana Guide',
       description: 'Explore climate-controlled dog parks and daycares across Santa Ana and Central Orange County.',
@@ -787,7 +787,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'irvine',
       cityName: 'Irvine',
-      guideUrl: '/blog/top-8-best-indoor-dog-parks-in-irvine-ca-orange-county-guide',
+      guideUrl: '',
       title: 'Top 8 Best Indoor Dog Parks in Irvine, CA (Orange County Guide)',
       shortTitle: 'Irvine Guide',
       description: 'Explore verified climate-controlled indoor dog parks and canine agility gyms in Irvine.',
@@ -797,7 +797,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'anaheim',
       cityName: 'Anaheim',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-anaheim-ca-orange-county',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Anaheim, CA',
       shortTitle: 'Anaheim Guide',
       description: 'Discover top indoor dog parks and daycares across Anaheim and North Orange County.',
@@ -807,7 +807,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'san-diego',
       cityName: 'San Diego',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-san-diego-california',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in San Diego, California',
       shortTitle: 'San Diego Guide',
       description: 'Top climate-controlled indoor dog parks, play areas, and daycares across San Diego County.',
@@ -817,7 +817,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'riverside',
       cityName: 'Riverside',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-riverside-ca-inland-empire',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Riverside, CA (Inland Empire)',
       shortTitle: 'Riverside Guide',
       description: 'Beat the Inland Empire summer heat with top climate-controlled dog parks in Riverside.',
@@ -827,7 +827,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'long-beach',
       cityName: 'Long Beach',
-      guideUrl: '/blog/the-ultimate-guide-to-the-top-10-best-indoor-dog-parks-in-long-beach-ca',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Long Beach, CA',
       shortTitle: 'Long Beach Guide',
       description: 'Premier indoor dog parks, canine agility gyms, and play centers in Long Beach.',
@@ -837,7 +837,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'los-angeles',
       cityName: 'Los Angeles',
-      guideUrl: '/blog/top-10-best-doggy-soft-play-areas-in-los-angeles',
+      guideUrl: '',
       title: 'Top 10 Best Doggy Soft Play Areas in Los Angeles',
       shortTitle: 'Los Angeles Guide',
       description: 'Top indoor soft play spaces, daycares, and dog lounges in Greater Los Angeles.',
@@ -847,7 +847,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'stockton',
       cityName: 'Stockton',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-stockton-ca-and-the-central-valley',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Stockton, CA',
       shortTitle: 'Stockton Guide',
       description: 'Indoor dog parks and climate-controlled boarding in Stockton and the Central Valley.',
@@ -857,7 +857,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'bakersfield',
       cityName: 'Bakersfield',
-      guideUrl: '/blog/10-best-indoor-dog-parks-and-daycares-in-bakersfield-ca',
+      guideUrl: '',
       title: '10 Best Indoor Dog Parks & Daycares in Bakersfield, CA',
       shortTitle: 'Bakersfield Guide',
       description: 'Air-conditioned play parks and daycares across Bakersfield and Kern County.',
@@ -869,7 +869,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'orlando',
       cityName: 'Orlando',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-orlando-fl-central-florida',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Orlando, FL',
       shortTitle: 'Orlando Guide',
       description: 'Central Florida premier indoor dog parks, agility gyms, and daycares.',
@@ -879,7 +879,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'tampa',
       cityName: 'Tampa',
-      guideUrl: '/blog/10-best-indoor-dog-parks-dog-bars-and-daycares-in-tampa-fl',
+      guideUrl: '',
       title: '10 Best Indoor Dog Parks, Dog Bars & Daycares in Tampa, FL',
       shortTitle: 'Tampa Guide',
       description: 'Tampa Bay indoor dog play parks, air-conditioned dog bars, and play centers.',
@@ -889,7 +889,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'miami',
       cityName: 'Miami',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-miami-fl-beat-the-heat-and-humidity',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Miami, FL',
       shortTitle: 'Miami Guide',
       description: 'Beat South Florida heat with top indoor play facilities and dog lounges in Miami.',
@@ -899,7 +899,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'jacksonville',
       cityName: 'Jacksonville',
-      guideUrl: '/blog/top-indoor-dog-parks-in-jacksonville-florida',
+      guideUrl: '',
       title: 'Top Indoor Dog Parks in Jacksonville, Florida',
       shortTitle: 'Jacksonville Guide',
       description: 'Verified indoor play spaces and daycares across Jacksonville and Northeast Florida.',
@@ -911,7 +911,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'phoenix',
       cityName: 'Phoenix',
-      guideUrl: '/blog/best-indoor-dog-parks-in-phoenix-your-complete-guide',
+      guideUrl: '',
       title: 'Best Indoor Dog Parks in Phoenix: Complete Guide',
       shortTitle: 'Phoenix Guide',
       description: 'Survive desert summers with air-conditioned indoor dog parks in Phoenix.',
@@ -921,7 +921,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'mesa',
       cityName: 'Mesa',
-      guideUrl: '/blog/top-10-best-indoor-dog-parks-in-mesa-az',
+      guideUrl: '',
       title: 'Top 10 Best Indoor Dog Parks in Mesa, AZ',
       shortTitle: 'Mesa Guide',
       description: 'Climate-controlled dog parks in Mesa and the East Valley.',
@@ -931,7 +931,7 @@ export const STATE_BLOG_GUIDES: Record<string, StateGuideItem[]> = {
     {
       citySlug: 'tucson',
       cityName: 'Tucson',
-      guideUrl: '/blog/top-8-best-indoor-dog-parks-in-tucson-a-local-s-guide-to-beating-the-heat',
+      guideUrl: '',
       title: 'Top 8 Best Indoor Dog Parks in Tucson',
       shortTitle: 'Tucson Guide',
       description: 'Air-conditioned play spaces and dog lounges across Tucson.',

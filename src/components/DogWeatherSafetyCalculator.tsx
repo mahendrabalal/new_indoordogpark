@@ -3,7 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-export default function DogWeatherSafetyCalculator() {
+export interface DogWeatherSafetyCalculatorProps {
+  isEmbed?: boolean;
+}
+
+export default function DogWeatherSafetyCalculator({ isEmbed = false }: DogWeatherSafetyCalculatorProps) {
   const [size, setSize] = useState('medium');
   const [ageHealth, setAgeHealth] = useState('adult');
   const [tempF, setTempF] = useState<number>(75);
@@ -67,19 +71,26 @@ export default function DogWeatherSafetyCalculator() {
   const currentResult = resultData[risk as 1|2|3|4];
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-12">
-      <div className="bg-primary p-6 md:p-8 text-white">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-3">
-          <i className="bi bi-thermometer-half"></i>
-          Weather Safety Calculator
-        </h2>
-        <p className="text-blue-100 opacity-90">
-          Enter your local weather and dog&apos;s details to see if it&apos;s safe for an outdoor walk.
+    <div className={`bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden ${isEmbed ? 'm-0 shadow-sm border-slate-200' : 'mb-12'}`}>
+      <div className={`bg-primary text-white ${isEmbed ? 'p-4 sm:p-5' : 'p-6 md:p-8'}`}>
+        <div className="flex items-center justify-between gap-3">
+          <h2 className={`${isEmbed ? 'text-xl sm:text-2xl' : 'text-2xl md:text-3xl'} font-bold flex items-center gap-2.5`}>
+            <i className="bi bi-thermometer-half"></i>
+            Weather Safety Calculator
+          </h2>
+          {isEmbed && (
+            <span className="text-[11px] font-semibold uppercase tracking-wider bg-white/20 px-2.5 py-1 rounded-full text-white">
+              Tufts TACC
+            </span>
+          )}
+        </div>
+        <p className="text-blue-100 opacity-90 text-sm sm:text-base mt-1">
+          Enter local weather and dog details to check outdoor walking safety.
         </p>
       </div>
 
-      <div className="p-6 md:p-8 grid md:grid-cols-2 gap-10">
-        <div className="space-y-6">
+      <div className={`${isEmbed ? 'p-4 sm:p-6' : 'p-6 md:p-8'} grid ${isEmbed ? 'grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-2'} gap-6 md:gap-8`}>
+        <div className="space-y-5">
           
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2">Current Temperature (°F)</label>
@@ -106,8 +117,9 @@ export default function DogWeatherSafetyCalculator() {
               ].map((c) => (
                 <button
                   key={c.id}
+                  type="button"
                   onClick={() => setCondition(c.id)}
-                  className={`py-3 px-4 rounded-xl border flex items-center justify-center gap-2 font-medium transition-all ${
+                  className={`py-2.5 px-3 rounded-xl border flex items-center justify-center gap-2 text-sm font-medium transition-all ${
                     condition === c.id 
                       ? 'bg-blue-50 border-blue-500 text-blue-700 shadow-sm' 
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
@@ -129,8 +141,9 @@ export default function DogWeatherSafetyCalculator() {
               ].map((s) => (
                 <button
                   key={s.id}
+                  type="button"
                   onClick={() => setSize(s.id)}
-                  className={`py-2 px-3 rounded-xl border text-sm font-medium transition-all ${
+                  className={`py-2 px-2.5 rounded-xl border text-xs sm:text-sm font-medium transition-all ${
                     size === s.id 
                       ? 'bg-blue-50 border-blue-500 text-blue-700 shadow-sm' 
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
@@ -147,7 +160,7 @@ export default function DogWeatherSafetyCalculator() {
             <select
               value={ageHealth}
               onChange={(e) => setAgeHealth(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-medium"
+              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm font-medium"
             >
               <option value="adult">Healthy Adult Dog</option>
               <option value="puppy">Puppy (Under 1 year)</option>
@@ -159,34 +172,57 @@ export default function DogWeatherSafetyCalculator() {
         </div>
 
         <div className="flex flex-col justify-center">
-          <div className={`p-8 rounded-2xl border-2 transition-colors duration-500 ${currentResult.color}`}>
-            <div className="flex items-center gap-3 mb-4">
-              <i className={`bi ${currentResult.icon} text-4xl`}></i>
-              <h3 className="text-3xl font-black">{currentResult.level}</h3>
+          <div className={`p-6 sm:p-8 rounded-2xl border-2 transition-colors duration-500 ${currentResult.color}`}>
+            <div className="flex items-center gap-3 mb-3">
+              <i className={`bi ${currentResult.icon} text-3xl sm:text-4xl`}></i>
+              <h3 className="text-2xl sm:text-3xl font-black">{currentResult.level}</h3>
             </div>
             
-            <p className="text-lg mb-8 leading-relaxed font-medium opacity-90">
+            <p className="text-sm sm:text-base mb-6 leading-relaxed font-medium opacity-90">
               {currentResult.text}
             </p>
 
             {risk >= 3 && (
-              <div className="bg-white/60 p-5 rounded-xl border border-black/10">
-                <h4 className="font-bold mb-2">Alternative Exercise Idea:</h4>
-                <p className="mb-4 text-sm font-medium">Keep your dog active safely by visiting a climate-controlled indoor dog park near you.</p>
-                <Link href="/" className="inline-block bg-primary text-white font-bold py-3 px-6 rounded-xl hover:bg-secondary transition-colors w-full text-center shadow-sm">
-                  Find an Indoor Park Near Me
+              <div className="bg-white/70 p-4 sm:p-5 rounded-xl border border-black/10">
+                <h4 className="font-bold text-sm sm:text-base mb-1.5 text-slate-900">Alternative Exercise Idea:</h4>
+                <p className="mb-3 text-xs sm:text-sm font-medium text-slate-700">Keep your dog active safely by visiting a climate-controlled indoor dog park.</p>
+                <Link 
+                  href="/" 
+                  target={isEmbed ? "_blank" : undefined}
+                  rel={isEmbed ? "noopener noreferrer" : undefined}
+                  className="inline-block bg-primary text-white font-bold py-2.5 px-5 rounded-xl hover:bg-secondary transition-colors w-full text-center text-sm shadow-sm"
+                >
+                  Find an Indoor Park Near Me →
                 </Link>
               </div>
             )}
             
             {risk <= 2 && (
-              <div className="text-sm opacity-75 italic mt-4">
-                Note: This tool provides general guidance. Always monitor your individual dog&apos;s behavior and consult your vet if you have concerns about their weather tolerance.
+              <div className="text-xs opacity-75 italic mt-3">
+                Note: This tool provides general guidance. Always monitor your dog&apos;s behavior and consult your vet for individual tolerance.
               </div>
             )}
           </div>
         </div>
       </div>
+
+      {isEmbed && (
+        <div className="bg-slate-50 border-t border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Based on <strong>Tufts TACC & AVMA Guidelines</strong></span>
+          </div>
+          <Link
+            href="https://www.indoordogpark.org/tools/weather-safety-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:text-secondary font-bold inline-flex items-center gap-1"
+          >
+            Powered by IndoorDogPark.org <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
+

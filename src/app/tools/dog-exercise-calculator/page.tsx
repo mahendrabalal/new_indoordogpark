@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogExerciseCalculator from '@/components/DogExerciseCalculator';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Exercise Calculator: How Much Exercise Does A Dog Need?' },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     'dog health'
   ],
   alternates: {
-    canonical: '/tools/dog-exercise-calculator',
+    canonical: createCanonicalUrl('/tools/dog-exercise-calculator'),
   },
   openGraph: {
     title: 'Dog Exercise Calculator | IndoorDogPark.org',

@@ -51,14 +51,18 @@ function getSeverity(mgPerKg: number): { level: Severity; title: string; descrip
   }
 }
 
-export default function ChocolateToxicityCalculator() {
+export interface ChocolateToxicityCalculatorProps {
+  isEmbed?: boolean;
+}
+
+export default function ChocolateToxicityCalculator({ isEmbed = false }: ChocolateToxicityCalculatorProps) {
   const [weightLbs, setWeightLbs] = useState<string>('30');
   const [chocolateType, setChocolateType] = useState<ChocolateType>('milk');
   const [amountOz, setAmountOz] = useState<string>('2');
 
   const weight = parseFloat(weightLbs) || 0;
   const amount = parseFloat(amountOz) || 0;
-  const weightKg = weight * 0.4536;
+  const weightKg = weight * 0.453592;
 
   const theobromineMg = amount * CHOCOLATE_DATA[chocolateType].theobromineMgPerOz;
   const mgPerKg = weightKg > 0 ? theobromineMg / weightKg : 0;
@@ -67,76 +71,87 @@ export default function ChocolateToxicityCalculator() {
   const isValidInput = weight > 0 && amount > 0;
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 mb-12 transform transition-all hover:shadow-2xl">
+    <div className={`bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 ${isEmbed ? 'm-0 shadow-sm border-slate-200' : 'mb-12'}`}>
       {/* Header */}
-      <div className="p-8 text-white" style={{ background: 'linear-gradient(135deg, #5D4037 0%, #3E2723 100%)' }}>
-        <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
-          <ExclamationTriangleIcon className="w-8 h-8 text-yellow-300" />
-          Chocolate Toxicity Calculator
-        </h2>
-        <p className="text-amber-100 opacity-90">Determine if the amount of chocolate your dog ate is dangerous. Always call your vet if in doubt.</p>
+      <div className={`p-6 text-white ${isEmbed ? 'p-4 sm:p-5' : 'p-6 md:p-8'}`} style={{ background: 'linear-gradient(135deg, #4E342E 0%, #3E2723 100%)' }}>
+        <div className="flex items-center justify-between gap-3">
+          <h2 className={`${isEmbed ? 'text-xl sm:text-2xl' : 'text-2xl md:text-3xl'} font-bold flex items-center gap-2.5`}>
+            <span>🍫</span> Chocolate Toxicity Calculator
+          </h2>
+          {isEmbed && (
+            <span className="text-[11px] font-semibold uppercase tracking-wider bg-white/20 px-2.5 py-1 rounded-full text-white">
+              ASPCA APCC Standards
+            </span>
+          )}
+        </div>
+        <p className="text-amber-200 text-sm mt-1">
+          Calculate theobromine dose & emergency toxicity risk for your dog.
+        </p>
       </div>
 
-      <div className="p-8 grid md:grid-cols-2 gap-10">
-        {/* Inputs */}
-        <div className="space-y-6">
+      <div className={`${isEmbed ? 'p-4 sm:p-6' : 'p-6 md:p-8'} grid ${isEmbed ? 'grid-cols-1 lg:grid-cols-2' : 'md:grid-cols-2'} gap-6 md:gap-8`}>
+        {/* Controls */}
+        <div className="space-y-5">
           {/* Dog Weight */}
           <div>
-            <label htmlFor="dog-weight" className="block text-sm font-semibold text-gray-700 mb-2">
-              Your Dog&apos;s Weight (lbs)
+            <label className="block text-sm font-bold text-gray-700 mb-2">
+              Dog&apos;s Weight (lbs)
             </label>
-            <input
-              id="dog-weight"
-              type="number"
-              min="1"
-              max="300"
-              value={weightLbs}
-              onChange={(e) => setWeightLbs(e.target.value)}
-              className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 text-lg font-semibold text-gray-800 focus:border-amber-500 focus:outline-none transition-colors"
-              placeholder="e.g. 30"
-            />
-            <p className="text-xs text-gray-400 mt-1">{weightKg > 0 ? `≈ ${weightKg.toFixed(1)} kg` : ''}</p>
+            <div className="relative">
+              <input
+                type="number"
+                min="1"
+                max="250"
+                value={weightLbs}
+                onChange={(e) => setWeightLbs(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-amber-800"
+                placeholder="e.g. 30"
+              />
+              <span className="absolute right-4 top-3.5 text-gray-400 text-sm font-medium">lbs ({weightKg.toFixed(1)} kg)</span>
+            </div>
           </div>
 
           {/* Chocolate Type */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Type of Chocolate</label>
+            <label className="block text-sm font-bold text-gray-700 mb-2">
+              Type of Chocolate Ingested
+            </label>
             <div className="space-y-2">
-              {(Object.entries(CHOCOLATE_DATA) as [ChocolateType, typeof CHOCOLATE_DATA[ChocolateType]][]).map(([key, data]) => (
-                <button
-                  key={key}
-                  onClick={() => setChocolateType(key)}
-                  className={`w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all flex items-center gap-3 ${
-                    chocolateType === key
-                      ? 'bg-amber-800 text-white shadow-md border-2 border-transparent'
-                      : 'bg-white border-2 border-gray-100 text-gray-600 hover:border-amber-300'
-                  }`}
-                >
-                  <span
-                    className="w-5 h-5 rounded-full border-2 border-white shadow-sm flex-shrink-0"
-                    style={{ backgroundColor: data.color }}
-                  />
-                  <span>{data.label}</span>
-                  <span className="ml-auto text-xs opacity-70">{data.theobromineMgPerOz} mg/oz</span>
-                </button>
-              ))}
+              {(Object.keys(CHOCOLATE_DATA) as ChocolateType[]).map((type) => {
+                const item = CHOCOLATE_DATA[type];
+                const isSelected = chocolateType === type;
+                return (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => setChocolateType(type)}
+                    className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl border text-left transition-all ${
+                      isSelected
+                        ? 'border-amber-800 bg-amber-50 text-amber-900 font-semibold shadow-xs'
+                        : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    <span className="text-sm">{item.label}</span>
+                    <span className="text-xs text-gray-400 font-mono">~{item.theobromineMgPerOz} mg/oz</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Amount */}
+          {/* Amount Eaten */}
           <div>
-            <label htmlFor="chocolate-amount" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-700 mb-2">
               Amount Eaten (ounces)
             </label>
             <input
-              id="chocolate-amount"
               type="number"
               min="0.1"
               max="100"
               step="0.5"
               value={amountOz}
               onChange={(e) => setAmountOz(e.target.value)}
-              className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 text-lg font-semibold text-gray-800 focus:border-amber-500 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-amber-800"
               placeholder="e.g. 2"
             />
             <p className="text-xs text-gray-400 mt-1">1 oz ≈ 28g &bull; A standard candy bar is ~1.5 oz</p>
@@ -144,7 +159,7 @@ export default function ChocolateToxicityCalculator() {
         </div>
 
         {/* Results Panel */}
-        <div className="rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden" style={{ backgroundColor: isValidInput ? severity.bgColor : '#f8fafc' }}>
+        <div className="rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden" style={{ backgroundColor: isValidInput ? severity.bgColor : '#f8fafc' }}>
           {isValidInput ? (
             <>
               {/* Severity Badge */}
@@ -156,26 +171,25 @@ export default function ChocolateToxicityCalculator() {
                   {severity.title}
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm mb-6">
-                  <p className="text-sm text-gray-500 font-semibold mb-1 uppercase tracking-wider">Theobromine Dose</p>
-                  <div className="text-3xl font-extrabold" style={{ color: severity.color }}>
-                    {mgPerKg.toFixed(1)} <span className="text-lg text-gray-400 font-medium">mg/kg body weight</span>
+                <div className="bg-white rounded-xl p-5 shadow-xs mb-5">
+                  <p className="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Theobromine Dose</p>
+                  <div className="text-2xl sm:text-3xl font-extrabold" style={{ color: severity.color }}>
+                    {mgPerKg.toFixed(1)} <span className="text-base text-gray-400 font-medium">mg/kg body weight</span>
                   </div>
                   <p className="text-xs text-gray-400 mt-1">Total theobromine: {theobromineMg.toFixed(0)} mg</p>
                 </div>
 
-                <p className="text-gray-700 text-sm leading-relaxed mb-6">{severity.description}</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-5">{severity.description}</p>
               </div>
 
               {/* Emergency Contact */}
-              <div className="bg-white rounded-xl p-5 shadow-sm border-2" style={{ borderColor: severity.color }}>
+              <div className="bg-white rounded-xl p-4 shadow-xs border-2" style={{ borderColor: severity.color }}>
                 <div className="flex items-start gap-3">
-                  <PhoneIcon className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: severity.color }} />
+                  <PhoneIcon className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: severity.color }} />
                   <div>
-                    <p className="font-bold text-gray-800 text-sm">Emergency Contacts</p>
-                    <p className="text-sm text-gray-600 mt-1"><strong>ASPCA Poison Control:</strong> (888) 426-4435</p>
-                    <p className="text-sm text-gray-600"><strong>Pet Poison Helpline:</strong> (855) 764-7661</p>
-                    <p className="text-xs text-gray-400 mt-2">Consultation fees may apply</p>
+                    <p className="font-bold text-gray-800 text-xs sm:text-sm">24/7 Emergency Hotlines</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-0.5"><strong>ASPCA Poison Control:</strong> (888) 426-4435</p>
+                    <p className="text-xs sm:text-sm text-gray-600"><strong>Pet Poison Helpline:</strong> (855) 764-7661</p>
                   </div>
                 </div>
               </div>
@@ -188,6 +202,23 @@ export default function ChocolateToxicityCalculator() {
           )}
         </div>
       </div>
+
+      {isEmbed && (
+        <div className="bg-slate-50 border-t border-slate-200 px-4 py-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+            <span>Based on <strong>ASPCA APCC & Merck Manual Guidelines</strong></span>
+          </div>
+          <a
+            href="https://www.indoordogpark.org/tools/chocolate-toxicity-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-900 hover:text-amber-700 font-bold inline-flex items-center gap-1"
+          >
+            Powered by IndoorDogPark.org <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }

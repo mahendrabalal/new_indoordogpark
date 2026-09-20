@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import OptimizedImage from '@/components/OptimizedImage';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 
 const safetyChecklist = [
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   title: { absolute: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards' },
   description: 'Learn about our rigorous 12-point safety check and how we review indoor dog parks for cleanliness, staff training, and vaccination policies.',
   alternates: {
-    canonical: '/how-it-works',
+    canonical: createCanonicalUrl('/how-it-works'),
   },
   openGraph: {
     title: 'How We Rank & Review Indoor Dog Parks | IndoorDogPark Standards',

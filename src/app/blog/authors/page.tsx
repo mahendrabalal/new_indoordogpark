@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCachedAllAuthors } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 import '@/app/blog/blog.css';
 
 export const revalidate = 3600; // 1 hour
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Meet the pet care writers and indoor dog park experts behind IndoorDogPark.org. Our team of dog lovers, researchers, and industry insiders create guides, reviews, and city spotlights.',
   alternates: {
-    canonical: '/blog/authors',
+    canonical: createCanonicalUrl('/blog/authors'),
   },
   openGraph: {
     title: 'Meet Our Authors | Indoor Dog Park Blog',

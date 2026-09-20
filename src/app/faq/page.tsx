@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import FAQSection from '@/components/FAQSection';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const parkCount = 500;
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: { absolute: 'IndoorDogPark FAQs' },
   description: 'Answers to common questions about IndoorDogPark, listings, safety standards, and community guidelines.',
   alternates: {
-    canonical: '/faq',
+    canonical: createCanonicalUrl('/faq'),
   },
   openGraph: {
     title: 'IndoorDogPark FAQs',

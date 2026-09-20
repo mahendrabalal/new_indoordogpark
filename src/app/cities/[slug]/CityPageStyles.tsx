@@ -1073,7 +1073,19 @@ export default function CityPageStyles() {
           border-radius: 28px;
           overflow: hidden;
           box-shadow: 0 35px 60px rgba(15, 23, 42, 0.15);
-          min-height: 420px;
+          min-height: 480px;
+          height: 100%;
+          position: relative;
+          background: #f8fafc;
+        }
+
+        .map-panel #map,
+        .map-panel .leaflet-container {
+          width: 100% !important;
+          height: 100% !important;
+          min-height: 480px !important;
+          border-radius: 28px;
+          z-index: 1;
         }
 
         .map-sidebar {
@@ -1468,8 +1480,10 @@ export default function CityPageStyles() {
             gap: 16px;
           }
 
-          .map-panel {
-            min-height: 280px;
+          .map-panel,
+          .map-panel #map,
+          .map-panel .leaflet-container {
+            min-height: 340px !important;
             border-radius: 16px;
           }
 
@@ -1707,8 +1721,11 @@ export default function CityPageStyles() {
             font-size: 16px;
           }
 
-          .map-panel {
-            min-height: 240px;
+          .map-panel,
+          .map-panel #map,
+          .map-panel .leaflet-container {
+            min-height: 280px !important;
+            border-radius: 14px;
           }
 
           .map-sidebar-card {

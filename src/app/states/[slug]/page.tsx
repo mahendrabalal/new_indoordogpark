@@ -183,7 +183,15 @@ export default async function StatePage({ params }: StatePageProps) {
                       : `We're building out our verified directory for ${state.name}. Browse nearby cities now, or submit a park to help us review and publish more dog-friendly spots.\n\nHelp us grow by contributing your favorite local spots and sharing your experiences with the community.`);
                   
                   if (stateGuides.length > 0) {
-                    description += `\n\nLooking for localized indoor recommendations? Check out our in-depth regional guides: ${stateGuides.map((g) => `[${g.title}](${g.guideUrl})`).join(', ')}.`;
+                    const guideLinks = stateGuides
+                      .map((g) => {
+                        const targetUrl = g.guideUrl || (g.citySlug ? `/cities/${g.citySlug}` : '');
+                        return targetUrl ? `[${g.title}](${targetUrl})` : '';
+                      })
+                      .filter(Boolean);
+                    if (guideLinks.length > 0) {
+                      description += `\n\nLooking for localized indoor recommendations? Check out our in-depth regional guides: ${guideLinks.join(', ')}.`;
+                    }
                   }
                   
                   const paragraphs = description.split('\n\n').filter(Boolean);
@@ -308,27 +316,36 @@ export default async function StatePage({ params }: StatePageProps) {
                 <p>In-depth, veterinarian-vetted guides to the best climate-controlled play spaces across {state.name}.</p>
               </div>
               <div className="state-guides-grid">
-                {stateGuides.map((guide) => (
-                  <article key={guide.guideUrl} className="state-guide-card">
-                    <div className="state-guide-badge-row">
-                      <span className="state-guide-badge">
-                        <i className="bi bi-journal-bookmark-fill" /> {guide.badge || 'Local Guide'}
-                      </span>
-                      <span className="state-guide-meta">
-                        <i className="bi bi-clock" /> {guide.readTime}
-                      </span>
-                    </div>
-                    <h3 className="state-guide-title">
-                      <Link href={guide.guideUrl}>{guide.title}</Link>
-                    </h3>
-                    <p className="state-guide-desc">{guide.description}</p>
-                    <div className="state-guide-footer">
-                      <Link href={guide.guideUrl} className="state-guide-link">
-                        Read full guide <i className="bi bi-arrow-right" />
-                      </Link>
-                    </div>
-                  </article>
-                ))}
+                {stateGuides.map((guide) => {
+                  const targetUrl = guide.guideUrl || (guide.citySlug ? `/cities/${guide.citySlug}` : '');
+                  return (
+                    <article key={guide.citySlug || guide.guideUrl} className="state-guide-card">
+                      <div className="state-guide-badge-row">
+                        <span className="state-guide-badge">
+                          <i className="bi bi-journal-bookmark-fill" /> {guide.badge || 'Local Guide'}
+                        </span>
+                        <span className="state-guide-meta">
+                          <i className="bi bi-clock" /> {guide.readTime}
+                        </span>
+                      </div>
+                      <h3 className="state-guide-title">
+                        {targetUrl ? (
+                          <Link href={targetUrl}>{guide.title}</Link>
+                        ) : (
+                          guide.title
+                        )}
+                      </h3>
+                      <p className="state-guide-desc">{guide.description}</p>
+                      {targetUrl && (
+                        <div className="state-guide-footer">
+                          <Link href={targetUrl} className="state-guide-link">
+                            Explore {guide.cityName || 'City'} directory <i className="bi bi-arrow-right" />
+                          </Link>
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </section>

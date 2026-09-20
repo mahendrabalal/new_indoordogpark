@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import { WPTag } from '@/types/wordpress';
 import { getCachedTags } from '@/lib/sanity-api';
 import { SITE_URL } from '@/lib/metadata';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 interface TagPageProps {
   params: Promise<{
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   }
 
   // Legacy route: canonicalize to /blog/tag/:slug (avoid duplicate content)
-  const canonicalUrl = `/blog/tag/${encodeURIComponent(tag.slug)}`;
+  const canonicalUrl = createCanonicalUrl(`/blog/tag/${encodeURIComponent(tag.slug)}`);
 
   return {
     title: `${tag.name} Articles | Indoor Dog Park Blog`,

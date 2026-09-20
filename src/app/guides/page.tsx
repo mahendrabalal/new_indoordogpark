@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Free Dog Park Guides & Printables | IndoorDogPark.org' },
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     'dog care guides',
   ],
   alternates: {
-    canonical: '/guides',
+    canonical: createCanonicalUrl('/guides'),
   },
   openGraph: {
     title: 'Free Dog Park Guides & Printables | IndoorDogPark.org',

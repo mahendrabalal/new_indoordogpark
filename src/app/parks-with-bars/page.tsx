@@ -10,6 +10,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import ParkCard from '@/components/ParkCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Dog Parks with Bars | Dog-Friendly Bars & Play Spaces';
   const description =
     'Discover indoor dog parks with bars and restaurants. Find climate-controlled play spaces where you can enjoy drinks while your dog plays. Search by city or location.';
-  const canonicalUrl = '/parks-with-bars';
+  const canonicalUrl = createCanonicalUrl('/parks-with-bars');
 
   return {
     metadataBase: new URL(siteUrl),

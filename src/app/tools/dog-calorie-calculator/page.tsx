@@ -3,20 +3,26 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogCalorieCalculator from '@/components/DogCalorieCalculator';
+import VeterinaryReviewByline from '@/components/tools/VeterinaryReviewByline';
+import EmbedToolModal from '@/components/tools/EmbedToolModal';
+import AuthoritativeSourcesSection from '@/components/tools/AuthoritativeSourcesSection';
+import ToolStructuredData from '@/components/tools/ToolStructuredData';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Calorie & Portion Calculator | IndoorDogPark.org' },
-  description: 'Use our free interactive dog calorie calculator to find out exactly how much to feed your dog per day based on their weight, age, and activity level.',
+  description: 'Use our free interactive dog calorie calculator to find out exactly how much to feed your dog per day based on their weight, age, and activity level. Based on WSAVA and NRC veterinary nutritional guidelines.',
   keywords: [
     'dog calorie calculator',
     'dog food portion calculator',
     'how much to feed my dog',
     'dog feeding chart',
     'dog RER calculator',
-    'dog nutrition calculator'
+    'dog nutrition calculator',
+    'wsava rer mer formula',
   ],
   alternates: {
-    canonical: '/tools/dog-calorie-calculator',
+    canonical: createCanonicalUrl('/tools/dog-calorie-calculator'),
   },
   openGraph: {
     title: 'Daily Dog Calorie Calculator | IndoorDogPark.org',
@@ -26,9 +32,39 @@ export const metadata: Metadata = {
   },
 };
 
+const citations = [
+  {
+    organization: 'World Small Animal Veterinary Association (WSAVA)',
+    title: 'WSAVA Nutritional Assessment Guidelines & Energy Calculation Formulas',
+    sourceUrl: 'https://wsava.org/global-guidelines/global-nutrition-guidelines/',
+    description: 'Standardized physiological Resting Energy Requirement (RER) and Maintenance Energy Requirement (MER) clinical formulas.',
+  },
+  {
+    organization: 'National Research Council (NRC)',
+    title: 'Nutrient Requirements of Dogs and Cats',
+    sourceUrl: 'https://nap.nationalacademies.org/catalog/10668/nutrient-requirements-of-dogs-and-cats',
+    description: 'Peer-reviewed definitive academic standard on canine macronutrient, micronutrient, and metabolic baseline requirements.',
+  },
+  {
+    organization: 'American College of Veterinary Internal Medicine (ACVIM)',
+    title: 'Small Animal Clinical Nutrition and Metabolic Regulation',
+    sourceUrl: 'https://www.acvim.org/',
+    description: 'Specialist veterinary consensus on life-stage metabolic variance, spay/neuter metabolic reduction, and athletic dog fueling.',
+  },
+];
+
 export default function DogCalorieCalculatorPage() {
+  const canonicalUrl = createCanonicalUrl('/tools/dog-calorie-calculator');
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      <ToolStructuredData
+        name="Daily Dog Calorie & Feeding Portion Calculator"
+        description="Free clinical calculator to determine canine RER (Resting Energy Requirement) and MER (Maintenance Energy Requirement) caloric goals."
+        url={canonicalUrl}
+        citations={citations.map((c) => ({ organization: c.organization, title: c.title, url: c.sourceUrl }))}
+        lastReviewed="2026-08-01"
+      />
       <Header variant="light" />
 
       <main className="flex-1">
@@ -50,6 +86,26 @@ export default function DogCalorieCalculatorPage() {
         {/* Calculator and Content */}
         <section className="px-4 pb-16">
           <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Canine Energy Requirement Model
+              </span>
+              <EmbedToolModal
+                toolName="Daily Dog Calorie & Portion Calculator"
+                embedUrl="https://www.indoordogpark.org/tools/dog-calorie-calculator/embed"
+                canonicalUrl={canonicalUrl}
+                defaultHeight={660}
+              />
+            </div>
+
+            {/* Prominent E-E-A-T Veterinary Review Byline */}
+            <VeterinaryReviewByline
+              title="WSAVA & NRC Canine Nutritional Formulas"
+              subtitle="RER and MER metabolic caloric formulas compiled from veterinary standards"
+              reviewDate="Updated August 2026"
+              evidenceBase="WSAVA Energy Requirements & NRC Standards"
+            />
+
             {/* The Interactive Calculator Component */}
             <DogCalorieCalculator />
 
@@ -100,6 +156,12 @@ export default function DogCalorieCalculatorPage() {
                   This calculator provides an estimation based on standard World Small Animal Veterinary Association (WSAVA) formulas. Individual metabolisms can vary by up to 20%. Always monitor your dog's Body Condition Score (BCS) and consult with your veterinarian before making significant dietary changes.
                 </p>
               </div>
+
+              {/* Verified Clinical Citations */}
+              <AuthoritativeSourcesSection
+                toolName="Dog Calorie Calculator"
+                citations={citations}
+              />
             </article>
           </div>
         </section>

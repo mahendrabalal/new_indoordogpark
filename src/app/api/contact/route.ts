@@ -46,6 +46,41 @@ export async function POST(request: NextRequest) {
 
       const readableCategory = categoryLabels[category] || category || 'General Inquiry';
 
+      // Auto-link URLs and extract image preview links
+      const escapedMessage = escapeHtml(message);
+      const formattedMessage = escapedMessage.replace(
+        /(https?:\/\/[^\s<]+)/g,
+        '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #7c3aed; font-weight: 500; word-break: break-all;">$1</a>'
+      );
+
+      // Extract Sanity CDN and standard image URLs for visual preview cards
+      const imageRegex = /(https?:\/\/(?:cdn\.sanity\.io\/images\/[^\s<]+|[^\s<]+\.(?:jpg|jpeg|png|webp|gif)(?:\?[^\s<]*)?))/gi;
+      const imageUrls: string[] = [];
+      let imgMatch: RegExpExecArray | null;
+      while ((imgMatch = imageRegex.exec(message)) !== null) {
+        if (imgMatch[1]) imageUrls.push(imgMatch[1]);
+      }
+
+      const photoPreviewsHtml = imageUrls.length > 0 ? `
+        <div style="margin-top: 16px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+          <h4 style="margin: 0 0 10px; font-size: 13px; font-weight: 700; color: #334155; text-transform: uppercase; letter-spacing: 0.5px;">
+            📸 Attached Community Photos (${imageUrls.length})
+          </h4>
+          <div style="display: table; width: 100%;">
+            ${imageUrls.map((url, idx) => `
+              <div style="display: inline-block; vertical-align: top; margin: 4px; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; background: #ffffff; width: 160px;">
+                <a href="${url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                  <img src="${url}?w=320&h=240&fit=crop&auto=format" alt="Photo ${idx + 1}" style="width: 160px; height: 110px; object-fit: cover; display: block;" />
+                  <div style="padding: 6px; font-size: 11px; font-weight: 600; color: #7c3aed; text-align: center; background: #faf5ff;">
+                    View Photo #${idx + 1} ↗
+                  </div>
+                </a>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
       const emailHtml = `
 <!DOCTYPE html>
 <html>
@@ -89,9 +124,11 @@ export async function POST(request: NextRequest) {
 
       <!-- Message Content -->
       <h3 style="color: #0f172a; font-size: 15px; margin: 0 0 8px;">Message:</h3>
-      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 15px; line-height: 1.6; color: #1e293b; white-space: pre-wrap;">
-${message}
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; color: #1e293b; white-space: pre-wrap;">
+${formattedMessage}
       </div>
+
+      ${photoPreviewsHtml}
 
       <!-- Reply Notice -->
       <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #64748b; text-align: center;">
@@ -178,3 +215,13 @@ ${message}
     );
   }
 }
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+

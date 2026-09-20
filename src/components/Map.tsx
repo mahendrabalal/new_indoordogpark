@@ -180,6 +180,13 @@ export default function Map({ parks, onParkClick }: MapProps) {
         const group = L.featureGroup(markersRef.current);
         mapInstanceRef.current.fitBounds(group.getBounds().pad(0.1));
       }
+
+      // Ensure proper rendering after DOM layout updates
+      setTimeout(() => {
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.invalidateSize();
+        }
+      }, 150);
     };
 
     initializeMap();
@@ -200,5 +207,5 @@ export default function Map({ parks, onParkClick }: MapProps) {
     };
   }, [parks, onParkClick]);
 
-  return <div id="map" ref={mapRef} />;
+  return <div id="map" ref={mapRef} style={{ width: '100%', height: '100%', minHeight: 480 }} />;
 }

@@ -5,7 +5,7 @@ import type { DogPark } from '@/types/dog-park';
 
 const Map = dynamic(() => import('@/components/Map'), {
     ssr: false,
-    loading: () => <div style={{ minHeight: 320, background: '#f3f4f6' }} />,
+    loading: () => <div style={{ width: '100%', height: '100%', minHeight: 480, background: '#f3f4f6', borderRadius: 28 }} />,
 });
 
 interface CityMapClientProps {
@@ -13,5 +13,9 @@ interface CityMapClientProps {
 }
 
 export default function CityMapClient({ parks }: CityMapClientProps) {
-    return <Map parks={parks} />;
+    return (
+        <div style={{ width: '100%', height: '100%', minHeight: 480 }}>
+            <Map parks={parks} />
+        </div>
+    );
 }

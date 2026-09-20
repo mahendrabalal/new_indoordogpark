@@ -3,25 +3,61 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PuppyVaccinationCalculator from '@/components/PuppyVaccinationCalculator';
+import VeterinaryReviewByline from '@/components/tools/VeterinaryReviewByline';
+import EmbedToolModal from '@/components/tools/EmbedToolModal';
+import AuthoritativeSourcesSection from '@/components/tools/AuthoritativeSourcesSection';
+import ToolStructuredData from '@/components/tools/ToolStructuredData';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Puppy Vaccination & Park Readiness Calculator | Indoor Dog Park' },
-  description: 'Use our free interactive Puppy Vaccination Calculator to find out exactly when it is safe to take your puppy to public dog parks.',
+  description: 'Use our free interactive Puppy Vaccination Calculator to find out exactly when it is safe to take your puppy to public dog parks. Based on AAHA and WSAVA vaccination protocols.',
   keywords: [
     'puppy vaccination schedule',
     'when can a puppy go to the dog park',
     'puppy park readiness calculator',
     'parvo risk puppy dog park',
-    'puppy shot timeline'
+    'puppy shot timeline',
+    'aaha canine vaccination guidelines',
   ],
   alternates: {
-    canonical: '/tools/puppy-vaccination-calculator',
+    canonical: createCanonicalUrl('/tools/puppy-vaccination-calculator'),
   },
 };
 
+const citations = [
+  {
+    organization: 'American Animal Hospital Association (AAHA)',
+    title: 'AAHA Canine Vaccination Guidelines & Maternal Antibody Protocols',
+    sourceUrl: 'https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/',
+    description: 'Gold-standard clinical protocol governing core vaccines (DHPP/DA2PP, Rabies) and post-series immunity latency windows.',
+  },
+  {
+    organization: 'World Small Animal Veterinary Association (WSAVA)',
+    title: 'WSAVA Guidelines for the Vaccination of Dogs and Cats',
+    sourceUrl: 'https://wsava.org/global-guidelines/vaccination-guidelines/',
+    description: 'Global peer-reviewed vaccination timing recommendations addressing maternal antibody interference and critical socialization windows.',
+  },
+  {
+    organization: 'American Veterinary Medical Association (AVMA)',
+    title: 'Canine Parvovirus: Clinical Pathology, Transmission, and Environmental Risks',
+    sourceUrl: 'https://www.avma.org/resources-tools/pet-owners/petcare/canine-parvovirus',
+    description: 'Authoritative clinical guide on canine infectious diseases and high-density public park exposure risks for immature immune systems.',
+  },
+];
+
 export default function PuppyVaccinationCalculatorPage() {
+  const canonicalUrl = createCanonicalUrl('/tools/puppy-vaccination-calculator');
+
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
+      <ToolStructuredData
+        name="Puppy Vaccination & Dog Park Readiness Calculator"
+        description="Free clinical calculator to determine puppy vaccine completion milestones and safe public park entry dates."
+        url={canonicalUrl}
+        citations={citations.map((c) => ({ organization: c.organization, title: c.title, url: c.sourceUrl }))}
+        lastReviewed="2026-08-01"
+      />
       <Header variant="light" />
 
       <main className="flex-1">
@@ -31,12 +67,32 @@ export default function PuppyVaccinationCalculatorPage() {
               Puppy Vaccination & Park Readiness Calculator
             </h1>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Find out exactly when it's safe to take your puppy to the dog park.
+              Find out exactly when it's safe to take your puppy to the dog park based on AAHA and WSAVA vaccination protocols.
             </p>
           </div>
         </section>
 
         <section className="py-12 px-4 max-w-3xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              AAHA Immunization Schedule Model
+            </span>
+            <EmbedToolModal
+              toolName="Puppy Vaccination & Park Readiness Calculator"
+              embedUrl="https://www.indoordogpark.org/tools/puppy-vaccination-calculator/embed"
+              canonicalUrl={canonicalUrl}
+              defaultHeight={640}
+            />
+          </div>
+
+          {/* Prominent E-E-A-T Veterinary Review Byline */}
+          <VeterinaryReviewByline
+            title="AAHA & WSAVA Canine Immunization Protocols"
+            subtitle="Calculated using standardized core vaccination intervals and latency windows"
+            reviewDate="Updated August 2026"
+            evidenceBase="AAHA & WSAVA Vaccination Guidelines"
+          />
+
           <PuppyVaccinationCalculator />
         </section>
 
@@ -61,6 +117,12 @@ export default function PuppyVaccinationCalculatorPage() {
             <p className="text-slate-600 mb-4">
               Even after the final shot is administered at 14-16 weeks, the puppy is not instantly protected. It takes the immune system approximately 10 to 14 days to fully respond to the vaccine and build up immunity. This is why our calculator recommends waiting until <strong>18 weeks of age</strong> before visiting high-risk areas like <Link href="/parks" className="text-indigo-600 hover:underline">dog parks</Link>. Once your puppy is fully vaccinated, check out our <Link href="/tools/dog-park-packing-list-generator" className="text-indigo-600 hover:underline">dog park packing list generator</Link> to ensure you bring everything you need for their first big adventure!
             </p>
+
+            {/* Verified Clinical Citations */}
+            <AuthoritativeSourcesSection
+              toolName="Puppy Vaccination Calculator"
+              citations={citations}
+            />
           </div>
         </section>
       </main>

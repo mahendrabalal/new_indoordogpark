@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DogParkPackingListGenerator from '@/components/DogParkPackingListGenerator';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Park Packing List Generator | IndoorDogPark.org' },
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     'printable dog checklist',
   ],
   alternates: {
-    canonical: '/tools/dog-park-packing-list-generator',
+    canonical: createCanonicalUrl('/tools/dog-park-packing-list-generator'),
   },
   openGraph: {
     title: 'Custom Dog Park Packing List Generator | IndoorDogPark.org',

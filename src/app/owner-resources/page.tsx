@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const resourceTracks = [
   {
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
     'dog daycare resources'
   ],
   alternates: {
-    canonical: '/owner-resources',
+    canonical: createCanonicalUrl('/owner-resources'),
   },
   openGraph: {
     title: 'Owner Resources | Indoor Dog Park Business Guides',

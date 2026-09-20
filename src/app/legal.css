@@ -1,0 +1,106 @@
+/* ========== TERMS & PRIVACY PAGE TITLE SECTION ========== */
+.terms-title-section {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.terms-page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.terms-page-date {
+  font-size: 1rem;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* ========== TERMS & PRIVACY HERO SECTION ========== */
+.terms-hero-section {
+  background: white;
+  padding: 1rem 0 0 0;
+  margin-bottom: 0;
+}
+
+.terms-hero-background {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.terms-hero-image {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive styles for terms page */
+@media (max-width: 768px) {
+  .terms-page-title {
+    font-size: 2rem;
+  }
+
+  .terms-page-date {
+    font-size: 0.95rem;
+  }
+
+  .terms-hero-background {
+    min-height: 250px;
+  }
+
+  .terms-hero-section {
+    padding: 0.75rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-title-section {
+    padding: 16px;
+  }
+
+  .terms-page-title {
+    font-size: 1.75rem;
+  }
+
+  .terms-page-date {
+    font-size: 0.875rem;
+  }
+
+  .terms-hero-background {
+    min-height: 200px;
+  }
+
+  .terms-hero-section {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Accessibility - respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .search-highlight-text mark {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .search-highlight-text mark::before {
+    animation: none !important;
+  }
+
+  .about-modern-value-card,
+  .about-modern-partner-card,
+  .about-modern-stat-card,
+  .timeline-card,
+  .btn-modern-primary,
+  .btn-modern-secondary {
+    transition: none !important;
+  }
+}
+
+

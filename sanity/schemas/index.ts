@@ -3,6 +3,7 @@ import author from './author';
 import category from './category';
 import tag from './tag';
 import parkSubmission from './parkSubmission';
+import communityPhoto from './communityPhoto';
 
 import heroChip from './objects/heroChip';
 import cityInsightCard from './objects/cityInsightCard';
@@ -20,6 +21,7 @@ export const schemaTypes = [
   category, 
   tag, 
   parkSubmission,
+  communityPhoto,
   heroChip,
   cityInsightCard,
   planningCard,
@@ -30,3 +32,4 @@ export const schemaTypes = [
   stateContent,
   cityContent,
 ];
+

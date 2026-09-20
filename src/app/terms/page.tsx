@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
+import { createCanonicalUrl } from '@/lib/seo-utils';
+import '@/app/legal.css';
 
 const termsSections = [
   {
@@ -102,7 +104,7 @@ export const metadata: Metadata = {
     'business listing terms'
   ],
   alternates: {
-    canonical: '/terms',
+    canonical: createCanonicalUrl('/terms'),
   },
   openGraph: {
     title: 'Terms of Service | Legal Terms - Indoor Dog Park',

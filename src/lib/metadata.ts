@@ -312,30 +312,32 @@ export function generateParkSchema(park: DogPark) {
     ? 'Free'
     : park.pricing?.priceRange || park.pricing?.pricingType || undefined;
 
-  // Determine business type for schema following industry best practices
-  // Use most specific schema type available
+  // Determine business type for schema following Google's rich result guidelines
+  // LocalBusiness ensures full support for openingHoursSpecification, geo, priceRange, address
+  // SportsActivityLocation lacks complete support for these commercial business properties
   let schemaType = 'LocalBusiness'; // Default fallback
-  let businessFunction = undefined;
+  let additionalType = 'https://schema.org/PetCare'; // Default additionalType
 
-  // Use most specific schema type available
+  // Dog parks & indoor dog parks are commercial businesses (not public civic parks)
   if (park.businessType === 'Dog-Friendly Establishment') {
     schemaType = 'LocalBusiness';
-    businessFunction = 'PetCare'; // More accurate than AnimalShelter
+    additionalType = 'https://schema.org/PetCare';
   } else if (park.businessType === 'Dog Park') {
-    schemaType = 'SportsActivityLocation';
-    businessFunction = 'RecreationFacility'; // Parks provide recreation services
+    schemaType = 'LocalBusiness';
+    additionalType = 'https://schema.org/PetCare';
   } else if (park.businessType === 'Indoor Dog Park') {
-    schemaType = 'SportsActivityLocation';
-    businessFunction = 'RecreationFacility'; // Indoor recreation
+    schemaType = 'LocalBusiness';
+    additionalType = 'https://schema.org/PetCare';
   } else {
     schemaType = 'LocalBusiness';
-    businessFunction = 'PetCare';
+    additionalType = 'https://schema.org/PetCare';
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const baseSchema: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': schemaType,
+    additionalType,
     name: park.name,
     description: park.description,
     image: imageUrl,
@@ -579,6 +581,9 @@ export function generateReviewSchemas(
     title?: string | null;
     content?: string | null;
     created_at: string;
+    author_name?: string | null;
+    userName?: string | null;
+    author?: { name?: string } | string | null;
   }>,
   park: DogPark
 ) {
@@ -586,23 +591,8 @@ export function generateReviewSchemas(
   const canonical = `${SITE_URL}${canonicalPath}`;
 
   // Determine business type for schema (must match the main park schema)
-  let schemaType = 'LocalBusiness'; // Default fallback
-  let businessFunction = undefined;
-
-  // Use most specific schema type available (must match main park schema)
-  if (park.businessType === 'Dog-Friendly Establishment') {
-    schemaType = 'LocalBusiness';
-    businessFunction = 'PetCare';
-  } else if (park.businessType === 'Dog Park') {
-    schemaType = 'SportsActivityLocation';
-    businessFunction = 'RecreationFacility';
-  } else if (park.businessType === 'Indoor Dog Park') {
-    schemaType = 'SportsActivityLocation';
-    businessFunction = 'RecreationFacility';
-  } else {
-    schemaType = 'LocalBusiness';
-    businessFunction = 'PetCare';
-  }
+  // All park types use LocalBusiness for consistency and Google compatibility
+  const schemaType = 'LocalBusiness';
 
   // Create the itemReviewed object (the business being reviewed)
   // This is required by Google for Review snippets to work
@@ -625,15 +615,31 @@ export function generateReviewSchemas(
   };
 
   // Generate Review schemas for each review
-  // Only include reviews that have a rating and some text content
+  // Google Rich Results require authentic person or organization author names (never 'Anonymous')
   return reviews
     .filter((review) => {
       const hasRating = review.rating && review.rating >= 1 && review.rating <= 5;
-      const hasContent = review.content || review.title;
-      return hasRating && hasContent;
+      const hasContent = Boolean(review.content || review.title);
+      
+      const authorName = (
+        (typeof review.author === 'string' ? review.author : review.author?.name) ||
+        review.author_name ||
+        review.userName ||
+        ''
+      ).trim();
+      
+      const isValidAuthor = authorName.length > 0 && !/^anonymous$/i.test(authorName);
+      
+      return hasRating && hasContent && isValidAuthor;
     })
     .map((review) => {
       const reviewBody = review.content || review.title || '';
+      const authorName = (
+        (typeof review.author === 'string' ? review.author : review.author?.name) ||
+        review.author_name ||
+        review.userName ||
+        ''
+      ).trim();
 
       return {
         '@context': 'https://schema.org',
@@ -648,9 +654,7 @@ export function generateReviewSchemas(
         },
         author: {
           '@type': 'Person',
-          // Best practice: Use actual user names when available, fallback to 'Anonymous'
-          // For privacy, consider using first name + last initial or username
-          name: 'Anonymous', // TODO: Enhance with actual user data when available
+          name: authorName,
         },
         reviewBody,
         ...(review.title && { name: review.title }),
@@ -671,14 +675,14 @@ export function generateReviewSchemas(
  */
 export function generateCollectionPageSchema(parks: DogPark[]) {
   const canonical = SITE_URL;
-  const displayedParks = parks.slice(0, 20); // Limit to first 20 for performance
+  const displayedParks = parks.slice(0, 10); // Match homepage display limit
 
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    '@id': `${canonical}#webpage`,
-    name: 'Indoor Dog Parks Directory',
-    description: 'Find year-round indoor dog parks across the US. Search by city, neighborhood, or zip to discover safe, climate-controlled play spaces for your dog.',
+    '@id': `${canonical}#collection`,
+    name: 'Indoor Dog Parks & Play Areas Directory',
+    description: 'Find climate-controlled indoor dog parks, play areas, and dog-friendly spots across the United States.',
     url: canonical,
     mainEntity: {
       '@type': 'ItemList',
@@ -690,16 +694,8 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
           '@type': 'ListItem',
           position: index + 1,
           item: {
-            '@type': (() => {
-              // Determine schema type following same pattern as individual park schemas
-              if (park.businessType === 'Dog-Friendly Establishment') {
-                return 'LocalBusiness';
-              } else if (park.businessType === 'Dog Park' || park.businessType === 'Indoor Dog Park') {
-                return 'SportsActivityLocation';
-              } else {
-                return 'LocalBusiness';
-              }
-            })(),
+            '@type': 'LocalBusiness',
+            additionalType: 'https://schema.org/PetCare',
             name: park.name,
             url: parkUrl, // Only use url, not @id, in collection lists
             address: {
@@ -708,9 +704,6 @@ export function generateCollectionPageSchema(parks: DogPark[]) {
               addressRegion: park.state,
               addressCountry: 'US',
             },
-            // Note: Don't include aggregateRating in collection lists
-            // The individual park pages will have their own aggregateRating
-            // This prevents "multiple aggregate ratings" errors in Google Search Console
           },
         };
       }),

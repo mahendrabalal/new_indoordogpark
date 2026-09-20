@@ -10,6 +10,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import ParkCard from '@/components/ParkCard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.indoordogpark.org';
 const siteName = 'Indoor Dog Park';
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'Indoor Dog Pools & Swimming Facilities | Near Me';
   const description =
     'Discover indoor dog pools, hydrotherapy, and swimming facilities. Find climate-controlled pools where your dog can swim year-round. Search by city or location.';
-  const canonicalUrl = '/indoor-dog-pools';
+  const canonicalUrl = createCanonicalUrl('/indoor-dog-pools');
 
   return {
     metadataBase: new URL(siteUrl),

@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dog Park First-Aid Quick Reference | Guide' },
   description: 'Download our free quick-reference guide for handling common dog park emergencies like overheating, cuts, and choking.',
   keywords: ['dog first aid', 'dog park emergencies', 'overheating dog', 'dog choking', 'dog park safety'],
   alternates: {
-    canonical: '/guides/first-aid',
+    canonical: createCanonicalUrl('/guides/first-aid'),
   },
 };
 

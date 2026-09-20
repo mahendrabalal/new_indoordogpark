@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './about.css';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     'dog park reviews'
   ],
   alternates: {
-    canonical: '/about',
+    canonical: createCanonicalUrl('/about'),
   },
   openGraph: {
     title: 'About Us | Indoor Dog Park Directory',

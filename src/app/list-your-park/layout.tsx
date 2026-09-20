@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'List Your Dog Park | Indoor Dog Park Directory' },
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     'dog daycare listing'
   ],
   alternates: {
-    canonical: '/list-your-park',
+    canonical: createCanonicalUrl('/list-your-park'),
   },
   openGraph: {
     title: 'List Your Dog Park | Indoor Dog Park Directory',

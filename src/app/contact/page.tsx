@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import './contact.css';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     'feedback'
   ],
   alternates: {
-    canonical: '/contact',
+    canonical: createCanonicalUrl('/contact'),
   },
   openGraph: {
     title: 'Contact Us | Indoor Dog Park',

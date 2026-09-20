@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { WPCategory } from '@/types/wordpress';
 import { getCachedCategories } from '@/lib/sanity-api';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   // Legacy route: redirect to canonical /blog/category/:slug (avoid duplicate content)
   const encodedSlug = encodeURIComponent(category.slug);
-  const canonicalUrl = `/blog/category/${encodedSlug}`;
+  const canonicalUrl = createCanonicalUrl(`/blog/category/${encodedSlug}`);
 
   return {
     title: `${category.name} Articles | Indoor Dog Park Blog`,

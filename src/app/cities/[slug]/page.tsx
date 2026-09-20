@@ -30,8 +30,9 @@ import NearbyCitiesGrid from '@/components/NearbyCitiesGrid';
 import { getAllParksForStateAggregation } from '@/lib/state-page-data';
 import { getAllCities } from '@/lib/cityData';
 import { getAllCityContent } from '@/lib/sanity-content';
-import { getCityGuide, getCityGuideHtml } from '@/lib/city-guides';
+import { getCityGuide } from '@/lib/city-guides';
 import CityGuideExpandable from '@/components/CityGuideExpandable';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 interface CityPageProps {
   params: Promise<{
@@ -87,8 +88,7 @@ function getTopAmenities(parks: DogPark[], limit = 6) {
     .slice(0, limit);
 }
 
-function getLocalBusinessSchemaType(businessType: string): 'SportsActivityLocation' | 'LocalBusiness' {
-  if (businessType === 'Dog Park' || businessType === 'Indoor Dog Park') return 'SportsActivityLocation';
+function getLocalBusinessSchemaType(businessType: string): 'LocalBusiness' {
   return 'LocalBusiness';
 }
 
@@ -115,18 +115,13 @@ function buildUniqueHeroDescription(params: {
   const { cityName, state, totalParks, indoorCount, slug } = params;
 
   const weatherContext = getWeatherContext(slug);
-  const cityGuide = getCityGuide(slug);
 
-  let inventoryLine =
+  const inventoryLine =
     totalParks > 0
       ? indoorCount > 0
         ? `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}, including ${indoorCount} indoor option${indoorCount === 1 ? '' : 's'}.`
         : `${weatherContext}. Discover ${totalParks} dog-friendly spot${totalParks === 1 ? '' : 's'} and canine park${totalParks === 1 ? '' : 's'} in ${cityName}, ${state}.`
       : `${weatherContext}. We are actively expanding our directory of dog-friendly spots and canine parks in ${cityName}, ${state}. Explore local rules, tips, and nearby options while we verify new listings.`;
-
-  if (cityGuide) {
-    inventoryLine += ` Read our in-depth local guide: [${cityGuide.title}](${cityGuide.guideUrl}).`;
-  }
 
   return inventoryLine;
 }
@@ -169,7 +164,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     title: { absolute: cityTitle },
     description: pageDescription,
     alternates: {
-      canonical: canonicalUrl,
+      canonical: absoluteCanonicalUrl,
     },
     robots: {
       index: shouldIndex,
@@ -284,6 +279,7 @@ export default async function CityPage({ params }: CityPageProps) {
     const parkUrl = `${SITE_URL}${getParkUrl(park)}`;
     const place: Record<string, unknown> = {
       '@type': schemaType,
+      additionalType: 'https://schema.org/PetCare',
       '@id': parkUrl,
       name: park.name,
       url: parkUrl,
@@ -376,7 +372,8 @@ export default async function CityPage({ params }: CityPageProps) {
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@type': 'SportsActivityLocation', // Matches park detail page schema for consistency
+          '@type': 'LocalBusiness',
+          additionalType: 'https://schema.org/PetCare',
           '@id': parkUrl,
           name: park.name,
           url: parkUrl,
@@ -528,7 +525,6 @@ export default async function CityPage({ params }: CityPageProps) {
 
   const ownerCta = customContent?.ownerCta || defaultOwnerCta;
   const cityGuide = getCityGuide(city.slug) || getCityGuide(slug);
-  const cityGuideHtml = getCityGuideHtml(city.slug) || getCityGuideHtml(slug);
 
   const tocItems = [
     { id: 'city-hero', title: 'City Overview', level: 1 },

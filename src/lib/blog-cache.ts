@@ -21,19 +21,19 @@ export interface CacheConfig {
 
 export const BLOG_CACHE_CONFIG: CacheConfig = {
   posts: {
-    revalidate: 300, // 5 minutes
+    revalidate: 86400, // 24 hours — webhook handles instant updates
     tags: ['blog-posts', 'posts-list'],
   },
   categories: {
-    revalidate: 3600, // 1 hour
+    revalidate: 86400, // 24 hours — categories rarely change
     tags: ['blog-categories', 'categories-list'],
   },
   tags: {
-    revalidate: 3600, // 1 hour
+    revalidate: 86400, // 24 hours — tags rarely change
     tags: ['blog-tags', 'tags-list'],
   },
   singlePost: {
-    revalidate: 1800, // 30 minutes
+    revalidate: 86400, // 24 hours — webhook handles instant updates
     tags: ['blog-post', 'single-post'],
   },
 };
@@ -142,12 +142,12 @@ export const warmBlogCache = async () => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
-    // Warm blog listing page
-    await fetch(`${baseUrl}/blog`, { next: { revalidate: 60 } });
+    // Warm blog listing page — revalidate matches the page's own ISR TTL
+    await fetch(`${baseUrl}/blog`, { next: { revalidate: 86400 } });
 
     // Warm categories and tags
-    await fetch(`${baseUrl}/api/blog/categories`, { next: { revalidate: 3600 } });
-    await fetch(`${baseUrl}/api/blog/tags`, { next: { revalidate: 3600 } });
+    await fetch(`${baseUrl}/api/blog/categories`, { next: { revalidate: 86400 } });
+    await fetch(`${baseUrl}/api/blog/tags`, { next: { revalidate: 86400 } });
 
     console.log('Blog cache warmed successfully');
   } catch (error) {

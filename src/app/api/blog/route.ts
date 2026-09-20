@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { getCachedPosts } from '@/lib/sanity-api';
 import { BlogSearchParams } from '@/types/wordpress';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 export async function GET(request: Request) {
   try {

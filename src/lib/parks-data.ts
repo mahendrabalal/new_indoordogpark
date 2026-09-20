@@ -538,7 +538,7 @@ export const loadUserSubmissions = unstable_cache(
   fetchUserSubmissionsRaw,
   ['sanity-user-park-submissions'],
   {
-    revalidate: 3600, // 1 hour fallback; instant via webhook revalidation
+    revalidate: 86400, // 24 hour fallback; webhook handles instant revalidation
     tags: ['park-submissions', 'parks'],
   }
 );

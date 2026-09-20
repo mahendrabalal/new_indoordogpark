@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import PrintButton from '@/components/PrintButton';
+import { createCanonicalUrl } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: { absolute: 'Safety Assessment Guide for Indoor Dog Parks | Checklist' },
   description: 'Download or print our free safety assessment checklist. Learn how to quickly evaluate if a new indoor dog park is safe and well-managed before letting your dog off-leash.',
   keywords: ['dog park safety', 'safe dog park', 'evaluate dog park', 'indoor dog park checklist', 'dog park rules'],
   alternates: {
-    canonical: '/guides/safety-assessment',
+    canonical: createCanonicalUrl('/guides/safety-assessment'),
   },
 };
 

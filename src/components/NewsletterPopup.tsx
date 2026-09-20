@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback, FormEvent } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { safeLocalStorage, safeSessionStorage } from '@/lib/storage';
+import './newsletter-popup.css';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 

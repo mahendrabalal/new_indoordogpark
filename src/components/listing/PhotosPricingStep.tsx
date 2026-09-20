@@ -1,5 +1,6 @@
 import { useId, useRef, useState, type ChangeEvent } from 'react';
 import Image from 'next/image';
+import { compressImage } from '@/lib/client-image-compressor';
 import type { ParkSubmissionForm } from '@/types/park-submission';
 
 interface PhotosPricingStepProps {
@@ -56,14 +57,18 @@ export default function PhotosPricingStep({ formData, updateFormData, errors }: 
     setIsUploading(true);
 
     try {
-      // Auth removed
+      const optimizedFile = await compressImage(file, {
+        maxDimension: 1920,
+        quality: 0.85,
+      });
 
       const uploadPayload = new FormData();
-      uploadPayload.append('file', file);
+      uploadPayload.append('file', optimizedFile);
       uploadPayload.append('sessionId', ensureUploadSessionId());
       uploadPayload.append('displayOrder', String(formData.photos?.length ?? 0));
       if (formData.name) {
         uploadPayload.append('altText', `Photo of ${formData.name}`);
+        uploadPayload.append('parkName', formData.name);
       }
 
       const response = await fetch('/api/uploads/park-photos', {
